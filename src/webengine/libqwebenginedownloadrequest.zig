@@ -241,9 +241,9 @@ pub const qwebenginedownloadrequest = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#stateChanged)
     ///
-    /// ``` self: QtC.QWebEngineDownloadRequest, slot: fn (self: QtC.QWebEngineDownloadRequest, state: qwebenginedownloadrequest_enums.DownloadState) callconv(.c) void ```
-    pub fn OnStateChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QWebEngineDownloadRequest_Connect_StateChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWebEngineDownloadRequest, callback: *const fn (self: QtC.QWebEngineDownloadRequest, state: qwebenginedownloadrequest_enums.DownloadState) callconv(.c) void ```
+    pub fn OnStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QWebEngineDownloadRequest_Connect_StateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#savePageFormatChanged)
@@ -255,9 +255,9 @@ pub const qwebenginedownloadrequest = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#savePageFormatChanged)
     ///
-    /// ``` self: QtC.QWebEngineDownloadRequest, slot: fn (self: QtC.QWebEngineDownloadRequest) callconv(.c) void ```
-    pub fn OnSavePageFormatChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QWebEngineDownloadRequest_Connect_SavePageFormatChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWebEngineDownloadRequest, callback: *const fn (self: QtC.QWebEngineDownloadRequest) callconv(.c) void ```
+    pub fn OnSavePageFormatChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QWebEngineDownloadRequest_Connect_SavePageFormatChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#receivedBytesChanged)
@@ -269,9 +269,9 @@ pub const qwebenginedownloadrequest = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#receivedBytesChanged)
     ///
-    /// ``` self: QtC.QWebEngineDownloadRequest, slot: fn (self: QtC.QWebEngineDownloadRequest) callconv(.c) void ```
-    pub fn OnReceivedBytesChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QWebEngineDownloadRequest_Connect_ReceivedBytesChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWebEngineDownloadRequest, callback: *const fn (self: QtC.QWebEngineDownloadRequest) callconv(.c) void ```
+    pub fn OnReceivedBytesChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QWebEngineDownloadRequest_Connect_ReceivedBytesChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#totalBytesChanged)
@@ -283,9 +283,9 @@ pub const qwebenginedownloadrequest = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#totalBytesChanged)
     ///
-    /// ``` self: QtC.QWebEngineDownloadRequest, slot: fn (self: QtC.QWebEngineDownloadRequest) callconv(.c) void ```
-    pub fn OnTotalBytesChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QWebEngineDownloadRequest_Connect_TotalBytesChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWebEngineDownloadRequest, callback: *const fn (self: QtC.QWebEngineDownloadRequest) callconv(.c) void ```
+    pub fn OnTotalBytesChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QWebEngineDownloadRequest_Connect_TotalBytesChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#interruptReasonChanged)
@@ -297,9 +297,9 @@ pub const qwebenginedownloadrequest = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#interruptReasonChanged)
     ///
-    /// ``` self: QtC.QWebEngineDownloadRequest, slot: fn (self: QtC.QWebEngineDownloadRequest) callconv(.c) void ```
-    pub fn OnInterruptReasonChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QWebEngineDownloadRequest_Connect_InterruptReasonChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWebEngineDownloadRequest, callback: *const fn (self: QtC.QWebEngineDownloadRequest) callconv(.c) void ```
+    pub fn OnInterruptReasonChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QWebEngineDownloadRequest_Connect_InterruptReasonChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#isFinishedChanged)
@@ -311,9 +311,9 @@ pub const qwebenginedownloadrequest = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#isFinishedChanged)
     ///
-    /// ``` self: QtC.QWebEngineDownloadRequest, slot: fn (self: QtC.QWebEngineDownloadRequest) callconv(.c) void ```
-    pub fn OnIsFinishedChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QWebEngineDownloadRequest_Connect_IsFinishedChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWebEngineDownloadRequest, callback: *const fn (self: QtC.QWebEngineDownloadRequest) callconv(.c) void ```
+    pub fn OnIsFinishedChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QWebEngineDownloadRequest_Connect_IsFinishedChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#isPausedChanged)
@@ -325,9 +325,9 @@ pub const qwebenginedownloadrequest = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#isPausedChanged)
     ///
-    /// ``` self: QtC.QWebEngineDownloadRequest, slot: fn (self: QtC.QWebEngineDownloadRequest) callconv(.c) void ```
-    pub fn OnIsPausedChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QWebEngineDownloadRequest_Connect_IsPausedChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWebEngineDownloadRequest, callback: *const fn (self: QtC.QWebEngineDownloadRequest) callconv(.c) void ```
+    pub fn OnIsPausedChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QWebEngineDownloadRequest_Connect_IsPausedChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#downloadDirectoryChanged)
@@ -339,9 +339,9 @@ pub const qwebenginedownloadrequest = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#downloadDirectoryChanged)
     ///
-    /// ``` self: QtC.QWebEngineDownloadRequest, slot: fn (self: QtC.QWebEngineDownloadRequest) callconv(.c) void ```
-    pub fn OnDownloadDirectoryChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QWebEngineDownloadRequest_Connect_DownloadDirectoryChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWebEngineDownloadRequest, callback: *const fn (self: QtC.QWebEngineDownloadRequest) callconv(.c) void ```
+    pub fn OnDownloadDirectoryChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QWebEngineDownloadRequest_Connect_DownloadDirectoryChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#downloadFileNameChanged)
@@ -353,9 +353,9 @@ pub const qwebenginedownloadrequest = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#downloadFileNameChanged)
     ///
-    /// ``` self: QtC.QWebEngineDownloadRequest, slot: fn (self: QtC.QWebEngineDownloadRequest) callconv(.c) void ```
-    pub fn OnDownloadFileNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QWebEngineDownloadRequest_Connect_DownloadFileNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWebEngineDownloadRequest, callback: *const fn (self: QtC.QWebEngineDownloadRequest) callconv(.c) void ```
+    pub fn OnDownloadFileNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QWebEngineDownloadRequest_Connect_DownloadFileNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -690,9 +690,9 @@ pub const qwebenginedownloadrequest = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QWebEngineDownloadRequest, slot: fn (self: QtC.QWebEngineDownloadRequest) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWebEngineDownloadRequest, callback: *const fn (self: QtC.QWebEngineDownloadRequest) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -774,9 +774,9 @@ pub const qwebenginedownloadrequest = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QWebEngineDownloadRequest, slot: fn (self: QtC.QWebEngineDownloadRequest, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWebEngineDownloadRequest, callback: *const fn (self: QtC.QWebEngineDownloadRequest, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -785,9 +785,9 @@ pub const qwebenginedownloadrequest = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QWebEngineDownloadRequest, slot: fn (self: QtC.QWebEngineDownloadRequest, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWebEngineDownloadRequest, callback: *const fn (self: QtC.QWebEngineDownloadRequest, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginedownloadrequest.html#dtor.QWebEngineDownloadRequest)

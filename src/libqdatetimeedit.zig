@@ -89,9 +89,9 @@ pub const qdatetimeedit = struct {
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QDateTimeEdit_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn (self: QtC.QDateTimeEdit, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+        qtc.QDateTimeEdit_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -459,9 +459,9 @@ pub const qdatetimeedit = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn () callconv(.c) QtC.QSize ```
-    pub fn OnSizeHint(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QSize) void {
-        qtc.QDateTimeEdit_OnSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn () callconv(.c) QtC.QSize ```
+    pub fn OnSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
+        qtc.QDateTimeEdit_OnSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatetimeedit.html#sizeHint)
@@ -484,9 +484,9 @@ pub const qdatetimeedit = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn () callconv(.c) void ```
-    pub fn OnClear(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QDateTimeEdit_OnClear(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn () callconv(.c) void ```
+    pub fn OnClear(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QDateTimeEdit_OnClear(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatetimeedit.html#clear)
@@ -509,9 +509,9 @@ pub const qdatetimeedit = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, steps: i32) callconv(.c) void ```
-    pub fn OnStepBy(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QDateTimeEdit_OnStepBy(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn (self: QtC.QDateTimeEdit, steps: i32) callconv(.c) void ```
+    pub fn OnStepBy(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QDateTimeEdit_OnStepBy(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatetimeedit.html#stepBy)
@@ -534,9 +534,9 @@ pub const qdatetimeedit = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QDateTimeEdit_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn (self: QtC.QDateTimeEdit, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QDateTimeEdit_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatetimeedit.html#event)
@@ -557,9 +557,9 @@ pub const qdatetimeedit = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatetimeedit.html#dateTimeChanged)
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, dateTime: QtC.QDateTime) callconv(.c) void ```
-    pub fn OnDateTimeChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateTimeEdit_Connect_DateTimeChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn (self: QtC.QDateTimeEdit, dateTime: QtC.QDateTime) callconv(.c) void ```
+    pub fn OnDateTimeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QDateTimeEdit_Connect_DateTimeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatetimeedit.html#timeChanged)
@@ -571,9 +571,9 @@ pub const qdatetimeedit = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatetimeedit.html#timeChanged)
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, time: QtC.QTime) callconv(.c) void ```
-    pub fn OnTimeChanged(self: ?*anyopaque, slot: fn (?*anyopaque, QtC.QTime) callconv(.c) void) void {
-        qtc.QDateTimeEdit_Connect_TimeChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn (self: QtC.QDateTimeEdit, time: QtC.QTime) callconv(.c) void ```
+    pub fn OnTimeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QTime) callconv(.c) void) void {
+        qtc.QDateTimeEdit_Connect_TimeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatetimeedit.html#dateChanged)
@@ -585,9 +585,9 @@ pub const qdatetimeedit = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatetimeedit.html#dateChanged)
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, date: QtC.QDate) callconv(.c) void ```
-    pub fn OnDateChanged(self: ?*anyopaque, slot: fn (?*anyopaque, QtC.QDate) callconv(.c) void) void {
-        qtc.QDateTimeEdit_Connect_DateChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn (self: QtC.QDateTimeEdit, date: QtC.QDate) callconv(.c) void ```
+    pub fn OnDateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QDate) callconv(.c) void) void {
+        qtc.QDateTimeEdit_Connect_DateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatetimeedit.html#setDateTime)
@@ -622,9 +622,9 @@ pub const qdatetimeedit = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, event: QtC.QKeyEvent) callconv(.c) void ```
-    pub fn OnKeyPressEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateTimeEdit_OnKeyPressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn (self: QtC.QDateTimeEdit, event: QtC.QKeyEvent) callconv(.c) void ```
+    pub fn OnKeyPressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QDateTimeEdit_OnKeyPressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatetimeedit.html#keyPressEvent)
@@ -647,9 +647,9 @@ pub const qdatetimeedit = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, event: QtC.QWheelEvent) callconv(.c) void ```
-    pub fn OnWheelEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateTimeEdit_OnWheelEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn (self: QtC.QDateTimeEdit, event: QtC.QWheelEvent) callconv(.c) void ```
+    pub fn OnWheelEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QDateTimeEdit_OnWheelEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatetimeedit.html#wheelEvent)
@@ -672,9 +672,9 @@ pub const qdatetimeedit = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, event: QtC.QFocusEvent) callconv(.c) void ```
-    pub fn OnFocusInEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateTimeEdit_OnFocusInEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn (self: QtC.QDateTimeEdit, event: QtC.QFocusEvent) callconv(.c) void ```
+    pub fn OnFocusInEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QDateTimeEdit_OnFocusInEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatetimeedit.html#focusInEvent)
@@ -697,9 +697,9 @@ pub const qdatetimeedit = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, next: bool) callconv(.c) bool ```
-    pub fn OnFocusNextPrevChild(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) bool) void {
-        qtc.QDateTimeEdit_OnFocusNextPrevChild(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn (self: QtC.QDateTimeEdit, next: bool) callconv(.c) bool ```
+    pub fn OnFocusNextPrevChild(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) bool) void {
+        qtc.QDateTimeEdit_OnFocusNextPrevChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatetimeedit.html#focusNextPrevChild)
@@ -728,9 +728,9 @@ pub const qdatetimeedit = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, input: [*:0]const u8, pos: *i32) callconv(.c) i32 ```
-    pub fn OnValidate(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, *i32) callconv(.c) i32) void {
-        qtc.QDateTimeEdit_OnValidate(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn (self: QtC.QDateTimeEdit, input: [*:0]const u8, pos: *i32) callconv(.c) i32 ```
+    pub fn OnValidate(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, *i32) callconv(.c) i32) void {
+        qtc.QDateTimeEdit_OnValidate(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatetimeedit.html#validate)
@@ -763,9 +763,9 @@ pub const qdatetimeedit = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, input: [*:0]const u8) callconv(.c) void ```
-    pub fn OnFixup(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QDateTimeEdit_OnFixup(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn (self: QtC.QDateTimeEdit, input: [*:0]const u8) callconv(.c) void ```
+    pub fn OnFixup(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QDateTimeEdit_OnFixup(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatetimeedit.html#fixup)
@@ -796,9 +796,9 @@ pub const qdatetimeedit = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, text: [*:0]const u8) callconv(.c) QtC.QDateTime ```
-    pub fn OnDateTimeFromText(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) QtC.QDateTime) void {
-        qtc.QDateTimeEdit_OnDateTimeFromText(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn (self: QtC.QDateTimeEdit, text: [*:0]const u8) callconv(.c) QtC.QDateTime ```
+    pub fn OnDateTimeFromText(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) QtC.QDateTime) void {
+        qtc.QDateTimeEdit_OnDateTimeFromText(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatetimeedit.html#dateTimeFromText)
@@ -829,9 +829,9 @@ pub const qdatetimeedit = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, dt: QtC.QDateTime) callconv(.c) [*:0]const u8 ```
-    pub fn OnTextFromDateTime(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) [*:0]const u8) void {
-        qtc.QDateTimeEdit_OnTextFromDateTime(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn (self: QtC.QDateTimeEdit, dt: QtC.QDateTime) callconv(.c) [*:0]const u8 ```
+    pub fn OnTextFromDateTime(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) [*:0]const u8) void {
+        qtc.QDateTimeEdit_OnTextFromDateTime(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatetimeedit.html#textFromDateTime)
@@ -860,9 +860,9 @@ pub const qdatetimeedit = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn () callconv(.c) i32 ```
-    pub fn OnStepEnabled(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QDateTimeEdit_OnStepEnabled(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnStepEnabled(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QDateTimeEdit_OnStepEnabled(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatetimeedit.html#stepEnabled)
@@ -887,9 +887,9 @@ pub const qdatetimeedit = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, event: QtC.QMouseEvent) callconv(.c) void ```
-    pub fn OnMousePressEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateTimeEdit_OnMousePressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn (self: QtC.QDateTimeEdit, event: QtC.QMouseEvent) callconv(.c) void ```
+    pub fn OnMousePressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QDateTimeEdit_OnMousePressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatetimeedit.html#mousePressEvent)
@@ -912,9 +912,9 @@ pub const qdatetimeedit = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, event: QtC.QPaintEvent) callconv(.c) void ```
-    pub fn OnPaintEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateTimeEdit_OnPaintEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn (self: QtC.QDateTimeEdit, event: QtC.QPaintEvent) callconv(.c) void ```
+    pub fn OnPaintEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QDateTimeEdit_OnPaintEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatetimeedit.html#paintEvent)
@@ -937,9 +937,9 @@ pub const qdatetimeedit = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, option: QtC.QStyleOptionSpinBox) callconv(.c) void ```
-    pub fn OnInitStyleOption(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateTimeEdit_OnInitStyleOption(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn (self: QtC.QDateTimeEdit, option: QtC.QStyleOptionSpinBox) callconv(.c) void ```
+    pub fn OnInitStyleOption(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QDateTimeEdit_OnInitStyleOption(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatetimeedit.html#initStyleOption)
@@ -1242,9 +1242,9 @@ pub const qdatetimeedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractspinbox.html#editingFinished)
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit) callconv(.c) void ```
-    pub fn OnEditingFinished(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSpinBox_Connect_EditingFinished(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn (self: QtC.QDateTimeEdit) callconv(.c) void ```
+    pub fn OnEditingFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractSpinBox_Connect_EditingFinished(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -3622,9 +3622,9 @@ pub const qdatetimeedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, title: [*:0]const u8) callconv(.c) void ```
-    pub fn OnWindowTitleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn (self: QtC.QDateTimeEdit, title: [*:0]const u8) callconv(.c) void ```
+    pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -3640,9 +3640,9 @@ pub const qdatetimeedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, icon: QtC.QIcon) callconv(.c) void ```
-    pub fn OnWindowIconChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn (self: QtC.QDateTimeEdit, icon: QtC.QIcon) callconv(.c) void ```
+    pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -3662,9 +3662,9 @@ pub const qdatetimeedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, iconText: [*:0]const u8) callconv(.c) void ```
-    pub fn OnWindowIconTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn (self: QtC.QDateTimeEdit, iconText: [*:0]const u8) callconv(.c) void ```
+    pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -3680,9 +3680,9 @@ pub const qdatetimeedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, pos: QtC.QPoint) callconv(.c) void ```
-    pub fn OnCustomContextMenuRequested(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn (self: QtC.QDateTimeEdit, pos: QtC.QPoint) callconv(.c) void ```
+    pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4119,9 +4119,9 @@ pub const qdatetimeedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn (self: QtC.QDateTimeEdit) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4203,9 +4203,9 @@ pub const qdatetimeedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn (self: QtC.QDateTimeEdit, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -4353,9 +4353,9 @@ pub const qdatetimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn () callconv(.c) QtC.QSize ```
-    pub fn OnMinimumSizeHint(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QSize) void {
-        qtc.QDateTimeEdit_OnMinimumSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn () callconv(.c) QtC.QSize ```
+    pub fn OnMinimumSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
+        qtc.QDateTimeEdit_OnMinimumSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSpinBox
@@ -4386,9 +4386,9 @@ pub const qdatetimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant ```
-    pub fn OnInputMethodQuery(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) QtC.QVariant) void {
-        qtc.QDateTimeEdit_OnInputMethodQuery(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn (self: QtC.QDateTimeEdit, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant ```
+    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) QtC.QVariant) void {
+        qtc.QDateTimeEdit_OnInputMethodQuery(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSpinBox
@@ -4419,9 +4419,9 @@ pub const qdatetimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, event: QtC.QResizeEvent) callconv(.c) void ```
-    pub fn OnResizeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateTimeEdit_OnResizeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn (self: QtC.QDateTimeEdit, event: QtC.QResizeEvent) callconv(.c) void ```
+    pub fn OnResizeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QDateTimeEdit_OnResizeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSpinBox
@@ -4452,9 +4452,9 @@ pub const qdatetimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, event: QtC.QKeyEvent) callconv(.c) void ```
-    pub fn OnKeyReleaseEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateTimeEdit_OnKeyReleaseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn (self: QtC.QDateTimeEdit, event: QtC.QKeyEvent) callconv(.c) void ```
+    pub fn OnKeyReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QDateTimeEdit_OnKeyReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSpinBox
@@ -4485,9 +4485,9 @@ pub const qdatetimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, event: QtC.QFocusEvent) callconv(.c) void ```
-    pub fn OnFocusOutEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateTimeEdit_OnFocusOutEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn (self: QtC.QDateTimeEdit, event: QtC.QFocusEvent) callconv(.c) void ```
+    pub fn OnFocusOutEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QDateTimeEdit_OnFocusOutEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSpinBox
@@ -4518,9 +4518,9 @@ pub const qdatetimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, event: QtC.QContextMenuEvent) callconv(.c) void ```
-    pub fn OnContextMenuEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateTimeEdit_OnContextMenuEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn (self: QtC.QDateTimeEdit, event: QtC.QContextMenuEvent) callconv(.c) void ```
+    pub fn OnContextMenuEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QDateTimeEdit_OnContextMenuEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSpinBox
@@ -4551,9 +4551,9 @@ pub const qdatetimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnChangeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateTimeEdit_OnChangeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn (self: QtC.QDateTimeEdit, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnChangeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QDateTimeEdit_OnChangeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSpinBox
@@ -4584,9 +4584,9 @@ pub const qdatetimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, event: QtC.QCloseEvent) callconv(.c) void ```
-    pub fn OnCloseEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateTimeEdit_OnCloseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn (self: QtC.QDateTimeEdit, event: QtC.QCloseEvent) callconv(.c) void ```
+    pub fn OnCloseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QDateTimeEdit_OnCloseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSpinBox
@@ -4617,9 +4617,9 @@ pub const qdatetimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, event: QtC.QHideEvent) callconv(.c) void ```
-    pub fn OnHideEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateTimeEdit_OnHideEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn (self: QtC.QDateTimeEdit, event: QtC.QHideEvent) callconv(.c) void ```
+    pub fn OnHideEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QDateTimeEdit_OnHideEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSpinBox
@@ -4650,9 +4650,9 @@ pub const qdatetimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, event: QtC.QMouseEvent) callconv(.c) void ```
-    pub fn OnMouseReleaseEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateTimeEdit_OnMouseReleaseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn (self: QtC.QDateTimeEdit, event: QtC.QMouseEvent) callconv(.c) void ```
+    pub fn OnMouseReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QDateTimeEdit_OnMouseReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSpinBox
@@ -4683,9 +4683,9 @@ pub const qdatetimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, event: QtC.QMouseEvent) callconv(.c) void ```
-    pub fn OnMouseMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateTimeEdit_OnMouseMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn (self: QtC.QDateTimeEdit, event: QtC.QMouseEvent) callconv(.c) void ```
+    pub fn OnMouseMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QDateTimeEdit_OnMouseMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSpinBox
@@ -4716,9 +4716,9 @@ pub const qdatetimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, event: QtC.QTimerEvent) callconv(.c) void ```
-    pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateTimeEdit_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn (self: QtC.QDateTimeEdit, event: QtC.QTimerEvent) callconv(.c) void ```
+    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QDateTimeEdit_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSpinBox
@@ -4749,9 +4749,9 @@ pub const qdatetimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, event: QtC.QShowEvent) callconv(.c) void ```
-    pub fn OnShowEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateTimeEdit_OnShowEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn (self: QtC.QDateTimeEdit, event: QtC.QShowEvent) callconv(.c) void ```
+    pub fn OnShowEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QDateTimeEdit_OnShowEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4782,9 +4782,9 @@ pub const qdatetimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn () callconv(.c) i32 ```
-    pub fn OnDevType(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QDateTimeEdit_OnDevType(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnDevType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QDateTimeEdit_OnDevType(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4815,9 +4815,9 @@ pub const qdatetimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, visible: bool) callconv(.c) void ```
-    pub fn OnSetVisible(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QDateTimeEdit_OnSetVisible(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn (self: QtC.QDateTimeEdit, visible: bool) callconv(.c) void ```
+    pub fn OnSetVisible(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QDateTimeEdit_OnSetVisible(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4848,9 +4848,9 @@ pub const qdatetimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, param1: i32) callconv(.c) i32 ```
-    pub fn OnHeightForWidth(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QDateTimeEdit_OnHeightForWidth(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn (self: QtC.QDateTimeEdit, param1: i32) callconv(.c) i32 ```
+    pub fn OnHeightForWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
+        qtc.QDateTimeEdit_OnHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4881,9 +4881,9 @@ pub const qdatetimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn () callconv(.c) bool ```
-    pub fn OnHasHeightForWidth(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.QDateTimeEdit_OnHasHeightForWidth(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn () callconv(.c) bool ```
+    pub fn OnHasHeightForWidth(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.QDateTimeEdit_OnHasHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4914,9 +4914,9 @@ pub const qdatetimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn () callconv(.c) QtC.QPaintEngine ```
-    pub fn OnPaintEngine(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QPaintEngine) void {
-        qtc.QDateTimeEdit_OnPaintEngine(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn () callconv(.c) QtC.QPaintEngine ```
+    pub fn OnPaintEngine(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPaintEngine) void {
+        qtc.QDateTimeEdit_OnPaintEngine(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4947,9 +4947,9 @@ pub const qdatetimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, event: QtC.QMouseEvent) callconv(.c) void ```
-    pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateTimeEdit_OnMouseDoubleClickEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn (self: QtC.QDateTimeEdit, event: QtC.QMouseEvent) callconv(.c) void ```
+    pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QDateTimeEdit_OnMouseDoubleClickEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4980,9 +4980,9 @@ pub const qdatetimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, event: QtC.QEnterEvent) callconv(.c) void ```
-    pub fn OnEnterEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateTimeEdit_OnEnterEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn (self: QtC.QDateTimeEdit, event: QtC.QEnterEvent) callconv(.c) void ```
+    pub fn OnEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QDateTimeEdit_OnEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5013,9 +5013,9 @@ pub const qdatetimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnLeaveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateTimeEdit_OnLeaveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn (self: QtC.QDateTimeEdit, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QDateTimeEdit_OnLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5046,9 +5046,9 @@ pub const qdatetimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, event: QtC.QMoveEvent) callconv(.c) void ```
-    pub fn OnMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateTimeEdit_OnMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn (self: QtC.QDateTimeEdit, event: QtC.QMoveEvent) callconv(.c) void ```
+    pub fn OnMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QDateTimeEdit_OnMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5079,9 +5079,9 @@ pub const qdatetimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, event: QtC.QTabletEvent) callconv(.c) void ```
-    pub fn OnTabletEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateTimeEdit_OnTabletEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn (self: QtC.QDateTimeEdit, event: QtC.QTabletEvent) callconv(.c) void ```
+    pub fn OnTabletEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QDateTimeEdit_OnTabletEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5112,9 +5112,9 @@ pub const qdatetimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, event: QtC.QActionEvent) callconv(.c) void ```
-    pub fn OnActionEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateTimeEdit_OnActionEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn (self: QtC.QDateTimeEdit, event: QtC.QActionEvent) callconv(.c) void ```
+    pub fn OnActionEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QDateTimeEdit_OnActionEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5145,9 +5145,9 @@ pub const qdatetimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, event: QtC.QDragEnterEvent) callconv(.c) void ```
-    pub fn OnDragEnterEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateTimeEdit_OnDragEnterEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn (self: QtC.QDateTimeEdit, event: QtC.QDragEnterEvent) callconv(.c) void ```
+    pub fn OnDragEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QDateTimeEdit_OnDragEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5178,9 +5178,9 @@ pub const qdatetimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, event: QtC.QDragMoveEvent) callconv(.c) void ```
-    pub fn OnDragMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateTimeEdit_OnDragMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn (self: QtC.QDateTimeEdit, event: QtC.QDragMoveEvent) callconv(.c) void ```
+    pub fn OnDragMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QDateTimeEdit_OnDragMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5211,9 +5211,9 @@ pub const qdatetimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, event: QtC.QDragLeaveEvent) callconv(.c) void ```
-    pub fn OnDragLeaveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateTimeEdit_OnDragLeaveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn (self: QtC.QDateTimeEdit, event: QtC.QDragLeaveEvent) callconv(.c) void ```
+    pub fn OnDragLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QDateTimeEdit_OnDragLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5244,9 +5244,9 @@ pub const qdatetimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, event: QtC.QDropEvent) callconv(.c) void ```
-    pub fn OnDropEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateTimeEdit_OnDropEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn (self: QtC.QDateTimeEdit, event: QtC.QDropEvent) callconv(.c) void ```
+    pub fn OnDropEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QDateTimeEdit_OnDropEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5285,9 +5285,9 @@ pub const qdatetimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, eventType: [*:0]u8, message: ?*anyopaque, result: *isize) callconv(.c) bool ```
-    pub fn OnNativeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]u8, ?*anyopaque, *isize) callconv(.c) bool) void {
-        qtc.QDateTimeEdit_OnNativeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn (self: QtC.QDateTimeEdit, eventType: [*:0]u8, message: ?*anyopaque, result: *isize) callconv(.c) bool ```
+    pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]u8, ?*anyopaque, *isize) callconv(.c) bool) void {
+        qtc.QDateTimeEdit_OnNativeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5318,9 +5318,9 @@ pub const qdatetimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 ```
-    pub fn OnMetric(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QDateTimeEdit_OnMetric(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn (self: QtC.QDateTimeEdit, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 ```
+    pub fn OnMetric(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
+        qtc.QDateTimeEdit_OnMetric(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5351,9 +5351,9 @@ pub const qdatetimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, painter: QtC.QPainter) callconv(.c) void ```
-    pub fn OnInitPainter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateTimeEdit_OnInitPainter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn (self: QtC.QDateTimeEdit, painter: QtC.QPainter) callconv(.c) void ```
+    pub fn OnInitPainter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QDateTimeEdit_OnInitPainter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5384,9 +5384,9 @@ pub const qdatetimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, offset: QtC.QPoint) callconv(.c) QtC.QPaintDevice ```
-    pub fn OnRedirected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPaintDevice) void {
-        qtc.QDateTimeEdit_OnRedirected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn (self: QtC.QDateTimeEdit, offset: QtC.QPoint) callconv(.c) QtC.QPaintDevice ```
+    pub fn OnRedirected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPaintDevice) void {
+        qtc.QDateTimeEdit_OnRedirected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5417,9 +5417,9 @@ pub const qdatetimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn () callconv(.c) QtC.QPainter ```
-    pub fn OnSharedPainter(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QPainter) void {
-        qtc.QDateTimeEdit_OnSharedPainter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn () callconv(.c) QtC.QPainter ```
+    pub fn OnSharedPainter(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainter) void {
+        qtc.QDateTimeEdit_OnSharedPainter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5450,9 +5450,9 @@ pub const qdatetimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, param1: QtC.QInputMethodEvent) callconv(.c) void ```
-    pub fn OnInputMethodEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateTimeEdit_OnInputMethodEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn (self: QtC.QDateTimeEdit, param1: QtC.QInputMethodEvent) callconv(.c) void ```
+    pub fn OnInputMethodEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QDateTimeEdit_OnInputMethodEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5483,9 +5483,9 @@ pub const qdatetimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QDateTimeEdit_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn (self: QtC.QDateTimeEdit, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QDateTimeEdit_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5516,9 +5516,9 @@ pub const qdatetimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, event: QtC.QChildEvent) callconv(.c) void ```
-    pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateTimeEdit_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn (self: QtC.QDateTimeEdit, event: QtC.QChildEvent) callconv(.c) void ```
+    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QDateTimeEdit_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5549,9 +5549,9 @@ pub const qdatetimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateTimeEdit_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn (self: QtC.QDateTimeEdit, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QDateTimeEdit_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5582,9 +5582,9 @@ pub const qdatetimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateTimeEdit_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn (self: QtC.QDateTimeEdit, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QDateTimeEdit_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5615,9 +5615,9 @@ pub const qdatetimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateTimeEdit_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn (self: QtC.QDateTimeEdit, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QDateTimeEdit_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSpinBox
@@ -5648,9 +5648,9 @@ pub const qdatetimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn () callconv(.c) QtC.QLineEdit ```
-    pub fn OnLineEdit(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QLineEdit) void {
-        qtc.QDateTimeEdit_OnLineEdit(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn () callconv(.c) QtC.QLineEdit ```
+    pub fn OnLineEdit(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QLineEdit) void {
+        qtc.QDateTimeEdit_OnLineEdit(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSpinBox
@@ -5681,9 +5681,9 @@ pub const qdatetimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, edit: QtC.QLineEdit) callconv(.c) void ```
-    pub fn OnSetLineEdit(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateTimeEdit_OnSetLineEdit(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn (self: QtC.QDateTimeEdit, edit: QtC.QLineEdit) callconv(.c) void ```
+    pub fn OnSetLineEdit(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QDateTimeEdit_OnSetLineEdit(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5714,9 +5714,9 @@ pub const qdatetimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn () callconv(.c) void ```
-    pub fn OnUpdateMicroFocus(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QDateTimeEdit_OnUpdateMicroFocus(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn () callconv(.c) void ```
+    pub fn OnUpdateMicroFocus(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QDateTimeEdit_OnUpdateMicroFocus(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5747,9 +5747,9 @@ pub const qdatetimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn () callconv(.c) void ```
-    pub fn OnCreate(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QDateTimeEdit_OnCreate(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn () callconv(.c) void ```
+    pub fn OnCreate(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QDateTimeEdit_OnCreate(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5780,9 +5780,9 @@ pub const qdatetimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn () callconv(.c) void ```
-    pub fn OnDestroy(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QDateTimeEdit_OnDestroy(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn () callconv(.c) void ```
+    pub fn OnDestroy(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QDateTimeEdit_OnDestroy(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5813,9 +5813,9 @@ pub const qdatetimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn () callconv(.c) bool ```
-    pub fn OnFocusNextChild(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.QDateTimeEdit_OnFocusNextChild(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn () callconv(.c) bool ```
+    pub fn OnFocusNextChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.QDateTimeEdit_OnFocusNextChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5846,9 +5846,9 @@ pub const qdatetimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn () callconv(.c) bool ```
-    pub fn OnFocusPreviousChild(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.QDateTimeEdit_OnFocusPreviousChild(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn () callconv(.c) bool ```
+    pub fn OnFocusPreviousChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.QDateTimeEdit_OnFocusPreviousChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5879,9 +5879,9 @@ pub const qdatetimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn () callconv(.c) QtC.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
-        qtc.QDateTimeEdit_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.QDateTimeEdit_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5912,9 +5912,9 @@ pub const qdatetimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn () callconv(.c) i32 ```
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QDateTimeEdit_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QDateTimeEdit_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5947,9 +5947,9 @@ pub const qdatetimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, signal: [*:0]const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QDateTimeEdit_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn (self: QtC.QDateTimeEdit, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QDateTimeEdit_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5980,9 +5980,9 @@ pub const qdatetimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, signal: QtC.QMetaMethod) callconv(.c) bool ```
-    pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QDateTimeEdit_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn (self: QtC.QDateTimeEdit, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QDateTimeEdit_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -6013,9 +6013,9 @@ pub const qdatetimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 ```
-    pub fn OnGetDecodedMetricF(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
-        qtc.QDateTimeEdit_OnGetDecodedMetricF(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn (self: QtC.QDateTimeEdit, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 ```
+    pub fn OnGetDecodedMetricF(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
+        qtc.QDateTimeEdit_OnGetDecodedMetricF(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6024,9 +6024,9 @@ pub const qdatetimeedit = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QDateTimeEdit, slot: fn (self: QtC.QDateTimeEdit, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateTimeEdit, callback: *const fn (self: QtC.QDateTimeEdit, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatetimeedit.html#dtor.QDateTimeEdit)
@@ -6089,9 +6089,9 @@ pub const qtimeedit = struct {
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QTimeEdit_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn (self: QtC.QTimeEdit, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+        qtc.QTimeEdit_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -6122,9 +6122,9 @@ pub const qtimeedit = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtimeedit.html#userTimeChanged)
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, time: QtC.QTime) callconv(.c) void ```
-    pub fn OnUserTimeChanged(self: ?*anyopaque, slot: fn (?*anyopaque, QtC.QTime) callconv(.c) void) void {
-        qtc.QTimeEdit_Connect_UserTimeChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn (self: QtC.QTimeEdit, time: QtC.QTime) callconv(.c) void ```
+    pub fn OnUserTimeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QTime) callconv(.c) void) void {
+        qtc.QTimeEdit_Connect_UserTimeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -6591,9 +6591,9 @@ pub const qtimeedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatetimeedit.html#dateTimeChanged)
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, dateTime: QtC.QDateTime) callconv(.c) void ```
-    pub fn OnDateTimeChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateTimeEdit_Connect_DateTimeChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn (self: QtC.QTimeEdit, dateTime: QtC.QDateTime) callconv(.c) void ```
+    pub fn OnDateTimeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QDateTimeEdit_Connect_DateTimeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDateTimeEdit
@@ -6609,9 +6609,9 @@ pub const qtimeedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatetimeedit.html#timeChanged)
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, time: QtC.QTime) callconv(.c) void ```
-    pub fn OnTimeChanged(self: ?*anyopaque, slot: fn (?*anyopaque, QtC.QTime) callconv(.c) void) void {
-        qtc.QDateTimeEdit_Connect_TimeChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn (self: QtC.QTimeEdit, time: QtC.QTime) callconv(.c) void ```
+    pub fn OnTimeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QTime) callconv(.c) void) void {
+        qtc.QDateTimeEdit_Connect_TimeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDateTimeEdit
@@ -6627,9 +6627,9 @@ pub const qtimeedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatetimeedit.html#dateChanged)
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, date: QtC.QDate) callconv(.c) void ```
-    pub fn OnDateChanged(self: ?*anyopaque, slot: fn (?*anyopaque, QtC.QDate) callconv(.c) void) void {
-        qtc.QDateTimeEdit_Connect_DateChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn (self: QtC.QTimeEdit, date: QtC.QDate) callconv(.c) void ```
+    pub fn OnDateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QDate) callconv(.c) void) void {
+        qtc.QDateTimeEdit_Connect_DateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDateTimeEdit
@@ -6924,9 +6924,9 @@ pub const qtimeedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractspinbox.html#editingFinished)
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit) callconv(.c) void ```
-    pub fn OnEditingFinished(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSpinBox_Connect_EditingFinished(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn (self: QtC.QTimeEdit) callconv(.c) void ```
+    pub fn OnEditingFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractSpinBox_Connect_EditingFinished(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9304,9 +9304,9 @@ pub const qtimeedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, title: [*:0]const u8) callconv(.c) void ```
-    pub fn OnWindowTitleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn (self: QtC.QTimeEdit, title: [*:0]const u8) callconv(.c) void ```
+    pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9322,9 +9322,9 @@ pub const qtimeedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, icon: QtC.QIcon) callconv(.c) void ```
-    pub fn OnWindowIconChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn (self: QtC.QTimeEdit, icon: QtC.QIcon) callconv(.c) void ```
+    pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9344,9 +9344,9 @@ pub const qtimeedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, iconText: [*:0]const u8) callconv(.c) void ```
-    pub fn OnWindowIconTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn (self: QtC.QTimeEdit, iconText: [*:0]const u8) callconv(.c) void ```
+    pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9362,9 +9362,9 @@ pub const qtimeedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, pos: QtC.QPoint) callconv(.c) void ```
-    pub fn OnCustomContextMenuRequested(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn (self: QtC.QTimeEdit, pos: QtC.QPoint) callconv(.c) void ```
+    pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9801,9 +9801,9 @@ pub const qtimeedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn (self: QtC.QTimeEdit) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -9885,9 +9885,9 @@ pub const qtimeedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn (self: QtC.QTimeEdit, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -10035,9 +10035,9 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn () callconv(.c) QtC.QSize ```
-    pub fn OnSizeHint(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QSize) void {
-        qtc.QTimeEdit_OnSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn () callconv(.c) QtC.QSize ```
+    pub fn OnSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
+        qtc.QTimeEdit_OnSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDateTimeEdit
@@ -10068,9 +10068,9 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn () callconv(.c) void ```
-    pub fn OnClear(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QTimeEdit_OnClear(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn () callconv(.c) void ```
+    pub fn OnClear(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QTimeEdit_OnClear(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDateTimeEdit
@@ -10101,9 +10101,9 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, steps: i32) callconv(.c) void ```
-    pub fn OnStepBy(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QTimeEdit_OnStepBy(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn (self: QtC.QTimeEdit, steps: i32) callconv(.c) void ```
+    pub fn OnStepBy(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QTimeEdit_OnStepBy(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDateTimeEdit
@@ -10134,9 +10134,9 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QTimeEdit_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn (self: QtC.QTimeEdit, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QTimeEdit_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDateTimeEdit
@@ -10167,9 +10167,9 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, event: QtC.QKeyEvent) callconv(.c) void ```
-    pub fn OnKeyPressEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTimeEdit_OnKeyPressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn (self: QtC.QTimeEdit, event: QtC.QKeyEvent) callconv(.c) void ```
+    pub fn OnKeyPressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTimeEdit_OnKeyPressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDateTimeEdit
@@ -10200,9 +10200,9 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, event: QtC.QWheelEvent) callconv(.c) void ```
-    pub fn OnWheelEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTimeEdit_OnWheelEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn (self: QtC.QTimeEdit, event: QtC.QWheelEvent) callconv(.c) void ```
+    pub fn OnWheelEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTimeEdit_OnWheelEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDateTimeEdit
@@ -10233,9 +10233,9 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, event: QtC.QFocusEvent) callconv(.c) void ```
-    pub fn OnFocusInEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTimeEdit_OnFocusInEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn (self: QtC.QTimeEdit, event: QtC.QFocusEvent) callconv(.c) void ```
+    pub fn OnFocusInEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTimeEdit_OnFocusInEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDateTimeEdit
@@ -10266,9 +10266,9 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, next: bool) callconv(.c) bool ```
-    pub fn OnFocusNextPrevChild(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) bool) void {
-        qtc.QTimeEdit_OnFocusNextPrevChild(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn (self: QtC.QTimeEdit, next: bool) callconv(.c) bool ```
+    pub fn OnFocusNextPrevChild(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) bool) void {
+        qtc.QTimeEdit_OnFocusNextPrevChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDateTimeEdit
@@ -10311,9 +10311,9 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, input: [*:0]const u8, pos: *i32) callconv(.c) i32 ```
-    pub fn OnValidate(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, *i32) callconv(.c) i32) void {
-        qtc.QTimeEdit_OnValidate(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn (self: QtC.QTimeEdit, input: [*:0]const u8, pos: *i32) callconv(.c) i32 ```
+    pub fn OnValidate(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, *i32) callconv(.c) i32) void {
+        qtc.QTimeEdit_OnValidate(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDateTimeEdit
@@ -10352,9 +10352,9 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, input: [*:0]const u8) callconv(.c) void ```
-    pub fn OnFixup(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QTimeEdit_OnFixup(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn (self: QtC.QTimeEdit, input: [*:0]const u8) callconv(.c) void ```
+    pub fn OnFixup(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QTimeEdit_OnFixup(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDateTimeEdit
@@ -10393,9 +10393,9 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, text: [*:0]const u8) callconv(.c) QtC.QDateTime ```
-    pub fn OnDateTimeFromText(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) QtC.QDateTime) void {
-        qtc.QTimeEdit_OnDateTimeFromText(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn (self: QtC.QTimeEdit, text: [*:0]const u8) callconv(.c) QtC.QDateTime ```
+    pub fn OnDateTimeFromText(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) QtC.QDateTime) void {
+        qtc.QTimeEdit_OnDateTimeFromText(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDateTimeEdit
@@ -10434,9 +10434,9 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, dt: QtC.QDateTime) callconv(.c) [*:0]const u8 ```
-    pub fn OnTextFromDateTime(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) [*:0]const u8) void {
-        qtc.QTimeEdit_OnTextFromDateTime(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn (self: QtC.QTimeEdit, dt: QtC.QDateTime) callconv(.c) [*:0]const u8 ```
+    pub fn OnTextFromDateTime(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) [*:0]const u8) void {
+        qtc.QTimeEdit_OnTextFromDateTime(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDateTimeEdit
@@ -10471,9 +10471,9 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn () callconv(.c) i32 ```
-    pub fn OnStepEnabled(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QTimeEdit_OnStepEnabled(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnStepEnabled(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QTimeEdit_OnStepEnabled(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDateTimeEdit
@@ -10504,9 +10504,9 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, event: QtC.QMouseEvent) callconv(.c) void ```
-    pub fn OnMousePressEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTimeEdit_OnMousePressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn (self: QtC.QTimeEdit, event: QtC.QMouseEvent) callconv(.c) void ```
+    pub fn OnMousePressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTimeEdit_OnMousePressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDateTimeEdit
@@ -10537,9 +10537,9 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, event: QtC.QPaintEvent) callconv(.c) void ```
-    pub fn OnPaintEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTimeEdit_OnPaintEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn (self: QtC.QTimeEdit, event: QtC.QPaintEvent) callconv(.c) void ```
+    pub fn OnPaintEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTimeEdit_OnPaintEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDateTimeEdit
@@ -10570,9 +10570,9 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, option: QtC.QStyleOptionSpinBox) callconv(.c) void ```
-    pub fn OnInitStyleOption(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTimeEdit_OnInitStyleOption(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn (self: QtC.QTimeEdit, option: QtC.QStyleOptionSpinBox) callconv(.c) void ```
+    pub fn OnInitStyleOption(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTimeEdit_OnInitStyleOption(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSpinBox
@@ -10603,9 +10603,9 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn () callconv(.c) QtC.QSize ```
-    pub fn OnMinimumSizeHint(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QSize) void {
-        qtc.QTimeEdit_OnMinimumSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn () callconv(.c) QtC.QSize ```
+    pub fn OnMinimumSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
+        qtc.QTimeEdit_OnMinimumSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSpinBox
@@ -10636,9 +10636,9 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant ```
-    pub fn OnInputMethodQuery(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) QtC.QVariant) void {
-        qtc.QTimeEdit_OnInputMethodQuery(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn (self: QtC.QTimeEdit, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant ```
+    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) QtC.QVariant) void {
+        qtc.QTimeEdit_OnInputMethodQuery(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSpinBox
@@ -10669,9 +10669,9 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, event: QtC.QResizeEvent) callconv(.c) void ```
-    pub fn OnResizeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTimeEdit_OnResizeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn (self: QtC.QTimeEdit, event: QtC.QResizeEvent) callconv(.c) void ```
+    pub fn OnResizeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTimeEdit_OnResizeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSpinBox
@@ -10702,9 +10702,9 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, event: QtC.QKeyEvent) callconv(.c) void ```
-    pub fn OnKeyReleaseEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTimeEdit_OnKeyReleaseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn (self: QtC.QTimeEdit, event: QtC.QKeyEvent) callconv(.c) void ```
+    pub fn OnKeyReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTimeEdit_OnKeyReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSpinBox
@@ -10735,9 +10735,9 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, event: QtC.QFocusEvent) callconv(.c) void ```
-    pub fn OnFocusOutEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTimeEdit_OnFocusOutEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn (self: QtC.QTimeEdit, event: QtC.QFocusEvent) callconv(.c) void ```
+    pub fn OnFocusOutEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTimeEdit_OnFocusOutEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSpinBox
@@ -10768,9 +10768,9 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, event: QtC.QContextMenuEvent) callconv(.c) void ```
-    pub fn OnContextMenuEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTimeEdit_OnContextMenuEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn (self: QtC.QTimeEdit, event: QtC.QContextMenuEvent) callconv(.c) void ```
+    pub fn OnContextMenuEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTimeEdit_OnContextMenuEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSpinBox
@@ -10801,9 +10801,9 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnChangeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTimeEdit_OnChangeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn (self: QtC.QTimeEdit, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnChangeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTimeEdit_OnChangeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSpinBox
@@ -10834,9 +10834,9 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, event: QtC.QCloseEvent) callconv(.c) void ```
-    pub fn OnCloseEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTimeEdit_OnCloseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn (self: QtC.QTimeEdit, event: QtC.QCloseEvent) callconv(.c) void ```
+    pub fn OnCloseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTimeEdit_OnCloseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSpinBox
@@ -10867,9 +10867,9 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, event: QtC.QHideEvent) callconv(.c) void ```
-    pub fn OnHideEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTimeEdit_OnHideEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn (self: QtC.QTimeEdit, event: QtC.QHideEvent) callconv(.c) void ```
+    pub fn OnHideEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTimeEdit_OnHideEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSpinBox
@@ -10900,9 +10900,9 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, event: QtC.QMouseEvent) callconv(.c) void ```
-    pub fn OnMouseReleaseEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTimeEdit_OnMouseReleaseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn (self: QtC.QTimeEdit, event: QtC.QMouseEvent) callconv(.c) void ```
+    pub fn OnMouseReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTimeEdit_OnMouseReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSpinBox
@@ -10933,9 +10933,9 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, event: QtC.QMouseEvent) callconv(.c) void ```
-    pub fn OnMouseMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTimeEdit_OnMouseMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn (self: QtC.QTimeEdit, event: QtC.QMouseEvent) callconv(.c) void ```
+    pub fn OnMouseMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTimeEdit_OnMouseMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSpinBox
@@ -10966,9 +10966,9 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, event: QtC.QTimerEvent) callconv(.c) void ```
-    pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTimeEdit_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn (self: QtC.QTimeEdit, event: QtC.QTimerEvent) callconv(.c) void ```
+    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTimeEdit_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSpinBox
@@ -10999,9 +10999,9 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, event: QtC.QShowEvent) callconv(.c) void ```
-    pub fn OnShowEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTimeEdit_OnShowEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn (self: QtC.QTimeEdit, event: QtC.QShowEvent) callconv(.c) void ```
+    pub fn OnShowEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTimeEdit_OnShowEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11032,9 +11032,9 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn () callconv(.c) i32 ```
-    pub fn OnDevType(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QTimeEdit_OnDevType(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnDevType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QTimeEdit_OnDevType(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11065,9 +11065,9 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, visible: bool) callconv(.c) void ```
-    pub fn OnSetVisible(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QTimeEdit_OnSetVisible(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn (self: QtC.QTimeEdit, visible: bool) callconv(.c) void ```
+    pub fn OnSetVisible(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QTimeEdit_OnSetVisible(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11098,9 +11098,9 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, param1: i32) callconv(.c) i32 ```
-    pub fn OnHeightForWidth(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QTimeEdit_OnHeightForWidth(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn (self: QtC.QTimeEdit, param1: i32) callconv(.c) i32 ```
+    pub fn OnHeightForWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
+        qtc.QTimeEdit_OnHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11131,9 +11131,9 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn () callconv(.c) bool ```
-    pub fn OnHasHeightForWidth(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.QTimeEdit_OnHasHeightForWidth(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn () callconv(.c) bool ```
+    pub fn OnHasHeightForWidth(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.QTimeEdit_OnHasHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11164,9 +11164,9 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn () callconv(.c) QtC.QPaintEngine ```
-    pub fn OnPaintEngine(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QPaintEngine) void {
-        qtc.QTimeEdit_OnPaintEngine(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn () callconv(.c) QtC.QPaintEngine ```
+    pub fn OnPaintEngine(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPaintEngine) void {
+        qtc.QTimeEdit_OnPaintEngine(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11197,9 +11197,9 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, event: QtC.QMouseEvent) callconv(.c) void ```
-    pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTimeEdit_OnMouseDoubleClickEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn (self: QtC.QTimeEdit, event: QtC.QMouseEvent) callconv(.c) void ```
+    pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTimeEdit_OnMouseDoubleClickEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11230,9 +11230,9 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, event: QtC.QEnterEvent) callconv(.c) void ```
-    pub fn OnEnterEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTimeEdit_OnEnterEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn (self: QtC.QTimeEdit, event: QtC.QEnterEvent) callconv(.c) void ```
+    pub fn OnEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTimeEdit_OnEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11263,9 +11263,9 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnLeaveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTimeEdit_OnLeaveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn (self: QtC.QTimeEdit, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTimeEdit_OnLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11296,9 +11296,9 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, event: QtC.QMoveEvent) callconv(.c) void ```
-    pub fn OnMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTimeEdit_OnMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn (self: QtC.QTimeEdit, event: QtC.QMoveEvent) callconv(.c) void ```
+    pub fn OnMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTimeEdit_OnMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11329,9 +11329,9 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, event: QtC.QTabletEvent) callconv(.c) void ```
-    pub fn OnTabletEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTimeEdit_OnTabletEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn (self: QtC.QTimeEdit, event: QtC.QTabletEvent) callconv(.c) void ```
+    pub fn OnTabletEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTimeEdit_OnTabletEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11362,9 +11362,9 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, event: QtC.QActionEvent) callconv(.c) void ```
-    pub fn OnActionEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTimeEdit_OnActionEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn (self: QtC.QTimeEdit, event: QtC.QActionEvent) callconv(.c) void ```
+    pub fn OnActionEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTimeEdit_OnActionEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11395,9 +11395,9 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, event: QtC.QDragEnterEvent) callconv(.c) void ```
-    pub fn OnDragEnterEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTimeEdit_OnDragEnterEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn (self: QtC.QTimeEdit, event: QtC.QDragEnterEvent) callconv(.c) void ```
+    pub fn OnDragEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTimeEdit_OnDragEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11428,9 +11428,9 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, event: QtC.QDragMoveEvent) callconv(.c) void ```
-    pub fn OnDragMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTimeEdit_OnDragMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn (self: QtC.QTimeEdit, event: QtC.QDragMoveEvent) callconv(.c) void ```
+    pub fn OnDragMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTimeEdit_OnDragMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11461,9 +11461,9 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, event: QtC.QDragLeaveEvent) callconv(.c) void ```
-    pub fn OnDragLeaveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTimeEdit_OnDragLeaveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn (self: QtC.QTimeEdit, event: QtC.QDragLeaveEvent) callconv(.c) void ```
+    pub fn OnDragLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTimeEdit_OnDragLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11494,9 +11494,9 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, event: QtC.QDropEvent) callconv(.c) void ```
-    pub fn OnDropEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTimeEdit_OnDropEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn (self: QtC.QTimeEdit, event: QtC.QDropEvent) callconv(.c) void ```
+    pub fn OnDropEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTimeEdit_OnDropEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11535,9 +11535,9 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, eventType: [*:0]u8, message: ?*anyopaque, result: *isize) callconv(.c) bool ```
-    pub fn OnNativeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]u8, ?*anyopaque, *isize) callconv(.c) bool) void {
-        qtc.QTimeEdit_OnNativeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn (self: QtC.QTimeEdit, eventType: [*:0]u8, message: ?*anyopaque, result: *isize) callconv(.c) bool ```
+    pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]u8, ?*anyopaque, *isize) callconv(.c) bool) void {
+        qtc.QTimeEdit_OnNativeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11568,9 +11568,9 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 ```
-    pub fn OnMetric(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QTimeEdit_OnMetric(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn (self: QtC.QTimeEdit, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 ```
+    pub fn OnMetric(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
+        qtc.QTimeEdit_OnMetric(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11601,9 +11601,9 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, painter: QtC.QPainter) callconv(.c) void ```
-    pub fn OnInitPainter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTimeEdit_OnInitPainter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn (self: QtC.QTimeEdit, painter: QtC.QPainter) callconv(.c) void ```
+    pub fn OnInitPainter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTimeEdit_OnInitPainter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11634,9 +11634,9 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, offset: QtC.QPoint) callconv(.c) QtC.QPaintDevice ```
-    pub fn OnRedirected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPaintDevice) void {
-        qtc.QTimeEdit_OnRedirected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn (self: QtC.QTimeEdit, offset: QtC.QPoint) callconv(.c) QtC.QPaintDevice ```
+    pub fn OnRedirected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPaintDevice) void {
+        qtc.QTimeEdit_OnRedirected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11667,9 +11667,9 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn () callconv(.c) QtC.QPainter ```
-    pub fn OnSharedPainter(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QPainter) void {
-        qtc.QTimeEdit_OnSharedPainter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn () callconv(.c) QtC.QPainter ```
+    pub fn OnSharedPainter(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainter) void {
+        qtc.QTimeEdit_OnSharedPainter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11700,9 +11700,9 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, param1: QtC.QInputMethodEvent) callconv(.c) void ```
-    pub fn OnInputMethodEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTimeEdit_OnInputMethodEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn (self: QtC.QTimeEdit, param1: QtC.QInputMethodEvent) callconv(.c) void ```
+    pub fn OnInputMethodEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTimeEdit_OnInputMethodEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -11733,9 +11733,9 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QTimeEdit_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn (self: QtC.QTimeEdit, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QTimeEdit_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -11766,9 +11766,9 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, event: QtC.QChildEvent) callconv(.c) void ```
-    pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTimeEdit_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn (self: QtC.QTimeEdit, event: QtC.QChildEvent) callconv(.c) void ```
+    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTimeEdit_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -11799,9 +11799,9 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTimeEdit_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn (self: QtC.QTimeEdit, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTimeEdit_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -11832,9 +11832,9 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTimeEdit_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn (self: QtC.QTimeEdit, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTimeEdit_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -11865,9 +11865,9 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTimeEdit_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn (self: QtC.QTimeEdit, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTimeEdit_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSpinBox
@@ -11898,9 +11898,9 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn () callconv(.c) QtC.QLineEdit ```
-    pub fn OnLineEdit(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QLineEdit) void {
-        qtc.QTimeEdit_OnLineEdit(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn () callconv(.c) QtC.QLineEdit ```
+    pub fn OnLineEdit(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QLineEdit) void {
+        qtc.QTimeEdit_OnLineEdit(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSpinBox
@@ -11931,9 +11931,9 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, edit: QtC.QLineEdit) callconv(.c) void ```
-    pub fn OnSetLineEdit(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTimeEdit_OnSetLineEdit(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn (self: QtC.QTimeEdit, edit: QtC.QLineEdit) callconv(.c) void ```
+    pub fn OnSetLineEdit(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTimeEdit_OnSetLineEdit(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11964,9 +11964,9 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn () callconv(.c) void ```
-    pub fn OnUpdateMicroFocus(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QTimeEdit_OnUpdateMicroFocus(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn () callconv(.c) void ```
+    pub fn OnUpdateMicroFocus(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QTimeEdit_OnUpdateMicroFocus(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -11997,9 +11997,9 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn () callconv(.c) void ```
-    pub fn OnCreate(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QTimeEdit_OnCreate(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn () callconv(.c) void ```
+    pub fn OnCreate(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QTimeEdit_OnCreate(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -12030,9 +12030,9 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn () callconv(.c) void ```
-    pub fn OnDestroy(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QTimeEdit_OnDestroy(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn () callconv(.c) void ```
+    pub fn OnDestroy(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QTimeEdit_OnDestroy(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -12063,9 +12063,9 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn () callconv(.c) bool ```
-    pub fn OnFocusNextChild(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.QTimeEdit_OnFocusNextChild(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn () callconv(.c) bool ```
+    pub fn OnFocusNextChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.QTimeEdit_OnFocusNextChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -12096,9 +12096,9 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn () callconv(.c) bool ```
-    pub fn OnFocusPreviousChild(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.QTimeEdit_OnFocusPreviousChild(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn () callconv(.c) bool ```
+    pub fn OnFocusPreviousChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.QTimeEdit_OnFocusPreviousChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -12129,9 +12129,9 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn () callconv(.c) QtC.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
-        qtc.QTimeEdit_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.QTimeEdit_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -12162,9 +12162,9 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn () callconv(.c) i32 ```
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QTimeEdit_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QTimeEdit_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -12197,9 +12197,9 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, signal: [*:0]const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QTimeEdit_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn (self: QtC.QTimeEdit, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QTimeEdit_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -12230,9 +12230,9 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, signal: QtC.QMetaMethod) callconv(.c) bool ```
-    pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QTimeEdit_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn (self: QtC.QTimeEdit, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QTimeEdit_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -12263,9 +12263,9 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 ```
-    pub fn OnGetDecodedMetricF(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
-        qtc.QTimeEdit_OnGetDecodedMetricF(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn (self: QtC.QTimeEdit, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 ```
+    pub fn OnGetDecodedMetricF(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
+        qtc.QTimeEdit_OnGetDecodedMetricF(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -12274,9 +12274,9 @@ pub const qtimeedit = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QTimeEdit, slot: fn (self: QtC.QTimeEdit, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimeEdit, callback: *const fn (self: QtC.QTimeEdit, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtimeedit.html#dtor.QTimeEdit)
@@ -12339,9 +12339,9 @@ pub const qdateedit = struct {
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QDateEdit_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn (self: QtC.QDateEdit, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+        qtc.QDateEdit_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -12372,9 +12372,9 @@ pub const qdateedit = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdateedit.html#userDateChanged)
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, date: QtC.QDate) callconv(.c) void ```
-    pub fn OnUserDateChanged(self: ?*anyopaque, slot: fn (?*anyopaque, QtC.QDate) callconv(.c) void) void {
-        qtc.QDateEdit_Connect_UserDateChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn (self: QtC.QDateEdit, date: QtC.QDate) callconv(.c) void ```
+    pub fn OnUserDateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QDate) callconv(.c) void) void {
+        qtc.QDateEdit_Connect_UserDateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -12841,9 +12841,9 @@ pub const qdateedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatetimeedit.html#dateTimeChanged)
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, dateTime: QtC.QDateTime) callconv(.c) void ```
-    pub fn OnDateTimeChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateTimeEdit_Connect_DateTimeChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn (self: QtC.QDateEdit, dateTime: QtC.QDateTime) callconv(.c) void ```
+    pub fn OnDateTimeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QDateTimeEdit_Connect_DateTimeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDateTimeEdit
@@ -12859,9 +12859,9 @@ pub const qdateedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatetimeedit.html#timeChanged)
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, time: QtC.QTime) callconv(.c) void ```
-    pub fn OnTimeChanged(self: ?*anyopaque, slot: fn (?*anyopaque, QtC.QTime) callconv(.c) void) void {
-        qtc.QDateTimeEdit_Connect_TimeChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn (self: QtC.QDateEdit, time: QtC.QTime) callconv(.c) void ```
+    pub fn OnTimeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QTime) callconv(.c) void) void {
+        qtc.QDateTimeEdit_Connect_TimeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDateTimeEdit
@@ -12877,9 +12877,9 @@ pub const qdateedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatetimeedit.html#dateChanged)
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, date: QtC.QDate) callconv(.c) void ```
-    pub fn OnDateChanged(self: ?*anyopaque, slot: fn (?*anyopaque, QtC.QDate) callconv(.c) void) void {
-        qtc.QDateTimeEdit_Connect_DateChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn (self: QtC.QDateEdit, date: QtC.QDate) callconv(.c) void ```
+    pub fn OnDateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QDate) callconv(.c) void) void {
+        qtc.QDateTimeEdit_Connect_DateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDateTimeEdit
@@ -13174,9 +13174,9 @@ pub const qdateedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractspinbox.html#editingFinished)
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit) callconv(.c) void ```
-    pub fn OnEditingFinished(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSpinBox_Connect_EditingFinished(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn (self: QtC.QDateEdit) callconv(.c) void ```
+    pub fn OnEditingFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractSpinBox_Connect_EditingFinished(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -15554,9 +15554,9 @@ pub const qdateedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, title: [*:0]const u8) callconv(.c) void ```
-    pub fn OnWindowTitleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn (self: QtC.QDateEdit, title: [*:0]const u8) callconv(.c) void ```
+    pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -15572,9 +15572,9 @@ pub const qdateedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, icon: QtC.QIcon) callconv(.c) void ```
-    pub fn OnWindowIconChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn (self: QtC.QDateEdit, icon: QtC.QIcon) callconv(.c) void ```
+    pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -15594,9 +15594,9 @@ pub const qdateedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, iconText: [*:0]const u8) callconv(.c) void ```
-    pub fn OnWindowIconTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn (self: QtC.QDateEdit, iconText: [*:0]const u8) callconv(.c) void ```
+    pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -15612,9 +15612,9 @@ pub const qdateedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, pos: QtC.QPoint) callconv(.c) void ```
-    pub fn OnCustomContextMenuRequested(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn (self: QtC.QDateEdit, pos: QtC.QPoint) callconv(.c) void ```
+    pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -16051,9 +16051,9 @@ pub const qdateedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn (self: QtC.QDateEdit) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -16135,9 +16135,9 @@ pub const qdateedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn (self: QtC.QDateEdit, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -16285,9 +16285,9 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn () callconv(.c) QtC.QSize ```
-    pub fn OnSizeHint(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QSize) void {
-        qtc.QDateEdit_OnSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn () callconv(.c) QtC.QSize ```
+    pub fn OnSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
+        qtc.QDateEdit_OnSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDateTimeEdit
@@ -16318,9 +16318,9 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn () callconv(.c) void ```
-    pub fn OnClear(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QDateEdit_OnClear(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn () callconv(.c) void ```
+    pub fn OnClear(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QDateEdit_OnClear(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDateTimeEdit
@@ -16351,9 +16351,9 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, steps: i32) callconv(.c) void ```
-    pub fn OnStepBy(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QDateEdit_OnStepBy(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn (self: QtC.QDateEdit, steps: i32) callconv(.c) void ```
+    pub fn OnStepBy(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QDateEdit_OnStepBy(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDateTimeEdit
@@ -16384,9 +16384,9 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QDateEdit_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn (self: QtC.QDateEdit, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QDateEdit_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDateTimeEdit
@@ -16417,9 +16417,9 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, event: QtC.QKeyEvent) callconv(.c) void ```
-    pub fn OnKeyPressEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateEdit_OnKeyPressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn (self: QtC.QDateEdit, event: QtC.QKeyEvent) callconv(.c) void ```
+    pub fn OnKeyPressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QDateEdit_OnKeyPressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDateTimeEdit
@@ -16450,9 +16450,9 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, event: QtC.QWheelEvent) callconv(.c) void ```
-    pub fn OnWheelEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateEdit_OnWheelEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn (self: QtC.QDateEdit, event: QtC.QWheelEvent) callconv(.c) void ```
+    pub fn OnWheelEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QDateEdit_OnWheelEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDateTimeEdit
@@ -16483,9 +16483,9 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, event: QtC.QFocusEvent) callconv(.c) void ```
-    pub fn OnFocusInEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateEdit_OnFocusInEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn (self: QtC.QDateEdit, event: QtC.QFocusEvent) callconv(.c) void ```
+    pub fn OnFocusInEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QDateEdit_OnFocusInEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDateTimeEdit
@@ -16516,9 +16516,9 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, next: bool) callconv(.c) bool ```
-    pub fn OnFocusNextPrevChild(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) bool) void {
-        qtc.QDateEdit_OnFocusNextPrevChild(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn (self: QtC.QDateEdit, next: bool) callconv(.c) bool ```
+    pub fn OnFocusNextPrevChild(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) bool) void {
+        qtc.QDateEdit_OnFocusNextPrevChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDateTimeEdit
@@ -16561,9 +16561,9 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, input: [*:0]const u8, pos: *i32) callconv(.c) i32 ```
-    pub fn OnValidate(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, *i32) callconv(.c) i32) void {
-        qtc.QDateEdit_OnValidate(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn (self: QtC.QDateEdit, input: [*:0]const u8, pos: *i32) callconv(.c) i32 ```
+    pub fn OnValidate(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, *i32) callconv(.c) i32) void {
+        qtc.QDateEdit_OnValidate(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDateTimeEdit
@@ -16602,9 +16602,9 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, input: [*:0]const u8) callconv(.c) void ```
-    pub fn OnFixup(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QDateEdit_OnFixup(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn (self: QtC.QDateEdit, input: [*:0]const u8) callconv(.c) void ```
+    pub fn OnFixup(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QDateEdit_OnFixup(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDateTimeEdit
@@ -16643,9 +16643,9 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, text: [*:0]const u8) callconv(.c) QtC.QDateTime ```
-    pub fn OnDateTimeFromText(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) QtC.QDateTime) void {
-        qtc.QDateEdit_OnDateTimeFromText(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn (self: QtC.QDateEdit, text: [*:0]const u8) callconv(.c) QtC.QDateTime ```
+    pub fn OnDateTimeFromText(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) QtC.QDateTime) void {
+        qtc.QDateEdit_OnDateTimeFromText(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDateTimeEdit
@@ -16684,9 +16684,9 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, dt: QtC.QDateTime) callconv(.c) [*:0]const u8 ```
-    pub fn OnTextFromDateTime(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) [*:0]const u8) void {
-        qtc.QDateEdit_OnTextFromDateTime(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn (self: QtC.QDateEdit, dt: QtC.QDateTime) callconv(.c) [*:0]const u8 ```
+    pub fn OnTextFromDateTime(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) [*:0]const u8) void {
+        qtc.QDateEdit_OnTextFromDateTime(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDateTimeEdit
@@ -16721,9 +16721,9 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn () callconv(.c) i32 ```
-    pub fn OnStepEnabled(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QDateEdit_OnStepEnabled(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnStepEnabled(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QDateEdit_OnStepEnabled(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDateTimeEdit
@@ -16754,9 +16754,9 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, event: QtC.QMouseEvent) callconv(.c) void ```
-    pub fn OnMousePressEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateEdit_OnMousePressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn (self: QtC.QDateEdit, event: QtC.QMouseEvent) callconv(.c) void ```
+    pub fn OnMousePressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QDateEdit_OnMousePressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDateTimeEdit
@@ -16787,9 +16787,9 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, event: QtC.QPaintEvent) callconv(.c) void ```
-    pub fn OnPaintEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateEdit_OnPaintEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn (self: QtC.QDateEdit, event: QtC.QPaintEvent) callconv(.c) void ```
+    pub fn OnPaintEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QDateEdit_OnPaintEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDateTimeEdit
@@ -16820,9 +16820,9 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, option: QtC.QStyleOptionSpinBox) callconv(.c) void ```
-    pub fn OnInitStyleOption(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateEdit_OnInitStyleOption(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn (self: QtC.QDateEdit, option: QtC.QStyleOptionSpinBox) callconv(.c) void ```
+    pub fn OnInitStyleOption(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QDateEdit_OnInitStyleOption(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSpinBox
@@ -16853,9 +16853,9 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn () callconv(.c) QtC.QSize ```
-    pub fn OnMinimumSizeHint(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QSize) void {
-        qtc.QDateEdit_OnMinimumSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn () callconv(.c) QtC.QSize ```
+    pub fn OnMinimumSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
+        qtc.QDateEdit_OnMinimumSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSpinBox
@@ -16886,9 +16886,9 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant ```
-    pub fn OnInputMethodQuery(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) QtC.QVariant) void {
-        qtc.QDateEdit_OnInputMethodQuery(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn (self: QtC.QDateEdit, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant ```
+    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) QtC.QVariant) void {
+        qtc.QDateEdit_OnInputMethodQuery(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSpinBox
@@ -16919,9 +16919,9 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, event: QtC.QResizeEvent) callconv(.c) void ```
-    pub fn OnResizeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateEdit_OnResizeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn (self: QtC.QDateEdit, event: QtC.QResizeEvent) callconv(.c) void ```
+    pub fn OnResizeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QDateEdit_OnResizeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSpinBox
@@ -16952,9 +16952,9 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, event: QtC.QKeyEvent) callconv(.c) void ```
-    pub fn OnKeyReleaseEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateEdit_OnKeyReleaseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn (self: QtC.QDateEdit, event: QtC.QKeyEvent) callconv(.c) void ```
+    pub fn OnKeyReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QDateEdit_OnKeyReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSpinBox
@@ -16985,9 +16985,9 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, event: QtC.QFocusEvent) callconv(.c) void ```
-    pub fn OnFocusOutEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateEdit_OnFocusOutEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn (self: QtC.QDateEdit, event: QtC.QFocusEvent) callconv(.c) void ```
+    pub fn OnFocusOutEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QDateEdit_OnFocusOutEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSpinBox
@@ -17018,9 +17018,9 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, event: QtC.QContextMenuEvent) callconv(.c) void ```
-    pub fn OnContextMenuEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateEdit_OnContextMenuEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn (self: QtC.QDateEdit, event: QtC.QContextMenuEvent) callconv(.c) void ```
+    pub fn OnContextMenuEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QDateEdit_OnContextMenuEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSpinBox
@@ -17051,9 +17051,9 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnChangeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateEdit_OnChangeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn (self: QtC.QDateEdit, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnChangeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QDateEdit_OnChangeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSpinBox
@@ -17084,9 +17084,9 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, event: QtC.QCloseEvent) callconv(.c) void ```
-    pub fn OnCloseEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateEdit_OnCloseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn (self: QtC.QDateEdit, event: QtC.QCloseEvent) callconv(.c) void ```
+    pub fn OnCloseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QDateEdit_OnCloseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSpinBox
@@ -17117,9 +17117,9 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, event: QtC.QHideEvent) callconv(.c) void ```
-    pub fn OnHideEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateEdit_OnHideEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn (self: QtC.QDateEdit, event: QtC.QHideEvent) callconv(.c) void ```
+    pub fn OnHideEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QDateEdit_OnHideEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSpinBox
@@ -17150,9 +17150,9 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, event: QtC.QMouseEvent) callconv(.c) void ```
-    pub fn OnMouseReleaseEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateEdit_OnMouseReleaseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn (self: QtC.QDateEdit, event: QtC.QMouseEvent) callconv(.c) void ```
+    pub fn OnMouseReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QDateEdit_OnMouseReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSpinBox
@@ -17183,9 +17183,9 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, event: QtC.QMouseEvent) callconv(.c) void ```
-    pub fn OnMouseMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateEdit_OnMouseMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn (self: QtC.QDateEdit, event: QtC.QMouseEvent) callconv(.c) void ```
+    pub fn OnMouseMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QDateEdit_OnMouseMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSpinBox
@@ -17216,9 +17216,9 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, event: QtC.QTimerEvent) callconv(.c) void ```
-    pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateEdit_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn (self: QtC.QDateEdit, event: QtC.QTimerEvent) callconv(.c) void ```
+    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QDateEdit_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSpinBox
@@ -17249,9 +17249,9 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, event: QtC.QShowEvent) callconv(.c) void ```
-    pub fn OnShowEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateEdit_OnShowEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn (self: QtC.QDateEdit, event: QtC.QShowEvent) callconv(.c) void ```
+    pub fn OnShowEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QDateEdit_OnShowEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -17282,9 +17282,9 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn () callconv(.c) i32 ```
-    pub fn OnDevType(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QDateEdit_OnDevType(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnDevType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QDateEdit_OnDevType(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -17315,9 +17315,9 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, visible: bool) callconv(.c) void ```
-    pub fn OnSetVisible(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QDateEdit_OnSetVisible(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn (self: QtC.QDateEdit, visible: bool) callconv(.c) void ```
+    pub fn OnSetVisible(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QDateEdit_OnSetVisible(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -17348,9 +17348,9 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, param1: i32) callconv(.c) i32 ```
-    pub fn OnHeightForWidth(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QDateEdit_OnHeightForWidth(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn (self: QtC.QDateEdit, param1: i32) callconv(.c) i32 ```
+    pub fn OnHeightForWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
+        qtc.QDateEdit_OnHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -17381,9 +17381,9 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn () callconv(.c) bool ```
-    pub fn OnHasHeightForWidth(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.QDateEdit_OnHasHeightForWidth(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn () callconv(.c) bool ```
+    pub fn OnHasHeightForWidth(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.QDateEdit_OnHasHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -17414,9 +17414,9 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn () callconv(.c) QtC.QPaintEngine ```
-    pub fn OnPaintEngine(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QPaintEngine) void {
-        qtc.QDateEdit_OnPaintEngine(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn () callconv(.c) QtC.QPaintEngine ```
+    pub fn OnPaintEngine(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPaintEngine) void {
+        qtc.QDateEdit_OnPaintEngine(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -17447,9 +17447,9 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, event: QtC.QMouseEvent) callconv(.c) void ```
-    pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateEdit_OnMouseDoubleClickEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn (self: QtC.QDateEdit, event: QtC.QMouseEvent) callconv(.c) void ```
+    pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QDateEdit_OnMouseDoubleClickEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -17480,9 +17480,9 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, event: QtC.QEnterEvent) callconv(.c) void ```
-    pub fn OnEnterEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateEdit_OnEnterEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn (self: QtC.QDateEdit, event: QtC.QEnterEvent) callconv(.c) void ```
+    pub fn OnEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QDateEdit_OnEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -17513,9 +17513,9 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnLeaveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateEdit_OnLeaveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn (self: QtC.QDateEdit, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QDateEdit_OnLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -17546,9 +17546,9 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, event: QtC.QMoveEvent) callconv(.c) void ```
-    pub fn OnMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateEdit_OnMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn (self: QtC.QDateEdit, event: QtC.QMoveEvent) callconv(.c) void ```
+    pub fn OnMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QDateEdit_OnMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -17579,9 +17579,9 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, event: QtC.QTabletEvent) callconv(.c) void ```
-    pub fn OnTabletEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateEdit_OnTabletEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn (self: QtC.QDateEdit, event: QtC.QTabletEvent) callconv(.c) void ```
+    pub fn OnTabletEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QDateEdit_OnTabletEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -17612,9 +17612,9 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, event: QtC.QActionEvent) callconv(.c) void ```
-    pub fn OnActionEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateEdit_OnActionEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn (self: QtC.QDateEdit, event: QtC.QActionEvent) callconv(.c) void ```
+    pub fn OnActionEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QDateEdit_OnActionEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -17645,9 +17645,9 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, event: QtC.QDragEnterEvent) callconv(.c) void ```
-    pub fn OnDragEnterEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateEdit_OnDragEnterEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn (self: QtC.QDateEdit, event: QtC.QDragEnterEvent) callconv(.c) void ```
+    pub fn OnDragEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QDateEdit_OnDragEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -17678,9 +17678,9 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, event: QtC.QDragMoveEvent) callconv(.c) void ```
-    pub fn OnDragMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateEdit_OnDragMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn (self: QtC.QDateEdit, event: QtC.QDragMoveEvent) callconv(.c) void ```
+    pub fn OnDragMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QDateEdit_OnDragMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -17711,9 +17711,9 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, event: QtC.QDragLeaveEvent) callconv(.c) void ```
-    pub fn OnDragLeaveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateEdit_OnDragLeaveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn (self: QtC.QDateEdit, event: QtC.QDragLeaveEvent) callconv(.c) void ```
+    pub fn OnDragLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QDateEdit_OnDragLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -17744,9 +17744,9 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, event: QtC.QDropEvent) callconv(.c) void ```
-    pub fn OnDropEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateEdit_OnDropEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn (self: QtC.QDateEdit, event: QtC.QDropEvent) callconv(.c) void ```
+    pub fn OnDropEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QDateEdit_OnDropEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -17785,9 +17785,9 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, eventType: [*:0]u8, message: ?*anyopaque, result: *isize) callconv(.c) bool ```
-    pub fn OnNativeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]u8, ?*anyopaque, *isize) callconv(.c) bool) void {
-        qtc.QDateEdit_OnNativeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn (self: QtC.QDateEdit, eventType: [*:0]u8, message: ?*anyopaque, result: *isize) callconv(.c) bool ```
+    pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]u8, ?*anyopaque, *isize) callconv(.c) bool) void {
+        qtc.QDateEdit_OnNativeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -17818,9 +17818,9 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 ```
-    pub fn OnMetric(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QDateEdit_OnMetric(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn (self: QtC.QDateEdit, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 ```
+    pub fn OnMetric(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
+        qtc.QDateEdit_OnMetric(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -17851,9 +17851,9 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, painter: QtC.QPainter) callconv(.c) void ```
-    pub fn OnInitPainter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateEdit_OnInitPainter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn (self: QtC.QDateEdit, painter: QtC.QPainter) callconv(.c) void ```
+    pub fn OnInitPainter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QDateEdit_OnInitPainter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -17884,9 +17884,9 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, offset: QtC.QPoint) callconv(.c) QtC.QPaintDevice ```
-    pub fn OnRedirected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPaintDevice) void {
-        qtc.QDateEdit_OnRedirected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn (self: QtC.QDateEdit, offset: QtC.QPoint) callconv(.c) QtC.QPaintDevice ```
+    pub fn OnRedirected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPaintDevice) void {
+        qtc.QDateEdit_OnRedirected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -17917,9 +17917,9 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn () callconv(.c) QtC.QPainter ```
-    pub fn OnSharedPainter(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QPainter) void {
-        qtc.QDateEdit_OnSharedPainter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn () callconv(.c) QtC.QPainter ```
+    pub fn OnSharedPainter(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainter) void {
+        qtc.QDateEdit_OnSharedPainter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -17950,9 +17950,9 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, param1: QtC.QInputMethodEvent) callconv(.c) void ```
-    pub fn OnInputMethodEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateEdit_OnInputMethodEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn (self: QtC.QDateEdit, param1: QtC.QInputMethodEvent) callconv(.c) void ```
+    pub fn OnInputMethodEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QDateEdit_OnInputMethodEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -17983,9 +17983,9 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QDateEdit_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn (self: QtC.QDateEdit, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QDateEdit_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -18016,9 +18016,9 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, event: QtC.QChildEvent) callconv(.c) void ```
-    pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateEdit_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn (self: QtC.QDateEdit, event: QtC.QChildEvent) callconv(.c) void ```
+    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QDateEdit_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -18049,9 +18049,9 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateEdit_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn (self: QtC.QDateEdit, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QDateEdit_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -18082,9 +18082,9 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateEdit_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn (self: QtC.QDateEdit, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QDateEdit_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -18115,9 +18115,9 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateEdit_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn (self: QtC.QDateEdit, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QDateEdit_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSpinBox
@@ -18148,9 +18148,9 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn () callconv(.c) QtC.QLineEdit ```
-    pub fn OnLineEdit(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QLineEdit) void {
-        qtc.QDateEdit_OnLineEdit(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn () callconv(.c) QtC.QLineEdit ```
+    pub fn OnLineEdit(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QLineEdit) void {
+        qtc.QDateEdit_OnLineEdit(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSpinBox
@@ -18181,9 +18181,9 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, edit: QtC.QLineEdit) callconv(.c) void ```
-    pub fn OnSetLineEdit(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDateEdit_OnSetLineEdit(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn (self: QtC.QDateEdit, edit: QtC.QLineEdit) callconv(.c) void ```
+    pub fn OnSetLineEdit(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QDateEdit_OnSetLineEdit(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -18214,9 +18214,9 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn () callconv(.c) void ```
-    pub fn OnUpdateMicroFocus(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QDateEdit_OnUpdateMicroFocus(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn () callconv(.c) void ```
+    pub fn OnUpdateMicroFocus(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QDateEdit_OnUpdateMicroFocus(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -18247,9 +18247,9 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn () callconv(.c) void ```
-    pub fn OnCreate(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QDateEdit_OnCreate(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn () callconv(.c) void ```
+    pub fn OnCreate(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QDateEdit_OnCreate(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -18280,9 +18280,9 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn () callconv(.c) void ```
-    pub fn OnDestroy(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QDateEdit_OnDestroy(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn () callconv(.c) void ```
+    pub fn OnDestroy(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QDateEdit_OnDestroy(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -18313,9 +18313,9 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn () callconv(.c) bool ```
-    pub fn OnFocusNextChild(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.QDateEdit_OnFocusNextChild(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn () callconv(.c) bool ```
+    pub fn OnFocusNextChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.QDateEdit_OnFocusNextChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -18346,9 +18346,9 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn () callconv(.c) bool ```
-    pub fn OnFocusPreviousChild(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.QDateEdit_OnFocusPreviousChild(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn () callconv(.c) bool ```
+    pub fn OnFocusPreviousChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.QDateEdit_OnFocusPreviousChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -18379,9 +18379,9 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn () callconv(.c) QtC.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
-        qtc.QDateEdit_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.QDateEdit_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -18412,9 +18412,9 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn () callconv(.c) i32 ```
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QDateEdit_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QDateEdit_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -18447,9 +18447,9 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, signal: [*:0]const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QDateEdit_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn (self: QtC.QDateEdit, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QDateEdit_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -18480,9 +18480,9 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, signal: QtC.QMetaMethod) callconv(.c) bool ```
-    pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QDateEdit_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn (self: QtC.QDateEdit, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QDateEdit_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -18513,9 +18513,9 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 ```
-    pub fn OnGetDecodedMetricF(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
-        qtc.QDateEdit_OnGetDecodedMetricF(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn (self: QtC.QDateEdit, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 ```
+    pub fn OnGetDecodedMetricF(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
+        qtc.QDateEdit_OnGetDecodedMetricF(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -18524,9 +18524,9 @@ pub const qdateedit = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QDateEdit, slot: fn (self: QtC.QDateEdit, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDateEdit, callback: *const fn (self: QtC.QDateEdit, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdateedit.html#dtor.QDateEdit)

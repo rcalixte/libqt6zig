@@ -73,9 +73,9 @@ pub const kshortcutseditor = struct {
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KShortcutsEditor, slot: fn (self: QtC.KShortcutsEditor, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
-        qtc.KShortcutsEditor_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KShortcutsEditor, callback: *const fn (self: QtC.KShortcutsEditor, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+        qtc.KShortcutsEditor_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -157,9 +157,9 @@ pub const kshortcutseditor = struct {
 
     /// [Qt documentation](https://api.kde.org/kshortcutseditor.html#keyChange)
     ///
-    /// ``` self: QtC.KShortcutsEditor, slot: fn (self: QtC.KShortcutsEditor) callconv(.c) void ```
-    pub fn OnKeyChange(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.KShortcutsEditor_Connect_KeyChange(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KShortcutsEditor, callback: *const fn (self: QtC.KShortcutsEditor) callconv(.c) void ```
+    pub fn OnKeyChange(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.KShortcutsEditor_Connect_KeyChange(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kshortcutseditor.html#allDefault)
@@ -2581,9 +2581,9 @@ pub const kshortcutseditor = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
-    /// ``` self: QtC.KShortcutsEditor, slot: fn (self: QtC.KShortcutsEditor, title: [*:0]const u8) callconv(.c) void ```
-    pub fn OnWindowTitleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KShortcutsEditor, callback: *const fn (self: QtC.KShortcutsEditor, title: [*:0]const u8) callconv(.c) void ```
+    pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -2599,9 +2599,9 @@ pub const kshortcutseditor = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
     ///
-    /// ``` self: QtC.KShortcutsEditor, slot: fn (self: QtC.KShortcutsEditor, icon: QtC.QIcon) callconv(.c) void ```
-    pub fn OnWindowIconChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KShortcutsEditor, callback: *const fn (self: QtC.KShortcutsEditor, icon: QtC.QIcon) callconv(.c) void ```
+    pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -2621,9 +2621,9 @@ pub const kshortcutseditor = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
-    /// ``` self: QtC.KShortcutsEditor, slot: fn (self: QtC.KShortcutsEditor, iconText: [*:0]const u8) callconv(.c) void ```
-    pub fn OnWindowIconTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KShortcutsEditor, callback: *const fn (self: QtC.KShortcutsEditor, iconText: [*:0]const u8) callconv(.c) void ```
+    pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -2639,9 +2639,9 @@ pub const kshortcutseditor = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
     ///
-    /// ``` self: QtC.KShortcutsEditor, slot: fn (self: QtC.KShortcutsEditor, pos: QtC.QPoint) callconv(.c) void ```
-    pub fn OnCustomContextMenuRequested(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KShortcutsEditor, callback: *const fn (self: QtC.KShortcutsEditor, pos: QtC.QPoint) callconv(.c) void ```
+    pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -3078,9 +3078,9 @@ pub const kshortcutseditor = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KShortcutsEditor, slot: fn (self: QtC.KShortcutsEditor) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KShortcutsEditor, callback: *const fn (self: QtC.KShortcutsEditor) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3162,9 +3162,9 @@ pub const kshortcutseditor = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KShortcutsEditor, slot: fn (self: QtC.KShortcutsEditor, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KShortcutsEditor, callback: *const fn (self: QtC.KShortcutsEditor, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -3312,9 +3312,9 @@ pub const kshortcutseditor = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KShortcutsEditor, slot: fn () callconv(.c) i32 ```
-    pub fn OnDevType(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.KShortcutsEditor_OnDevType(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KShortcutsEditor, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnDevType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.KShortcutsEditor_OnDevType(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -3345,9 +3345,9 @@ pub const kshortcutseditor = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KShortcutsEditor, slot: fn (self: QtC.KShortcutsEditor, visible: bool) callconv(.c) void ```
-    pub fn OnSetVisible(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.KShortcutsEditor_OnSetVisible(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KShortcutsEditor, callback: *const fn (self: QtC.KShortcutsEditor, visible: bool) callconv(.c) void ```
+    pub fn OnSetVisible(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.KShortcutsEditor_OnSetVisible(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -3378,9 +3378,9 @@ pub const kshortcutseditor = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KShortcutsEditor, slot: fn () callconv(.c) QtC.QSize ```
-    pub fn OnSizeHint(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QSize) void {
-        qtc.KShortcutsEditor_OnSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KShortcutsEditor, callback: *const fn () callconv(.c) QtC.QSize ```
+    pub fn OnSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
+        qtc.KShortcutsEditor_OnSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -3411,9 +3411,9 @@ pub const kshortcutseditor = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KShortcutsEditor, slot: fn () callconv(.c) QtC.QSize ```
-    pub fn OnMinimumSizeHint(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QSize) void {
-        qtc.KShortcutsEditor_OnMinimumSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KShortcutsEditor, callback: *const fn () callconv(.c) QtC.QSize ```
+    pub fn OnMinimumSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
+        qtc.KShortcutsEditor_OnMinimumSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -3444,9 +3444,9 @@ pub const kshortcutseditor = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KShortcutsEditor, slot: fn (self: QtC.KShortcutsEditor, param1: i32) callconv(.c) i32 ```
-    pub fn OnHeightForWidth(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.KShortcutsEditor_OnHeightForWidth(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KShortcutsEditor, callback: *const fn (self: QtC.KShortcutsEditor, param1: i32) callconv(.c) i32 ```
+    pub fn OnHeightForWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
+        qtc.KShortcutsEditor_OnHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -3477,9 +3477,9 @@ pub const kshortcutseditor = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KShortcutsEditor, slot: fn () callconv(.c) bool ```
-    pub fn OnHasHeightForWidth(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.KShortcutsEditor_OnHasHeightForWidth(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KShortcutsEditor, callback: *const fn () callconv(.c) bool ```
+    pub fn OnHasHeightForWidth(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.KShortcutsEditor_OnHasHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -3510,9 +3510,9 @@ pub const kshortcutseditor = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KShortcutsEditor, slot: fn () callconv(.c) QtC.QPaintEngine ```
-    pub fn OnPaintEngine(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QPaintEngine) void {
-        qtc.KShortcutsEditor_OnPaintEngine(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KShortcutsEditor, callback: *const fn () callconv(.c) QtC.QPaintEngine ```
+    pub fn OnPaintEngine(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPaintEngine) void {
+        qtc.KShortcutsEditor_OnPaintEngine(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -3543,9 +3543,9 @@ pub const kshortcutseditor = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KShortcutsEditor, slot: fn (self: QtC.KShortcutsEditor, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KShortcutsEditor_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KShortcutsEditor, callback: *const fn (self: QtC.KShortcutsEditor, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KShortcutsEditor_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -3576,9 +3576,9 @@ pub const kshortcutseditor = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KShortcutsEditor, slot: fn (self: QtC.KShortcutsEditor, event: QtC.QMouseEvent) callconv(.c) void ```
-    pub fn OnMousePressEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KShortcutsEditor_OnMousePressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KShortcutsEditor, callback: *const fn (self: QtC.KShortcutsEditor, event: QtC.QMouseEvent) callconv(.c) void ```
+    pub fn OnMousePressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KShortcutsEditor_OnMousePressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -3609,9 +3609,9 @@ pub const kshortcutseditor = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KShortcutsEditor, slot: fn (self: QtC.KShortcutsEditor, event: QtC.QMouseEvent) callconv(.c) void ```
-    pub fn OnMouseReleaseEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KShortcutsEditor_OnMouseReleaseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KShortcutsEditor, callback: *const fn (self: QtC.KShortcutsEditor, event: QtC.QMouseEvent) callconv(.c) void ```
+    pub fn OnMouseReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KShortcutsEditor_OnMouseReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -3642,9 +3642,9 @@ pub const kshortcutseditor = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KShortcutsEditor, slot: fn (self: QtC.KShortcutsEditor, event: QtC.QMouseEvent) callconv(.c) void ```
-    pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KShortcutsEditor_OnMouseDoubleClickEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KShortcutsEditor, callback: *const fn (self: QtC.KShortcutsEditor, event: QtC.QMouseEvent) callconv(.c) void ```
+    pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KShortcutsEditor_OnMouseDoubleClickEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -3675,9 +3675,9 @@ pub const kshortcutseditor = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KShortcutsEditor, slot: fn (self: QtC.KShortcutsEditor, event: QtC.QMouseEvent) callconv(.c) void ```
-    pub fn OnMouseMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KShortcutsEditor_OnMouseMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KShortcutsEditor, callback: *const fn (self: QtC.KShortcutsEditor, event: QtC.QMouseEvent) callconv(.c) void ```
+    pub fn OnMouseMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KShortcutsEditor_OnMouseMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -3708,9 +3708,9 @@ pub const kshortcutseditor = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KShortcutsEditor, slot: fn (self: QtC.KShortcutsEditor, event: QtC.QWheelEvent) callconv(.c) void ```
-    pub fn OnWheelEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KShortcutsEditor_OnWheelEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KShortcutsEditor, callback: *const fn (self: QtC.KShortcutsEditor, event: QtC.QWheelEvent) callconv(.c) void ```
+    pub fn OnWheelEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KShortcutsEditor_OnWheelEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -3741,9 +3741,9 @@ pub const kshortcutseditor = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KShortcutsEditor, slot: fn (self: QtC.KShortcutsEditor, event: QtC.QKeyEvent) callconv(.c) void ```
-    pub fn OnKeyPressEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KShortcutsEditor_OnKeyPressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KShortcutsEditor, callback: *const fn (self: QtC.KShortcutsEditor, event: QtC.QKeyEvent) callconv(.c) void ```
+    pub fn OnKeyPressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KShortcutsEditor_OnKeyPressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -3774,9 +3774,9 @@ pub const kshortcutseditor = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KShortcutsEditor, slot: fn (self: QtC.KShortcutsEditor, event: QtC.QKeyEvent) callconv(.c) void ```
-    pub fn OnKeyReleaseEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KShortcutsEditor_OnKeyReleaseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KShortcutsEditor, callback: *const fn (self: QtC.KShortcutsEditor, event: QtC.QKeyEvent) callconv(.c) void ```
+    pub fn OnKeyReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KShortcutsEditor_OnKeyReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -3807,9 +3807,9 @@ pub const kshortcutseditor = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KShortcutsEditor, slot: fn (self: QtC.KShortcutsEditor, event: QtC.QFocusEvent) callconv(.c) void ```
-    pub fn OnFocusInEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KShortcutsEditor_OnFocusInEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KShortcutsEditor, callback: *const fn (self: QtC.KShortcutsEditor, event: QtC.QFocusEvent) callconv(.c) void ```
+    pub fn OnFocusInEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KShortcutsEditor_OnFocusInEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -3840,9 +3840,9 @@ pub const kshortcutseditor = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KShortcutsEditor, slot: fn (self: QtC.KShortcutsEditor, event: QtC.QFocusEvent) callconv(.c) void ```
-    pub fn OnFocusOutEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KShortcutsEditor_OnFocusOutEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KShortcutsEditor, callback: *const fn (self: QtC.KShortcutsEditor, event: QtC.QFocusEvent) callconv(.c) void ```
+    pub fn OnFocusOutEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KShortcutsEditor_OnFocusOutEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -3873,9 +3873,9 @@ pub const kshortcutseditor = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KShortcutsEditor, slot: fn (self: QtC.KShortcutsEditor, event: QtC.QEnterEvent) callconv(.c) void ```
-    pub fn OnEnterEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KShortcutsEditor_OnEnterEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KShortcutsEditor, callback: *const fn (self: QtC.KShortcutsEditor, event: QtC.QEnterEvent) callconv(.c) void ```
+    pub fn OnEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KShortcutsEditor_OnEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -3906,9 +3906,9 @@ pub const kshortcutseditor = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KShortcutsEditor, slot: fn (self: QtC.KShortcutsEditor, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnLeaveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KShortcutsEditor_OnLeaveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KShortcutsEditor, callback: *const fn (self: QtC.KShortcutsEditor, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KShortcutsEditor_OnLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -3939,9 +3939,9 @@ pub const kshortcutseditor = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KShortcutsEditor, slot: fn (self: QtC.KShortcutsEditor, event: QtC.QPaintEvent) callconv(.c) void ```
-    pub fn OnPaintEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KShortcutsEditor_OnPaintEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KShortcutsEditor, callback: *const fn (self: QtC.KShortcutsEditor, event: QtC.QPaintEvent) callconv(.c) void ```
+    pub fn OnPaintEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KShortcutsEditor_OnPaintEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -3972,9 +3972,9 @@ pub const kshortcutseditor = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KShortcutsEditor, slot: fn (self: QtC.KShortcutsEditor, event: QtC.QMoveEvent) callconv(.c) void ```
-    pub fn OnMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KShortcutsEditor_OnMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KShortcutsEditor, callback: *const fn (self: QtC.KShortcutsEditor, event: QtC.QMoveEvent) callconv(.c) void ```
+    pub fn OnMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KShortcutsEditor_OnMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4005,9 +4005,9 @@ pub const kshortcutseditor = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KShortcutsEditor, slot: fn (self: QtC.KShortcutsEditor, event: QtC.QResizeEvent) callconv(.c) void ```
-    pub fn OnResizeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KShortcutsEditor_OnResizeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KShortcutsEditor, callback: *const fn (self: QtC.KShortcutsEditor, event: QtC.QResizeEvent) callconv(.c) void ```
+    pub fn OnResizeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KShortcutsEditor_OnResizeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4038,9 +4038,9 @@ pub const kshortcutseditor = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KShortcutsEditor, slot: fn (self: QtC.KShortcutsEditor, event: QtC.QCloseEvent) callconv(.c) void ```
-    pub fn OnCloseEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KShortcutsEditor_OnCloseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KShortcutsEditor, callback: *const fn (self: QtC.KShortcutsEditor, event: QtC.QCloseEvent) callconv(.c) void ```
+    pub fn OnCloseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KShortcutsEditor_OnCloseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4071,9 +4071,9 @@ pub const kshortcutseditor = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KShortcutsEditor, slot: fn (self: QtC.KShortcutsEditor, event: QtC.QContextMenuEvent) callconv(.c) void ```
-    pub fn OnContextMenuEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KShortcutsEditor_OnContextMenuEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KShortcutsEditor, callback: *const fn (self: QtC.KShortcutsEditor, event: QtC.QContextMenuEvent) callconv(.c) void ```
+    pub fn OnContextMenuEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KShortcutsEditor_OnContextMenuEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4104,9 +4104,9 @@ pub const kshortcutseditor = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KShortcutsEditor, slot: fn (self: QtC.KShortcutsEditor, event: QtC.QTabletEvent) callconv(.c) void ```
-    pub fn OnTabletEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KShortcutsEditor_OnTabletEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KShortcutsEditor, callback: *const fn (self: QtC.KShortcutsEditor, event: QtC.QTabletEvent) callconv(.c) void ```
+    pub fn OnTabletEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KShortcutsEditor_OnTabletEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4137,9 +4137,9 @@ pub const kshortcutseditor = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KShortcutsEditor, slot: fn (self: QtC.KShortcutsEditor, event: QtC.QActionEvent) callconv(.c) void ```
-    pub fn OnActionEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KShortcutsEditor_OnActionEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KShortcutsEditor, callback: *const fn (self: QtC.KShortcutsEditor, event: QtC.QActionEvent) callconv(.c) void ```
+    pub fn OnActionEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KShortcutsEditor_OnActionEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4170,9 +4170,9 @@ pub const kshortcutseditor = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KShortcutsEditor, slot: fn (self: QtC.KShortcutsEditor, event: QtC.QDragEnterEvent) callconv(.c) void ```
-    pub fn OnDragEnterEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KShortcutsEditor_OnDragEnterEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KShortcutsEditor, callback: *const fn (self: QtC.KShortcutsEditor, event: QtC.QDragEnterEvent) callconv(.c) void ```
+    pub fn OnDragEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KShortcutsEditor_OnDragEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4203,9 +4203,9 @@ pub const kshortcutseditor = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KShortcutsEditor, slot: fn (self: QtC.KShortcutsEditor, event: QtC.QDragMoveEvent) callconv(.c) void ```
-    pub fn OnDragMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KShortcutsEditor_OnDragMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KShortcutsEditor, callback: *const fn (self: QtC.KShortcutsEditor, event: QtC.QDragMoveEvent) callconv(.c) void ```
+    pub fn OnDragMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KShortcutsEditor_OnDragMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4236,9 +4236,9 @@ pub const kshortcutseditor = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KShortcutsEditor, slot: fn (self: QtC.KShortcutsEditor, event: QtC.QDragLeaveEvent) callconv(.c) void ```
-    pub fn OnDragLeaveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KShortcutsEditor_OnDragLeaveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KShortcutsEditor, callback: *const fn (self: QtC.KShortcutsEditor, event: QtC.QDragLeaveEvent) callconv(.c) void ```
+    pub fn OnDragLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KShortcutsEditor_OnDragLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4269,9 +4269,9 @@ pub const kshortcutseditor = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KShortcutsEditor, slot: fn (self: QtC.KShortcutsEditor, event: QtC.QDropEvent) callconv(.c) void ```
-    pub fn OnDropEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KShortcutsEditor_OnDropEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KShortcutsEditor, callback: *const fn (self: QtC.KShortcutsEditor, event: QtC.QDropEvent) callconv(.c) void ```
+    pub fn OnDropEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KShortcutsEditor_OnDropEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4302,9 +4302,9 @@ pub const kshortcutseditor = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KShortcutsEditor, slot: fn (self: QtC.KShortcutsEditor, event: QtC.QShowEvent) callconv(.c) void ```
-    pub fn OnShowEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KShortcutsEditor_OnShowEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KShortcutsEditor, callback: *const fn (self: QtC.KShortcutsEditor, event: QtC.QShowEvent) callconv(.c) void ```
+    pub fn OnShowEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KShortcutsEditor_OnShowEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4335,9 +4335,9 @@ pub const kshortcutseditor = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KShortcutsEditor, slot: fn (self: QtC.KShortcutsEditor, event: QtC.QHideEvent) callconv(.c) void ```
-    pub fn OnHideEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KShortcutsEditor_OnHideEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KShortcutsEditor, callback: *const fn (self: QtC.KShortcutsEditor, event: QtC.QHideEvent) callconv(.c) void ```
+    pub fn OnHideEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KShortcutsEditor_OnHideEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4376,9 +4376,9 @@ pub const kshortcutseditor = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KShortcutsEditor, slot: fn (self: QtC.KShortcutsEditor, eventType: [*:0]u8, message: ?*anyopaque, result: *isize) callconv(.c) bool ```
-    pub fn OnNativeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]u8, ?*anyopaque, *isize) callconv(.c) bool) void {
-        qtc.KShortcutsEditor_OnNativeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KShortcutsEditor, callback: *const fn (self: QtC.KShortcutsEditor, eventType: [*:0]u8, message: ?*anyopaque, result: *isize) callconv(.c) bool ```
+    pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]u8, ?*anyopaque, *isize) callconv(.c) bool) void {
+        qtc.KShortcutsEditor_OnNativeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4409,9 +4409,9 @@ pub const kshortcutseditor = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KShortcutsEditor, slot: fn (self: QtC.KShortcutsEditor, param1: QtC.QEvent) callconv(.c) void ```
-    pub fn OnChangeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KShortcutsEditor_OnChangeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KShortcutsEditor, callback: *const fn (self: QtC.KShortcutsEditor, param1: QtC.QEvent) callconv(.c) void ```
+    pub fn OnChangeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KShortcutsEditor_OnChangeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4442,9 +4442,9 @@ pub const kshortcutseditor = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KShortcutsEditor, slot: fn (self: QtC.KShortcutsEditor, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 ```
-    pub fn OnMetric(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.KShortcutsEditor_OnMetric(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KShortcutsEditor, callback: *const fn (self: QtC.KShortcutsEditor, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 ```
+    pub fn OnMetric(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
+        qtc.KShortcutsEditor_OnMetric(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4475,9 +4475,9 @@ pub const kshortcutseditor = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KShortcutsEditor, slot: fn (self: QtC.KShortcutsEditor, painter: QtC.QPainter) callconv(.c) void ```
-    pub fn OnInitPainter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KShortcutsEditor_OnInitPainter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KShortcutsEditor, callback: *const fn (self: QtC.KShortcutsEditor, painter: QtC.QPainter) callconv(.c) void ```
+    pub fn OnInitPainter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KShortcutsEditor_OnInitPainter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4508,9 +4508,9 @@ pub const kshortcutseditor = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KShortcutsEditor, slot: fn (self: QtC.KShortcutsEditor, offset: QtC.QPoint) callconv(.c) QtC.QPaintDevice ```
-    pub fn OnRedirected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPaintDevice) void {
-        qtc.KShortcutsEditor_OnRedirected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KShortcutsEditor, callback: *const fn (self: QtC.KShortcutsEditor, offset: QtC.QPoint) callconv(.c) QtC.QPaintDevice ```
+    pub fn OnRedirected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPaintDevice) void {
+        qtc.KShortcutsEditor_OnRedirected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4541,9 +4541,9 @@ pub const kshortcutseditor = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KShortcutsEditor, slot: fn () callconv(.c) QtC.QPainter ```
-    pub fn OnSharedPainter(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QPainter) void {
-        qtc.KShortcutsEditor_OnSharedPainter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KShortcutsEditor, callback: *const fn () callconv(.c) QtC.QPainter ```
+    pub fn OnSharedPainter(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainter) void {
+        qtc.KShortcutsEditor_OnSharedPainter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4574,9 +4574,9 @@ pub const kshortcutseditor = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KShortcutsEditor, slot: fn (self: QtC.KShortcutsEditor, param1: QtC.QInputMethodEvent) callconv(.c) void ```
-    pub fn OnInputMethodEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KShortcutsEditor_OnInputMethodEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KShortcutsEditor, callback: *const fn (self: QtC.KShortcutsEditor, param1: QtC.QInputMethodEvent) callconv(.c) void ```
+    pub fn OnInputMethodEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KShortcutsEditor_OnInputMethodEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4607,9 +4607,9 @@ pub const kshortcutseditor = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KShortcutsEditor, slot: fn (self: QtC.KShortcutsEditor, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant ```
-    pub fn OnInputMethodQuery(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) QtC.QVariant) void {
-        qtc.KShortcutsEditor_OnInputMethodQuery(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KShortcutsEditor, callback: *const fn (self: QtC.KShortcutsEditor, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant ```
+    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) QtC.QVariant) void {
+        qtc.KShortcutsEditor_OnInputMethodQuery(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4640,9 +4640,9 @@ pub const kshortcutseditor = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KShortcutsEditor, slot: fn (self: QtC.KShortcutsEditor, next: bool) callconv(.c) bool ```
-    pub fn OnFocusNextPrevChild(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) bool) void {
-        qtc.KShortcutsEditor_OnFocusNextPrevChild(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KShortcutsEditor, callback: *const fn (self: QtC.KShortcutsEditor, next: bool) callconv(.c) bool ```
+    pub fn OnFocusNextPrevChild(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) bool) void {
+        qtc.KShortcutsEditor_OnFocusNextPrevChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4673,9 +4673,9 @@ pub const kshortcutseditor = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KShortcutsEditor, slot: fn (self: QtC.KShortcutsEditor, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KShortcutsEditor_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KShortcutsEditor, callback: *const fn (self: QtC.KShortcutsEditor, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KShortcutsEditor_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4706,9 +4706,9 @@ pub const kshortcutseditor = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KShortcutsEditor, slot: fn (self: QtC.KShortcutsEditor, event: QtC.QTimerEvent) callconv(.c) void ```
-    pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KShortcutsEditor_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KShortcutsEditor, callback: *const fn (self: QtC.KShortcutsEditor, event: QtC.QTimerEvent) callconv(.c) void ```
+    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KShortcutsEditor_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4739,9 +4739,9 @@ pub const kshortcutseditor = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KShortcutsEditor, slot: fn (self: QtC.KShortcutsEditor, event: QtC.QChildEvent) callconv(.c) void ```
-    pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KShortcutsEditor_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KShortcutsEditor, callback: *const fn (self: QtC.KShortcutsEditor, event: QtC.QChildEvent) callconv(.c) void ```
+    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KShortcutsEditor_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4772,9 +4772,9 @@ pub const kshortcutseditor = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KShortcutsEditor, slot: fn (self: QtC.KShortcutsEditor, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KShortcutsEditor_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KShortcutsEditor, callback: *const fn (self: QtC.KShortcutsEditor, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KShortcutsEditor_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4805,9 +4805,9 @@ pub const kshortcutseditor = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KShortcutsEditor, slot: fn (self: QtC.KShortcutsEditor, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KShortcutsEditor_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KShortcutsEditor, callback: *const fn (self: QtC.KShortcutsEditor, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KShortcutsEditor_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4838,9 +4838,9 @@ pub const kshortcutseditor = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KShortcutsEditor, slot: fn (self: QtC.KShortcutsEditor, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KShortcutsEditor_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KShortcutsEditor, callback: *const fn (self: QtC.KShortcutsEditor, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KShortcutsEditor_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4871,9 +4871,9 @@ pub const kshortcutseditor = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KShortcutsEditor, slot: fn () callconv(.c) void ```
-    pub fn OnUpdateMicroFocus(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KShortcutsEditor_OnUpdateMicroFocus(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KShortcutsEditor, callback: *const fn () callconv(.c) void ```
+    pub fn OnUpdateMicroFocus(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KShortcutsEditor_OnUpdateMicroFocus(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4904,9 +4904,9 @@ pub const kshortcutseditor = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KShortcutsEditor, slot: fn () callconv(.c) void ```
-    pub fn OnCreate(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KShortcutsEditor_OnCreate(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KShortcutsEditor, callback: *const fn () callconv(.c) void ```
+    pub fn OnCreate(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KShortcutsEditor_OnCreate(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4937,9 +4937,9 @@ pub const kshortcutseditor = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KShortcutsEditor, slot: fn () callconv(.c) void ```
-    pub fn OnDestroy(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KShortcutsEditor_OnDestroy(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KShortcutsEditor, callback: *const fn () callconv(.c) void ```
+    pub fn OnDestroy(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KShortcutsEditor_OnDestroy(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4970,9 +4970,9 @@ pub const kshortcutseditor = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KShortcutsEditor, slot: fn () callconv(.c) bool ```
-    pub fn OnFocusNextChild(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.KShortcutsEditor_OnFocusNextChild(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KShortcutsEditor, callback: *const fn () callconv(.c) bool ```
+    pub fn OnFocusNextChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.KShortcutsEditor_OnFocusNextChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5003,9 +5003,9 @@ pub const kshortcutseditor = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KShortcutsEditor, slot: fn () callconv(.c) bool ```
-    pub fn OnFocusPreviousChild(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.KShortcutsEditor_OnFocusPreviousChild(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KShortcutsEditor, callback: *const fn () callconv(.c) bool ```
+    pub fn OnFocusPreviousChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.KShortcutsEditor_OnFocusPreviousChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5036,9 +5036,9 @@ pub const kshortcutseditor = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KShortcutsEditor, slot: fn () callconv(.c) QtC.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
-        qtc.KShortcutsEditor_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KShortcutsEditor, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.KShortcutsEditor_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5069,9 +5069,9 @@ pub const kshortcutseditor = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KShortcutsEditor, slot: fn () callconv(.c) i32 ```
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.KShortcutsEditor_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KShortcutsEditor, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.KShortcutsEditor_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5104,9 +5104,9 @@ pub const kshortcutseditor = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KShortcutsEditor, slot: fn (self: QtC.KShortcutsEditor, signal: [*:0]const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KShortcutsEditor_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KShortcutsEditor, callback: *const fn (self: QtC.KShortcutsEditor, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
+        qtc.KShortcutsEditor_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5137,9 +5137,9 @@ pub const kshortcutseditor = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KShortcutsEditor, slot: fn (self: QtC.KShortcutsEditor, signal: QtC.QMetaMethod) callconv(.c) bool ```
-    pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KShortcutsEditor_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KShortcutsEditor, callback: *const fn (self: QtC.KShortcutsEditor, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KShortcutsEditor_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -5170,9 +5170,9 @@ pub const kshortcutseditor = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KShortcutsEditor, slot: fn (self: QtC.KShortcutsEditor, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 ```
-    pub fn OnGetDecodedMetricF(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
-        qtc.KShortcutsEditor_OnGetDecodedMetricF(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KShortcutsEditor, callback: *const fn (self: QtC.KShortcutsEditor, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 ```
+    pub fn OnGetDecodedMetricF(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
+        qtc.KShortcutsEditor_OnGetDecodedMetricF(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5181,9 +5181,9 @@ pub const kshortcutseditor = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KShortcutsEditor, slot: fn (self: QtC.KShortcutsEditor, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KShortcutsEditor, callback: *const fn (self: QtC.KShortcutsEditor, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kshortcutseditor.html#dtor.KShortcutsEditor)

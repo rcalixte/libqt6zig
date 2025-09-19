@@ -41,9 +41,9 @@ pub const kviewstateserializer = struct {
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KViewStateSerializer, slot: fn (self: QtC.KViewStateSerializer, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
-        qtc.KViewStateSerializer_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KViewStateSerializer, callback: *const fn (self: QtC.KViewStateSerializer, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+        qtc.KViewStateSerializer_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -230,9 +230,9 @@ pub const kviewstateserializer = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KViewStateSerializer, slot: fn (self: QtC.KViewStateSerializer, model: QtC.QAbstractItemModel, key: [*:0]const u8) callconv(.c) QtC.QModelIndex ```
-    pub fn OnIndexFromConfigString(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) QtC.QModelIndex) void {
-        qtc.KViewStateSerializer_OnIndexFromConfigString(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KViewStateSerializer, callback: *const fn (self: QtC.KViewStateSerializer, model: QtC.QAbstractItemModel, key: [*:0]const u8) callconv(.c) QtC.QModelIndex ```
+    pub fn OnIndexFromConfigString(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) QtC.QModelIndex) void {
+        qtc.KViewStateSerializer_OnIndexFromConfigString(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kviewstateserializer.html#indexFromConfigString)
@@ -263,9 +263,9 @@ pub const kviewstateserializer = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KViewStateSerializer, slot: fn (self: QtC.KViewStateSerializer, index: QtC.QModelIndex) callconv(.c) [*:0]const u8 ```
-    pub fn OnIndexToConfigString(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) [*:0]const u8) void {
-        qtc.KViewStateSerializer_OnIndexToConfigString(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KViewStateSerializer, callback: *const fn (self: QtC.KViewStateSerializer, index: QtC.QModelIndex) callconv(.c) [*:0]const u8 ```
+    pub fn OnIndexToConfigString(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) [*:0]const u8) void {
+        qtc.KViewStateSerializer_OnIndexToConfigString(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kviewstateserializer.html#indexToConfigString)
@@ -292,9 +292,9 @@ pub const kviewstateserializer = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KViewStateSerializer, slot: fn () callconv(.c) void ```
-    pub fn OnRestoreState(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KViewStateSerializer_OnRestoreState(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KViewStateSerializer, callback: *const fn () callconv(.c) void ```
+    pub fn OnRestoreState(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KViewStateSerializer_OnRestoreState(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kviewstateserializer.html#restoreState)
@@ -620,9 +620,9 @@ pub const kviewstateserializer = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KViewStateSerializer, slot: fn (self: QtC.KViewStateSerializer) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KViewStateSerializer, callback: *const fn (self: QtC.KViewStateSerializer) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -704,9 +704,9 @@ pub const kviewstateserializer = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KViewStateSerializer, slot: fn (self: QtC.KViewStateSerializer, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KViewStateSerializer, callback: *const fn (self: QtC.KViewStateSerializer, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -737,9 +737,9 @@ pub const kviewstateserializer = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KViewStateSerializer, slot: fn (self: QtC.KViewStateSerializer, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KViewStateSerializer_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KViewStateSerializer, callback: *const fn (self: QtC.KViewStateSerializer, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KViewStateSerializer_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -770,9 +770,9 @@ pub const kviewstateserializer = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KViewStateSerializer, slot: fn (self: QtC.KViewStateSerializer, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KViewStateSerializer_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KViewStateSerializer, callback: *const fn (self: QtC.KViewStateSerializer, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KViewStateSerializer_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -803,9 +803,9 @@ pub const kviewstateserializer = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KViewStateSerializer, slot: fn (self: QtC.KViewStateSerializer, event: QtC.QTimerEvent) callconv(.c) void ```
-    pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KViewStateSerializer_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KViewStateSerializer, callback: *const fn (self: QtC.KViewStateSerializer, event: QtC.QTimerEvent) callconv(.c) void ```
+    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KViewStateSerializer_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -836,9 +836,9 @@ pub const kviewstateserializer = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KViewStateSerializer, slot: fn (self: QtC.KViewStateSerializer, event: QtC.QChildEvent) callconv(.c) void ```
-    pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KViewStateSerializer_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KViewStateSerializer, callback: *const fn (self: QtC.KViewStateSerializer, event: QtC.QChildEvent) callconv(.c) void ```
+    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KViewStateSerializer_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -869,9 +869,9 @@ pub const kviewstateserializer = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KViewStateSerializer, slot: fn (self: QtC.KViewStateSerializer, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KViewStateSerializer_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KViewStateSerializer, callback: *const fn (self: QtC.KViewStateSerializer, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KViewStateSerializer_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -902,9 +902,9 @@ pub const kviewstateserializer = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KViewStateSerializer, slot: fn (self: QtC.KViewStateSerializer, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KViewStateSerializer_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KViewStateSerializer, callback: *const fn (self: QtC.KViewStateSerializer, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KViewStateSerializer_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -935,9 +935,9 @@ pub const kviewstateserializer = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KViewStateSerializer, slot: fn (self: QtC.KViewStateSerializer, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KViewStateSerializer_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KViewStateSerializer, callback: *const fn (self: QtC.KViewStateSerializer, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KViewStateSerializer_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -968,9 +968,9 @@ pub const kviewstateserializer = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KViewStateSerializer, slot: fn () callconv(.c) QtC.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
-        qtc.KViewStateSerializer_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KViewStateSerializer, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.KViewStateSerializer_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1001,9 +1001,9 @@ pub const kviewstateserializer = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KViewStateSerializer, slot: fn () callconv(.c) i32 ```
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.KViewStateSerializer_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KViewStateSerializer, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.KViewStateSerializer_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1036,9 +1036,9 @@ pub const kviewstateserializer = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KViewStateSerializer, slot: fn (self: QtC.KViewStateSerializer, signal: [*:0]const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KViewStateSerializer_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KViewStateSerializer, callback: *const fn (self: QtC.KViewStateSerializer, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
+        qtc.KViewStateSerializer_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1069,9 +1069,9 @@ pub const kviewstateserializer = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KViewStateSerializer, slot: fn (self: QtC.KViewStateSerializer, signal: QtC.QMetaMethod) callconv(.c) bool ```
-    pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KViewStateSerializer_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KViewStateSerializer, callback: *const fn (self: QtC.KViewStateSerializer, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KViewStateSerializer_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1080,9 +1080,9 @@ pub const kviewstateserializer = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KViewStateSerializer, slot: fn (self: QtC.KViewStateSerializer, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KViewStateSerializer, callback: *const fn (self: QtC.KViewStateSerializer, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kviewstateserializer.html#dtor.KViewStateSerializer)

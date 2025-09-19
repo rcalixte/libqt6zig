@@ -10,7 +10,7 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QIconEnginePlugin so that we can call protected methods
-class VirtualQIconEnginePlugin final : public QIconEnginePlugin {
+class VirtualQIconEnginePlugin : public QIconEnginePlugin {
 
   public:
     // Virtual class boolean flag

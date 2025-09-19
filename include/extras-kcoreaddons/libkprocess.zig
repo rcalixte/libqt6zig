@@ -43,9 +43,9 @@ pub const kprocess = struct {
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KProcess, slot: fn (self: QtC.KProcess, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
-        qtc.KProcess_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KProcess, callback: *const fn (self: QtC.KProcess, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+        qtc.KProcess_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -945,9 +945,9 @@ pub const kprocess = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#finished)
     ///
-    /// ``` self: QtC.KProcess, slot: fn (self: QtC.KProcess, exitCode: i32) callconv(.c) void ```
-    pub fn OnFinished(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QProcess_Connect_Finished(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KProcess, callback: *const fn (self: QtC.KProcess, exitCode: i32) callconv(.c) void ```
+    pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QProcess_Connect_Finished(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QProcess
@@ -963,9 +963,9 @@ pub const kprocess = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#errorOccurred)
     ///
-    /// ``` self: QtC.KProcess, slot: fn (self: QtC.KProcess, errorVal: qprocess_enums.ProcessError) callconv(.c) void ```
-    pub fn OnErrorOccurred(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QProcess_Connect_ErrorOccurred(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KProcess, callback: *const fn (self: QtC.KProcess, errorVal: qprocess_enums.ProcessError) callconv(.c) void ```
+    pub fn OnErrorOccurred(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QProcess_Connect_ErrorOccurred(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QProcess
@@ -1145,9 +1145,9 @@ pub const kprocess = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qprocess.html#finished)
     ///
-    /// ``` self: QtC.KProcess, slot: fn (self: QtC.KProcess, exitCode: i32, exitStatus: qprocess_enums.ExitStatus) callconv(.c) void ```
-    pub fn OnFinished2(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QProcess_Connect_Finished2(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KProcess, callback: *const fn (self: QtC.KProcess, exitCode: i32, exitStatus: qprocess_enums.ExitStatus) callconv(.c) void ```
+    pub fn OnFinished2(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
+        qtc.QProcess_Connect_Finished2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -1474,9 +1474,9 @@ pub const kprocess = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#readyRead)
     ///
-    /// ``` self: QtC.KProcess, slot: fn (self: QtC.KProcess) callconv(.c) void ```
-    pub fn OnReadyRead(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QIODevice_Connect_ReadyRead(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KProcess, callback: *const fn (self: QtC.KProcess) callconv(.c) void ```
+    pub fn OnReadyRead(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QIODevice_Connect_ReadyRead(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -1492,9 +1492,9 @@ pub const kprocess = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#channelReadyRead)
     ///
-    /// ``` self: QtC.KProcess, slot: fn (self: QtC.KProcess, channel: i32) callconv(.c) void ```
-    pub fn OnChannelReadyRead(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QIODevice_Connect_ChannelReadyRead(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KProcess, callback: *const fn (self: QtC.KProcess, channel: i32) callconv(.c) void ```
+    pub fn OnChannelReadyRead(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QIODevice_Connect_ChannelReadyRead(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -1510,9 +1510,9 @@ pub const kprocess = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#bytesWritten)
     ///
-    /// ``` self: QtC.KProcess, slot: fn (self: QtC.KProcess, bytes: i64) callconv(.c) void ```
-    pub fn OnBytesWritten(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
-        qtc.QIODevice_Connect_BytesWritten(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KProcess, callback: *const fn (self: QtC.KProcess, bytes: i64) callconv(.c) void ```
+    pub fn OnBytesWritten(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) void) void {
+        qtc.QIODevice_Connect_BytesWritten(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -1528,9 +1528,9 @@ pub const kprocess = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#channelBytesWritten)
     ///
-    /// ``` self: QtC.KProcess, slot: fn (self: QtC.KProcess, channel: i32, bytes: i64) callconv(.c) void ```
-    pub fn OnChannelBytesWritten(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i64) callconv(.c) void) void {
-        qtc.QIODevice_Connect_ChannelBytesWritten(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KProcess, callback: *const fn (self: QtC.KProcess, channel: i32, bytes: i64) callconv(.c) void ```
+    pub fn OnChannelBytesWritten(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i64) callconv(.c) void) void {
+        qtc.QIODevice_Connect_ChannelBytesWritten(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -1546,9 +1546,9 @@ pub const kprocess = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#aboutToClose)
     ///
-    /// ``` self: QtC.KProcess, slot: fn (self: QtC.KProcess) callconv(.c) void ```
-    pub fn OnAboutToClose(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QIODevice_Connect_AboutToClose(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KProcess, callback: *const fn (self: QtC.KProcess) callconv(.c) void ```
+    pub fn OnAboutToClose(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QIODevice_Connect_AboutToClose(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -1564,9 +1564,9 @@ pub const kprocess = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#readChannelFinished)
     ///
-    /// ``` self: QtC.KProcess, slot: fn (self: QtC.KProcess) callconv(.c) void ```
-    pub fn OnReadChannelFinished(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QIODevice_Connect_ReadChannelFinished(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KProcess, callback: *const fn (self: QtC.KProcess) callconv(.c) void ```
+    pub fn OnReadChannelFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QIODevice_Connect_ReadChannelFinished(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -1870,9 +1870,9 @@ pub const kprocess = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KProcess, slot: fn (self: QtC.KProcess) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KProcess, callback: *const fn (self: QtC.KProcess) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1954,9 +1954,9 @@ pub const kprocess = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KProcess, slot: fn (self: QtC.KProcess, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KProcess, callback: *const fn (self: QtC.KProcess, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QProcess
@@ -1987,9 +1987,9 @@ pub const kprocess = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KProcess, slot: fn (self: QtC.KProcess, mode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) bool ```
-    pub fn OnOpen(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.KProcess_OnOpen(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KProcess, callback: *const fn (self: QtC.KProcess, mode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) bool ```
+    pub fn OnOpen(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
+        qtc.KProcess_OnOpen(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QProcess
@@ -2020,9 +2020,9 @@ pub const kprocess = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KProcess, slot: fn (self: QtC.KProcess, msecs: i32) callconv(.c) bool ```
-    pub fn OnWaitForReadyRead(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.KProcess_OnWaitForReadyRead(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KProcess, callback: *const fn (self: QtC.KProcess, msecs: i32) callconv(.c) bool ```
+    pub fn OnWaitForReadyRead(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
+        qtc.KProcess_OnWaitForReadyRead(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QProcess
@@ -2053,9 +2053,9 @@ pub const kprocess = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KProcess, slot: fn (self: QtC.KProcess, msecs: i32) callconv(.c) bool ```
-    pub fn OnWaitForBytesWritten(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.KProcess_OnWaitForBytesWritten(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KProcess, callback: *const fn (self: QtC.KProcess, msecs: i32) callconv(.c) bool ```
+    pub fn OnWaitForBytesWritten(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
+        qtc.KProcess_OnWaitForBytesWritten(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QProcess
@@ -2086,9 +2086,9 @@ pub const kprocess = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KProcess, slot: fn () callconv(.c) i64 ```
-    pub fn OnBytesToWrite(self: ?*anyopaque, slot: fn () callconv(.c) i64) void {
-        qtc.KProcess_OnBytesToWrite(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KProcess, callback: *const fn () callconv(.c) i64 ```
+    pub fn OnBytesToWrite(self: ?*anyopaque, callback: *const fn () callconv(.c) i64) void {
+        qtc.KProcess_OnBytesToWrite(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QProcess
@@ -2119,9 +2119,9 @@ pub const kprocess = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KProcess, slot: fn () callconv(.c) bool ```
-    pub fn OnIsSequential(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.KProcess_OnIsSequential(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KProcess, callback: *const fn () callconv(.c) bool ```
+    pub fn OnIsSequential(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.KProcess_OnIsSequential(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QProcess
@@ -2152,9 +2152,9 @@ pub const kprocess = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KProcess, slot: fn () callconv(.c) void ```
-    pub fn OnClose(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KProcess_OnClose(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KProcess, callback: *const fn () callconv(.c) void ```
+    pub fn OnClose(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KProcess_OnClose(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QProcess
@@ -2187,9 +2187,9 @@ pub const kprocess = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KProcess, slot: fn (self: QtC.KProcess, data: [*:0]const u8, maxlen: i64) callconv(.c) i64 ```
-    pub fn OnReadData(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, i64) callconv(.c) i64) void {
-        qtc.KProcess_OnReadData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KProcess, callback: *const fn (self: QtC.KProcess, data: [*:0]const u8, maxlen: i64) callconv(.c) i64 ```
+    pub fn OnReadData(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i64) callconv(.c) i64) void {
+        qtc.KProcess_OnReadData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QProcess
@@ -2222,9 +2222,9 @@ pub const kprocess = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KProcess, slot: fn (self: QtC.KProcess, data: [*:0]const u8, lenVal: i64) callconv(.c) i64 ```
-    pub fn OnWriteData(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, i64) callconv(.c) i64) void {
-        qtc.KProcess_OnWriteData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KProcess, callback: *const fn (self: QtC.KProcess, data: [*:0]const u8, lenVal: i64) callconv(.c) i64 ```
+    pub fn OnWriteData(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i64) callconv(.c) i64) void {
+        qtc.KProcess_OnWriteData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -2255,9 +2255,9 @@ pub const kprocess = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KProcess, slot: fn () callconv(.c) i64 ```
-    pub fn OnPos(self: ?*anyopaque, slot: fn () callconv(.c) i64) void {
-        qtc.KProcess_OnPos(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KProcess, callback: *const fn () callconv(.c) i64 ```
+    pub fn OnPos(self: ?*anyopaque, callback: *const fn () callconv(.c) i64) void {
+        qtc.KProcess_OnPos(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -2288,9 +2288,9 @@ pub const kprocess = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KProcess, slot: fn () callconv(.c) i64 ```
-    pub fn OnSize(self: ?*anyopaque, slot: fn () callconv(.c) i64) void {
-        qtc.KProcess_OnSize(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KProcess, callback: *const fn () callconv(.c) i64 ```
+    pub fn OnSize(self: ?*anyopaque, callback: *const fn () callconv(.c) i64) void {
+        qtc.KProcess_OnSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -2321,9 +2321,9 @@ pub const kprocess = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KProcess, slot: fn (self: QtC.KProcess, pos: i64) callconv(.c) bool ```
-    pub fn OnSeek(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) bool) void {
-        qtc.KProcess_OnSeek(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KProcess, callback: *const fn (self: QtC.KProcess, pos: i64) callconv(.c) bool ```
+    pub fn OnSeek(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) bool) void {
+        qtc.KProcess_OnSeek(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -2354,9 +2354,9 @@ pub const kprocess = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KProcess, slot: fn () callconv(.c) bool ```
-    pub fn OnAtEnd(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.KProcess_OnAtEnd(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KProcess, callback: *const fn () callconv(.c) bool ```
+    pub fn OnAtEnd(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.KProcess_OnAtEnd(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -2387,9 +2387,9 @@ pub const kprocess = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KProcess, slot: fn () callconv(.c) bool ```
-    pub fn OnReset(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.KProcess_OnReset(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KProcess, callback: *const fn () callconv(.c) bool ```
+    pub fn OnReset(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.KProcess_OnReset(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -2420,9 +2420,9 @@ pub const kprocess = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KProcess, slot: fn () callconv(.c) i64 ```
-    pub fn OnBytesAvailable(self: ?*anyopaque, slot: fn () callconv(.c) i64) void {
-        qtc.KProcess_OnBytesAvailable(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KProcess, callback: *const fn () callconv(.c) i64 ```
+    pub fn OnBytesAvailable(self: ?*anyopaque, callback: *const fn () callconv(.c) i64) void {
+        qtc.KProcess_OnBytesAvailable(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -2453,9 +2453,9 @@ pub const kprocess = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KProcess, slot: fn () callconv(.c) bool ```
-    pub fn OnCanReadLine(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.KProcess_OnCanReadLine(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KProcess, callback: *const fn () callconv(.c) bool ```
+    pub fn OnCanReadLine(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.KProcess_OnCanReadLine(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -2488,9 +2488,9 @@ pub const kprocess = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KProcess, slot: fn (self: QtC.KProcess, data: [*:0]const u8, maxlen: i64) callconv(.c) i64 ```
-    pub fn OnReadLineData(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, i64) callconv(.c) i64) void {
-        qtc.KProcess_OnReadLineData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KProcess, callback: *const fn (self: QtC.KProcess, data: [*:0]const u8, maxlen: i64) callconv(.c) i64 ```
+    pub fn OnReadLineData(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i64) callconv(.c) i64) void {
+        qtc.KProcess_OnReadLineData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -2521,9 +2521,9 @@ pub const kprocess = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KProcess, slot: fn (self: QtC.KProcess, maxSize: i64) callconv(.c) i64 ```
-    pub fn OnSkipData(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) i64) void {
-        qtc.KProcess_OnSkipData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KProcess, callback: *const fn (self: QtC.KProcess, maxSize: i64) callconv(.c) i64 ```
+    pub fn OnSkipData(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) i64) void {
+        qtc.KProcess_OnSkipData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2554,9 +2554,9 @@ pub const kprocess = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KProcess, slot: fn (self: QtC.KProcess, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KProcess_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KProcess, callback: *const fn (self: QtC.KProcess, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KProcess_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2587,9 +2587,9 @@ pub const kprocess = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KProcess, slot: fn (self: QtC.KProcess, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KProcess_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KProcess, callback: *const fn (self: QtC.KProcess, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KProcess_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2620,9 +2620,9 @@ pub const kprocess = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KProcess, slot: fn (self: QtC.KProcess, event: QtC.QTimerEvent) callconv(.c) void ```
-    pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KProcess_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KProcess, callback: *const fn (self: QtC.KProcess, event: QtC.QTimerEvent) callconv(.c) void ```
+    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KProcess_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2653,9 +2653,9 @@ pub const kprocess = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KProcess, slot: fn (self: QtC.KProcess, event: QtC.QChildEvent) callconv(.c) void ```
-    pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KProcess_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KProcess, callback: *const fn (self: QtC.KProcess, event: QtC.QChildEvent) callconv(.c) void ```
+    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KProcess_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2686,9 +2686,9 @@ pub const kprocess = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KProcess, slot: fn (self: QtC.KProcess, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KProcess_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KProcess, callback: *const fn (self: QtC.KProcess, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KProcess_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2719,9 +2719,9 @@ pub const kprocess = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KProcess, slot: fn (self: QtC.KProcess, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KProcess_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KProcess, callback: *const fn (self: QtC.KProcess, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KProcess_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2752,9 +2752,9 @@ pub const kprocess = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KProcess, slot: fn (self: QtC.KProcess, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KProcess_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KProcess, callback: *const fn (self: QtC.KProcess, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KProcess_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QProcess
@@ -2785,9 +2785,9 @@ pub const kprocess = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KProcess, slot: fn (self: QtC.KProcess, state: qprocess_enums.ProcessState) callconv(.c) void ```
-    pub fn OnSetProcessState(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KProcess_OnSetProcessState(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KProcess, callback: *const fn (self: QtC.KProcess, state: qprocess_enums.ProcessState) callconv(.c) void ```
+    pub fn OnSetProcessState(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.KProcess_OnSetProcessState(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -2818,9 +2818,9 @@ pub const kprocess = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KProcess, slot: fn (self: QtC.KProcess, openMode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) void ```
-    pub fn OnSetOpenMode(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KProcess_OnSetOpenMode(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KProcess, callback: *const fn (self: QtC.KProcess, openMode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) void ```
+    pub fn OnSetOpenMode(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.KProcess_OnSetOpenMode(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -2859,9 +2859,9 @@ pub const kprocess = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KProcess, slot: fn (self: QtC.KProcess, errorString: [*:0]const u8) callconv(.c) void ```
-    pub fn OnSetErrorString(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KProcess_OnSetErrorString(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KProcess, callback: *const fn (self: QtC.KProcess, errorString: [*:0]const u8) callconv(.c) void ```
+    pub fn OnSetErrorString(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.KProcess_OnSetErrorString(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2892,9 +2892,9 @@ pub const kprocess = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KProcess, slot: fn () callconv(.c) QtC.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
-        qtc.KProcess_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KProcess, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.KProcess_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2925,9 +2925,9 @@ pub const kprocess = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KProcess, slot: fn () callconv(.c) i32 ```
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.KProcess_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KProcess, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.KProcess_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2960,9 +2960,9 @@ pub const kprocess = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KProcess, slot: fn (self: QtC.KProcess, signal: [*:0]const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KProcess_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KProcess, callback: *const fn (self: QtC.KProcess, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
+        qtc.KProcess_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2993,9 +2993,9 @@ pub const kprocess = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KProcess, slot: fn (self: QtC.KProcess, signal: QtC.QMetaMethod) callconv(.c) bool ```
-    pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KProcess_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KProcess, callback: *const fn (self: QtC.KProcess, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KProcess_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QProcess
@@ -3004,9 +3004,9 @@ pub const kprocess = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KProcess, slot: fn (self: QtC.KProcess) callconv(.c) void ```
-    pub fn OnStarted(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QProcess_Connect_Started(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KProcess, callback: *const fn (self: QtC.KProcess) callconv(.c) void ```
+    pub fn OnStarted(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QProcess_Connect_Started(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QProcess
@@ -3015,9 +3015,9 @@ pub const kprocess = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KProcess, slot: fn (self: QtC.KProcess, state: qprocess_enums.ProcessState) callconv(.c) void ```
-    pub fn OnStateChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QProcess_Connect_StateChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KProcess, callback: *const fn (self: QtC.KProcess, state: qprocess_enums.ProcessState) callconv(.c) void ```
+    pub fn OnStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QProcess_Connect_StateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QProcess
@@ -3026,9 +3026,9 @@ pub const kprocess = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KProcess, slot: fn (self: QtC.KProcess) callconv(.c) void ```
-    pub fn OnReadyReadStandardOutput(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QProcess_Connect_ReadyReadStandardOutput(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KProcess, callback: *const fn (self: QtC.KProcess) callconv(.c) void ```
+    pub fn OnReadyReadStandardOutput(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QProcess_Connect_ReadyReadStandardOutput(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QProcess
@@ -3037,9 +3037,9 @@ pub const kprocess = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KProcess, slot: fn (self: QtC.KProcess) callconv(.c) void ```
-    pub fn OnReadyReadStandardError(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QProcess_Connect_ReadyReadStandardError(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KProcess, callback: *const fn (self: QtC.KProcess) callconv(.c) void ```
+    pub fn OnReadyReadStandardError(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QProcess_Connect_ReadyReadStandardError(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3048,9 +3048,9 @@ pub const kprocess = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KProcess, slot: fn (self: QtC.KProcess, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KProcess, callback: *const fn (self: QtC.KProcess, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kprocess.html#dtor.KProcess)

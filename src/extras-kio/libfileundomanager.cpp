@@ -1,7 +1,7 @@
 #define WORKAROUND_INNER_CLASS_DEFINITION_KIO__CopyJob
 #define WORKAROUND_INNER_CLASS_DEFINITION_KIO__FileUndoManager
 #define WORKAROUND_INNER_CLASS_DEFINITION_KIO__FileUndoManager__UiInterface
-#define WORKAROUND_INNER_CLASS_DEFINITION_KIO__Job
+#include <KIO/Job>
 #include <QDateTime>
 #include <QList>
 #include <QMetaMethod>

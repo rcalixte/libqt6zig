@@ -10,7 +10,7 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QIODevice so that we can call protected methods
-class VirtualQIODevice final : public QIODevice {
+class VirtualQIODevice : public QIODevice {
 
   public:
     // Virtual class boolean flag

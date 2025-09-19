@@ -61,9 +61,9 @@ pub const krecentfilesaction = struct {
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KRecentFilesAction, slot: fn (self: QtC.KRecentFilesAction, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
-        qtc.KRecentFilesAction_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRecentFilesAction, callback: *const fn (self: QtC.KRecentFilesAction, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+        qtc.KRecentFilesAction_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -107,9 +107,9 @@ pub const krecentfilesaction = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KRecentFilesAction, slot: fn (self: QtC.KRecentFilesAction, action: QtC.QAction) callconv(.c) QtC.QAction ```
-    pub fn OnRemoveAction(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QAction) void {
-        qtc.KRecentFilesAction_OnRemoveAction(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRecentFilesAction, callback: *const fn (self: QtC.KRecentFilesAction, action: QtC.QAction) callconv(.c) QtC.QAction ```
+    pub fn OnRemoveAction(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QAction) void {
+        qtc.KRecentFilesAction_OnRemoveAction(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/krecentfilesaction.html#removeAction)
@@ -201,9 +201,9 @@ pub const krecentfilesaction = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KRecentFilesAction, slot: fn () callconv(.c) void ```
-    pub fn OnClear(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KRecentFilesAction_OnClear(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRecentFilesAction, callback: *const fn () callconv(.c) void ```
+    pub fn OnClear(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KRecentFilesAction_OnClear(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/krecentfilesaction.html#clear)
@@ -224,9 +224,9 @@ pub const krecentfilesaction = struct {
 
     /// [Qt documentation](https://api.kde.org/krecentfilesaction.html#urlSelected)
     ///
-    /// ``` self: QtC.KRecentFilesAction, slot: fn (self: QtC.KRecentFilesAction, url: QtC.QUrl) callconv(.c) void ```
-    pub fn OnUrlSelected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRecentFilesAction_Connect_UrlSelected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRecentFilesAction, callback: *const fn (self: QtC.KRecentFilesAction, url: QtC.QUrl) callconv(.c) void ```
+    pub fn OnUrlSelected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KRecentFilesAction_Connect_UrlSelected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/krecentfilesaction.html#recentListCleared)
@@ -238,9 +238,9 @@ pub const krecentfilesaction = struct {
 
     /// [Qt documentation](https://api.kde.org/krecentfilesaction.html#recentListCleared)
     ///
-    /// ``` self: QtC.KRecentFilesAction, slot: fn (self: QtC.KRecentFilesAction) callconv(.c) void ```
-    pub fn OnRecentListCleared(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.KRecentFilesAction_Connect_RecentListCleared(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRecentFilesAction, callback: *const fn (self: QtC.KRecentFilesAction) callconv(.c) void ```
+    pub fn OnRecentListCleared(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.KRecentFilesAction_Connect_RecentListCleared(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -607,9 +607,9 @@ pub const krecentfilesaction = struct {
     ///
     /// [Qt documentation](https://api.kde.org/kselectaction.html#actionTriggered)
     ///
-    /// ``` self: QtC.KRecentFilesAction, slot: fn (self: QtC.KRecentFilesAction, action: QtC.QAction) callconv(.c) void ```
-    pub fn OnActionTriggered(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KSelectAction_Connect_ActionTriggered(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRecentFilesAction, callback: *const fn (self: QtC.KRecentFilesAction, action: QtC.QAction) callconv(.c) void ```
+    pub fn OnActionTriggered(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KSelectAction_Connect_ActionTriggered(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KSelectAction
@@ -625,9 +625,9 @@ pub const krecentfilesaction = struct {
     ///
     /// [Qt documentation](https://api.kde.org/kselectaction.html#indexTriggered)
     ///
-    /// ``` self: QtC.KRecentFilesAction, slot: fn (self: QtC.KRecentFilesAction, index: i32) callconv(.c) void ```
-    pub fn OnIndexTriggered(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KSelectAction_Connect_IndexTriggered(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRecentFilesAction, callback: *const fn (self: QtC.KRecentFilesAction, index: i32) callconv(.c) void ```
+    pub fn OnIndexTriggered(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.KSelectAction_Connect_IndexTriggered(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KSelectAction
@@ -647,9 +647,9 @@ pub const krecentfilesaction = struct {
     ///
     /// [Qt documentation](https://api.kde.org/kselectaction.html#textTriggered)
     ///
-    /// ``` self: QtC.KRecentFilesAction, slot: fn (self: QtC.KRecentFilesAction, text: [*:0]const u8) callconv(.c) void ```
-    pub fn OnTextTriggered(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KSelectAction_Connect_TextTriggered(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRecentFilesAction, callback: *const fn (self: QtC.KRecentFilesAction, text: [*:0]const u8) callconv(.c) void ```
+    pub fn OnTextTriggered(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.KSelectAction_Connect_TextTriggered(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KSelectAction
@@ -1264,9 +1264,9 @@ pub const krecentfilesaction = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#changed)
     ///
-    /// ``` self: QtC.KRecentFilesAction, slot: fn (self: QtC.KRecentFilesAction) callconv(.c) void ```
-    pub fn OnChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAction_Connect_Changed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRecentFilesAction, callback: *const fn (self: QtC.KRecentFilesAction) callconv(.c) void ```
+    pub fn OnChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QAction_Connect_Changed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAction
@@ -1282,9 +1282,9 @@ pub const krecentfilesaction = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#enabledChanged)
     ///
-    /// ``` self: QtC.KRecentFilesAction, slot: fn (self: QtC.KRecentFilesAction, enabled: bool) callconv(.c) void ```
-    pub fn OnEnabledChanged(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAction_Connect_EnabledChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRecentFilesAction, callback: *const fn (self: QtC.KRecentFilesAction, enabled: bool) callconv(.c) void ```
+    pub fn OnEnabledChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QAction_Connect_EnabledChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAction
@@ -1300,9 +1300,9 @@ pub const krecentfilesaction = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#checkableChanged)
     ///
-    /// ``` self: QtC.KRecentFilesAction, slot: fn (self: QtC.KRecentFilesAction, checkable: bool) callconv(.c) void ```
-    pub fn OnCheckableChanged(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAction_Connect_CheckableChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRecentFilesAction, callback: *const fn (self: QtC.KRecentFilesAction, checkable: bool) callconv(.c) void ```
+    pub fn OnCheckableChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QAction_Connect_CheckableChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAction
@@ -1318,9 +1318,9 @@ pub const krecentfilesaction = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#visibleChanged)
     ///
-    /// ``` self: QtC.KRecentFilesAction, slot: fn (self: QtC.KRecentFilesAction) callconv(.c) void ```
-    pub fn OnVisibleChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAction_Connect_VisibleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRecentFilesAction, callback: *const fn (self: QtC.KRecentFilesAction) callconv(.c) void ```
+    pub fn OnVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QAction_Connect_VisibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAction
@@ -1336,9 +1336,9 @@ pub const krecentfilesaction = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#triggered)
     ///
-    /// ``` self: QtC.KRecentFilesAction, slot: fn (self: QtC.KRecentFilesAction) callconv(.c) void ```
-    pub fn OnTriggered(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAction_Connect_Triggered(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRecentFilesAction, callback: *const fn (self: QtC.KRecentFilesAction) callconv(.c) void ```
+    pub fn OnTriggered(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QAction_Connect_Triggered(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAction
@@ -1354,9 +1354,9 @@ pub const krecentfilesaction = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#hovered)
     ///
-    /// ``` self: QtC.KRecentFilesAction, slot: fn (self: QtC.KRecentFilesAction) callconv(.c) void ```
-    pub fn OnHovered(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAction_Connect_Hovered(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRecentFilesAction, callback: *const fn (self: QtC.KRecentFilesAction) callconv(.c) void ```
+    pub fn OnHovered(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QAction_Connect_Hovered(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAction
@@ -1372,9 +1372,9 @@ pub const krecentfilesaction = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#toggled)
     ///
-    /// ``` self: QtC.KRecentFilesAction, slot: fn (self: QtC.KRecentFilesAction, param1: bool) callconv(.c) void ```
-    pub fn OnToggled(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAction_Connect_Toggled(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRecentFilesAction, callback: *const fn (self: QtC.KRecentFilesAction, param1: bool) callconv(.c) void ```
+    pub fn OnToggled(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QAction_Connect_Toggled(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAction
@@ -1399,9 +1399,9 @@ pub const krecentfilesaction = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#triggered)
     ///
-    /// ``` self: QtC.KRecentFilesAction, slot: fn (self: QtC.KRecentFilesAction, checked: bool) callconv(.c) void ```
-    pub fn OnTriggered1(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAction_Connect_Triggered1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRecentFilesAction, callback: *const fn (self: QtC.KRecentFilesAction, checked: bool) callconv(.c) void ```
+    pub fn OnTriggered1(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QAction_Connect_Triggered1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1692,9 +1692,9 @@ pub const krecentfilesaction = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KRecentFilesAction, slot: fn (self: QtC.KRecentFilesAction) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRecentFilesAction, callback: *const fn (self: QtC.KRecentFilesAction) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1776,9 +1776,9 @@ pub const krecentfilesaction = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KRecentFilesAction, slot: fn (self: QtC.KRecentFilesAction, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRecentFilesAction, callback: *const fn (self: QtC.KRecentFilesAction, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KSelectAction
@@ -1809,9 +1809,9 @@ pub const krecentfilesaction = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRecentFilesAction, slot: fn (self: QtC.KRecentFilesAction, before: QtC.QAction, action: QtC.QAction) callconv(.c) void ```
-    pub fn OnInsertAction(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRecentFilesAction_OnInsertAction(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRecentFilesAction, callback: *const fn (self: QtC.KRecentFilesAction, before: QtC.QAction, action: QtC.QAction) callconv(.c) void ```
+    pub fn OnInsertAction(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KRecentFilesAction_OnInsertAction(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KSelectAction
@@ -1842,9 +1842,9 @@ pub const krecentfilesaction = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRecentFilesAction, slot: fn (self: QtC.KRecentFilesAction, action: QtC.QAction) callconv(.c) void ```
-    pub fn OnSlotActionTriggered(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRecentFilesAction_OnSlotActionTriggered(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRecentFilesAction, callback: *const fn (self: QtC.KRecentFilesAction, action: QtC.QAction) callconv(.c) void ```
+    pub fn OnSlotActionTriggered(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KRecentFilesAction_OnSlotActionTriggered(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KSelectAction
@@ -1875,9 +1875,9 @@ pub const krecentfilesaction = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRecentFilesAction, slot: fn (self: QtC.KRecentFilesAction, parent: QtC.QWidget) callconv(.c) QtC.QWidget ```
-    pub fn OnCreateWidget(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QWidget) void {
-        qtc.KRecentFilesAction_OnCreateWidget(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRecentFilesAction, callback: *const fn (self: QtC.KRecentFilesAction, parent: QtC.QWidget) callconv(.c) QtC.QWidget ```
+    pub fn OnCreateWidget(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QWidget) void {
+        qtc.KRecentFilesAction_OnCreateWidget(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KSelectAction
@@ -1908,9 +1908,9 @@ pub const krecentfilesaction = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRecentFilesAction, slot: fn (self: QtC.KRecentFilesAction, widget: QtC.QWidget) callconv(.c) void ```
-    pub fn OnDeleteWidget(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRecentFilesAction_OnDeleteWidget(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRecentFilesAction, callback: *const fn (self: QtC.KRecentFilesAction, widget: QtC.QWidget) callconv(.c) void ```
+    pub fn OnDeleteWidget(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KRecentFilesAction_OnDeleteWidget(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KSelectAction
@@ -1941,9 +1941,9 @@ pub const krecentfilesaction = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRecentFilesAction, slot: fn (self: QtC.KRecentFilesAction, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KRecentFilesAction_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRecentFilesAction, callback: *const fn (self: QtC.KRecentFilesAction, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KRecentFilesAction_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KSelectAction
@@ -1974,9 +1974,9 @@ pub const krecentfilesaction = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRecentFilesAction, slot: fn (self: QtC.KRecentFilesAction, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KRecentFilesAction_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRecentFilesAction, callback: *const fn (self: QtC.KRecentFilesAction, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KRecentFilesAction_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2007,9 +2007,9 @@ pub const krecentfilesaction = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRecentFilesAction, slot: fn (self: QtC.KRecentFilesAction, event: QtC.QTimerEvent) callconv(.c) void ```
-    pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRecentFilesAction_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRecentFilesAction, callback: *const fn (self: QtC.KRecentFilesAction, event: QtC.QTimerEvent) callconv(.c) void ```
+    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KRecentFilesAction_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2040,9 +2040,9 @@ pub const krecentfilesaction = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRecentFilesAction, slot: fn (self: QtC.KRecentFilesAction, event: QtC.QChildEvent) callconv(.c) void ```
-    pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRecentFilesAction_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRecentFilesAction, callback: *const fn (self: QtC.KRecentFilesAction, event: QtC.QChildEvent) callconv(.c) void ```
+    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KRecentFilesAction_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2073,9 +2073,9 @@ pub const krecentfilesaction = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRecentFilesAction, slot: fn (self: QtC.KRecentFilesAction, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRecentFilesAction_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRecentFilesAction, callback: *const fn (self: QtC.KRecentFilesAction, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KRecentFilesAction_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2106,9 +2106,9 @@ pub const krecentfilesaction = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRecentFilesAction, slot: fn (self: QtC.KRecentFilesAction, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRecentFilesAction_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRecentFilesAction, callback: *const fn (self: QtC.KRecentFilesAction, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KRecentFilesAction_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2139,9 +2139,9 @@ pub const krecentfilesaction = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRecentFilesAction, slot: fn (self: QtC.KRecentFilesAction, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRecentFilesAction_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRecentFilesAction, callback: *const fn (self: QtC.KRecentFilesAction, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KRecentFilesAction_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KSelectAction
@@ -2172,9 +2172,9 @@ pub const krecentfilesaction = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRecentFilesAction, slot: fn (self: QtC.KRecentFilesAction, param1: bool) callconv(.c) void ```
-    pub fn OnSlotToggled(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.KRecentFilesAction_OnSlotToggled(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRecentFilesAction, callback: *const fn (self: QtC.KRecentFilesAction, param1: bool) callconv(.c) void ```
+    pub fn OnSlotToggled(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.KRecentFilesAction_OnSlotToggled(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidgetAction
@@ -2215,9 +2215,9 @@ pub const krecentfilesaction = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRecentFilesAction, slot: fn () callconv(.c) [*:null]QtC.QWidget ```
-    pub fn OnCreatedWidgets(self: ?*anyopaque, slot: fn () callconv(.c) [*:null]QtC.QWidget) void {
-        qtc.KRecentFilesAction_OnCreatedWidgets(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRecentFilesAction, callback: *const fn () callconv(.c) [*:null]QtC.QWidget ```
+    pub fn OnCreatedWidgets(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:null]QtC.QWidget) void {
+        qtc.KRecentFilesAction_OnCreatedWidgets(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2248,9 +2248,9 @@ pub const krecentfilesaction = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRecentFilesAction, slot: fn () callconv(.c) QtC.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
-        qtc.KRecentFilesAction_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRecentFilesAction, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.KRecentFilesAction_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2281,9 +2281,9 @@ pub const krecentfilesaction = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRecentFilesAction, slot: fn () callconv(.c) i32 ```
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.KRecentFilesAction_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRecentFilesAction, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.KRecentFilesAction_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2316,9 +2316,9 @@ pub const krecentfilesaction = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRecentFilesAction, slot: fn (self: QtC.KRecentFilesAction, signal: [*:0]const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KRecentFilesAction_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRecentFilesAction, callback: *const fn (self: QtC.KRecentFilesAction, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
+        qtc.KRecentFilesAction_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2349,9 +2349,9 @@ pub const krecentfilesaction = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRecentFilesAction, slot: fn (self: QtC.KRecentFilesAction, signal: QtC.QMetaMethod) callconv(.c) bool ```
-    pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KRecentFilesAction_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRecentFilesAction, callback: *const fn (self: QtC.KRecentFilesAction, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KRecentFilesAction_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2360,9 +2360,9 @@ pub const krecentfilesaction = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KRecentFilesAction, slot: fn (self: QtC.KRecentFilesAction, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRecentFilesAction, callback: *const fn (self: QtC.KRecentFilesAction, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/krecentfilesaction.html#dtor.KRecentFilesAction)

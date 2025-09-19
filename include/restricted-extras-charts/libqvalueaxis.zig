@@ -42,9 +42,9 @@ pub const qvalueaxis = struct {
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QValueAxis, slot: fn (self: QtC.QValueAxis, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QValueAxis_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QValueAxis, callback: *const fn (self: QtC.QValueAxis, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+        qtc.QValueAxis_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -79,9 +79,9 @@ pub const qvalueaxis = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QValueAxis, slot: fn () callconv(.c) i32 ```
-    pub fn OnType(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QValueAxis_OnType(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QValueAxis, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QValueAxis_OnType(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvalueaxis-qtcharts.html#type)
@@ -240,9 +240,9 @@ pub const qvalueaxis = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvalueaxis-qtcharts.html#minChanged)
     ///
-    /// ``` self: QtC.QValueAxis, slot: fn (self: QtC.QValueAxis, min: f64) callconv(.c) void ```
-    pub fn OnMinChanged(self: ?*anyopaque, slot: fn (?*anyopaque, f64) callconv(.c) void) void {
-        qtc.QValueAxis_Connect_MinChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QValueAxis, callback: *const fn (self: QtC.QValueAxis, min: f64) callconv(.c) void ```
+    pub fn OnMinChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
+        qtc.QValueAxis_Connect_MinChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvalueaxis-qtcharts.html#maxChanged)
@@ -254,9 +254,9 @@ pub const qvalueaxis = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvalueaxis-qtcharts.html#maxChanged)
     ///
-    /// ``` self: QtC.QValueAxis, slot: fn (self: QtC.QValueAxis, max: f64) callconv(.c) void ```
-    pub fn OnMaxChanged(self: ?*anyopaque, slot: fn (?*anyopaque, f64) callconv(.c) void) void {
-        qtc.QValueAxis_Connect_MaxChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QValueAxis, callback: *const fn (self: QtC.QValueAxis, max: f64) callconv(.c) void ```
+    pub fn OnMaxChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
+        qtc.QValueAxis_Connect_MaxChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvalueaxis-qtcharts.html#rangeChanged)
@@ -268,9 +268,9 @@ pub const qvalueaxis = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvalueaxis-qtcharts.html#rangeChanged)
     ///
-    /// ``` self: QtC.QValueAxis, slot: fn (self: QtC.QValueAxis, min: f64, max: f64) callconv(.c) void ```
-    pub fn OnRangeChanged(self: ?*anyopaque, slot: fn (?*anyopaque, f64, f64) callconv(.c) void) void {
-        qtc.QValueAxis_Connect_RangeChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QValueAxis, callback: *const fn (self: QtC.QValueAxis, min: f64, max: f64) callconv(.c) void ```
+    pub fn OnRangeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64, f64) callconv(.c) void) void {
+        qtc.QValueAxis_Connect_RangeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvalueaxis-qtcharts.html#tickCountChanged)
@@ -282,9 +282,9 @@ pub const qvalueaxis = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvalueaxis-qtcharts.html#tickCountChanged)
     ///
-    /// ``` self: QtC.QValueAxis, slot: fn (self: QtC.QValueAxis, tickCount: i32) callconv(.c) void ```
-    pub fn OnTickCountChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QValueAxis_Connect_TickCountChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QValueAxis, callback: *const fn (self: QtC.QValueAxis, tickCount: i32) callconv(.c) void ```
+    pub fn OnTickCountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QValueAxis_Connect_TickCountChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvalueaxis-qtcharts.html#minorTickCountChanged)
@@ -296,9 +296,9 @@ pub const qvalueaxis = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvalueaxis-qtcharts.html#minorTickCountChanged)
     ///
-    /// ``` self: QtC.QValueAxis, slot: fn (self: QtC.QValueAxis, tickCount: i32) callconv(.c) void ```
-    pub fn OnMinorTickCountChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QValueAxis_Connect_MinorTickCountChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QValueAxis, callback: *const fn (self: QtC.QValueAxis, tickCount: i32) callconv(.c) void ```
+    pub fn OnMinorTickCountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QValueAxis_Connect_MinorTickCountChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvalueaxis-qtcharts.html#labelFormatChanged)
@@ -314,9 +314,9 @@ pub const qvalueaxis = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvalueaxis-qtcharts.html#labelFormatChanged)
     ///
-    /// ``` self: QtC.QValueAxis, slot: fn (self: QtC.QValueAxis, format: [*:0]const u8) callconv(.c) void ```
-    pub fn OnLabelFormatChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QValueAxis_Connect_LabelFormatChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QValueAxis, callback: *const fn (self: QtC.QValueAxis, format: [*:0]const u8) callconv(.c) void ```
+    pub fn OnLabelFormatChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QValueAxis_Connect_LabelFormatChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvalueaxis-qtcharts.html#tickIntervalChanged)
@@ -328,9 +328,9 @@ pub const qvalueaxis = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvalueaxis-qtcharts.html#tickIntervalChanged)
     ///
-    /// ``` self: QtC.QValueAxis, slot: fn (self: QtC.QValueAxis, interval: f64) callconv(.c) void ```
-    pub fn OnTickIntervalChanged(self: ?*anyopaque, slot: fn (?*anyopaque, f64) callconv(.c) void) void {
-        qtc.QValueAxis_Connect_TickIntervalChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QValueAxis, callback: *const fn (self: QtC.QValueAxis, interval: f64) callconv(.c) void ```
+    pub fn OnTickIntervalChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
+        qtc.QValueAxis_Connect_TickIntervalChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvalueaxis-qtcharts.html#tickAnchorChanged)
@@ -342,9 +342,9 @@ pub const qvalueaxis = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvalueaxis-qtcharts.html#tickAnchorChanged)
     ///
-    /// ``` self: QtC.QValueAxis, slot: fn (self: QtC.QValueAxis, anchor: f64) callconv(.c) void ```
-    pub fn OnTickAnchorChanged(self: ?*anyopaque, slot: fn (?*anyopaque, f64) callconv(.c) void) void {
-        qtc.QValueAxis_Connect_TickAnchorChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QValueAxis, callback: *const fn (self: QtC.QValueAxis, anchor: f64) callconv(.c) void ```
+    pub fn OnTickAnchorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
+        qtc.QValueAxis_Connect_TickAnchorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvalueaxis-qtcharts.html#tickTypeChanged)
@@ -356,9 +356,9 @@ pub const qvalueaxis = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvalueaxis-qtcharts.html#tickTypeChanged)
     ///
-    /// ``` self: QtC.QValueAxis, slot: fn (self: QtC.QValueAxis, typeVal: qvalueaxis_enums.TickType) callconv(.c) void ```
-    pub fn OnTickTypeChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QValueAxis_Connect_TickTypeChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QValueAxis, callback: *const fn (self: QtC.QValueAxis, typeVal: qvalueaxis_enums.TickType) callconv(.c) void ```
+    pub fn OnTickTypeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QValueAxis_Connect_TickTypeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -943,9 +943,9 @@ pub const qvalueaxis = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#visibleChanged)
     ///
-    /// ``` self: QtC.QValueAxis, slot: fn (self: QtC.QValueAxis, visible: bool) callconv(.c) void ```
-    pub fn OnVisibleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_VisibleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QValueAxis, callback: *const fn (self: QtC.QValueAxis, visible: bool) callconv(.c) void ```
+    pub fn OnVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QAbstractAxis_Connect_VisibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -961,9 +961,9 @@ pub const qvalueaxis = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#linePenChanged)
     ///
-    /// ``` self: QtC.QValueAxis, slot: fn (self: QtC.QValueAxis, pen: QtC.QPen) callconv(.c) void ```
-    pub fn OnLinePenChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_LinePenChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QValueAxis, callback: *const fn (self: QtC.QValueAxis, pen: QtC.QPen) callconv(.c) void ```
+    pub fn OnLinePenChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractAxis_Connect_LinePenChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -979,9 +979,9 @@ pub const qvalueaxis = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#lineVisibleChanged)
     ///
-    /// ``` self: QtC.QValueAxis, slot: fn (self: QtC.QValueAxis, visible: bool) callconv(.c) void ```
-    pub fn OnLineVisibleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_LineVisibleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QValueAxis, callback: *const fn (self: QtC.QValueAxis, visible: bool) callconv(.c) void ```
+    pub fn OnLineVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QAbstractAxis_Connect_LineVisibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -997,9 +997,9 @@ pub const qvalueaxis = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#labelsVisibleChanged)
     ///
-    /// ``` self: QtC.QValueAxis, slot: fn (self: QtC.QValueAxis, visible: bool) callconv(.c) void ```
-    pub fn OnLabelsVisibleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_LabelsVisibleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QValueAxis, callback: *const fn (self: QtC.QValueAxis, visible: bool) callconv(.c) void ```
+    pub fn OnLabelsVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QAbstractAxis_Connect_LabelsVisibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -1015,9 +1015,9 @@ pub const qvalueaxis = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#labelsBrushChanged)
     ///
-    /// ``` self: QtC.QValueAxis, slot: fn (self: QtC.QValueAxis, brush: QtC.QBrush) callconv(.c) void ```
-    pub fn OnLabelsBrushChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_LabelsBrushChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QValueAxis, callback: *const fn (self: QtC.QValueAxis, brush: QtC.QBrush) callconv(.c) void ```
+    pub fn OnLabelsBrushChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractAxis_Connect_LabelsBrushChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -1033,9 +1033,9 @@ pub const qvalueaxis = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#labelsFontChanged)
     ///
-    /// ``` self: QtC.QValueAxis, slot: fn (self: QtC.QValueAxis, pen: QtC.QFont) callconv(.c) void ```
-    pub fn OnLabelsFontChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_LabelsFontChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QValueAxis, callback: *const fn (self: QtC.QValueAxis, pen: QtC.QFont) callconv(.c) void ```
+    pub fn OnLabelsFontChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractAxis_Connect_LabelsFontChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -1051,9 +1051,9 @@ pub const qvalueaxis = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#labelsAngleChanged)
     ///
-    /// ``` self: QtC.QValueAxis, slot: fn (self: QtC.QValueAxis, angle: i32) callconv(.c) void ```
-    pub fn OnLabelsAngleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_LabelsAngleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QValueAxis, callback: *const fn (self: QtC.QValueAxis, angle: i32) callconv(.c) void ```
+    pub fn OnLabelsAngleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QAbstractAxis_Connect_LabelsAngleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -1069,9 +1069,9 @@ pub const qvalueaxis = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#gridLinePenChanged)
     ///
-    /// ``` self: QtC.QValueAxis, slot: fn (self: QtC.QValueAxis, pen: QtC.QPen) callconv(.c) void ```
-    pub fn OnGridLinePenChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_GridLinePenChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QValueAxis, callback: *const fn (self: QtC.QValueAxis, pen: QtC.QPen) callconv(.c) void ```
+    pub fn OnGridLinePenChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractAxis_Connect_GridLinePenChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -1087,9 +1087,9 @@ pub const qvalueaxis = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#gridVisibleChanged)
     ///
-    /// ``` self: QtC.QValueAxis, slot: fn (self: QtC.QValueAxis, visible: bool) callconv(.c) void ```
-    pub fn OnGridVisibleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_GridVisibleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QValueAxis, callback: *const fn (self: QtC.QValueAxis, visible: bool) callconv(.c) void ```
+    pub fn OnGridVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QAbstractAxis_Connect_GridVisibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -1105,9 +1105,9 @@ pub const qvalueaxis = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#minorGridVisibleChanged)
     ///
-    /// ``` self: QtC.QValueAxis, slot: fn (self: QtC.QValueAxis, visible: bool) callconv(.c) void ```
-    pub fn OnMinorGridVisibleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_MinorGridVisibleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QValueAxis, callback: *const fn (self: QtC.QValueAxis, visible: bool) callconv(.c) void ```
+    pub fn OnMinorGridVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QAbstractAxis_Connect_MinorGridVisibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -1123,9 +1123,9 @@ pub const qvalueaxis = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#minorGridLinePenChanged)
     ///
-    /// ``` self: QtC.QValueAxis, slot: fn (self: QtC.QValueAxis, pen: QtC.QPen) callconv(.c) void ```
-    pub fn OnMinorGridLinePenChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_MinorGridLinePenChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QValueAxis, callback: *const fn (self: QtC.QValueAxis, pen: QtC.QPen) callconv(.c) void ```
+    pub fn OnMinorGridLinePenChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractAxis_Connect_MinorGridLinePenChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -1141,9 +1141,9 @@ pub const qvalueaxis = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#gridLineColorChanged)
     ///
-    /// ``` self: QtC.QValueAxis, slot: fn (self: QtC.QValueAxis, color: QtC.QColor) callconv(.c) void ```
-    pub fn OnGridLineColorChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_GridLineColorChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QValueAxis, callback: *const fn (self: QtC.QValueAxis, color: QtC.QColor) callconv(.c) void ```
+    pub fn OnGridLineColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractAxis_Connect_GridLineColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -1159,9 +1159,9 @@ pub const qvalueaxis = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#minorGridLineColorChanged)
     ///
-    /// ``` self: QtC.QValueAxis, slot: fn (self: QtC.QValueAxis, color: QtC.QColor) callconv(.c) void ```
-    pub fn OnMinorGridLineColorChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_MinorGridLineColorChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QValueAxis, callback: *const fn (self: QtC.QValueAxis, color: QtC.QColor) callconv(.c) void ```
+    pub fn OnMinorGridLineColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractAxis_Connect_MinorGridLineColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -1177,9 +1177,9 @@ pub const qvalueaxis = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#colorChanged)
     ///
-    /// ``` self: QtC.QValueAxis, slot: fn (self: QtC.QValueAxis, color: QtC.QColor) callconv(.c) void ```
-    pub fn OnColorChanged(self: ?*anyopaque, slot: fn (?*anyopaque, QtC.QColor) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_ColorChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QValueAxis, callback: *const fn (self: QtC.QValueAxis, color: QtC.QColor) callconv(.c) void ```
+    pub fn OnColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QColor) callconv(.c) void) void {
+        qtc.QAbstractAxis_Connect_ColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -1195,9 +1195,9 @@ pub const qvalueaxis = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#labelsColorChanged)
     ///
-    /// ``` self: QtC.QValueAxis, slot: fn (self: QtC.QValueAxis, color: QtC.QColor) callconv(.c) void ```
-    pub fn OnLabelsColorChanged(self: ?*anyopaque, slot: fn (?*anyopaque, QtC.QColor) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_LabelsColorChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QValueAxis, callback: *const fn (self: QtC.QValueAxis, color: QtC.QColor) callconv(.c) void ```
+    pub fn OnLabelsColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QColor) callconv(.c) void) void {
+        qtc.QAbstractAxis_Connect_LabelsColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -1217,9 +1217,9 @@ pub const qvalueaxis = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#titleTextChanged)
     ///
-    /// ``` self: QtC.QValueAxis, slot: fn (self: QtC.QValueAxis, title: [*:0]const u8) callconv(.c) void ```
-    pub fn OnTitleTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_TitleTextChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QValueAxis, callback: *const fn (self: QtC.QValueAxis, title: [*:0]const u8) callconv(.c) void ```
+    pub fn OnTitleTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QAbstractAxis_Connect_TitleTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -1235,9 +1235,9 @@ pub const qvalueaxis = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#titleBrushChanged)
     ///
-    /// ``` self: QtC.QValueAxis, slot: fn (self: QtC.QValueAxis, brush: QtC.QBrush) callconv(.c) void ```
-    pub fn OnTitleBrushChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_TitleBrushChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QValueAxis, callback: *const fn (self: QtC.QValueAxis, brush: QtC.QBrush) callconv(.c) void ```
+    pub fn OnTitleBrushChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractAxis_Connect_TitleBrushChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -1253,9 +1253,9 @@ pub const qvalueaxis = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#titleVisibleChanged)
     ///
-    /// ``` self: QtC.QValueAxis, slot: fn (self: QtC.QValueAxis, visible: bool) callconv(.c) void ```
-    pub fn OnTitleVisibleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_TitleVisibleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QValueAxis, callback: *const fn (self: QtC.QValueAxis, visible: bool) callconv(.c) void ```
+    pub fn OnTitleVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QAbstractAxis_Connect_TitleVisibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -1271,9 +1271,9 @@ pub const qvalueaxis = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#titleFontChanged)
     ///
-    /// ``` self: QtC.QValueAxis, slot: fn (self: QtC.QValueAxis, font: QtC.QFont) callconv(.c) void ```
-    pub fn OnTitleFontChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_TitleFontChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QValueAxis, callback: *const fn (self: QtC.QValueAxis, font: QtC.QFont) callconv(.c) void ```
+    pub fn OnTitleFontChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractAxis_Connect_TitleFontChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -1289,9 +1289,9 @@ pub const qvalueaxis = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#shadesVisibleChanged)
     ///
-    /// ``` self: QtC.QValueAxis, slot: fn (self: QtC.QValueAxis, visible: bool) callconv(.c) void ```
-    pub fn OnShadesVisibleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_ShadesVisibleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QValueAxis, callback: *const fn (self: QtC.QValueAxis, visible: bool) callconv(.c) void ```
+    pub fn OnShadesVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QAbstractAxis_Connect_ShadesVisibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -1307,9 +1307,9 @@ pub const qvalueaxis = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#shadesColorChanged)
     ///
-    /// ``` self: QtC.QValueAxis, slot: fn (self: QtC.QValueAxis, color: QtC.QColor) callconv(.c) void ```
-    pub fn OnShadesColorChanged(self: ?*anyopaque, slot: fn (?*anyopaque, QtC.QColor) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_ShadesColorChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QValueAxis, callback: *const fn (self: QtC.QValueAxis, color: QtC.QColor) callconv(.c) void ```
+    pub fn OnShadesColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QColor) callconv(.c) void) void {
+        qtc.QAbstractAxis_Connect_ShadesColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -1325,9 +1325,9 @@ pub const qvalueaxis = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#shadesBorderColorChanged)
     ///
-    /// ``` self: QtC.QValueAxis, slot: fn (self: QtC.QValueAxis, color: QtC.QColor) callconv(.c) void ```
-    pub fn OnShadesBorderColorChanged(self: ?*anyopaque, slot: fn (?*anyopaque, QtC.QColor) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_ShadesBorderColorChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QValueAxis, callback: *const fn (self: QtC.QValueAxis, color: QtC.QColor) callconv(.c) void ```
+    pub fn OnShadesBorderColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QColor) callconv(.c) void) void {
+        qtc.QAbstractAxis_Connect_ShadesBorderColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -1343,9 +1343,9 @@ pub const qvalueaxis = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#shadesPenChanged)
     ///
-    /// ``` self: QtC.QValueAxis, slot: fn (self: QtC.QValueAxis, pen: QtC.QPen) callconv(.c) void ```
-    pub fn OnShadesPenChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_ShadesPenChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QValueAxis, callback: *const fn (self: QtC.QValueAxis, pen: QtC.QPen) callconv(.c) void ```
+    pub fn OnShadesPenChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractAxis_Connect_ShadesPenChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -1361,9 +1361,9 @@ pub const qvalueaxis = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#shadesBrushChanged)
     ///
-    /// ``` self: QtC.QValueAxis, slot: fn (self: QtC.QValueAxis, brush: QtC.QBrush) callconv(.c) void ```
-    pub fn OnShadesBrushChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_ShadesBrushChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QValueAxis, callback: *const fn (self: QtC.QValueAxis, brush: QtC.QBrush) callconv(.c) void ```
+    pub fn OnShadesBrushChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractAxis_Connect_ShadesBrushChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -1379,9 +1379,9 @@ pub const qvalueaxis = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#reverseChanged)
     ///
-    /// ``` self: QtC.QValueAxis, slot: fn (self: QtC.QValueAxis, reverse: bool) callconv(.c) void ```
-    pub fn OnReverseChanged(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_ReverseChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QValueAxis, callback: *const fn (self: QtC.QValueAxis, reverse: bool) callconv(.c) void ```
+    pub fn OnReverseChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QAbstractAxis_Connect_ReverseChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -1397,9 +1397,9 @@ pub const qvalueaxis = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#labelsEditableChanged)
     ///
-    /// ``` self: QtC.QValueAxis, slot: fn (self: QtC.QValueAxis, editable: bool) callconv(.c) void ```
-    pub fn OnLabelsEditableChanged(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_LabelsEditableChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QValueAxis, callback: *const fn (self: QtC.QValueAxis, editable: bool) callconv(.c) void ```
+    pub fn OnLabelsEditableChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QAbstractAxis_Connect_LabelsEditableChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -1415,9 +1415,9 @@ pub const qvalueaxis = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#labelsTruncatedChanged)
     ///
-    /// ``` self: QtC.QValueAxis, slot: fn (self: QtC.QValueAxis, labelsTruncated: bool) callconv(.c) void ```
-    pub fn OnLabelsTruncatedChanged(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_LabelsTruncatedChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QValueAxis, callback: *const fn (self: QtC.QValueAxis, labelsTruncated: bool) callconv(.c) void ```
+    pub fn OnLabelsTruncatedChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QAbstractAxis_Connect_LabelsTruncatedChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -1433,9 +1433,9 @@ pub const qvalueaxis = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractaxis.html#truncateLabelsChanged)
     ///
-    /// ``` self: QtC.QValueAxis, slot: fn (self: QtC.QValueAxis, truncateLabels: bool) callconv(.c) void ```
-    pub fn OnTruncateLabelsChanged(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAbstractAxis_Connect_TruncateLabelsChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QValueAxis, callback: *const fn (self: QtC.QValueAxis, truncateLabels: bool) callconv(.c) void ```
+    pub fn OnTruncateLabelsChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QAbstractAxis_Connect_TruncateLabelsChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractAxis
@@ -1816,9 +1816,9 @@ pub const qvalueaxis = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QValueAxis, slot: fn (self: QtC.QValueAxis) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QValueAxis, callback: *const fn (self: QtC.QValueAxis) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1900,9 +1900,9 @@ pub const qvalueaxis = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QValueAxis, slot: fn (self: QtC.QValueAxis, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QValueAxis, callback: *const fn (self: QtC.QValueAxis, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1933,9 +1933,9 @@ pub const qvalueaxis = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QValueAxis, slot: fn (self: QtC.QValueAxis, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QValueAxis_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QValueAxis, callback: *const fn (self: QtC.QValueAxis, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QValueAxis_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1966,9 +1966,9 @@ pub const qvalueaxis = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QValueAxis, slot: fn (self: QtC.QValueAxis, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QValueAxis_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QValueAxis, callback: *const fn (self: QtC.QValueAxis, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QValueAxis_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1999,9 +1999,9 @@ pub const qvalueaxis = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QValueAxis, slot: fn (self: QtC.QValueAxis, event: QtC.QTimerEvent) callconv(.c) void ```
-    pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QValueAxis_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QValueAxis, callback: *const fn (self: QtC.QValueAxis, event: QtC.QTimerEvent) callconv(.c) void ```
+    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QValueAxis_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2032,9 +2032,9 @@ pub const qvalueaxis = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QValueAxis, slot: fn (self: QtC.QValueAxis, event: QtC.QChildEvent) callconv(.c) void ```
-    pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QValueAxis_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QValueAxis, callback: *const fn (self: QtC.QValueAxis, event: QtC.QChildEvent) callconv(.c) void ```
+    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QValueAxis_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2065,9 +2065,9 @@ pub const qvalueaxis = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QValueAxis, slot: fn (self: QtC.QValueAxis, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QValueAxis_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QValueAxis, callback: *const fn (self: QtC.QValueAxis, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QValueAxis_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2098,9 +2098,9 @@ pub const qvalueaxis = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QValueAxis, slot: fn (self: QtC.QValueAxis, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QValueAxis_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QValueAxis, callback: *const fn (self: QtC.QValueAxis, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QValueAxis_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2131,9 +2131,9 @@ pub const qvalueaxis = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QValueAxis, slot: fn (self: QtC.QValueAxis, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QValueAxis_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QValueAxis, callback: *const fn (self: QtC.QValueAxis, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QValueAxis_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2164,9 +2164,9 @@ pub const qvalueaxis = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QValueAxis, slot: fn () callconv(.c) QtC.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
-        qtc.QValueAxis_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QValueAxis, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.QValueAxis_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2197,9 +2197,9 @@ pub const qvalueaxis = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QValueAxis, slot: fn () callconv(.c) i32 ```
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QValueAxis_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QValueAxis, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QValueAxis_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2232,9 +2232,9 @@ pub const qvalueaxis = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QValueAxis, slot: fn (self: QtC.QValueAxis, signal: [*:0]const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QValueAxis_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QValueAxis, callback: *const fn (self: QtC.QValueAxis, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QValueAxis_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2265,9 +2265,9 @@ pub const qvalueaxis = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QValueAxis, slot: fn (self: QtC.QValueAxis, signal: QtC.QMetaMethod) callconv(.c) bool ```
-    pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QValueAxis_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QValueAxis, callback: *const fn (self: QtC.QValueAxis, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QValueAxis_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2276,9 +2276,9 @@ pub const qvalueaxis = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QValueAxis, slot: fn (self: QtC.QValueAxis, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QValueAxis, callback: *const fn (self: QtC.QValueAxis, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvalueaxis-qtcharts.html#dtor.QValueAxis)

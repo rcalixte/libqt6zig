@@ -42,9 +42,9 @@ pub const qsslserver = struct {
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSslServer, slot: fn (self: QtC.QSslServer, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QSslServer_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSslServer, callback: *const fn (self: QtC.QSslServer, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+        qtc.QSslServer_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -107,9 +107,9 @@ pub const qsslserver = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsslserver.html#sslErrors)
     ///
-    /// ``` self: QtC.QSslServer, slot: fn (self: QtC.QSslServer, socket: QtC.QSslSocket, errors: [*]QtC.QSslError) callconv(.c) void ```
-    pub fn OnSslErrors(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, [*]QtC.QSslError) callconv(.c) void) void {
-        qtc.QSslServer_Connect_SslErrors(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSslServer, callback: *const fn (self: QtC.QSslServer, socket: QtC.QSslSocket, errors: [*]QtC.QSslError) callconv(.c) void ```
+    pub fn OnSslErrors(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*]QtC.QSslError) callconv(.c) void) void {
+        qtc.QSslServer_Connect_SslErrors(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsslserver.html#peerVerifyError)
@@ -121,9 +121,9 @@ pub const qsslserver = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsslserver.html#peerVerifyError)
     ///
-    /// ``` self: QtC.QSslServer, slot: fn (self: QtC.QSslServer, socket: QtC.QSslSocket, errorVal: QtC.QSslError) callconv(.c) void ```
-    pub fn OnPeerVerifyError(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSslServer_Connect_PeerVerifyError(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSslServer, callback: *const fn (self: QtC.QSslServer, socket: QtC.QSslSocket, errorVal: QtC.QSslError) callconv(.c) void ```
+    pub fn OnPeerVerifyError(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QSslServer_Connect_PeerVerifyError(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsslserver.html#errorOccurred)
@@ -135,9 +135,9 @@ pub const qsslserver = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsslserver.html#errorOccurred)
     ///
-    /// ``` self: QtC.QSslServer, slot: fn (self: QtC.QSslServer, socket: QtC.QSslSocket, errorVal: qabstractsocket_enums.SocketError) callconv(.c) void ```
-    pub fn OnErrorOccurred(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QSslServer_Connect_ErrorOccurred(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSslServer, callback: *const fn (self: QtC.QSslServer, socket: QtC.QSslSocket, errorVal: qabstractsocket_enums.SocketError) callconv(.c) void ```
+    pub fn OnErrorOccurred(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QSslServer_Connect_ErrorOccurred(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsslserver.html#preSharedKeyAuthenticationRequired)
@@ -149,9 +149,9 @@ pub const qsslserver = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsslserver.html#preSharedKeyAuthenticationRequired)
     ///
-    /// ``` self: QtC.QSslServer, slot: fn (self: QtC.QSslServer, socket: QtC.QSslSocket, authenticator: QtC.QSslPreSharedKeyAuthenticator) callconv(.c) void ```
-    pub fn OnPreSharedKeyAuthenticationRequired(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSslServer_Connect_PreSharedKeyAuthenticationRequired(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSslServer, callback: *const fn (self: QtC.QSslServer, socket: QtC.QSslSocket, authenticator: QtC.QSslPreSharedKeyAuthenticator) callconv(.c) void ```
+    pub fn OnPreSharedKeyAuthenticationRequired(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QSslServer_Connect_PreSharedKeyAuthenticationRequired(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsslserver.html#alertSent)
@@ -167,9 +167,9 @@ pub const qsslserver = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsslserver.html#alertSent)
     ///
-    /// ``` self: QtC.QSslServer, slot: fn (self: QtC.QSslServer, socket: QtC.QSslSocket, level: qssl_enums.AlertLevel, typeVal: qssl_enums.AlertType, description: [*:0]const u8) callconv(.c) void ```
-    pub fn OnAlertSent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, i32, [*:0]const u8) callconv(.c) void) void {
-        qtc.QSslServer_Connect_AlertSent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSslServer, callback: *const fn (self: QtC.QSslServer, socket: QtC.QSslSocket, level: qssl_enums.AlertLevel, typeVal: qssl_enums.AlertType, description: [*:0]const u8) callconv(.c) void ```
+    pub fn OnAlertSent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, [*:0]const u8) callconv(.c) void) void {
+        qtc.QSslServer_Connect_AlertSent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsslserver.html#alertReceived)
@@ -185,9 +185,9 @@ pub const qsslserver = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsslserver.html#alertReceived)
     ///
-    /// ``` self: QtC.QSslServer, slot: fn (self: QtC.QSslServer, socket: QtC.QSslSocket, level: qssl_enums.AlertLevel, typeVal: qssl_enums.AlertType, description: [*:0]const u8) callconv(.c) void ```
-    pub fn OnAlertReceived(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, i32, [*:0]const u8) callconv(.c) void) void {
-        qtc.QSslServer_Connect_AlertReceived(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSslServer, callback: *const fn (self: QtC.QSslServer, socket: QtC.QSslSocket, level: qssl_enums.AlertLevel, typeVal: qssl_enums.AlertType, description: [*:0]const u8) callconv(.c) void ```
+    pub fn OnAlertReceived(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, [*:0]const u8) callconv(.c) void) void {
+        qtc.QSslServer_Connect_AlertReceived(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsslserver.html#handshakeInterruptedOnError)
@@ -199,9 +199,9 @@ pub const qsslserver = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsslserver.html#handshakeInterruptedOnError)
     ///
-    /// ``` self: QtC.QSslServer, slot: fn (self: QtC.QSslServer, socket: QtC.QSslSocket, errorVal: QtC.QSslError) callconv(.c) void ```
-    pub fn OnHandshakeInterruptedOnError(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSslServer_Connect_HandshakeInterruptedOnError(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSslServer, callback: *const fn (self: QtC.QSslServer, socket: QtC.QSslSocket, errorVal: QtC.QSslError) callconv(.c) void ```
+    pub fn OnHandshakeInterruptedOnError(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QSslServer_Connect_HandshakeInterruptedOnError(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsslserver.html#startedEncryptionHandshake)
@@ -213,9 +213,9 @@ pub const qsslserver = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsslserver.html#startedEncryptionHandshake)
     ///
-    /// ``` self: QtC.QSslServer, slot: fn (self: QtC.QSslServer, socket: QtC.QSslSocket) callconv(.c) void ```
-    pub fn OnStartedEncryptionHandshake(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSslServer_Connect_StartedEncryptionHandshake(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSslServer, callback: *const fn (self: QtC.QSslServer, socket: QtC.QSslSocket) callconv(.c) void ```
+    pub fn OnStartedEncryptionHandshake(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QSslServer_Connect_StartedEncryptionHandshake(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsslserver.html#incomingConnection)
@@ -229,9 +229,9 @@ pub const qsslserver = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSslServer, slot: fn (self: QtC.QSslServer, socket: isize) callconv(.c) void ```
-    pub fn OnIncomingConnection(self: ?*anyopaque, slot: fn (?*anyopaque, isize) callconv(.c) void) void {
-        qtc.QSslServer_OnIncomingConnection(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSslServer, callback: *const fn (self: QtC.QSslServer, socket: isize) callconv(.c) void ```
+    pub fn OnIncomingConnection(self: ?*anyopaque, callback: *const fn (?*anyopaque, isize) callconv(.c) void) void {
+        qtc.QSslServer_OnIncomingConnection(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsslserver.html#incomingConnection)
@@ -450,9 +450,9 @@ pub const qsslserver = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtcpserver.html#newConnection)
     ///
-    /// ``` self: QtC.QSslServer, slot: fn (self: QtC.QSslServer) callconv(.c) void ```
-    pub fn OnNewConnection(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QTcpServer_Connect_NewConnection(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSslServer, callback: *const fn (self: QtC.QSslServer) callconv(.c) void ```
+    pub fn OnNewConnection(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QTcpServer_Connect_NewConnection(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTcpServer
@@ -468,9 +468,9 @@ pub const qsslserver = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtcpserver.html#acceptError)
     ///
-    /// ``` self: QtC.QSslServer, slot: fn (self: QtC.QSslServer, socketError: qabstractsocket_enums.SocketError) callconv(.c) void ```
-    pub fn OnAcceptError(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QTcpServer_Connect_AcceptError(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSslServer, callback: *const fn (self: QtC.QSslServer, socketError: qabstractsocket_enums.SocketError) callconv(.c) void ```
+    pub fn OnAcceptError(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QTcpServer_Connect_AcceptError(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTcpServer
@@ -797,9 +797,9 @@ pub const qsslserver = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QSslServer, slot: fn (self: QtC.QSslServer) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSslServer, callback: *const fn (self: QtC.QSslServer) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -881,9 +881,9 @@ pub const qsslserver = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QSslServer, slot: fn (self: QtC.QSslServer, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSslServer, callback: *const fn (self: QtC.QSslServer, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTcpServer
@@ -914,9 +914,9 @@ pub const qsslserver = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSslServer, slot: fn () callconv(.c) bool ```
-    pub fn OnHasPendingConnections(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.QSslServer_OnHasPendingConnections(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSslServer, callback: *const fn () callconv(.c) bool ```
+    pub fn OnHasPendingConnections(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.QSslServer_OnHasPendingConnections(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTcpServer
@@ -947,9 +947,9 @@ pub const qsslserver = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSslServer, slot: fn () callconv(.c) QtC.QTcpSocket ```
-    pub fn OnNextPendingConnection(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QTcpSocket) void {
-        qtc.QSslServer_OnNextPendingConnection(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSslServer, callback: *const fn () callconv(.c) QtC.QTcpSocket ```
+    pub fn OnNextPendingConnection(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QTcpSocket) void {
+        qtc.QSslServer_OnNextPendingConnection(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -980,9 +980,9 @@ pub const qsslserver = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSslServer, slot: fn (self: QtC.QSslServer, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QSslServer_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSslServer, callback: *const fn (self: QtC.QSslServer, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QSslServer_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1013,9 +1013,9 @@ pub const qsslserver = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSslServer, slot: fn (self: QtC.QSslServer, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QSslServer_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSslServer, callback: *const fn (self: QtC.QSslServer, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QSslServer_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1046,9 +1046,9 @@ pub const qsslserver = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSslServer, slot: fn (self: QtC.QSslServer, event: QtC.QTimerEvent) callconv(.c) void ```
-    pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSslServer_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSslServer, callback: *const fn (self: QtC.QSslServer, event: QtC.QTimerEvent) callconv(.c) void ```
+    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QSslServer_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1079,9 +1079,9 @@ pub const qsslserver = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSslServer, slot: fn (self: QtC.QSslServer, event: QtC.QChildEvent) callconv(.c) void ```
-    pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSslServer_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSslServer, callback: *const fn (self: QtC.QSslServer, event: QtC.QChildEvent) callconv(.c) void ```
+    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QSslServer_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1112,9 +1112,9 @@ pub const qsslserver = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSslServer, slot: fn (self: QtC.QSslServer, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSslServer_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSslServer, callback: *const fn (self: QtC.QSslServer, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QSslServer_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1145,9 +1145,9 @@ pub const qsslserver = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSslServer, slot: fn (self: QtC.QSslServer, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSslServer_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSslServer, callback: *const fn (self: QtC.QSslServer, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QSslServer_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1178,9 +1178,9 @@ pub const qsslserver = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSslServer, slot: fn (self: QtC.QSslServer, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSslServer_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSslServer, callback: *const fn (self: QtC.QSslServer, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QSslServer_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTcpServer
@@ -1211,9 +1211,9 @@ pub const qsslserver = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSslServer, slot: fn (self: QtC.QSslServer, socket: QtC.QTcpSocket) callconv(.c) void ```
-    pub fn OnAddPendingConnection(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSslServer_OnAddPendingConnection(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSslServer, callback: *const fn (self: QtC.QSslServer, socket: QtC.QTcpSocket) callconv(.c) void ```
+    pub fn OnAddPendingConnection(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QSslServer_OnAddPendingConnection(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1244,9 +1244,9 @@ pub const qsslserver = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSslServer, slot: fn () callconv(.c) QtC.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
-        qtc.QSslServer_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSslServer, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.QSslServer_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1277,9 +1277,9 @@ pub const qsslserver = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSslServer, slot: fn () callconv(.c) i32 ```
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QSslServer_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSslServer, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QSslServer_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1312,9 +1312,9 @@ pub const qsslserver = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSslServer, slot: fn (self: QtC.QSslServer, signal: [*:0]const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QSslServer_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSslServer, callback: *const fn (self: QtC.QSslServer, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QSslServer_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1345,9 +1345,9 @@ pub const qsslserver = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSslServer, slot: fn (self: QtC.QSslServer, signal: QtC.QMetaMethod) callconv(.c) bool ```
-    pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QSslServer_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSslServer, callback: *const fn (self: QtC.QSslServer, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QSslServer_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTcpServer
@@ -1356,9 +1356,9 @@ pub const qsslserver = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QSslServer, slot: fn (self: QtC.QSslServer) callconv(.c) void ```
-    pub fn OnPendingConnectionAvailable(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QTcpServer_Connect_PendingConnectionAvailable(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSslServer, callback: *const fn (self: QtC.QSslServer) callconv(.c) void ```
+    pub fn OnPendingConnectionAvailable(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QTcpServer_Connect_PendingConnectionAvailable(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1367,9 +1367,9 @@ pub const qsslserver = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QSslServer, slot: fn (self: QtC.QSslServer, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSslServer, callback: *const fn (self: QtC.QSslServer, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsslserver.html#dtor.QSslServer)

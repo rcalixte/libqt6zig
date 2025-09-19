@@ -54,9 +54,9 @@ pub const sonnet__highlighter = struct {
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.Sonnet__Highlighter, slot: fn (self: QtC.Sonnet__Highlighter, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
-        qtc.Sonnet__Highlighter_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__Highlighter, callback: *const fn (self: QtC.Sonnet__Highlighter, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+        qtc.Sonnet__Highlighter_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -257,9 +257,9 @@ pub const sonnet__highlighter = struct {
 
     /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#activeChanged)
     ///
-    /// ``` self: QtC.Sonnet__Highlighter, slot: fn (self: QtC.Sonnet__Highlighter, description: [*:0]const u8) callconv(.c) void ```
-    pub fn OnActiveChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.Sonnet__Highlighter_Connect_ActiveChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__Highlighter, callback: *const fn (self: QtC.Sonnet__Highlighter, description: [*:0]const u8) callconv(.c) void ```
+    pub fn OnActiveChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.Sonnet__Highlighter_Connect_ActiveChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#highlightBlock)
@@ -277,9 +277,9 @@ pub const sonnet__highlighter = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.Sonnet__Highlighter, slot: fn (self: QtC.Sonnet__Highlighter, text: [*:0]const u8) callconv(.c) void ```
-    pub fn OnHighlightBlock(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.Sonnet__Highlighter_OnHighlightBlock(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__Highlighter, callback: *const fn (self: QtC.Sonnet__Highlighter, text: [*:0]const u8) callconv(.c) void ```
+    pub fn OnHighlightBlock(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.Sonnet__Highlighter_OnHighlightBlock(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#highlightBlock)
@@ -306,9 +306,9 @@ pub const sonnet__highlighter = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.Sonnet__Highlighter, slot: fn (self: QtC.Sonnet__Highlighter, start: i32, count: i32) callconv(.c) void ```
-    pub fn OnSetMisspelled(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.Sonnet__Highlighter_OnSetMisspelled(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__Highlighter, callback: *const fn (self: QtC.Sonnet__Highlighter, start: i32, count: i32) callconv(.c) void ```
+    pub fn OnSetMisspelled(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
+        qtc.Sonnet__Highlighter_OnSetMisspelled(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#setMisspelled)
@@ -331,9 +331,9 @@ pub const sonnet__highlighter = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.Sonnet__Highlighter, slot: fn (self: QtC.Sonnet__Highlighter, start: i32, count: i32) callconv(.c) void ```
-    pub fn OnUnsetMisspelled(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.Sonnet__Highlighter_OnUnsetMisspelled(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__Highlighter, callback: *const fn (self: QtC.Sonnet__Highlighter, start: i32, count: i32) callconv(.c) void ```
+    pub fn OnUnsetMisspelled(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
+        qtc.Sonnet__Highlighter_OnUnsetMisspelled(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#unsetMisspelled)
@@ -356,9 +356,9 @@ pub const sonnet__highlighter = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.Sonnet__Highlighter, slot: fn (self: QtC.Sonnet__Highlighter, o: QtC.QObject, e: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.Sonnet__Highlighter_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__Highlighter, callback: *const fn (self: QtC.Sonnet__Highlighter, o: QtC.QObject, e: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.Sonnet__Highlighter_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#eventFilter)
@@ -381,9 +381,9 @@ pub const sonnet__highlighter = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.Sonnet__Highlighter, slot: fn () callconv(.c) bool ```
-    pub fn OnIntraWordEditing(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.Sonnet__Highlighter_OnIntraWordEditing(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__Highlighter, callback: *const fn () callconv(.c) bool ```
+    pub fn OnIntraWordEditing(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.Sonnet__Highlighter_OnIntraWordEditing(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#intraWordEditing)
@@ -406,9 +406,9 @@ pub const sonnet__highlighter = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.Sonnet__Highlighter, slot: fn (self: QtC.Sonnet__Highlighter, editing: bool) callconv(.c) void ```
-    pub fn OnSetIntraWordEditing(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.Sonnet__Highlighter_OnSetIntraWordEditing(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__Highlighter, callback: *const fn (self: QtC.Sonnet__Highlighter, editing: bool) callconv(.c) void ```
+    pub fn OnSetIntraWordEditing(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.Sonnet__Highlighter_OnSetIntraWordEditing(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/sonnet-highlighter.html#setIntraWordEditing)
@@ -838,9 +838,9 @@ pub const sonnet__highlighter = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.Sonnet__Highlighter, slot: fn (self: QtC.Sonnet__Highlighter) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__Highlighter, callback: *const fn (self: QtC.Sonnet__Highlighter) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -922,9 +922,9 @@ pub const sonnet__highlighter = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.Sonnet__Highlighter, slot: fn (self: QtC.Sonnet__Highlighter, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__Highlighter, callback: *const fn (self: QtC.Sonnet__Highlighter, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -955,9 +955,9 @@ pub const sonnet__highlighter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Sonnet__Highlighter, slot: fn (self: QtC.Sonnet__Highlighter, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.Sonnet__Highlighter_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__Highlighter, callback: *const fn (self: QtC.Sonnet__Highlighter, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.Sonnet__Highlighter_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -988,9 +988,9 @@ pub const sonnet__highlighter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Sonnet__Highlighter, slot: fn (self: QtC.Sonnet__Highlighter, event: QtC.QTimerEvent) callconv(.c) void ```
-    pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Sonnet__Highlighter_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__Highlighter, callback: *const fn (self: QtC.Sonnet__Highlighter, event: QtC.QTimerEvent) callconv(.c) void ```
+    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.Sonnet__Highlighter_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1021,9 +1021,9 @@ pub const sonnet__highlighter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Sonnet__Highlighter, slot: fn (self: QtC.Sonnet__Highlighter, event: QtC.QChildEvent) callconv(.c) void ```
-    pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Sonnet__Highlighter_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__Highlighter, callback: *const fn (self: QtC.Sonnet__Highlighter, event: QtC.QChildEvent) callconv(.c) void ```
+    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.Sonnet__Highlighter_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1054,9 +1054,9 @@ pub const sonnet__highlighter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Sonnet__Highlighter, slot: fn (self: QtC.Sonnet__Highlighter, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Sonnet__Highlighter_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__Highlighter, callback: *const fn (self: QtC.Sonnet__Highlighter, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.Sonnet__Highlighter_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1087,9 +1087,9 @@ pub const sonnet__highlighter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Sonnet__Highlighter, slot: fn (self: QtC.Sonnet__Highlighter, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Sonnet__Highlighter_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__Highlighter, callback: *const fn (self: QtC.Sonnet__Highlighter, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.Sonnet__Highlighter_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1120,9 +1120,9 @@ pub const sonnet__highlighter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Sonnet__Highlighter, slot: fn (self: QtC.Sonnet__Highlighter, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Sonnet__Highlighter_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__Highlighter, callback: *const fn (self: QtC.Sonnet__Highlighter, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.Sonnet__Highlighter_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QSyntaxHighlighter
@@ -1153,9 +1153,9 @@ pub const sonnet__highlighter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Sonnet__Highlighter, slot: fn (self: QtC.Sonnet__Highlighter, start: i32, count: i32, format: QtC.QTextCharFormat) callconv(.c) void ```
-    pub fn OnSetFormat(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.Sonnet__Highlighter_OnSetFormat(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__Highlighter, callback: *const fn (self: QtC.Sonnet__Highlighter, start: i32, count: i32, format: QtC.QTextCharFormat) callconv(.c) void ```
+    pub fn OnSetFormat(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) void) void {
+        qtc.Sonnet__Highlighter_OnSetFormat(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QSyntaxHighlighter
@@ -1186,9 +1186,9 @@ pub const sonnet__highlighter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Sonnet__Highlighter, slot: fn (self: QtC.Sonnet__Highlighter, pos: i32) callconv(.c) QtC.QTextCharFormat ```
-    pub fn OnFormat(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) QtC.QTextCharFormat) void {
-        qtc.Sonnet__Highlighter_OnFormat(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__Highlighter, callback: *const fn (self: QtC.Sonnet__Highlighter, pos: i32) callconv(.c) QtC.QTextCharFormat ```
+    pub fn OnFormat(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QTextCharFormat) void {
+        qtc.Sonnet__Highlighter_OnFormat(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QSyntaxHighlighter
@@ -1219,9 +1219,9 @@ pub const sonnet__highlighter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Sonnet__Highlighter, slot: fn () callconv(.c) i32 ```
-    pub fn OnPreviousBlockState(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.Sonnet__Highlighter_OnPreviousBlockState(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__Highlighter, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnPreviousBlockState(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.Sonnet__Highlighter_OnPreviousBlockState(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QSyntaxHighlighter
@@ -1252,9 +1252,9 @@ pub const sonnet__highlighter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Sonnet__Highlighter, slot: fn () callconv(.c) i32 ```
-    pub fn OnCurrentBlockState(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.Sonnet__Highlighter_OnCurrentBlockState(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__Highlighter, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnCurrentBlockState(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.Sonnet__Highlighter_OnCurrentBlockState(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QSyntaxHighlighter
@@ -1285,9 +1285,9 @@ pub const sonnet__highlighter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Sonnet__Highlighter, slot: fn (self: QtC.Sonnet__Highlighter, newState: i32) callconv(.c) void ```
-    pub fn OnSetCurrentBlockState(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.Sonnet__Highlighter_OnSetCurrentBlockState(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__Highlighter, callback: *const fn (self: QtC.Sonnet__Highlighter, newState: i32) callconv(.c) void ```
+    pub fn OnSetCurrentBlockState(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.Sonnet__Highlighter_OnSetCurrentBlockState(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QSyntaxHighlighter
@@ -1318,9 +1318,9 @@ pub const sonnet__highlighter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Sonnet__Highlighter, slot: fn (self: QtC.Sonnet__Highlighter, data: QtC.QTextBlockUserData) callconv(.c) void ```
-    pub fn OnSetCurrentBlockUserData(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Sonnet__Highlighter_OnSetCurrentBlockUserData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__Highlighter, callback: *const fn (self: QtC.Sonnet__Highlighter, data: QtC.QTextBlockUserData) callconv(.c) void ```
+    pub fn OnSetCurrentBlockUserData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.Sonnet__Highlighter_OnSetCurrentBlockUserData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QSyntaxHighlighter
@@ -1351,9 +1351,9 @@ pub const sonnet__highlighter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Sonnet__Highlighter, slot: fn () callconv(.c) QtC.QTextBlockUserData ```
-    pub fn OnCurrentBlockUserData(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QTextBlockUserData) void {
-        qtc.Sonnet__Highlighter_OnCurrentBlockUserData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__Highlighter, callback: *const fn () callconv(.c) QtC.QTextBlockUserData ```
+    pub fn OnCurrentBlockUserData(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QTextBlockUserData) void {
+        qtc.Sonnet__Highlighter_OnCurrentBlockUserData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QSyntaxHighlighter
@@ -1384,9 +1384,9 @@ pub const sonnet__highlighter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Sonnet__Highlighter, slot: fn () callconv(.c) QtC.QTextBlock ```
-    pub fn OnCurrentBlock(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QTextBlock) void {
-        qtc.Sonnet__Highlighter_OnCurrentBlock(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__Highlighter, callback: *const fn () callconv(.c) QtC.QTextBlock ```
+    pub fn OnCurrentBlock(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QTextBlock) void {
+        qtc.Sonnet__Highlighter_OnCurrentBlock(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1417,9 +1417,9 @@ pub const sonnet__highlighter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Sonnet__Highlighter, slot: fn () callconv(.c) QtC.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
-        qtc.Sonnet__Highlighter_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__Highlighter, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.Sonnet__Highlighter_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1450,9 +1450,9 @@ pub const sonnet__highlighter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Sonnet__Highlighter, slot: fn () callconv(.c) i32 ```
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.Sonnet__Highlighter_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__Highlighter, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.Sonnet__Highlighter_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1485,9 +1485,9 @@ pub const sonnet__highlighter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Sonnet__Highlighter, slot: fn (self: QtC.Sonnet__Highlighter, signal: [*:0]const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.Sonnet__Highlighter_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__Highlighter, callback: *const fn (self: QtC.Sonnet__Highlighter, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
+        qtc.Sonnet__Highlighter_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1518,9 +1518,9 @@ pub const sonnet__highlighter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Sonnet__Highlighter, slot: fn (self: QtC.Sonnet__Highlighter, signal: QtC.QMetaMethod) callconv(.c) bool ```
-    pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.Sonnet__Highlighter_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__Highlighter, callback: *const fn (self: QtC.Sonnet__Highlighter, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.Sonnet__Highlighter_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1529,9 +1529,9 @@ pub const sonnet__highlighter = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.Sonnet__Highlighter, slot: fn (self: QtC.Sonnet__Highlighter, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__Highlighter, callback: *const fn (self: QtC.Sonnet__Highlighter, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Delete this object from C++ memory.

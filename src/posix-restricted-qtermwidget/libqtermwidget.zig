@@ -60,9 +60,9 @@ pub const qtermwidget = struct {
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QTermWidget_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+        qtc.QTermWidget_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -95,9 +95,9 @@ pub const qtermwidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn () callconv(.c) QtC.QSize ```
-    pub fn OnSizeHint(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QSize) void {
-        qtc.QTermWidget_OnSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn () callconv(.c) QtC.QSize ```
+    pub fn OnSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
+        qtc.QTermWidget_OnSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -120,9 +120,9 @@ pub const qtermwidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, enabled: bool) callconv(.c) void ```
-    pub fn OnSetTerminalSizeHint(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QTermWidget_OnSetTerminalSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, enabled: bool) callconv(.c) void ```
+    pub fn OnSetTerminalSizeHint(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QTermWidget_OnSetTerminalSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -145,9 +145,9 @@ pub const qtermwidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn () callconv(.c) bool ```
-    pub fn OnTerminalSizeHint(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.QTermWidget_OnTerminalSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn () callconv(.c) bool ```
+    pub fn OnTerminalSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.QTermWidget_OnTerminalSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -170,9 +170,9 @@ pub const qtermwidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn () callconv(.c) void ```
-    pub fn OnStartShellProgram(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QTermWidget_OnStartShellProgram(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn () callconv(.c) void ```
+    pub fn OnStartShellProgram(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QTermWidget_OnStartShellProgram(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -195,9 +195,9 @@ pub const qtermwidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn () callconv(.c) void ```
-    pub fn OnStartTerminalTeletype(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QTermWidget_OnStartTerminalTeletype(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn () callconv(.c) void ```
+    pub fn OnStartTerminalTeletype(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QTermWidget_OnStartTerminalTeletype(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -220,9 +220,9 @@ pub const qtermwidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn () callconv(.c) i32 ```
-    pub fn OnGetShellPID(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QTermWidget_OnGetShellPID(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnGetShellPID(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QTermWidget_OnGetShellPID(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -245,9 +245,9 @@ pub const qtermwidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn () callconv(.c) i32 ```
-    pub fn OnGetForegroundProcessId(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QTermWidget_OnGetForegroundProcessId(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnGetForegroundProcessId(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QTermWidget_OnGetForegroundProcessId(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -274,9 +274,9 @@ pub const qtermwidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, dir: [*:0]const u8) callconv(.c) void ```
-    pub fn OnChangeDir(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QTermWidget_OnChangeDir(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, dir: [*:0]const u8) callconv(.c) void ```
+    pub fn OnChangeDir(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QTermWidget_OnChangeDir(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -303,9 +303,9 @@ pub const qtermwidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, font: QtC.QFont) callconv(.c) void ```
-    pub fn OnSetTerminalFont(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTermWidget_OnSetTerminalFont(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, font: QtC.QFont) callconv(.c) void ```
+    pub fn OnSetTerminalFont(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTermWidget_OnSetTerminalFont(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -328,9 +328,9 @@ pub const qtermwidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn () callconv(.c) QtC.QFont ```
-    pub fn OnGetTerminalFont(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QFont) void {
-        qtc.QTermWidget_OnGetTerminalFont(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn () callconv(.c) QtC.QFont ```
+    pub fn OnGetTerminalFont(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QFont) void {
+        qtc.QTermWidget_OnGetTerminalFont(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -353,9 +353,9 @@ pub const qtermwidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, level: f64) callconv(.c) void ```
-    pub fn OnSetTerminalOpacity(self: ?*anyopaque, slot: fn (?*anyopaque, f64) callconv(.c) void) void {
-        qtc.QTermWidget_OnSetTerminalOpacity(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, level: f64) callconv(.c) void ```
+    pub fn OnSetTerminalOpacity(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
+        qtc.QTermWidget_OnSetTerminalOpacity(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -382,9 +382,9 @@ pub const qtermwidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, backgroundImage: [*:0]const u8) callconv(.c) void ```
-    pub fn OnSetTerminalBackgroundImage(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QTermWidget_OnSetTerminalBackgroundImage(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, backgroundImage: [*:0]const u8) callconv(.c) void ```
+    pub fn OnSetTerminalBackgroundImage(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QTermWidget_OnSetTerminalBackgroundImage(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -411,9 +411,9 @@ pub const qtermwidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, mode: i32) callconv(.c) void ```
-    pub fn OnSetTerminalBackgroundMode(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QTermWidget_OnSetTerminalBackgroundMode(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, mode: i32) callconv(.c) void ```
+    pub fn OnSetTerminalBackgroundMode(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QTermWidget_OnSetTerminalBackgroundMode(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -448,9 +448,9 @@ pub const qtermwidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, environment: [*][*:0]const u8) callconv(.c) void ```
-    pub fn OnSetEnvironment(self: ?*anyopaque, slot: fn (?*anyopaque, [*][*:0]const u8) callconv(.c) void) void {
-        qtc.QTermWidget_OnSetEnvironment(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, environment: [*][*:0]const u8) callconv(.c) void ```
+    pub fn OnSetEnvironment(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*][*:0]const u8) callconv(.c) void) void {
+        qtc.QTermWidget_OnSetEnvironment(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -489,9 +489,9 @@ pub const qtermwidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, program: [*:0]const u8) callconv(.c) void ```
-    pub fn OnSetShellProgram(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QTermWidget_OnSetShellProgram(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, program: [*:0]const u8) callconv(.c) void ```
+    pub fn OnSetShellProgram(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QTermWidget_OnSetShellProgram(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -522,9 +522,9 @@ pub const qtermwidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, dir: [*:0]const u8) callconv(.c) void ```
-    pub fn OnSetWorkingDirectory(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QTermWidget_OnSetWorkingDirectory(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, dir: [*:0]const u8) callconv(.c) void ```
+    pub fn OnSetWorkingDirectory(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QTermWidget_OnSetWorkingDirectory(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -555,9 +555,9 @@ pub const qtermwidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn () callconv(.c) [*:0]const u8 ```
-    pub fn OnWorkingDirectory(self: ?*anyopaque, slot: fn () callconv(.c) [*:0]const u8) void {
-        qtc.QTermWidget_OnWorkingDirectory(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn () callconv(.c) [*:0]const u8 ```
+    pub fn OnWorkingDirectory(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
+        qtc.QTermWidget_OnWorkingDirectory(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -596,9 +596,9 @@ pub const qtermwidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, args: [*][*:0]const u8) callconv(.c) void ```
-    pub fn OnSetArgs(self: ?*anyopaque, slot: fn (?*anyopaque, [*][*:0]const u8) callconv(.c) void) void {
-        qtc.QTermWidget_OnSetArgs(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, args: [*][*:0]const u8) callconv(.c) void ```
+    pub fn OnSetArgs(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*][*:0]const u8) callconv(.c) void) void {
+        qtc.QTermWidget_OnSetArgs(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -637,9 +637,9 @@ pub const qtermwidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, name: [*:0]const u8) callconv(.c) void ```
-    pub fn OnSetColorScheme(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QTermWidget_OnSetColorScheme(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, name: [*:0]const u8) callconv(.c) void ```
+    pub fn OnSetColorScheme(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QTermWidget_OnSetColorScheme(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -681,9 +681,9 @@ pub const qtermwidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn () callconv(.c) [*][*:0]const u8 ```
-    pub fn OnGetAvailableColorSchemes(self: ?*anyopaque, slot: fn () callconv(.c) [*][*:0]const u8) void {
-        qtc.QTermWidget_OnGetAvailableColorSchemes(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn () callconv(.c) [*][*:0]const u8 ```
+    pub fn OnGetAvailableColorSchemes(self: ?*anyopaque, callback: *const fn () callconv(.c) [*][*:0]const u8) void {
+        qtc.QTermWidget_OnGetAvailableColorSchemes(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -754,9 +754,9 @@ pub const qtermwidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, lines: i32) callconv(.c) void ```
-    pub fn OnSetHistorySize(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QTermWidget_OnSetHistorySize(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, lines: i32) callconv(.c) void ```
+    pub fn OnSetHistorySize(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QTermWidget_OnSetHistorySize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -779,9 +779,9 @@ pub const qtermwidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn () callconv(.c) i32 ```
-    pub fn OnHistorySize(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QTermWidget_OnHistorySize(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnHistorySize(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QTermWidget_OnHistorySize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -804,9 +804,9 @@ pub const qtermwidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, scrollBarPosition: qtermwidget_interface_enums.ScrollBarPosition) callconv(.c) void ```
-    pub fn OnSetScrollBarPosition(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QTermWidget_OnSetScrollBarPosition(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, scrollBarPosition: qtermwidget_interface_enums.ScrollBarPosition) callconv(.c) void ```
+    pub fn OnSetScrollBarPosition(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QTermWidget_OnSetScrollBarPosition(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -829,9 +829,9 @@ pub const qtermwidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn () callconv(.c) void ```
-    pub fn OnScrollToEnd(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QTermWidget_OnScrollToEnd(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn () callconv(.c) void ```
+    pub fn OnScrollToEnd(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QTermWidget_OnScrollToEnd(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -858,9 +858,9 @@ pub const qtermwidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, text: [*:0]const u8) callconv(.c) void ```
-    pub fn OnSendText(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QTermWidget_OnSendText(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, text: [*:0]const u8) callconv(.c) void ```
+    pub fn OnSendText(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QTermWidget_OnSendText(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -887,9 +887,9 @@ pub const qtermwidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, e: QtC.QKeyEvent) callconv(.c) void ```
-    pub fn OnSendKeyEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTermWidget_OnSendKeyEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, e: QtC.QKeyEvent) callconv(.c) void ```
+    pub fn OnSendKeyEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTermWidget_OnSendKeyEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -912,9 +912,9 @@ pub const qtermwidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, enabled: bool) callconv(.c) void ```
-    pub fn OnSetFlowControlEnabled(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QTermWidget_OnSetFlowControlEnabled(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, enabled: bool) callconv(.c) void ```
+    pub fn OnSetFlowControlEnabled(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QTermWidget_OnSetFlowControlEnabled(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -937,9 +937,9 @@ pub const qtermwidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn () callconv(.c) bool ```
-    pub fn OnFlowControlEnabled(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.QTermWidget_OnFlowControlEnabled(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn () callconv(.c) bool ```
+    pub fn OnFlowControlEnabled(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.QTermWidget_OnFlowControlEnabled(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -962,9 +962,9 @@ pub const qtermwidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, enabled: bool) callconv(.c) void ```
-    pub fn OnSetFlowControlWarningEnabled(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QTermWidget_OnSetFlowControlWarningEnabled(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, enabled: bool) callconv(.c) void ```
+    pub fn OnSetFlowControlWarningEnabled(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QTermWidget_OnSetFlowControlWarningEnabled(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1013,9 +1013,9 @@ pub const qtermwidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn () callconv(.c) [*:0]const u8 ```
-    pub fn OnKeyBindings(self: ?*anyopaque, slot: fn () callconv(.c) [*:0]const u8) void {
-        qtc.QTermWidget_OnKeyBindings(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn () callconv(.c) [*:0]const u8 ```
+    pub fn OnKeyBindings(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
+        qtc.QTermWidget_OnKeyBindings(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1042,9 +1042,9 @@ pub const qtermwidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, motionAfterPasting: i32) callconv(.c) void ```
-    pub fn OnSetMotionAfterPasting(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QTermWidget_OnSetMotionAfterPasting(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, motionAfterPasting: i32) callconv(.c) void ```
+    pub fn OnSetMotionAfterPasting(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QTermWidget_OnSetMotionAfterPasting(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1067,9 +1067,9 @@ pub const qtermwidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn () callconv(.c) i32 ```
-    pub fn OnHistoryLinesCount(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QTermWidget_OnHistoryLinesCount(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnHistoryLinesCount(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QTermWidget_OnHistoryLinesCount(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1092,9 +1092,9 @@ pub const qtermwidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn () callconv(.c) i32 ```
-    pub fn OnScreenColumnsCount(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QTermWidget_OnScreenColumnsCount(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnScreenColumnsCount(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QTermWidget_OnScreenColumnsCount(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1117,9 +1117,9 @@ pub const qtermwidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn () callconv(.c) i32 ```
-    pub fn OnScreenLinesCount(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QTermWidget_OnScreenLinesCount(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnScreenLinesCount(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QTermWidget_OnScreenLinesCount(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1142,9 +1142,9 @@ pub const qtermwidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, row: i32, column: i32) callconv(.c) void ```
-    pub fn OnSetSelectionStart(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QTermWidget_OnSetSelectionStart(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, row: i32, column: i32) callconv(.c) void ```
+    pub fn OnSetSelectionStart(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
+        qtc.QTermWidget_OnSetSelectionStart(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1167,9 +1167,9 @@ pub const qtermwidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, row: i32, column: i32) callconv(.c) void ```
-    pub fn OnSetSelectionEnd(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QTermWidget_OnSetSelectionEnd(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, row: i32, column: i32) callconv(.c) void ```
+    pub fn OnSetSelectionEnd(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
+        qtc.QTermWidget_OnSetSelectionEnd(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1192,9 +1192,9 @@ pub const qtermwidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, row: *i32, column: *i32) callconv(.c) void ```
-    pub fn OnGetSelectionStart(self: ?*anyopaque, slot: fn (?*anyopaque, *i32, *i32) callconv(.c) void) void {
-        qtc.QTermWidget_OnGetSelectionStart(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, row: *i32, column: *i32) callconv(.c) void ```
+    pub fn OnGetSelectionStart(self: ?*anyopaque, callback: *const fn (?*anyopaque, *i32, *i32) callconv(.c) void) void {
+        qtc.QTermWidget_OnGetSelectionStart(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1217,9 +1217,9 @@ pub const qtermwidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, row: *i32, column: *i32) callconv(.c) void ```
-    pub fn OnGetSelectionEnd(self: ?*anyopaque, slot: fn (?*anyopaque, *i32, *i32) callconv(.c) void) void {
-        qtc.QTermWidget_OnGetSelectionEnd(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, row: *i32, column: *i32) callconv(.c) void ```
+    pub fn OnGetSelectionEnd(self: ?*anyopaque, callback: *const fn (?*anyopaque, *i32, *i32) callconv(.c) void) void {
+        qtc.QTermWidget_OnGetSelectionEnd(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1246,9 +1246,9 @@ pub const qtermwidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, preserveLineBreaks: bool) callconv(.c) [*:0]const u8 ```
-    pub fn OnSelectedText(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) [*:0]const u8) void {
-        qtc.QTermWidget_OnSelectedText(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, preserveLineBreaks: bool) callconv(.c) [*:0]const u8 ```
+    pub fn OnSelectedText(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) [*:0]const u8) void {
+        qtc.QTermWidget_OnSelectedText(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1275,9 +1275,9 @@ pub const qtermwidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, monitorActivity: bool) callconv(.c) void ```
-    pub fn OnSetMonitorActivity(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QTermWidget_OnSetMonitorActivity(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, monitorActivity: bool) callconv(.c) void ```
+    pub fn OnSetMonitorActivity(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QTermWidget_OnSetMonitorActivity(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1300,9 +1300,9 @@ pub const qtermwidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, monitorSilence: bool) callconv(.c) void ```
-    pub fn OnSetMonitorSilence(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QTermWidget_OnSetMonitorSilence(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, monitorSilence: bool) callconv(.c) void ```
+    pub fn OnSetMonitorSilence(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QTermWidget_OnSetMonitorSilence(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1325,9 +1325,9 @@ pub const qtermwidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, seconds: i32) callconv(.c) void ```
-    pub fn OnSetSilenceTimeout(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QTermWidget_OnSetSilenceTimeout(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, seconds: i32) callconv(.c) void ```
+    pub fn OnSetSilenceTimeout(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QTermWidget_OnSetSilenceTimeout(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1369,9 +1369,9 @@ pub const qtermwidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, position: QtC.QPoint) callconv(.c) [*:null]QtC.QAction ```
-    pub fn OnFilterActions(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) [*:null]QtC.QAction) void {
-        qtc.QTermWidget_OnFilterActions(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, position: QtC.QPoint) callconv(.c) [*:null]QtC.QAction ```
+    pub fn OnFilterActions(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) [*:null]QtC.QAction) void {
+        qtc.QTermWidget_OnFilterActions(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1399,9 +1399,9 @@ pub const qtermwidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn () callconv(.c) i32 ```
-    pub fn OnGetPtySlaveFd(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QTermWidget_OnGetPtySlaveFd(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnGetPtySlaveFd(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QTermWidget_OnGetPtySlaveFd(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1431,9 +1431,9 @@ pub const qtermwidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, blink: bool) callconv(.c) void ```
-    pub fn OnSetBlinkingCursor(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QTermWidget_OnSetBlinkingCursor(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, blink: bool) callconv(.c) void ```
+    pub fn OnSetBlinkingCursor(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QTermWidget_OnSetBlinkingCursor(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1456,9 +1456,9 @@ pub const qtermwidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, enabled: bool) callconv(.c) void ```
-    pub fn OnSetBidiEnabled(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QTermWidget_OnSetBidiEnabled(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, enabled: bool) callconv(.c) void ```
+    pub fn OnSetBidiEnabled(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QTermWidget_OnSetBidiEnabled(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1481,9 +1481,9 @@ pub const qtermwidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn () callconv(.c) bool ```
-    pub fn OnIsBidiEnabled(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.QTermWidget_OnIsBidiEnabled(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn () callconv(.c) bool ```
+    pub fn OnIsBidiEnabled(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.QTermWidget_OnIsBidiEnabled(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1506,9 +1506,9 @@ pub const qtermwidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, autoClose: bool) callconv(.c) void ```
-    pub fn OnSetAutoClose(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QTermWidget_OnSetAutoClose(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, autoClose: bool) callconv(.c) void ```
+    pub fn OnSetAutoClose(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QTermWidget_OnSetAutoClose(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1535,9 +1535,9 @@ pub const qtermwidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn () callconv(.c) [*:0]const u8 ```
-    pub fn OnTitle(self: ?*anyopaque, slot: fn () callconv(.c) [*:0]const u8) void {
-        qtc.QTermWidget_OnTitle(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn () callconv(.c) [*:0]const u8 ```
+    pub fn OnTitle(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
+        qtc.QTermWidget_OnTitle(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1568,9 +1568,9 @@ pub const qtermwidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn () callconv(.c) [*:0]const u8 ```
-    pub fn OnIcon(self: ?*anyopaque, slot: fn () callconv(.c) [*:0]const u8) void {
-        qtc.QTermWidget_OnIcon(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn () callconv(.c) [*:0]const u8 ```
+    pub fn OnIcon(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
+        qtc.QTermWidget_OnIcon(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1597,9 +1597,9 @@ pub const qtermwidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn () callconv(.c) bool ```
-    pub fn OnIsTitleChanged(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.QTermWidget_OnIsTitleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn () callconv(.c) bool ```
+    pub fn OnIsTitleChanged(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.QTermWidget_OnIsTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1626,9 +1626,9 @@ pub const qtermwidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, text: [*:0]const u8) callconv(.c) void ```
-    pub fn OnBracketText(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QTermWidget_OnBracketText(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, text: [*:0]const u8) callconv(.c) void ```
+    pub fn OnBracketText(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QTermWidget_OnBracketText(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1655,9 +1655,9 @@ pub const qtermwidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, disable: bool) callconv(.c) void ```
-    pub fn OnDisableBracketedPasteMode(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QTermWidget_OnDisableBracketedPasteMode(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, disable: bool) callconv(.c) void ```
+    pub fn OnDisableBracketedPasteMode(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QTermWidget_OnDisableBracketedPasteMode(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1680,9 +1680,9 @@ pub const qtermwidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn () callconv(.c) bool ```
-    pub fn OnBracketedPasteModeIsDisabled(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.QTermWidget_OnBracketedPasteModeIsDisabled(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn () callconv(.c) bool ```
+    pub fn OnBracketedPasteModeIsDisabled(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.QTermWidget_OnBracketedPasteModeIsDisabled(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1705,9 +1705,9 @@ pub const qtermwidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, margin: i32) callconv(.c) void ```
-    pub fn OnSetMargin(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QTermWidget_OnSetMargin(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, margin: i32) callconv(.c) void ```
+    pub fn OnSetMargin(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QTermWidget_OnSetMargin(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1730,9 +1730,9 @@ pub const qtermwidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn () callconv(.c) i32 ```
-    pub fn OnGetMargin(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QTermWidget_OnGetMargin(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnGetMargin(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QTermWidget_OnGetMargin(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1755,9 +1755,9 @@ pub const qtermwidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, drawLineChars: bool) callconv(.c) void ```
-    pub fn OnSetDrawLineChars(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QTermWidget_OnSetDrawLineChars(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, drawLineChars: bool) callconv(.c) void ```
+    pub fn OnSetDrawLineChars(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QTermWidget_OnSetDrawLineChars(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1780,9 +1780,9 @@ pub const qtermwidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, boldIntense: bool) callconv(.c) void ```
-    pub fn OnSetBoldIntense(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QTermWidget_OnSetBoldIntense(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, boldIntense: bool) callconv(.c) void ```
+    pub fn OnSetBoldIntense(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QTermWidget_OnSetBoldIntense(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1805,9 +1805,9 @@ pub const qtermwidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, confirmMultilinePaste: bool) callconv(.c) void ```
-    pub fn OnSetConfirmMultilinePaste(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QTermWidget_OnSetConfirmMultilinePaste(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, confirmMultilinePaste: bool) callconv(.c) void ```
+    pub fn OnSetConfirmMultilinePaste(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QTermWidget_OnSetConfirmMultilinePaste(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1830,9 +1830,9 @@ pub const qtermwidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, trimPastedTrailingNewlines: bool) callconv(.c) void ```
-    pub fn OnSetTrimPastedTrailingNewlines(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QTermWidget_OnSetTrimPastedTrailingNewlines(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, trimPastedTrailingNewlines: bool) callconv(.c) void ```
+    pub fn OnSetTrimPastedTrailingNewlines(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QTermWidget_OnSetTrimPastedTrailingNewlines(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1859,9 +1859,9 @@ pub const qtermwidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn () callconv(.c) [*:0]const u8 ```
-    pub fn OnWordCharacters(self: ?*anyopaque, slot: fn () callconv(.c) [*:0]const u8) void {
-        qtc.QTermWidget_OnWordCharacters(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn () callconv(.c) [*:0]const u8 ```
+    pub fn OnWordCharacters(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
+        qtc.QTermWidget_OnWordCharacters(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1892,9 +1892,9 @@ pub const qtermwidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, chars: [*:0]const u8) callconv(.c) void ```
-    pub fn OnSetWordCharacters(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QTermWidget_OnSetWordCharacters(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, chars: [*:0]const u8) callconv(.c) void ```
+    pub fn OnSetWordCharacters(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QTermWidget_OnSetWordCharacters(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1921,9 +1921,9 @@ pub const qtermwidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, startnow: i32) callconv(.c) QtC.QTermWidgetInterface ```
-    pub fn OnCreateWidget(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) QtC.QTermWidgetInterface) void {
-        qtc.QTermWidget_OnCreateWidget(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, startnow: i32) callconv(.c) QtC.QTermWidgetInterface ```
+    pub fn OnCreateWidget(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QTermWidgetInterface) void {
+        qtc.QTermWidget_OnCreateWidget(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1944,9 +1944,9 @@ pub const qtermwidget = struct {
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget) callconv(.c) void ```
-    pub fn OnFinished(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QTermWidget_Connect_Finished(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget) callconv(.c) void ```
+    pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QTermWidget_Connect_Finished(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1958,9 +1958,9 @@ pub const qtermwidget = struct {
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, param1: bool) callconv(.c) void ```
-    pub fn OnCopyAvailable(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QTermWidget_Connect_CopyAvailable(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, param1: bool) callconv(.c) void ```
+    pub fn OnCopyAvailable(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QTermWidget_Connect_CopyAvailable(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1972,9 +1972,9 @@ pub const qtermwidget = struct {
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget) callconv(.c) void ```
-    pub fn OnTermGetFocus(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QTermWidget_Connect_TermGetFocus(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget) callconv(.c) void ```
+    pub fn OnTermGetFocus(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QTermWidget_Connect_TermGetFocus(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1986,9 +1986,9 @@ pub const qtermwidget = struct {
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget) callconv(.c) void ```
-    pub fn OnTermLostFocus(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QTermWidget_Connect_TermLostFocus(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget) callconv(.c) void ```
+    pub fn OnTermLostFocus(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QTermWidget_Connect_TermLostFocus(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -2000,9 +2000,9 @@ pub const qtermwidget = struct {
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, param1: QtC.QKeyEvent) callconv(.c) void ```
-    pub fn OnTermKeyPressed(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTermWidget_Connect_TermKeyPressed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, param1: QtC.QKeyEvent) callconv(.c) void ```
+    pub fn OnTermKeyPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTermWidget_Connect_TermKeyPressed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -2014,9 +2014,9 @@ pub const qtermwidget = struct {
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, param1: QtC.QUrl, fromContextMenu: bool) callconv(.c) void ```
-    pub fn OnUrlActivated(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QTermWidget_Connect_UrlActivated(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, param1: QtC.QUrl, fromContextMenu: bool) callconv(.c) void ```
+    pub fn OnUrlActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QTermWidget_Connect_UrlActivated(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -2032,9 +2032,9 @@ pub const qtermwidget = struct {
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, message: [*:0]const u8) callconv(.c) void ```
-    pub fn OnBell(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QTermWidget_Connect_Bell(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, message: [*:0]const u8) callconv(.c) void ```
+    pub fn OnBell(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QTermWidget_Connect_Bell(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -2046,9 +2046,9 @@ pub const qtermwidget = struct {
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget) callconv(.c) void ```
-    pub fn OnActivity(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QTermWidget_Connect_Activity(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget) callconv(.c) void ```
+    pub fn OnActivity(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QTermWidget_Connect_Activity(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -2060,9 +2060,9 @@ pub const qtermwidget = struct {
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget) callconv(.c) void ```
-    pub fn OnSilence(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QTermWidget_Connect_Silence(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget) callconv(.c) void ```
+    pub fn OnSilence(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QTermWidget_Connect_Silence(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -2075,9 +2075,9 @@ pub const qtermwidget = struct {
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, param1: [*:0]const u8, param2: i32) callconv(.c) void ```
-    pub fn OnSendData(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, i32) callconv(.c) void) void {
-        qtc.QTermWidget_Connect_SendData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, param1: [*:0]const u8, param2: i32) callconv(.c) void ```
+    pub fn OnSendData(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32) callconv(.c) void) void {
+        qtc.QTermWidget_Connect_SendData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -2093,9 +2093,9 @@ pub const qtermwidget = struct {
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, profile: [*:0]const u8) callconv(.c) void ```
-    pub fn OnProfileChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QTermWidget_Connect_ProfileChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, profile: [*:0]const u8) callconv(.c) void ```
+    pub fn OnProfileChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QTermWidget_Connect_ProfileChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -2107,9 +2107,9 @@ pub const qtermwidget = struct {
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget) callconv(.c) void ```
-    pub fn OnTitleChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QTermWidget_Connect_TitleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget) callconv(.c) void ```
+    pub fn OnTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QTermWidget_Connect_TitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -2125,9 +2125,9 @@ pub const qtermwidget = struct {
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, text: [*:0]const u8) callconv(.c) void ```
-    pub fn OnReceivedData(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QTermWidget_Connect_ReceivedData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, text: [*:0]const u8) callconv(.c) void ```
+    pub fn OnReceivedData(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QTermWidget_Connect_ReceivedData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -2215,9 +2215,9 @@ pub const qtermwidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, param1: QtC.QResizeEvent) callconv(.c) void ```
-    pub fn OnResizeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTermWidget_OnResizeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, param1: QtC.QResizeEvent) callconv(.c) void ```
+    pub fn OnResizeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTermWidget_OnResizeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -2240,9 +2240,9 @@ pub const qtermwidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn () callconv(.c) void ```
-    pub fn OnSessionFinished(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QTermWidget_OnSessionFinished(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn () callconv(.c) void ```
+    pub fn OnSessionFinished(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QTermWidget_OnSessionFinished(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -2265,9 +2265,9 @@ pub const qtermwidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, textSelected: bool) callconv(.c) void ```
-    pub fn OnSelectionChanged(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QTermWidget_OnSelectionChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, textSelected: bool) callconv(.c) void ```
+    pub fn OnSelectionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QTermWidget_OnSelectionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -4680,9 +4680,9 @@ pub const qtermwidget = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, title: [*:0]const u8) callconv(.c) void ```
-    pub fn OnWindowTitleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, title: [*:0]const u8) callconv(.c) void ```
+    pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4698,9 +4698,9 @@ pub const qtermwidget = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, icon: QtC.QIcon) callconv(.c) void ```
-    pub fn OnWindowIconChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, icon: QtC.QIcon) callconv(.c) void ```
+    pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4720,9 +4720,9 @@ pub const qtermwidget = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, iconText: [*:0]const u8) callconv(.c) void ```
-    pub fn OnWindowIconTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, iconText: [*:0]const u8) callconv(.c) void ```
+    pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4738,9 +4738,9 @@ pub const qtermwidget = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, pos: QtC.QPoint) callconv(.c) void ```
-    pub fn OnCustomContextMenuRequested(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, pos: QtC.QPoint) callconv(.c) void ```
+    pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5177,9 +5177,9 @@ pub const qtermwidget = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5261,9 +5261,9 @@ pub const qtermwidget = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -5420,9 +5420,9 @@ pub const qtermwidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn () callconv(.c) i32 ```
-    pub fn OnDevType(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QTermWidget_OnDevType(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnDevType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QTermWidget_OnDevType(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5453,9 +5453,9 @@ pub const qtermwidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, visible: bool) callconv(.c) void ```
-    pub fn OnSetVisible(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QTermWidget_OnSetVisible(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, visible: bool) callconv(.c) void ```
+    pub fn OnSetVisible(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QTermWidget_OnSetVisible(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5486,9 +5486,9 @@ pub const qtermwidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn () callconv(.c) QtC.QSize ```
-    pub fn OnMinimumSizeHint(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QSize) void {
-        qtc.QTermWidget_OnMinimumSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn () callconv(.c) QtC.QSize ```
+    pub fn OnMinimumSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
+        qtc.QTermWidget_OnMinimumSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5519,9 +5519,9 @@ pub const qtermwidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, param1: i32) callconv(.c) i32 ```
-    pub fn OnHeightForWidth(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QTermWidget_OnHeightForWidth(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, param1: i32) callconv(.c) i32 ```
+    pub fn OnHeightForWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
+        qtc.QTermWidget_OnHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5552,9 +5552,9 @@ pub const qtermwidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn () callconv(.c) bool ```
-    pub fn OnHasHeightForWidth(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.QTermWidget_OnHasHeightForWidth(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn () callconv(.c) bool ```
+    pub fn OnHasHeightForWidth(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.QTermWidget_OnHasHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5585,9 +5585,9 @@ pub const qtermwidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn () callconv(.c) QtC.QPaintEngine ```
-    pub fn OnPaintEngine(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QPaintEngine) void {
-        qtc.QTermWidget_OnPaintEngine(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn () callconv(.c) QtC.QPaintEngine ```
+    pub fn OnPaintEngine(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPaintEngine) void {
+        qtc.QTermWidget_OnPaintEngine(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5618,9 +5618,9 @@ pub const qtermwidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QTermWidget_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QTermWidget_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5651,9 +5651,9 @@ pub const qtermwidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, event: QtC.QMouseEvent) callconv(.c) void ```
-    pub fn OnMousePressEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTermWidget_OnMousePressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, event: QtC.QMouseEvent) callconv(.c) void ```
+    pub fn OnMousePressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTermWidget_OnMousePressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5684,9 +5684,9 @@ pub const qtermwidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, event: QtC.QMouseEvent) callconv(.c) void ```
-    pub fn OnMouseReleaseEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTermWidget_OnMouseReleaseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, event: QtC.QMouseEvent) callconv(.c) void ```
+    pub fn OnMouseReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTermWidget_OnMouseReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5717,9 +5717,9 @@ pub const qtermwidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, event: QtC.QMouseEvent) callconv(.c) void ```
-    pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTermWidget_OnMouseDoubleClickEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, event: QtC.QMouseEvent) callconv(.c) void ```
+    pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTermWidget_OnMouseDoubleClickEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5750,9 +5750,9 @@ pub const qtermwidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, event: QtC.QMouseEvent) callconv(.c) void ```
-    pub fn OnMouseMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTermWidget_OnMouseMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, event: QtC.QMouseEvent) callconv(.c) void ```
+    pub fn OnMouseMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTermWidget_OnMouseMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5783,9 +5783,9 @@ pub const qtermwidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, event: QtC.QWheelEvent) callconv(.c) void ```
-    pub fn OnWheelEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTermWidget_OnWheelEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, event: QtC.QWheelEvent) callconv(.c) void ```
+    pub fn OnWheelEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTermWidget_OnWheelEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5816,9 +5816,9 @@ pub const qtermwidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, event: QtC.QKeyEvent) callconv(.c) void ```
-    pub fn OnKeyPressEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTermWidget_OnKeyPressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, event: QtC.QKeyEvent) callconv(.c) void ```
+    pub fn OnKeyPressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTermWidget_OnKeyPressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5849,9 +5849,9 @@ pub const qtermwidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, event: QtC.QKeyEvent) callconv(.c) void ```
-    pub fn OnKeyReleaseEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTermWidget_OnKeyReleaseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, event: QtC.QKeyEvent) callconv(.c) void ```
+    pub fn OnKeyReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTermWidget_OnKeyReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5882,9 +5882,9 @@ pub const qtermwidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, event: QtC.QFocusEvent) callconv(.c) void ```
-    pub fn OnFocusInEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTermWidget_OnFocusInEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, event: QtC.QFocusEvent) callconv(.c) void ```
+    pub fn OnFocusInEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTermWidget_OnFocusInEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5915,9 +5915,9 @@ pub const qtermwidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, event: QtC.QFocusEvent) callconv(.c) void ```
-    pub fn OnFocusOutEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTermWidget_OnFocusOutEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, event: QtC.QFocusEvent) callconv(.c) void ```
+    pub fn OnFocusOutEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTermWidget_OnFocusOutEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5948,9 +5948,9 @@ pub const qtermwidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, event: QtC.QEnterEvent) callconv(.c) void ```
-    pub fn OnEnterEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTermWidget_OnEnterEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, event: QtC.QEnterEvent) callconv(.c) void ```
+    pub fn OnEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTermWidget_OnEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5981,9 +5981,9 @@ pub const qtermwidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnLeaveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTermWidget_OnLeaveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTermWidget_OnLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6014,9 +6014,9 @@ pub const qtermwidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, event: QtC.QPaintEvent) callconv(.c) void ```
-    pub fn OnPaintEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTermWidget_OnPaintEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, event: QtC.QPaintEvent) callconv(.c) void ```
+    pub fn OnPaintEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTermWidget_OnPaintEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6047,9 +6047,9 @@ pub const qtermwidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, event: QtC.QMoveEvent) callconv(.c) void ```
-    pub fn OnMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTermWidget_OnMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, event: QtC.QMoveEvent) callconv(.c) void ```
+    pub fn OnMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTermWidget_OnMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6080,9 +6080,9 @@ pub const qtermwidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, event: QtC.QCloseEvent) callconv(.c) void ```
-    pub fn OnCloseEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTermWidget_OnCloseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, event: QtC.QCloseEvent) callconv(.c) void ```
+    pub fn OnCloseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTermWidget_OnCloseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6113,9 +6113,9 @@ pub const qtermwidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, event: QtC.QContextMenuEvent) callconv(.c) void ```
-    pub fn OnContextMenuEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTermWidget_OnContextMenuEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, event: QtC.QContextMenuEvent) callconv(.c) void ```
+    pub fn OnContextMenuEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTermWidget_OnContextMenuEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6146,9 +6146,9 @@ pub const qtermwidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, event: QtC.QTabletEvent) callconv(.c) void ```
-    pub fn OnTabletEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTermWidget_OnTabletEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, event: QtC.QTabletEvent) callconv(.c) void ```
+    pub fn OnTabletEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTermWidget_OnTabletEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6179,9 +6179,9 @@ pub const qtermwidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, event: QtC.QActionEvent) callconv(.c) void ```
-    pub fn OnActionEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTermWidget_OnActionEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, event: QtC.QActionEvent) callconv(.c) void ```
+    pub fn OnActionEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTermWidget_OnActionEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6212,9 +6212,9 @@ pub const qtermwidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, event: QtC.QDragEnterEvent) callconv(.c) void ```
-    pub fn OnDragEnterEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTermWidget_OnDragEnterEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, event: QtC.QDragEnterEvent) callconv(.c) void ```
+    pub fn OnDragEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTermWidget_OnDragEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6245,9 +6245,9 @@ pub const qtermwidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, event: QtC.QDragMoveEvent) callconv(.c) void ```
-    pub fn OnDragMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTermWidget_OnDragMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, event: QtC.QDragMoveEvent) callconv(.c) void ```
+    pub fn OnDragMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTermWidget_OnDragMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6278,9 +6278,9 @@ pub const qtermwidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, event: QtC.QDragLeaveEvent) callconv(.c) void ```
-    pub fn OnDragLeaveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTermWidget_OnDragLeaveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, event: QtC.QDragLeaveEvent) callconv(.c) void ```
+    pub fn OnDragLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTermWidget_OnDragLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6311,9 +6311,9 @@ pub const qtermwidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, event: QtC.QDropEvent) callconv(.c) void ```
-    pub fn OnDropEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTermWidget_OnDropEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, event: QtC.QDropEvent) callconv(.c) void ```
+    pub fn OnDropEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTermWidget_OnDropEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6344,9 +6344,9 @@ pub const qtermwidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, event: QtC.QShowEvent) callconv(.c) void ```
-    pub fn OnShowEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTermWidget_OnShowEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, event: QtC.QShowEvent) callconv(.c) void ```
+    pub fn OnShowEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTermWidget_OnShowEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6377,9 +6377,9 @@ pub const qtermwidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, event: QtC.QHideEvent) callconv(.c) void ```
-    pub fn OnHideEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTermWidget_OnHideEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, event: QtC.QHideEvent) callconv(.c) void ```
+    pub fn OnHideEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTermWidget_OnHideEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6418,9 +6418,9 @@ pub const qtermwidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, eventType: [*:0]u8, message: ?*anyopaque, result: *isize) callconv(.c) bool ```
-    pub fn OnNativeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]u8, ?*anyopaque, *isize) callconv(.c) bool) void {
-        qtc.QTermWidget_OnNativeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, eventType: [*:0]u8, message: ?*anyopaque, result: *isize) callconv(.c) bool ```
+    pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]u8, ?*anyopaque, *isize) callconv(.c) bool) void {
+        qtc.QTermWidget_OnNativeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6451,9 +6451,9 @@ pub const qtermwidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, param1: QtC.QEvent) callconv(.c) void ```
-    pub fn OnChangeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTermWidget_OnChangeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, param1: QtC.QEvent) callconv(.c) void ```
+    pub fn OnChangeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTermWidget_OnChangeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6484,9 +6484,9 @@ pub const qtermwidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 ```
-    pub fn OnMetric(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QTermWidget_OnMetric(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 ```
+    pub fn OnMetric(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
+        qtc.QTermWidget_OnMetric(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6517,9 +6517,9 @@ pub const qtermwidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, painter: QtC.QPainter) callconv(.c) void ```
-    pub fn OnInitPainter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTermWidget_OnInitPainter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, painter: QtC.QPainter) callconv(.c) void ```
+    pub fn OnInitPainter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTermWidget_OnInitPainter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6550,9 +6550,9 @@ pub const qtermwidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, offset: QtC.QPoint) callconv(.c) QtC.QPaintDevice ```
-    pub fn OnRedirected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPaintDevice) void {
-        qtc.QTermWidget_OnRedirected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, offset: QtC.QPoint) callconv(.c) QtC.QPaintDevice ```
+    pub fn OnRedirected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPaintDevice) void {
+        qtc.QTermWidget_OnRedirected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6583,9 +6583,9 @@ pub const qtermwidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn () callconv(.c) QtC.QPainter ```
-    pub fn OnSharedPainter(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QPainter) void {
-        qtc.QTermWidget_OnSharedPainter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn () callconv(.c) QtC.QPainter ```
+    pub fn OnSharedPainter(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainter) void {
+        qtc.QTermWidget_OnSharedPainter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6616,9 +6616,9 @@ pub const qtermwidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, param1: QtC.QInputMethodEvent) callconv(.c) void ```
-    pub fn OnInputMethodEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTermWidget_OnInputMethodEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, param1: QtC.QInputMethodEvent) callconv(.c) void ```
+    pub fn OnInputMethodEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTermWidget_OnInputMethodEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6649,9 +6649,9 @@ pub const qtermwidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant ```
-    pub fn OnInputMethodQuery(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) QtC.QVariant) void {
-        qtc.QTermWidget_OnInputMethodQuery(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant ```
+    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) QtC.QVariant) void {
+        qtc.QTermWidget_OnInputMethodQuery(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6682,9 +6682,9 @@ pub const qtermwidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, next: bool) callconv(.c) bool ```
-    pub fn OnFocusNextPrevChild(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) bool) void {
-        qtc.QTermWidget_OnFocusNextPrevChild(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, next: bool) callconv(.c) bool ```
+    pub fn OnFocusNextPrevChild(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) bool) void {
+        qtc.QTermWidget_OnFocusNextPrevChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6715,9 +6715,9 @@ pub const qtermwidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QTermWidget_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QTermWidget_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6748,9 +6748,9 @@ pub const qtermwidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, event: QtC.QTimerEvent) callconv(.c) void ```
-    pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTermWidget_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, event: QtC.QTimerEvent) callconv(.c) void ```
+    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTermWidget_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6781,9 +6781,9 @@ pub const qtermwidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, event: QtC.QChildEvent) callconv(.c) void ```
-    pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTermWidget_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, event: QtC.QChildEvent) callconv(.c) void ```
+    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTermWidget_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6814,9 +6814,9 @@ pub const qtermwidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTermWidget_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTermWidget_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6847,9 +6847,9 @@ pub const qtermwidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTermWidget_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTermWidget_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6880,9 +6880,9 @@ pub const qtermwidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTermWidget_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTermWidget_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6913,9 +6913,9 @@ pub const qtermwidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn () callconv(.c) void ```
-    pub fn OnUpdateMicroFocus(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QTermWidget_OnUpdateMicroFocus(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn () callconv(.c) void ```
+    pub fn OnUpdateMicroFocus(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QTermWidget_OnUpdateMicroFocus(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6946,9 +6946,9 @@ pub const qtermwidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn () callconv(.c) void ```
-    pub fn OnCreate(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QTermWidget_OnCreate(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn () callconv(.c) void ```
+    pub fn OnCreate(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QTermWidget_OnCreate(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6979,9 +6979,9 @@ pub const qtermwidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn () callconv(.c) void ```
-    pub fn OnDestroy(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QTermWidget_OnDestroy(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn () callconv(.c) void ```
+    pub fn OnDestroy(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QTermWidget_OnDestroy(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7012,9 +7012,9 @@ pub const qtermwidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn () callconv(.c) bool ```
-    pub fn OnFocusNextChild(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.QTermWidget_OnFocusNextChild(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn () callconv(.c) bool ```
+    pub fn OnFocusNextChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.QTermWidget_OnFocusNextChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7045,9 +7045,9 @@ pub const qtermwidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn () callconv(.c) bool ```
-    pub fn OnFocusPreviousChild(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.QTermWidget_OnFocusPreviousChild(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn () callconv(.c) bool ```
+    pub fn OnFocusPreviousChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.QTermWidget_OnFocusPreviousChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7078,9 +7078,9 @@ pub const qtermwidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn () callconv(.c) QtC.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
-        qtc.QTermWidget_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.QTermWidget_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7111,9 +7111,9 @@ pub const qtermwidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn () callconv(.c) i32 ```
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QTermWidget_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QTermWidget_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7146,9 +7146,9 @@ pub const qtermwidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, signal: [*:0]const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QTermWidget_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QTermWidget_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7179,9 +7179,9 @@ pub const qtermwidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, signal: QtC.QMetaMethod) callconv(.c) bool ```
-    pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QTermWidget_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QTermWidget_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -7212,9 +7212,9 @@ pub const qtermwidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 ```
-    pub fn OnGetDecodedMetricF(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
-        qtc.QTermWidget_OnGetDecodedMetricF(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 ```
+    pub fn OnGetDecodedMetricF(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
+        qtc.QTermWidget_OnGetDecodedMetricF(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7223,9 +7223,9 @@ pub const qtermwidget = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QTermWidget, slot: fn (self: QtC.QTermWidget, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTermWidget, callback: *const fn (self: QtC.QTermWidget, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)

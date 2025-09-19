@@ -42,9 +42,9 @@ pub const kwidgetjobtracker = struct {
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KWidgetJobTracker, slot: fn (self: QtC.KWidgetJobTracker, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
-        qtc.KWidgetJobTracker_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWidgetJobTracker, callback: *const fn (self: QtC.KWidgetJobTracker, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+        qtc.KWidgetJobTracker_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -77,9 +77,9 @@ pub const kwidgetjobtracker = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KWidgetJobTracker, slot: fn (self: QtC.KWidgetJobTracker, job: QtC.KJob) callconv(.c) QtC.QWidget ```
-    pub fn OnWidget(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QWidget) void {
-        qtc.KWidgetJobTracker_OnWidget(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWidgetJobTracker, callback: *const fn (self: QtC.KWidgetJobTracker, job: QtC.KJob) callconv(.c) QtC.QWidget ```
+    pub fn OnWidget(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QWidget) void {
+        qtc.KWidgetJobTracker_OnWidget(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kwidgetjobtracker.html#widget)
@@ -102,9 +102,9 @@ pub const kwidgetjobtracker = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KWidgetJobTracker, slot: fn (self: QtC.KWidgetJobTracker, job: QtC.KJob) callconv(.c) void ```
-    pub fn OnRegisterJob(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KWidgetJobTracker_OnRegisterJob(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWidgetJobTracker, callback: *const fn (self: QtC.KWidgetJobTracker, job: QtC.KJob) callconv(.c) void ```
+    pub fn OnRegisterJob(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KWidgetJobTracker_OnRegisterJob(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kwidgetjobtracker.html#registerJob)
@@ -127,9 +127,9 @@ pub const kwidgetjobtracker = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KWidgetJobTracker, slot: fn (self: QtC.KWidgetJobTracker, job: QtC.KJob) callconv(.c) void ```
-    pub fn OnUnregisterJob(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KWidgetJobTracker_OnUnregisterJob(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWidgetJobTracker, callback: *const fn (self: QtC.KWidgetJobTracker, job: QtC.KJob) callconv(.c) void ```
+    pub fn OnUnregisterJob(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KWidgetJobTracker_OnUnregisterJob(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kwidgetjobtracker.html#unregisterJob)
@@ -163,9 +163,9 @@ pub const kwidgetjobtracker = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KWidgetJobTracker, slot: fn (self: QtC.KWidgetJobTracker, job: QtC.KJob, message: [*:0]const u8) callconv(.c) void ```
-    pub fn OnInfoMessage(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KWidgetJobTracker_OnInfoMessage(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWidgetJobTracker, callback: *const fn (self: QtC.KWidgetJobTracker, job: QtC.KJob, message: [*:0]const u8) callconv(.c) void ```
+    pub fn OnInfoMessage(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.KWidgetJobTracker_OnInfoMessage(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kwidgetjobtracker.html#infoMessage)
@@ -204,9 +204,9 @@ pub const kwidgetjobtracker = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KWidgetJobTracker, slot: fn (self: QtC.KWidgetJobTracker, job: QtC.KJob, title: [*:0]const u8, field1: struct_constu8_constu8, field2: struct_constu8_constu8) callconv(.c) void ```
-    pub fn OnDescription(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, [*:0]const u8, struct_constu8_constu8, struct_constu8_constu8) callconv(.c) void) void {
-        qtc.KWidgetJobTracker_OnDescription(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWidgetJobTracker, callback: *const fn (self: QtC.KWidgetJobTracker, job: QtC.KJob, title: [*:0]const u8, field1: struct_constu8_constu8, field2: struct_constu8_constu8) callconv(.c) void ```
+    pub fn OnDescription(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8, struct_constu8_constu8, struct_constu8_constu8) callconv(.c) void) void {
+        qtc.KWidgetJobTracker_OnDescription(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kwidgetjobtracker.html#description)
@@ -241,9 +241,9 @@ pub const kwidgetjobtracker = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KWidgetJobTracker, slot: fn (self: QtC.KWidgetJobTracker, job: QtC.KJob, unit: kjob_enums.Unit, amount: u64) callconv(.c) void ```
-    pub fn OnTotalAmount(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, u64) callconv(.c) void) void {
-        qtc.KWidgetJobTracker_OnTotalAmount(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWidgetJobTracker, callback: *const fn (self: QtC.KWidgetJobTracker, job: QtC.KJob, unit: kjob_enums.Unit, amount: u64) callconv(.c) void ```
+    pub fn OnTotalAmount(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, u64) callconv(.c) void) void {
+        qtc.KWidgetJobTracker_OnTotalAmount(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kwidgetjobtracker.html#totalAmount)
@@ -266,9 +266,9 @@ pub const kwidgetjobtracker = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KWidgetJobTracker, slot: fn (self: QtC.KWidgetJobTracker, job: QtC.KJob, unit: kjob_enums.Unit, amount: u64) callconv(.c) void ```
-    pub fn OnProcessedAmount(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, u64) callconv(.c) void) void {
-        qtc.KWidgetJobTracker_OnProcessedAmount(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWidgetJobTracker, callback: *const fn (self: QtC.KWidgetJobTracker, job: QtC.KJob, unit: kjob_enums.Unit, amount: u64) callconv(.c) void ```
+    pub fn OnProcessedAmount(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, u64) callconv(.c) void) void {
+        qtc.KWidgetJobTracker_OnProcessedAmount(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kwidgetjobtracker.html#processedAmount)
@@ -291,9 +291,9 @@ pub const kwidgetjobtracker = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KWidgetJobTracker, slot: fn (self: QtC.KWidgetJobTracker, job: QtC.KJob, percent: u64) callconv(.c) void ```
-    pub fn OnPercent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
-        qtc.KWidgetJobTracker_OnPercent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWidgetJobTracker, callback: *const fn (self: QtC.KWidgetJobTracker, job: QtC.KJob, percent: u64) callconv(.c) void ```
+    pub fn OnPercent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
+        qtc.KWidgetJobTracker_OnPercent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kwidgetjobtracker.html#percent)
@@ -316,9 +316,9 @@ pub const kwidgetjobtracker = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KWidgetJobTracker, slot: fn (self: QtC.KWidgetJobTracker, job: QtC.KJob, value: u64) callconv(.c) void ```
-    pub fn OnSpeed(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
-        qtc.KWidgetJobTracker_OnSpeed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWidgetJobTracker, callback: *const fn (self: QtC.KWidgetJobTracker, job: QtC.KJob, value: u64) callconv(.c) void ```
+    pub fn OnSpeed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
+        qtc.KWidgetJobTracker_OnSpeed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kwidgetjobtracker.html#speed)
@@ -341,9 +341,9 @@ pub const kwidgetjobtracker = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KWidgetJobTracker, slot: fn (self: QtC.KWidgetJobTracker, job: QtC.KJob) callconv(.c) void ```
-    pub fn OnSlotClean(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KWidgetJobTracker_OnSlotClean(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWidgetJobTracker, callback: *const fn (self: QtC.KWidgetJobTracker, job: QtC.KJob) callconv(.c) void ```
+    pub fn OnSlotClean(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KWidgetJobTracker_OnSlotClean(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kwidgetjobtracker.html#slotClean)
@@ -366,9 +366,9 @@ pub const kwidgetjobtracker = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KWidgetJobTracker, slot: fn (self: QtC.KWidgetJobTracker, job: QtC.KJob) callconv(.c) void ```
-    pub fn OnSuspended(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KWidgetJobTracker_OnSuspended(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWidgetJobTracker, callback: *const fn (self: QtC.KWidgetJobTracker, job: QtC.KJob) callconv(.c) void ```
+    pub fn OnSuspended(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KWidgetJobTracker_OnSuspended(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kwidgetjobtracker.html#suspended)
@@ -391,9 +391,9 @@ pub const kwidgetjobtracker = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KWidgetJobTracker, slot: fn (self: QtC.KWidgetJobTracker, job: QtC.KJob) callconv(.c) void ```
-    pub fn OnResumed(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KWidgetJobTracker_OnResumed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWidgetJobTracker, callback: *const fn (self: QtC.KWidgetJobTracker, job: QtC.KJob) callconv(.c) void ```
+    pub fn OnResumed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KWidgetJobTracker_OnResumed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kwidgetjobtracker.html#resumed)
@@ -480,9 +480,9 @@ pub const kwidgetjobtracker = struct {
     ///
     /// [Qt documentation](https://api.kde.org/kabstractwidgetjobtracker.html#stopped)
     ///
-    /// ``` self: QtC.KWidgetJobTracker, slot: fn (self: QtC.KWidgetJobTracker, job: QtC.KJob) callconv(.c) void ```
-    pub fn OnStopped(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KAbstractWidgetJobTracker_Connect_Stopped(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWidgetJobTracker, callback: *const fn (self: QtC.KWidgetJobTracker, job: QtC.KJob) callconv(.c) void ```
+    pub fn OnStopped(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KAbstractWidgetJobTracker_Connect_Stopped(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KAbstractWidgetJobTracker
@@ -498,9 +498,9 @@ pub const kwidgetjobtracker = struct {
     ///
     /// [Qt documentation](https://api.kde.org/kabstractwidgetjobtracker.html#suspend)
     ///
-    /// ``` self: QtC.KWidgetJobTracker, slot: fn (self: QtC.KWidgetJobTracker, job: QtC.KJob) callconv(.c) void ```
-    pub fn OnSuspend(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KAbstractWidgetJobTracker_Connect_Suspend(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWidgetJobTracker, callback: *const fn (self: QtC.KWidgetJobTracker, job: QtC.KJob) callconv(.c) void ```
+    pub fn OnSuspend(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KAbstractWidgetJobTracker_Connect_Suspend(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KAbstractWidgetJobTracker
@@ -516,9 +516,9 @@ pub const kwidgetjobtracker = struct {
     ///
     /// [Qt documentation](https://api.kde.org/kabstractwidgetjobtracker.html#resume)
     ///
-    /// ``` self: QtC.KWidgetJobTracker, slot: fn (self: QtC.KWidgetJobTracker, job: QtC.KJob) callconv(.c) void ```
-    pub fn OnResume(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KAbstractWidgetJobTracker_Connect_Resume(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWidgetJobTracker, callback: *const fn (self: QtC.KWidgetJobTracker, job: QtC.KJob) callconv(.c) void ```
+    pub fn OnResume(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KAbstractWidgetJobTracker_Connect_Resume(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -809,9 +809,9 @@ pub const kwidgetjobtracker = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KWidgetJobTracker, slot: fn (self: QtC.KWidgetJobTracker) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWidgetJobTracker, callback: *const fn (self: QtC.KWidgetJobTracker) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -893,9 +893,9 @@ pub const kwidgetjobtracker = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KWidgetJobTracker, slot: fn (self: QtC.KWidgetJobTracker, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWidgetJobTracker, callback: *const fn (self: QtC.KWidgetJobTracker, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KAbstractWidgetJobTracker
@@ -926,9 +926,9 @@ pub const kwidgetjobtracker = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KWidgetJobTracker, slot: fn (self: QtC.KWidgetJobTracker, job: QtC.KJob) callconv(.c) void ```
-    pub fn OnFinished(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KWidgetJobTracker_OnFinished(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWidgetJobTracker, callback: *const fn (self: QtC.KWidgetJobTracker, job: QtC.KJob) callconv(.c) void ```
+    pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KWidgetJobTracker_OnFinished(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KAbstractWidgetJobTracker
@@ -959,9 +959,9 @@ pub const kwidgetjobtracker = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KWidgetJobTracker, slot: fn (self: QtC.KWidgetJobTracker, job: QtC.KJob) callconv(.c) void ```
-    pub fn OnSlotStop(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KWidgetJobTracker_OnSlotStop(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWidgetJobTracker, callback: *const fn (self: QtC.KWidgetJobTracker, job: QtC.KJob) callconv(.c) void ```
+    pub fn OnSlotStop(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KWidgetJobTracker_OnSlotStop(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KAbstractWidgetJobTracker
@@ -992,9 +992,9 @@ pub const kwidgetjobtracker = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KWidgetJobTracker, slot: fn (self: QtC.KWidgetJobTracker, job: QtC.KJob) callconv(.c) void ```
-    pub fn OnSlotSuspend(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KWidgetJobTracker_OnSlotSuspend(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWidgetJobTracker, callback: *const fn (self: QtC.KWidgetJobTracker, job: QtC.KJob) callconv(.c) void ```
+    pub fn OnSlotSuspend(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KWidgetJobTracker_OnSlotSuspend(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KAbstractWidgetJobTracker
@@ -1025,9 +1025,9 @@ pub const kwidgetjobtracker = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KWidgetJobTracker, slot: fn (self: QtC.KWidgetJobTracker, job: QtC.KJob) callconv(.c) void ```
-    pub fn OnSlotResume(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KWidgetJobTracker_OnSlotResume(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWidgetJobTracker, callback: *const fn (self: QtC.KWidgetJobTracker, job: QtC.KJob) callconv(.c) void ```
+    pub fn OnSlotResume(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KWidgetJobTracker_OnSlotResume(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJobTrackerInterface
@@ -1066,9 +1066,9 @@ pub const kwidgetjobtracker = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KWidgetJobTracker, slot: fn (self: QtC.KWidgetJobTracker, job: QtC.KJob, message: [*:0]const u8) callconv(.c) void ```
-    pub fn OnWarning(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KWidgetJobTracker_OnWarning(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWidgetJobTracker, callback: *const fn (self: QtC.KWidgetJobTracker, job: QtC.KJob, message: [*:0]const u8) callconv(.c) void ```
+    pub fn OnWarning(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.KWidgetJobTracker_OnWarning(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1099,9 +1099,9 @@ pub const kwidgetjobtracker = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KWidgetJobTracker, slot: fn (self: QtC.KWidgetJobTracker, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KWidgetJobTracker_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWidgetJobTracker, callback: *const fn (self: QtC.KWidgetJobTracker, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KWidgetJobTracker_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1132,9 +1132,9 @@ pub const kwidgetjobtracker = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KWidgetJobTracker, slot: fn (self: QtC.KWidgetJobTracker, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KWidgetJobTracker_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWidgetJobTracker, callback: *const fn (self: QtC.KWidgetJobTracker, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KWidgetJobTracker_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1165,9 +1165,9 @@ pub const kwidgetjobtracker = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KWidgetJobTracker, slot: fn (self: QtC.KWidgetJobTracker, event: QtC.QTimerEvent) callconv(.c) void ```
-    pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KWidgetJobTracker_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWidgetJobTracker, callback: *const fn (self: QtC.KWidgetJobTracker, event: QtC.QTimerEvent) callconv(.c) void ```
+    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KWidgetJobTracker_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1198,9 +1198,9 @@ pub const kwidgetjobtracker = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KWidgetJobTracker, slot: fn (self: QtC.KWidgetJobTracker, event: QtC.QChildEvent) callconv(.c) void ```
-    pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KWidgetJobTracker_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWidgetJobTracker, callback: *const fn (self: QtC.KWidgetJobTracker, event: QtC.QChildEvent) callconv(.c) void ```
+    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KWidgetJobTracker_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1231,9 +1231,9 @@ pub const kwidgetjobtracker = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KWidgetJobTracker, slot: fn (self: QtC.KWidgetJobTracker, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KWidgetJobTracker_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWidgetJobTracker, callback: *const fn (self: QtC.KWidgetJobTracker, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KWidgetJobTracker_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1264,9 +1264,9 @@ pub const kwidgetjobtracker = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KWidgetJobTracker, slot: fn (self: QtC.KWidgetJobTracker, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KWidgetJobTracker_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWidgetJobTracker, callback: *const fn (self: QtC.KWidgetJobTracker, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KWidgetJobTracker_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1297,9 +1297,9 @@ pub const kwidgetjobtracker = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KWidgetJobTracker, slot: fn (self: QtC.KWidgetJobTracker, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KWidgetJobTracker_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWidgetJobTracker, callback: *const fn (self: QtC.KWidgetJobTracker, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KWidgetJobTracker_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1330,9 +1330,9 @@ pub const kwidgetjobtracker = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KWidgetJobTracker, slot: fn () callconv(.c) QtC.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
-        qtc.KWidgetJobTracker_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWidgetJobTracker, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.KWidgetJobTracker_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1363,9 +1363,9 @@ pub const kwidgetjobtracker = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KWidgetJobTracker, slot: fn () callconv(.c) i32 ```
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.KWidgetJobTracker_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWidgetJobTracker, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.KWidgetJobTracker_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1398,9 +1398,9 @@ pub const kwidgetjobtracker = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KWidgetJobTracker, slot: fn (self: QtC.KWidgetJobTracker, signal: [*:0]const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KWidgetJobTracker_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWidgetJobTracker, callback: *const fn (self: QtC.KWidgetJobTracker, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
+        qtc.KWidgetJobTracker_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1431,9 +1431,9 @@ pub const kwidgetjobtracker = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KWidgetJobTracker, slot: fn (self: QtC.KWidgetJobTracker, signal: QtC.QMetaMethod) callconv(.c) bool ```
-    pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KWidgetJobTracker_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWidgetJobTracker, callback: *const fn (self: QtC.KWidgetJobTracker, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KWidgetJobTracker_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1442,9 +1442,9 @@ pub const kwidgetjobtracker = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KWidgetJobTracker, slot: fn (self: QtC.KWidgetJobTracker, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWidgetJobTracker, callback: *const fn (self: QtC.KWidgetJobTracker, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kwidgetjobtracker.html#dtor.KWidgetJobTracker)

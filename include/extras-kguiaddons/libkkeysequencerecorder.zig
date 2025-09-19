@@ -41,9 +41,9 @@ pub const kkeysequencerecorder = struct {
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KKeySequenceRecorder, slot: fn (self: QtC.KKeySequenceRecorder, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
-        qtc.KKeySequenceRecorder_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KKeySequenceRecorder, callback: *const fn (self: QtC.KKeySequenceRecorder, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+        qtc.KKeySequenceRecorder_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -181,9 +181,9 @@ pub const kkeysequencerecorder = struct {
 
     /// [Qt documentation](https://api.kde.org/kkeysequencerecorder.html#gotKeySequence)
     ///
-    /// ``` self: QtC.KKeySequenceRecorder, slot: fn (self: QtC.KKeySequenceRecorder, keySequence: QtC.QKeySequence) callconv(.c) void ```
-    pub fn OnGotKeySequence(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KKeySequenceRecorder_Connect_GotKeySequence(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KKeySequenceRecorder, callback: *const fn (self: QtC.KKeySequenceRecorder, keySequence: QtC.QKeySequence) callconv(.c) void ```
+    pub fn OnGotKeySequence(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KKeySequenceRecorder_Connect_GotKeySequence(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kkeysequencerecorder.html#recordingChanged)
@@ -195,9 +195,9 @@ pub const kkeysequencerecorder = struct {
 
     /// [Qt documentation](https://api.kde.org/kkeysequencerecorder.html#recordingChanged)
     ///
-    /// ``` self: QtC.KKeySequenceRecorder, slot: fn (self: QtC.KKeySequenceRecorder) callconv(.c) void ```
-    pub fn OnRecordingChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.KKeySequenceRecorder_Connect_RecordingChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KKeySequenceRecorder, callback: *const fn (self: QtC.KKeySequenceRecorder) callconv(.c) void ```
+    pub fn OnRecordingChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.KKeySequenceRecorder_Connect_RecordingChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kkeysequencerecorder.html#windowChanged)
@@ -209,9 +209,9 @@ pub const kkeysequencerecorder = struct {
 
     /// [Qt documentation](https://api.kde.org/kkeysequencerecorder.html#windowChanged)
     ///
-    /// ``` self: QtC.KKeySequenceRecorder, slot: fn (self: QtC.KKeySequenceRecorder) callconv(.c) void ```
-    pub fn OnWindowChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.KKeySequenceRecorder_Connect_WindowChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KKeySequenceRecorder, callback: *const fn (self: QtC.KKeySequenceRecorder) callconv(.c) void ```
+    pub fn OnWindowChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.KKeySequenceRecorder_Connect_WindowChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kkeysequencerecorder.html#currentKeySequenceChanged)
@@ -223,9 +223,9 @@ pub const kkeysequencerecorder = struct {
 
     /// [Qt documentation](https://api.kde.org/kkeysequencerecorder.html#currentKeySequenceChanged)
     ///
-    /// ``` self: QtC.KKeySequenceRecorder, slot: fn (self: QtC.KKeySequenceRecorder) callconv(.c) void ```
-    pub fn OnCurrentKeySequenceChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.KKeySequenceRecorder_Connect_CurrentKeySequenceChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KKeySequenceRecorder, callback: *const fn (self: QtC.KKeySequenceRecorder) callconv(.c) void ```
+    pub fn OnCurrentKeySequenceChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.KKeySequenceRecorder_Connect_CurrentKeySequenceChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kkeysequencerecorder.html#multiKeyShortcutsAllowedChanged)
@@ -237,9 +237,9 @@ pub const kkeysequencerecorder = struct {
 
     /// [Qt documentation](https://api.kde.org/kkeysequencerecorder.html#multiKeyShortcutsAllowedChanged)
     ///
-    /// ``` self: QtC.KKeySequenceRecorder, slot: fn (self: QtC.KKeySequenceRecorder) callconv(.c) void ```
-    pub fn OnMultiKeyShortcutsAllowedChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.KKeySequenceRecorder_Connect_MultiKeyShortcutsAllowedChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KKeySequenceRecorder, callback: *const fn (self: QtC.KKeySequenceRecorder) callconv(.c) void ```
+    pub fn OnMultiKeyShortcutsAllowedChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.KKeySequenceRecorder_Connect_MultiKeyShortcutsAllowedChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kkeysequencerecorder.html#modifierlessAllowedChanged)
@@ -251,9 +251,9 @@ pub const kkeysequencerecorder = struct {
 
     /// [Qt documentation](https://api.kde.org/kkeysequencerecorder.html#modifierlessAllowedChanged)
     ///
-    /// ``` self: QtC.KKeySequenceRecorder, slot: fn (self: QtC.KKeySequenceRecorder) callconv(.c) void ```
-    pub fn OnModifierlessAllowedChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.KKeySequenceRecorder_Connect_ModifierlessAllowedChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KKeySequenceRecorder, callback: *const fn (self: QtC.KKeySequenceRecorder) callconv(.c) void ```
+    pub fn OnModifierlessAllowedChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.KKeySequenceRecorder_Connect_ModifierlessAllowedChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kkeysequencerecorder.html#modifierOnlyAllowedChanged)
@@ -265,9 +265,9 @@ pub const kkeysequencerecorder = struct {
 
     /// [Qt documentation](https://api.kde.org/kkeysequencerecorder.html#modifierOnlyAllowedChanged)
     ///
-    /// ``` self: QtC.KKeySequenceRecorder, slot: fn (self: QtC.KKeySequenceRecorder) callconv(.c) void ```
-    pub fn OnModifierOnlyAllowedChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.KKeySequenceRecorder_Connect_ModifierOnlyAllowedChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KKeySequenceRecorder, callback: *const fn (self: QtC.KKeySequenceRecorder) callconv(.c) void ```
+    pub fn OnModifierOnlyAllowedChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.KKeySequenceRecorder_Connect_ModifierOnlyAllowedChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kkeysequencerecorder.html#patternsChanged)
@@ -279,9 +279,9 @@ pub const kkeysequencerecorder = struct {
 
     /// [Qt documentation](https://api.kde.org/kkeysequencerecorder.html#patternsChanged)
     ///
-    /// ``` self: QtC.KKeySequenceRecorder, slot: fn (self: QtC.KKeySequenceRecorder) callconv(.c) void ```
-    pub fn OnPatternsChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.KKeySequenceRecorder_Connect_PatternsChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KKeySequenceRecorder, callback: *const fn (self: QtC.KKeySequenceRecorder) callconv(.c) void ```
+    pub fn OnPatternsChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.KKeySequenceRecorder_Connect_PatternsChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -598,9 +598,9 @@ pub const kkeysequencerecorder = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KKeySequenceRecorder, slot: fn (self: QtC.KKeySequenceRecorder) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KKeySequenceRecorder, callback: *const fn (self: QtC.KKeySequenceRecorder) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -682,9 +682,9 @@ pub const kkeysequencerecorder = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KKeySequenceRecorder, slot: fn (self: QtC.KKeySequenceRecorder, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KKeySequenceRecorder, callback: *const fn (self: QtC.KKeySequenceRecorder, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -715,9 +715,9 @@ pub const kkeysequencerecorder = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KKeySequenceRecorder, slot: fn (self: QtC.KKeySequenceRecorder, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KKeySequenceRecorder_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KKeySequenceRecorder, callback: *const fn (self: QtC.KKeySequenceRecorder, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KKeySequenceRecorder_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -748,9 +748,9 @@ pub const kkeysequencerecorder = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KKeySequenceRecorder, slot: fn (self: QtC.KKeySequenceRecorder, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KKeySequenceRecorder_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KKeySequenceRecorder, callback: *const fn (self: QtC.KKeySequenceRecorder, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KKeySequenceRecorder_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -781,9 +781,9 @@ pub const kkeysequencerecorder = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KKeySequenceRecorder, slot: fn (self: QtC.KKeySequenceRecorder, event: QtC.QTimerEvent) callconv(.c) void ```
-    pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KKeySequenceRecorder_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KKeySequenceRecorder, callback: *const fn (self: QtC.KKeySequenceRecorder, event: QtC.QTimerEvent) callconv(.c) void ```
+    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KKeySequenceRecorder_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -814,9 +814,9 @@ pub const kkeysequencerecorder = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KKeySequenceRecorder, slot: fn (self: QtC.KKeySequenceRecorder, event: QtC.QChildEvent) callconv(.c) void ```
-    pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KKeySequenceRecorder_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KKeySequenceRecorder, callback: *const fn (self: QtC.KKeySequenceRecorder, event: QtC.QChildEvent) callconv(.c) void ```
+    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KKeySequenceRecorder_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -847,9 +847,9 @@ pub const kkeysequencerecorder = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KKeySequenceRecorder, slot: fn (self: QtC.KKeySequenceRecorder, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KKeySequenceRecorder_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KKeySequenceRecorder, callback: *const fn (self: QtC.KKeySequenceRecorder, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KKeySequenceRecorder_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -880,9 +880,9 @@ pub const kkeysequencerecorder = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KKeySequenceRecorder, slot: fn (self: QtC.KKeySequenceRecorder, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KKeySequenceRecorder_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KKeySequenceRecorder, callback: *const fn (self: QtC.KKeySequenceRecorder, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KKeySequenceRecorder_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -913,9 +913,9 @@ pub const kkeysequencerecorder = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KKeySequenceRecorder, slot: fn (self: QtC.KKeySequenceRecorder, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KKeySequenceRecorder_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KKeySequenceRecorder, callback: *const fn (self: QtC.KKeySequenceRecorder, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KKeySequenceRecorder_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -946,9 +946,9 @@ pub const kkeysequencerecorder = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KKeySequenceRecorder, slot: fn () callconv(.c) QtC.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
-        qtc.KKeySequenceRecorder_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KKeySequenceRecorder, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.KKeySequenceRecorder_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -979,9 +979,9 @@ pub const kkeysequencerecorder = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KKeySequenceRecorder, slot: fn () callconv(.c) i32 ```
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.KKeySequenceRecorder_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KKeySequenceRecorder, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.KKeySequenceRecorder_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1014,9 +1014,9 @@ pub const kkeysequencerecorder = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KKeySequenceRecorder, slot: fn (self: QtC.KKeySequenceRecorder, signal: [*:0]const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KKeySequenceRecorder_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KKeySequenceRecorder, callback: *const fn (self: QtC.KKeySequenceRecorder, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
+        qtc.KKeySequenceRecorder_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1047,9 +1047,9 @@ pub const kkeysequencerecorder = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KKeySequenceRecorder, slot: fn (self: QtC.KKeySequenceRecorder, signal: QtC.QMetaMethod) callconv(.c) bool ```
-    pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KKeySequenceRecorder_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KKeySequenceRecorder, callback: *const fn (self: QtC.KKeySequenceRecorder, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KKeySequenceRecorder_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1058,9 +1058,9 @@ pub const kkeysequencerecorder = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KKeySequenceRecorder, slot: fn (self: QtC.KKeySequenceRecorder, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KKeySequenceRecorder, callback: *const fn (self: QtC.KKeySequenceRecorder, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kkeysequencerecorder.html#dtor.KKeySequenceRecorder)

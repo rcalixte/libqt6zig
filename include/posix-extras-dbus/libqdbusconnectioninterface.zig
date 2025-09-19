@@ -50,9 +50,9 @@ pub const qdbusconnectioninterface = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdbusconnectioninterface.html#serviceRegistered)
     ///
-    /// ``` self: QtC.QDBusConnectionInterface, slot: fn (self: QtC.QDBusConnectionInterface, service: [*:0]const u8) callconv(.c) void ```
-    pub fn OnServiceRegistered(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QDBusConnectionInterface_Connect_ServiceRegistered(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDBusConnectionInterface, callback: *const fn (self: QtC.QDBusConnectionInterface, service: [*:0]const u8) callconv(.c) void ```
+    pub fn OnServiceRegistered(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QDBusConnectionInterface_Connect_ServiceRegistered(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdbusconnectioninterface.html#serviceUnregistered)
@@ -68,9 +68,9 @@ pub const qdbusconnectioninterface = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdbusconnectioninterface.html#serviceUnregistered)
     ///
-    /// ``` self: QtC.QDBusConnectionInterface, slot: fn (self: QtC.QDBusConnectionInterface, service: [*:0]const u8) callconv(.c) void ```
-    pub fn OnServiceUnregistered(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QDBusConnectionInterface_Connect_ServiceUnregistered(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDBusConnectionInterface, callback: *const fn (self: QtC.QDBusConnectionInterface, service: [*:0]const u8) callconv(.c) void ```
+    pub fn OnServiceUnregistered(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QDBusConnectionInterface_Connect_ServiceUnregistered(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdbusconnectioninterface.html#serviceOwnerChanged)
@@ -94,9 +94,9 @@ pub const qdbusconnectioninterface = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdbusconnectioninterface.html#serviceOwnerChanged)
     ///
-    /// ``` self: QtC.QDBusConnectionInterface, slot: fn (self: QtC.QDBusConnectionInterface, name: [*:0]const u8, oldOwner: [*:0]const u8, newOwner: [*:0]const u8) callconv(.c) void ```
-    pub fn OnServiceOwnerChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
-        qtc.QDBusConnectionInterface_Connect_ServiceOwnerChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDBusConnectionInterface, callback: *const fn (self: QtC.QDBusConnectionInterface, name: [*:0]const u8, oldOwner: [*:0]const u8, newOwner: [*:0]const u8) callconv(.c) void ```
+    pub fn OnServiceOwnerChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
+        qtc.QDBusConnectionInterface_Connect_ServiceOwnerChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdbusconnectioninterface.html#callWithCallbackFailed)
@@ -108,9 +108,9 @@ pub const qdbusconnectioninterface = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdbusconnectioninterface.html#callWithCallbackFailed)
     ///
-    /// ``` self: QtC.QDBusConnectionInterface, slot: fn (self: QtC.QDBusConnectionInterface, errorVal: QtC.QDBusError, call: QtC.QDBusMessage) callconv(.c) void ```
-    pub fn OnCallWithCallbackFailed(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QDBusConnectionInterface_Connect_CallWithCallbackFailed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDBusConnectionInterface, callback: *const fn (self: QtC.QDBusConnectionInterface, errorVal: QtC.QDBusError, call: QtC.QDBusMessage) callconv(.c) void ```
+    pub fn OnCallWithCallbackFailed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QDBusConnectionInterface_Connect_CallWithCallbackFailed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdbusconnectioninterface.html#NameAcquired)
@@ -126,9 +126,9 @@ pub const qdbusconnectioninterface = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdbusconnectioninterface.html#NameAcquired)
     ///
-    /// ``` self: QtC.QDBusConnectionInterface, slot: fn (self: QtC.QDBusConnectionInterface, param1: [*:0]const u8) callconv(.c) void ```
-    pub fn OnNameAcquired(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QDBusConnectionInterface_Connect_NameAcquired(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDBusConnectionInterface, callback: *const fn (self: QtC.QDBusConnectionInterface, param1: [*:0]const u8) callconv(.c) void ```
+    pub fn OnNameAcquired(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QDBusConnectionInterface_Connect_NameAcquired(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdbusconnectioninterface.html#NameLost)
@@ -144,9 +144,9 @@ pub const qdbusconnectioninterface = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdbusconnectioninterface.html#NameLost)
     ///
-    /// ``` self: QtC.QDBusConnectionInterface, slot: fn (self: QtC.QDBusConnectionInterface, param1: [*:0]const u8) callconv(.c) void ```
-    pub fn OnNameLost(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QDBusConnectionInterface_Connect_NameLost(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDBusConnectionInterface, callback: *const fn (self: QtC.QDBusConnectionInterface, param1: [*:0]const u8) callconv(.c) void ```
+    pub fn OnNameLost(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QDBusConnectionInterface_Connect_NameLost(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdbusconnectioninterface.html#NameOwnerChanged)
@@ -170,9 +170,9 @@ pub const qdbusconnectioninterface = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdbusconnectioninterface.html#NameOwnerChanged)
     ///
-    /// ``` self: QtC.QDBusConnectionInterface, slot: fn (self: QtC.QDBusConnectionInterface, param1: [*:0]const u8, param2: [*:0]const u8, param3: [*:0]const u8) callconv(.c) void ```
-    pub fn OnNameOwnerChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
-        qtc.QDBusConnectionInterface_Connect_NameOwnerChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDBusConnectionInterface, callback: *const fn (self: QtC.QDBusConnectionInterface, param1: [*:0]const u8, param2: [*:0]const u8, param3: [*:0]const u8) callconv(.c) void ```
+    pub fn OnNameOwnerChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
+        qtc.QDBusConnectionInterface_Connect_NameOwnerChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -682,9 +682,9 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QDBusConnectionInterface, slot: fn (self: QtC.QDBusConnectionInterface) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDBusConnectionInterface, callback: *const fn (self: QtC.QDBusConnectionInterface) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -766,9 +766,9 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QDBusConnectionInterface, slot: fn (self: QtC.QDBusConnectionInterface, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDBusConnectionInterface, callback: *const fn (self: QtC.QDBusConnectionInterface, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -777,9 +777,9 @@ pub const qdbusconnectioninterface = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QDBusConnectionInterface, slot: fn (self: QtC.QDBusConnectionInterface, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDBusConnectionInterface, callback: *const fn (self: QtC.QDBusConnectionInterface, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 };
 

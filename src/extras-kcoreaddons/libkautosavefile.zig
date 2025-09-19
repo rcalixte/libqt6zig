@@ -56,9 +56,9 @@ pub const kautosavefile = struct {
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KAutoSaveFile, slot: fn (self: QtC.KAutoSaveFile, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
-        qtc.KAutoSaveFile_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KAutoSaveFile, callback: *const fn (self: QtC.KAutoSaveFile, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+        qtc.KAutoSaveFile_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -105,9 +105,9 @@ pub const kautosavefile = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KAutoSaveFile, slot: fn () callconv(.c) void ```
-    pub fn OnReleaseLock(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KAutoSaveFile_OnReleaseLock(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KAutoSaveFile, callback: *const fn () callconv(.c) void ```
+    pub fn OnReleaseLock(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KAutoSaveFile_OnReleaseLock(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kautosavefile.html#releaseLock)
@@ -130,9 +130,9 @@ pub const kautosavefile = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KAutoSaveFile, slot: fn (self: QtC.KAutoSaveFile, openmode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) bool ```
-    pub fn OnOpen(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.KAutoSaveFile_OnOpen(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KAutoSaveFile, callback: *const fn (self: QtC.KAutoSaveFile, openmode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) bool ```
+    pub fn OnOpen(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
+        qtc.KAutoSaveFile_OnOpen(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kautosavefile.html#open)
@@ -948,9 +948,9 @@ pub const kautosavefile = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#readyRead)
     ///
-    /// ``` self: QtC.KAutoSaveFile, slot: fn (self: QtC.KAutoSaveFile) callconv(.c) void ```
-    pub fn OnReadyRead(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QIODevice_Connect_ReadyRead(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KAutoSaveFile, callback: *const fn (self: QtC.KAutoSaveFile) callconv(.c) void ```
+    pub fn OnReadyRead(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QIODevice_Connect_ReadyRead(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -966,9 +966,9 @@ pub const kautosavefile = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#channelReadyRead)
     ///
-    /// ``` self: QtC.KAutoSaveFile, slot: fn (self: QtC.KAutoSaveFile, channel: i32) callconv(.c) void ```
-    pub fn OnChannelReadyRead(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QIODevice_Connect_ChannelReadyRead(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KAutoSaveFile, callback: *const fn (self: QtC.KAutoSaveFile, channel: i32) callconv(.c) void ```
+    pub fn OnChannelReadyRead(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QIODevice_Connect_ChannelReadyRead(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -984,9 +984,9 @@ pub const kautosavefile = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#bytesWritten)
     ///
-    /// ``` self: QtC.KAutoSaveFile, slot: fn (self: QtC.KAutoSaveFile, bytes: i64) callconv(.c) void ```
-    pub fn OnBytesWritten(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
-        qtc.QIODevice_Connect_BytesWritten(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KAutoSaveFile, callback: *const fn (self: QtC.KAutoSaveFile, bytes: i64) callconv(.c) void ```
+    pub fn OnBytesWritten(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) void) void {
+        qtc.QIODevice_Connect_BytesWritten(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -1002,9 +1002,9 @@ pub const kautosavefile = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#channelBytesWritten)
     ///
-    /// ``` self: QtC.KAutoSaveFile, slot: fn (self: QtC.KAutoSaveFile, channel: i32, bytes: i64) callconv(.c) void ```
-    pub fn OnChannelBytesWritten(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i64) callconv(.c) void) void {
-        qtc.QIODevice_Connect_ChannelBytesWritten(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KAutoSaveFile, callback: *const fn (self: QtC.KAutoSaveFile, channel: i32, bytes: i64) callconv(.c) void ```
+    pub fn OnChannelBytesWritten(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i64) callconv(.c) void) void {
+        qtc.QIODevice_Connect_ChannelBytesWritten(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -1020,9 +1020,9 @@ pub const kautosavefile = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#aboutToClose)
     ///
-    /// ``` self: QtC.KAutoSaveFile, slot: fn (self: QtC.KAutoSaveFile) callconv(.c) void ```
-    pub fn OnAboutToClose(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QIODevice_Connect_AboutToClose(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KAutoSaveFile, callback: *const fn (self: QtC.KAutoSaveFile) callconv(.c) void ```
+    pub fn OnAboutToClose(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QIODevice_Connect_AboutToClose(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -1038,9 +1038,9 @@ pub const kautosavefile = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#readChannelFinished)
     ///
-    /// ``` self: QtC.KAutoSaveFile, slot: fn (self: QtC.KAutoSaveFile) callconv(.c) void ```
-    pub fn OnReadChannelFinished(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QIODevice_Connect_ReadChannelFinished(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KAutoSaveFile, callback: *const fn (self: QtC.KAutoSaveFile) callconv(.c) void ```
+    pub fn OnReadChannelFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QIODevice_Connect_ReadChannelFinished(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -1344,9 +1344,9 @@ pub const kautosavefile = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KAutoSaveFile, slot: fn (self: QtC.KAutoSaveFile) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KAutoSaveFile, callback: *const fn (self: QtC.KAutoSaveFile) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1428,9 +1428,9 @@ pub const kautosavefile = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KAutoSaveFile, slot: fn (self: QtC.KAutoSaveFile, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KAutoSaveFile, callback: *const fn (self: QtC.KAutoSaveFile, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFile
@@ -1469,9 +1469,9 @@ pub const kautosavefile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, slot: fn () callconv(.c) [*:0]const u8 ```
-    pub fn OnFileName(self: ?*anyopaque, slot: fn () callconv(.c) [*:0]const u8) void {
-        qtc.KAutoSaveFile_OnFileName(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KAutoSaveFile, callback: *const fn () callconv(.c) [*:0]const u8 ```
+    pub fn OnFileName(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
+        qtc.KAutoSaveFile_OnFileName(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFile
@@ -1502,9 +1502,9 @@ pub const kautosavefile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, slot: fn () callconv(.c) i64 ```
-    pub fn OnSize(self: ?*anyopaque, slot: fn () callconv(.c) i64) void {
-        qtc.KAutoSaveFile_OnSize(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KAutoSaveFile, callback: *const fn () callconv(.c) i64 ```
+    pub fn OnSize(self: ?*anyopaque, callback: *const fn () callconv(.c) i64) void {
+        qtc.KAutoSaveFile_OnSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFile
@@ -1535,9 +1535,9 @@ pub const kautosavefile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, slot: fn (self: QtC.KAutoSaveFile, sz: i64) callconv(.c) bool ```
-    pub fn OnResize(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) bool) void {
-        qtc.KAutoSaveFile_OnResize(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KAutoSaveFile, callback: *const fn (self: QtC.KAutoSaveFile, sz: i64) callconv(.c) bool ```
+    pub fn OnResize(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) bool) void {
+        qtc.KAutoSaveFile_OnResize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFile
@@ -1572,9 +1572,9 @@ pub const kautosavefile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, slot: fn () callconv(.c) i32 ```
-    pub fn OnPermissions(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.KAutoSaveFile_OnPermissions(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KAutoSaveFile, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnPermissions(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.KAutoSaveFile_OnPermissions(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFile
@@ -1605,9 +1605,9 @@ pub const kautosavefile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, slot: fn (self: QtC.KAutoSaveFile, permissionSpec: flag of qfiledevice_enums.Permission) callconv(.c) bool ```
-    pub fn OnSetPermissions(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.KAutoSaveFile_OnSetPermissions(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KAutoSaveFile, callback: *const fn (self: QtC.KAutoSaveFile, permissionSpec: flag of qfiledevice_enums.Permission) callconv(.c) bool ```
+    pub fn OnSetPermissions(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
+        qtc.KAutoSaveFile_OnSetPermissions(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFileDevice
@@ -1638,9 +1638,9 @@ pub const kautosavefile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, slot: fn () callconv(.c) void ```
-    pub fn OnClose(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KAutoSaveFile_OnClose(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KAutoSaveFile, callback: *const fn () callconv(.c) void ```
+    pub fn OnClose(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KAutoSaveFile_OnClose(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFileDevice
@@ -1671,9 +1671,9 @@ pub const kautosavefile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, slot: fn () callconv(.c) bool ```
-    pub fn OnIsSequential(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.KAutoSaveFile_OnIsSequential(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KAutoSaveFile, callback: *const fn () callconv(.c) bool ```
+    pub fn OnIsSequential(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.KAutoSaveFile_OnIsSequential(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFileDevice
@@ -1704,9 +1704,9 @@ pub const kautosavefile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, slot: fn () callconv(.c) i64 ```
-    pub fn OnPos(self: ?*anyopaque, slot: fn () callconv(.c) i64) void {
-        qtc.KAutoSaveFile_OnPos(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KAutoSaveFile, callback: *const fn () callconv(.c) i64 ```
+    pub fn OnPos(self: ?*anyopaque, callback: *const fn () callconv(.c) i64) void {
+        qtc.KAutoSaveFile_OnPos(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFileDevice
@@ -1737,9 +1737,9 @@ pub const kautosavefile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, slot: fn (self: QtC.KAutoSaveFile, offset: i64) callconv(.c) bool ```
-    pub fn OnSeek(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) bool) void {
-        qtc.KAutoSaveFile_OnSeek(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KAutoSaveFile, callback: *const fn (self: QtC.KAutoSaveFile, offset: i64) callconv(.c) bool ```
+    pub fn OnSeek(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) bool) void {
+        qtc.KAutoSaveFile_OnSeek(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFileDevice
@@ -1770,9 +1770,9 @@ pub const kautosavefile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, slot: fn () callconv(.c) bool ```
-    pub fn OnAtEnd(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.KAutoSaveFile_OnAtEnd(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KAutoSaveFile, callback: *const fn () callconv(.c) bool ```
+    pub fn OnAtEnd(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.KAutoSaveFile_OnAtEnd(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFileDevice
@@ -1805,9 +1805,9 @@ pub const kautosavefile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, slot: fn (self: QtC.KAutoSaveFile, data: [*:0]const u8, maxlen: i64) callconv(.c) i64 ```
-    pub fn OnReadData(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, i64) callconv(.c) i64) void {
-        qtc.KAutoSaveFile_OnReadData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KAutoSaveFile, callback: *const fn (self: QtC.KAutoSaveFile, data: [*:0]const u8, maxlen: i64) callconv(.c) i64 ```
+    pub fn OnReadData(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i64) callconv(.c) i64) void {
+        qtc.KAutoSaveFile_OnReadData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFileDevice
@@ -1840,9 +1840,9 @@ pub const kautosavefile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, slot: fn (self: QtC.KAutoSaveFile, data: [*:0]const u8, lenVal: i64) callconv(.c) i64 ```
-    pub fn OnWriteData(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, i64) callconv(.c) i64) void {
-        qtc.KAutoSaveFile_OnWriteData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KAutoSaveFile, callback: *const fn (self: QtC.KAutoSaveFile, data: [*:0]const u8, lenVal: i64) callconv(.c) i64 ```
+    pub fn OnWriteData(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i64) callconv(.c) i64) void {
+        qtc.KAutoSaveFile_OnWriteData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFileDevice
@@ -1875,9 +1875,9 @@ pub const kautosavefile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, slot: fn (self: QtC.KAutoSaveFile, data: [*:0]const u8, maxlen: i64) callconv(.c) i64 ```
-    pub fn OnReadLineData(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, i64) callconv(.c) i64) void {
-        qtc.KAutoSaveFile_OnReadLineData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KAutoSaveFile, callback: *const fn (self: QtC.KAutoSaveFile, data: [*:0]const u8, maxlen: i64) callconv(.c) i64 ```
+    pub fn OnReadLineData(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i64) callconv(.c) i64) void {
+        qtc.KAutoSaveFile_OnReadLineData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -1908,9 +1908,9 @@ pub const kautosavefile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, slot: fn () callconv(.c) bool ```
-    pub fn OnReset(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.KAutoSaveFile_OnReset(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KAutoSaveFile, callback: *const fn () callconv(.c) bool ```
+    pub fn OnReset(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.KAutoSaveFile_OnReset(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -1941,9 +1941,9 @@ pub const kautosavefile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, slot: fn () callconv(.c) i64 ```
-    pub fn OnBytesAvailable(self: ?*anyopaque, slot: fn () callconv(.c) i64) void {
-        qtc.KAutoSaveFile_OnBytesAvailable(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KAutoSaveFile, callback: *const fn () callconv(.c) i64 ```
+    pub fn OnBytesAvailable(self: ?*anyopaque, callback: *const fn () callconv(.c) i64) void {
+        qtc.KAutoSaveFile_OnBytesAvailable(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -1974,9 +1974,9 @@ pub const kautosavefile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, slot: fn () callconv(.c) i64 ```
-    pub fn OnBytesToWrite(self: ?*anyopaque, slot: fn () callconv(.c) i64) void {
-        qtc.KAutoSaveFile_OnBytesToWrite(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KAutoSaveFile, callback: *const fn () callconv(.c) i64 ```
+    pub fn OnBytesToWrite(self: ?*anyopaque, callback: *const fn () callconv(.c) i64) void {
+        qtc.KAutoSaveFile_OnBytesToWrite(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -2007,9 +2007,9 @@ pub const kautosavefile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, slot: fn () callconv(.c) bool ```
-    pub fn OnCanReadLine(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.KAutoSaveFile_OnCanReadLine(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KAutoSaveFile, callback: *const fn () callconv(.c) bool ```
+    pub fn OnCanReadLine(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.KAutoSaveFile_OnCanReadLine(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -2040,9 +2040,9 @@ pub const kautosavefile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, slot: fn (self: QtC.KAutoSaveFile, msecs: i32) callconv(.c) bool ```
-    pub fn OnWaitForReadyRead(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.KAutoSaveFile_OnWaitForReadyRead(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KAutoSaveFile, callback: *const fn (self: QtC.KAutoSaveFile, msecs: i32) callconv(.c) bool ```
+    pub fn OnWaitForReadyRead(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
+        qtc.KAutoSaveFile_OnWaitForReadyRead(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -2073,9 +2073,9 @@ pub const kautosavefile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, slot: fn (self: QtC.KAutoSaveFile, msecs: i32) callconv(.c) bool ```
-    pub fn OnWaitForBytesWritten(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.KAutoSaveFile_OnWaitForBytesWritten(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KAutoSaveFile, callback: *const fn (self: QtC.KAutoSaveFile, msecs: i32) callconv(.c) bool ```
+    pub fn OnWaitForBytesWritten(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
+        qtc.KAutoSaveFile_OnWaitForBytesWritten(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -2106,9 +2106,9 @@ pub const kautosavefile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, slot: fn (self: QtC.KAutoSaveFile, maxSize: i64) callconv(.c) i64 ```
-    pub fn OnSkipData(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) i64) void {
-        qtc.KAutoSaveFile_OnSkipData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KAutoSaveFile, callback: *const fn (self: QtC.KAutoSaveFile, maxSize: i64) callconv(.c) i64 ```
+    pub fn OnSkipData(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) i64) void {
+        qtc.KAutoSaveFile_OnSkipData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2139,9 +2139,9 @@ pub const kautosavefile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, slot: fn (self: QtC.KAutoSaveFile, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KAutoSaveFile_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KAutoSaveFile, callback: *const fn (self: QtC.KAutoSaveFile, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KAutoSaveFile_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2172,9 +2172,9 @@ pub const kautosavefile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, slot: fn (self: QtC.KAutoSaveFile, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KAutoSaveFile_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KAutoSaveFile, callback: *const fn (self: QtC.KAutoSaveFile, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KAutoSaveFile_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2205,9 +2205,9 @@ pub const kautosavefile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, slot: fn (self: QtC.KAutoSaveFile, event: QtC.QTimerEvent) callconv(.c) void ```
-    pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KAutoSaveFile_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KAutoSaveFile, callback: *const fn (self: QtC.KAutoSaveFile, event: QtC.QTimerEvent) callconv(.c) void ```
+    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KAutoSaveFile_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2238,9 +2238,9 @@ pub const kautosavefile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, slot: fn (self: QtC.KAutoSaveFile, event: QtC.QChildEvent) callconv(.c) void ```
-    pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KAutoSaveFile_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KAutoSaveFile, callback: *const fn (self: QtC.KAutoSaveFile, event: QtC.QChildEvent) callconv(.c) void ```
+    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KAutoSaveFile_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2271,9 +2271,9 @@ pub const kautosavefile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, slot: fn (self: QtC.KAutoSaveFile, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KAutoSaveFile_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KAutoSaveFile, callback: *const fn (self: QtC.KAutoSaveFile, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KAutoSaveFile_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2304,9 +2304,9 @@ pub const kautosavefile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, slot: fn (self: QtC.KAutoSaveFile, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KAutoSaveFile_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KAutoSaveFile, callback: *const fn (self: QtC.KAutoSaveFile, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KAutoSaveFile_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2337,9 +2337,9 @@ pub const kautosavefile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, slot: fn (self: QtC.KAutoSaveFile, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KAutoSaveFile_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KAutoSaveFile, callback: *const fn (self: QtC.KAutoSaveFile, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KAutoSaveFile_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -2370,9 +2370,9 @@ pub const kautosavefile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, slot: fn (self: QtC.KAutoSaveFile, openMode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) void ```
-    pub fn OnSetOpenMode(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KAutoSaveFile_OnSetOpenMode(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KAutoSaveFile, callback: *const fn (self: QtC.KAutoSaveFile, openMode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) void ```
+    pub fn OnSetOpenMode(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.KAutoSaveFile_OnSetOpenMode(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -2411,9 +2411,9 @@ pub const kautosavefile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, slot: fn (self: QtC.KAutoSaveFile, errorString: [*:0]const u8) callconv(.c) void ```
-    pub fn OnSetErrorString(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KAutoSaveFile_OnSetErrorString(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KAutoSaveFile, callback: *const fn (self: QtC.KAutoSaveFile, errorString: [*:0]const u8) callconv(.c) void ```
+    pub fn OnSetErrorString(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.KAutoSaveFile_OnSetErrorString(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2444,9 +2444,9 @@ pub const kautosavefile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, slot: fn () callconv(.c) QtC.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
-        qtc.KAutoSaveFile_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KAutoSaveFile, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.KAutoSaveFile_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2477,9 +2477,9 @@ pub const kautosavefile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, slot: fn () callconv(.c) i32 ```
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.KAutoSaveFile_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KAutoSaveFile, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.KAutoSaveFile_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2512,9 +2512,9 @@ pub const kautosavefile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, slot: fn (self: QtC.KAutoSaveFile, signal: [*:0]const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KAutoSaveFile_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KAutoSaveFile, callback: *const fn (self: QtC.KAutoSaveFile, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
+        qtc.KAutoSaveFile_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2545,9 +2545,9 @@ pub const kautosavefile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAutoSaveFile, slot: fn (self: QtC.KAutoSaveFile, signal: QtC.QMetaMethod) callconv(.c) bool ```
-    pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KAutoSaveFile_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KAutoSaveFile, callback: *const fn (self: QtC.KAutoSaveFile, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KAutoSaveFile_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2556,9 +2556,9 @@ pub const kautosavefile = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KAutoSaveFile, slot: fn (self: QtC.KAutoSaveFile, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KAutoSaveFile, callback: *const fn (self: QtC.KAutoSaveFile, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kautosavefile.html#dtor.KAutoSaveFile)

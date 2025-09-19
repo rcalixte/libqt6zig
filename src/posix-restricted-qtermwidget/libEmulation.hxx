@@ -10,7 +10,7 @@
 #include "../qtlibc.h"
 
 // This class is a subclass of Konsole::Emulation so that we can call protected methods
-class VirtualKonsoleEmulation final : public Konsole::Emulation {
+class VirtualKonsoleEmulation : public Konsole::Emulation {
 
   public:
     // Virtual class boolean flag

@@ -203,9 +203,9 @@ pub const solid__battery = struct {
 
     /// [Qt documentation](https://api.kde.org/solid-battery.html#presentStateChanged)
     ///
-    /// ``` self: QtC.Solid__Battery, slot: fn (self: QtC.Solid__Battery, newState: bool, udi: [*:0]const u8) callconv(.c) void ```
-    pub fn OnPresentStateChanged(self: ?*anyopaque, slot: fn (?*anyopaque, bool, [*:0]const u8) callconv(.c) void) void {
-        qtc.Solid__Battery_Connect_PresentStateChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Solid__Battery, callback: *const fn (self: QtC.Solid__Battery, newState: bool, udi: [*:0]const u8) callconv(.c) void ```
+    pub fn OnPresentStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool, [*:0]const u8) callconv(.c) void) void {
+        qtc.Solid__Battery_Connect_PresentStateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/solid-battery.html#chargePercentChanged)
@@ -221,9 +221,9 @@ pub const solid__battery = struct {
 
     /// [Qt documentation](https://api.kde.org/solid-battery.html#chargePercentChanged)
     ///
-    /// ``` self: QtC.Solid__Battery, slot: fn (self: QtC.Solid__Battery, value: i32, udi: [*:0]const u8) callconv(.c) void ```
-    pub fn OnChargePercentChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32, [*:0]const u8) callconv(.c) void) void {
-        qtc.Solid__Battery_Connect_ChargePercentChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Solid__Battery, callback: *const fn (self: QtC.Solid__Battery, value: i32, udi: [*:0]const u8) callconv(.c) void ```
+    pub fn OnChargePercentChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, [*:0]const u8) callconv(.c) void) void {
+        qtc.Solid__Battery_Connect_ChargePercentChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/solid-battery.html#capacityChanged)
@@ -239,9 +239,9 @@ pub const solid__battery = struct {
 
     /// [Qt documentation](https://api.kde.org/solid-battery.html#capacityChanged)
     ///
-    /// ``` self: QtC.Solid__Battery, slot: fn (self: QtC.Solid__Battery, value: i32, udi: [*:0]const u8) callconv(.c) void ```
-    pub fn OnCapacityChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32, [*:0]const u8) callconv(.c) void) void {
-        qtc.Solid__Battery_Connect_CapacityChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Solid__Battery, callback: *const fn (self: QtC.Solid__Battery, value: i32, udi: [*:0]const u8) callconv(.c) void ```
+    pub fn OnCapacityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, [*:0]const u8) callconv(.c) void) void {
+        qtc.Solid__Battery_Connect_CapacityChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/solid-battery.html#cycleCountChanged)
@@ -257,9 +257,9 @@ pub const solid__battery = struct {
 
     /// [Qt documentation](https://api.kde.org/solid-battery.html#cycleCountChanged)
     ///
-    /// ``` self: QtC.Solid__Battery, slot: fn (self: QtC.Solid__Battery, value: i32, udi: [*:0]const u8) callconv(.c) void ```
-    pub fn OnCycleCountChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32, [*:0]const u8) callconv(.c) void) void {
-        qtc.Solid__Battery_Connect_CycleCountChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Solid__Battery, callback: *const fn (self: QtC.Solid__Battery, value: i32, udi: [*:0]const u8) callconv(.c) void ```
+    pub fn OnCycleCountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, [*:0]const u8) callconv(.c) void) void {
+        qtc.Solid__Battery_Connect_CycleCountChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/solid-battery.html#powerSupplyStateChanged)
@@ -275,9 +275,9 @@ pub const solid__battery = struct {
 
     /// [Qt documentation](https://api.kde.org/solid-battery.html#powerSupplyStateChanged)
     ///
-    /// ``` self: QtC.Solid__Battery, slot: fn (self: QtC.Solid__Battery, newState: bool, udi: [*:0]const u8) callconv(.c) void ```
-    pub fn OnPowerSupplyStateChanged(self: ?*anyopaque, slot: fn (?*anyopaque, bool, [*:0]const u8) callconv(.c) void) void {
-        qtc.Solid__Battery_Connect_PowerSupplyStateChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Solid__Battery, callback: *const fn (self: QtC.Solid__Battery, newState: bool, udi: [*:0]const u8) callconv(.c) void ```
+    pub fn OnPowerSupplyStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool, [*:0]const u8) callconv(.c) void) void {
+        qtc.Solid__Battery_Connect_PowerSupplyStateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/solid-battery.html#chargeStateChanged)
@@ -289,9 +289,9 @@ pub const solid__battery = struct {
 
     /// [Qt documentation](https://api.kde.org/solid-battery.html#chargeStateChanged)
     ///
-    /// ``` self: QtC.Solid__Battery, slot: fn (self: QtC.Solid__Battery, newState: i32) callconv(.c) void ```
-    pub fn OnChargeStateChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.Solid__Battery_Connect_ChargeStateChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Solid__Battery, callback: *const fn (self: QtC.Solid__Battery, newState: i32) callconv(.c) void ```
+    pub fn OnChargeStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.Solid__Battery_Connect_ChargeStateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/solid-battery.html#timeToEmptyChanged)
@@ -307,9 +307,9 @@ pub const solid__battery = struct {
 
     /// [Qt documentation](https://api.kde.org/solid-battery.html#timeToEmptyChanged)
     ///
-    /// ``` self: QtC.Solid__Battery, slot: fn (self: QtC.Solid__Battery, time: i64, udi: [*:0]const u8) callconv(.c) void ```
-    pub fn OnTimeToEmptyChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i64, [*:0]const u8) callconv(.c) void) void {
-        qtc.Solid__Battery_Connect_TimeToEmptyChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Solid__Battery, callback: *const fn (self: QtC.Solid__Battery, time: i64, udi: [*:0]const u8) callconv(.c) void ```
+    pub fn OnTimeToEmptyChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64, [*:0]const u8) callconv(.c) void) void {
+        qtc.Solid__Battery_Connect_TimeToEmptyChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/solid-battery.html#timeToFullChanged)
@@ -325,9 +325,9 @@ pub const solid__battery = struct {
 
     /// [Qt documentation](https://api.kde.org/solid-battery.html#timeToFullChanged)
     ///
-    /// ``` self: QtC.Solid__Battery, slot: fn (self: QtC.Solid__Battery, time: i64, udi: [*:0]const u8) callconv(.c) void ```
-    pub fn OnTimeToFullChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i64, [*:0]const u8) callconv(.c) void) void {
-        qtc.Solid__Battery_Connect_TimeToFullChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Solid__Battery, callback: *const fn (self: QtC.Solid__Battery, time: i64, udi: [*:0]const u8) callconv(.c) void ```
+    pub fn OnTimeToFullChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64, [*:0]const u8) callconv(.c) void) void {
+        qtc.Solid__Battery_Connect_TimeToFullChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/solid-battery.html#energyChanged)
@@ -343,9 +343,9 @@ pub const solid__battery = struct {
 
     /// [Qt documentation](https://api.kde.org/solid-battery.html#energyChanged)
     ///
-    /// ``` self: QtC.Solid__Battery, slot: fn (self: QtC.Solid__Battery, energy: f64, udi: [*:0]const u8) callconv(.c) void ```
-    pub fn OnEnergyChanged(self: ?*anyopaque, slot: fn (?*anyopaque, f64, [*:0]const u8) callconv(.c) void) void {
-        qtc.Solid__Battery_Connect_EnergyChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Solid__Battery, callback: *const fn (self: QtC.Solid__Battery, energy: f64, udi: [*:0]const u8) callconv(.c) void ```
+    pub fn OnEnergyChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64, [*:0]const u8) callconv(.c) void) void {
+        qtc.Solid__Battery_Connect_EnergyChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/solid-battery.html#energyFullChanged)
@@ -361,9 +361,9 @@ pub const solid__battery = struct {
 
     /// [Qt documentation](https://api.kde.org/solid-battery.html#energyFullChanged)
     ///
-    /// ``` self: QtC.Solid__Battery, slot: fn (self: QtC.Solid__Battery, energy: f64, udi: [*:0]const u8) callconv(.c) void ```
-    pub fn OnEnergyFullChanged(self: ?*anyopaque, slot: fn (?*anyopaque, f64, [*:0]const u8) callconv(.c) void) void {
-        qtc.Solid__Battery_Connect_EnergyFullChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Solid__Battery, callback: *const fn (self: QtC.Solid__Battery, energy: f64, udi: [*:0]const u8) callconv(.c) void ```
+    pub fn OnEnergyFullChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64, [*:0]const u8) callconv(.c) void) void {
+        qtc.Solid__Battery_Connect_EnergyFullChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/solid-battery.html#energyFullDesignChanged)
@@ -379,9 +379,9 @@ pub const solid__battery = struct {
 
     /// [Qt documentation](https://api.kde.org/solid-battery.html#energyFullDesignChanged)
     ///
-    /// ``` self: QtC.Solid__Battery, slot: fn (self: QtC.Solid__Battery, energy: f64, udi: [*:0]const u8) callconv(.c) void ```
-    pub fn OnEnergyFullDesignChanged(self: ?*anyopaque, slot: fn (?*anyopaque, f64, [*:0]const u8) callconv(.c) void) void {
-        qtc.Solid__Battery_Connect_EnergyFullDesignChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Solid__Battery, callback: *const fn (self: QtC.Solid__Battery, energy: f64, udi: [*:0]const u8) callconv(.c) void ```
+    pub fn OnEnergyFullDesignChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64, [*:0]const u8) callconv(.c) void) void {
+        qtc.Solid__Battery_Connect_EnergyFullDesignChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/solid-battery.html#energyRateChanged)
@@ -397,9 +397,9 @@ pub const solid__battery = struct {
 
     /// [Qt documentation](https://api.kde.org/solid-battery.html#energyRateChanged)
     ///
-    /// ``` self: QtC.Solid__Battery, slot: fn (self: QtC.Solid__Battery, energyRate: f64, udi: [*:0]const u8) callconv(.c) void ```
-    pub fn OnEnergyRateChanged(self: ?*anyopaque, slot: fn (?*anyopaque, f64, [*:0]const u8) callconv(.c) void) void {
-        qtc.Solid__Battery_Connect_EnergyRateChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Solid__Battery, callback: *const fn (self: QtC.Solid__Battery, energyRate: f64, udi: [*:0]const u8) callconv(.c) void ```
+    pub fn OnEnergyRateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64, [*:0]const u8) callconv(.c) void) void {
+        qtc.Solid__Battery_Connect_EnergyRateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/solid-battery.html#voltageChanged)
@@ -415,9 +415,9 @@ pub const solid__battery = struct {
 
     /// [Qt documentation](https://api.kde.org/solid-battery.html#voltageChanged)
     ///
-    /// ``` self: QtC.Solid__Battery, slot: fn (self: QtC.Solid__Battery, voltage: f64, udi: [*:0]const u8) callconv(.c) void ```
-    pub fn OnVoltageChanged(self: ?*anyopaque, slot: fn (?*anyopaque, f64, [*:0]const u8) callconv(.c) void) void {
-        qtc.Solid__Battery_Connect_VoltageChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Solid__Battery, callback: *const fn (self: QtC.Solid__Battery, voltage: f64, udi: [*:0]const u8) callconv(.c) void ```
+    pub fn OnVoltageChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64, [*:0]const u8) callconv(.c) void) void {
+        qtc.Solid__Battery_Connect_VoltageChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/solid-battery.html#temperatureChanged)
@@ -433,9 +433,9 @@ pub const solid__battery = struct {
 
     /// [Qt documentation](https://api.kde.org/solid-battery.html#temperatureChanged)
     ///
-    /// ``` self: QtC.Solid__Battery, slot: fn (self: QtC.Solid__Battery, temperature: f64, udi: [*:0]const u8) callconv(.c) void ```
-    pub fn OnTemperatureChanged(self: ?*anyopaque, slot: fn (?*anyopaque, f64, [*:0]const u8) callconv(.c) void) void {
-        qtc.Solid__Battery_Connect_TemperatureChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Solid__Battery, callback: *const fn (self: QtC.Solid__Battery, temperature: f64, udi: [*:0]const u8) callconv(.c) void ```
+    pub fn OnTemperatureChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64, [*:0]const u8) callconv(.c) void) void {
+        qtc.Solid__Battery_Connect_TemperatureChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/solid-battery.html#remainingTimeChanged)
@@ -451,9 +451,9 @@ pub const solid__battery = struct {
 
     /// [Qt documentation](https://api.kde.org/solid-battery.html#remainingTimeChanged)
     ///
-    /// ``` self: QtC.Solid__Battery, slot: fn (self: QtC.Solid__Battery, time: i64, udi: [*:0]const u8) callconv(.c) void ```
-    pub fn OnRemainingTimeChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i64, [*:0]const u8) callconv(.c) void) void {
-        qtc.Solid__Battery_Connect_RemainingTimeChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Solid__Battery, callback: *const fn (self: QtC.Solid__Battery, time: i64, udi: [*:0]const u8) callconv(.c) void ```
+    pub fn OnRemainingTimeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64, [*:0]const u8) callconv(.c) void) void {
+        qtc.Solid__Battery_Connect_RemainingTimeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -495,9 +495,9 @@ pub const solid__battery = struct {
 
     /// [Qt documentation](https://api.kde.org/solid-battery.html#chargeStateChanged)
     ///
-    /// ``` self: QtC.Solid__Battery, slot: fn (self: QtC.Solid__Battery, newState: i32, udi: [*:0]const u8) callconv(.c) void ```
-    pub fn OnChargeStateChanged2(self: ?*anyopaque, slot: fn (?*anyopaque, i32, [*:0]const u8) callconv(.c) void) void {
-        qtc.Solid__Battery_Connect_ChargeStateChanged2(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Solid__Battery, callback: *const fn (self: QtC.Solid__Battery, newState: i32, udi: [*:0]const u8) callconv(.c) void ```
+    pub fn OnChargeStateChanged2(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, [*:0]const u8) callconv(.c) void) void {
+        qtc.Solid__Battery_Connect_ChargeStateChanged2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from Solid::DeviceInterface
@@ -856,9 +856,9 @@ pub const solid__battery = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.Solid__Battery, slot: fn (self: QtC.Solid__Battery) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Solid__Battery, callback: *const fn (self: QtC.Solid__Battery) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -940,9 +940,9 @@ pub const solid__battery = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.Solid__Battery, slot: fn (self: QtC.Solid__Battery, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Solid__Battery, callback: *const fn (self: QtC.Solid__Battery, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -951,9 +951,9 @@ pub const solid__battery = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.Solid__Battery, slot: fn (self: QtC.Solid__Battery, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Solid__Battery, callback: *const fn (self: QtC.Solid__Battery, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Delete this object from C++ memory.

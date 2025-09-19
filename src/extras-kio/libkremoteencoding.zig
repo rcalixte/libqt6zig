@@ -110,9 +110,9 @@ pub const kremoteencoding = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KRemoteEncoding, slot: fn (self: QtC.KRemoteEncoding, id: i32, data: ?*anyopaque) callconv(.c) void ```
-    pub fn OnVirtualHook(self: ?*anyopaque, slot: fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRemoteEncoding_OnVirtualHook(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRemoteEncoding, callback: *const fn (self: QtC.KRemoteEncoding, id: i32, data: ?*anyopaque) callconv(.c) void ```
+    pub fn OnVirtualHook(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
+        qtc.KRemoteEncoding_OnVirtualHook(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kremoteencoding.html#virtual_hook)

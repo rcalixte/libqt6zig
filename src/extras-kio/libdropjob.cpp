@@ -2,7 +2,7 @@
 #include <KFileItemListProperties>
 #define WORKAROUND_INNER_CLASS_DEFINITION_KIO__CopyJob
 #define WORKAROUND_INNER_CLASS_DEFINITION_KIO__DropJob
-#define WORKAROUND_INNER_CLASS_DEFINITION_KIO__Job
+#include <KIO/Job>
 #include <KJob>
 #include <QAction>
 #include <QDropEvent>

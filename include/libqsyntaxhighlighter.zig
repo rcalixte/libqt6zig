@@ -40,9 +40,9 @@ pub const qsyntaxhighlighter = struct {
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSyntaxHighlighter, slot: fn (self: QtC.QSyntaxHighlighter, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QSyntaxHighlighter_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSyntaxHighlighter, callback: *const fn (self: QtC.QSyntaxHighlighter, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+        qtc.QSyntaxHighlighter_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -107,9 +107,9 @@ pub const qsyntaxhighlighter = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSyntaxHighlighter, slot: fn (self: QtC.QSyntaxHighlighter, text: [*:0]const u8) callconv(.c) void ```
-    pub fn OnHighlightBlock(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QSyntaxHighlighter_OnHighlightBlock(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSyntaxHighlighter, callback: *const fn (self: QtC.QSyntaxHighlighter, text: [*:0]const u8) callconv(.c) void ```
+    pub fn OnHighlightBlock(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QSyntaxHighlighter_OnHighlightBlock(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#highlightBlock)
@@ -136,9 +136,9 @@ pub const qsyntaxhighlighter = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSyntaxHighlighter, slot: fn (self: QtC.QSyntaxHighlighter, start: i32, count: i32, format: QtC.QTextCharFormat) callconv(.c) void ```
-    pub fn OnSetFormat(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSyntaxHighlighter_OnSetFormat(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSyntaxHighlighter, callback: *const fn (self: QtC.QSyntaxHighlighter, start: i32, count: i32, format: QtC.QTextCharFormat) callconv(.c) void ```
+    pub fn OnSetFormat(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) void) void {
+        qtc.QSyntaxHighlighter_OnSetFormat(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setFormat)
@@ -161,9 +161,9 @@ pub const qsyntaxhighlighter = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSyntaxHighlighter, slot: fn (self: QtC.QSyntaxHighlighter, start: i32, count: i32, color: QtC.QColor) callconv(.c) void ```
-    pub fn OnSetFormat2(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSyntaxHighlighter_OnSetFormat2(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSyntaxHighlighter, callback: *const fn (self: QtC.QSyntaxHighlighter, start: i32, count: i32, color: QtC.QColor) callconv(.c) void ```
+    pub fn OnSetFormat2(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) void) void {
+        qtc.QSyntaxHighlighter_OnSetFormat2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setFormat)
@@ -186,9 +186,9 @@ pub const qsyntaxhighlighter = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSyntaxHighlighter, slot: fn (self: QtC.QSyntaxHighlighter, start: i32, count: i32, font: QtC.QFont) callconv(.c) void ```
-    pub fn OnSetFormat3(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSyntaxHighlighter_OnSetFormat3(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSyntaxHighlighter, callback: *const fn (self: QtC.QSyntaxHighlighter, start: i32, count: i32, font: QtC.QFont) callconv(.c) void ```
+    pub fn OnSetFormat3(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) void) void {
+        qtc.QSyntaxHighlighter_OnSetFormat3(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setFormat)
@@ -211,9 +211,9 @@ pub const qsyntaxhighlighter = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSyntaxHighlighter, slot: fn (self: QtC.QSyntaxHighlighter, pos: i32) callconv(.c) QtC.QTextCharFormat ```
-    pub fn OnFormat(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) QtC.QTextCharFormat) void {
-        qtc.QSyntaxHighlighter_OnFormat(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSyntaxHighlighter, callback: *const fn (self: QtC.QSyntaxHighlighter, pos: i32) callconv(.c) QtC.QTextCharFormat ```
+    pub fn OnFormat(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QTextCharFormat) void {
+        qtc.QSyntaxHighlighter_OnFormat(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#format)
@@ -236,9 +236,9 @@ pub const qsyntaxhighlighter = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSyntaxHighlighter, slot: fn () callconv(.c) i32 ```
-    pub fn OnPreviousBlockState(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QSyntaxHighlighter_OnPreviousBlockState(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSyntaxHighlighter, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnPreviousBlockState(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QSyntaxHighlighter_OnPreviousBlockState(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#previousBlockState)
@@ -261,9 +261,9 @@ pub const qsyntaxhighlighter = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSyntaxHighlighter, slot: fn () callconv(.c) i32 ```
-    pub fn OnCurrentBlockState(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QSyntaxHighlighter_OnCurrentBlockState(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSyntaxHighlighter, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnCurrentBlockState(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QSyntaxHighlighter_OnCurrentBlockState(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#currentBlockState)
@@ -286,9 +286,9 @@ pub const qsyntaxhighlighter = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSyntaxHighlighter, slot: fn (self: QtC.QSyntaxHighlighter, newState: i32) callconv(.c) void ```
-    pub fn OnSetCurrentBlockState(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QSyntaxHighlighter_OnSetCurrentBlockState(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSyntaxHighlighter, callback: *const fn (self: QtC.QSyntaxHighlighter, newState: i32) callconv(.c) void ```
+    pub fn OnSetCurrentBlockState(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QSyntaxHighlighter_OnSetCurrentBlockState(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setCurrentBlockState)
@@ -311,9 +311,9 @@ pub const qsyntaxhighlighter = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSyntaxHighlighter, slot: fn (self: QtC.QSyntaxHighlighter, data: QtC.QTextBlockUserData) callconv(.c) void ```
-    pub fn OnSetCurrentBlockUserData(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSyntaxHighlighter_OnSetCurrentBlockUserData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSyntaxHighlighter, callback: *const fn (self: QtC.QSyntaxHighlighter, data: QtC.QTextBlockUserData) callconv(.c) void ```
+    pub fn OnSetCurrentBlockUserData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QSyntaxHighlighter_OnSetCurrentBlockUserData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#setCurrentBlockUserData)
@@ -336,9 +336,9 @@ pub const qsyntaxhighlighter = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSyntaxHighlighter, slot: fn () callconv(.c) QtC.QTextBlockUserData ```
-    pub fn OnCurrentBlockUserData(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QTextBlockUserData) void {
-        qtc.QSyntaxHighlighter_OnCurrentBlockUserData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSyntaxHighlighter, callback: *const fn () callconv(.c) QtC.QTextBlockUserData ```
+    pub fn OnCurrentBlockUserData(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QTextBlockUserData) void {
+        qtc.QSyntaxHighlighter_OnCurrentBlockUserData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#currentBlockUserData)
@@ -361,9 +361,9 @@ pub const qsyntaxhighlighter = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSyntaxHighlighter, slot: fn () callconv(.c) QtC.QTextBlock ```
-    pub fn OnCurrentBlock(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QTextBlock) void {
-        qtc.QSyntaxHighlighter_OnCurrentBlock(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSyntaxHighlighter, callback: *const fn () callconv(.c) QtC.QTextBlock ```
+    pub fn OnCurrentBlock(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QTextBlock) void {
+        qtc.QSyntaxHighlighter_OnCurrentBlock(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#currentBlock)
@@ -689,9 +689,9 @@ pub const qsyntaxhighlighter = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QSyntaxHighlighter, slot: fn (self: QtC.QSyntaxHighlighter) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSyntaxHighlighter, callback: *const fn (self: QtC.QSyntaxHighlighter) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -773,9 +773,9 @@ pub const qsyntaxhighlighter = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QSyntaxHighlighter, slot: fn (self: QtC.QSyntaxHighlighter, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSyntaxHighlighter, callback: *const fn (self: QtC.QSyntaxHighlighter, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -806,9 +806,9 @@ pub const qsyntaxhighlighter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSyntaxHighlighter, slot: fn (self: QtC.QSyntaxHighlighter, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QSyntaxHighlighter_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSyntaxHighlighter, callback: *const fn (self: QtC.QSyntaxHighlighter, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QSyntaxHighlighter_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -839,9 +839,9 @@ pub const qsyntaxhighlighter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSyntaxHighlighter, slot: fn (self: QtC.QSyntaxHighlighter, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QSyntaxHighlighter_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSyntaxHighlighter, callback: *const fn (self: QtC.QSyntaxHighlighter, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QSyntaxHighlighter_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -872,9 +872,9 @@ pub const qsyntaxhighlighter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSyntaxHighlighter, slot: fn (self: QtC.QSyntaxHighlighter, event: QtC.QTimerEvent) callconv(.c) void ```
-    pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSyntaxHighlighter_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSyntaxHighlighter, callback: *const fn (self: QtC.QSyntaxHighlighter, event: QtC.QTimerEvent) callconv(.c) void ```
+    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QSyntaxHighlighter_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -905,9 +905,9 @@ pub const qsyntaxhighlighter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSyntaxHighlighter, slot: fn (self: QtC.QSyntaxHighlighter, event: QtC.QChildEvent) callconv(.c) void ```
-    pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSyntaxHighlighter_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSyntaxHighlighter, callback: *const fn (self: QtC.QSyntaxHighlighter, event: QtC.QChildEvent) callconv(.c) void ```
+    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QSyntaxHighlighter_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -938,9 +938,9 @@ pub const qsyntaxhighlighter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSyntaxHighlighter, slot: fn (self: QtC.QSyntaxHighlighter, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSyntaxHighlighter_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSyntaxHighlighter, callback: *const fn (self: QtC.QSyntaxHighlighter, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QSyntaxHighlighter_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -971,9 +971,9 @@ pub const qsyntaxhighlighter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSyntaxHighlighter, slot: fn (self: QtC.QSyntaxHighlighter, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSyntaxHighlighter_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSyntaxHighlighter, callback: *const fn (self: QtC.QSyntaxHighlighter, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QSyntaxHighlighter_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1004,9 +1004,9 @@ pub const qsyntaxhighlighter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSyntaxHighlighter, slot: fn (self: QtC.QSyntaxHighlighter, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSyntaxHighlighter_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSyntaxHighlighter, callback: *const fn (self: QtC.QSyntaxHighlighter, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QSyntaxHighlighter_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1037,9 +1037,9 @@ pub const qsyntaxhighlighter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSyntaxHighlighter, slot: fn () callconv(.c) QtC.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
-        qtc.QSyntaxHighlighter_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSyntaxHighlighter, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.QSyntaxHighlighter_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1070,9 +1070,9 @@ pub const qsyntaxhighlighter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSyntaxHighlighter, slot: fn () callconv(.c) i32 ```
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QSyntaxHighlighter_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSyntaxHighlighter, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QSyntaxHighlighter_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1105,9 +1105,9 @@ pub const qsyntaxhighlighter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSyntaxHighlighter, slot: fn (self: QtC.QSyntaxHighlighter, signal: [*:0]const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QSyntaxHighlighter_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSyntaxHighlighter, callback: *const fn (self: QtC.QSyntaxHighlighter, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QSyntaxHighlighter_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1138,9 +1138,9 @@ pub const qsyntaxhighlighter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSyntaxHighlighter, slot: fn (self: QtC.QSyntaxHighlighter, signal: QtC.QMetaMethod) callconv(.c) bool ```
-    pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QSyntaxHighlighter_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSyntaxHighlighter, callback: *const fn (self: QtC.QSyntaxHighlighter, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QSyntaxHighlighter_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1149,9 +1149,9 @@ pub const qsyntaxhighlighter = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QSyntaxHighlighter, slot: fn (self: QtC.QSyntaxHighlighter, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSyntaxHighlighter, callback: *const fn (self: QtC.QSyntaxHighlighter, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsyntaxhighlighter.html#dtor.QSyntaxHighlighter)

@@ -23,9 +23,9 @@ pub const qfileiconprovider = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QFileIconProvider, slot: fn (self: QtC.QFileIconProvider, typeVal: qabstractfileiconprovider_enums.IconType) callconv(.c) QtC.QIcon ```
-    pub fn OnIcon(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) QtC.QIcon) void {
-        qtc.QFileIconProvider_OnIcon(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QFileIconProvider, callback: *const fn (self: QtC.QFileIconProvider, typeVal: qabstractfileiconprovider_enums.IconType) callconv(.c) QtC.QIcon ```
+    pub fn OnIcon(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QIcon) void {
+        qtc.QFileIconProvider_OnIcon(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfileiconprovider.html#icon)
@@ -48,9 +48,9 @@ pub const qfileiconprovider = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QFileIconProvider, slot: fn (self: QtC.QFileIconProvider, info: QtC.QFileInfo) callconv(.c) QtC.QIcon ```
-    pub fn OnIcon2(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QIcon) void {
-        qtc.QFileIconProvider_OnIcon2(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QFileIconProvider, callback: *const fn (self: QtC.QFileIconProvider, info: QtC.QFileInfo) callconv(.c) QtC.QIcon ```
+    pub fn OnIcon2(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QIcon) void {
+        qtc.QFileIconProvider_OnIcon2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfileiconprovider.html#icon)
@@ -98,9 +98,9 @@ pub const qfileiconprovider = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QFileIconProvider, slot: fn (self: QtC.QFileIconProvider, param1: QtC.QFileInfo) callconv(.c) [*:0]const u8 ```
-    pub fn OnType(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) [*:0]const u8) void {
-        qtc.QFileIconProvider_OnType(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QFileIconProvider, callback: *const fn (self: QtC.QFileIconProvider, param1: QtC.QFileInfo) callconv(.c) [*:0]const u8 ```
+    pub fn OnType(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) [*:0]const u8) void {
+        qtc.QFileIconProvider_OnType(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractFileIconProvider
@@ -131,9 +131,9 @@ pub const qfileiconprovider = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QFileIconProvider, slot: fn (self: QtC.QFileIconProvider, options: flag of qabstractfileiconprovider_enums.Option) callconv(.c) void ```
-    pub fn OnSetOptions(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QFileIconProvider_OnSetOptions(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QFileIconProvider, callback: *const fn (self: QtC.QFileIconProvider, options: flag of qabstractfileiconprovider_enums.Option) callconv(.c) void ```
+    pub fn OnSetOptions(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QFileIconProvider_OnSetOptions(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractFileIconProvider
@@ -168,9 +168,9 @@ pub const qfileiconprovider = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QFileIconProvider, slot: fn () callconv(.c) i32 ```
-    pub fn OnOptions(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QFileIconProvider_OnOptions(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QFileIconProvider, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnOptions(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QFileIconProvider_OnOptions(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfileiconprovider.html#dtor.QFileIconProvider)

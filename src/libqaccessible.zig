@@ -1314,9 +1314,9 @@ pub const qaccessibleevent = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAccessibleEvent, slot: fn () callconv(.c) QtC.QAccessibleInterface ```
-    pub fn OnAccessibleInterface(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QAccessibleInterface) void {
-        qtc.QAccessibleEvent_OnAccessibleInterface(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAccessibleEvent, callback: *const fn () callconv(.c) QtC.QAccessibleInterface ```
+    pub fn OnAccessibleInterface(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QAccessibleInterface) void {
+        qtc.QAccessibleEvent_OnAccessibleInterface(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleevent.html#accessibleInterface)
@@ -1436,9 +1436,9 @@ pub const qaccessiblestatechangeevent = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleStateChangeEvent, slot: fn () callconv(.c) QtC.QAccessibleInterface ```
-    pub fn OnAccessibleInterface(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QAccessibleInterface) void {
-        qtc.QAccessibleStateChangeEvent_OnAccessibleInterface(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAccessibleStateChangeEvent, callback: *const fn () callconv(.c) QtC.QAccessibleInterface ```
+    pub fn OnAccessibleInterface(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QAccessibleInterface) void {
+        qtc.QAccessibleStateChangeEvent_OnAccessibleInterface(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblestatechangeevent.html#dtor.QAccessibleStateChangeEvent)
@@ -1556,9 +1556,9 @@ pub const qaccessibletextcursorevent = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleTextCursorEvent, slot: fn () callconv(.c) QtC.QAccessibleInterface ```
-    pub fn OnAccessibleInterface(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QAccessibleInterface) void {
-        qtc.QAccessibleTextCursorEvent_OnAccessibleInterface(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAccessibleTextCursorEvent, callback: *const fn () callconv(.c) QtC.QAccessibleInterface ```
+    pub fn OnAccessibleInterface(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QAccessibleInterface) void {
+        qtc.QAccessibleTextCursorEvent_OnAccessibleInterface(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletextcursorevent.html#dtor.QAccessibleTextCursorEvent)
@@ -1701,9 +1701,9 @@ pub const qaccessibletextselectionevent = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleTextSelectionEvent, slot: fn () callconv(.c) QtC.QAccessibleInterface ```
-    pub fn OnAccessibleInterface(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QAccessibleInterface) void {
-        qtc.QAccessibleTextSelectionEvent_OnAccessibleInterface(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAccessibleTextSelectionEvent, callback: *const fn () callconv(.c) QtC.QAccessibleInterface ```
+    pub fn OnAccessibleInterface(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QAccessibleInterface) void {
+        qtc.QAccessibleTextSelectionEvent_OnAccessibleInterface(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletextselectionevent.html#dtor.QAccessibleTextSelectionEvent)
@@ -1853,9 +1853,9 @@ pub const qaccessibletextinsertevent = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleTextInsertEvent, slot: fn () callconv(.c) QtC.QAccessibleInterface ```
-    pub fn OnAccessibleInterface(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QAccessibleInterface) void {
-        qtc.QAccessibleTextInsertEvent_OnAccessibleInterface(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAccessibleTextInsertEvent, callback: *const fn () callconv(.c) QtC.QAccessibleInterface ```
+    pub fn OnAccessibleInterface(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QAccessibleInterface) void {
+        qtc.QAccessibleTextInsertEvent_OnAccessibleInterface(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletextinsertevent.html#dtor.QAccessibleTextInsertEvent)
@@ -2005,9 +2005,9 @@ pub const qaccessibletextremoveevent = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleTextRemoveEvent, slot: fn () callconv(.c) QtC.QAccessibleInterface ```
-    pub fn OnAccessibleInterface(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QAccessibleInterface) void {
-        qtc.QAccessibleTextRemoveEvent_OnAccessibleInterface(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAccessibleTextRemoveEvent, callback: *const fn () callconv(.c) QtC.QAccessibleInterface ```
+    pub fn OnAccessibleInterface(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QAccessibleInterface) void {
+        qtc.QAccessibleTextRemoveEvent_OnAccessibleInterface(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletextremoveevent.html#dtor.QAccessibleTextRemoveEvent)
@@ -2176,9 +2176,9 @@ pub const qaccessibletextupdateevent = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleTextUpdateEvent, slot: fn () callconv(.c) QtC.QAccessibleInterface ```
-    pub fn OnAccessibleInterface(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QAccessibleInterface) void {
-        qtc.QAccessibleTextUpdateEvent_OnAccessibleInterface(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAccessibleTextUpdateEvent, callback: *const fn () callconv(.c) QtC.QAccessibleInterface ```
+    pub fn OnAccessibleInterface(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QAccessibleInterface) void {
+        qtc.QAccessibleTextUpdateEvent_OnAccessibleInterface(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletextupdateevent.html#dtor.QAccessibleTextUpdateEvent)
@@ -2296,9 +2296,9 @@ pub const qaccessiblevaluechangeevent = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleValueChangeEvent, slot: fn () callconv(.c) QtC.QAccessibleInterface ```
-    pub fn OnAccessibleInterface(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QAccessibleInterface) void {
-        qtc.QAccessibleValueChangeEvent_OnAccessibleInterface(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAccessibleValueChangeEvent, callback: *const fn () callconv(.c) QtC.QAccessibleInterface ```
+    pub fn OnAccessibleInterface(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QAccessibleInterface) void {
+        qtc.QAccessibleValueChangeEvent_OnAccessibleInterface(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblevaluechangeevent.html#dtor.QAccessibleValueChangeEvent)
@@ -2474,9 +2474,9 @@ pub const qaccessibletablemodelchangeevent = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleTableModelChangeEvent, slot: fn () callconv(.c) QtC.QAccessibleInterface ```
-    pub fn OnAccessibleInterface(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QAccessibleInterface) void {
-        qtc.QAccessibleTableModelChangeEvent_OnAccessibleInterface(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAccessibleTableModelChangeEvent, callback: *const fn () callconv(.c) QtC.QAccessibleInterface ```
+    pub fn OnAccessibleInterface(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QAccessibleInterface) void {
+        qtc.QAccessibleTableModelChangeEvent_OnAccessibleInterface(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibletablemodelchangeevent.html#dtor.QAccessibleTableModelChangeEvent)
@@ -2617,9 +2617,9 @@ pub const qaccessibleannouncementevent = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleAnnouncementEvent, slot: fn () callconv(.c) QtC.QAccessibleInterface ```
-    pub fn OnAccessibleInterface(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QAccessibleInterface) void {
-        qtc.QAccessibleAnnouncementEvent_OnAccessibleInterface(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAccessibleAnnouncementEvent, callback: *const fn () callconv(.c) QtC.QAccessibleInterface ```
+    pub fn OnAccessibleInterface(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QAccessibleInterface) void {
+        qtc.QAccessibleAnnouncementEvent_OnAccessibleInterface(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleannouncementevent.html#dtor.QAccessibleAnnouncementEvent)

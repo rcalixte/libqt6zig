@@ -33,9 +33,9 @@ pub const kabstractfileitemactionplugin = struct {
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KAbstractFileItemActionPlugin, slot: fn (self: QtC.KAbstractFileItemActionPlugin, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
-        qtc.KAbstractFileItemActionPlugin_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KAbstractFileItemActionPlugin, callback: *const fn (self: QtC.KAbstractFileItemActionPlugin, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+        qtc.KAbstractFileItemActionPlugin_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -73,9 +73,9 @@ pub const kabstractfileitemactionplugin = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KAbstractFileItemActionPlugin, slot: fn (self: QtC.KAbstractFileItemActionPlugin, fileItemInfos: QtC.KFileItemListProperties, parentWidget: QtC.QWidget) callconv(.c) [*:null]QtC.QAction ```
-    pub fn OnActions(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) [*:null]QtC.QAction) void {
-        qtc.KAbstractFileItemActionPlugin_OnActions(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KAbstractFileItemActionPlugin, callback: *const fn (self: QtC.KAbstractFileItemActionPlugin, fileItemInfos: QtC.KFileItemListProperties, parentWidget: QtC.QWidget) callconv(.c) [*:null]QtC.QAction ```
+    pub fn OnActions(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) [*:null]QtC.QAction) void {
+        qtc.KAbstractFileItemActionPlugin_OnActions(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kabstractfileitemactionplugin.html#actions)
@@ -105,9 +105,9 @@ pub const kabstractfileitemactionplugin = struct {
 
     /// [Qt documentation](https://api.kde.org/kabstractfileitemactionplugin.html#error)
     ///
-    /// ``` self: QtC.KAbstractFileItemActionPlugin, slot: fn (self: QtC.KAbstractFileItemActionPlugin, errorMessage: [*:0]const u8) callconv(.c) void ```
-    pub fn OnError(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KAbstractFileItemActionPlugin_Connect_Error(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KAbstractFileItemActionPlugin, callback: *const fn (self: QtC.KAbstractFileItemActionPlugin, errorMessage: [*:0]const u8) callconv(.c) void ```
+    pub fn OnError(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.KAbstractFileItemActionPlugin_Connect_Error(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -424,9 +424,9 @@ pub const kabstractfileitemactionplugin = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KAbstractFileItemActionPlugin, slot: fn (self: QtC.KAbstractFileItemActionPlugin) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KAbstractFileItemActionPlugin, callback: *const fn (self: QtC.KAbstractFileItemActionPlugin) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -508,9 +508,9 @@ pub const kabstractfileitemactionplugin = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KAbstractFileItemActionPlugin, slot: fn (self: QtC.KAbstractFileItemActionPlugin, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KAbstractFileItemActionPlugin, callback: *const fn (self: QtC.KAbstractFileItemActionPlugin, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -541,9 +541,9 @@ pub const kabstractfileitemactionplugin = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAbstractFileItemActionPlugin, slot: fn (self: QtC.KAbstractFileItemActionPlugin, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KAbstractFileItemActionPlugin_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KAbstractFileItemActionPlugin, callback: *const fn (self: QtC.KAbstractFileItemActionPlugin, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KAbstractFileItemActionPlugin_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -574,9 +574,9 @@ pub const kabstractfileitemactionplugin = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAbstractFileItemActionPlugin, slot: fn (self: QtC.KAbstractFileItemActionPlugin, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KAbstractFileItemActionPlugin_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KAbstractFileItemActionPlugin, callback: *const fn (self: QtC.KAbstractFileItemActionPlugin, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KAbstractFileItemActionPlugin_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -607,9 +607,9 @@ pub const kabstractfileitemactionplugin = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAbstractFileItemActionPlugin, slot: fn (self: QtC.KAbstractFileItemActionPlugin, event: QtC.QTimerEvent) callconv(.c) void ```
-    pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KAbstractFileItemActionPlugin_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KAbstractFileItemActionPlugin, callback: *const fn (self: QtC.KAbstractFileItemActionPlugin, event: QtC.QTimerEvent) callconv(.c) void ```
+    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KAbstractFileItemActionPlugin_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -640,9 +640,9 @@ pub const kabstractfileitemactionplugin = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAbstractFileItemActionPlugin, slot: fn (self: QtC.KAbstractFileItemActionPlugin, event: QtC.QChildEvent) callconv(.c) void ```
-    pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KAbstractFileItemActionPlugin_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KAbstractFileItemActionPlugin, callback: *const fn (self: QtC.KAbstractFileItemActionPlugin, event: QtC.QChildEvent) callconv(.c) void ```
+    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KAbstractFileItemActionPlugin_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -673,9 +673,9 @@ pub const kabstractfileitemactionplugin = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAbstractFileItemActionPlugin, slot: fn (self: QtC.KAbstractFileItemActionPlugin, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KAbstractFileItemActionPlugin_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KAbstractFileItemActionPlugin, callback: *const fn (self: QtC.KAbstractFileItemActionPlugin, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KAbstractFileItemActionPlugin_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -706,9 +706,9 @@ pub const kabstractfileitemactionplugin = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAbstractFileItemActionPlugin, slot: fn (self: QtC.KAbstractFileItemActionPlugin, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KAbstractFileItemActionPlugin_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KAbstractFileItemActionPlugin, callback: *const fn (self: QtC.KAbstractFileItemActionPlugin, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KAbstractFileItemActionPlugin_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -739,9 +739,9 @@ pub const kabstractfileitemactionplugin = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAbstractFileItemActionPlugin, slot: fn (self: QtC.KAbstractFileItemActionPlugin, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KAbstractFileItemActionPlugin_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KAbstractFileItemActionPlugin, callback: *const fn (self: QtC.KAbstractFileItemActionPlugin, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KAbstractFileItemActionPlugin_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -772,9 +772,9 @@ pub const kabstractfileitemactionplugin = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAbstractFileItemActionPlugin, slot: fn () callconv(.c) QtC.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
-        qtc.KAbstractFileItemActionPlugin_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KAbstractFileItemActionPlugin, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.KAbstractFileItemActionPlugin_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -805,9 +805,9 @@ pub const kabstractfileitemactionplugin = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAbstractFileItemActionPlugin, slot: fn () callconv(.c) i32 ```
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.KAbstractFileItemActionPlugin_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KAbstractFileItemActionPlugin, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.KAbstractFileItemActionPlugin_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -840,9 +840,9 @@ pub const kabstractfileitemactionplugin = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAbstractFileItemActionPlugin, slot: fn (self: QtC.KAbstractFileItemActionPlugin, signal: [*:0]const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KAbstractFileItemActionPlugin_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KAbstractFileItemActionPlugin, callback: *const fn (self: QtC.KAbstractFileItemActionPlugin, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
+        qtc.KAbstractFileItemActionPlugin_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -873,9 +873,9 @@ pub const kabstractfileitemactionplugin = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KAbstractFileItemActionPlugin, slot: fn (self: QtC.KAbstractFileItemActionPlugin, signal: QtC.QMetaMethod) callconv(.c) bool ```
-    pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KAbstractFileItemActionPlugin_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KAbstractFileItemActionPlugin, callback: *const fn (self: QtC.KAbstractFileItemActionPlugin, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KAbstractFileItemActionPlugin_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -884,9 +884,9 @@ pub const kabstractfileitemactionplugin = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KAbstractFileItemActionPlugin, slot: fn (self: QtC.KAbstractFileItemActionPlugin, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KAbstractFileItemActionPlugin, callback: *const fn (self: QtC.KAbstractFileItemActionPlugin, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kabstractfileitemactionplugin.html#dtor.KAbstractFileItemActionPlugin)

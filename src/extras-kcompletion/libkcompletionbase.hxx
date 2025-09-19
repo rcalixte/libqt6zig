@@ -10,7 +10,7 @@
 #include "../qtlibc.h"
 
 // This class is a subclass of KCompletionBase so that we can call protected methods
-class VirtualKCompletionBase final : public KCompletionBase {
+class VirtualKCompletionBase : public KCompletionBase {
 
   public:
     // Virtual class boolean flag

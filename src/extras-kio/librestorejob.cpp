@@ -1,5 +1,5 @@
 #include <KCompositeJob>
-#define WORKAROUND_INNER_CLASS_DEFINITION_KIO__Job
+#include <KIO/Job>
 #define WORKAROUND_INNER_CLASS_DEFINITION_KIO__RestoreJob
 #include <KJob>
 #include <QList>

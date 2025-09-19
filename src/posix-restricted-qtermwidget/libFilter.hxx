@@ -10,7 +10,7 @@
 #include "../qtlibc.h"
 
 // This class is a subclass of Konsole::Filter so that we can call protected methods
-class VirtualKonsoleFilter final : public Konsole::Filter {
+class VirtualKonsoleFilter : public Konsole::Filter {
 
   public:
     // Virtual class boolean flag
@@ -1503,7 +1503,7 @@ class VirtualKonsoleFilterObject final : public Konsole::FilterObject {
 };
 
 // This class is a subclass of Konsole::Filter::HotSpot so that we can call protected methods
-class VirtualKonsoleFilterHotSpot final : public Konsole::Filter::HotSpot {
+class VirtualKonsoleFilterHotSpot : public Konsole::Filter::HotSpot {
 
   public:
     // Virtual class boolean flag

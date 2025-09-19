@@ -205,9 +205,9 @@ pub const qgraphicslayoutitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsLayoutItem, slot: fn (self: QtC.QGraphicsLayoutItem, rect: QtC.QRectF) callconv(.c) void ```
-    pub fn OnSetGeometry(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsLayoutItem_OnSetGeometry(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsLayoutItem, callback: *const fn (self: QtC.QGraphicsLayoutItem, rect: QtC.QRectF) callconv(.c) void ```
+    pub fn OnSetGeometry(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsLayoutItem_OnSetGeometry(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setGeometry)
@@ -237,9 +237,9 @@ pub const qgraphicslayoutitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsLayoutItem, slot: fn (self: QtC.QGraphicsLayoutItem, left: *f64, top: *f64, right: *f64, bottom: *f64) callconv(.c) void ```
-    pub fn OnGetContentsMargins(self: ?*anyopaque, slot: fn (?*anyopaque, *f64, *f64, *f64, *f64) callconv(.c) void) void {
-        qtc.QGraphicsLayoutItem_OnGetContentsMargins(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsLayoutItem, callback: *const fn (self: QtC.QGraphicsLayoutItem, left: *f64, top: *f64, right: *f64, bottom: *f64) callconv(.c) void ```
+    pub fn OnGetContentsMargins(self: ?*anyopaque, callback: *const fn (?*anyopaque, *f64, *f64, *f64, *f64) callconv(.c) void) void {
+        qtc.QGraphicsLayoutItem_OnGetContentsMargins(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#getContentsMargins)
@@ -276,9 +276,9 @@ pub const qgraphicslayoutitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsLayoutItem, slot: fn () callconv(.c) void ```
-    pub fn OnUpdateGeometry(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QGraphicsLayoutItem_OnUpdateGeometry(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsLayoutItem, callback: *const fn () callconv(.c) void ```
+    pub fn OnUpdateGeometry(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QGraphicsLayoutItem_OnUpdateGeometry(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#updateGeometry)
@@ -301,9 +301,9 @@ pub const qgraphicslayoutitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsLayoutItem, slot: fn () callconv(.c) bool ```
-    pub fn OnIsEmpty(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.QGraphicsLayoutItem_OnIsEmpty(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsLayoutItem, callback: *const fn () callconv(.c) bool ```
+    pub fn OnIsEmpty(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.QGraphicsLayoutItem_OnIsEmpty(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#isEmpty)
@@ -361,9 +361,9 @@ pub const qgraphicslayoutitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsLayoutItem, slot: fn (self: QtC.QGraphicsLayoutItem, item: QtC.QGraphicsItem) callconv(.c) void ```
-    pub fn OnSetGraphicsItem(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsLayoutItem_OnSetGraphicsItem(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsLayoutItem, callback: *const fn (self: QtC.QGraphicsLayoutItem, item: QtC.QGraphicsItem) callconv(.c) void ```
+    pub fn OnSetGraphicsItem(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsLayoutItem_OnSetGraphicsItem(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setGraphicsItem)
@@ -386,9 +386,9 @@ pub const qgraphicslayoutitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsLayoutItem, slot: fn (self: QtC.QGraphicsLayoutItem, ownedByLayout: bool) callconv(.c) void ```
-    pub fn OnSetOwnedByLayout(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QGraphicsLayoutItem_OnSetOwnedByLayout(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsLayoutItem, callback: *const fn (self: QtC.QGraphicsLayoutItem, ownedByLayout: bool) callconv(.c) void ```
+    pub fn OnSetOwnedByLayout(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QGraphicsLayoutItem_OnSetOwnedByLayout(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#setOwnedByLayout)
@@ -411,9 +411,9 @@ pub const qgraphicslayoutitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsLayoutItem, slot: fn (self: QtC.QGraphicsLayoutItem, which: qnamespace_enums.SizeHint, constraint: QtC.QSizeF) callconv(.c) QtC.QSizeF ```
-    pub fn OnSizeHint(self: ?*anyopaque, slot: fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QSizeF) void {
-        qtc.QGraphicsLayoutItem_OnSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsLayoutItem, callback: *const fn (self: QtC.QGraphicsLayoutItem, which: qnamespace_enums.SizeHint, constraint: QtC.QSizeF) callconv(.c) QtC.QSizeF ```
+    pub fn OnSizeHint(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QSizeF) void {
+        qtc.QGraphicsLayoutItem_OnSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslayoutitem.html#sizeHint)

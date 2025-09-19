@@ -43,9 +43,9 @@ pub const qboxlayout = struct {
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QBoxLayout, slot: fn (self: QtC.QBoxLayout, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QBoxLayout_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxLayout, callback: *const fn (self: QtC.QBoxLayout, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+        qtc.QBoxLayout_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -136,9 +136,9 @@ pub const qboxlayout = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QBoxLayout, slot: fn (self: QtC.QBoxLayout, param1: QtC.QLayoutItem) callconv(.c) void ```
-    pub fn OnAddItem(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QBoxLayout_OnAddItem(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxLayout, callback: *const fn (self: QtC.QBoxLayout, param1: QtC.QLayoutItem) callconv(.c) void ```
+    pub fn OnAddItem(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QBoxLayout_OnAddItem(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#addItem)
@@ -203,9 +203,9 @@ pub const qboxlayout = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QBoxLayout, slot: fn () callconv(.c) i32 ```
-    pub fn OnSpacing(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QBoxLayout_OnSpacing(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxLayout, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSpacing(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QBoxLayout_OnSpacing(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#spacing)
@@ -228,9 +228,9 @@ pub const qboxlayout = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QBoxLayout, slot: fn (self: QtC.QBoxLayout, spacing: i32) callconv(.c) void ```
-    pub fn OnSetSpacing(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QBoxLayout_OnSetSpacing(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxLayout, callback: *const fn (self: QtC.QBoxLayout, spacing: i32) callconv(.c) void ```
+    pub fn OnSetSpacing(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QBoxLayout_OnSetSpacing(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#setSpacing)
@@ -281,9 +281,9 @@ pub const qboxlayout = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QBoxLayout, slot: fn () callconv(.c) QtC.QSize ```
-    pub fn OnSizeHint(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QSize) void {
-        qtc.QBoxLayout_OnSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxLayout, callback: *const fn () callconv(.c) QtC.QSize ```
+    pub fn OnSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
+        qtc.QBoxLayout_OnSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#sizeHint)
@@ -306,9 +306,9 @@ pub const qboxlayout = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QBoxLayout, slot: fn () callconv(.c) QtC.QSize ```
-    pub fn OnMinimumSize(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QSize) void {
-        qtc.QBoxLayout_OnMinimumSize(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxLayout, callback: *const fn () callconv(.c) QtC.QSize ```
+    pub fn OnMinimumSize(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
+        qtc.QBoxLayout_OnMinimumSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#minimumSize)
@@ -331,9 +331,9 @@ pub const qboxlayout = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QBoxLayout, slot: fn () callconv(.c) QtC.QSize ```
-    pub fn OnMaximumSize(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QSize) void {
-        qtc.QBoxLayout_OnMaximumSize(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxLayout, callback: *const fn () callconv(.c) QtC.QSize ```
+    pub fn OnMaximumSize(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
+        qtc.QBoxLayout_OnMaximumSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#maximumSize)
@@ -356,9 +356,9 @@ pub const qboxlayout = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QBoxLayout, slot: fn () callconv(.c) bool ```
-    pub fn OnHasHeightForWidth(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.QBoxLayout_OnHasHeightForWidth(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxLayout, callback: *const fn () callconv(.c) bool ```
+    pub fn OnHasHeightForWidth(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.QBoxLayout_OnHasHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#hasHeightForWidth)
@@ -381,9 +381,9 @@ pub const qboxlayout = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QBoxLayout, slot: fn (self: QtC.QBoxLayout, param1: i32) callconv(.c) i32 ```
-    pub fn OnHeightForWidth(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QBoxLayout_OnHeightForWidth(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxLayout, callback: *const fn (self: QtC.QBoxLayout, param1: i32) callconv(.c) i32 ```
+    pub fn OnHeightForWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
+        qtc.QBoxLayout_OnHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#heightForWidth)
@@ -406,9 +406,9 @@ pub const qboxlayout = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QBoxLayout, slot: fn (self: QtC.QBoxLayout, param1: i32) callconv(.c) i32 ```
-    pub fn OnMinimumHeightForWidth(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QBoxLayout_OnMinimumHeightForWidth(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxLayout, callback: *const fn (self: QtC.QBoxLayout, param1: i32) callconv(.c) i32 ```
+    pub fn OnMinimumHeightForWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
+        qtc.QBoxLayout_OnMinimumHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#minimumHeightForWidth)
@@ -433,9 +433,9 @@ pub const qboxlayout = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QBoxLayout, slot: fn () callconv(.c) i32 ```
-    pub fn OnExpandingDirections(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QBoxLayout_OnExpandingDirections(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxLayout, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnExpandingDirections(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QBoxLayout_OnExpandingDirections(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#expandingDirections)
@@ -460,9 +460,9 @@ pub const qboxlayout = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QBoxLayout, slot: fn () callconv(.c) void ```
-    pub fn OnInvalidate(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QBoxLayout_OnInvalidate(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxLayout, callback: *const fn () callconv(.c) void ```
+    pub fn OnInvalidate(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QBoxLayout_OnInvalidate(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#invalidate)
@@ -485,9 +485,9 @@ pub const qboxlayout = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QBoxLayout, slot: fn (self: QtC.QBoxLayout, param1: i32) callconv(.c) QtC.QLayoutItem ```
-    pub fn OnItemAt(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) QtC.QLayoutItem) void {
-        qtc.QBoxLayout_OnItemAt(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxLayout, callback: *const fn (self: QtC.QBoxLayout, param1: i32) callconv(.c) QtC.QLayoutItem ```
+    pub fn OnItemAt(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QLayoutItem) void {
+        qtc.QBoxLayout_OnItemAt(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#itemAt)
@@ -510,9 +510,9 @@ pub const qboxlayout = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QBoxLayout, slot: fn (self: QtC.QBoxLayout, param1: i32) callconv(.c) QtC.QLayoutItem ```
-    pub fn OnTakeAt(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) QtC.QLayoutItem) void {
-        qtc.QBoxLayout_OnTakeAt(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxLayout, callback: *const fn (self: QtC.QBoxLayout, param1: i32) callconv(.c) QtC.QLayoutItem ```
+    pub fn OnTakeAt(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QLayoutItem) void {
+        qtc.QBoxLayout_OnTakeAt(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#takeAt)
@@ -535,9 +535,9 @@ pub const qboxlayout = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QBoxLayout, slot: fn () callconv(.c) i32 ```
-    pub fn OnCount(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QBoxLayout_OnCount(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxLayout, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnCount(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QBoxLayout_OnCount(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#count)
@@ -560,9 +560,9 @@ pub const qboxlayout = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QBoxLayout, slot: fn (self: QtC.QBoxLayout, geometry: QtC.QRect) callconv(.c) void ```
-    pub fn OnSetGeometry(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QBoxLayout_OnSetGeometry(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxLayout, callback: *const fn (self: QtC.QBoxLayout, geometry: QtC.QRect) callconv(.c) void ```
+    pub fn OnSetGeometry(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QBoxLayout_OnSetGeometry(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#setGeometry)
@@ -826,9 +826,9 @@ pub const qboxlayout = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QBoxLayout, slot: fn (self: QtC.QBoxLayout, param1: QtC.QLayoutItem) callconv(.c) i32 ```
-    pub fn OnIndexOf2(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QLayout_OnIndexOf2(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxLayout, callback: *const fn (self: QtC.QBoxLayout, param1: QtC.QLayoutItem) callconv(.c) i32 ```
+    pub fn OnIndexOf2(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
+        qtc.QLayout_OnIndexOf2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -1202,9 +1202,9 @@ pub const qboxlayout = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QBoxLayout, slot: fn (self: QtC.QBoxLayout) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxLayout, callback: *const fn (self: QtC.QBoxLayout) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1286,9 +1286,9 @@ pub const qboxlayout = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QBoxLayout, slot: fn (self: QtC.QBoxLayout, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxLayout, callback: *const fn (self: QtC.QBoxLayout, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayoutItem
@@ -1330,9 +1330,9 @@ pub const qboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBoxLayout, slot: fn () callconv(.c) QtC.QRect ```
-    pub fn OnGeometry(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QRect) void {
-        qtc.QBoxLayout_OnGeometry(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxLayout, callback: *const fn () callconv(.c) QtC.QRect ```
+    pub fn OnGeometry(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QRect) void {
+        qtc.QBoxLayout_OnGeometry(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -1363,9 +1363,9 @@ pub const qboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBoxLayout, slot: fn (self: QtC.QBoxLayout, param1: QtC.QWidget) callconv(.c) i32 ```
-    pub fn OnIndexOf(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QBoxLayout_OnIndexOf(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxLayout, callback: *const fn (self: QtC.QBoxLayout, param1: QtC.QWidget) callconv(.c) i32 ```
+    pub fn OnIndexOf(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
+        qtc.QBoxLayout_OnIndexOf(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -1396,9 +1396,9 @@ pub const qboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBoxLayout, slot: fn () callconv(.c) bool ```
-    pub fn OnIsEmpty(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.QBoxLayout_OnIsEmpty(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxLayout, callback: *const fn () callconv(.c) bool ```
+    pub fn OnIsEmpty(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.QBoxLayout_OnIsEmpty(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -1433,9 +1433,9 @@ pub const qboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBoxLayout, slot: fn () callconv(.c) i32 ```
-    pub fn OnControlTypes(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QBoxLayout_OnControlTypes(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxLayout, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnControlTypes(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QBoxLayout_OnControlTypes(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -1466,9 +1466,9 @@ pub const qboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBoxLayout, slot: fn (self: QtC.QBoxLayout, from: QtC.QWidget, to: QtC.QWidget, options: flag of qnamespace_enums.FindChildOption) callconv(.c) QtC.QLayoutItem ```
-    pub fn OnReplaceWidget(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i32) callconv(.c) QtC.QLayoutItem) void {
-        qtc.QBoxLayout_OnReplaceWidget(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxLayout, callback: *const fn (self: QtC.QBoxLayout, from: QtC.QWidget, to: QtC.QWidget, options: flag of qnamespace_enums.FindChildOption) callconv(.c) QtC.QLayoutItem ```
+    pub fn OnReplaceWidget(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i32) callconv(.c) QtC.QLayoutItem) void {
+        qtc.QBoxLayout_OnReplaceWidget(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -1499,9 +1499,9 @@ pub const qboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBoxLayout, slot: fn () callconv(.c) QtC.QLayout ```
-    pub fn OnLayout(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QLayout) void {
-        qtc.QBoxLayout_OnLayout(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxLayout, callback: *const fn () callconv(.c) QtC.QLayout ```
+    pub fn OnLayout(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QLayout) void {
+        qtc.QBoxLayout_OnLayout(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -1532,9 +1532,9 @@ pub const qboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBoxLayout, slot: fn (self: QtC.QBoxLayout, e: QtC.QChildEvent) callconv(.c) void ```
-    pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QBoxLayout_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxLayout, callback: *const fn (self: QtC.QBoxLayout, e: QtC.QChildEvent) callconv(.c) void ```
+    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QBoxLayout_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1565,9 +1565,9 @@ pub const qboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBoxLayout, slot: fn (self: QtC.QBoxLayout, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QBoxLayout_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxLayout, callback: *const fn (self: QtC.QBoxLayout, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QBoxLayout_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1598,9 +1598,9 @@ pub const qboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBoxLayout, slot: fn (self: QtC.QBoxLayout, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QBoxLayout_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxLayout, callback: *const fn (self: QtC.QBoxLayout, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QBoxLayout_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1631,9 +1631,9 @@ pub const qboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBoxLayout, slot: fn (self: QtC.QBoxLayout, event: QtC.QTimerEvent) callconv(.c) void ```
-    pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QBoxLayout_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxLayout, callback: *const fn (self: QtC.QBoxLayout, event: QtC.QTimerEvent) callconv(.c) void ```
+    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QBoxLayout_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1664,9 +1664,9 @@ pub const qboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBoxLayout, slot: fn (self: QtC.QBoxLayout, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QBoxLayout_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxLayout, callback: *const fn (self: QtC.QBoxLayout, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QBoxLayout_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1697,9 +1697,9 @@ pub const qboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBoxLayout, slot: fn (self: QtC.QBoxLayout, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QBoxLayout_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxLayout, callback: *const fn (self: QtC.QBoxLayout, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QBoxLayout_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1730,9 +1730,9 @@ pub const qboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBoxLayout, slot: fn (self: QtC.QBoxLayout, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QBoxLayout_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxLayout, callback: *const fn (self: QtC.QBoxLayout, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QBoxLayout_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayoutItem
@@ -1763,9 +1763,9 @@ pub const qboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBoxLayout, slot: fn () callconv(.c) QtC.QWidget ```
-    pub fn OnWidget(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QWidget) void {
-        qtc.QBoxLayout_OnWidget(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxLayout, callback: *const fn () callconv(.c) QtC.QWidget ```
+    pub fn OnWidget(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QWidget) void {
+        qtc.QBoxLayout_OnWidget(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayoutItem
@@ -1796,9 +1796,9 @@ pub const qboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBoxLayout, slot: fn () callconv(.c) QtC.QSpacerItem ```
-    pub fn OnSpacerItem(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QSpacerItem) void {
-        qtc.QBoxLayout_OnSpacerItem(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxLayout, callback: *const fn () callconv(.c) QtC.QSpacerItem ```
+    pub fn OnSpacerItem(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSpacerItem) void {
+        qtc.QBoxLayout_OnSpacerItem(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -1829,9 +1829,9 @@ pub const qboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBoxLayout, slot: fn (self: QtC.QBoxLayout, param1: QtC.QEvent) callconv(.c) void ```
-    pub fn OnWidgetEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QBoxLayout_OnWidgetEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxLayout, callback: *const fn (self: QtC.QBoxLayout, param1: QtC.QEvent) callconv(.c) void ```
+    pub fn OnWidgetEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QBoxLayout_OnWidgetEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -1862,9 +1862,9 @@ pub const qboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBoxLayout, slot: fn (self: QtC.QBoxLayout, l: QtC.QLayout) callconv(.c) void ```
-    pub fn OnAddChildLayout(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QBoxLayout_OnAddChildLayout(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxLayout, callback: *const fn (self: QtC.QBoxLayout, l: QtC.QLayout) callconv(.c) void ```
+    pub fn OnAddChildLayout(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QBoxLayout_OnAddChildLayout(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -1895,9 +1895,9 @@ pub const qboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBoxLayout, slot: fn (self: QtC.QBoxLayout, w: QtC.QWidget) callconv(.c) void ```
-    pub fn OnAddChildWidget(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QBoxLayout_OnAddChildWidget(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxLayout, callback: *const fn (self: QtC.QBoxLayout, w: QtC.QWidget) callconv(.c) void ```
+    pub fn OnAddChildWidget(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QBoxLayout_OnAddChildWidget(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -1928,9 +1928,9 @@ pub const qboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBoxLayout, slot: fn (self: QtC.QBoxLayout, layout: QtC.QLayout) callconv(.c) bool ```
-    pub fn OnAdoptLayout(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QBoxLayout_OnAdoptLayout(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxLayout, callback: *const fn (self: QtC.QBoxLayout, layout: QtC.QLayout) callconv(.c) bool ```
+    pub fn OnAdoptLayout(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QBoxLayout_OnAdoptLayout(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -1961,9 +1961,9 @@ pub const qboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBoxLayout, slot: fn (self: QtC.QBoxLayout, param1: QtC.QRect) callconv(.c) QtC.QRect ```
-    pub fn OnAlignmentRect(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QRect) void {
-        qtc.QBoxLayout_OnAlignmentRect(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxLayout, callback: *const fn (self: QtC.QBoxLayout, param1: QtC.QRect) callconv(.c) QtC.QRect ```
+    pub fn OnAlignmentRect(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QRect) void {
+        qtc.QBoxLayout_OnAlignmentRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1994,9 +1994,9 @@ pub const qboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBoxLayout, slot: fn () callconv(.c) QtC.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
-        qtc.QBoxLayout_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxLayout, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.QBoxLayout_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2027,9 +2027,9 @@ pub const qboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBoxLayout, slot: fn () callconv(.c) i32 ```
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QBoxLayout_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxLayout, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QBoxLayout_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2062,9 +2062,9 @@ pub const qboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBoxLayout, slot: fn (self: QtC.QBoxLayout, signal: [*:0]const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QBoxLayout_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxLayout, callback: *const fn (self: QtC.QBoxLayout, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QBoxLayout_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2095,9 +2095,9 @@ pub const qboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBoxLayout, slot: fn (self: QtC.QBoxLayout, signal: QtC.QMetaMethod) callconv(.c) bool ```
-    pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QBoxLayout_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxLayout, callback: *const fn (self: QtC.QBoxLayout, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QBoxLayout_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2106,9 +2106,9 @@ pub const qboxlayout = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QBoxLayout, slot: fn (self: QtC.QBoxLayout, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxLayout, callback: *const fn (self: QtC.QBoxLayout, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qboxlayout.html#dtor.QBoxLayout)
@@ -2157,9 +2157,9 @@ pub const qhboxlayout = struct {
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QHBoxLayout, slot: fn (self: QtC.QHBoxLayout, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QHBoxLayout_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHBoxLayout, callback: *const fn (self: QtC.QHBoxLayout, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+        qtc.QHBoxLayout_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -2613,9 +2613,9 @@ pub const qhboxlayout = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QHBoxLayout, slot: fn (self: QtC.QHBoxLayout, param1: QtC.QLayoutItem) callconv(.c) i32 ```
-    pub fn OnIndexOf2(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QLayout_OnIndexOf2(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHBoxLayout, callback: *const fn (self: QtC.QHBoxLayout, param1: QtC.QLayoutItem) callconv(.c) i32 ```
+    pub fn OnIndexOf2(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
+        qtc.QLayout_OnIndexOf2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -2989,9 +2989,9 @@ pub const qhboxlayout = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QHBoxLayout, slot: fn (self: QtC.QHBoxLayout) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHBoxLayout, callback: *const fn (self: QtC.QHBoxLayout) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3073,9 +3073,9 @@ pub const qhboxlayout = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QHBoxLayout, slot: fn (self: QtC.QHBoxLayout, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHBoxLayout, callback: *const fn (self: QtC.QHBoxLayout, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayoutItem
@@ -3117,9 +3117,9 @@ pub const qhboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHBoxLayout, slot: fn (self: QtC.QHBoxLayout, param1: QtC.QLayoutItem) callconv(.c) void ```
-    pub fn OnAddItem(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QHBoxLayout_OnAddItem(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHBoxLayout, callback: *const fn (self: QtC.QHBoxLayout, param1: QtC.QLayoutItem) callconv(.c) void ```
+    pub fn OnAddItem(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QHBoxLayout_OnAddItem(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QBoxLayout
@@ -3150,9 +3150,9 @@ pub const qhboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHBoxLayout, slot: fn () callconv(.c) i32 ```
-    pub fn OnSpacing(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QHBoxLayout_OnSpacing(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHBoxLayout, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSpacing(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QHBoxLayout_OnSpacing(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QBoxLayout
@@ -3183,9 +3183,9 @@ pub const qhboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHBoxLayout, slot: fn (self: QtC.QHBoxLayout, spacing: i32) callconv(.c) void ```
-    pub fn OnSetSpacing(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QHBoxLayout_OnSetSpacing(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHBoxLayout, callback: *const fn (self: QtC.QHBoxLayout, spacing: i32) callconv(.c) void ```
+    pub fn OnSetSpacing(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QHBoxLayout_OnSetSpacing(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QBoxLayout
@@ -3216,9 +3216,9 @@ pub const qhboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHBoxLayout, slot: fn () callconv(.c) QtC.QSize ```
-    pub fn OnSizeHint(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QSize) void {
-        qtc.QHBoxLayout_OnSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHBoxLayout, callback: *const fn () callconv(.c) QtC.QSize ```
+    pub fn OnSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
+        qtc.QHBoxLayout_OnSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QBoxLayout
@@ -3249,9 +3249,9 @@ pub const qhboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHBoxLayout, slot: fn () callconv(.c) QtC.QSize ```
-    pub fn OnMinimumSize(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QSize) void {
-        qtc.QHBoxLayout_OnMinimumSize(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHBoxLayout, callback: *const fn () callconv(.c) QtC.QSize ```
+    pub fn OnMinimumSize(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
+        qtc.QHBoxLayout_OnMinimumSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QBoxLayout
@@ -3282,9 +3282,9 @@ pub const qhboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHBoxLayout, slot: fn () callconv(.c) QtC.QSize ```
-    pub fn OnMaximumSize(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QSize) void {
-        qtc.QHBoxLayout_OnMaximumSize(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHBoxLayout, callback: *const fn () callconv(.c) QtC.QSize ```
+    pub fn OnMaximumSize(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
+        qtc.QHBoxLayout_OnMaximumSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QBoxLayout
@@ -3315,9 +3315,9 @@ pub const qhboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHBoxLayout, slot: fn () callconv(.c) bool ```
-    pub fn OnHasHeightForWidth(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.QHBoxLayout_OnHasHeightForWidth(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHBoxLayout, callback: *const fn () callconv(.c) bool ```
+    pub fn OnHasHeightForWidth(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.QHBoxLayout_OnHasHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QBoxLayout
@@ -3348,9 +3348,9 @@ pub const qhboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHBoxLayout, slot: fn (self: QtC.QHBoxLayout, param1: i32) callconv(.c) i32 ```
-    pub fn OnHeightForWidth(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QHBoxLayout_OnHeightForWidth(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHBoxLayout, callback: *const fn (self: QtC.QHBoxLayout, param1: i32) callconv(.c) i32 ```
+    pub fn OnHeightForWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
+        qtc.QHBoxLayout_OnHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QBoxLayout
@@ -3381,9 +3381,9 @@ pub const qhboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHBoxLayout, slot: fn (self: QtC.QHBoxLayout, param1: i32) callconv(.c) i32 ```
-    pub fn OnMinimumHeightForWidth(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QHBoxLayout_OnMinimumHeightForWidth(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHBoxLayout, callback: *const fn (self: QtC.QHBoxLayout, param1: i32) callconv(.c) i32 ```
+    pub fn OnMinimumHeightForWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
+        qtc.QHBoxLayout_OnMinimumHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QBoxLayout
@@ -3418,9 +3418,9 @@ pub const qhboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHBoxLayout, slot: fn () callconv(.c) i32 ```
-    pub fn OnExpandingDirections(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QHBoxLayout_OnExpandingDirections(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHBoxLayout, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnExpandingDirections(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QHBoxLayout_OnExpandingDirections(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QBoxLayout
@@ -3451,9 +3451,9 @@ pub const qhboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHBoxLayout, slot: fn () callconv(.c) void ```
-    pub fn OnInvalidate(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QHBoxLayout_OnInvalidate(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHBoxLayout, callback: *const fn () callconv(.c) void ```
+    pub fn OnInvalidate(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QHBoxLayout_OnInvalidate(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QBoxLayout
@@ -3484,9 +3484,9 @@ pub const qhboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHBoxLayout, slot: fn (self: QtC.QHBoxLayout, param1: i32) callconv(.c) QtC.QLayoutItem ```
-    pub fn OnItemAt(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) QtC.QLayoutItem) void {
-        qtc.QHBoxLayout_OnItemAt(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHBoxLayout, callback: *const fn (self: QtC.QHBoxLayout, param1: i32) callconv(.c) QtC.QLayoutItem ```
+    pub fn OnItemAt(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QLayoutItem) void {
+        qtc.QHBoxLayout_OnItemAt(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QBoxLayout
@@ -3517,9 +3517,9 @@ pub const qhboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHBoxLayout, slot: fn (self: QtC.QHBoxLayout, param1: i32) callconv(.c) QtC.QLayoutItem ```
-    pub fn OnTakeAt(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) QtC.QLayoutItem) void {
-        qtc.QHBoxLayout_OnTakeAt(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHBoxLayout, callback: *const fn (self: QtC.QHBoxLayout, param1: i32) callconv(.c) QtC.QLayoutItem ```
+    pub fn OnTakeAt(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QLayoutItem) void {
+        qtc.QHBoxLayout_OnTakeAt(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QBoxLayout
@@ -3550,9 +3550,9 @@ pub const qhboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHBoxLayout, slot: fn () callconv(.c) i32 ```
-    pub fn OnCount(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QHBoxLayout_OnCount(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHBoxLayout, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnCount(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QHBoxLayout_OnCount(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QBoxLayout
@@ -3583,9 +3583,9 @@ pub const qhboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHBoxLayout, slot: fn (self: QtC.QHBoxLayout, geometry: QtC.QRect) callconv(.c) void ```
-    pub fn OnSetGeometry(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QHBoxLayout_OnSetGeometry(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHBoxLayout, callback: *const fn (self: QtC.QHBoxLayout, geometry: QtC.QRect) callconv(.c) void ```
+    pub fn OnSetGeometry(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QHBoxLayout_OnSetGeometry(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -3616,9 +3616,9 @@ pub const qhboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHBoxLayout, slot: fn () callconv(.c) QtC.QRect ```
-    pub fn OnGeometry(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QRect) void {
-        qtc.QHBoxLayout_OnGeometry(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHBoxLayout, callback: *const fn () callconv(.c) QtC.QRect ```
+    pub fn OnGeometry(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QRect) void {
+        qtc.QHBoxLayout_OnGeometry(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -3649,9 +3649,9 @@ pub const qhboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHBoxLayout, slot: fn (self: QtC.QHBoxLayout, param1: QtC.QWidget) callconv(.c) i32 ```
-    pub fn OnIndexOf(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QHBoxLayout_OnIndexOf(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHBoxLayout, callback: *const fn (self: QtC.QHBoxLayout, param1: QtC.QWidget) callconv(.c) i32 ```
+    pub fn OnIndexOf(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
+        qtc.QHBoxLayout_OnIndexOf(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -3682,9 +3682,9 @@ pub const qhboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHBoxLayout, slot: fn () callconv(.c) bool ```
-    pub fn OnIsEmpty(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.QHBoxLayout_OnIsEmpty(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHBoxLayout, callback: *const fn () callconv(.c) bool ```
+    pub fn OnIsEmpty(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.QHBoxLayout_OnIsEmpty(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -3719,9 +3719,9 @@ pub const qhboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHBoxLayout, slot: fn () callconv(.c) i32 ```
-    pub fn OnControlTypes(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QHBoxLayout_OnControlTypes(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHBoxLayout, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnControlTypes(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QHBoxLayout_OnControlTypes(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -3752,9 +3752,9 @@ pub const qhboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHBoxLayout, slot: fn (self: QtC.QHBoxLayout, from: QtC.QWidget, to: QtC.QWidget, options: flag of qnamespace_enums.FindChildOption) callconv(.c) QtC.QLayoutItem ```
-    pub fn OnReplaceWidget(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i32) callconv(.c) QtC.QLayoutItem) void {
-        qtc.QHBoxLayout_OnReplaceWidget(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHBoxLayout, callback: *const fn (self: QtC.QHBoxLayout, from: QtC.QWidget, to: QtC.QWidget, options: flag of qnamespace_enums.FindChildOption) callconv(.c) QtC.QLayoutItem ```
+    pub fn OnReplaceWidget(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i32) callconv(.c) QtC.QLayoutItem) void {
+        qtc.QHBoxLayout_OnReplaceWidget(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -3785,9 +3785,9 @@ pub const qhboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHBoxLayout, slot: fn () callconv(.c) QtC.QLayout ```
-    pub fn OnLayout(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QLayout) void {
-        qtc.QHBoxLayout_OnLayout(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHBoxLayout, callback: *const fn () callconv(.c) QtC.QLayout ```
+    pub fn OnLayout(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QLayout) void {
+        qtc.QHBoxLayout_OnLayout(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -3818,9 +3818,9 @@ pub const qhboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHBoxLayout, slot: fn (self: QtC.QHBoxLayout, e: QtC.QChildEvent) callconv(.c) void ```
-    pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QHBoxLayout_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHBoxLayout, callback: *const fn (self: QtC.QHBoxLayout, e: QtC.QChildEvent) callconv(.c) void ```
+    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QHBoxLayout_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3851,9 +3851,9 @@ pub const qhboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHBoxLayout, slot: fn (self: QtC.QHBoxLayout, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QHBoxLayout_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHBoxLayout, callback: *const fn (self: QtC.QHBoxLayout, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QHBoxLayout_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3884,9 +3884,9 @@ pub const qhboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHBoxLayout, slot: fn (self: QtC.QHBoxLayout, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QHBoxLayout_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHBoxLayout, callback: *const fn (self: QtC.QHBoxLayout, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QHBoxLayout_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3917,9 +3917,9 @@ pub const qhboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHBoxLayout, slot: fn (self: QtC.QHBoxLayout, event: QtC.QTimerEvent) callconv(.c) void ```
-    pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QHBoxLayout_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHBoxLayout, callback: *const fn (self: QtC.QHBoxLayout, event: QtC.QTimerEvent) callconv(.c) void ```
+    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QHBoxLayout_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3950,9 +3950,9 @@ pub const qhboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHBoxLayout, slot: fn (self: QtC.QHBoxLayout, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QHBoxLayout_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHBoxLayout, callback: *const fn (self: QtC.QHBoxLayout, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QHBoxLayout_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3983,9 +3983,9 @@ pub const qhboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHBoxLayout, slot: fn (self: QtC.QHBoxLayout, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QHBoxLayout_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHBoxLayout, callback: *const fn (self: QtC.QHBoxLayout, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QHBoxLayout_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4016,9 +4016,9 @@ pub const qhboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHBoxLayout, slot: fn (self: QtC.QHBoxLayout, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QHBoxLayout_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHBoxLayout, callback: *const fn (self: QtC.QHBoxLayout, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QHBoxLayout_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayoutItem
@@ -4049,9 +4049,9 @@ pub const qhboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHBoxLayout, slot: fn () callconv(.c) QtC.QWidget ```
-    pub fn OnWidget(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QWidget) void {
-        qtc.QHBoxLayout_OnWidget(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHBoxLayout, callback: *const fn () callconv(.c) QtC.QWidget ```
+    pub fn OnWidget(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QWidget) void {
+        qtc.QHBoxLayout_OnWidget(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayoutItem
@@ -4082,9 +4082,9 @@ pub const qhboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHBoxLayout, slot: fn () callconv(.c) QtC.QSpacerItem ```
-    pub fn OnSpacerItem(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QSpacerItem) void {
-        qtc.QHBoxLayout_OnSpacerItem(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHBoxLayout, callback: *const fn () callconv(.c) QtC.QSpacerItem ```
+    pub fn OnSpacerItem(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSpacerItem) void {
+        qtc.QHBoxLayout_OnSpacerItem(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -4115,9 +4115,9 @@ pub const qhboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHBoxLayout, slot: fn (self: QtC.QHBoxLayout, param1: QtC.QEvent) callconv(.c) void ```
-    pub fn OnWidgetEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QHBoxLayout_OnWidgetEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHBoxLayout, callback: *const fn (self: QtC.QHBoxLayout, param1: QtC.QEvent) callconv(.c) void ```
+    pub fn OnWidgetEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QHBoxLayout_OnWidgetEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -4148,9 +4148,9 @@ pub const qhboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHBoxLayout, slot: fn (self: QtC.QHBoxLayout, l: QtC.QLayout) callconv(.c) void ```
-    pub fn OnAddChildLayout(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QHBoxLayout_OnAddChildLayout(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHBoxLayout, callback: *const fn (self: QtC.QHBoxLayout, l: QtC.QLayout) callconv(.c) void ```
+    pub fn OnAddChildLayout(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QHBoxLayout_OnAddChildLayout(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -4181,9 +4181,9 @@ pub const qhboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHBoxLayout, slot: fn (self: QtC.QHBoxLayout, w: QtC.QWidget) callconv(.c) void ```
-    pub fn OnAddChildWidget(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QHBoxLayout_OnAddChildWidget(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHBoxLayout, callback: *const fn (self: QtC.QHBoxLayout, w: QtC.QWidget) callconv(.c) void ```
+    pub fn OnAddChildWidget(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QHBoxLayout_OnAddChildWidget(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -4214,9 +4214,9 @@ pub const qhboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHBoxLayout, slot: fn (self: QtC.QHBoxLayout, layout: QtC.QLayout) callconv(.c) bool ```
-    pub fn OnAdoptLayout(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QHBoxLayout_OnAdoptLayout(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHBoxLayout, callback: *const fn (self: QtC.QHBoxLayout, layout: QtC.QLayout) callconv(.c) bool ```
+    pub fn OnAdoptLayout(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QHBoxLayout_OnAdoptLayout(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -4247,9 +4247,9 @@ pub const qhboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHBoxLayout, slot: fn (self: QtC.QHBoxLayout, param1: QtC.QRect) callconv(.c) QtC.QRect ```
-    pub fn OnAlignmentRect(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QRect) void {
-        qtc.QHBoxLayout_OnAlignmentRect(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHBoxLayout, callback: *const fn (self: QtC.QHBoxLayout, param1: QtC.QRect) callconv(.c) QtC.QRect ```
+    pub fn OnAlignmentRect(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QRect) void {
+        qtc.QHBoxLayout_OnAlignmentRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4280,9 +4280,9 @@ pub const qhboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHBoxLayout, slot: fn () callconv(.c) QtC.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
-        qtc.QHBoxLayout_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHBoxLayout, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.QHBoxLayout_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4313,9 +4313,9 @@ pub const qhboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHBoxLayout, slot: fn () callconv(.c) i32 ```
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QHBoxLayout_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHBoxLayout, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QHBoxLayout_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4348,9 +4348,9 @@ pub const qhboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHBoxLayout, slot: fn (self: QtC.QHBoxLayout, signal: [*:0]const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QHBoxLayout_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHBoxLayout, callback: *const fn (self: QtC.QHBoxLayout, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QHBoxLayout_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4381,9 +4381,9 @@ pub const qhboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHBoxLayout, slot: fn (self: QtC.QHBoxLayout, signal: QtC.QMetaMethod) callconv(.c) bool ```
-    pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QHBoxLayout_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHBoxLayout, callback: *const fn (self: QtC.QHBoxLayout, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QHBoxLayout_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4392,9 +4392,9 @@ pub const qhboxlayout = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QHBoxLayout, slot: fn (self: QtC.QHBoxLayout, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHBoxLayout, callback: *const fn (self: QtC.QHBoxLayout, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qhboxlayout.html#dtor.QHBoxLayout)
@@ -4443,9 +4443,9 @@ pub const qvboxlayout = struct {
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QVBoxLayout, slot: fn (self: QtC.QVBoxLayout, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QVBoxLayout_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxLayout, callback: *const fn (self: QtC.QVBoxLayout, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+        qtc.QVBoxLayout_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -4899,9 +4899,9 @@ pub const qvboxlayout = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QVBoxLayout, slot: fn (self: QtC.QVBoxLayout, param1: QtC.QLayoutItem) callconv(.c) i32 ```
-    pub fn OnIndexOf2(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QLayout_OnIndexOf2(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxLayout, callback: *const fn (self: QtC.QVBoxLayout, param1: QtC.QLayoutItem) callconv(.c) i32 ```
+    pub fn OnIndexOf2(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
+        qtc.QLayout_OnIndexOf2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -5275,9 +5275,9 @@ pub const qvboxlayout = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QVBoxLayout, slot: fn (self: QtC.QVBoxLayout) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxLayout, callback: *const fn (self: QtC.QVBoxLayout) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5359,9 +5359,9 @@ pub const qvboxlayout = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QVBoxLayout, slot: fn (self: QtC.QVBoxLayout, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxLayout, callback: *const fn (self: QtC.QVBoxLayout, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayoutItem
@@ -5403,9 +5403,9 @@ pub const qvboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVBoxLayout, slot: fn (self: QtC.QVBoxLayout, param1: QtC.QLayoutItem) callconv(.c) void ```
-    pub fn OnAddItem(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QVBoxLayout_OnAddItem(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxLayout, callback: *const fn (self: QtC.QVBoxLayout, param1: QtC.QLayoutItem) callconv(.c) void ```
+    pub fn OnAddItem(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QVBoxLayout_OnAddItem(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QBoxLayout
@@ -5436,9 +5436,9 @@ pub const qvboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVBoxLayout, slot: fn () callconv(.c) i32 ```
-    pub fn OnSpacing(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QVBoxLayout_OnSpacing(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxLayout, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSpacing(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QVBoxLayout_OnSpacing(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QBoxLayout
@@ -5469,9 +5469,9 @@ pub const qvboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVBoxLayout, slot: fn (self: QtC.QVBoxLayout, spacing: i32) callconv(.c) void ```
-    pub fn OnSetSpacing(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QVBoxLayout_OnSetSpacing(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxLayout, callback: *const fn (self: QtC.QVBoxLayout, spacing: i32) callconv(.c) void ```
+    pub fn OnSetSpacing(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QVBoxLayout_OnSetSpacing(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QBoxLayout
@@ -5502,9 +5502,9 @@ pub const qvboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVBoxLayout, slot: fn () callconv(.c) QtC.QSize ```
-    pub fn OnSizeHint(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QSize) void {
-        qtc.QVBoxLayout_OnSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxLayout, callback: *const fn () callconv(.c) QtC.QSize ```
+    pub fn OnSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
+        qtc.QVBoxLayout_OnSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QBoxLayout
@@ -5535,9 +5535,9 @@ pub const qvboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVBoxLayout, slot: fn () callconv(.c) QtC.QSize ```
-    pub fn OnMinimumSize(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QSize) void {
-        qtc.QVBoxLayout_OnMinimumSize(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxLayout, callback: *const fn () callconv(.c) QtC.QSize ```
+    pub fn OnMinimumSize(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
+        qtc.QVBoxLayout_OnMinimumSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QBoxLayout
@@ -5568,9 +5568,9 @@ pub const qvboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVBoxLayout, slot: fn () callconv(.c) QtC.QSize ```
-    pub fn OnMaximumSize(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QSize) void {
-        qtc.QVBoxLayout_OnMaximumSize(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxLayout, callback: *const fn () callconv(.c) QtC.QSize ```
+    pub fn OnMaximumSize(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
+        qtc.QVBoxLayout_OnMaximumSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QBoxLayout
@@ -5601,9 +5601,9 @@ pub const qvboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVBoxLayout, slot: fn () callconv(.c) bool ```
-    pub fn OnHasHeightForWidth(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.QVBoxLayout_OnHasHeightForWidth(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxLayout, callback: *const fn () callconv(.c) bool ```
+    pub fn OnHasHeightForWidth(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.QVBoxLayout_OnHasHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QBoxLayout
@@ -5634,9 +5634,9 @@ pub const qvboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVBoxLayout, slot: fn (self: QtC.QVBoxLayout, param1: i32) callconv(.c) i32 ```
-    pub fn OnHeightForWidth(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QVBoxLayout_OnHeightForWidth(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxLayout, callback: *const fn (self: QtC.QVBoxLayout, param1: i32) callconv(.c) i32 ```
+    pub fn OnHeightForWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
+        qtc.QVBoxLayout_OnHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QBoxLayout
@@ -5667,9 +5667,9 @@ pub const qvboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVBoxLayout, slot: fn (self: QtC.QVBoxLayout, param1: i32) callconv(.c) i32 ```
-    pub fn OnMinimumHeightForWidth(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QVBoxLayout_OnMinimumHeightForWidth(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxLayout, callback: *const fn (self: QtC.QVBoxLayout, param1: i32) callconv(.c) i32 ```
+    pub fn OnMinimumHeightForWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
+        qtc.QVBoxLayout_OnMinimumHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QBoxLayout
@@ -5704,9 +5704,9 @@ pub const qvboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVBoxLayout, slot: fn () callconv(.c) i32 ```
-    pub fn OnExpandingDirections(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QVBoxLayout_OnExpandingDirections(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxLayout, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnExpandingDirections(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QVBoxLayout_OnExpandingDirections(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QBoxLayout
@@ -5737,9 +5737,9 @@ pub const qvboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVBoxLayout, slot: fn () callconv(.c) void ```
-    pub fn OnInvalidate(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QVBoxLayout_OnInvalidate(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxLayout, callback: *const fn () callconv(.c) void ```
+    pub fn OnInvalidate(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QVBoxLayout_OnInvalidate(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QBoxLayout
@@ -5770,9 +5770,9 @@ pub const qvboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVBoxLayout, slot: fn (self: QtC.QVBoxLayout, param1: i32) callconv(.c) QtC.QLayoutItem ```
-    pub fn OnItemAt(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) QtC.QLayoutItem) void {
-        qtc.QVBoxLayout_OnItemAt(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxLayout, callback: *const fn (self: QtC.QVBoxLayout, param1: i32) callconv(.c) QtC.QLayoutItem ```
+    pub fn OnItemAt(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QLayoutItem) void {
+        qtc.QVBoxLayout_OnItemAt(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QBoxLayout
@@ -5803,9 +5803,9 @@ pub const qvboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVBoxLayout, slot: fn (self: QtC.QVBoxLayout, param1: i32) callconv(.c) QtC.QLayoutItem ```
-    pub fn OnTakeAt(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) QtC.QLayoutItem) void {
-        qtc.QVBoxLayout_OnTakeAt(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxLayout, callback: *const fn (self: QtC.QVBoxLayout, param1: i32) callconv(.c) QtC.QLayoutItem ```
+    pub fn OnTakeAt(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QLayoutItem) void {
+        qtc.QVBoxLayout_OnTakeAt(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QBoxLayout
@@ -5836,9 +5836,9 @@ pub const qvboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVBoxLayout, slot: fn () callconv(.c) i32 ```
-    pub fn OnCount(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QVBoxLayout_OnCount(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxLayout, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnCount(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QVBoxLayout_OnCount(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QBoxLayout
@@ -5869,9 +5869,9 @@ pub const qvboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVBoxLayout, slot: fn (self: QtC.QVBoxLayout, geometry: QtC.QRect) callconv(.c) void ```
-    pub fn OnSetGeometry(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QVBoxLayout_OnSetGeometry(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxLayout, callback: *const fn (self: QtC.QVBoxLayout, geometry: QtC.QRect) callconv(.c) void ```
+    pub fn OnSetGeometry(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QVBoxLayout_OnSetGeometry(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -5902,9 +5902,9 @@ pub const qvboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVBoxLayout, slot: fn () callconv(.c) QtC.QRect ```
-    pub fn OnGeometry(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QRect) void {
-        qtc.QVBoxLayout_OnGeometry(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxLayout, callback: *const fn () callconv(.c) QtC.QRect ```
+    pub fn OnGeometry(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QRect) void {
+        qtc.QVBoxLayout_OnGeometry(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -5935,9 +5935,9 @@ pub const qvboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVBoxLayout, slot: fn (self: QtC.QVBoxLayout, param1: QtC.QWidget) callconv(.c) i32 ```
-    pub fn OnIndexOf(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QVBoxLayout_OnIndexOf(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxLayout, callback: *const fn (self: QtC.QVBoxLayout, param1: QtC.QWidget) callconv(.c) i32 ```
+    pub fn OnIndexOf(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
+        qtc.QVBoxLayout_OnIndexOf(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -5968,9 +5968,9 @@ pub const qvboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVBoxLayout, slot: fn () callconv(.c) bool ```
-    pub fn OnIsEmpty(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.QVBoxLayout_OnIsEmpty(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxLayout, callback: *const fn () callconv(.c) bool ```
+    pub fn OnIsEmpty(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.QVBoxLayout_OnIsEmpty(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -6005,9 +6005,9 @@ pub const qvboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVBoxLayout, slot: fn () callconv(.c) i32 ```
-    pub fn OnControlTypes(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QVBoxLayout_OnControlTypes(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxLayout, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnControlTypes(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QVBoxLayout_OnControlTypes(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -6038,9 +6038,9 @@ pub const qvboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVBoxLayout, slot: fn (self: QtC.QVBoxLayout, from: QtC.QWidget, to: QtC.QWidget, options: flag of qnamespace_enums.FindChildOption) callconv(.c) QtC.QLayoutItem ```
-    pub fn OnReplaceWidget(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i32) callconv(.c) QtC.QLayoutItem) void {
-        qtc.QVBoxLayout_OnReplaceWidget(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxLayout, callback: *const fn (self: QtC.QVBoxLayout, from: QtC.QWidget, to: QtC.QWidget, options: flag of qnamespace_enums.FindChildOption) callconv(.c) QtC.QLayoutItem ```
+    pub fn OnReplaceWidget(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i32) callconv(.c) QtC.QLayoutItem) void {
+        qtc.QVBoxLayout_OnReplaceWidget(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -6071,9 +6071,9 @@ pub const qvboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVBoxLayout, slot: fn () callconv(.c) QtC.QLayout ```
-    pub fn OnLayout(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QLayout) void {
-        qtc.QVBoxLayout_OnLayout(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxLayout, callback: *const fn () callconv(.c) QtC.QLayout ```
+    pub fn OnLayout(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QLayout) void {
+        qtc.QVBoxLayout_OnLayout(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -6104,9 +6104,9 @@ pub const qvboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVBoxLayout, slot: fn (self: QtC.QVBoxLayout, e: QtC.QChildEvent) callconv(.c) void ```
-    pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QVBoxLayout_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxLayout, callback: *const fn (self: QtC.QVBoxLayout, e: QtC.QChildEvent) callconv(.c) void ```
+    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QVBoxLayout_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6137,9 +6137,9 @@ pub const qvboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVBoxLayout, slot: fn (self: QtC.QVBoxLayout, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QVBoxLayout_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxLayout, callback: *const fn (self: QtC.QVBoxLayout, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QVBoxLayout_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6170,9 +6170,9 @@ pub const qvboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVBoxLayout, slot: fn (self: QtC.QVBoxLayout, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QVBoxLayout_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxLayout, callback: *const fn (self: QtC.QVBoxLayout, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QVBoxLayout_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6203,9 +6203,9 @@ pub const qvboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVBoxLayout, slot: fn (self: QtC.QVBoxLayout, event: QtC.QTimerEvent) callconv(.c) void ```
-    pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QVBoxLayout_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxLayout, callback: *const fn (self: QtC.QVBoxLayout, event: QtC.QTimerEvent) callconv(.c) void ```
+    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QVBoxLayout_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6236,9 +6236,9 @@ pub const qvboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVBoxLayout, slot: fn (self: QtC.QVBoxLayout, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QVBoxLayout_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxLayout, callback: *const fn (self: QtC.QVBoxLayout, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QVBoxLayout_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6269,9 +6269,9 @@ pub const qvboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVBoxLayout, slot: fn (self: QtC.QVBoxLayout, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QVBoxLayout_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxLayout, callback: *const fn (self: QtC.QVBoxLayout, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QVBoxLayout_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6302,9 +6302,9 @@ pub const qvboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVBoxLayout, slot: fn (self: QtC.QVBoxLayout, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QVBoxLayout_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxLayout, callback: *const fn (self: QtC.QVBoxLayout, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QVBoxLayout_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayoutItem
@@ -6335,9 +6335,9 @@ pub const qvboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVBoxLayout, slot: fn () callconv(.c) QtC.QWidget ```
-    pub fn OnWidget(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QWidget) void {
-        qtc.QVBoxLayout_OnWidget(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxLayout, callback: *const fn () callconv(.c) QtC.QWidget ```
+    pub fn OnWidget(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QWidget) void {
+        qtc.QVBoxLayout_OnWidget(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayoutItem
@@ -6368,9 +6368,9 @@ pub const qvboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVBoxLayout, slot: fn () callconv(.c) QtC.QSpacerItem ```
-    pub fn OnSpacerItem(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QSpacerItem) void {
-        qtc.QVBoxLayout_OnSpacerItem(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxLayout, callback: *const fn () callconv(.c) QtC.QSpacerItem ```
+    pub fn OnSpacerItem(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSpacerItem) void {
+        qtc.QVBoxLayout_OnSpacerItem(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -6401,9 +6401,9 @@ pub const qvboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVBoxLayout, slot: fn (self: QtC.QVBoxLayout, param1: QtC.QEvent) callconv(.c) void ```
-    pub fn OnWidgetEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QVBoxLayout_OnWidgetEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxLayout, callback: *const fn (self: QtC.QVBoxLayout, param1: QtC.QEvent) callconv(.c) void ```
+    pub fn OnWidgetEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QVBoxLayout_OnWidgetEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -6434,9 +6434,9 @@ pub const qvboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVBoxLayout, slot: fn (self: QtC.QVBoxLayout, l: QtC.QLayout) callconv(.c) void ```
-    pub fn OnAddChildLayout(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QVBoxLayout_OnAddChildLayout(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxLayout, callback: *const fn (self: QtC.QVBoxLayout, l: QtC.QLayout) callconv(.c) void ```
+    pub fn OnAddChildLayout(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QVBoxLayout_OnAddChildLayout(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -6467,9 +6467,9 @@ pub const qvboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVBoxLayout, slot: fn (self: QtC.QVBoxLayout, w: QtC.QWidget) callconv(.c) void ```
-    pub fn OnAddChildWidget(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QVBoxLayout_OnAddChildWidget(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxLayout, callback: *const fn (self: QtC.QVBoxLayout, w: QtC.QWidget) callconv(.c) void ```
+    pub fn OnAddChildWidget(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QVBoxLayout_OnAddChildWidget(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -6500,9 +6500,9 @@ pub const qvboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVBoxLayout, slot: fn (self: QtC.QVBoxLayout, layout: QtC.QLayout) callconv(.c) bool ```
-    pub fn OnAdoptLayout(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QVBoxLayout_OnAdoptLayout(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxLayout, callback: *const fn (self: QtC.QVBoxLayout, layout: QtC.QLayout) callconv(.c) bool ```
+    pub fn OnAdoptLayout(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QVBoxLayout_OnAdoptLayout(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayout
@@ -6533,9 +6533,9 @@ pub const qvboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVBoxLayout, slot: fn (self: QtC.QVBoxLayout, param1: QtC.QRect) callconv(.c) QtC.QRect ```
-    pub fn OnAlignmentRect(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QRect) void {
-        qtc.QVBoxLayout_OnAlignmentRect(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxLayout, callback: *const fn (self: QtC.QVBoxLayout, param1: QtC.QRect) callconv(.c) QtC.QRect ```
+    pub fn OnAlignmentRect(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QRect) void {
+        qtc.QVBoxLayout_OnAlignmentRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6566,9 +6566,9 @@ pub const qvboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVBoxLayout, slot: fn () callconv(.c) QtC.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
-        qtc.QVBoxLayout_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxLayout, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.QVBoxLayout_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6599,9 +6599,9 @@ pub const qvboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVBoxLayout, slot: fn () callconv(.c) i32 ```
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QVBoxLayout_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxLayout, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QVBoxLayout_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6634,9 +6634,9 @@ pub const qvboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVBoxLayout, slot: fn (self: QtC.QVBoxLayout, signal: [*:0]const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QVBoxLayout_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxLayout, callback: *const fn (self: QtC.QVBoxLayout, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QVBoxLayout_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6667,9 +6667,9 @@ pub const qvboxlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVBoxLayout, slot: fn (self: QtC.QVBoxLayout, signal: QtC.QMetaMethod) callconv(.c) bool ```
-    pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QVBoxLayout_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxLayout, callback: *const fn (self: QtC.QVBoxLayout, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QVBoxLayout_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6678,9 +6678,9 @@ pub const qvboxlayout = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QVBoxLayout, slot: fn (self: QtC.QVBoxLayout, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxLayout, callback: *const fn (self: QtC.QVBoxLayout, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvboxlayout.html#dtor.QVBoxLayout)

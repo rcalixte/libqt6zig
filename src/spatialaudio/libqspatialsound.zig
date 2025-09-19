@@ -34,9 +34,9 @@ pub const qspatialsound = struct {
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSpatialSound, slot: fn (self: QtC.QSpatialSound, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QSpatialSound_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSpatialSound, callback: *const fn (self: QtC.QSpatialSound, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+        qtc.QSpatialSound_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -272,9 +272,9 @@ pub const qspatialsound = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qspatialsound.html#sourceChanged)
     ///
-    /// ``` self: QtC.QSpatialSound, slot: fn (self: QtC.QSpatialSound) callconv(.c) void ```
-    pub fn OnSourceChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QSpatialSound_Connect_SourceChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSpatialSound, callback: *const fn (self: QtC.QSpatialSound) callconv(.c) void ```
+    pub fn OnSourceChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QSpatialSound_Connect_SourceChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qspatialsound.html#loopsChanged)
@@ -286,9 +286,9 @@ pub const qspatialsound = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qspatialsound.html#loopsChanged)
     ///
-    /// ``` self: QtC.QSpatialSound, slot: fn (self: QtC.QSpatialSound) callconv(.c) void ```
-    pub fn OnLoopsChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QSpatialSound_Connect_LoopsChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSpatialSound, callback: *const fn (self: QtC.QSpatialSound) callconv(.c) void ```
+    pub fn OnLoopsChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QSpatialSound_Connect_LoopsChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qspatialsound.html#autoPlayChanged)
@@ -300,9 +300,9 @@ pub const qspatialsound = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qspatialsound.html#autoPlayChanged)
     ///
-    /// ``` self: QtC.QSpatialSound, slot: fn (self: QtC.QSpatialSound) callconv(.c) void ```
-    pub fn OnAutoPlayChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QSpatialSound_Connect_AutoPlayChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSpatialSound, callback: *const fn (self: QtC.QSpatialSound) callconv(.c) void ```
+    pub fn OnAutoPlayChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QSpatialSound_Connect_AutoPlayChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qspatialsound.html#positionChanged)
@@ -314,9 +314,9 @@ pub const qspatialsound = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qspatialsound.html#positionChanged)
     ///
-    /// ``` self: QtC.QSpatialSound, slot: fn (self: QtC.QSpatialSound) callconv(.c) void ```
-    pub fn OnPositionChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QSpatialSound_Connect_PositionChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSpatialSound, callback: *const fn (self: QtC.QSpatialSound) callconv(.c) void ```
+    pub fn OnPositionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QSpatialSound_Connect_PositionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qspatialsound.html#rotationChanged)
@@ -328,9 +328,9 @@ pub const qspatialsound = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qspatialsound.html#rotationChanged)
     ///
-    /// ``` self: QtC.QSpatialSound, slot: fn (self: QtC.QSpatialSound) callconv(.c) void ```
-    pub fn OnRotationChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QSpatialSound_Connect_RotationChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSpatialSound, callback: *const fn (self: QtC.QSpatialSound) callconv(.c) void ```
+    pub fn OnRotationChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QSpatialSound_Connect_RotationChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qspatialsound.html#volumeChanged)
@@ -342,9 +342,9 @@ pub const qspatialsound = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qspatialsound.html#volumeChanged)
     ///
-    /// ``` self: QtC.QSpatialSound, slot: fn (self: QtC.QSpatialSound) callconv(.c) void ```
-    pub fn OnVolumeChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QSpatialSound_Connect_VolumeChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSpatialSound, callback: *const fn (self: QtC.QSpatialSound) callconv(.c) void ```
+    pub fn OnVolumeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QSpatialSound_Connect_VolumeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qspatialsound.html#distanceModelChanged)
@@ -356,9 +356,9 @@ pub const qspatialsound = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qspatialsound.html#distanceModelChanged)
     ///
-    /// ``` self: QtC.QSpatialSound, slot: fn (self: QtC.QSpatialSound) callconv(.c) void ```
-    pub fn OnDistanceModelChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QSpatialSound_Connect_DistanceModelChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSpatialSound, callback: *const fn (self: QtC.QSpatialSound) callconv(.c) void ```
+    pub fn OnDistanceModelChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QSpatialSound_Connect_DistanceModelChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qspatialsound.html#sizeChanged)
@@ -370,9 +370,9 @@ pub const qspatialsound = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qspatialsound.html#sizeChanged)
     ///
-    /// ``` self: QtC.QSpatialSound, slot: fn (self: QtC.QSpatialSound) callconv(.c) void ```
-    pub fn OnSizeChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QSpatialSound_Connect_SizeChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSpatialSound, callback: *const fn (self: QtC.QSpatialSound) callconv(.c) void ```
+    pub fn OnSizeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QSpatialSound_Connect_SizeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qspatialsound.html#distanceCutoffChanged)
@@ -384,9 +384,9 @@ pub const qspatialsound = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qspatialsound.html#distanceCutoffChanged)
     ///
-    /// ``` self: QtC.QSpatialSound, slot: fn (self: QtC.QSpatialSound) callconv(.c) void ```
-    pub fn OnDistanceCutoffChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QSpatialSound_Connect_DistanceCutoffChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSpatialSound, callback: *const fn (self: QtC.QSpatialSound) callconv(.c) void ```
+    pub fn OnDistanceCutoffChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QSpatialSound_Connect_DistanceCutoffChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qspatialsound.html#manualAttenuationChanged)
@@ -398,9 +398,9 @@ pub const qspatialsound = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qspatialsound.html#manualAttenuationChanged)
     ///
-    /// ``` self: QtC.QSpatialSound, slot: fn (self: QtC.QSpatialSound) callconv(.c) void ```
-    pub fn OnManualAttenuationChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QSpatialSound_Connect_ManualAttenuationChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSpatialSound, callback: *const fn (self: QtC.QSpatialSound) callconv(.c) void ```
+    pub fn OnManualAttenuationChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QSpatialSound_Connect_ManualAttenuationChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qspatialsound.html#occlusionIntensityChanged)
@@ -412,9 +412,9 @@ pub const qspatialsound = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qspatialsound.html#occlusionIntensityChanged)
     ///
-    /// ``` self: QtC.QSpatialSound, slot: fn (self: QtC.QSpatialSound) callconv(.c) void ```
-    pub fn OnOcclusionIntensityChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QSpatialSound_Connect_OcclusionIntensityChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSpatialSound, callback: *const fn (self: QtC.QSpatialSound) callconv(.c) void ```
+    pub fn OnOcclusionIntensityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QSpatialSound_Connect_OcclusionIntensityChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qspatialsound.html#directivityChanged)
@@ -426,9 +426,9 @@ pub const qspatialsound = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qspatialsound.html#directivityChanged)
     ///
-    /// ``` self: QtC.QSpatialSound, slot: fn (self: QtC.QSpatialSound) callconv(.c) void ```
-    pub fn OnDirectivityChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QSpatialSound_Connect_DirectivityChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSpatialSound, callback: *const fn (self: QtC.QSpatialSound) callconv(.c) void ```
+    pub fn OnDirectivityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QSpatialSound_Connect_DirectivityChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qspatialsound.html#directivityOrderChanged)
@@ -440,9 +440,9 @@ pub const qspatialsound = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qspatialsound.html#directivityOrderChanged)
     ///
-    /// ``` self: QtC.QSpatialSound, slot: fn (self: QtC.QSpatialSound) callconv(.c) void ```
-    pub fn OnDirectivityOrderChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QSpatialSound_Connect_DirectivityOrderChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSpatialSound, callback: *const fn (self: QtC.QSpatialSound) callconv(.c) void ```
+    pub fn OnDirectivityOrderChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QSpatialSound_Connect_DirectivityOrderChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qspatialsound.html#nearFieldGainChanged)
@@ -454,9 +454,9 @@ pub const qspatialsound = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qspatialsound.html#nearFieldGainChanged)
     ///
-    /// ``` self: QtC.QSpatialSound, slot: fn (self: QtC.QSpatialSound) callconv(.c) void ```
-    pub fn OnNearFieldGainChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QSpatialSound_Connect_NearFieldGainChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSpatialSound, callback: *const fn (self: QtC.QSpatialSound) callconv(.c) void ```
+    pub fn OnNearFieldGainChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QSpatialSound_Connect_NearFieldGainChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qspatialsound.html#play)
@@ -794,9 +794,9 @@ pub const qspatialsound = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QSpatialSound, slot: fn (self: QtC.QSpatialSound) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSpatialSound, callback: *const fn (self: QtC.QSpatialSound) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -878,9 +878,9 @@ pub const qspatialsound = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QSpatialSound, slot: fn (self: QtC.QSpatialSound, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSpatialSound, callback: *const fn (self: QtC.QSpatialSound, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -911,9 +911,9 @@ pub const qspatialsound = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSpatialSound, slot: fn (self: QtC.QSpatialSound, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QSpatialSound_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSpatialSound, callback: *const fn (self: QtC.QSpatialSound, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QSpatialSound_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -944,9 +944,9 @@ pub const qspatialsound = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSpatialSound, slot: fn (self: QtC.QSpatialSound, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QSpatialSound_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSpatialSound, callback: *const fn (self: QtC.QSpatialSound, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QSpatialSound_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -977,9 +977,9 @@ pub const qspatialsound = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSpatialSound, slot: fn (self: QtC.QSpatialSound, event: QtC.QTimerEvent) callconv(.c) void ```
-    pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSpatialSound_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSpatialSound, callback: *const fn (self: QtC.QSpatialSound, event: QtC.QTimerEvent) callconv(.c) void ```
+    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QSpatialSound_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1010,9 +1010,9 @@ pub const qspatialsound = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSpatialSound, slot: fn (self: QtC.QSpatialSound, event: QtC.QChildEvent) callconv(.c) void ```
-    pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSpatialSound_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSpatialSound, callback: *const fn (self: QtC.QSpatialSound, event: QtC.QChildEvent) callconv(.c) void ```
+    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QSpatialSound_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1043,9 +1043,9 @@ pub const qspatialsound = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSpatialSound, slot: fn (self: QtC.QSpatialSound, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSpatialSound_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSpatialSound, callback: *const fn (self: QtC.QSpatialSound, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QSpatialSound_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1076,9 +1076,9 @@ pub const qspatialsound = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSpatialSound, slot: fn (self: QtC.QSpatialSound, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSpatialSound_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSpatialSound, callback: *const fn (self: QtC.QSpatialSound, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QSpatialSound_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1109,9 +1109,9 @@ pub const qspatialsound = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSpatialSound, slot: fn (self: QtC.QSpatialSound, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSpatialSound_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSpatialSound, callback: *const fn (self: QtC.QSpatialSound, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QSpatialSound_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1142,9 +1142,9 @@ pub const qspatialsound = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSpatialSound, slot: fn () callconv(.c) QtC.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
-        qtc.QSpatialSound_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSpatialSound, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.QSpatialSound_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1175,9 +1175,9 @@ pub const qspatialsound = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSpatialSound, slot: fn () callconv(.c) i32 ```
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QSpatialSound_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSpatialSound, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QSpatialSound_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1210,9 +1210,9 @@ pub const qspatialsound = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSpatialSound, slot: fn (self: QtC.QSpatialSound, signal: [*:0]const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QSpatialSound_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSpatialSound, callback: *const fn (self: QtC.QSpatialSound, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QSpatialSound_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1243,9 +1243,9 @@ pub const qspatialsound = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSpatialSound, slot: fn (self: QtC.QSpatialSound, signal: QtC.QMetaMethod) callconv(.c) bool ```
-    pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QSpatialSound_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSpatialSound, callback: *const fn (self: QtC.QSpatialSound, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QSpatialSound_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1254,9 +1254,9 @@ pub const qspatialsound = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QSpatialSound, slot: fn (self: QtC.QSpatialSound, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSpatialSound, callback: *const fn (self: QtC.QSpatialSound, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qspatialsound.html#dtor.QSpatialSound)

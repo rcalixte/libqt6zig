@@ -92,9 +92,9 @@ pub const kcodecaction = struct {
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KCodecAction, slot: fn (self: QtC.KCodecAction, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
-        qtc.KCodecAction_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCodecAction, callback: *const fn (self: QtC.KCodecAction, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+        qtc.KCodecAction_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -151,9 +151,9 @@ pub const kcodecaction = struct {
 
     /// [Qt documentation](https://api.kde.org/kcodecaction.html#codecNameTriggered)
     ///
-    /// ``` self: QtC.KCodecAction, slot: fn (self: QtC.KCodecAction, name: [*:0]u8) callconv(.c) void ```
-    pub fn OnCodecNameTriggered(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]u8) callconv(.c) void) void {
-        qtc.KCodecAction_Connect_CodecNameTriggered(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCodecAction, callback: *const fn (self: QtC.KCodecAction, name: [*:0]u8) callconv(.c) void ```
+    pub fn OnCodecNameTriggered(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]u8) callconv(.c) void) void {
+        qtc.KCodecAction_Connect_CodecNameTriggered(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kcodecaction.html#defaultItemTriggered)
@@ -165,9 +165,9 @@ pub const kcodecaction = struct {
 
     /// [Qt documentation](https://api.kde.org/kcodecaction.html#defaultItemTriggered)
     ///
-    /// ``` self: QtC.KCodecAction, slot: fn (self: QtC.KCodecAction) callconv(.c) void ```
-    pub fn OnDefaultItemTriggered(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.KCodecAction_Connect_DefaultItemTriggered(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCodecAction, callback: *const fn (self: QtC.KCodecAction) callconv(.c) void ```
+    pub fn OnDefaultItemTriggered(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.KCodecAction_Connect_DefaultItemTriggered(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kcodecaction.html#slotActionTriggered)
@@ -181,9 +181,9 @@ pub const kcodecaction = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KCodecAction, slot: fn (self: QtC.KCodecAction, param1: QtC.QAction) callconv(.c) void ```
-    pub fn OnSlotActionTriggered(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCodecAction_OnSlotActionTriggered(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCodecAction, callback: *const fn (self: QtC.KCodecAction, param1: QtC.QAction) callconv(.c) void ```
+    pub fn OnSlotActionTriggered(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCodecAction_OnSlotActionTriggered(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kcodecaction.html#slotActionTriggered)
@@ -555,9 +555,9 @@ pub const kcodecaction = struct {
     ///
     /// [Qt documentation](https://api.kde.org/kselectaction.html#actionTriggered)
     ///
-    /// ``` self: QtC.KCodecAction, slot: fn (self: QtC.KCodecAction, action: QtC.QAction) callconv(.c) void ```
-    pub fn OnActionTriggered(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KSelectAction_Connect_ActionTriggered(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCodecAction, callback: *const fn (self: QtC.KCodecAction, action: QtC.QAction) callconv(.c) void ```
+    pub fn OnActionTriggered(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KSelectAction_Connect_ActionTriggered(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KSelectAction
@@ -573,9 +573,9 @@ pub const kcodecaction = struct {
     ///
     /// [Qt documentation](https://api.kde.org/kselectaction.html#indexTriggered)
     ///
-    /// ``` self: QtC.KCodecAction, slot: fn (self: QtC.KCodecAction, index: i32) callconv(.c) void ```
-    pub fn OnIndexTriggered(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KSelectAction_Connect_IndexTriggered(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCodecAction, callback: *const fn (self: QtC.KCodecAction, index: i32) callconv(.c) void ```
+    pub fn OnIndexTriggered(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.KSelectAction_Connect_IndexTriggered(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KSelectAction
@@ -595,9 +595,9 @@ pub const kcodecaction = struct {
     ///
     /// [Qt documentation](https://api.kde.org/kselectaction.html#textTriggered)
     ///
-    /// ``` self: QtC.KCodecAction, slot: fn (self: QtC.KCodecAction, text: [*:0]const u8) callconv(.c) void ```
-    pub fn OnTextTriggered(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KSelectAction_Connect_TextTriggered(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCodecAction, callback: *const fn (self: QtC.KCodecAction, text: [*:0]const u8) callconv(.c) void ```
+    pub fn OnTextTriggered(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.KSelectAction_Connect_TextTriggered(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KSelectAction
@@ -1212,9 +1212,9 @@ pub const kcodecaction = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#changed)
     ///
-    /// ``` self: QtC.KCodecAction, slot: fn (self: QtC.KCodecAction) callconv(.c) void ```
-    pub fn OnChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAction_Connect_Changed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCodecAction, callback: *const fn (self: QtC.KCodecAction) callconv(.c) void ```
+    pub fn OnChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QAction_Connect_Changed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAction
@@ -1230,9 +1230,9 @@ pub const kcodecaction = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#enabledChanged)
     ///
-    /// ``` self: QtC.KCodecAction, slot: fn (self: QtC.KCodecAction, enabled: bool) callconv(.c) void ```
-    pub fn OnEnabledChanged(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAction_Connect_EnabledChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCodecAction, callback: *const fn (self: QtC.KCodecAction, enabled: bool) callconv(.c) void ```
+    pub fn OnEnabledChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QAction_Connect_EnabledChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAction
@@ -1248,9 +1248,9 @@ pub const kcodecaction = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#checkableChanged)
     ///
-    /// ``` self: QtC.KCodecAction, slot: fn (self: QtC.KCodecAction, checkable: bool) callconv(.c) void ```
-    pub fn OnCheckableChanged(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAction_Connect_CheckableChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCodecAction, callback: *const fn (self: QtC.KCodecAction, checkable: bool) callconv(.c) void ```
+    pub fn OnCheckableChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QAction_Connect_CheckableChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAction
@@ -1266,9 +1266,9 @@ pub const kcodecaction = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#visibleChanged)
     ///
-    /// ``` self: QtC.KCodecAction, slot: fn (self: QtC.KCodecAction) callconv(.c) void ```
-    pub fn OnVisibleChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAction_Connect_VisibleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCodecAction, callback: *const fn (self: QtC.KCodecAction) callconv(.c) void ```
+    pub fn OnVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QAction_Connect_VisibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAction
@@ -1284,9 +1284,9 @@ pub const kcodecaction = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#triggered)
     ///
-    /// ``` self: QtC.KCodecAction, slot: fn (self: QtC.KCodecAction) callconv(.c) void ```
-    pub fn OnTriggered(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAction_Connect_Triggered(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCodecAction, callback: *const fn (self: QtC.KCodecAction) callconv(.c) void ```
+    pub fn OnTriggered(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QAction_Connect_Triggered(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAction
@@ -1302,9 +1302,9 @@ pub const kcodecaction = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#hovered)
     ///
-    /// ``` self: QtC.KCodecAction, slot: fn (self: QtC.KCodecAction) callconv(.c) void ```
-    pub fn OnHovered(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAction_Connect_Hovered(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCodecAction, callback: *const fn (self: QtC.KCodecAction) callconv(.c) void ```
+    pub fn OnHovered(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QAction_Connect_Hovered(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAction
@@ -1320,9 +1320,9 @@ pub const kcodecaction = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#toggled)
     ///
-    /// ``` self: QtC.KCodecAction, slot: fn (self: QtC.KCodecAction, param1: bool) callconv(.c) void ```
-    pub fn OnToggled(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAction_Connect_Toggled(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCodecAction, callback: *const fn (self: QtC.KCodecAction, param1: bool) callconv(.c) void ```
+    pub fn OnToggled(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QAction_Connect_Toggled(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAction
@@ -1347,9 +1347,9 @@ pub const kcodecaction = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#triggered)
     ///
-    /// ``` self: QtC.KCodecAction, slot: fn (self: QtC.KCodecAction, checked: bool) callconv(.c) void ```
-    pub fn OnTriggered1(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAction_Connect_Triggered1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCodecAction, callback: *const fn (self: QtC.KCodecAction, checked: bool) callconv(.c) void ```
+    pub fn OnTriggered1(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QAction_Connect_Triggered1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1640,9 +1640,9 @@ pub const kcodecaction = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KCodecAction, slot: fn (self: QtC.KCodecAction) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCodecAction, callback: *const fn (self: QtC.KCodecAction) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1724,9 +1724,9 @@ pub const kcodecaction = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KCodecAction, slot: fn (self: QtC.KCodecAction, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCodecAction, callback: *const fn (self: QtC.KCodecAction, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KSelectAction
@@ -1757,9 +1757,9 @@ pub const kcodecaction = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCodecAction, slot: fn (self: QtC.KCodecAction, action: QtC.QAction) callconv(.c) QtC.QAction ```
-    pub fn OnRemoveAction(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QAction) void {
-        qtc.KCodecAction_OnRemoveAction(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCodecAction, callback: *const fn (self: QtC.KCodecAction, action: QtC.QAction) callconv(.c) QtC.QAction ```
+    pub fn OnRemoveAction(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QAction) void {
+        qtc.KCodecAction_OnRemoveAction(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KSelectAction
@@ -1790,9 +1790,9 @@ pub const kcodecaction = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCodecAction, slot: fn (self: QtC.KCodecAction, before: QtC.QAction, action: QtC.QAction) callconv(.c) void ```
-    pub fn OnInsertAction(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCodecAction_OnInsertAction(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCodecAction, callback: *const fn (self: QtC.KCodecAction, before: QtC.QAction, action: QtC.QAction) callconv(.c) void ```
+    pub fn OnInsertAction(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCodecAction_OnInsertAction(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KSelectAction
@@ -1823,9 +1823,9 @@ pub const kcodecaction = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCodecAction, slot: fn (self: QtC.KCodecAction, parent: QtC.QWidget) callconv(.c) QtC.QWidget ```
-    pub fn OnCreateWidget(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QWidget) void {
-        qtc.KCodecAction_OnCreateWidget(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCodecAction, callback: *const fn (self: QtC.KCodecAction, parent: QtC.QWidget) callconv(.c) QtC.QWidget ```
+    pub fn OnCreateWidget(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QWidget) void {
+        qtc.KCodecAction_OnCreateWidget(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KSelectAction
@@ -1856,9 +1856,9 @@ pub const kcodecaction = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCodecAction, slot: fn (self: QtC.KCodecAction, widget: QtC.QWidget) callconv(.c) void ```
-    pub fn OnDeleteWidget(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCodecAction_OnDeleteWidget(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCodecAction, callback: *const fn (self: QtC.KCodecAction, widget: QtC.QWidget) callconv(.c) void ```
+    pub fn OnDeleteWidget(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCodecAction_OnDeleteWidget(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KSelectAction
@@ -1889,9 +1889,9 @@ pub const kcodecaction = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCodecAction, slot: fn (self: QtC.KCodecAction, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KCodecAction_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCodecAction, callback: *const fn (self: QtC.KCodecAction, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KCodecAction_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KSelectAction
@@ -1922,9 +1922,9 @@ pub const kcodecaction = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCodecAction, slot: fn (self: QtC.KCodecAction, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KCodecAction_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCodecAction, callback: *const fn (self: QtC.KCodecAction, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KCodecAction_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1955,9 +1955,9 @@ pub const kcodecaction = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCodecAction, slot: fn (self: QtC.KCodecAction, event: QtC.QTimerEvent) callconv(.c) void ```
-    pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCodecAction_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCodecAction, callback: *const fn (self: QtC.KCodecAction, event: QtC.QTimerEvent) callconv(.c) void ```
+    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCodecAction_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1988,9 +1988,9 @@ pub const kcodecaction = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCodecAction, slot: fn (self: QtC.KCodecAction, event: QtC.QChildEvent) callconv(.c) void ```
-    pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCodecAction_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCodecAction, callback: *const fn (self: QtC.KCodecAction, event: QtC.QChildEvent) callconv(.c) void ```
+    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCodecAction_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2021,9 +2021,9 @@ pub const kcodecaction = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCodecAction, slot: fn (self: QtC.KCodecAction, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCodecAction_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCodecAction, callback: *const fn (self: QtC.KCodecAction, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCodecAction_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2054,9 +2054,9 @@ pub const kcodecaction = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCodecAction, slot: fn (self: QtC.KCodecAction, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCodecAction_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCodecAction, callback: *const fn (self: QtC.KCodecAction, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCodecAction_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2087,9 +2087,9 @@ pub const kcodecaction = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCodecAction, slot: fn (self: QtC.KCodecAction, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCodecAction_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCodecAction, callback: *const fn (self: QtC.KCodecAction, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCodecAction_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KSelectAction
@@ -2120,9 +2120,9 @@ pub const kcodecaction = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCodecAction, slot: fn (self: QtC.KCodecAction, param1: bool) callconv(.c) void ```
-    pub fn OnSlotToggled(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.KCodecAction_OnSlotToggled(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCodecAction, callback: *const fn (self: QtC.KCodecAction, param1: bool) callconv(.c) void ```
+    pub fn OnSlotToggled(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.KCodecAction_OnSlotToggled(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidgetAction
@@ -2163,9 +2163,9 @@ pub const kcodecaction = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCodecAction, slot: fn () callconv(.c) [*:null]QtC.QWidget ```
-    pub fn OnCreatedWidgets(self: ?*anyopaque, slot: fn () callconv(.c) [*:null]QtC.QWidget) void {
-        qtc.KCodecAction_OnCreatedWidgets(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCodecAction, callback: *const fn () callconv(.c) [*:null]QtC.QWidget ```
+    pub fn OnCreatedWidgets(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:null]QtC.QWidget) void {
+        qtc.KCodecAction_OnCreatedWidgets(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2196,9 +2196,9 @@ pub const kcodecaction = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCodecAction, slot: fn () callconv(.c) QtC.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
-        qtc.KCodecAction_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCodecAction, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.KCodecAction_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2229,9 +2229,9 @@ pub const kcodecaction = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCodecAction, slot: fn () callconv(.c) i32 ```
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.KCodecAction_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCodecAction, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.KCodecAction_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2264,9 +2264,9 @@ pub const kcodecaction = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCodecAction, slot: fn (self: QtC.KCodecAction, signal: [*:0]const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KCodecAction_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCodecAction, callback: *const fn (self: QtC.KCodecAction, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
+        qtc.KCodecAction_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2297,9 +2297,9 @@ pub const kcodecaction = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCodecAction, slot: fn (self: QtC.KCodecAction, signal: QtC.QMetaMethod) callconv(.c) bool ```
-    pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KCodecAction_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCodecAction, callback: *const fn (self: QtC.KCodecAction, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KCodecAction_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2308,9 +2308,9 @@ pub const kcodecaction = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KCodecAction, slot: fn (self: QtC.KCodecAction, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCodecAction, callback: *const fn (self: QtC.KCodecAction, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kcodecaction.html#dtor.KCodecAction)

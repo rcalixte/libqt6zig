@@ -14,9 +14,7 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_KIO__UDSEntry)
 typedef KIO::UDSEntry KIO__UDSEntry;
-#endif
 #else
 typedef struct KIO__UDSEntry KIO__UDSEntry;
 #endif

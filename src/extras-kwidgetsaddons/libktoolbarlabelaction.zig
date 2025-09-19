@@ -52,9 +52,9 @@ pub const ktoolbarlabelaction = struct {
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KToolBarLabelAction, slot: fn (self: QtC.KToolBarLabelAction, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
-        qtc.KToolBarLabelAction_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KToolBarLabelAction, callback: *const fn (self: QtC.KToolBarLabelAction, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+        qtc.KToolBarLabelAction_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -101,9 +101,9 @@ pub const ktoolbarlabelaction = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KToolBarLabelAction, slot: fn (self: QtC.KToolBarLabelAction, parent: QtC.QWidget) callconv(.c) QtC.QWidget ```
-    pub fn OnCreateWidget(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QWidget) void {
-        qtc.KToolBarLabelAction_OnCreateWidget(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KToolBarLabelAction, callback: *const fn (self: QtC.KToolBarLabelAction, parent: QtC.QWidget) callconv(.c) QtC.QWidget ```
+    pub fn OnCreateWidget(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QWidget) void {
+        qtc.KToolBarLabelAction_OnCreateWidget(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/ktoolbarlabelaction.html#createWidget)
@@ -128,9 +128,9 @@ pub const ktoolbarlabelaction = struct {
 
     /// [Qt documentation](https://api.kde.org/ktoolbarlabelaction.html#textChanged)
     ///
-    /// ``` self: QtC.KToolBarLabelAction, slot: fn (self: QtC.KToolBarLabelAction, newText: [*:0]const u8) callconv(.c) void ```
-    pub fn OnTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KToolBarLabelAction_Connect_TextChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KToolBarLabelAction, callback: *const fn (self: QtC.KToolBarLabelAction, newText: [*:0]const u8) callconv(.c) void ```
+    pub fn OnTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.KToolBarLabelAction_Connect_TextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/ktoolbarlabelaction.html#event)
@@ -144,9 +144,9 @@ pub const ktoolbarlabelaction = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KToolBarLabelAction, slot: fn (self: QtC.KToolBarLabelAction, param1: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KToolBarLabelAction_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KToolBarLabelAction, callback: *const fn (self: QtC.KToolBarLabelAction, param1: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KToolBarLabelAction_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/ktoolbarlabelaction.html#event)
@@ -169,9 +169,9 @@ pub const ktoolbarlabelaction = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KToolBarLabelAction, slot: fn (self: QtC.KToolBarLabelAction, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KToolBarLabelAction_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KToolBarLabelAction, callback: *const fn (self: QtC.KToolBarLabelAction, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KToolBarLabelAction_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/ktoolbarlabelaction.html#eventFilter)
@@ -795,9 +795,9 @@ pub const ktoolbarlabelaction = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#changed)
     ///
-    /// ``` self: QtC.KToolBarLabelAction, slot: fn (self: QtC.KToolBarLabelAction) callconv(.c) void ```
-    pub fn OnChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAction_Connect_Changed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KToolBarLabelAction, callback: *const fn (self: QtC.KToolBarLabelAction) callconv(.c) void ```
+    pub fn OnChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QAction_Connect_Changed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAction
@@ -813,9 +813,9 @@ pub const ktoolbarlabelaction = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#enabledChanged)
     ///
-    /// ``` self: QtC.KToolBarLabelAction, slot: fn (self: QtC.KToolBarLabelAction, enabled: bool) callconv(.c) void ```
-    pub fn OnEnabledChanged(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAction_Connect_EnabledChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KToolBarLabelAction, callback: *const fn (self: QtC.KToolBarLabelAction, enabled: bool) callconv(.c) void ```
+    pub fn OnEnabledChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QAction_Connect_EnabledChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAction
@@ -831,9 +831,9 @@ pub const ktoolbarlabelaction = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#checkableChanged)
     ///
-    /// ``` self: QtC.KToolBarLabelAction, slot: fn (self: QtC.KToolBarLabelAction, checkable: bool) callconv(.c) void ```
-    pub fn OnCheckableChanged(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAction_Connect_CheckableChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KToolBarLabelAction, callback: *const fn (self: QtC.KToolBarLabelAction, checkable: bool) callconv(.c) void ```
+    pub fn OnCheckableChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QAction_Connect_CheckableChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAction
@@ -849,9 +849,9 @@ pub const ktoolbarlabelaction = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#visibleChanged)
     ///
-    /// ``` self: QtC.KToolBarLabelAction, slot: fn (self: QtC.KToolBarLabelAction) callconv(.c) void ```
-    pub fn OnVisibleChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAction_Connect_VisibleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KToolBarLabelAction, callback: *const fn (self: QtC.KToolBarLabelAction) callconv(.c) void ```
+    pub fn OnVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QAction_Connect_VisibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAction
@@ -867,9 +867,9 @@ pub const ktoolbarlabelaction = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#triggered)
     ///
-    /// ``` self: QtC.KToolBarLabelAction, slot: fn (self: QtC.KToolBarLabelAction) callconv(.c) void ```
-    pub fn OnTriggered(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAction_Connect_Triggered(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KToolBarLabelAction, callback: *const fn (self: QtC.KToolBarLabelAction) callconv(.c) void ```
+    pub fn OnTriggered(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QAction_Connect_Triggered(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAction
@@ -885,9 +885,9 @@ pub const ktoolbarlabelaction = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#hovered)
     ///
-    /// ``` self: QtC.KToolBarLabelAction, slot: fn (self: QtC.KToolBarLabelAction) callconv(.c) void ```
-    pub fn OnHovered(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAction_Connect_Hovered(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KToolBarLabelAction, callback: *const fn (self: QtC.KToolBarLabelAction) callconv(.c) void ```
+    pub fn OnHovered(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QAction_Connect_Hovered(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAction
@@ -903,9 +903,9 @@ pub const ktoolbarlabelaction = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#toggled)
     ///
-    /// ``` self: QtC.KToolBarLabelAction, slot: fn (self: QtC.KToolBarLabelAction, param1: bool) callconv(.c) void ```
-    pub fn OnToggled(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAction_Connect_Toggled(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KToolBarLabelAction, callback: *const fn (self: QtC.KToolBarLabelAction, param1: bool) callconv(.c) void ```
+    pub fn OnToggled(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QAction_Connect_Toggled(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAction
@@ -930,9 +930,9 @@ pub const ktoolbarlabelaction = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#triggered)
     ///
-    /// ``` self: QtC.KToolBarLabelAction, slot: fn (self: QtC.KToolBarLabelAction, checked: bool) callconv(.c) void ```
-    pub fn OnTriggered1(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAction_Connect_Triggered1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KToolBarLabelAction, callback: *const fn (self: QtC.KToolBarLabelAction, checked: bool) callconv(.c) void ```
+    pub fn OnTriggered1(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QAction_Connect_Triggered1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1223,9 +1223,9 @@ pub const ktoolbarlabelaction = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KToolBarLabelAction, slot: fn (self: QtC.KToolBarLabelAction) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KToolBarLabelAction, callback: *const fn (self: QtC.KToolBarLabelAction) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1307,9 +1307,9 @@ pub const ktoolbarlabelaction = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KToolBarLabelAction, slot: fn (self: QtC.KToolBarLabelAction, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KToolBarLabelAction, callback: *const fn (self: QtC.KToolBarLabelAction, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidgetAction
@@ -1340,9 +1340,9 @@ pub const ktoolbarlabelaction = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KToolBarLabelAction, slot: fn (self: QtC.KToolBarLabelAction, widget: QtC.QWidget) callconv(.c) void ```
-    pub fn OnDeleteWidget(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KToolBarLabelAction_OnDeleteWidget(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KToolBarLabelAction, callback: *const fn (self: QtC.KToolBarLabelAction, widget: QtC.QWidget) callconv(.c) void ```
+    pub fn OnDeleteWidget(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KToolBarLabelAction_OnDeleteWidget(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1373,9 +1373,9 @@ pub const ktoolbarlabelaction = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KToolBarLabelAction, slot: fn (self: QtC.KToolBarLabelAction, event: QtC.QTimerEvent) callconv(.c) void ```
-    pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KToolBarLabelAction_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KToolBarLabelAction, callback: *const fn (self: QtC.KToolBarLabelAction, event: QtC.QTimerEvent) callconv(.c) void ```
+    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KToolBarLabelAction_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1406,9 +1406,9 @@ pub const ktoolbarlabelaction = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KToolBarLabelAction, slot: fn (self: QtC.KToolBarLabelAction, event: QtC.QChildEvent) callconv(.c) void ```
-    pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KToolBarLabelAction_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KToolBarLabelAction, callback: *const fn (self: QtC.KToolBarLabelAction, event: QtC.QChildEvent) callconv(.c) void ```
+    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KToolBarLabelAction_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1439,9 +1439,9 @@ pub const ktoolbarlabelaction = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KToolBarLabelAction, slot: fn (self: QtC.KToolBarLabelAction, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KToolBarLabelAction_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KToolBarLabelAction, callback: *const fn (self: QtC.KToolBarLabelAction, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KToolBarLabelAction_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1472,9 +1472,9 @@ pub const ktoolbarlabelaction = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KToolBarLabelAction, slot: fn (self: QtC.KToolBarLabelAction, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KToolBarLabelAction_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KToolBarLabelAction, callback: *const fn (self: QtC.KToolBarLabelAction, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KToolBarLabelAction_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1505,9 +1505,9 @@ pub const ktoolbarlabelaction = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KToolBarLabelAction, slot: fn (self: QtC.KToolBarLabelAction, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KToolBarLabelAction_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KToolBarLabelAction, callback: *const fn (self: QtC.KToolBarLabelAction, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KToolBarLabelAction_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidgetAction
@@ -1548,9 +1548,9 @@ pub const ktoolbarlabelaction = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KToolBarLabelAction, slot: fn () callconv(.c) [*:null]QtC.QWidget ```
-    pub fn OnCreatedWidgets(self: ?*anyopaque, slot: fn () callconv(.c) [*:null]QtC.QWidget) void {
-        qtc.KToolBarLabelAction_OnCreatedWidgets(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KToolBarLabelAction, callback: *const fn () callconv(.c) [*:null]QtC.QWidget ```
+    pub fn OnCreatedWidgets(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:null]QtC.QWidget) void {
+        qtc.KToolBarLabelAction_OnCreatedWidgets(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1581,9 +1581,9 @@ pub const ktoolbarlabelaction = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KToolBarLabelAction, slot: fn () callconv(.c) QtC.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
-        qtc.KToolBarLabelAction_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KToolBarLabelAction, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.KToolBarLabelAction_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1614,9 +1614,9 @@ pub const ktoolbarlabelaction = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KToolBarLabelAction, slot: fn () callconv(.c) i32 ```
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.KToolBarLabelAction_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KToolBarLabelAction, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.KToolBarLabelAction_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1649,9 +1649,9 @@ pub const ktoolbarlabelaction = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KToolBarLabelAction, slot: fn (self: QtC.KToolBarLabelAction, signal: [*:0]const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KToolBarLabelAction_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KToolBarLabelAction, callback: *const fn (self: QtC.KToolBarLabelAction, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
+        qtc.KToolBarLabelAction_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1682,9 +1682,9 @@ pub const ktoolbarlabelaction = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KToolBarLabelAction, slot: fn (self: QtC.KToolBarLabelAction, signal: QtC.QMetaMethod) callconv(.c) bool ```
-    pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KToolBarLabelAction_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KToolBarLabelAction, callback: *const fn (self: QtC.KToolBarLabelAction, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KToolBarLabelAction_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1693,9 +1693,9 @@ pub const ktoolbarlabelaction = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KToolBarLabelAction, slot: fn (self: QtC.KToolBarLabelAction, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KToolBarLabelAction, callback: *const fn (self: QtC.KToolBarLabelAction, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/ktoolbarlabelaction.html#dtor.KToolBarLabelAction)

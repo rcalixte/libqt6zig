@@ -61,9 +61,9 @@ pub const kfontsizeaction = struct {
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KFontSizeAction, slot: fn (self: QtC.KFontSizeAction, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
-        qtc.KFontSizeAction_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KFontSizeAction, callback: *const fn (self: QtC.KFontSizeAction, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+        qtc.KFontSizeAction_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -108,9 +108,9 @@ pub const kfontsizeaction = struct {
 
     /// [Qt documentation](https://api.kde.org/kfontsizeaction.html#fontSizeChanged)
     ///
-    /// ``` self: QtC.KFontSizeAction, slot: fn (self: QtC.KFontSizeAction, param1: i32) callconv(.c) void ```
-    pub fn OnFontSizeChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KFontSizeAction_Connect_FontSizeChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KFontSizeAction, callback: *const fn (self: QtC.KFontSizeAction, param1: i32) callconv(.c) void ```
+    pub fn OnFontSizeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.KFontSizeAction_Connect_FontSizeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kfontsizeaction.html#slotActionTriggered)
@@ -124,9 +124,9 @@ pub const kfontsizeaction = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KFontSizeAction, slot: fn (self: QtC.KFontSizeAction, action: QtC.QAction) callconv(.c) void ```
-    pub fn OnSlotActionTriggered(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KFontSizeAction_OnSlotActionTriggered(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KFontSizeAction, callback: *const fn (self: QtC.KFontSizeAction, action: QtC.QAction) callconv(.c) void ```
+    pub fn OnSlotActionTriggered(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KFontSizeAction_OnSlotActionTriggered(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kfontsizeaction.html#slotActionTriggered)
@@ -498,9 +498,9 @@ pub const kfontsizeaction = struct {
     ///
     /// [Qt documentation](https://api.kde.org/kselectaction.html#actionTriggered)
     ///
-    /// ``` self: QtC.KFontSizeAction, slot: fn (self: QtC.KFontSizeAction, action: QtC.QAction) callconv(.c) void ```
-    pub fn OnActionTriggered(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KSelectAction_Connect_ActionTriggered(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KFontSizeAction, callback: *const fn (self: QtC.KFontSizeAction, action: QtC.QAction) callconv(.c) void ```
+    pub fn OnActionTriggered(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KSelectAction_Connect_ActionTriggered(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KSelectAction
@@ -516,9 +516,9 @@ pub const kfontsizeaction = struct {
     ///
     /// [Qt documentation](https://api.kde.org/kselectaction.html#indexTriggered)
     ///
-    /// ``` self: QtC.KFontSizeAction, slot: fn (self: QtC.KFontSizeAction, index: i32) callconv(.c) void ```
-    pub fn OnIndexTriggered(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KSelectAction_Connect_IndexTriggered(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KFontSizeAction, callback: *const fn (self: QtC.KFontSizeAction, index: i32) callconv(.c) void ```
+    pub fn OnIndexTriggered(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.KSelectAction_Connect_IndexTriggered(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KSelectAction
@@ -538,9 +538,9 @@ pub const kfontsizeaction = struct {
     ///
     /// [Qt documentation](https://api.kde.org/kselectaction.html#textTriggered)
     ///
-    /// ``` self: QtC.KFontSizeAction, slot: fn (self: QtC.KFontSizeAction, text: [*:0]const u8) callconv(.c) void ```
-    pub fn OnTextTriggered(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KSelectAction_Connect_TextTriggered(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KFontSizeAction, callback: *const fn (self: QtC.KFontSizeAction, text: [*:0]const u8) callconv(.c) void ```
+    pub fn OnTextTriggered(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.KSelectAction_Connect_TextTriggered(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KSelectAction
@@ -1155,9 +1155,9 @@ pub const kfontsizeaction = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#changed)
     ///
-    /// ``` self: QtC.KFontSizeAction, slot: fn (self: QtC.KFontSizeAction) callconv(.c) void ```
-    pub fn OnChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAction_Connect_Changed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KFontSizeAction, callback: *const fn (self: QtC.KFontSizeAction) callconv(.c) void ```
+    pub fn OnChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QAction_Connect_Changed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAction
@@ -1173,9 +1173,9 @@ pub const kfontsizeaction = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#enabledChanged)
     ///
-    /// ``` self: QtC.KFontSizeAction, slot: fn (self: QtC.KFontSizeAction, enabled: bool) callconv(.c) void ```
-    pub fn OnEnabledChanged(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAction_Connect_EnabledChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KFontSizeAction, callback: *const fn (self: QtC.KFontSizeAction, enabled: bool) callconv(.c) void ```
+    pub fn OnEnabledChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QAction_Connect_EnabledChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAction
@@ -1191,9 +1191,9 @@ pub const kfontsizeaction = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#checkableChanged)
     ///
-    /// ``` self: QtC.KFontSizeAction, slot: fn (self: QtC.KFontSizeAction, checkable: bool) callconv(.c) void ```
-    pub fn OnCheckableChanged(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAction_Connect_CheckableChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KFontSizeAction, callback: *const fn (self: QtC.KFontSizeAction, checkable: bool) callconv(.c) void ```
+    pub fn OnCheckableChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QAction_Connect_CheckableChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAction
@@ -1209,9 +1209,9 @@ pub const kfontsizeaction = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#visibleChanged)
     ///
-    /// ``` self: QtC.KFontSizeAction, slot: fn (self: QtC.KFontSizeAction) callconv(.c) void ```
-    pub fn OnVisibleChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAction_Connect_VisibleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KFontSizeAction, callback: *const fn (self: QtC.KFontSizeAction) callconv(.c) void ```
+    pub fn OnVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QAction_Connect_VisibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAction
@@ -1227,9 +1227,9 @@ pub const kfontsizeaction = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#triggered)
     ///
-    /// ``` self: QtC.KFontSizeAction, slot: fn (self: QtC.KFontSizeAction) callconv(.c) void ```
-    pub fn OnTriggered(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAction_Connect_Triggered(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KFontSizeAction, callback: *const fn (self: QtC.KFontSizeAction) callconv(.c) void ```
+    pub fn OnTriggered(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QAction_Connect_Triggered(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAction
@@ -1245,9 +1245,9 @@ pub const kfontsizeaction = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#hovered)
     ///
-    /// ``` self: QtC.KFontSizeAction, slot: fn (self: QtC.KFontSizeAction) callconv(.c) void ```
-    pub fn OnHovered(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAction_Connect_Hovered(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KFontSizeAction, callback: *const fn (self: QtC.KFontSizeAction) callconv(.c) void ```
+    pub fn OnHovered(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QAction_Connect_Hovered(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAction
@@ -1263,9 +1263,9 @@ pub const kfontsizeaction = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#toggled)
     ///
-    /// ``` self: QtC.KFontSizeAction, slot: fn (self: QtC.KFontSizeAction, param1: bool) callconv(.c) void ```
-    pub fn OnToggled(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAction_Connect_Toggled(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KFontSizeAction, callback: *const fn (self: QtC.KFontSizeAction, param1: bool) callconv(.c) void ```
+    pub fn OnToggled(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QAction_Connect_Toggled(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAction
@@ -1290,9 +1290,9 @@ pub const kfontsizeaction = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qaction.html#triggered)
     ///
-    /// ``` self: QtC.KFontSizeAction, slot: fn (self: QtC.KFontSizeAction, checked: bool) callconv(.c) void ```
-    pub fn OnTriggered1(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QAction_Connect_Triggered1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KFontSizeAction, callback: *const fn (self: QtC.KFontSizeAction, checked: bool) callconv(.c) void ```
+    pub fn OnTriggered1(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QAction_Connect_Triggered1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1583,9 +1583,9 @@ pub const kfontsizeaction = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KFontSizeAction, slot: fn (self: QtC.KFontSizeAction) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KFontSizeAction, callback: *const fn (self: QtC.KFontSizeAction) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1667,9 +1667,9 @@ pub const kfontsizeaction = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KFontSizeAction, slot: fn (self: QtC.KFontSizeAction, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KFontSizeAction, callback: *const fn (self: QtC.KFontSizeAction, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KSelectAction
@@ -1700,9 +1700,9 @@ pub const kfontsizeaction = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KFontSizeAction, slot: fn (self: QtC.KFontSizeAction, action: QtC.QAction) callconv(.c) QtC.QAction ```
-    pub fn OnRemoveAction(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QAction) void {
-        qtc.KFontSizeAction_OnRemoveAction(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KFontSizeAction, callback: *const fn (self: QtC.KFontSizeAction, action: QtC.QAction) callconv(.c) QtC.QAction ```
+    pub fn OnRemoveAction(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QAction) void {
+        qtc.KFontSizeAction_OnRemoveAction(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KSelectAction
@@ -1733,9 +1733,9 @@ pub const kfontsizeaction = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KFontSizeAction, slot: fn (self: QtC.KFontSizeAction, before: QtC.QAction, action: QtC.QAction) callconv(.c) void ```
-    pub fn OnInsertAction(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KFontSizeAction_OnInsertAction(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KFontSizeAction, callback: *const fn (self: QtC.KFontSizeAction, before: QtC.QAction, action: QtC.QAction) callconv(.c) void ```
+    pub fn OnInsertAction(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KFontSizeAction_OnInsertAction(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KSelectAction
@@ -1766,9 +1766,9 @@ pub const kfontsizeaction = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KFontSizeAction, slot: fn (self: QtC.KFontSizeAction, parent: QtC.QWidget) callconv(.c) QtC.QWidget ```
-    pub fn OnCreateWidget(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QWidget) void {
-        qtc.KFontSizeAction_OnCreateWidget(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KFontSizeAction, callback: *const fn (self: QtC.KFontSizeAction, parent: QtC.QWidget) callconv(.c) QtC.QWidget ```
+    pub fn OnCreateWidget(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QWidget) void {
+        qtc.KFontSizeAction_OnCreateWidget(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KSelectAction
@@ -1799,9 +1799,9 @@ pub const kfontsizeaction = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KFontSizeAction, slot: fn (self: QtC.KFontSizeAction, widget: QtC.QWidget) callconv(.c) void ```
-    pub fn OnDeleteWidget(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KFontSizeAction_OnDeleteWidget(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KFontSizeAction, callback: *const fn (self: QtC.KFontSizeAction, widget: QtC.QWidget) callconv(.c) void ```
+    pub fn OnDeleteWidget(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KFontSizeAction_OnDeleteWidget(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KSelectAction
@@ -1832,9 +1832,9 @@ pub const kfontsizeaction = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KFontSizeAction, slot: fn (self: QtC.KFontSizeAction, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KFontSizeAction_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KFontSizeAction, callback: *const fn (self: QtC.KFontSizeAction, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KFontSizeAction_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KSelectAction
@@ -1865,9 +1865,9 @@ pub const kfontsizeaction = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KFontSizeAction, slot: fn (self: QtC.KFontSizeAction, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KFontSizeAction_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KFontSizeAction, callback: *const fn (self: QtC.KFontSizeAction, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KFontSizeAction_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1898,9 +1898,9 @@ pub const kfontsizeaction = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KFontSizeAction, slot: fn (self: QtC.KFontSizeAction, event: QtC.QTimerEvent) callconv(.c) void ```
-    pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KFontSizeAction_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KFontSizeAction, callback: *const fn (self: QtC.KFontSizeAction, event: QtC.QTimerEvent) callconv(.c) void ```
+    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KFontSizeAction_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1931,9 +1931,9 @@ pub const kfontsizeaction = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KFontSizeAction, slot: fn (self: QtC.KFontSizeAction, event: QtC.QChildEvent) callconv(.c) void ```
-    pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KFontSizeAction_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KFontSizeAction, callback: *const fn (self: QtC.KFontSizeAction, event: QtC.QChildEvent) callconv(.c) void ```
+    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KFontSizeAction_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1964,9 +1964,9 @@ pub const kfontsizeaction = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KFontSizeAction, slot: fn (self: QtC.KFontSizeAction, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KFontSizeAction_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KFontSizeAction, callback: *const fn (self: QtC.KFontSizeAction, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KFontSizeAction_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1997,9 +1997,9 @@ pub const kfontsizeaction = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KFontSizeAction, slot: fn (self: QtC.KFontSizeAction, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KFontSizeAction_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KFontSizeAction, callback: *const fn (self: QtC.KFontSizeAction, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KFontSizeAction_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2030,9 +2030,9 @@ pub const kfontsizeaction = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KFontSizeAction, slot: fn (self: QtC.KFontSizeAction, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KFontSizeAction_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KFontSizeAction, callback: *const fn (self: QtC.KFontSizeAction, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KFontSizeAction_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KSelectAction
@@ -2063,9 +2063,9 @@ pub const kfontsizeaction = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KFontSizeAction, slot: fn (self: QtC.KFontSizeAction, param1: bool) callconv(.c) void ```
-    pub fn OnSlotToggled(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.KFontSizeAction_OnSlotToggled(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KFontSizeAction, callback: *const fn (self: QtC.KFontSizeAction, param1: bool) callconv(.c) void ```
+    pub fn OnSlotToggled(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.KFontSizeAction_OnSlotToggled(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidgetAction
@@ -2106,9 +2106,9 @@ pub const kfontsizeaction = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KFontSizeAction, slot: fn () callconv(.c) [*:null]QtC.QWidget ```
-    pub fn OnCreatedWidgets(self: ?*anyopaque, slot: fn () callconv(.c) [*:null]QtC.QWidget) void {
-        qtc.KFontSizeAction_OnCreatedWidgets(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KFontSizeAction, callback: *const fn () callconv(.c) [*:null]QtC.QWidget ```
+    pub fn OnCreatedWidgets(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:null]QtC.QWidget) void {
+        qtc.KFontSizeAction_OnCreatedWidgets(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2139,9 +2139,9 @@ pub const kfontsizeaction = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KFontSizeAction, slot: fn () callconv(.c) QtC.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
-        qtc.KFontSizeAction_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KFontSizeAction, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.KFontSizeAction_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2172,9 +2172,9 @@ pub const kfontsizeaction = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KFontSizeAction, slot: fn () callconv(.c) i32 ```
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.KFontSizeAction_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KFontSizeAction, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.KFontSizeAction_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2207,9 +2207,9 @@ pub const kfontsizeaction = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KFontSizeAction, slot: fn (self: QtC.KFontSizeAction, signal: [*:0]const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KFontSizeAction_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KFontSizeAction, callback: *const fn (self: QtC.KFontSizeAction, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
+        qtc.KFontSizeAction_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2240,9 +2240,9 @@ pub const kfontsizeaction = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KFontSizeAction, slot: fn (self: QtC.KFontSizeAction, signal: QtC.QMetaMethod) callconv(.c) bool ```
-    pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KFontSizeAction_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KFontSizeAction, callback: *const fn (self: QtC.KFontSizeAction, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KFontSizeAction_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2251,9 +2251,9 @@ pub const kfontsizeaction = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KFontSizeAction, slot: fn (self: QtC.KFontSizeAction, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KFontSizeAction, callback: *const fn (self: QtC.KFontSizeAction, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kfontsizeaction.html#dtor.KFontSizeAction)

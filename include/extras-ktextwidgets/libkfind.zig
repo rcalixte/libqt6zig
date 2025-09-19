@@ -51,9 +51,9 @@ pub const kfind = struct {
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KFind, slot: fn (self: QtC.KFind, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
-        qtc.KFind_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KFind, callback: *const fn (self: QtC.KFind, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+        qtc.KFind_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -131,9 +131,9 @@ pub const kfind = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KFind, slot: fn (self: QtC.KFind, options: i64) callconv(.c) void ```
-    pub fn OnSetOptions(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
-        qtc.KFind_OnSetOptions(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KFind, callback: *const fn (self: QtC.KFind, options: i64) callconv(.c) void ```
+    pub fn OnSetOptions(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) void) void {
+        qtc.KFind_OnSetOptions(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kfind.html#setOptions)
@@ -185,9 +185,9 @@ pub const kfind = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KFind, slot: fn () callconv(.c) void ```
-    pub fn OnResetCounts(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KFind_OnResetCounts(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KFind, callback: *const fn () callconv(.c) void ```
+    pub fn OnResetCounts(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KFind_OnResetCounts(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kfind.html#resetCounts)
@@ -214,9 +214,9 @@ pub const kfind = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KFind, slot: fn (self: QtC.KFind, text: [*:0]const u8, index: i32, matchedlength: i32) callconv(.c) bool ```
-    pub fn OnValidateMatch(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, i32, i32) callconv(.c) bool) void {
-        qtc.KFind_OnValidateMatch(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KFind, callback: *const fn (self: QtC.KFind, text: [*:0]const u8, index: i32, matchedlength: i32) callconv(.c) bool ```
+    pub fn OnValidateMatch(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32, i32) callconv(.c) bool) void {
+        qtc.KFind_OnValidateMatch(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kfind.html#validateMatch)
@@ -243,9 +243,9 @@ pub const kfind = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KFind, slot: fn (self: QtC.KFind, forceAsking: bool, showNumMatches: bool) callconv(.c) bool ```
-    pub fn OnShouldRestart(self: ?*anyopaque, slot: fn (?*anyopaque, bool, bool) callconv(.c) bool) void {
-        qtc.KFind_OnShouldRestart(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KFind, callback: *const fn (self: QtC.KFind, forceAsking: bool, showNumMatches: bool) callconv(.c) bool ```
+    pub fn OnShouldRestart(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool, bool) callconv(.c) bool) void {
+        qtc.KFind_OnShouldRestart(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kfind.html#shouldRestart)
@@ -283,9 +283,9 @@ pub const kfind = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KFind, slot: fn () callconv(.c) void ```
-    pub fn OnDisplayFinalDialog(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KFind_OnDisplayFinalDialog(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KFind, callback: *const fn () callconv(.c) void ```
+    pub fn OnDisplayFinalDialog(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KFind_OnDisplayFinalDialog(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kfind.html#displayFinalDialog)
@@ -331,9 +331,9 @@ pub const kfind = struct {
 
     /// [Qt documentation](https://api.kde.org/kfind.html#textFound)
     ///
-    /// ``` self: QtC.KFind, slot: fn (self: QtC.KFind, text: [*:0]const u8, matchingIndex: i32, matchedLength: i32) callconv(.c) void ```
-    pub fn OnTextFound(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, i32, i32) callconv(.c) void) void {
-        qtc.KFind_Connect_TextFound(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KFind, callback: *const fn (self: QtC.KFind, text: [*:0]const u8, matchingIndex: i32, matchedLength: i32) callconv(.c) void ```
+    pub fn OnTextFound(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32, i32) callconv(.c) void) void {
+        qtc.KFind_Connect_TextFound(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kfind.html#textFoundAtId)
@@ -345,9 +345,9 @@ pub const kfind = struct {
 
     /// [Qt documentation](https://api.kde.org/kfind.html#textFoundAtId)
     ///
-    /// ``` self: QtC.KFind, slot: fn (self: QtC.KFind, id: i32, matchingIndex: i32, matchedLength: i32) callconv(.c) void ```
-    pub fn OnTextFoundAtId(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, i32) callconv(.c) void) void {
-        qtc.KFind_Connect_TextFoundAtId(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KFind, callback: *const fn (self: QtC.KFind, id: i32, matchingIndex: i32, matchedLength: i32) callconv(.c) void ```
+    pub fn OnTextFoundAtId(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32) callconv(.c) void) void {
+        qtc.KFind_Connect_TextFoundAtId(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kfind.html#findNext)
@@ -359,9 +359,9 @@ pub const kfind = struct {
 
     /// [Qt documentation](https://api.kde.org/kfind.html#findNext)
     ///
-    /// ``` self: QtC.KFind, slot: fn (self: QtC.KFind) callconv(.c) void ```
-    pub fn OnFindNext(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.KFind_Connect_FindNext(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KFind, callback: *const fn (self: QtC.KFind) callconv(.c) void ```
+    pub fn OnFindNext(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.KFind_Connect_FindNext(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kfind.html#optionsChanged)
@@ -373,9 +373,9 @@ pub const kfind = struct {
 
     /// [Qt documentation](https://api.kde.org/kfind.html#optionsChanged)
     ///
-    /// ``` self: QtC.KFind, slot: fn (self: QtC.KFind) callconv(.c) void ```
-    pub fn OnOptionsChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.KFind_Connect_OptionsChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KFind, callback: *const fn (self: QtC.KFind) callconv(.c) void ```
+    pub fn OnOptionsChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.KFind_Connect_OptionsChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kfind.html#dialogClosed)
@@ -387,9 +387,9 @@ pub const kfind = struct {
 
     /// [Qt documentation](https://api.kde.org/kfind.html#dialogClosed)
     ///
-    /// ``` self: QtC.KFind, slot: fn (self: QtC.KFind) callconv(.c) void ```
-    pub fn OnDialogClosed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.KFind_Connect_DialogClosed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KFind, callback: *const fn (self: QtC.KFind) callconv(.c) void ```
+    pub fn OnDialogClosed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.KFind_Connect_DialogClosed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kfind.html#parentWidget)
@@ -403,9 +403,9 @@ pub const kfind = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KFind, slot: fn () callconv(.c) QtC.QWidget ```
-    pub fn OnParentWidget(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QWidget) void {
-        qtc.KFind_OnParentWidget(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KFind, callback: *const fn () callconv(.c) QtC.QWidget ```
+    pub fn OnParentWidget(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QWidget) void {
+        qtc.KFind_OnParentWidget(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kfind.html#parentWidget)
@@ -428,9 +428,9 @@ pub const kfind = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KFind, slot: fn () callconv(.c) QtC.QWidget ```
-    pub fn OnDialogsParent(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QWidget) void {
-        qtc.KFind_OnDialogsParent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KFind, callback: *const fn () callconv(.c) QtC.QWidget ```
+    pub fn OnDialogsParent(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QWidget) void {
+        qtc.KFind_OnDialogsParent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kfind.html#dialogsParent)
@@ -785,9 +785,9 @@ pub const kfind = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KFind, slot: fn (self: QtC.KFind) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KFind, callback: *const fn (self: QtC.KFind) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -869,9 +869,9 @@ pub const kfind = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KFind, slot: fn (self: QtC.KFind, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KFind, callback: *const fn (self: QtC.KFind, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -902,9 +902,9 @@ pub const kfind = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KFind, slot: fn (self: QtC.KFind, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KFind_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KFind, callback: *const fn (self: QtC.KFind, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KFind_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -935,9 +935,9 @@ pub const kfind = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KFind, slot: fn (self: QtC.KFind, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KFind_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KFind, callback: *const fn (self: QtC.KFind, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KFind_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -968,9 +968,9 @@ pub const kfind = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KFind, slot: fn (self: QtC.KFind, event: QtC.QTimerEvent) callconv(.c) void ```
-    pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KFind_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KFind, callback: *const fn (self: QtC.KFind, event: QtC.QTimerEvent) callconv(.c) void ```
+    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KFind_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1001,9 +1001,9 @@ pub const kfind = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KFind, slot: fn (self: QtC.KFind, event: QtC.QChildEvent) callconv(.c) void ```
-    pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KFind_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KFind, callback: *const fn (self: QtC.KFind, event: QtC.QChildEvent) callconv(.c) void ```
+    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KFind_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1034,9 +1034,9 @@ pub const kfind = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KFind, slot: fn (self: QtC.KFind, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KFind_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KFind, callback: *const fn (self: QtC.KFind, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KFind_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1067,9 +1067,9 @@ pub const kfind = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KFind, slot: fn (self: QtC.KFind, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KFind_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KFind, callback: *const fn (self: QtC.KFind, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KFind_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1100,9 +1100,9 @@ pub const kfind = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KFind, slot: fn (self: QtC.KFind, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KFind_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KFind, callback: *const fn (self: QtC.KFind, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KFind_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1133,9 +1133,9 @@ pub const kfind = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KFind, slot: fn () callconv(.c) QtC.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
-        qtc.KFind_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KFind, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.KFind_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1166,9 +1166,9 @@ pub const kfind = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KFind, slot: fn () callconv(.c) i32 ```
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.KFind_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KFind, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.KFind_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1201,9 +1201,9 @@ pub const kfind = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KFind, slot: fn (self: QtC.KFind, signal: [*:0]const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KFind_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KFind, callback: *const fn (self: QtC.KFind, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
+        qtc.KFind_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1234,9 +1234,9 @@ pub const kfind = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KFind, slot: fn (self: QtC.KFind, signal: QtC.QMetaMethod) callconv(.c) bool ```
-    pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KFind_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KFind, callback: *const fn (self: QtC.KFind, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KFind_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1245,9 +1245,9 @@ pub const kfind = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KFind, slot: fn (self: QtC.KFind, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KFind, callback: *const fn (self: QtC.KFind, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kfind.html#dtor.KFind)

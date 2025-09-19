@@ -1,7 +1,7 @@
 #include <KCompositeJob>
-#define WORKAROUND_INNER_CLASS_DEFINITION_KIO__Job
+#include <KIO/Job>
 #define WORKAROUND_INNER_CLASS_DEFINITION_KIO__MkdirJob
-#define WORKAROUND_INNER_CLASS_DEFINITION_KIO__SimpleJob
+#include <KIO/SimpleJob>
 #include <KJob>
 #include <QList>
 #include <QMetaMethod>

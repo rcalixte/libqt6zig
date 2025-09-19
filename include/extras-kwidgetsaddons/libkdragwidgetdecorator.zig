@@ -40,9 +40,9 @@ pub const kdragwidgetdecoratorbase = struct {
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KDragWidgetDecoratorBase, slot: fn (self: QtC.KDragWidgetDecoratorBase, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
-        qtc.KDragWidgetDecoratorBase_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDragWidgetDecoratorBase, callback: *const fn (self: QtC.KDragWidgetDecoratorBase, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+        qtc.KDragWidgetDecoratorBase_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -89,9 +89,9 @@ pub const kdragwidgetdecoratorbase = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KDragWidgetDecoratorBase, slot: fn () callconv(.c) QtC.QWidget ```
-    pub fn OnDecoratedWidget(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QWidget) void {
-        qtc.KDragWidgetDecoratorBase_OnDecoratedWidget(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDragWidgetDecoratorBase, callback: *const fn () callconv(.c) QtC.QWidget ```
+    pub fn OnDecoratedWidget(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QWidget) void {
+        qtc.KDragWidgetDecoratorBase_OnDecoratedWidget(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kdragwidgetdecoratorbase.html#decoratedWidget)
@@ -114,9 +114,9 @@ pub const kdragwidgetdecoratorbase = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KDragWidgetDecoratorBase, slot: fn () callconv(.c) QtC.QDrag ```
-    pub fn OnDragObject(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QDrag) void {
-        qtc.KDragWidgetDecoratorBase_OnDragObject(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDragWidgetDecoratorBase, callback: *const fn () callconv(.c) QtC.QDrag ```
+    pub fn OnDragObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QDrag) void {
+        qtc.KDragWidgetDecoratorBase_OnDragObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kdragwidgetdecoratorbase.html#dragObject)
@@ -139,9 +139,9 @@ pub const kdragwidgetdecoratorbase = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KDragWidgetDecoratorBase, slot: fn (self: QtC.KDragWidgetDecoratorBase, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KDragWidgetDecoratorBase_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDragWidgetDecoratorBase, callback: *const fn (self: QtC.KDragWidgetDecoratorBase, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KDragWidgetDecoratorBase_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kdragwidgetdecoratorbase.html#eventFilter)
@@ -164,9 +164,9 @@ pub const kdragwidgetdecoratorbase = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KDragWidgetDecoratorBase, slot: fn () callconv(.c) void ```
-    pub fn OnStartDrag(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KDragWidgetDecoratorBase_OnStartDrag(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDragWidgetDecoratorBase, callback: *const fn () callconv(.c) void ```
+    pub fn OnStartDrag(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KDragWidgetDecoratorBase_OnStartDrag(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kdragwidgetdecoratorbase.html#startDrag)
@@ -492,9 +492,9 @@ pub const kdragwidgetdecoratorbase = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KDragWidgetDecoratorBase, slot: fn (self: QtC.KDragWidgetDecoratorBase) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDragWidgetDecoratorBase, callback: *const fn (self: QtC.KDragWidgetDecoratorBase) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -576,9 +576,9 @@ pub const kdragwidgetdecoratorbase = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KDragWidgetDecoratorBase, slot: fn (self: QtC.KDragWidgetDecoratorBase, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDragWidgetDecoratorBase, callback: *const fn (self: QtC.KDragWidgetDecoratorBase, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -609,9 +609,9 @@ pub const kdragwidgetdecoratorbase = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDragWidgetDecoratorBase, slot: fn (self: QtC.KDragWidgetDecoratorBase, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KDragWidgetDecoratorBase_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDragWidgetDecoratorBase, callback: *const fn (self: QtC.KDragWidgetDecoratorBase, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KDragWidgetDecoratorBase_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -642,9 +642,9 @@ pub const kdragwidgetdecoratorbase = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDragWidgetDecoratorBase, slot: fn (self: QtC.KDragWidgetDecoratorBase, event: QtC.QTimerEvent) callconv(.c) void ```
-    pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KDragWidgetDecoratorBase_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDragWidgetDecoratorBase, callback: *const fn (self: QtC.KDragWidgetDecoratorBase, event: QtC.QTimerEvent) callconv(.c) void ```
+    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KDragWidgetDecoratorBase_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -675,9 +675,9 @@ pub const kdragwidgetdecoratorbase = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDragWidgetDecoratorBase, slot: fn (self: QtC.KDragWidgetDecoratorBase, event: QtC.QChildEvent) callconv(.c) void ```
-    pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KDragWidgetDecoratorBase_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDragWidgetDecoratorBase, callback: *const fn (self: QtC.KDragWidgetDecoratorBase, event: QtC.QChildEvent) callconv(.c) void ```
+    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KDragWidgetDecoratorBase_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -708,9 +708,9 @@ pub const kdragwidgetdecoratorbase = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDragWidgetDecoratorBase, slot: fn (self: QtC.KDragWidgetDecoratorBase, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KDragWidgetDecoratorBase_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDragWidgetDecoratorBase, callback: *const fn (self: QtC.KDragWidgetDecoratorBase, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KDragWidgetDecoratorBase_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -741,9 +741,9 @@ pub const kdragwidgetdecoratorbase = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDragWidgetDecoratorBase, slot: fn (self: QtC.KDragWidgetDecoratorBase, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KDragWidgetDecoratorBase_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDragWidgetDecoratorBase, callback: *const fn (self: QtC.KDragWidgetDecoratorBase, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KDragWidgetDecoratorBase_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -774,9 +774,9 @@ pub const kdragwidgetdecoratorbase = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDragWidgetDecoratorBase, slot: fn (self: QtC.KDragWidgetDecoratorBase, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KDragWidgetDecoratorBase_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDragWidgetDecoratorBase, callback: *const fn (self: QtC.KDragWidgetDecoratorBase, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KDragWidgetDecoratorBase_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -807,9 +807,9 @@ pub const kdragwidgetdecoratorbase = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDragWidgetDecoratorBase, slot: fn () callconv(.c) QtC.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
-        qtc.KDragWidgetDecoratorBase_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDragWidgetDecoratorBase, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.KDragWidgetDecoratorBase_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -840,9 +840,9 @@ pub const kdragwidgetdecoratorbase = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDragWidgetDecoratorBase, slot: fn () callconv(.c) i32 ```
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.KDragWidgetDecoratorBase_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDragWidgetDecoratorBase, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.KDragWidgetDecoratorBase_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -875,9 +875,9 @@ pub const kdragwidgetdecoratorbase = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDragWidgetDecoratorBase, slot: fn (self: QtC.KDragWidgetDecoratorBase, signal: [*:0]const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KDragWidgetDecoratorBase_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDragWidgetDecoratorBase, callback: *const fn (self: QtC.KDragWidgetDecoratorBase, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
+        qtc.KDragWidgetDecoratorBase_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -908,9 +908,9 @@ pub const kdragwidgetdecoratorbase = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDragWidgetDecoratorBase, slot: fn (self: QtC.KDragWidgetDecoratorBase, signal: QtC.QMetaMethod) callconv(.c) bool ```
-    pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KDragWidgetDecoratorBase_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDragWidgetDecoratorBase, callback: *const fn (self: QtC.KDragWidgetDecoratorBase, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KDragWidgetDecoratorBase_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -919,9 +919,9 @@ pub const kdragwidgetdecoratorbase = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KDragWidgetDecoratorBase, slot: fn (self: QtC.KDragWidgetDecoratorBase, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDragWidgetDecoratorBase, callback: *const fn (self: QtC.KDragWidgetDecoratorBase, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kdragwidgetdecoratorbase.html#dtor.KDragWidgetDecoratorBase)

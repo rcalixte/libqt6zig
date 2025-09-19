@@ -17,12 +17,8 @@ extern "C" {
 #if defined(WORKAROUND_INNER_CLASS_DEFINITION_KIO__AuthInfo)
 typedef KIO::AuthInfo KIO__AuthInfo;
 #endif
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_KIO__MetaData)
 typedef KIO::MetaData KIO__MetaData;
-#endif
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_KIO__UDSEntry)
 typedef KIO::UDSEntry KIO__UDSEntry;
-#endif
 #if defined(WORKAROUND_INNER_CLASS_DEFINITION_KIO__WorkerBase)
 typedef KIO::WorkerBase KIO__WorkerBase;
 #endif

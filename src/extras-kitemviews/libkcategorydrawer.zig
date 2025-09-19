@@ -33,9 +33,9 @@ pub const kcategorydrawer = struct {
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KCategoryDrawer, slot: fn (self: QtC.KCategoryDrawer, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
-        qtc.KCategoryDrawer_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCategoryDrawer, callback: *const fn (self: QtC.KCategoryDrawer, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+        qtc.KCategoryDrawer_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -75,9 +75,9 @@ pub const kcategorydrawer = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KCategoryDrawer, slot: fn (self: QtC.KCategoryDrawer, index: QtC.QModelIndex, sortRole: i32, option: QtC.QStyleOption, painter: QtC.QPainter) callconv(.c) void ```
-    pub fn OnDrawCategory(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCategoryDrawer_OnDrawCategory(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCategoryDrawer, callback: *const fn (self: QtC.KCategoryDrawer, index: QtC.QModelIndex, sortRole: i32, option: QtC.QStyleOption, painter: QtC.QPainter) callconv(.c) void ```
+    pub fn OnDrawCategory(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCategoryDrawer_OnDrawCategory(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kcategorydrawer.html#drawCategory)
@@ -100,9 +100,9 @@ pub const kcategorydrawer = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KCategoryDrawer, slot: fn (self: QtC.KCategoryDrawer, index: QtC.QModelIndex, option: QtC.QStyleOption) callconv(.c) i32 ```
-    pub fn OnCategoryHeight(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.KCategoryDrawer_OnCategoryHeight(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCategoryDrawer, callback: *const fn (self: QtC.KCategoryDrawer, index: QtC.QModelIndex, option: QtC.QStyleOption) callconv(.c) i32 ```
+    pub fn OnCategoryHeight(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
+        qtc.KCategoryDrawer_OnCategoryHeight(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kcategorydrawer.html#categoryHeight)
@@ -125,9 +125,9 @@ pub const kcategorydrawer = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KCategoryDrawer, slot: fn () callconv(.c) i32 ```
-    pub fn OnLeftMargin(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.KCategoryDrawer_OnLeftMargin(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCategoryDrawer, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnLeftMargin(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.KCategoryDrawer_OnLeftMargin(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kcategorydrawer.html#leftMargin)
@@ -150,9 +150,9 @@ pub const kcategorydrawer = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KCategoryDrawer, slot: fn () callconv(.c) i32 ```
-    pub fn OnRightMargin(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.KCategoryDrawer_OnRightMargin(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCategoryDrawer, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnRightMargin(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.KCategoryDrawer_OnRightMargin(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kcategorydrawer.html#rightMargin)
@@ -173,9 +173,9 @@ pub const kcategorydrawer = struct {
 
     /// [Qt documentation](https://api.kde.org/kcategorydrawer.html#collapseOrExpandClicked)
     ///
-    /// ``` self: QtC.KCategoryDrawer, slot: fn (self: QtC.KCategoryDrawer, index: QtC.QModelIndex) callconv(.c) void ```
-    pub fn OnCollapseOrExpandClicked(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCategoryDrawer_Connect_CollapseOrExpandClicked(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCategoryDrawer, callback: *const fn (self: QtC.KCategoryDrawer, index: QtC.QModelIndex) callconv(.c) void ```
+    pub fn OnCollapseOrExpandClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCategoryDrawer_Connect_CollapseOrExpandClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kcategorydrawer.html#actionRequested)
@@ -187,9 +187,9 @@ pub const kcategorydrawer = struct {
 
     /// [Qt documentation](https://api.kde.org/kcategorydrawer.html#actionRequested)
     ///
-    /// ``` self: QtC.KCategoryDrawer, slot: fn (self: QtC.KCategoryDrawer, action: i32, index: QtC.QModelIndex) callconv(.c) void ```
-    pub fn OnActionRequested(self: ?*anyopaque, slot: fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCategoryDrawer_Connect_ActionRequested(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCategoryDrawer, callback: *const fn (self: QtC.KCategoryDrawer, action: i32, index: QtC.QModelIndex) callconv(.c) void ```
+    pub fn OnActionRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCategoryDrawer_Connect_ActionRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kcategorydrawer.html#mouseButtonPressed)
@@ -203,9 +203,9 @@ pub const kcategorydrawer = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KCategoryDrawer, slot: fn (self: QtC.KCategoryDrawer, index: QtC.QModelIndex, blockRect: QtC.QRect, event: QtC.QMouseEvent) callconv(.c) void ```
-    pub fn OnMouseButtonPressed(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCategoryDrawer_OnMouseButtonPressed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCategoryDrawer, callback: *const fn (self: QtC.KCategoryDrawer, index: QtC.QModelIndex, blockRect: QtC.QRect, event: QtC.QMouseEvent) callconv(.c) void ```
+    pub fn OnMouseButtonPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCategoryDrawer_OnMouseButtonPressed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kcategorydrawer.html#mouseButtonPressed)
@@ -228,9 +228,9 @@ pub const kcategorydrawer = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KCategoryDrawer, slot: fn (self: QtC.KCategoryDrawer, index: QtC.QModelIndex, blockRect: QtC.QRect, event: QtC.QMouseEvent) callconv(.c) void ```
-    pub fn OnMouseButtonReleased(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCategoryDrawer_OnMouseButtonReleased(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCategoryDrawer, callback: *const fn (self: QtC.KCategoryDrawer, index: QtC.QModelIndex, blockRect: QtC.QRect, event: QtC.QMouseEvent) callconv(.c) void ```
+    pub fn OnMouseButtonReleased(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCategoryDrawer_OnMouseButtonReleased(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kcategorydrawer.html#mouseButtonReleased)
@@ -253,9 +253,9 @@ pub const kcategorydrawer = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KCategoryDrawer, slot: fn (self: QtC.KCategoryDrawer, index: QtC.QModelIndex, blockRect: QtC.QRect, event: QtC.QMouseEvent) callconv(.c) void ```
-    pub fn OnMouseMoved(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCategoryDrawer_OnMouseMoved(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCategoryDrawer, callback: *const fn (self: QtC.KCategoryDrawer, index: QtC.QModelIndex, blockRect: QtC.QRect, event: QtC.QMouseEvent) callconv(.c) void ```
+    pub fn OnMouseMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCategoryDrawer_OnMouseMoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kcategorydrawer.html#mouseMoved)
@@ -278,9 +278,9 @@ pub const kcategorydrawer = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KCategoryDrawer, slot: fn (self: QtC.KCategoryDrawer, index: QtC.QModelIndex, blockRect: QtC.QRect, event: QtC.QMouseEvent) callconv(.c) void ```
-    pub fn OnMouseButtonDoubleClicked(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCategoryDrawer_OnMouseButtonDoubleClicked(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCategoryDrawer, callback: *const fn (self: QtC.KCategoryDrawer, index: QtC.QModelIndex, blockRect: QtC.QRect, event: QtC.QMouseEvent) callconv(.c) void ```
+    pub fn OnMouseButtonDoubleClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCategoryDrawer_OnMouseButtonDoubleClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kcategorydrawer.html#mouseButtonDoubleClicked)
@@ -303,9 +303,9 @@ pub const kcategorydrawer = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KCategoryDrawer, slot: fn (self: QtC.KCategoryDrawer, index: QtC.QModelIndex, blockRect: QtC.QRect) callconv(.c) void ```
-    pub fn OnMouseLeft(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCategoryDrawer_OnMouseLeft(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCategoryDrawer, callback: *const fn (self: QtC.KCategoryDrawer, index: QtC.QModelIndex, blockRect: QtC.QRect) callconv(.c) void ```
+    pub fn OnMouseLeft(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCategoryDrawer_OnMouseLeft(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kcategorydrawer.html#mouseLeft)
@@ -631,9 +631,9 @@ pub const kcategorydrawer = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KCategoryDrawer, slot: fn (self: QtC.KCategoryDrawer) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCategoryDrawer, callback: *const fn (self: QtC.KCategoryDrawer) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -715,9 +715,9 @@ pub const kcategorydrawer = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KCategoryDrawer, slot: fn (self: QtC.KCategoryDrawer, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCategoryDrawer, callback: *const fn (self: QtC.KCategoryDrawer, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -748,9 +748,9 @@ pub const kcategorydrawer = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCategoryDrawer, slot: fn (self: QtC.KCategoryDrawer, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KCategoryDrawer_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCategoryDrawer, callback: *const fn (self: QtC.KCategoryDrawer, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KCategoryDrawer_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -781,9 +781,9 @@ pub const kcategorydrawer = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCategoryDrawer, slot: fn (self: QtC.KCategoryDrawer, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KCategoryDrawer_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCategoryDrawer, callback: *const fn (self: QtC.KCategoryDrawer, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KCategoryDrawer_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -814,9 +814,9 @@ pub const kcategorydrawer = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCategoryDrawer, slot: fn (self: QtC.KCategoryDrawer, event: QtC.QTimerEvent) callconv(.c) void ```
-    pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCategoryDrawer_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCategoryDrawer, callback: *const fn (self: QtC.KCategoryDrawer, event: QtC.QTimerEvent) callconv(.c) void ```
+    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCategoryDrawer_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -847,9 +847,9 @@ pub const kcategorydrawer = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCategoryDrawer, slot: fn (self: QtC.KCategoryDrawer, event: QtC.QChildEvent) callconv(.c) void ```
-    pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCategoryDrawer_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCategoryDrawer, callback: *const fn (self: QtC.KCategoryDrawer, event: QtC.QChildEvent) callconv(.c) void ```
+    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCategoryDrawer_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -880,9 +880,9 @@ pub const kcategorydrawer = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCategoryDrawer, slot: fn (self: QtC.KCategoryDrawer, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCategoryDrawer_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCategoryDrawer, callback: *const fn (self: QtC.KCategoryDrawer, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCategoryDrawer_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -913,9 +913,9 @@ pub const kcategorydrawer = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCategoryDrawer, slot: fn (self: QtC.KCategoryDrawer, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCategoryDrawer_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCategoryDrawer, callback: *const fn (self: QtC.KCategoryDrawer, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCategoryDrawer_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -946,9 +946,9 @@ pub const kcategorydrawer = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCategoryDrawer, slot: fn (self: QtC.KCategoryDrawer, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCategoryDrawer_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCategoryDrawer, callback: *const fn (self: QtC.KCategoryDrawer, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCategoryDrawer_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -979,9 +979,9 @@ pub const kcategorydrawer = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCategoryDrawer, slot: fn () callconv(.c) QtC.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
-        qtc.KCategoryDrawer_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCategoryDrawer, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.KCategoryDrawer_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1012,9 +1012,9 @@ pub const kcategorydrawer = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCategoryDrawer, slot: fn () callconv(.c) i32 ```
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.KCategoryDrawer_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCategoryDrawer, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.KCategoryDrawer_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1047,9 +1047,9 @@ pub const kcategorydrawer = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCategoryDrawer, slot: fn (self: QtC.KCategoryDrawer, signal: [*:0]const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KCategoryDrawer_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCategoryDrawer, callback: *const fn (self: QtC.KCategoryDrawer, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
+        qtc.KCategoryDrawer_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1080,9 +1080,9 @@ pub const kcategorydrawer = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCategoryDrawer, slot: fn (self: QtC.KCategoryDrawer, signal: QtC.QMetaMethod) callconv(.c) bool ```
-    pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KCategoryDrawer_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCategoryDrawer, callback: *const fn (self: QtC.KCategoryDrawer, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KCategoryDrawer_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1091,9 +1091,9 @@ pub const kcategorydrawer = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KCategoryDrawer, slot: fn (self: QtC.KCategoryDrawer, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCategoryDrawer, callback: *const fn (self: QtC.KCategoryDrawer, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kcategorydrawer.html#dtor.KCategoryDrawer)

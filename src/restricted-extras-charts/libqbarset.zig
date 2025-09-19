@@ -50,9 +50,9 @@ pub const qbarset = struct {
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QBarSet, slot: fn (self: QtC.QBarSet, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QBarSet_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBarSet, callback: *const fn (self: QtC.QBarSet, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+        qtc.QBarSet_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -378,9 +378,9 @@ pub const qbarset = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#clicked)
     ///
-    /// ``` self: QtC.QBarSet, slot: fn (self: QtC.QBarSet, index: i32) callconv(.c) void ```
-    pub fn OnClicked(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QBarSet_Connect_Clicked(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBarSet, callback: *const fn (self: QtC.QBarSet, index: i32) callconv(.c) void ```
+    pub fn OnClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QBarSet_Connect_Clicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#hovered)
@@ -392,9 +392,9 @@ pub const qbarset = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#hovered)
     ///
-    /// ``` self: QtC.QBarSet, slot: fn (self: QtC.QBarSet, status: bool, index: i32) callconv(.c) void ```
-    pub fn OnHovered(self: ?*anyopaque, slot: fn (?*anyopaque, bool, i32) callconv(.c) void) void {
-        qtc.QBarSet_Connect_Hovered(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBarSet, callback: *const fn (self: QtC.QBarSet, status: bool, index: i32) callconv(.c) void ```
+    pub fn OnHovered(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool, i32) callconv(.c) void) void {
+        qtc.QBarSet_Connect_Hovered(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#pressed)
@@ -406,9 +406,9 @@ pub const qbarset = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#pressed)
     ///
-    /// ``` self: QtC.QBarSet, slot: fn (self: QtC.QBarSet, index: i32) callconv(.c) void ```
-    pub fn OnPressed(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QBarSet_Connect_Pressed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBarSet, callback: *const fn (self: QtC.QBarSet, index: i32) callconv(.c) void ```
+    pub fn OnPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QBarSet_Connect_Pressed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#released)
@@ -420,9 +420,9 @@ pub const qbarset = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#released)
     ///
-    /// ``` self: QtC.QBarSet, slot: fn (self: QtC.QBarSet, index: i32) callconv(.c) void ```
-    pub fn OnReleased(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QBarSet_Connect_Released(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBarSet, callback: *const fn (self: QtC.QBarSet, index: i32) callconv(.c) void ```
+    pub fn OnReleased(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QBarSet_Connect_Released(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#doubleClicked)
@@ -434,9 +434,9 @@ pub const qbarset = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#doubleClicked)
     ///
-    /// ``` self: QtC.QBarSet, slot: fn (self: QtC.QBarSet, index: i32) callconv(.c) void ```
-    pub fn OnDoubleClicked(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QBarSet_Connect_DoubleClicked(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBarSet, callback: *const fn (self: QtC.QBarSet, index: i32) callconv(.c) void ```
+    pub fn OnDoubleClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QBarSet_Connect_DoubleClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#penChanged)
@@ -448,9 +448,9 @@ pub const qbarset = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#penChanged)
     ///
-    /// ``` self: QtC.QBarSet, slot: fn (self: QtC.QBarSet) callconv(.c) void ```
-    pub fn OnPenChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QBarSet_Connect_PenChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBarSet, callback: *const fn (self: QtC.QBarSet) callconv(.c) void ```
+    pub fn OnPenChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QBarSet_Connect_PenChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#brushChanged)
@@ -462,9 +462,9 @@ pub const qbarset = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#brushChanged)
     ///
-    /// ``` self: QtC.QBarSet, slot: fn (self: QtC.QBarSet) callconv(.c) void ```
-    pub fn OnBrushChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QBarSet_Connect_BrushChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBarSet, callback: *const fn (self: QtC.QBarSet) callconv(.c) void ```
+    pub fn OnBrushChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QBarSet_Connect_BrushChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#labelChanged)
@@ -476,9 +476,9 @@ pub const qbarset = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#labelChanged)
     ///
-    /// ``` self: QtC.QBarSet, slot: fn (self: QtC.QBarSet) callconv(.c) void ```
-    pub fn OnLabelChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QBarSet_Connect_LabelChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBarSet, callback: *const fn (self: QtC.QBarSet) callconv(.c) void ```
+    pub fn OnLabelChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QBarSet_Connect_LabelChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#labelBrushChanged)
@@ -490,9 +490,9 @@ pub const qbarset = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#labelBrushChanged)
     ///
-    /// ``` self: QtC.QBarSet, slot: fn (self: QtC.QBarSet) callconv(.c) void ```
-    pub fn OnLabelBrushChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QBarSet_Connect_LabelBrushChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBarSet, callback: *const fn (self: QtC.QBarSet) callconv(.c) void ```
+    pub fn OnLabelBrushChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QBarSet_Connect_LabelBrushChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#labelFontChanged)
@@ -504,9 +504,9 @@ pub const qbarset = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#labelFontChanged)
     ///
-    /// ``` self: QtC.QBarSet, slot: fn (self: QtC.QBarSet) callconv(.c) void ```
-    pub fn OnLabelFontChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QBarSet_Connect_LabelFontChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBarSet, callback: *const fn (self: QtC.QBarSet) callconv(.c) void ```
+    pub fn OnLabelFontChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QBarSet_Connect_LabelFontChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#colorChanged)
@@ -518,9 +518,9 @@ pub const qbarset = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#colorChanged)
     ///
-    /// ``` self: QtC.QBarSet, slot: fn (self: QtC.QBarSet, color: QtC.QColor) callconv(.c) void ```
-    pub fn OnColorChanged(self: ?*anyopaque, slot: fn (?*anyopaque, QtC.QColor) callconv(.c) void) void {
-        qtc.QBarSet_Connect_ColorChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBarSet, callback: *const fn (self: QtC.QBarSet, color: QtC.QColor) callconv(.c) void ```
+    pub fn OnColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QColor) callconv(.c) void) void {
+        qtc.QBarSet_Connect_ColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#borderColorChanged)
@@ -532,9 +532,9 @@ pub const qbarset = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#borderColorChanged)
     ///
-    /// ``` self: QtC.QBarSet, slot: fn (self: QtC.QBarSet, color: QtC.QColor) callconv(.c) void ```
-    pub fn OnBorderColorChanged(self: ?*anyopaque, slot: fn (?*anyopaque, QtC.QColor) callconv(.c) void) void {
-        qtc.QBarSet_Connect_BorderColorChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBarSet, callback: *const fn (self: QtC.QBarSet, color: QtC.QColor) callconv(.c) void ```
+    pub fn OnBorderColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QColor) callconv(.c) void) void {
+        qtc.QBarSet_Connect_BorderColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#labelColorChanged)
@@ -546,9 +546,9 @@ pub const qbarset = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#labelColorChanged)
     ///
-    /// ``` self: QtC.QBarSet, slot: fn (self: QtC.QBarSet, color: QtC.QColor) callconv(.c) void ```
-    pub fn OnLabelColorChanged(self: ?*anyopaque, slot: fn (?*anyopaque, QtC.QColor) callconv(.c) void) void {
-        qtc.QBarSet_Connect_LabelColorChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBarSet, callback: *const fn (self: QtC.QBarSet, color: QtC.QColor) callconv(.c) void ```
+    pub fn OnLabelColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QColor) callconv(.c) void) void {
+        qtc.QBarSet_Connect_LabelColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#selectedColorChanged)
@@ -560,9 +560,9 @@ pub const qbarset = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#selectedColorChanged)
     ///
-    /// ``` self: QtC.QBarSet, slot: fn (self: QtC.QBarSet, color: QtC.QColor) callconv(.c) void ```
-    pub fn OnSelectedColorChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QBarSet_Connect_SelectedColorChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBarSet, callback: *const fn (self: QtC.QBarSet, color: QtC.QColor) callconv(.c) void ```
+    pub fn OnSelectedColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QBarSet_Connect_SelectedColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#valuesAdded)
@@ -574,9 +574,9 @@ pub const qbarset = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#valuesAdded)
     ///
-    /// ``` self: QtC.QBarSet, slot: fn (self: QtC.QBarSet, index: i32, count: i32) callconv(.c) void ```
-    pub fn OnValuesAdded(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QBarSet_Connect_ValuesAdded(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBarSet, callback: *const fn (self: QtC.QBarSet, index: i32, count: i32) callconv(.c) void ```
+    pub fn OnValuesAdded(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
+        qtc.QBarSet_Connect_ValuesAdded(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#valuesRemoved)
@@ -588,9 +588,9 @@ pub const qbarset = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#valuesRemoved)
     ///
-    /// ``` self: QtC.QBarSet, slot: fn (self: QtC.QBarSet, index: i32, count: i32) callconv(.c) void ```
-    pub fn OnValuesRemoved(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QBarSet_Connect_ValuesRemoved(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBarSet, callback: *const fn (self: QtC.QBarSet, index: i32, count: i32) callconv(.c) void ```
+    pub fn OnValuesRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
+        qtc.QBarSet_Connect_ValuesRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#valueChanged)
@@ -602,9 +602,9 @@ pub const qbarset = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#valueChanged)
     ///
-    /// ``` self: QtC.QBarSet, slot: fn (self: QtC.QBarSet, index: i32) callconv(.c) void ```
-    pub fn OnValueChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QBarSet_Connect_ValueChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBarSet, callback: *const fn (self: QtC.QBarSet, index: i32) callconv(.c) void ```
+    pub fn OnValueChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QBarSet_Connect_ValueChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#selectedBarsChanged)
@@ -620,9 +620,9 @@ pub const qbarset = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#selectedBarsChanged)
     ///
-    /// ``` self: QtC.QBarSet, slot: fn (self: QtC.QBarSet, indexes: [*:-1]i32) callconv(.c) void ```
-    pub fn OnSelectedBarsChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:-1]i32) callconv(.c) void) void {
-        qtc.QBarSet_Connect_SelectedBarsChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBarSet, callback: *const fn (self: QtC.QBarSet, indexes: [*:-1]i32) callconv(.c) void ```
+    pub fn OnSelectedBarsChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:-1]i32) callconv(.c) void) void {
+        qtc.QBarSet_Connect_SelectedBarsChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -946,9 +946,9 @@ pub const qbarset = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QBarSet, slot: fn (self: QtC.QBarSet) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBarSet, callback: *const fn (self: QtC.QBarSet) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1030,9 +1030,9 @@ pub const qbarset = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QBarSet, slot: fn (self: QtC.QBarSet, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBarSet, callback: *const fn (self: QtC.QBarSet, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1063,9 +1063,9 @@ pub const qbarset = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBarSet, slot: fn (self: QtC.QBarSet, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QBarSet_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBarSet, callback: *const fn (self: QtC.QBarSet, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QBarSet_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1096,9 +1096,9 @@ pub const qbarset = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBarSet, slot: fn (self: QtC.QBarSet, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QBarSet_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBarSet, callback: *const fn (self: QtC.QBarSet, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QBarSet_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1129,9 +1129,9 @@ pub const qbarset = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBarSet, slot: fn (self: QtC.QBarSet, event: QtC.QTimerEvent) callconv(.c) void ```
-    pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QBarSet_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBarSet, callback: *const fn (self: QtC.QBarSet, event: QtC.QTimerEvent) callconv(.c) void ```
+    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QBarSet_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1162,9 +1162,9 @@ pub const qbarset = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBarSet, slot: fn (self: QtC.QBarSet, event: QtC.QChildEvent) callconv(.c) void ```
-    pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QBarSet_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBarSet, callback: *const fn (self: QtC.QBarSet, event: QtC.QChildEvent) callconv(.c) void ```
+    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QBarSet_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1195,9 +1195,9 @@ pub const qbarset = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBarSet, slot: fn (self: QtC.QBarSet, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QBarSet_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBarSet, callback: *const fn (self: QtC.QBarSet, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QBarSet_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1228,9 +1228,9 @@ pub const qbarset = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBarSet, slot: fn (self: QtC.QBarSet, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QBarSet_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBarSet, callback: *const fn (self: QtC.QBarSet, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QBarSet_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1261,9 +1261,9 @@ pub const qbarset = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBarSet, slot: fn (self: QtC.QBarSet, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QBarSet_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBarSet, callback: *const fn (self: QtC.QBarSet, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QBarSet_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1294,9 +1294,9 @@ pub const qbarset = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBarSet, slot: fn () callconv(.c) QtC.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
-        qtc.QBarSet_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBarSet, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.QBarSet_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1327,9 +1327,9 @@ pub const qbarset = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBarSet, slot: fn () callconv(.c) i32 ```
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QBarSet_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBarSet, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QBarSet_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1362,9 +1362,9 @@ pub const qbarset = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBarSet, slot: fn (self: QtC.QBarSet, signal: [*:0]const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QBarSet_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBarSet, callback: *const fn (self: QtC.QBarSet, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QBarSet_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1395,9 +1395,9 @@ pub const qbarset = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBarSet, slot: fn (self: QtC.QBarSet, signal: QtC.QMetaMethod) callconv(.c) bool ```
-    pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QBarSet_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBarSet, callback: *const fn (self: QtC.QBarSet, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QBarSet_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1406,9 +1406,9 @@ pub const qbarset = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QBarSet, slot: fn (self: QtC.QBarSet, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBarSet, callback: *const fn (self: QtC.QBarSet, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbarset-qtcharts.html#dtor.QBarSet)

@@ -224,9 +224,9 @@ pub const qtreewidgetitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTreeWidgetItem, slot: fn () callconv(.c) QtC.QTreeWidgetItem ```
-    pub fn OnClone(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QTreeWidgetItem) void {
-        qtc.QTreeWidgetItem_OnClone(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidgetItem, callback: *const fn () callconv(.c) QtC.QTreeWidgetItem ```
+    pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QTreeWidgetItem) void {
+        qtc.QTreeWidgetItem_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtreewidgetitem.html#clone)
@@ -560,9 +560,9 @@ pub const qtreewidgetitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTreeWidgetItem, slot: fn (self: QtC.QTreeWidgetItem, column: i32, role: i32) callconv(.c) QtC.QVariant ```
-    pub fn OnData(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32) callconv(.c) QtC.QVariant) void {
-        qtc.QTreeWidgetItem_OnData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidgetItem, callback: *const fn (self: QtC.QTreeWidgetItem, column: i32, role: i32) callconv(.c) QtC.QVariant ```
+    pub fn OnData(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) QtC.QVariant) void {
+        qtc.QTreeWidgetItem_OnData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtreewidgetitem.html#data)
@@ -585,9 +585,9 @@ pub const qtreewidgetitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTreeWidgetItem, slot: fn (self: QtC.QTreeWidgetItem, column: i32, role: i32, value: QtC.QVariant) callconv(.c) void ```
-    pub fn OnSetData(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeWidgetItem_OnSetData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidgetItem, callback: *const fn (self: QtC.QTreeWidgetItem, column: i32, role: i32, value: QtC.QVariant) callconv(.c) void ```
+    pub fn OnSetData(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTreeWidgetItem_OnSetData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtreewidgetitem.html#setData)
@@ -610,9 +610,9 @@ pub const qtreewidgetitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTreeWidgetItem, slot: fn (self: QtC.QTreeWidgetItem, other: QtC.QTreeWidgetItem) callconv(.c) bool ```
-    pub fn OnOperatorLesser(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QTreeWidgetItem_OnOperatorLesser(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidgetItem, callback: *const fn (self: QtC.QTreeWidgetItem, other: QtC.QTreeWidgetItem) callconv(.c) bool ```
+    pub fn OnOperatorLesser(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QTreeWidgetItem_OnOperatorLesser(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtreewidgetitem.html#operator-lt)
@@ -635,9 +635,9 @@ pub const qtreewidgetitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTreeWidgetItem, slot: fn (self: QtC.QTreeWidgetItem, in: QtC.QDataStream) callconv(.c) void ```
-    pub fn OnRead(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeWidgetItem_OnRead(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidgetItem, callback: *const fn (self: QtC.QTreeWidgetItem, in: QtC.QDataStream) callconv(.c) void ```
+    pub fn OnRead(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTreeWidgetItem_OnRead(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtreewidgetitem.html#read)
@@ -660,9 +660,9 @@ pub const qtreewidgetitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTreeWidgetItem, slot: fn (self: QtC.QTreeWidgetItem, out: QtC.QDataStream) callconv(.c) void ```
-    pub fn OnWrite(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeWidgetItem_OnWrite(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidgetItem, callback: *const fn (self: QtC.QTreeWidgetItem, out: QtC.QDataStream) callconv(.c) void ```
+    pub fn OnWrite(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTreeWidgetItem_OnWrite(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtreewidgetitem.html#write)
@@ -803,9 +803,9 @@ pub const qtreewidgetitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTreeWidgetItem, slot: fn () callconv(.c) void ```
-    pub fn OnEmitDataChanged(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QTreeWidgetItem_OnEmitDataChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidgetItem, callback: *const fn () callconv(.c) void ```
+    pub fn OnEmitDataChanged(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QTreeWidgetItem_OnEmitDataChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtreewidgetitem.html#emitDataChanged)
@@ -863,9 +863,9 @@ pub const qtreewidget = struct {
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QTreeWidget_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+        qtc.QTreeWidget_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -1202,9 +1202,9 @@ pub const qtreewidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, selectionModel: QtC.QItemSelectionModel) callconv(.c) void ```
-    pub fn OnSetSelectionModel(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeWidget_OnSetSelectionModel(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, selectionModel: QtC.QItemSelectionModel) callconv(.c) void ```
+    pub fn OnSetSelectionModel(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTreeWidget_OnSetSelectionModel(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtreewidget.html#setSelectionModel)
@@ -1253,9 +1253,9 @@ pub const qtreewidget = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtreewidget.html#itemPressed)
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, item: QtC.QTreeWidgetItem, column: i32) callconv(.c) void ```
-    pub fn OnItemPressed(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QTreeWidget_Connect_ItemPressed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, item: QtC.QTreeWidgetItem, column: i32) callconv(.c) void ```
+    pub fn OnItemPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QTreeWidget_Connect_ItemPressed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtreewidget.html#itemClicked)
@@ -1267,9 +1267,9 @@ pub const qtreewidget = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtreewidget.html#itemClicked)
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, item: QtC.QTreeWidgetItem, column: i32) callconv(.c) void ```
-    pub fn OnItemClicked(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QTreeWidget_Connect_ItemClicked(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, item: QtC.QTreeWidgetItem, column: i32) callconv(.c) void ```
+    pub fn OnItemClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QTreeWidget_Connect_ItemClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtreewidget.html#itemDoubleClicked)
@@ -1281,9 +1281,9 @@ pub const qtreewidget = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtreewidget.html#itemDoubleClicked)
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, item: QtC.QTreeWidgetItem, column: i32) callconv(.c) void ```
-    pub fn OnItemDoubleClicked(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QTreeWidget_Connect_ItemDoubleClicked(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, item: QtC.QTreeWidgetItem, column: i32) callconv(.c) void ```
+    pub fn OnItemDoubleClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QTreeWidget_Connect_ItemDoubleClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtreewidget.html#itemActivated)
@@ -1295,9 +1295,9 @@ pub const qtreewidget = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtreewidget.html#itemActivated)
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, item: QtC.QTreeWidgetItem, column: i32) callconv(.c) void ```
-    pub fn OnItemActivated(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QTreeWidget_Connect_ItemActivated(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, item: QtC.QTreeWidgetItem, column: i32) callconv(.c) void ```
+    pub fn OnItemActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QTreeWidget_Connect_ItemActivated(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtreewidget.html#itemEntered)
@@ -1309,9 +1309,9 @@ pub const qtreewidget = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtreewidget.html#itemEntered)
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, item: QtC.QTreeWidgetItem, column: i32) callconv(.c) void ```
-    pub fn OnItemEntered(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QTreeWidget_Connect_ItemEntered(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, item: QtC.QTreeWidgetItem, column: i32) callconv(.c) void ```
+    pub fn OnItemEntered(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QTreeWidget_Connect_ItemEntered(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtreewidget.html#itemChanged)
@@ -1323,9 +1323,9 @@ pub const qtreewidget = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtreewidget.html#itemChanged)
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, item: QtC.QTreeWidgetItem, column: i32) callconv(.c) void ```
-    pub fn OnItemChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QTreeWidget_Connect_ItemChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, item: QtC.QTreeWidgetItem, column: i32) callconv(.c) void ```
+    pub fn OnItemChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QTreeWidget_Connect_ItemChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtreewidget.html#itemExpanded)
@@ -1337,9 +1337,9 @@ pub const qtreewidget = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtreewidget.html#itemExpanded)
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, item: QtC.QTreeWidgetItem) callconv(.c) void ```
-    pub fn OnItemExpanded(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeWidget_Connect_ItemExpanded(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, item: QtC.QTreeWidgetItem) callconv(.c) void ```
+    pub fn OnItemExpanded(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTreeWidget_Connect_ItemExpanded(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtreewidget.html#itemCollapsed)
@@ -1351,9 +1351,9 @@ pub const qtreewidget = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtreewidget.html#itemCollapsed)
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, item: QtC.QTreeWidgetItem) callconv(.c) void ```
-    pub fn OnItemCollapsed(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeWidget_Connect_ItemCollapsed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, item: QtC.QTreeWidgetItem) callconv(.c) void ```
+    pub fn OnItemCollapsed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTreeWidget_Connect_ItemCollapsed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtreewidget.html#currentItemChanged)
@@ -1365,9 +1365,9 @@ pub const qtreewidget = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtreewidget.html#currentItemChanged)
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, current: QtC.QTreeWidgetItem, previous: QtC.QTreeWidgetItem) callconv(.c) void ```
-    pub fn OnCurrentItemChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeWidget_Connect_CurrentItemChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, current: QtC.QTreeWidgetItem, previous: QtC.QTreeWidgetItem) callconv(.c) void ```
+    pub fn OnCurrentItemChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTreeWidget_Connect_CurrentItemChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtreewidget.html#itemSelectionChanged)
@@ -1379,9 +1379,9 @@ pub const qtreewidget = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtreewidget.html#itemSelectionChanged)
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget) callconv(.c) void ```
-    pub fn OnItemSelectionChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeWidget_Connect_ItemSelectionChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget) callconv(.c) void ```
+    pub fn OnItemSelectionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QTreeWidget_Connect_ItemSelectionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtreewidget.html#event)
@@ -1395,9 +1395,9 @@ pub const qtreewidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, e: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QTreeWidget_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, e: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QTreeWidget_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtreewidget.html#event)
@@ -1435,9 +1435,9 @@ pub const qtreewidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn () callconv(.c) [*][*:0]const u8 ```
-    pub fn OnMimeTypes(self: ?*anyopaque, slot: fn () callconv(.c) [*][*:0]const u8) void {
-        qtc.QTreeWidget_OnMimeTypes(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn () callconv(.c) [*][*:0]const u8 ```
+    pub fn OnMimeTypes(self: ?*anyopaque, callback: *const fn () callconv(.c) [*][*:0]const u8) void {
+        qtc.QTreeWidget_OnMimeTypes(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtreewidget.html#mimeTypes)
@@ -1479,9 +1479,9 @@ pub const qtreewidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, items: [*]QtC.QTreeWidgetItem) callconv(.c) QtC.QMimeData ```
-    pub fn OnMimeData(self: ?*anyopaque, slot: fn (?*anyopaque, [*]?*anyopaque) callconv(.c) QtC.QMimeData) void {
-        qtc.QTreeWidget_OnMimeData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, items: [*]QtC.QTreeWidgetItem) callconv(.c) QtC.QMimeData ```
+    pub fn OnMimeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]?*anyopaque) callconv(.c) QtC.QMimeData) void {
+        qtc.QTreeWidget_OnMimeData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtreewidget.html#mimeData)
@@ -1508,9 +1508,9 @@ pub const qtreewidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, parent: QtC.QTreeWidgetItem, index: i32, data: QtC.QMimeData, action: qnamespace_enums.DropAction) callconv(.c) bool ```
-    pub fn OnDropMimeData(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QTreeWidget_OnDropMimeData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, parent: QtC.QTreeWidgetItem, index: i32, data: QtC.QMimeData, action: qnamespace_enums.DropAction) callconv(.c) bool ```
+    pub fn OnDropMimeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, ?*anyopaque, i32) callconv(.c) bool) void {
+        qtc.QTreeWidget_OnDropMimeData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtreewidget.html#dropMimeData)
@@ -1535,9 +1535,9 @@ pub const qtreewidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn () callconv(.c) i32 ```
-    pub fn OnSupportedDropActions(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QTreeWidget_OnSupportedDropActions(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSupportedDropActions(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QTreeWidget_OnSupportedDropActions(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtreewidget.html#supportedDropActions)
@@ -1562,9 +1562,9 @@ pub const qtreewidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, event: QtC.QDropEvent) callconv(.c) void ```
-    pub fn OnDropEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeWidget_OnDropEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, event: QtC.QDropEvent) callconv(.c) void ```
+    pub fn OnDropEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTreeWidget_OnDropEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtreewidget.html#dropEvent)
@@ -1675,9 +1675,9 @@ pub const qtreewidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, model: QtC.QAbstractItemModel) callconv(.c) void ```
-    pub fn OnSetModel(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeView_OnSetModel(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, model: QtC.QAbstractItemModel) callconv(.c) void ```
+    pub fn OnSetModel(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTreeView_OnSetModel(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTreeView
@@ -2073,9 +2073,9 @@ pub const qtreewidget = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtreeview.html#expanded)
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, index: QtC.QModelIndex) callconv(.c) void ```
-    pub fn OnExpanded(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeView_Connect_Expanded(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, index: QtC.QModelIndex) callconv(.c) void ```
+    pub fn OnExpanded(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTreeView_Connect_Expanded(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTreeView
@@ -2091,9 +2091,9 @@ pub const qtreewidget = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtreeview.html#collapsed)
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, index: QtC.QModelIndex) callconv(.c) void ```
-    pub fn OnCollapsed(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeView_Connect_Collapsed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, index: QtC.QModelIndex) callconv(.c) void ```
+    pub fn OnCollapsed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTreeView_Connect_Collapsed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTreeView
@@ -2710,9 +2710,9 @@ pub const qtreewidget = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#pressed)
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, index: QtC.QModelIndex) callconv(.c) void ```
-    pub fn OnPressed(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_Connect_Pressed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, index: QtC.QModelIndex) callconv(.c) void ```
+    pub fn OnPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractItemView_Connect_Pressed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -2728,9 +2728,9 @@ pub const qtreewidget = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#clicked)
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, index: QtC.QModelIndex) callconv(.c) void ```
-    pub fn OnClicked(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_Connect_Clicked(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, index: QtC.QModelIndex) callconv(.c) void ```
+    pub fn OnClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractItemView_Connect_Clicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -2746,9 +2746,9 @@ pub const qtreewidget = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#doubleClicked)
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, index: QtC.QModelIndex) callconv(.c) void ```
-    pub fn OnDoubleClicked(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_Connect_DoubleClicked(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, index: QtC.QModelIndex) callconv(.c) void ```
+    pub fn OnDoubleClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractItemView_Connect_DoubleClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -2764,9 +2764,9 @@ pub const qtreewidget = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#activated)
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, index: QtC.QModelIndex) callconv(.c) void ```
-    pub fn OnActivated(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_Connect_Activated(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, index: QtC.QModelIndex) callconv(.c) void ```
+    pub fn OnActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractItemView_Connect_Activated(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -2782,9 +2782,9 @@ pub const qtreewidget = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#entered)
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, index: QtC.QModelIndex) callconv(.c) void ```
-    pub fn OnEntered(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_Connect_Entered(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, index: QtC.QModelIndex) callconv(.c) void ```
+    pub fn OnEntered(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractItemView_Connect_Entered(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -2800,9 +2800,9 @@ pub const qtreewidget = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#viewportEntered)
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget) callconv(.c) void ```
-    pub fn OnViewportEntered(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_Connect_ViewportEntered(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget) callconv(.c) void ```
+    pub fn OnViewportEntered(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractItemView_Connect_ViewportEntered(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -2818,9 +2818,9 @@ pub const qtreewidget = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemview.html#iconSizeChanged)
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, size: QtC.QSize) callconv(.c) void ```
-    pub fn OnIconSizeChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemView_Connect_IconSizeChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, size: QtC.QSize) callconv(.c) void ```
+    pub fn OnIconSizeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractItemView_Connect_IconSizeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -5474,9 +5474,9 @@ pub const qtreewidget = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, title: [*:0]const u8) callconv(.c) void ```
-    pub fn OnWindowTitleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, title: [*:0]const u8) callconv(.c) void ```
+    pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5492,9 +5492,9 @@ pub const qtreewidget = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, icon: QtC.QIcon) callconv(.c) void ```
-    pub fn OnWindowIconChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, icon: QtC.QIcon) callconv(.c) void ```
+    pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5514,9 +5514,9 @@ pub const qtreewidget = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, iconText: [*:0]const u8) callconv(.c) void ```
-    pub fn OnWindowIconTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, iconText: [*:0]const u8) callconv(.c) void ```
+    pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5532,9 +5532,9 @@ pub const qtreewidget = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, pos: QtC.QPoint) callconv(.c) void ```
-    pub fn OnCustomContextMenuRequested(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, pos: QtC.QPoint) callconv(.c) void ```
+    pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5971,9 +5971,9 @@ pub const qtreewidget = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6055,9 +6055,9 @@ pub const qtreewidget = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -6205,9 +6205,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, index: QtC.QModelIndex) callconv(.c) void ```
-    pub fn OnSetRootIndex(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeWidget_OnSetRootIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, index: QtC.QModelIndex) callconv(.c) void ```
+    pub fn OnSetRootIndex(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTreeWidget_OnSetRootIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTreeView
@@ -6246,9 +6246,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, search: [*:0]const u8) callconv(.c) void ```
-    pub fn OnKeyboardSearch(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QTreeWidget_OnKeyboardSearch(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, search: [*:0]const u8) callconv(.c) void ```
+    pub fn OnKeyboardSearch(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QTreeWidget_OnKeyboardSearch(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTreeView
@@ -6279,9 +6279,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, index: QtC.QModelIndex) callconv(.c) QtC.QRect ```
-    pub fn OnVisualRect(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QRect) void {
-        qtc.QTreeWidget_OnVisualRect(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, index: QtC.QModelIndex) callconv(.c) QtC.QRect ```
+    pub fn OnVisualRect(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QRect) void {
+        qtc.QTreeWidget_OnVisualRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTreeView
@@ -6312,9 +6312,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, index: QtC.QModelIndex, hint: qabstractitemview_enums.ScrollHint) callconv(.c) void ```
-    pub fn OnScrollTo(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QTreeWidget_OnScrollTo(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, index: QtC.QModelIndex, hint: qabstractitemview_enums.ScrollHint) callconv(.c) void ```
+    pub fn OnScrollTo(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QTreeWidget_OnScrollTo(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTreeView
@@ -6345,9 +6345,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, p: QtC.QPoint) callconv(.c) QtC.QModelIndex ```
-    pub fn OnIndexAt(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QModelIndex) void {
-        qtc.QTreeWidget_OnIndexAt(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, p: QtC.QPoint) callconv(.c) QtC.QModelIndex ```
+    pub fn OnIndexAt(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QModelIndex) void {
+        qtc.QTreeWidget_OnIndexAt(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTreeView
@@ -6378,9 +6378,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn () callconv(.c) void ```
-    pub fn OnDoItemsLayout(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QTreeWidget_OnDoItemsLayout(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn () callconv(.c) void ```
+    pub fn OnDoItemsLayout(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QTreeWidget_OnDoItemsLayout(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTreeView
@@ -6411,9 +6411,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn () callconv(.c) void ```
-    pub fn OnReset(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QTreeWidget_OnReset(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn () callconv(.c) void ```
+    pub fn OnReset(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QTreeWidget_OnReset(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTreeView
@@ -6452,9 +6452,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: [*:-1]i32) callconv(.c) void ```
-    pub fn OnDataChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, [*:-1]i32) callconv(.c) void) void {
-        qtc.QTreeWidget_OnDataChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: [*:-1]i32) callconv(.c) void ```
+    pub fn OnDataChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, [*:-1]i32) callconv(.c) void) void {
+        qtc.QTreeWidget_OnDataChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTreeView
@@ -6485,9 +6485,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn () callconv(.c) void ```
-    pub fn OnSelectAll(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QTreeWidget_OnSelectAll(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn () callconv(.c) void ```
+    pub fn OnSelectAll(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QTreeWidget_OnSelectAll(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTreeView
@@ -6518,9 +6518,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, value: i32) callconv(.c) void ```
-    pub fn OnVerticalScrollbarValueChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QTreeWidget_OnVerticalScrollbarValueChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, value: i32) callconv(.c) void ```
+    pub fn OnVerticalScrollbarValueChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QTreeWidget_OnVerticalScrollbarValueChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTreeView
@@ -6551,9 +6551,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, dx: i32, dy: i32) callconv(.c) void ```
-    pub fn OnScrollContentsBy(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QTreeWidget_OnScrollContentsBy(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, dx: i32, dy: i32) callconv(.c) void ```
+    pub fn OnScrollContentsBy(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
+        qtc.QTreeWidget_OnScrollContentsBy(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTreeView
@@ -6584,9 +6584,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, parent: QtC.QModelIndex, start: i32, end: i32) callconv(.c) void ```
-    pub fn OnRowsInserted(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QTreeWidget_OnRowsInserted(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, parent: QtC.QModelIndex, start: i32, end: i32) callconv(.c) void ```
+    pub fn OnRowsInserted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
+        qtc.QTreeWidget_OnRowsInserted(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTreeView
@@ -6617,9 +6617,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, parent: QtC.QModelIndex, start: i32, end: i32) callconv(.c) void ```
-    pub fn OnRowsAboutToBeRemoved(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QTreeWidget_OnRowsAboutToBeRemoved(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, parent: QtC.QModelIndex, start: i32, end: i32) callconv(.c) void ```
+    pub fn OnRowsAboutToBeRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
+        qtc.QTreeWidget_OnRowsAboutToBeRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTreeView
@@ -6650,9 +6650,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, cursorAction: qabstractitemview_enums.CursorAction, modifiers: flag of qnamespace_enums.KeyboardModifier) callconv(.c) QtC.QModelIndex ```
-    pub fn OnMoveCursor(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i64) callconv(.c) QtC.QModelIndex) void {
-        qtc.QTreeWidget_OnMoveCursor(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, cursorAction: qabstractitemview_enums.CursorAction, modifiers: flag of qnamespace_enums.KeyboardModifier) callconv(.c) QtC.QModelIndex ```
+    pub fn OnMoveCursor(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i64) callconv(.c) QtC.QModelIndex) void {
+        qtc.QTreeWidget_OnMoveCursor(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTreeView
@@ -6683,9 +6683,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn () callconv(.c) i32 ```
-    pub fn OnHorizontalOffset(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QTreeWidget_OnHorizontalOffset(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnHorizontalOffset(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QTreeWidget_OnHorizontalOffset(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTreeView
@@ -6716,9 +6716,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn () callconv(.c) i32 ```
-    pub fn OnVerticalOffset(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QTreeWidget_OnVerticalOffset(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnVerticalOffset(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QTreeWidget_OnVerticalOffset(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTreeView
@@ -6749,9 +6749,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, rect: QtC.QRect, command: flag of qitemselectionmodel_enums.SelectionFlag) callconv(.c) void ```
-    pub fn OnSetSelection(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QTreeWidget_OnSetSelection(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, rect: QtC.QRect, command: flag of qitemselectionmodel_enums.SelectionFlag) callconv(.c) void ```
+    pub fn OnSetSelection(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QTreeWidget_OnSetSelection(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTreeView
@@ -6782,9 +6782,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, selection: QtC.QItemSelection) callconv(.c) QtC.QRegion ```
-    pub fn OnVisualRegionForSelection(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QRegion) void {
-        qtc.QTreeWidget_OnVisualRegionForSelection(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, selection: QtC.QItemSelection) callconv(.c) QtC.QRegion ```
+    pub fn OnVisualRegionForSelection(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QRegion) void {
+        qtc.QTreeWidget_OnVisualRegionForSelection(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTreeView
@@ -6825,9 +6825,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn () callconv(.c) [*:null]QtC.QModelIndex ```
-    pub fn OnSelectedIndexes(self: ?*anyopaque, slot: fn () callconv(.c) [*:null]QtC.QModelIndex) void {
-        qtc.QTreeWidget_OnSelectedIndexes(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn () callconv(.c) [*:null]QtC.QModelIndex ```
+    pub fn OnSelectedIndexes(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:null]QtC.QModelIndex) void {
+        qtc.QTreeWidget_OnSelectedIndexes(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTreeView
@@ -6858,9 +6858,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnChangeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeWidget_OnChangeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnChangeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTreeWidget_OnChangeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTreeView
@@ -6891,9 +6891,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, event: QtC.QTimerEvent) callconv(.c) void ```
-    pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeWidget_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, event: QtC.QTimerEvent) callconv(.c) void ```
+    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTreeWidget_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTreeView
@@ -6924,9 +6924,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, event: QtC.QPaintEvent) callconv(.c) void ```
-    pub fn OnPaintEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeWidget_OnPaintEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, event: QtC.QPaintEvent) callconv(.c) void ```
+    pub fn OnPaintEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTreeWidget_OnPaintEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTreeView
@@ -6957,9 +6957,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, painter: QtC.QPainter, options: QtC.QStyleOptionViewItem, index: QtC.QModelIndex) callconv(.c) void ```
-    pub fn OnDrawRow(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeWidget_OnDrawRow(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, painter: QtC.QPainter, options: QtC.QStyleOptionViewItem, index: QtC.QModelIndex) callconv(.c) void ```
+    pub fn OnDrawRow(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTreeWidget_OnDrawRow(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTreeView
@@ -6990,9 +6990,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, painter: QtC.QPainter, rect: QtC.QRect, index: QtC.QModelIndex) callconv(.c) void ```
-    pub fn OnDrawBranches(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeWidget_OnDrawBranches(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, painter: QtC.QPainter, rect: QtC.QRect, index: QtC.QModelIndex) callconv(.c) void ```
+    pub fn OnDrawBranches(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTreeWidget_OnDrawBranches(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTreeView
@@ -7023,9 +7023,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, event: QtC.QMouseEvent) callconv(.c) void ```
-    pub fn OnMousePressEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeWidget_OnMousePressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, event: QtC.QMouseEvent) callconv(.c) void ```
+    pub fn OnMousePressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTreeWidget_OnMousePressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTreeView
@@ -7056,9 +7056,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, event: QtC.QMouseEvent) callconv(.c) void ```
-    pub fn OnMouseReleaseEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeWidget_OnMouseReleaseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, event: QtC.QMouseEvent) callconv(.c) void ```
+    pub fn OnMouseReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTreeWidget_OnMouseReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTreeView
@@ -7089,9 +7089,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, event: QtC.QMouseEvent) callconv(.c) void ```
-    pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeWidget_OnMouseDoubleClickEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, event: QtC.QMouseEvent) callconv(.c) void ```
+    pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTreeWidget_OnMouseDoubleClickEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTreeView
@@ -7122,9 +7122,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, event: QtC.QMouseEvent) callconv(.c) void ```
-    pub fn OnMouseMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeWidget_OnMouseMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, event: QtC.QMouseEvent) callconv(.c) void ```
+    pub fn OnMouseMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTreeWidget_OnMouseMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTreeView
@@ -7155,9 +7155,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, event: QtC.QKeyEvent) callconv(.c) void ```
-    pub fn OnKeyPressEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeWidget_OnKeyPressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, event: QtC.QKeyEvent) callconv(.c) void ```
+    pub fn OnKeyPressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTreeWidget_OnKeyPressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTreeView
@@ -7188,9 +7188,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, event: QtC.QDragMoveEvent) callconv(.c) void ```
-    pub fn OnDragMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeWidget_OnDragMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, event: QtC.QDragMoveEvent) callconv(.c) void ```
+    pub fn OnDragMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTreeWidget_OnDragMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTreeView
@@ -7221,9 +7221,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnViewportEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QTreeWidget_OnViewportEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnViewportEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QTreeWidget_OnViewportEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTreeView
@@ -7254,9 +7254,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn () callconv(.c) void ```
-    pub fn OnUpdateGeometries(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QTreeWidget_OnUpdateGeometries(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn () callconv(.c) void ```
+    pub fn OnUpdateGeometries(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QTreeWidget_OnUpdateGeometries(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTreeView
@@ -7287,9 +7287,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn () callconv(.c) QtC.QSize ```
-    pub fn OnViewportSizeHint(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QSize) void {
-        qtc.QTreeWidget_OnViewportSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn () callconv(.c) QtC.QSize ```
+    pub fn OnViewportSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
+        qtc.QTreeWidget_OnViewportSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTreeView
@@ -7320,9 +7320,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, column: i32) callconv(.c) i32 ```
-    pub fn OnSizeHintForColumn(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QTreeWidget_OnSizeHintForColumn(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, column: i32) callconv(.c) i32 ```
+    pub fn OnSizeHintForColumn(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
+        qtc.QTreeWidget_OnSizeHintForColumn(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTreeView
@@ -7353,9 +7353,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, action: i32) callconv(.c) void ```
-    pub fn OnHorizontalScrollbarAction(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QTreeWidget_OnHorizontalScrollbarAction(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, action: i32) callconv(.c) void ```
+    pub fn OnHorizontalScrollbarAction(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QTreeWidget_OnHorizontalScrollbarAction(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTreeView
@@ -7386,9 +7386,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, index: QtC.QModelIndex) callconv(.c) bool ```
-    pub fn OnIsIndexHidden(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QTreeWidget_OnIsIndexHidden(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, index: QtC.QModelIndex) callconv(.c) bool ```
+    pub fn OnIsIndexHidden(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QTreeWidget_OnIsIndexHidden(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTreeView
@@ -7419,9 +7419,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, selected: QtC.QItemSelection, deselected: QtC.QItemSelection) callconv(.c) void ```
-    pub fn OnSelectionChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeWidget_OnSelectionChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, selected: QtC.QItemSelection, deselected: QtC.QItemSelection) callconv(.c) void ```
+    pub fn OnSelectionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTreeWidget_OnSelectionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTreeView
@@ -7452,9 +7452,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, current: QtC.QModelIndex, previous: QtC.QModelIndex) callconv(.c) void ```
-    pub fn OnCurrentChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeWidget_OnCurrentChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, current: QtC.QModelIndex, previous: QtC.QModelIndex) callconv(.c) void ```
+    pub fn OnCurrentChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTreeWidget_OnCurrentChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -7485,9 +7485,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, row: i32) callconv(.c) i32 ```
-    pub fn OnSizeHintForRow(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QTreeWidget_OnSizeHintForRow(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, row: i32) callconv(.c) i32 ```
+    pub fn OnSizeHintForRow(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
+        qtc.QTreeWidget_OnSizeHintForRow(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -7518,9 +7518,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, index: QtC.QModelIndex) callconv(.c) QtC.QAbstractItemDelegate ```
-    pub fn OnItemDelegateForIndex(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QAbstractItemDelegate) void {
-        qtc.QTreeWidget_OnItemDelegateForIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, index: QtC.QModelIndex) callconv(.c) QtC.QAbstractItemDelegate ```
+    pub fn OnItemDelegateForIndex(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QAbstractItemDelegate) void {
+        qtc.QTreeWidget_OnItemDelegateForIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -7551,9 +7551,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, query: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant ```
-    pub fn OnInputMethodQuery(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) QtC.QVariant) void {
-        qtc.QTreeWidget_OnInputMethodQuery(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, query: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant ```
+    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) QtC.QVariant) void {
+        qtc.QTreeWidget_OnInputMethodQuery(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -7584,9 +7584,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn () callconv(.c) void ```
-    pub fn OnUpdateEditorData(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QTreeWidget_OnUpdateEditorData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn () callconv(.c) void ```
+    pub fn OnUpdateEditorData(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QTreeWidget_OnUpdateEditorData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -7617,9 +7617,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn () callconv(.c) void ```
-    pub fn OnUpdateEditorGeometries(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QTreeWidget_OnUpdateEditorGeometries(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn () callconv(.c) void ```
+    pub fn OnUpdateEditorGeometries(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QTreeWidget_OnUpdateEditorGeometries(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -7650,9 +7650,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, action: i32) callconv(.c) void ```
-    pub fn OnVerticalScrollbarAction(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QTreeWidget_OnVerticalScrollbarAction(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, action: i32) callconv(.c) void ```
+    pub fn OnVerticalScrollbarAction(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QTreeWidget_OnVerticalScrollbarAction(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -7683,9 +7683,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, value: i32) callconv(.c) void ```
-    pub fn OnHorizontalScrollbarValueChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QTreeWidget_OnHorizontalScrollbarValueChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, value: i32) callconv(.c) void ```
+    pub fn OnHorizontalScrollbarValueChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QTreeWidget_OnHorizontalScrollbarValueChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -7716,9 +7716,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, editor: QtC.QWidget, hint: qabstractitemdelegate_enums.EndEditHint) callconv(.c) void ```
-    pub fn OnCloseEditor(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QTreeWidget_OnCloseEditor(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, editor: QtC.QWidget, hint: qabstractitemdelegate_enums.EndEditHint) callconv(.c) void ```
+    pub fn OnCloseEditor(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QTreeWidget_OnCloseEditor(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -7749,9 +7749,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, editor: QtC.QWidget) callconv(.c) void ```
-    pub fn OnCommitData(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeWidget_OnCommitData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, editor: QtC.QWidget) callconv(.c) void ```
+    pub fn OnCommitData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTreeWidget_OnCommitData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -7782,9 +7782,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, editor: QtC.QObject) callconv(.c) void ```
-    pub fn OnEditorDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeWidget_OnEditorDestroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, editor: QtC.QObject) callconv(.c) void ```
+    pub fn OnEditorDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTreeWidget_OnEditorDestroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -7815,9 +7815,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, index: QtC.QModelIndex, trigger: qabstractitemview_enums.EditTrigger, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEdit2(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QTreeWidget_OnEdit2(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, index: QtC.QModelIndex, trigger: qabstractitemview_enums.EditTrigger, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEdit2(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QTreeWidget_OnEdit2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -7852,9 +7852,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, index: QtC.QModelIndex, event: QtC.QEvent) callconv(.c) i32 ```
-    pub fn OnSelectionCommand(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QTreeWidget_OnSelectionCommand(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, index: QtC.QModelIndex, event: QtC.QEvent) callconv(.c) i32 ```
+    pub fn OnSelectionCommand(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
+        qtc.QTreeWidget_OnSelectionCommand(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -7885,9 +7885,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, supportedActions: flag of qnamespace_enums.DropAction) callconv(.c) void ```
-    pub fn OnStartDrag(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QTreeWidget_OnStartDrag(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, supportedActions: flag of qnamespace_enums.DropAction) callconv(.c) void ```
+    pub fn OnStartDrag(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QTreeWidget_OnStartDrag(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -7918,9 +7918,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, option: QtC.QStyleOptionViewItem) callconv(.c) void ```
-    pub fn OnInitViewItemOption(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeWidget_OnInitViewItemOption(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, option: QtC.QStyleOptionViewItem) callconv(.c) void ```
+    pub fn OnInitViewItemOption(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTreeWidget_OnInitViewItemOption(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -7951,9 +7951,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, next: bool) callconv(.c) bool ```
-    pub fn OnFocusNextPrevChild(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) bool) void {
-        qtc.QTreeWidget_OnFocusNextPrevChild(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, next: bool) callconv(.c) bool ```
+    pub fn OnFocusNextPrevChild(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) bool) void {
+        qtc.QTreeWidget_OnFocusNextPrevChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -7984,9 +7984,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, event: QtC.QDragEnterEvent) callconv(.c) void ```
-    pub fn OnDragEnterEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeWidget_OnDragEnterEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, event: QtC.QDragEnterEvent) callconv(.c) void ```
+    pub fn OnDragEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTreeWidget_OnDragEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -8017,9 +8017,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, event: QtC.QDragLeaveEvent) callconv(.c) void ```
-    pub fn OnDragLeaveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeWidget_OnDragLeaveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, event: QtC.QDragLeaveEvent) callconv(.c) void ```
+    pub fn OnDragLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTreeWidget_OnDragLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -8050,9 +8050,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, event: QtC.QFocusEvent) callconv(.c) void ```
-    pub fn OnFocusInEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeWidget_OnFocusInEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, event: QtC.QFocusEvent) callconv(.c) void ```
+    pub fn OnFocusInEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTreeWidget_OnFocusInEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -8083,9 +8083,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, event: QtC.QFocusEvent) callconv(.c) void ```
-    pub fn OnFocusOutEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeWidget_OnFocusOutEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, event: QtC.QFocusEvent) callconv(.c) void ```
+    pub fn OnFocusOutEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTreeWidget_OnFocusOutEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -8116,9 +8116,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, event: QtC.QResizeEvent) callconv(.c) void ```
-    pub fn OnResizeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeWidget_OnResizeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, event: QtC.QResizeEvent) callconv(.c) void ```
+    pub fn OnResizeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTreeWidget_OnResizeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -8149,9 +8149,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, event: QtC.QInputMethodEvent) callconv(.c) void ```
-    pub fn OnInputMethodEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeWidget_OnInputMethodEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, event: QtC.QInputMethodEvent) callconv(.c) void ```
+    pub fn OnInputMethodEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTreeWidget_OnInputMethodEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -8182,9 +8182,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, object: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QTreeWidget_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, object: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QTreeWidget_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -8215,9 +8215,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn () callconv(.c) QtC.QSize ```
-    pub fn OnMinimumSizeHint(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QSize) void {
-        qtc.QTreeWidget_OnMinimumSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn () callconv(.c) QtC.QSize ```
+    pub fn OnMinimumSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
+        qtc.QTreeWidget_OnMinimumSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -8248,9 +8248,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn () callconv(.c) QtC.QSize ```
-    pub fn OnSizeHint(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QSize) void {
-        qtc.QTreeWidget_OnSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn () callconv(.c) QtC.QSize ```
+    pub fn OnSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
+        qtc.QTreeWidget_OnSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -8281,9 +8281,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, viewport: QtC.QWidget) callconv(.c) void ```
-    pub fn OnSetupViewport(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeWidget_OnSetupViewport(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, viewport: QtC.QWidget) callconv(.c) void ```
+    pub fn OnSetupViewport(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTreeWidget_OnSetupViewport(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -8314,9 +8314,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, param1: QtC.QWheelEvent) callconv(.c) void ```
-    pub fn OnWheelEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeWidget_OnWheelEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, param1: QtC.QWheelEvent) callconv(.c) void ```
+    pub fn OnWheelEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTreeWidget_OnWheelEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -8347,9 +8347,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, param1: QtC.QContextMenuEvent) callconv(.c) void ```
-    pub fn OnContextMenuEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeWidget_OnContextMenuEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, param1: QtC.QContextMenuEvent) callconv(.c) void ```
+    pub fn OnContextMenuEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTreeWidget_OnContextMenuEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFrame
@@ -8380,9 +8380,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, option: QtC.QStyleOptionFrame) callconv(.c) void ```
-    pub fn OnInitStyleOption(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeWidget_OnInitStyleOption(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, option: QtC.QStyleOptionFrame) callconv(.c) void ```
+    pub fn OnInitStyleOption(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTreeWidget_OnInitStyleOption(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8413,9 +8413,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn () callconv(.c) i32 ```
-    pub fn OnDevType(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QTreeWidget_OnDevType(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnDevType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QTreeWidget_OnDevType(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8446,9 +8446,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, visible: bool) callconv(.c) void ```
-    pub fn OnSetVisible(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QTreeWidget_OnSetVisible(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, visible: bool) callconv(.c) void ```
+    pub fn OnSetVisible(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QTreeWidget_OnSetVisible(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8479,9 +8479,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, param1: i32) callconv(.c) i32 ```
-    pub fn OnHeightForWidth(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QTreeWidget_OnHeightForWidth(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, param1: i32) callconv(.c) i32 ```
+    pub fn OnHeightForWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
+        qtc.QTreeWidget_OnHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8512,9 +8512,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn () callconv(.c) bool ```
-    pub fn OnHasHeightForWidth(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.QTreeWidget_OnHasHeightForWidth(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn () callconv(.c) bool ```
+    pub fn OnHasHeightForWidth(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.QTreeWidget_OnHasHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8545,9 +8545,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn () callconv(.c) QtC.QPaintEngine ```
-    pub fn OnPaintEngine(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QPaintEngine) void {
-        qtc.QTreeWidget_OnPaintEngine(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn () callconv(.c) QtC.QPaintEngine ```
+    pub fn OnPaintEngine(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPaintEngine) void {
+        qtc.QTreeWidget_OnPaintEngine(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8578,9 +8578,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, event: QtC.QKeyEvent) callconv(.c) void ```
-    pub fn OnKeyReleaseEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeWidget_OnKeyReleaseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, event: QtC.QKeyEvent) callconv(.c) void ```
+    pub fn OnKeyReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTreeWidget_OnKeyReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8611,9 +8611,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, event: QtC.QEnterEvent) callconv(.c) void ```
-    pub fn OnEnterEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeWidget_OnEnterEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, event: QtC.QEnterEvent) callconv(.c) void ```
+    pub fn OnEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTreeWidget_OnEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8644,9 +8644,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnLeaveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeWidget_OnLeaveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTreeWidget_OnLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8677,9 +8677,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, event: QtC.QMoveEvent) callconv(.c) void ```
-    pub fn OnMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeWidget_OnMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, event: QtC.QMoveEvent) callconv(.c) void ```
+    pub fn OnMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTreeWidget_OnMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8710,9 +8710,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, event: QtC.QCloseEvent) callconv(.c) void ```
-    pub fn OnCloseEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeWidget_OnCloseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, event: QtC.QCloseEvent) callconv(.c) void ```
+    pub fn OnCloseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTreeWidget_OnCloseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8743,9 +8743,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, event: QtC.QTabletEvent) callconv(.c) void ```
-    pub fn OnTabletEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeWidget_OnTabletEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, event: QtC.QTabletEvent) callconv(.c) void ```
+    pub fn OnTabletEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTreeWidget_OnTabletEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8776,9 +8776,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, event: QtC.QActionEvent) callconv(.c) void ```
-    pub fn OnActionEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeWidget_OnActionEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, event: QtC.QActionEvent) callconv(.c) void ```
+    pub fn OnActionEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTreeWidget_OnActionEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8809,9 +8809,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, event: QtC.QShowEvent) callconv(.c) void ```
-    pub fn OnShowEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeWidget_OnShowEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, event: QtC.QShowEvent) callconv(.c) void ```
+    pub fn OnShowEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTreeWidget_OnShowEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8842,9 +8842,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, event: QtC.QHideEvent) callconv(.c) void ```
-    pub fn OnHideEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeWidget_OnHideEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, event: QtC.QHideEvent) callconv(.c) void ```
+    pub fn OnHideEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTreeWidget_OnHideEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8883,9 +8883,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, eventType: [*:0]u8, message: ?*anyopaque, result: *isize) callconv(.c) bool ```
-    pub fn OnNativeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]u8, ?*anyopaque, *isize) callconv(.c) bool) void {
-        qtc.QTreeWidget_OnNativeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, eventType: [*:0]u8, message: ?*anyopaque, result: *isize) callconv(.c) bool ```
+    pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]u8, ?*anyopaque, *isize) callconv(.c) bool) void {
+        qtc.QTreeWidget_OnNativeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8916,9 +8916,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 ```
-    pub fn OnMetric(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QTreeWidget_OnMetric(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 ```
+    pub fn OnMetric(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
+        qtc.QTreeWidget_OnMetric(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8949,9 +8949,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, painter: QtC.QPainter) callconv(.c) void ```
-    pub fn OnInitPainter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeWidget_OnInitPainter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, painter: QtC.QPainter) callconv(.c) void ```
+    pub fn OnInitPainter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTreeWidget_OnInitPainter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -8982,9 +8982,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, offset: QtC.QPoint) callconv(.c) QtC.QPaintDevice ```
-    pub fn OnRedirected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPaintDevice) void {
-        qtc.QTreeWidget_OnRedirected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, offset: QtC.QPoint) callconv(.c) QtC.QPaintDevice ```
+    pub fn OnRedirected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPaintDevice) void {
+        qtc.QTreeWidget_OnRedirected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9015,9 +9015,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn () callconv(.c) QtC.QPainter ```
-    pub fn OnSharedPainter(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QPainter) void {
-        qtc.QTreeWidget_OnSharedPainter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn () callconv(.c) QtC.QPainter ```
+    pub fn OnSharedPainter(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainter) void {
+        qtc.QTreeWidget_OnSharedPainter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -9048,9 +9048,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, event: QtC.QChildEvent) callconv(.c) void ```
-    pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeWidget_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, event: QtC.QChildEvent) callconv(.c) void ```
+    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTreeWidget_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -9081,9 +9081,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeWidget_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTreeWidget_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -9114,9 +9114,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeWidget_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTreeWidget_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -9147,9 +9147,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeWidget_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTreeWidget_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTreeView
@@ -9180,9 +9180,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, column: i32, oldSize: i32, newSize: i32) callconv(.c) void ```
-    pub fn OnColumnResized(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, i32) callconv(.c) void) void {
-        qtc.QTreeWidget_OnColumnResized(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, column: i32, oldSize: i32, newSize: i32) callconv(.c) void ```
+    pub fn OnColumnResized(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32) callconv(.c) void) void {
+        qtc.QTreeWidget_OnColumnResized(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTreeView
@@ -9213,9 +9213,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, oldCount: i32, newCount: i32) callconv(.c) void ```
-    pub fn OnColumnCountChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QTreeWidget_OnColumnCountChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, oldCount: i32, newCount: i32) callconv(.c) void ```
+    pub fn OnColumnCountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
+        qtc.QTreeWidget_OnColumnCountChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTreeView
@@ -9246,9 +9246,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn () callconv(.c) void ```
-    pub fn OnColumnMoved(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QTreeWidget_OnColumnMoved(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn () callconv(.c) void ```
+    pub fn OnColumnMoved(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QTreeWidget_OnColumnMoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTreeView
@@ -9279,9 +9279,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn () callconv(.c) void ```
-    pub fn OnReexpand(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QTreeWidget_OnReexpand(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn () callconv(.c) void ```
+    pub fn OnReexpand(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QTreeWidget_OnReexpand(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTreeView
@@ -9312,9 +9312,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void ```
-    pub fn OnRowsRemoved(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QTreeWidget_OnRowsRemoved(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void ```
+    pub fn OnRowsRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
+        qtc.QTreeWidget_OnRowsRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTreeView
@@ -9345,9 +9345,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, painter: QtC.QPainter, region: QtC.QRegion) callconv(.c) void ```
-    pub fn OnDrawTree(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeWidget_OnDrawTree(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, painter: QtC.QPainter, region: QtC.QRegion) callconv(.c) void ```
+    pub fn OnDrawTree(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTreeWidget_OnDrawTree(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTreeView
@@ -9378,9 +9378,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, index: QtC.QModelIndex) callconv(.c) i32 ```
-    pub fn OnIndexRowSizeHint(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QTreeWidget_OnIndexRowSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, index: QtC.QModelIndex) callconv(.c) i32 ```
+    pub fn OnIndexRowSizeHint(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
+        qtc.QTreeWidget_OnIndexRowSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTreeView
@@ -9411,9 +9411,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, index: QtC.QModelIndex) callconv(.c) i32 ```
-    pub fn OnRowHeight(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QTreeWidget_OnRowHeight(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, index: QtC.QModelIndex) callconv(.c) i32 ```
+    pub fn OnRowHeight(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
+        qtc.QTreeWidget_OnRowHeight(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -9448,9 +9448,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn () callconv(.c) i32 ```
-    pub fn OnState(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QTreeWidget_OnState(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnState(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QTreeWidget_OnState(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -9481,9 +9481,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, state: qabstractitemview_enums.State) callconv(.c) void ```
-    pub fn OnSetState(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QTreeWidget_OnSetState(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, state: qabstractitemview_enums.State) callconv(.c) void ```
+    pub fn OnSetState(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QTreeWidget_OnSetState(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -9514,9 +9514,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn () callconv(.c) void ```
-    pub fn OnScheduleDelayedItemsLayout(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QTreeWidget_OnScheduleDelayedItemsLayout(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn () callconv(.c) void ```
+    pub fn OnScheduleDelayedItemsLayout(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QTreeWidget_OnScheduleDelayedItemsLayout(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -9547,9 +9547,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn () callconv(.c) void ```
-    pub fn OnExecuteDelayedItemsLayout(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QTreeWidget_OnExecuteDelayedItemsLayout(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn () callconv(.c) void ```
+    pub fn OnExecuteDelayedItemsLayout(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QTreeWidget_OnExecuteDelayedItemsLayout(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -9580,9 +9580,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, region: QtC.QRegion) callconv(.c) void ```
-    pub fn OnSetDirtyRegion(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeWidget_OnSetDirtyRegion(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, region: QtC.QRegion) callconv(.c) void ```
+    pub fn OnSetDirtyRegion(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTreeWidget_OnSetDirtyRegion(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -9613,9 +9613,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, dx: i32, dy: i32) callconv(.c) void ```
-    pub fn OnScrollDirtyRegion(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QTreeWidget_OnScrollDirtyRegion(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, dx: i32, dy: i32) callconv(.c) void ```
+    pub fn OnScrollDirtyRegion(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
+        qtc.QTreeWidget_OnScrollDirtyRegion(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -9646,9 +9646,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn () callconv(.c) QtC.QPoint ```
-    pub fn OnDirtyRegionOffset(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QPoint) void {
-        qtc.QTreeWidget_OnDirtyRegionOffset(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn () callconv(.c) QtC.QPoint ```
+    pub fn OnDirtyRegionOffset(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPoint) void {
+        qtc.QTreeWidget_OnDirtyRegionOffset(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -9679,9 +9679,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn () callconv(.c) void ```
-    pub fn OnStartAutoScroll(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QTreeWidget_OnStartAutoScroll(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn () callconv(.c) void ```
+    pub fn OnStartAutoScroll(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QTreeWidget_OnStartAutoScroll(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -9712,9 +9712,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn () callconv(.c) void ```
-    pub fn OnStopAutoScroll(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QTreeWidget_OnStopAutoScroll(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn () callconv(.c) void ```
+    pub fn OnStopAutoScroll(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QTreeWidget_OnStopAutoScroll(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -9745,9 +9745,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn () callconv(.c) void ```
-    pub fn OnDoAutoScroll(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QTreeWidget_OnDoAutoScroll(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn () callconv(.c) void ```
+    pub fn OnDoAutoScroll(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QTreeWidget_OnDoAutoScroll(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemView
@@ -9782,9 +9782,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn () callconv(.c) i32 ```
-    pub fn OnDropIndicatorPosition(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QTreeWidget_OnDropIndicatorPosition(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnDropIndicatorPosition(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QTreeWidget_OnDropIndicatorPosition(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -9815,9 +9815,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, left: i32, top: i32, right: i32, bottom: i32) callconv(.c) void ```
-    pub fn OnSetViewportMargins(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, i32, i32) callconv(.c) void) void {
-        qtc.QTreeWidget_OnSetViewportMargins(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, left: i32, top: i32, right: i32, bottom: i32) callconv(.c) void ```
+    pub fn OnSetViewportMargins(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32, i32) callconv(.c) void) void {
+        qtc.QTreeWidget_OnSetViewportMargins(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -9848,9 +9848,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn () callconv(.c) QtC.QMargins ```
-    pub fn OnViewportMargins(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QMargins) void {
-        qtc.QTreeWidget_OnViewportMargins(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn () callconv(.c) QtC.QMargins ```
+    pub fn OnViewportMargins(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMargins) void {
+        qtc.QTreeWidget_OnViewportMargins(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFrame
@@ -9881,9 +9881,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, param1: QtC.QPainter) callconv(.c) void ```
-    pub fn OnDrawFrame(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTreeWidget_OnDrawFrame(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, param1: QtC.QPainter) callconv(.c) void ```
+    pub fn OnDrawFrame(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTreeWidget_OnDrawFrame(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9914,9 +9914,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn () callconv(.c) void ```
-    pub fn OnUpdateMicroFocus(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QTreeWidget_OnUpdateMicroFocus(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn () callconv(.c) void ```
+    pub fn OnUpdateMicroFocus(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QTreeWidget_OnUpdateMicroFocus(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9947,9 +9947,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn () callconv(.c) void ```
-    pub fn OnCreate(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QTreeWidget_OnCreate(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn () callconv(.c) void ```
+    pub fn OnCreate(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QTreeWidget_OnCreate(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -9980,9 +9980,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn () callconv(.c) void ```
-    pub fn OnDestroy(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QTreeWidget_OnDestroy(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn () callconv(.c) void ```
+    pub fn OnDestroy(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QTreeWidget_OnDestroy(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -10013,9 +10013,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn () callconv(.c) bool ```
-    pub fn OnFocusNextChild(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.QTreeWidget_OnFocusNextChild(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn () callconv(.c) bool ```
+    pub fn OnFocusNextChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.QTreeWidget_OnFocusNextChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -10046,9 +10046,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn () callconv(.c) bool ```
-    pub fn OnFocusPreviousChild(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.QTreeWidget_OnFocusPreviousChild(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn () callconv(.c) bool ```
+    pub fn OnFocusPreviousChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.QTreeWidget_OnFocusPreviousChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -10079,9 +10079,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn () callconv(.c) QtC.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
-        qtc.QTreeWidget_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.QTreeWidget_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -10112,9 +10112,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn () callconv(.c) i32 ```
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QTreeWidget_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QTreeWidget_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -10147,9 +10147,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, signal: [*:0]const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QTreeWidget_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QTreeWidget_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -10180,9 +10180,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, signal: QtC.QMetaMethod) callconv(.c) bool ```
-    pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QTreeWidget_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QTreeWidget_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -10213,9 +10213,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 ```
-    pub fn OnGetDecodedMetricF(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
-        qtc.QTreeWidget_OnGetDecodedMetricF(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 ```
+    pub fn OnGetDecodedMetricF(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
+        qtc.QTreeWidget_OnGetDecodedMetricF(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -10224,9 +10224,9 @@ pub const qtreewidget = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QTreeWidget, slot: fn (self: QtC.QTreeWidget, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTreeWidget, callback: *const fn (self: QtC.QTreeWidget, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtreewidget.html#dtor.QTreeWidget)

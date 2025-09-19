@@ -203,9 +203,9 @@ pub const kconfigskeletonitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KConfigSkeletonItem, slot: fn (self: QtC.KConfigSkeletonItem, param1: QtC.KConfig) callconv(.c) void ```
-    pub fn OnReadConfig(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KConfigSkeletonItem_OnReadConfig(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KConfigSkeletonItem, callback: *const fn (self: QtC.KConfigSkeletonItem, param1: QtC.KConfig) callconv(.c) void ```
+    pub fn OnReadConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KConfigSkeletonItem_OnReadConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kconfigskeletonitem.html#readConfig)
@@ -228,9 +228,9 @@ pub const kconfigskeletonitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KConfigSkeletonItem, slot: fn (self: QtC.KConfigSkeletonItem, param1: QtC.KConfig) callconv(.c) void ```
-    pub fn OnWriteConfig(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KConfigSkeletonItem_OnWriteConfig(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KConfigSkeletonItem, callback: *const fn (self: QtC.KConfigSkeletonItem, param1: QtC.KConfig) callconv(.c) void ```
+    pub fn OnWriteConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KConfigSkeletonItem_OnWriteConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kconfigskeletonitem.html#writeConfig)
@@ -253,9 +253,9 @@ pub const kconfigskeletonitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KConfigSkeletonItem, slot: fn (self: QtC.KConfigSkeletonItem, param1: QtC.KConfig) callconv(.c) void ```
-    pub fn OnReadDefault(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KConfigSkeletonItem_OnReadDefault(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KConfigSkeletonItem, callback: *const fn (self: QtC.KConfigSkeletonItem, param1: QtC.KConfig) callconv(.c) void ```
+    pub fn OnReadDefault(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KConfigSkeletonItem_OnReadDefault(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kconfigskeletonitem.html#readDefault)
@@ -278,9 +278,9 @@ pub const kconfigskeletonitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KConfigSkeletonItem, slot: fn (self: QtC.KConfigSkeletonItem, p: QtC.QVariant) callconv(.c) void ```
-    pub fn OnSetProperty(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KConfigSkeletonItem_OnSetProperty(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KConfigSkeletonItem, callback: *const fn (self: QtC.KConfigSkeletonItem, p: QtC.QVariant) callconv(.c) void ```
+    pub fn OnSetProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KConfigSkeletonItem_OnSetProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kconfigskeletonitem.html#setProperty)
@@ -303,9 +303,9 @@ pub const kconfigskeletonitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KConfigSkeletonItem, slot: fn (self: QtC.KConfigSkeletonItem, p: QtC.QVariant) callconv(.c) bool ```
-    pub fn OnIsEqual(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KConfigSkeletonItem_OnIsEqual(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KConfigSkeletonItem, callback: *const fn (self: QtC.KConfigSkeletonItem, p: QtC.QVariant) callconv(.c) bool ```
+    pub fn OnIsEqual(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KConfigSkeletonItem_OnIsEqual(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kconfigskeletonitem.html#isEqual)
@@ -328,9 +328,9 @@ pub const kconfigskeletonitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KConfigSkeletonItem, slot: fn () callconv(.c) QtC.QVariant ```
-    pub fn OnProperty(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QVariant) void {
-        qtc.KConfigSkeletonItem_OnProperty(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KConfigSkeletonItem, callback: *const fn () callconv(.c) QtC.QVariant ```
+    pub fn OnProperty(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
+        qtc.KConfigSkeletonItem_OnProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kconfigskeletonitem.html#property)
@@ -353,9 +353,9 @@ pub const kconfigskeletonitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KConfigSkeletonItem, slot: fn () callconv(.c) QtC.QVariant ```
-    pub fn OnMinValue(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QVariant) void {
-        qtc.KConfigSkeletonItem_OnMinValue(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KConfigSkeletonItem, callback: *const fn () callconv(.c) QtC.QVariant ```
+    pub fn OnMinValue(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
+        qtc.KConfigSkeletonItem_OnMinValue(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kconfigskeletonitem.html#minValue)
@@ -378,9 +378,9 @@ pub const kconfigskeletonitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KConfigSkeletonItem, slot: fn () callconv(.c) QtC.QVariant ```
-    pub fn OnMaxValue(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QVariant) void {
-        qtc.KConfigSkeletonItem_OnMaxValue(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KConfigSkeletonItem, callback: *const fn () callconv(.c) QtC.QVariant ```
+    pub fn OnMaxValue(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
+        qtc.KConfigSkeletonItem_OnMaxValue(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kconfigskeletonitem.html#maxValue)
@@ -403,9 +403,9 @@ pub const kconfigskeletonitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KConfigSkeletonItem, slot: fn () callconv(.c) void ```
-    pub fn OnSetDefault(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KConfigSkeletonItem_OnSetDefault(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KConfigSkeletonItem, callback: *const fn () callconv(.c) void ```
+    pub fn OnSetDefault(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KConfigSkeletonItem_OnSetDefault(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kconfigskeletonitem.html#setDefault)
@@ -428,9 +428,9 @@ pub const kconfigskeletonitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KConfigSkeletonItem, slot: fn () callconv(.c) void ```
-    pub fn OnSwapDefault(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KConfigSkeletonItem_OnSwapDefault(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KConfigSkeletonItem, callback: *const fn () callconv(.c) void ```
+    pub fn OnSwapDefault(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KConfigSkeletonItem_OnSwapDefault(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kconfigskeletonitem.html#swapDefault)
@@ -481,9 +481,9 @@ pub const kconfigskeletonitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KConfigSkeletonItem, slot: fn (self: QtC.KConfigSkeletonItem, group: QtC.KConfigGroup) callconv(.c) void ```
-    pub fn OnReadImmutability(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KConfigSkeletonItem_OnReadImmutability(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KConfigSkeletonItem, callback: *const fn (self: QtC.KConfigSkeletonItem, group: QtC.KConfigGroup) callconv(.c) void ```
+    pub fn OnReadImmutability(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KConfigSkeletonItem_OnReadImmutability(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kconfigskeletonitem.html#readImmutability)
@@ -537,9 +537,9 @@ pub const kpropertyskeletonitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KPropertySkeletonItem, slot: fn () callconv(.c) QtC.QVariant ```
-    pub fn OnProperty(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QVariant) void {
-        qtc.KPropertySkeletonItem_OnProperty(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KPropertySkeletonItem, callback: *const fn () callconv(.c) QtC.QVariant ```
+    pub fn OnProperty(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
+        qtc.KPropertySkeletonItem_OnProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kpropertyskeletonitem.html#property)
@@ -562,9 +562,9 @@ pub const kpropertyskeletonitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KPropertySkeletonItem, slot: fn (self: QtC.KPropertySkeletonItem, p: QtC.QVariant) callconv(.c) void ```
-    pub fn OnSetProperty(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KPropertySkeletonItem_OnSetProperty(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KPropertySkeletonItem, callback: *const fn (self: QtC.KPropertySkeletonItem, p: QtC.QVariant) callconv(.c) void ```
+    pub fn OnSetProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KPropertySkeletonItem_OnSetProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kpropertyskeletonitem.html#setProperty)
@@ -587,9 +587,9 @@ pub const kpropertyskeletonitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KPropertySkeletonItem, slot: fn (self: QtC.KPropertySkeletonItem, p: QtC.QVariant) callconv(.c) bool ```
-    pub fn OnIsEqual(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KPropertySkeletonItem_OnIsEqual(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KPropertySkeletonItem, callback: *const fn (self: QtC.KPropertySkeletonItem, p: QtC.QVariant) callconv(.c) bool ```
+    pub fn OnIsEqual(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KPropertySkeletonItem_OnIsEqual(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kpropertyskeletonitem.html#isEqual)
@@ -612,9 +612,9 @@ pub const kpropertyskeletonitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KPropertySkeletonItem, slot: fn (self: QtC.KPropertySkeletonItem, param1: QtC.KConfig) callconv(.c) void ```
-    pub fn OnReadConfig(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KPropertySkeletonItem_OnReadConfig(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KPropertySkeletonItem, callback: *const fn (self: QtC.KPropertySkeletonItem, param1: QtC.KConfig) callconv(.c) void ```
+    pub fn OnReadConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KPropertySkeletonItem_OnReadConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kpropertyskeletonitem.html#readConfig)
@@ -637,9 +637,9 @@ pub const kpropertyskeletonitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KPropertySkeletonItem, slot: fn (self: QtC.KPropertySkeletonItem, param1: QtC.KConfig) callconv(.c) void ```
-    pub fn OnWriteConfig(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KPropertySkeletonItem_OnWriteConfig(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KPropertySkeletonItem, callback: *const fn (self: QtC.KPropertySkeletonItem, param1: QtC.KConfig) callconv(.c) void ```
+    pub fn OnWriteConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KPropertySkeletonItem_OnWriteConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kpropertyskeletonitem.html#writeConfig)
@@ -662,9 +662,9 @@ pub const kpropertyskeletonitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KPropertySkeletonItem, slot: fn (self: QtC.KPropertySkeletonItem, param1: QtC.KConfig) callconv(.c) void ```
-    pub fn OnReadDefault(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KPropertySkeletonItem_OnReadDefault(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KPropertySkeletonItem, callback: *const fn (self: QtC.KPropertySkeletonItem, param1: QtC.KConfig) callconv(.c) void ```
+    pub fn OnReadDefault(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KPropertySkeletonItem_OnReadDefault(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kpropertyskeletonitem.html#readDefault)
@@ -687,9 +687,9 @@ pub const kpropertyskeletonitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KPropertySkeletonItem, slot: fn () callconv(.c) void ```
-    pub fn OnSetDefault(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KPropertySkeletonItem_OnSetDefault(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KPropertySkeletonItem, callback: *const fn () callconv(.c) void ```
+    pub fn OnSetDefault(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KPropertySkeletonItem_OnSetDefault(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kpropertyskeletonitem.html#setDefault)
@@ -712,9 +712,9 @@ pub const kpropertyskeletonitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KPropertySkeletonItem, slot: fn () callconv(.c) void ```
-    pub fn OnSwapDefault(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KPropertySkeletonItem_OnSwapDefault(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KPropertySkeletonItem, callback: *const fn () callconv(.c) void ```
+    pub fn OnSwapDefault(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KPropertySkeletonItem_OnSwapDefault(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kpropertyskeletonitem.html#swapDefault)
@@ -984,9 +984,9 @@ pub const kpropertyskeletonitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KPropertySkeletonItem, slot: fn () callconv(.c) QtC.QVariant ```
-    pub fn OnMinValue(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QVariant) void {
-        qtc.KPropertySkeletonItem_OnMinValue(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KPropertySkeletonItem, callback: *const fn () callconv(.c) QtC.QVariant ```
+    pub fn OnMinValue(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
+        qtc.KPropertySkeletonItem_OnMinValue(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KConfigSkeletonItem
@@ -1017,9 +1017,9 @@ pub const kpropertyskeletonitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KPropertySkeletonItem, slot: fn () callconv(.c) QtC.QVariant ```
-    pub fn OnMaxValue(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QVariant) void {
-        qtc.KPropertySkeletonItem_OnMaxValue(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KPropertySkeletonItem, callback: *const fn () callconv(.c) QtC.QVariant ```
+    pub fn OnMaxValue(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
+        qtc.KPropertySkeletonItem_OnMaxValue(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KConfigSkeletonItem
@@ -1050,9 +1050,9 @@ pub const kpropertyskeletonitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KPropertySkeletonItem, slot: fn (self: QtC.KPropertySkeletonItem, group: QtC.KConfigGroup) callconv(.c) void ```
-    pub fn OnReadImmutability(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KPropertySkeletonItem_OnReadImmutability(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KPropertySkeletonItem, callback: *const fn (self: QtC.KPropertySkeletonItem, group: QtC.KConfigGroup) callconv(.c) void ```
+    pub fn OnReadImmutability(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KPropertySkeletonItem_OnReadImmutability(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kpropertyskeletonitem.html#dtor.KPropertySkeletonItem)
@@ -1418,9 +1418,9 @@ pub const kcoreconfigskeleton = struct {
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KCoreConfigSkeleton, slot: fn (self: QtC.KCoreConfigSkeleton, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
-        qtc.KCoreConfigSkeleton_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCoreConfigSkeleton, callback: *const fn (self: QtC.KCoreConfigSkeleton, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+        qtc.KCoreConfigSkeleton_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -1453,9 +1453,9 @@ pub const kcoreconfigskeleton = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KCoreConfigSkeleton, slot: fn () callconv(.c) void ```
-    pub fn OnSetDefaults(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton_OnSetDefaults(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCoreConfigSkeleton, callback: *const fn () callconv(.c) void ```
+    pub fn OnSetDefaults(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KCoreConfigSkeleton_OnSetDefaults(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#setDefaults)
@@ -1631,9 +1631,9 @@ pub const kcoreconfigskeleton = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KCoreConfigSkeleton, slot: fn (self: QtC.KCoreConfigSkeleton, b: bool) callconv(.c) bool ```
-    pub fn OnUseDefaults(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) bool) void {
-        qtc.KCoreConfigSkeleton_OnUseDefaults(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCoreConfigSkeleton, callback: *const fn (self: QtC.KCoreConfigSkeleton, b: bool) callconv(.c) bool ```
+    pub fn OnUseDefaults(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) bool) void {
+        qtc.KCoreConfigSkeleton_OnUseDefaults(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#useDefaults)
@@ -1661,9 +1661,9 @@ pub const kcoreconfigskeleton = struct {
 
     /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#configChanged)
     ///
-    /// ``` self: QtC.KCoreConfigSkeleton, slot: fn (self: QtC.KCoreConfigSkeleton) callconv(.c) void ```
-    pub fn OnConfigChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton_Connect_ConfigChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCoreConfigSkeleton, callback: *const fn (self: QtC.KCoreConfigSkeleton) callconv(.c) void ```
+    pub fn OnConfigChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.KCoreConfigSkeleton_Connect_ConfigChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#usrUseDefaults)
@@ -1677,9 +1677,9 @@ pub const kcoreconfigskeleton = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KCoreConfigSkeleton, slot: fn (self: QtC.KCoreConfigSkeleton, b: bool) callconv(.c) bool ```
-    pub fn OnUsrUseDefaults(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) bool) void {
-        qtc.KCoreConfigSkeleton_OnUsrUseDefaults(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCoreConfigSkeleton, callback: *const fn (self: QtC.KCoreConfigSkeleton, b: bool) callconv(.c) bool ```
+    pub fn OnUsrUseDefaults(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) bool) void {
+        qtc.KCoreConfigSkeleton_OnUsrUseDefaults(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#usrUseDefaults)
@@ -1702,9 +1702,9 @@ pub const kcoreconfigskeleton = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KCoreConfigSkeleton, slot: fn () callconv(.c) void ```
-    pub fn OnUsrSetDefaults(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton_OnUsrSetDefaults(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCoreConfigSkeleton, callback: *const fn () callconv(.c) void ```
+    pub fn OnUsrSetDefaults(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KCoreConfigSkeleton_OnUsrSetDefaults(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#usrSetDefaults)
@@ -1727,9 +1727,9 @@ pub const kcoreconfigskeleton = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KCoreConfigSkeleton, slot: fn () callconv(.c) void ```
-    pub fn OnUsrRead(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton_OnUsrRead(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCoreConfigSkeleton, callback: *const fn () callconv(.c) void ```
+    pub fn OnUsrRead(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KCoreConfigSkeleton_OnUsrRead(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#usrRead)
@@ -1752,9 +1752,9 @@ pub const kcoreconfigskeleton = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KCoreConfigSkeleton, slot: fn () callconv(.c) bool ```
-    pub fn OnUsrSave(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.KCoreConfigSkeleton_OnUsrSave(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCoreConfigSkeleton, callback: *const fn () callconv(.c) bool ```
+    pub fn OnUsrSave(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.KCoreConfigSkeleton_OnUsrSave(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#usrSave)
@@ -2175,9 +2175,9 @@ pub const kcoreconfigskeleton = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KCoreConfigSkeleton, slot: fn (self: QtC.KCoreConfigSkeleton) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCoreConfigSkeleton, callback: *const fn (self: QtC.KCoreConfigSkeleton) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2259,9 +2259,9 @@ pub const kcoreconfigskeleton = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KCoreConfigSkeleton, slot: fn (self: QtC.KCoreConfigSkeleton, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCoreConfigSkeleton, callback: *const fn (self: QtC.KCoreConfigSkeleton, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2292,9 +2292,9 @@ pub const kcoreconfigskeleton = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCoreConfigSkeleton, slot: fn (self: QtC.KCoreConfigSkeleton, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KCoreConfigSkeleton_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCoreConfigSkeleton, callback: *const fn (self: QtC.KCoreConfigSkeleton, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KCoreConfigSkeleton_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2325,9 +2325,9 @@ pub const kcoreconfigskeleton = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCoreConfigSkeleton, slot: fn (self: QtC.KCoreConfigSkeleton, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KCoreConfigSkeleton_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCoreConfigSkeleton, callback: *const fn (self: QtC.KCoreConfigSkeleton, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KCoreConfigSkeleton_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2358,9 +2358,9 @@ pub const kcoreconfigskeleton = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCoreConfigSkeleton, slot: fn (self: QtC.KCoreConfigSkeleton, event: QtC.QTimerEvent) callconv(.c) void ```
-    pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCoreConfigSkeleton, callback: *const fn (self: QtC.KCoreConfigSkeleton, event: QtC.QTimerEvent) callconv(.c) void ```
+    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCoreConfigSkeleton_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2391,9 +2391,9 @@ pub const kcoreconfigskeleton = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCoreConfigSkeleton, slot: fn (self: QtC.KCoreConfigSkeleton, event: QtC.QChildEvent) callconv(.c) void ```
-    pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCoreConfigSkeleton, callback: *const fn (self: QtC.KCoreConfigSkeleton, event: QtC.QChildEvent) callconv(.c) void ```
+    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCoreConfigSkeleton_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2424,9 +2424,9 @@ pub const kcoreconfigskeleton = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCoreConfigSkeleton, slot: fn (self: QtC.KCoreConfigSkeleton, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCoreConfigSkeleton, callback: *const fn (self: QtC.KCoreConfigSkeleton, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCoreConfigSkeleton_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2457,9 +2457,9 @@ pub const kcoreconfigskeleton = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCoreConfigSkeleton, slot: fn (self: QtC.KCoreConfigSkeleton, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCoreConfigSkeleton, callback: *const fn (self: QtC.KCoreConfigSkeleton, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCoreConfigSkeleton_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2490,9 +2490,9 @@ pub const kcoreconfigskeleton = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCoreConfigSkeleton, slot: fn (self: QtC.KCoreConfigSkeleton, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCoreConfigSkeleton, callback: *const fn (self: QtC.KCoreConfigSkeleton, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCoreConfigSkeleton_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2523,9 +2523,9 @@ pub const kcoreconfigskeleton = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCoreConfigSkeleton, slot: fn () callconv(.c) QtC.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
-        qtc.KCoreConfigSkeleton_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCoreConfigSkeleton, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.KCoreConfigSkeleton_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2556,9 +2556,9 @@ pub const kcoreconfigskeleton = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCoreConfigSkeleton, slot: fn () callconv(.c) i32 ```
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.KCoreConfigSkeleton_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCoreConfigSkeleton, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.KCoreConfigSkeleton_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2591,9 +2591,9 @@ pub const kcoreconfigskeleton = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCoreConfigSkeleton, slot: fn (self: QtC.KCoreConfigSkeleton, signal: [*:0]const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KCoreConfigSkeleton_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCoreConfigSkeleton, callback: *const fn (self: QtC.KCoreConfigSkeleton, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
+        qtc.KCoreConfigSkeleton_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2624,9 +2624,9 @@ pub const kcoreconfigskeleton = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCoreConfigSkeleton, slot: fn (self: QtC.KCoreConfigSkeleton, signal: QtC.QMetaMethod) callconv(.c) bool ```
-    pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KCoreConfigSkeleton_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCoreConfigSkeleton, callback: *const fn (self: QtC.KCoreConfigSkeleton, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KCoreConfigSkeleton_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2635,9 +2635,9 @@ pub const kcoreconfigskeleton = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KCoreConfigSkeleton, slot: fn (self: QtC.KCoreConfigSkeleton, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCoreConfigSkeleton, callback: *const fn (self: QtC.KCoreConfigSkeleton, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#dtor.KCoreConfigSkeleton)
@@ -2724,9 +2724,9 @@ pub const kcoreconfigskeleton__itempassword = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCoreConfigSkeleton__ItemPassword, slot: fn (self: QtC.KCoreConfigSkeleton__ItemPassword, config: QtC.KConfig) callconv(.c) void ```
-    pub fn OnWriteConfig(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton__ItemPassword_OnWriteConfig(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemPassword, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemPassword, config: QtC.KConfig) callconv(.c) void ```
+    pub fn OnWriteConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCoreConfigSkeleton__ItemPassword_OnWriteConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCoreConfigSkeleton::ItemString
@@ -2757,9 +2757,9 @@ pub const kcoreconfigskeleton__itempassword = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCoreConfigSkeleton__ItemPassword, slot: fn (self: QtC.KCoreConfigSkeleton__ItemPassword, config: QtC.KConfig) callconv(.c) void ```
-    pub fn OnReadConfig(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton__ItemPassword_OnReadConfig(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemPassword, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemPassword, config: QtC.KConfig) callconv(.c) void ```
+    pub fn OnReadConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCoreConfigSkeleton__ItemPassword_OnReadConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCoreConfigSkeleton::ItemString
@@ -2790,9 +2790,9 @@ pub const kcoreconfigskeleton__itempassword = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCoreConfigSkeleton__ItemPassword, slot: fn (self: QtC.KCoreConfigSkeleton__ItemPassword, p: QtC.QVariant) callconv(.c) void ```
-    pub fn OnSetProperty(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton__ItemPassword_OnSetProperty(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemPassword, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemPassword, p: QtC.QVariant) callconv(.c) void ```
+    pub fn OnSetProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCoreConfigSkeleton__ItemPassword_OnSetProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCoreConfigSkeleton::ItemString
@@ -2823,9 +2823,9 @@ pub const kcoreconfigskeleton__itempassword = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCoreConfigSkeleton__ItemPassword, slot: fn (self: QtC.KCoreConfigSkeleton__ItemPassword, p: QtC.QVariant) callconv(.c) bool ```
-    pub fn OnIsEqual(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KCoreConfigSkeleton__ItemPassword_OnIsEqual(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemPassword, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemPassword, p: QtC.QVariant) callconv(.c) bool ```
+    pub fn OnIsEqual(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KCoreConfigSkeleton__ItemPassword_OnIsEqual(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCoreConfigSkeleton::ItemString
@@ -2856,9 +2856,9 @@ pub const kcoreconfigskeleton__itempassword = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCoreConfigSkeleton__ItemPassword, slot: fn () callconv(.c) QtC.QVariant ```
-    pub fn OnProperty(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QVariant) void {
-        qtc.KCoreConfigSkeleton__ItemPassword_OnProperty(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemPassword, callback: *const fn () callconv(.c) QtC.QVariant ```
+    pub fn OnProperty(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
+        qtc.KCoreConfigSkeleton__ItemPassword_OnProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Delete this object from C++ memory.
@@ -2943,9 +2943,9 @@ pub const kcoreconfigskeleton__itempath = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCoreConfigSkeleton__ItemPath, slot: fn (self: QtC.KCoreConfigSkeleton__ItemPath, config: QtC.KConfig) callconv(.c) void ```
-    pub fn OnWriteConfig(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton__ItemPath_OnWriteConfig(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemPath, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemPath, config: QtC.KConfig) callconv(.c) void ```
+    pub fn OnWriteConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCoreConfigSkeleton__ItemPath_OnWriteConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCoreConfigSkeleton::ItemString
@@ -2976,9 +2976,9 @@ pub const kcoreconfigskeleton__itempath = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCoreConfigSkeleton__ItemPath, slot: fn (self: QtC.KCoreConfigSkeleton__ItemPath, config: QtC.KConfig) callconv(.c) void ```
-    pub fn OnReadConfig(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton__ItemPath_OnReadConfig(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemPath, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemPath, config: QtC.KConfig) callconv(.c) void ```
+    pub fn OnReadConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCoreConfigSkeleton__ItemPath_OnReadConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCoreConfigSkeleton::ItemString
@@ -3009,9 +3009,9 @@ pub const kcoreconfigskeleton__itempath = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCoreConfigSkeleton__ItemPath, slot: fn (self: QtC.KCoreConfigSkeleton__ItemPath, p: QtC.QVariant) callconv(.c) void ```
-    pub fn OnSetProperty(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton__ItemPath_OnSetProperty(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemPath, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemPath, p: QtC.QVariant) callconv(.c) void ```
+    pub fn OnSetProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCoreConfigSkeleton__ItemPath_OnSetProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCoreConfigSkeleton::ItemString
@@ -3042,9 +3042,9 @@ pub const kcoreconfigskeleton__itempath = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCoreConfigSkeleton__ItemPath, slot: fn (self: QtC.KCoreConfigSkeleton__ItemPath, p: QtC.QVariant) callconv(.c) bool ```
-    pub fn OnIsEqual(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KCoreConfigSkeleton__ItemPath_OnIsEqual(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemPath, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemPath, p: QtC.QVariant) callconv(.c) bool ```
+    pub fn OnIsEqual(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KCoreConfigSkeleton__ItemPath_OnIsEqual(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCoreConfigSkeleton::ItemString
@@ -3075,9 +3075,9 @@ pub const kcoreconfigskeleton__itempath = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCoreConfigSkeleton__ItemPath, slot: fn () callconv(.c) QtC.QVariant ```
-    pub fn OnProperty(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QVariant) void {
-        qtc.KCoreConfigSkeleton__ItemPath_OnProperty(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemPath, callback: *const fn () callconv(.c) QtC.QVariant ```
+    pub fn OnProperty(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
+        qtc.KCoreConfigSkeleton__ItemPath_OnProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Delete this object from C++ memory.
@@ -3294,9 +3294,9 @@ pub const kcoreconfigskeleton__itemenum = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KCoreConfigSkeleton__ItemEnum, slot: fn (self: QtC.KCoreConfigSkeleton__ItemEnum, config: QtC.KConfig) callconv(.c) void ```
-    pub fn OnReadConfig(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton__ItemEnum_OnReadConfig(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemEnum, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemEnum, config: QtC.KConfig) callconv(.c) void ```
+    pub fn OnReadConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCoreConfigSkeleton__ItemEnum_OnReadConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemenum.html#readConfig)
@@ -3319,9 +3319,9 @@ pub const kcoreconfigskeleton__itemenum = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KCoreConfigSkeleton__ItemEnum, slot: fn (self: QtC.KCoreConfigSkeleton__ItemEnum, config: QtC.KConfig) callconv(.c) void ```
-    pub fn OnWriteConfig(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton__ItemEnum_OnWriteConfig(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemEnum, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemEnum, config: QtC.KConfig) callconv(.c) void ```
+    pub fn OnWriteConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCoreConfigSkeleton__ItemEnum_OnWriteConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemenum.html#writeConfig)
@@ -3391,9 +3391,9 @@ pub const kcoreconfigskeleton__itemenum = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCoreConfigSkeleton__ItemEnum, slot: fn (self: QtC.KCoreConfigSkeleton__ItemEnum, p: QtC.QVariant) callconv(.c) void ```
-    pub fn OnSetProperty(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton__ItemEnum_OnSetProperty(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemEnum, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemEnum, p: QtC.QVariant) callconv(.c) void ```
+    pub fn OnSetProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCoreConfigSkeleton__ItemEnum_OnSetProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCoreConfigSkeleton::ItemInt
@@ -3424,9 +3424,9 @@ pub const kcoreconfigskeleton__itemenum = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCoreConfigSkeleton__ItemEnum, slot: fn (self: QtC.KCoreConfigSkeleton__ItemEnum, p: QtC.QVariant) callconv(.c) bool ```
-    pub fn OnIsEqual(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KCoreConfigSkeleton__ItemEnum_OnIsEqual(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemEnum, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemEnum, p: QtC.QVariant) callconv(.c) bool ```
+    pub fn OnIsEqual(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KCoreConfigSkeleton__ItemEnum_OnIsEqual(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCoreConfigSkeleton::ItemInt
@@ -3457,9 +3457,9 @@ pub const kcoreconfigskeleton__itemenum = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCoreConfigSkeleton__ItemEnum, slot: fn () callconv(.c) QtC.QVariant ```
-    pub fn OnProperty(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QVariant) void {
-        qtc.KCoreConfigSkeleton__ItemEnum_OnProperty(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemEnum, callback: *const fn () callconv(.c) QtC.QVariant ```
+    pub fn OnProperty(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
+        qtc.KCoreConfigSkeleton__ItemEnum_OnProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCoreConfigSkeleton::ItemInt
@@ -3490,9 +3490,9 @@ pub const kcoreconfigskeleton__itemenum = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCoreConfigSkeleton__ItemEnum, slot: fn () callconv(.c) QtC.QVariant ```
-    pub fn OnMinValue(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QVariant) void {
-        qtc.KCoreConfigSkeleton__ItemEnum_OnMinValue(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemEnum, callback: *const fn () callconv(.c) QtC.QVariant ```
+    pub fn OnMinValue(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
+        qtc.KCoreConfigSkeleton__ItemEnum_OnMinValue(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCoreConfigSkeleton::ItemInt
@@ -3523,9 +3523,9 @@ pub const kcoreconfigskeleton__itemenum = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCoreConfigSkeleton__ItemEnum, slot: fn () callconv(.c) QtC.QVariant ```
-    pub fn OnMaxValue(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QVariant) void {
-        qtc.KCoreConfigSkeleton__ItemEnum_OnMaxValue(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemEnum, callback: *const fn () callconv(.c) QtC.QVariant ```
+    pub fn OnMaxValue(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
+        qtc.KCoreConfigSkeleton__ItemEnum_OnMaxValue(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Delete this object from C++ memory.
@@ -3617,9 +3617,9 @@ pub const kcoreconfigskeleton__itempathlist = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KCoreConfigSkeleton__ItemPathList, slot: fn (self: QtC.KCoreConfigSkeleton__ItemPathList, config: QtC.KConfig) callconv(.c) void ```
-    pub fn OnReadConfig(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton__ItemPathList_OnReadConfig(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemPathList, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemPathList, config: QtC.KConfig) callconv(.c) void ```
+    pub fn OnReadConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCoreConfigSkeleton__ItemPathList_OnReadConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itempathlist.html#readConfig)
@@ -3642,9 +3642,9 @@ pub const kcoreconfigskeleton__itempathlist = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KCoreConfigSkeleton__ItemPathList, slot: fn (self: QtC.KCoreConfigSkeleton__ItemPathList, config: QtC.KConfig) callconv(.c) void ```
-    pub fn OnWriteConfig(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton__ItemPathList_OnWriteConfig(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemPathList, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemPathList, config: QtC.KConfig) callconv(.c) void ```
+    pub fn OnWriteConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCoreConfigSkeleton__ItemPathList_OnWriteConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itempathlist.html#writeConfig)
@@ -3684,9 +3684,9 @@ pub const kcoreconfigskeleton__itempathlist = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCoreConfigSkeleton__ItemPathList, slot: fn (self: QtC.KCoreConfigSkeleton__ItemPathList, p: QtC.QVariant) callconv(.c) void ```
-    pub fn OnSetProperty(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreConfigSkeleton__ItemPathList_OnSetProperty(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemPathList, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemPathList, p: QtC.QVariant) callconv(.c) void ```
+    pub fn OnSetProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCoreConfigSkeleton__ItemPathList_OnSetProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCoreConfigSkeleton::ItemStringList
@@ -3717,9 +3717,9 @@ pub const kcoreconfigskeleton__itempathlist = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCoreConfigSkeleton__ItemPathList, slot: fn (self: QtC.KCoreConfigSkeleton__ItemPathList, p: QtC.QVariant) callconv(.c) bool ```
-    pub fn OnIsEqual(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KCoreConfigSkeleton__ItemPathList_OnIsEqual(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemPathList, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemPathList, p: QtC.QVariant) callconv(.c) bool ```
+    pub fn OnIsEqual(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KCoreConfigSkeleton__ItemPathList_OnIsEqual(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCoreConfigSkeleton::ItemStringList
@@ -3750,9 +3750,9 @@ pub const kcoreconfigskeleton__itempathlist = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCoreConfigSkeleton__ItemPathList, slot: fn () callconv(.c) QtC.QVariant ```
-    pub fn OnProperty(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QVariant) void {
-        qtc.KCoreConfigSkeleton__ItemPathList_OnProperty(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemPathList, callback: *const fn () callconv(.c) QtC.QVariant ```
+    pub fn OnProperty(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
+        qtc.KCoreConfigSkeleton__ItemPathList_OnProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Delete this object from C++ memory.

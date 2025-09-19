@@ -40,9 +40,9 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QVCandlestickModelMapper, slot: fn (self: QtC.QVCandlestickModelMapper, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QVCandlestickModelMapper_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVCandlestickModelMapper, callback: *const fn (self: QtC.QVCandlestickModelMapper, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+        qtc.QVCandlestickModelMapper_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -77,9 +77,9 @@ pub const qvcandlestickmodelmapper = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QVCandlestickModelMapper, slot: fn () callconv(.c) i32 ```
-    pub fn OnOrientation(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QVCandlestickModelMapper_OnOrientation(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVCandlestickModelMapper, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnOrientation(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QVCandlestickModelMapper_OnOrientation(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#orientation)
@@ -200,9 +200,9 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#timestampRowChanged)
     ///
-    /// ``` self: QtC.QVCandlestickModelMapper, slot: fn (self: QtC.QVCandlestickModelMapper) callconv(.c) void ```
-    pub fn OnTimestampRowChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QVCandlestickModelMapper_Connect_TimestampRowChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVCandlestickModelMapper, callback: *const fn (self: QtC.QVCandlestickModelMapper) callconv(.c) void ```
+    pub fn OnTimestampRowChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QVCandlestickModelMapper_Connect_TimestampRowChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#openRowChanged)
@@ -214,9 +214,9 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#openRowChanged)
     ///
-    /// ``` self: QtC.QVCandlestickModelMapper, slot: fn (self: QtC.QVCandlestickModelMapper) callconv(.c) void ```
-    pub fn OnOpenRowChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QVCandlestickModelMapper_Connect_OpenRowChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVCandlestickModelMapper, callback: *const fn (self: QtC.QVCandlestickModelMapper) callconv(.c) void ```
+    pub fn OnOpenRowChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QVCandlestickModelMapper_Connect_OpenRowChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#highRowChanged)
@@ -228,9 +228,9 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#highRowChanged)
     ///
-    /// ``` self: QtC.QVCandlestickModelMapper, slot: fn (self: QtC.QVCandlestickModelMapper) callconv(.c) void ```
-    pub fn OnHighRowChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QVCandlestickModelMapper_Connect_HighRowChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVCandlestickModelMapper, callback: *const fn (self: QtC.QVCandlestickModelMapper) callconv(.c) void ```
+    pub fn OnHighRowChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QVCandlestickModelMapper_Connect_HighRowChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#lowRowChanged)
@@ -242,9 +242,9 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#lowRowChanged)
     ///
-    /// ``` self: QtC.QVCandlestickModelMapper, slot: fn (self: QtC.QVCandlestickModelMapper) callconv(.c) void ```
-    pub fn OnLowRowChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QVCandlestickModelMapper_Connect_LowRowChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVCandlestickModelMapper, callback: *const fn (self: QtC.QVCandlestickModelMapper) callconv(.c) void ```
+    pub fn OnLowRowChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QVCandlestickModelMapper_Connect_LowRowChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#closeRowChanged)
@@ -256,9 +256,9 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#closeRowChanged)
     ///
-    /// ``` self: QtC.QVCandlestickModelMapper, slot: fn (self: QtC.QVCandlestickModelMapper) callconv(.c) void ```
-    pub fn OnCloseRowChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QVCandlestickModelMapper_Connect_CloseRowChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVCandlestickModelMapper, callback: *const fn (self: QtC.QVCandlestickModelMapper) callconv(.c) void ```
+    pub fn OnCloseRowChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QVCandlestickModelMapper_Connect_CloseRowChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#firstSetColumnChanged)
@@ -270,9 +270,9 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#firstSetColumnChanged)
     ///
-    /// ``` self: QtC.QVCandlestickModelMapper, slot: fn (self: QtC.QVCandlestickModelMapper) callconv(.c) void ```
-    pub fn OnFirstSetColumnChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QVCandlestickModelMapper_Connect_FirstSetColumnChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVCandlestickModelMapper, callback: *const fn (self: QtC.QVCandlestickModelMapper) callconv(.c) void ```
+    pub fn OnFirstSetColumnChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QVCandlestickModelMapper_Connect_FirstSetColumnChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#lastSetColumnChanged)
@@ -284,9 +284,9 @@ pub const qvcandlestickmodelmapper = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#lastSetColumnChanged)
     ///
-    /// ``` self: QtC.QVCandlestickModelMapper, slot: fn (self: QtC.QVCandlestickModelMapper) callconv(.c) void ```
-    pub fn OnLastSetColumnChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QVCandlestickModelMapper_Connect_LastSetColumnChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVCandlestickModelMapper, callback: *const fn (self: QtC.QVCandlestickModelMapper) callconv(.c) void ```
+    pub fn OnLastSetColumnChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QVCandlestickModelMapper_Connect_LastSetColumnChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -364,9 +364,9 @@ pub const qvcandlestickmodelmapper = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#modelReplaced)
     ///
-    /// ``` self: QtC.QVCandlestickModelMapper, slot: fn (self: QtC.QVCandlestickModelMapper) callconv(.c) void ```
-    pub fn OnModelReplaced(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QCandlestickModelMapper_Connect_ModelReplaced(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVCandlestickModelMapper, callback: *const fn (self: QtC.QVCandlestickModelMapper) callconv(.c) void ```
+    pub fn OnModelReplaced(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QCandlestickModelMapper_Connect_ModelReplaced(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QCandlestickModelMapper
@@ -382,9 +382,9 @@ pub const qvcandlestickmodelmapper = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickmodelmapper.html#seriesReplaced)
     ///
-    /// ``` self: QtC.QVCandlestickModelMapper, slot: fn (self: QtC.QVCandlestickModelMapper) callconv(.c) void ```
-    pub fn OnSeriesReplaced(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QCandlestickModelMapper_Connect_SeriesReplaced(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVCandlestickModelMapper, callback: *const fn (self: QtC.QVCandlestickModelMapper) callconv(.c) void ```
+    pub fn OnSeriesReplaced(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QCandlestickModelMapper_Connect_SeriesReplaced(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -675,9 +675,9 @@ pub const qvcandlestickmodelmapper = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QVCandlestickModelMapper, slot: fn (self: QtC.QVCandlestickModelMapper) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVCandlestickModelMapper, callback: *const fn (self: QtC.QVCandlestickModelMapper) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -759,9 +759,9 @@ pub const qvcandlestickmodelmapper = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QVCandlestickModelMapper, slot: fn (self: QtC.QVCandlestickModelMapper, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVCandlestickModelMapper, callback: *const fn (self: QtC.QVCandlestickModelMapper, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -792,9 +792,9 @@ pub const qvcandlestickmodelmapper = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVCandlestickModelMapper, slot: fn (self: QtC.QVCandlestickModelMapper, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QVCandlestickModelMapper_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVCandlestickModelMapper, callback: *const fn (self: QtC.QVCandlestickModelMapper, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QVCandlestickModelMapper_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -825,9 +825,9 @@ pub const qvcandlestickmodelmapper = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVCandlestickModelMapper, slot: fn (self: QtC.QVCandlestickModelMapper, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QVCandlestickModelMapper_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVCandlestickModelMapper, callback: *const fn (self: QtC.QVCandlestickModelMapper, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QVCandlestickModelMapper_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -858,9 +858,9 @@ pub const qvcandlestickmodelmapper = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVCandlestickModelMapper, slot: fn (self: QtC.QVCandlestickModelMapper, event: QtC.QTimerEvent) callconv(.c) void ```
-    pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QVCandlestickModelMapper_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVCandlestickModelMapper, callback: *const fn (self: QtC.QVCandlestickModelMapper, event: QtC.QTimerEvent) callconv(.c) void ```
+    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QVCandlestickModelMapper_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -891,9 +891,9 @@ pub const qvcandlestickmodelmapper = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVCandlestickModelMapper, slot: fn (self: QtC.QVCandlestickModelMapper, event: QtC.QChildEvent) callconv(.c) void ```
-    pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QVCandlestickModelMapper_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVCandlestickModelMapper, callback: *const fn (self: QtC.QVCandlestickModelMapper, event: QtC.QChildEvent) callconv(.c) void ```
+    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QVCandlestickModelMapper_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -924,9 +924,9 @@ pub const qvcandlestickmodelmapper = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVCandlestickModelMapper, slot: fn (self: QtC.QVCandlestickModelMapper, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QVCandlestickModelMapper_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVCandlestickModelMapper, callback: *const fn (self: QtC.QVCandlestickModelMapper, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QVCandlestickModelMapper_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -957,9 +957,9 @@ pub const qvcandlestickmodelmapper = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVCandlestickModelMapper, slot: fn (self: QtC.QVCandlestickModelMapper, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QVCandlestickModelMapper_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVCandlestickModelMapper, callback: *const fn (self: QtC.QVCandlestickModelMapper, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QVCandlestickModelMapper_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -990,9 +990,9 @@ pub const qvcandlestickmodelmapper = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVCandlestickModelMapper, slot: fn (self: QtC.QVCandlestickModelMapper, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QVCandlestickModelMapper_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVCandlestickModelMapper, callback: *const fn (self: QtC.QVCandlestickModelMapper, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QVCandlestickModelMapper_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QCandlestickModelMapper
@@ -1023,9 +1023,9 @@ pub const qvcandlestickmodelmapper = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVCandlestickModelMapper, slot: fn (self: QtC.QVCandlestickModelMapper, timestamp: i32) callconv(.c) void ```
-    pub fn OnSetTimestamp(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QVCandlestickModelMapper_OnSetTimestamp(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVCandlestickModelMapper, callback: *const fn (self: QtC.QVCandlestickModelMapper, timestamp: i32) callconv(.c) void ```
+    pub fn OnSetTimestamp(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QVCandlestickModelMapper_OnSetTimestamp(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QCandlestickModelMapper
@@ -1056,9 +1056,9 @@ pub const qvcandlestickmodelmapper = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVCandlestickModelMapper, slot: fn () callconv(.c) i32 ```
-    pub fn OnTimestamp(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QVCandlestickModelMapper_OnTimestamp(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVCandlestickModelMapper, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnTimestamp(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QVCandlestickModelMapper_OnTimestamp(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QCandlestickModelMapper
@@ -1089,9 +1089,9 @@ pub const qvcandlestickmodelmapper = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVCandlestickModelMapper, slot: fn (self: QtC.QVCandlestickModelMapper, open: i32) callconv(.c) void ```
-    pub fn OnSetOpen(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QVCandlestickModelMapper_OnSetOpen(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVCandlestickModelMapper, callback: *const fn (self: QtC.QVCandlestickModelMapper, open: i32) callconv(.c) void ```
+    pub fn OnSetOpen(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QVCandlestickModelMapper_OnSetOpen(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QCandlestickModelMapper
@@ -1122,9 +1122,9 @@ pub const qvcandlestickmodelmapper = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVCandlestickModelMapper, slot: fn () callconv(.c) i32 ```
-    pub fn OnOpen(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QVCandlestickModelMapper_OnOpen(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVCandlestickModelMapper, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnOpen(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QVCandlestickModelMapper_OnOpen(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QCandlestickModelMapper
@@ -1155,9 +1155,9 @@ pub const qvcandlestickmodelmapper = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVCandlestickModelMapper, slot: fn (self: QtC.QVCandlestickModelMapper, high: i32) callconv(.c) void ```
-    pub fn OnSetHigh(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QVCandlestickModelMapper_OnSetHigh(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVCandlestickModelMapper, callback: *const fn (self: QtC.QVCandlestickModelMapper, high: i32) callconv(.c) void ```
+    pub fn OnSetHigh(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QVCandlestickModelMapper_OnSetHigh(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QCandlestickModelMapper
@@ -1188,9 +1188,9 @@ pub const qvcandlestickmodelmapper = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVCandlestickModelMapper, slot: fn () callconv(.c) i32 ```
-    pub fn OnHigh(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QVCandlestickModelMapper_OnHigh(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVCandlestickModelMapper, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnHigh(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QVCandlestickModelMapper_OnHigh(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QCandlestickModelMapper
@@ -1221,9 +1221,9 @@ pub const qvcandlestickmodelmapper = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVCandlestickModelMapper, slot: fn (self: QtC.QVCandlestickModelMapper, low: i32) callconv(.c) void ```
-    pub fn OnSetLow(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QVCandlestickModelMapper_OnSetLow(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVCandlestickModelMapper, callback: *const fn (self: QtC.QVCandlestickModelMapper, low: i32) callconv(.c) void ```
+    pub fn OnSetLow(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QVCandlestickModelMapper_OnSetLow(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QCandlestickModelMapper
@@ -1254,9 +1254,9 @@ pub const qvcandlestickmodelmapper = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVCandlestickModelMapper, slot: fn () callconv(.c) i32 ```
-    pub fn OnLow(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QVCandlestickModelMapper_OnLow(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVCandlestickModelMapper, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnLow(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QVCandlestickModelMapper_OnLow(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QCandlestickModelMapper
@@ -1287,9 +1287,9 @@ pub const qvcandlestickmodelmapper = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVCandlestickModelMapper, slot: fn (self: QtC.QVCandlestickModelMapper, close: i32) callconv(.c) void ```
-    pub fn OnSetClose(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QVCandlestickModelMapper_OnSetClose(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVCandlestickModelMapper, callback: *const fn (self: QtC.QVCandlestickModelMapper, close: i32) callconv(.c) void ```
+    pub fn OnSetClose(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QVCandlestickModelMapper_OnSetClose(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QCandlestickModelMapper
@@ -1320,9 +1320,9 @@ pub const qvcandlestickmodelmapper = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVCandlestickModelMapper, slot: fn () callconv(.c) i32 ```
-    pub fn OnClose(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QVCandlestickModelMapper_OnClose(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVCandlestickModelMapper, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnClose(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QVCandlestickModelMapper_OnClose(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QCandlestickModelMapper
@@ -1353,9 +1353,9 @@ pub const qvcandlestickmodelmapper = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVCandlestickModelMapper, slot: fn (self: QtC.QVCandlestickModelMapper, firstSetSection: i32) callconv(.c) void ```
-    pub fn OnSetFirstSetSection(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QVCandlestickModelMapper_OnSetFirstSetSection(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVCandlestickModelMapper, callback: *const fn (self: QtC.QVCandlestickModelMapper, firstSetSection: i32) callconv(.c) void ```
+    pub fn OnSetFirstSetSection(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QVCandlestickModelMapper_OnSetFirstSetSection(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QCandlestickModelMapper
@@ -1386,9 +1386,9 @@ pub const qvcandlestickmodelmapper = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVCandlestickModelMapper, slot: fn () callconv(.c) i32 ```
-    pub fn OnFirstSetSection(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QVCandlestickModelMapper_OnFirstSetSection(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVCandlestickModelMapper, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnFirstSetSection(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QVCandlestickModelMapper_OnFirstSetSection(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QCandlestickModelMapper
@@ -1419,9 +1419,9 @@ pub const qvcandlestickmodelmapper = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVCandlestickModelMapper, slot: fn (self: QtC.QVCandlestickModelMapper, lastSetSection: i32) callconv(.c) void ```
-    pub fn OnSetLastSetSection(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QVCandlestickModelMapper_OnSetLastSetSection(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVCandlestickModelMapper, callback: *const fn (self: QtC.QVCandlestickModelMapper, lastSetSection: i32) callconv(.c) void ```
+    pub fn OnSetLastSetSection(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QVCandlestickModelMapper_OnSetLastSetSection(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QCandlestickModelMapper
@@ -1452,9 +1452,9 @@ pub const qvcandlestickmodelmapper = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVCandlestickModelMapper, slot: fn () callconv(.c) i32 ```
-    pub fn OnLastSetSection(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QVCandlestickModelMapper_OnLastSetSection(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVCandlestickModelMapper, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnLastSetSection(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QVCandlestickModelMapper_OnLastSetSection(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1485,9 +1485,9 @@ pub const qvcandlestickmodelmapper = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVCandlestickModelMapper, slot: fn () callconv(.c) QtC.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
-        qtc.QVCandlestickModelMapper_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVCandlestickModelMapper, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.QVCandlestickModelMapper_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1518,9 +1518,9 @@ pub const qvcandlestickmodelmapper = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVCandlestickModelMapper, slot: fn () callconv(.c) i32 ```
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QVCandlestickModelMapper_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVCandlestickModelMapper, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QVCandlestickModelMapper_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1553,9 +1553,9 @@ pub const qvcandlestickmodelmapper = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVCandlestickModelMapper, slot: fn (self: QtC.QVCandlestickModelMapper, signal: [*:0]const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QVCandlestickModelMapper_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVCandlestickModelMapper, callback: *const fn (self: QtC.QVCandlestickModelMapper, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QVCandlestickModelMapper_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1586,9 +1586,9 @@ pub const qvcandlestickmodelmapper = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVCandlestickModelMapper, slot: fn (self: QtC.QVCandlestickModelMapper, signal: QtC.QMetaMethod) callconv(.c) bool ```
-    pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QVCandlestickModelMapper_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVCandlestickModelMapper, callback: *const fn (self: QtC.QVCandlestickModelMapper, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QVCandlestickModelMapper_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1597,9 +1597,9 @@ pub const qvcandlestickmodelmapper = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QVCandlestickModelMapper, slot: fn (self: QtC.QVCandlestickModelMapper, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVCandlestickModelMapper, callback: *const fn (self: QtC.QVCandlestickModelMapper, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvcandlestickmodelmapper-qtcharts.html#dtor.QVCandlestickModelMapper)

@@ -86,9 +86,9 @@ pub const kio__untrustedprogramhandlerinterface = struct {
 
     /// [Qt documentation](https://api.kde.org/kio-untrustedprogramhandlerinterface.html#result)
     ///
-    /// ``` self: QtC.KIO__UntrustedProgramHandlerInterface, slot: fn (self: QtC.KIO__UntrustedProgramHandlerInterface, confirmed: bool) callconv(.c) void ```
-    pub fn OnResult(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.KIO__UntrustedProgramHandlerInterface_Connect_Result(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__UntrustedProgramHandlerInterface, callback: *const fn (self: QtC.KIO__UntrustedProgramHandlerInterface, confirmed: bool) callconv(.c) void ```
+    pub fn OnResult(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.KIO__UntrustedProgramHandlerInterface_Connect_Result(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -423,9 +423,9 @@ pub const kio__untrustedprogramhandlerinterface = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KIO__UntrustedProgramHandlerInterface, slot: fn (self: QtC.KIO__UntrustedProgramHandlerInterface) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__UntrustedProgramHandlerInterface, callback: *const fn (self: QtC.KIO__UntrustedProgramHandlerInterface) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -507,9 +507,9 @@ pub const kio__untrustedprogramhandlerinterface = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KIO__UntrustedProgramHandlerInterface, slot: fn (self: QtC.KIO__UntrustedProgramHandlerInterface, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__UntrustedProgramHandlerInterface, callback: *const fn (self: QtC.KIO__UntrustedProgramHandlerInterface, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -518,8 +518,8 @@ pub const kio__untrustedprogramhandlerinterface = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KIO__UntrustedProgramHandlerInterface, slot: fn (self: QtC.KIO__UntrustedProgramHandlerInterface, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__UntrustedProgramHandlerInterface, callback: *const fn (self: QtC.KIO__UntrustedProgramHandlerInterface, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 };

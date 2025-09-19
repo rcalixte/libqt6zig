@@ -42,9 +42,9 @@ pub const qtest__qtoucheventwidgetsequence = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTest__QTouchEventWidgetSequence, slot: fn (self: QtC.QTest__QTouchEventWidgetSequence, touchId: i32) callconv(.c) QtC.QTest__QTouchEventWidgetSequence ```
-    pub fn OnStationary(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) QtC.QTest__QTouchEventWidgetSequence) void {
-        qtc.QTest__QTouchEventWidgetSequence_OnStationary(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTest__QTouchEventWidgetSequence, callback: *const fn (self: QtC.QTest__QTouchEventWidgetSequence, touchId: i32) callconv(.c) QtC.QTest__QTouchEventWidgetSequence ```
+    pub fn OnStationary(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QTest__QTouchEventWidgetSequence) void {
+        qtc.QTest__QTouchEventWidgetSequence_OnStationary(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtest-qtoucheventwidgetsequence.html#stationary)
@@ -67,9 +67,9 @@ pub const qtest__qtoucheventwidgetsequence = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTest__QTouchEventWidgetSequence, slot: fn (self: QtC.QTest__QTouchEventWidgetSequence, processEvents: bool) callconv(.c) bool ```
-    pub fn OnCommit(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) bool) void {
-        qtc.QTest__QTouchEventWidgetSequence_OnCommit(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTest__QTouchEventWidgetSequence, callback: *const fn (self: QtC.QTest__QTouchEventWidgetSequence, processEvents: bool) callconv(.c) bool ```
+    pub fn OnCommit(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) bool) void {
+        qtc.QTest__QTouchEventWidgetSequence_OnCommit(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtest-qtoucheventwidgetsequence.html#commit)
@@ -130,9 +130,9 @@ pub const qtest__qtoucheventwidgetsequence = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTest__QTouchEventWidgetSequence, slot: fn (self: QtC.QTest__QTouchEventWidgetSequence, touchId: i32) callconv(.c) QtC.QEventPoint ```
-    pub fn OnPoint(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) QtC.QEventPoint) void {
-        qtc.QTest__QTouchEventWidgetSequence_OnPoint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTest__QTouchEventWidgetSequence, callback: *const fn (self: QtC.QTest__QTouchEventWidgetSequence, touchId: i32) callconv(.c) QtC.QEventPoint ```
+    pub fn OnPoint(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QEventPoint) void {
+        qtc.QTest__QTouchEventWidgetSequence_OnPoint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTest::QTouchEventSequence
@@ -163,9 +163,9 @@ pub const qtest__qtoucheventwidgetsequence = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTest__QTouchEventWidgetSequence, slot: fn (self: QtC.QTest__QTouchEventWidgetSequence, touchId: i32) callconv(.c) QtC.QEventPoint ```
-    pub fn OnPointOrPreviousPoint(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) QtC.QEventPoint) void {
-        qtc.QTest__QTouchEventWidgetSequence_OnPointOrPreviousPoint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTest__QTouchEventWidgetSequence, callback: *const fn (self: QtC.QTest__QTouchEventWidgetSequence, touchId: i32) callconv(.c) QtC.QEventPoint ```
+    pub fn OnPointOrPreviousPoint(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QEventPoint) void {
+        qtc.QTest__QTouchEventWidgetSequence_OnPointOrPreviousPoint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Delete this object from C++ memory.

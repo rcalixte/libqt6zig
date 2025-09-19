@@ -51,9 +51,9 @@ pub const qpolarchart = struct {
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QPolarChart_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+        qtc.QPolarChart_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -716,9 +716,9 @@ pub const qpolarchart = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qchart.html#plotAreaChanged)
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart, plotArea: QtC.QRectF) callconv(.c) void ```
-    pub fn OnPlotAreaChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QChart_Connect_PlotAreaChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart, plotArea: QtC.QRectF) callconv(.c) void ```
+    pub fn OnPlotAreaChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QChart_Connect_PlotAreaChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QChart
@@ -1285,9 +1285,9 @@ pub const qpolarchart = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#geometryChanged)
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart) callconv(.c) void ```
-    pub fn OnGeometryChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsWidget_Connect_GeometryChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart) callconv(.c) void ```
+    pub fn OnGeometryChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsWidget_Connect_GeometryChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsWidget
@@ -1303,9 +1303,9 @@ pub const qpolarchart = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#layoutChanged)
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart) callconv(.c) void ```
-    pub fn OnLayoutChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsWidget_Connect_LayoutChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart) callconv(.c) void ```
+    pub fn OnLayoutChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsWidget_Connect_LayoutChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsWidget
@@ -1384,9 +1384,9 @@ pub const qpolarchart = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#parentChanged)
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart) callconv(.c) void ```
-    pub fn OnParentChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_ParentChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart) callconv(.c) void ```
+    pub fn OnParentChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsObject_Connect_ParentChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -1402,9 +1402,9 @@ pub const qpolarchart = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#opacityChanged)
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart) callconv(.c) void ```
-    pub fn OnOpacityChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_OpacityChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart) callconv(.c) void ```
+    pub fn OnOpacityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsObject_Connect_OpacityChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -1420,9 +1420,9 @@ pub const qpolarchart = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#visibleChanged)
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart) callconv(.c) void ```
-    pub fn OnVisibleChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_VisibleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart) callconv(.c) void ```
+    pub fn OnVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsObject_Connect_VisibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -1438,9 +1438,9 @@ pub const qpolarchart = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#enabledChanged)
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart) callconv(.c) void ```
-    pub fn OnEnabledChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_EnabledChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart) callconv(.c) void ```
+    pub fn OnEnabledChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsObject_Connect_EnabledChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -1456,9 +1456,9 @@ pub const qpolarchart = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#xChanged)
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart) callconv(.c) void ```
-    pub fn OnXChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_XChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart) callconv(.c) void ```
+    pub fn OnXChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsObject_Connect_XChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -1474,9 +1474,9 @@ pub const qpolarchart = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#yChanged)
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart) callconv(.c) void ```
-    pub fn OnYChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_YChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart) callconv(.c) void ```
+    pub fn OnYChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsObject_Connect_YChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -1492,9 +1492,9 @@ pub const qpolarchart = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#zChanged)
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart) callconv(.c) void ```
-    pub fn OnZChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_ZChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart) callconv(.c) void ```
+    pub fn OnZChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsObject_Connect_ZChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -1510,9 +1510,9 @@ pub const qpolarchart = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#rotationChanged)
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart) callconv(.c) void ```
-    pub fn OnRotationChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_RotationChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart) callconv(.c) void ```
+    pub fn OnRotationChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsObject_Connect_RotationChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -1528,9 +1528,9 @@ pub const qpolarchart = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#scaleChanged)
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart) callconv(.c) void ```
-    pub fn OnScaleChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_ScaleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart) callconv(.c) void ```
+    pub fn OnScaleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsObject_Connect_ScaleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -1546,9 +1546,9 @@ pub const qpolarchart = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#childrenChanged)
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart) callconv(.c) void ```
-    pub fn OnChildrenChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_ChildrenChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart) callconv(.c) void ```
+    pub fn OnChildrenChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsObject_Connect_ChildrenChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -1564,9 +1564,9 @@ pub const qpolarchart = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#widthChanged)
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart) callconv(.c) void ```
-    pub fn OnWidthChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_WidthChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart) callconv(.c) void ```
+    pub fn OnWidthChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsObject_Connect_WidthChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -1582,9 +1582,9 @@ pub const qpolarchart = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#heightChanged)
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart) callconv(.c) void ```
-    pub fn OnHeightChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_HeightChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart) callconv(.c) void ```
+    pub fn OnHeightChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsObject_Connect_HeightChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -1884,9 +1884,9 @@ pub const qpolarchart = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1968,9 +1968,9 @@ pub const qpolarchart = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -3825,9 +3825,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart, rect: QtC.QRectF) callconv(.c) void ```
-    pub fn OnSetGeometry(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPolarChart_OnSetGeometry(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart, rect: QtC.QRectF) callconv(.c) void ```
+    pub fn OnSetGeometry(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QPolarChart_OnSetGeometry(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsWidget
@@ -3858,9 +3858,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart, left: *f64, top: *f64, right: *f64, bottom: *f64) callconv(.c) void ```
-    pub fn OnGetContentsMargins(self: ?*anyopaque, slot: fn (?*anyopaque, *f64, *f64, *f64, *f64) callconv(.c) void) void {
-        qtc.QPolarChart_OnGetContentsMargins(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart, left: *f64, top: *f64, right: *f64, bottom: *f64) callconv(.c) void ```
+    pub fn OnGetContentsMargins(self: ?*anyopaque, callback: *const fn (?*anyopaque, *f64, *f64, *f64, *f64) callconv(.c) void) void {
+        qtc.QPolarChart_OnGetContentsMargins(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsWidget
@@ -3891,9 +3891,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn () callconv(.c) i32 ```
-    pub fn OnType(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QPolarChart_OnType(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QPolarChart_OnType(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsWidget
@@ -3924,9 +3924,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart, painter: QtC.QPainter, option: QtC.QStyleOptionGraphicsItem, widget: QtC.QWidget) callconv(.c) void ```
-    pub fn OnPaint(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPolarChart_OnPaint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart, painter: QtC.QPainter, option: QtC.QStyleOptionGraphicsItem, widget: QtC.QWidget) callconv(.c) void ```
+    pub fn OnPaint(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QPolarChart_OnPaint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsWidget
@@ -3957,9 +3957,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart, painter: QtC.QPainter, option: QtC.QStyleOptionGraphicsItem, widget: QtC.QWidget) callconv(.c) void ```
-    pub fn OnPaintWindowFrame(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPolarChart_OnPaintWindowFrame(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart, painter: QtC.QPainter, option: QtC.QStyleOptionGraphicsItem, widget: QtC.QWidget) callconv(.c) void ```
+    pub fn OnPaintWindowFrame(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QPolarChart_OnPaintWindowFrame(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsWidget
@@ -3990,9 +3990,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn () callconv(.c) QtC.QRectF ```
-    pub fn OnBoundingRect(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QRectF) void {
-        qtc.QPolarChart_OnBoundingRect(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn () callconv(.c) QtC.QRectF ```
+    pub fn OnBoundingRect(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QRectF) void {
+        qtc.QPolarChart_OnBoundingRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsWidget
@@ -4023,9 +4023,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn () callconv(.c) QtC.QPainterPath ```
-    pub fn OnShape(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QPainterPath) void {
-        qtc.QPolarChart_OnShape(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn () callconv(.c) QtC.QPainterPath ```
+    pub fn OnShape(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainterPath) void {
+        qtc.QPolarChart_OnShape(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsWidget
@@ -4056,9 +4056,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart, option: QtC.QStyleOption) callconv(.c) void ```
-    pub fn OnInitStyleOption(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPolarChart_OnInitStyleOption(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart, option: QtC.QStyleOption) callconv(.c) void ```
+    pub fn OnInitStyleOption(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QPolarChart_OnInitStyleOption(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsWidget
@@ -4089,9 +4089,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart, which: qnamespace_enums.SizeHint, constraint: QtC.QSizeF) callconv(.c) QtC.QSizeF ```
-    pub fn OnSizeHint(self: ?*anyopaque, slot: fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QSizeF) void {
-        qtc.QPolarChart_OnSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart, which: qnamespace_enums.SizeHint, constraint: QtC.QSizeF) callconv(.c) QtC.QSizeF ```
+    pub fn OnSizeHint(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QSizeF) void {
+        qtc.QPolarChart_OnSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsWidget
@@ -4122,9 +4122,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn () callconv(.c) void ```
-    pub fn OnUpdateGeometry(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QPolarChart_OnUpdateGeometry(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn () callconv(.c) void ```
+    pub fn OnUpdateGeometry(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QPolarChart_OnUpdateGeometry(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsWidget
@@ -4155,9 +4155,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart, change: qgraphicsitem_enums.GraphicsItemChange, value: QtC.QVariant) callconv(.c) QtC.QVariant ```
-    pub fn OnItemChange(self: ?*anyopaque, slot: fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QVariant) void {
-        qtc.QPolarChart_OnItemChange(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart, change: qgraphicsitem_enums.GraphicsItemChange, value: QtC.QVariant) callconv(.c) QtC.QVariant ```
+    pub fn OnItemChange(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QVariant) void {
+        qtc.QPolarChart_OnItemChange(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsWidget
@@ -4196,9 +4196,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart, propertyName: [*:0]const u8, value: QtC.QVariant) callconv(.c) QtC.QVariant ```
-    pub fn OnPropertyChange(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, ?*anyopaque) callconv(.c) QtC.QVariant) void {
-        qtc.QPolarChart_OnPropertyChange(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart, propertyName: [*:0]const u8, value: QtC.QVariant) callconv(.c) QtC.QVariant ```
+    pub fn OnPropertyChange(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, ?*anyopaque) callconv(.c) QtC.QVariant) void {
+        qtc.QPolarChart_OnPropertyChange(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsWidget
@@ -4229,9 +4229,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnSceneEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QPolarChart_OnSceneEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnSceneEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QPolarChart_OnSceneEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsWidget
@@ -4262,9 +4262,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart, e: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnWindowFrameEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QPolarChart_OnWindowFrameEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart, e: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnWindowFrameEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QPolarChart_OnWindowFrameEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsWidget
@@ -4299,9 +4299,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart, pos: QtC.QPointF) callconv(.c) i32 ```
-    pub fn OnWindowFrameSectionAt(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QPolarChart_OnWindowFrameSectionAt(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart, pos: QtC.QPointF) callconv(.c) i32 ```
+    pub fn OnWindowFrameSectionAt(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
+        qtc.QPolarChart_OnWindowFrameSectionAt(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsWidget
@@ -4332,9 +4332,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QPolarChart_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QPolarChart_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsWidget
@@ -4365,9 +4365,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnChangeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPolarChart_OnChangeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnChangeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QPolarChart_OnChangeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsWidget
@@ -4398,9 +4398,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart, event: QtC.QCloseEvent) callconv(.c) void ```
-    pub fn OnCloseEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPolarChart_OnCloseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart, event: QtC.QCloseEvent) callconv(.c) void ```
+    pub fn OnCloseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QPolarChart_OnCloseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsWidget
@@ -4431,9 +4431,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart, event: QtC.QFocusEvent) callconv(.c) void ```
-    pub fn OnFocusInEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPolarChart_OnFocusInEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart, event: QtC.QFocusEvent) callconv(.c) void ```
+    pub fn OnFocusInEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QPolarChart_OnFocusInEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsWidget
@@ -4464,9 +4464,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart, next: bool) callconv(.c) bool ```
-    pub fn OnFocusNextPrevChild(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) bool) void {
-        qtc.QPolarChart_OnFocusNextPrevChild(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart, next: bool) callconv(.c) bool ```
+    pub fn OnFocusNextPrevChild(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) bool) void {
+        qtc.QPolarChart_OnFocusNextPrevChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsWidget
@@ -4497,9 +4497,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart, event: QtC.QFocusEvent) callconv(.c) void ```
-    pub fn OnFocusOutEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPolarChart_OnFocusOutEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart, event: QtC.QFocusEvent) callconv(.c) void ```
+    pub fn OnFocusOutEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QPolarChart_OnFocusOutEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsWidget
@@ -4530,9 +4530,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart, event: QtC.QHideEvent) callconv(.c) void ```
-    pub fn OnHideEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPolarChart_OnHideEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart, event: QtC.QHideEvent) callconv(.c) void ```
+    pub fn OnHideEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QPolarChart_OnHideEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsWidget
@@ -4563,9 +4563,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart, event: QtC.QGraphicsSceneMoveEvent) callconv(.c) void ```
-    pub fn OnMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPolarChart_OnMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart, event: QtC.QGraphicsSceneMoveEvent) callconv(.c) void ```
+    pub fn OnMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QPolarChart_OnMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsWidget
@@ -4596,9 +4596,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn () callconv(.c) void ```
-    pub fn OnPolishEvent(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QPolarChart_OnPolishEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn () callconv(.c) void ```
+    pub fn OnPolishEvent(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QPolarChart_OnPolishEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsWidget
@@ -4629,9 +4629,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart, event: QtC.QGraphicsSceneResizeEvent) callconv(.c) void ```
-    pub fn OnResizeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPolarChart_OnResizeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart, event: QtC.QGraphicsSceneResizeEvent) callconv(.c) void ```
+    pub fn OnResizeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QPolarChart_OnResizeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsWidget
@@ -4662,9 +4662,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart, event: QtC.QShowEvent) callconv(.c) void ```
-    pub fn OnShowEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPolarChart_OnShowEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart, event: QtC.QShowEvent) callconv(.c) void ```
+    pub fn OnShowEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QPolarChart_OnShowEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsWidget
@@ -4695,9 +4695,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
-    pub fn OnHoverMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPolarChart_OnHoverMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
+    pub fn OnHoverMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QPolarChart_OnHoverMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsWidget
@@ -4728,9 +4728,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
-    pub fn OnHoverLeaveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPolarChart_OnHoverLeaveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
+    pub fn OnHoverLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QPolarChart_OnHoverLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsWidget
@@ -4761,9 +4761,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnGrabMouseEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPolarChart_OnGrabMouseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnGrabMouseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QPolarChart_OnGrabMouseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsWidget
@@ -4794,9 +4794,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnUngrabMouseEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPolarChart_OnUngrabMouseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnUngrabMouseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QPolarChart_OnUngrabMouseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsWidget
@@ -4827,9 +4827,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnGrabKeyboardEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPolarChart_OnGrabKeyboardEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnGrabKeyboardEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QPolarChart_OnGrabKeyboardEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsWidget
@@ -4860,9 +4860,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnUngrabKeyboardEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPolarChart_OnUngrabKeyboardEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnUngrabKeyboardEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QPolarChart_OnUngrabKeyboardEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4893,9 +4893,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QPolarChart_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QPolarChart_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4926,9 +4926,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart, event: QtC.QTimerEvent) callconv(.c) void ```
-    pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPolarChart_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart, event: QtC.QTimerEvent) callconv(.c) void ```
+    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QPolarChart_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4959,9 +4959,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart, event: QtC.QChildEvent) callconv(.c) void ```
-    pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPolarChart_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart, event: QtC.QChildEvent) callconv(.c) void ```
+    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QPolarChart_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4992,9 +4992,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPolarChart_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QPolarChart_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5025,9 +5025,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPolarChart_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QPolarChart_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5058,9 +5058,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPolarChart_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QPolarChart_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -5091,9 +5091,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart, phase: i32) callconv(.c) void ```
-    pub fn OnAdvance(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QPolarChart_OnAdvance(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart, phase: i32) callconv(.c) void ```
+    pub fn OnAdvance(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QPolarChart_OnAdvance(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -5124,9 +5124,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart, point: QtC.QPointF) callconv(.c) bool ```
-    pub fn OnContains(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QPolarChart_OnContains(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart, point: QtC.QPointF) callconv(.c) bool ```
+    pub fn OnContains(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QPolarChart_OnContains(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -5157,9 +5157,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart, other: QtC.QGraphicsItem, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool ```
-    pub fn OnCollidesWithItem(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QPolarChart_OnCollidesWithItem(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart, other: QtC.QGraphicsItem, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool ```
+    pub fn OnCollidesWithItem(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
+        qtc.QPolarChart_OnCollidesWithItem(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -5190,9 +5190,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart, path: QtC.QPainterPath, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool ```
-    pub fn OnCollidesWithPath(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QPolarChart_OnCollidesWithPath(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart, path: QtC.QPainterPath, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool ```
+    pub fn OnCollidesWithPath(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
+        qtc.QPolarChart_OnCollidesWithPath(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -5223,9 +5223,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart, item: QtC.QGraphicsItem) callconv(.c) bool ```
-    pub fn OnIsObscuredBy(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QPolarChart_OnIsObscuredBy(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart, item: QtC.QGraphicsItem) callconv(.c) bool ```
+    pub fn OnIsObscuredBy(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QPolarChart_OnIsObscuredBy(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -5256,9 +5256,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn () callconv(.c) QtC.QPainterPath ```
-    pub fn OnOpaqueArea(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QPainterPath) void {
-        qtc.QPolarChart_OnOpaqueArea(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn () callconv(.c) QtC.QPainterPath ```
+    pub fn OnOpaqueArea(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainterPath) void {
+        qtc.QPolarChart_OnOpaqueArea(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -5289,9 +5289,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart, watched: QtC.QGraphicsItem, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnSceneEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QPolarChart_OnSceneEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart, watched: QtC.QGraphicsItem, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnSceneEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QPolarChart_OnSceneEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -5322,9 +5322,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart, event: QtC.QGraphicsSceneContextMenuEvent) callconv(.c) void ```
-    pub fn OnContextMenuEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPolarChart_OnContextMenuEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart, event: QtC.QGraphicsSceneContextMenuEvent) callconv(.c) void ```
+    pub fn OnContextMenuEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QPolarChart_OnContextMenuEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -5355,9 +5355,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
-    pub fn OnDragEnterEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPolarChart_OnDragEnterEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
+    pub fn OnDragEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QPolarChart_OnDragEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -5388,9 +5388,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
-    pub fn OnDragLeaveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPolarChart_OnDragLeaveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
+    pub fn OnDragLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QPolarChart_OnDragLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -5421,9 +5421,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
-    pub fn OnDragMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPolarChart_OnDragMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
+    pub fn OnDragMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QPolarChart_OnDragMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -5454,9 +5454,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
-    pub fn OnDropEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPolarChart_OnDropEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
+    pub fn OnDropEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QPolarChart_OnDropEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -5487,9 +5487,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
-    pub fn OnHoverEnterEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPolarChart_OnHoverEnterEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
+    pub fn OnHoverEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QPolarChart_OnHoverEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -5520,9 +5520,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart, event: QtC.QKeyEvent) callconv(.c) void ```
-    pub fn OnKeyPressEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPolarChart_OnKeyPressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart, event: QtC.QKeyEvent) callconv(.c) void ```
+    pub fn OnKeyPressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QPolarChart_OnKeyPressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -5553,9 +5553,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart, event: QtC.QKeyEvent) callconv(.c) void ```
-    pub fn OnKeyReleaseEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPolarChart_OnKeyReleaseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart, event: QtC.QKeyEvent) callconv(.c) void ```
+    pub fn OnKeyReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QPolarChart_OnKeyReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -5586,9 +5586,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
-    pub fn OnMousePressEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPolarChart_OnMousePressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
+    pub fn OnMousePressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QPolarChart_OnMousePressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -5619,9 +5619,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
-    pub fn OnMouseMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPolarChart_OnMouseMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
+    pub fn OnMouseMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QPolarChart_OnMouseMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -5652,9 +5652,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
-    pub fn OnMouseReleaseEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPolarChart_OnMouseReleaseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
+    pub fn OnMouseReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QPolarChart_OnMouseReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -5685,9 +5685,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
-    pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPolarChart_OnMouseDoubleClickEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
+    pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QPolarChart_OnMouseDoubleClickEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -5718,9 +5718,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart, event: QtC.QGraphicsSceneWheelEvent) callconv(.c) void ```
-    pub fn OnWheelEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPolarChart_OnWheelEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart, event: QtC.QGraphicsSceneWheelEvent) callconv(.c) void ```
+    pub fn OnWheelEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QPolarChart_OnWheelEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -5751,9 +5751,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart, event: QtC.QInputMethodEvent) callconv(.c) void ```
-    pub fn OnInputMethodEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPolarChart_OnInputMethodEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart, event: QtC.QInputMethodEvent) callconv(.c) void ```
+    pub fn OnInputMethodEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QPolarChart_OnInputMethodEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -5784,9 +5784,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart, query: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant ```
-    pub fn OnInputMethodQuery(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) QtC.QVariant) void {
-        qtc.QPolarChart_OnInputMethodQuery(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart, query: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant ```
+    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) QtC.QVariant) void {
+        qtc.QPolarChart_OnInputMethodQuery(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -5817,9 +5817,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart, extension: qgraphicsitem_enums.Extension) callconv(.c) bool ```
-    pub fn OnSupportsExtension(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) bool) void {
-        qtc.QPolarChart_OnSupportsExtension(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart, extension: qgraphicsitem_enums.Extension) callconv(.c) bool ```
+    pub fn OnSupportsExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) bool) void {
+        qtc.QPolarChart_OnSupportsExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -5850,9 +5850,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart, extension: qgraphicsitem_enums.Extension, variant: QtC.QVariant) callconv(.c) void ```
-    pub fn OnSetExtension(self: ?*anyopaque, slot: fn (?*anyopaque, i64, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPolarChart_OnSetExtension(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart, extension: qgraphicsitem_enums.Extension, variant: QtC.QVariant) callconv(.c) void ```
+    pub fn OnSetExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64, ?*anyopaque) callconv(.c) void) void {
+        qtc.QPolarChart_OnSetExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -5883,9 +5883,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart, variant: QtC.QVariant) callconv(.c) QtC.QVariant ```
-    pub fn OnExtension(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QVariant) void {
-        qtc.QPolarChart_OnExtension(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart, variant: QtC.QVariant) callconv(.c) QtC.QVariant ```
+    pub fn OnExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QVariant) void {
+        qtc.QPolarChart_OnExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -5916,9 +5916,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn () callconv(.c) bool ```
-    pub fn OnIsEmpty(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.QPolarChart_OnIsEmpty(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn () callconv(.c) bool ```
+    pub fn OnIsEmpty(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.QPolarChart_OnIsEmpty(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -5949,9 +5949,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn () callconv(.c) void ```
-    pub fn OnUpdateMicroFocus(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QPolarChart_OnUpdateMicroFocus(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn () callconv(.c) void ```
+    pub fn OnUpdateMicroFocus(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QPolarChart_OnUpdateMicroFocus(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5982,9 +5982,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn () callconv(.c) QtC.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
-        qtc.QPolarChart_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.QPolarChart_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6015,9 +6015,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn () callconv(.c) i32 ```
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QPolarChart_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QPolarChart_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6050,9 +6050,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart, signal: [*:0]const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QPolarChart_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QPolarChart_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6083,9 +6083,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart, signal: QtC.QMetaMethod) callconv(.c) bool ```
-    pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QPolarChart_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QPolarChart_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -6116,9 +6116,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn () callconv(.c) void ```
-    pub fn OnAddToIndex(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QPolarChart_OnAddToIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn () callconv(.c) void ```
+    pub fn OnAddToIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QPolarChart_OnAddToIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -6149,9 +6149,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn () callconv(.c) void ```
-    pub fn OnRemoveFromIndex(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QPolarChart_OnRemoveFromIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn () callconv(.c) void ```
+    pub fn OnRemoveFromIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QPolarChart_OnRemoveFromIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -6182,9 +6182,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn () callconv(.c) void ```
-    pub fn OnPrepareGeometryChange(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QPolarChart_OnPrepareGeometryChange(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn () callconv(.c) void ```
+    pub fn OnPrepareGeometryChange(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QPolarChart_OnPrepareGeometryChange(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -6215,9 +6215,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart, item: QtC.QGraphicsItem) callconv(.c) void ```
-    pub fn OnSetGraphicsItem(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPolarChart_OnSetGraphicsItem(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart, item: QtC.QGraphicsItem) callconv(.c) void ```
+    pub fn OnSetGraphicsItem(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QPolarChart_OnSetGraphicsItem(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -6248,9 +6248,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart, ownedByLayout: bool) callconv(.c) void ```
-    pub fn OnSetOwnedByLayout(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QPolarChart_OnSetOwnedByLayout(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart, ownedByLayout: bool) callconv(.c) void ```
+    pub fn OnSetOwnedByLayout(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QPolarChart_OnSetOwnedByLayout(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6259,9 +6259,9 @@ pub const qpolarchart = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QPolarChart, slot: fn (self: QtC.QPolarChart, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPolarChart, callback: *const fn (self: QtC.QPolarChart, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpolarchart-qtcharts.html#dtor.QPolarChart)

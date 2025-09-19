@@ -10,7 +10,7 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QGraphicsTransform so that we can call protected methods
-class VirtualQGraphicsTransform final : public QGraphicsTransform {
+class VirtualQGraphicsTransform : public QGraphicsTransform {
 
   public:
     // Virtual class boolean flag

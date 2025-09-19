@@ -10,7 +10,7 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QLayoutItem so that we can call protected methods
-class VirtualQLayoutItem final : public QLayoutItem {
+class VirtualQLayoutItem : public QLayoutItem {
 
   public:
     // Virtual class boolean flag

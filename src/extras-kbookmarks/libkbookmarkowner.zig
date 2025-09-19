@@ -28,9 +28,9 @@ pub const kbookmarkowner = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KBookmarkOwner, slot: fn () callconv(.c) [*:0]const u8 ```
-    pub fn OnCurrentTitle(self: ?*anyopaque, slot: fn () callconv(.c) [*:0]const u8) void {
-        qtc.KBookmarkOwner_OnCurrentTitle(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KBookmarkOwner, callback: *const fn () callconv(.c) [*:0]const u8 ```
+    pub fn OnCurrentTitle(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
+        qtc.KBookmarkOwner_OnCurrentTitle(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kbookmarkowner.html#currentTitle)
@@ -57,9 +57,9 @@ pub const kbookmarkowner = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KBookmarkOwner, slot: fn () callconv(.c) QtC.QUrl ```
-    pub fn OnCurrentUrl(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QUrl) void {
-        qtc.KBookmarkOwner_OnCurrentUrl(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KBookmarkOwner, callback: *const fn () callconv(.c) QtC.QUrl ```
+    pub fn OnCurrentUrl(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QUrl) void {
+        qtc.KBookmarkOwner_OnCurrentUrl(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kbookmarkowner.html#currentUrl)
@@ -86,9 +86,9 @@ pub const kbookmarkowner = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KBookmarkOwner, slot: fn () callconv(.c) [*:0]const u8 ```
-    pub fn OnCurrentIcon(self: ?*anyopaque, slot: fn () callconv(.c) [*:0]const u8) void {
-        qtc.KBookmarkOwner_OnCurrentIcon(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KBookmarkOwner, callback: *const fn () callconv(.c) [*:0]const u8 ```
+    pub fn OnCurrentIcon(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
+        qtc.KBookmarkOwner_OnCurrentIcon(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kbookmarkowner.html#currentIcon)
@@ -115,9 +115,9 @@ pub const kbookmarkowner = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KBookmarkOwner, slot: fn () callconv(.c) bool ```
-    pub fn OnSupportsTabs(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.KBookmarkOwner_OnSupportsTabs(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KBookmarkOwner, callback: *const fn () callconv(.c) bool ```
+    pub fn OnSupportsTabs(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.KBookmarkOwner_OnSupportsTabs(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kbookmarkowner.html#supportsTabs)
@@ -145,9 +145,9 @@ pub const kbookmarkowner = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KBookmarkOwner, slot: fn () callconv(.c) [*:null]QtC.KBookmarkOwner__FutureBookmark ```
-    pub fn OnCurrentBookmarkList(self: ?*anyopaque, slot: fn () callconv(.c) [*:null]QtC.KBookmarkOwner__FutureBookmark) void {
-        qtc.KBookmarkOwner_OnCurrentBookmarkList(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KBookmarkOwner, callback: *const fn () callconv(.c) [*:null]QtC.KBookmarkOwner__FutureBookmark ```
+    pub fn OnCurrentBookmarkList(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:null]QtC.KBookmarkOwner__FutureBookmark) void {
+        qtc.KBookmarkOwner_OnCurrentBookmarkList(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kbookmarkowner.html#currentBookmarkList)
@@ -175,9 +175,9 @@ pub const kbookmarkowner = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KBookmarkOwner, slot: fn (self: QtC.KBookmarkOwner, option: kbookmarkowner_enums.BookmarkOption) callconv(.c) bool ```
-    pub fn OnEnableOption(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.KBookmarkOwner_OnEnableOption(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KBookmarkOwner, callback: *const fn (self: QtC.KBookmarkOwner, option: kbookmarkowner_enums.BookmarkOption) callconv(.c) bool ```
+    pub fn OnEnableOption(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
+        qtc.KBookmarkOwner_OnEnableOption(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kbookmarkowner.html#enableOption)
@@ -200,9 +200,9 @@ pub const kbookmarkowner = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KBookmarkOwner, slot: fn (self: QtC.KBookmarkOwner, bm: QtC.KBookmark, mb: flag of qnamespace_enums.MouseButton, km: flag of qnamespace_enums.KeyboardModifier) callconv(.c) void ```
-    pub fn OnOpenBookmark(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i64, i64) callconv(.c) void) void {
-        qtc.KBookmarkOwner_OnOpenBookmark(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KBookmarkOwner, callback: *const fn (self: QtC.KBookmarkOwner, bm: QtC.KBookmark, mb: flag of qnamespace_enums.MouseButton, km: flag of qnamespace_enums.KeyboardModifier) callconv(.c) void ```
+    pub fn OnOpenBookmark(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i64, i64) callconv(.c) void) void {
+        qtc.KBookmarkOwner_OnOpenBookmark(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kbookmarkowner.html#openBookmark)
@@ -225,9 +225,9 @@ pub const kbookmarkowner = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KBookmarkOwner, slot: fn (self: QtC.KBookmarkOwner, bm: QtC.KBookmarkGroup) callconv(.c) void ```
-    pub fn OnOpenFolderinTabs(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KBookmarkOwner_OnOpenFolderinTabs(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KBookmarkOwner, callback: *const fn (self: QtC.KBookmarkOwner, bm: QtC.KBookmarkGroup) callconv(.c) void ```
+    pub fn OnOpenFolderinTabs(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KBookmarkOwner_OnOpenFolderinTabs(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kbookmarkowner.html#openFolderinTabs)
@@ -250,9 +250,9 @@ pub const kbookmarkowner = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KBookmarkOwner, slot: fn (self: QtC.KBookmarkOwner, bm: QtC.KBookmark) callconv(.c) void ```
-    pub fn OnOpenInNewTab(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KBookmarkOwner_OnOpenInNewTab(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KBookmarkOwner, callback: *const fn (self: QtC.KBookmarkOwner, bm: QtC.KBookmark) callconv(.c) void ```
+    pub fn OnOpenInNewTab(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KBookmarkOwner_OnOpenInNewTab(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kbookmarkowner.html#openInNewTab)
@@ -275,9 +275,9 @@ pub const kbookmarkowner = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KBookmarkOwner, slot: fn (self: QtC.KBookmarkOwner, bm: QtC.KBookmark) callconv(.c) void ```
-    pub fn OnOpenInNewWindow(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KBookmarkOwner_OnOpenInNewWindow(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KBookmarkOwner, callback: *const fn (self: QtC.KBookmarkOwner, bm: QtC.KBookmark) callconv(.c) void ```
+    pub fn OnOpenInNewWindow(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KBookmarkOwner_OnOpenInNewWindow(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kbookmarkowner.html#openInNewWindow)

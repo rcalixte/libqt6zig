@@ -210,9 +210,9 @@ pub const kglobalaccel = struct {
 
     /// [Qt documentation](https://api.kde.org/kglobalaccel.html#globalShortcutChanged)
     ///
-    /// ``` self: QtC.KGlobalAccel, slot: fn (self: QtC.KGlobalAccel, action: QtC.QAction, seq: QtC.QKeySequence) callconv(.c) void ```
-    pub fn OnGlobalShortcutChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KGlobalAccel_Connect_GlobalShortcutChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KGlobalAccel, callback: *const fn (self: QtC.KGlobalAccel, action: QtC.QAction, seq: QtC.QKeySequence) callconv(.c) void ```
+    pub fn OnGlobalShortcutChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KGlobalAccel_Connect_GlobalShortcutChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kglobalaccel.html#globalShortcutActiveChanged)
@@ -224,9 +224,9 @@ pub const kglobalaccel = struct {
 
     /// [Qt documentation](https://api.kde.org/kglobalaccel.html#globalShortcutActiveChanged)
     ///
-    /// ``` self: QtC.KGlobalAccel, slot: fn (self: QtC.KGlobalAccel, action: QtC.QAction, active: bool) callconv(.c) void ```
-    pub fn OnGlobalShortcutActiveChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, bool) callconv(.c) void) void {
-        qtc.KGlobalAccel_Connect_GlobalShortcutActiveChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KGlobalAccel, callback: *const fn (self: QtC.KGlobalAccel, action: QtC.QAction, active: bool) callconv(.c) void ```
+    pub fn OnGlobalShortcutActiveChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, bool) callconv(.c) void) void {
+        qtc.KGlobalAccel_Connect_GlobalShortcutActiveChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -606,9 +606,9 @@ pub const kglobalaccel = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KGlobalAccel, slot: fn (self: QtC.KGlobalAccel) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KGlobalAccel, callback: *const fn (self: QtC.KGlobalAccel) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -690,9 +690,9 @@ pub const kglobalaccel = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KGlobalAccel, slot: fn (self: QtC.KGlobalAccel, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KGlobalAccel, callback: *const fn (self: QtC.KGlobalAccel, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -701,9 +701,9 @@ pub const kglobalaccel = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KGlobalAccel, slot: fn (self: QtC.KGlobalAccel, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KGlobalAccel, callback: *const fn (self: QtC.KGlobalAccel, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 };
 

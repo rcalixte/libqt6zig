@@ -406,9 +406,9 @@ pub const qgraphicsanchor = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QGraphicsAnchor, slot: fn (self: QtC.QGraphicsAnchor) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsAnchor, callback: *const fn (self: QtC.QGraphicsAnchor) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -490,9 +490,9 @@ pub const qgraphicsanchor = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QGraphicsAnchor, slot: fn (self: QtC.QGraphicsAnchor, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsAnchor, callback: *const fn (self: QtC.QGraphicsAnchor, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -501,9 +501,9 @@ pub const qgraphicsanchor = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QGraphicsAnchor, slot: fn (self: QtC.QGraphicsAnchor, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsAnchor, callback: *const fn (self: QtC.QGraphicsAnchor, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsanchor.html#dtor.QGraphicsAnchor)
@@ -606,9 +606,9 @@ pub const qgraphicsanchorlayout = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsAnchorLayout, slot: fn (self: QtC.QGraphicsAnchorLayout, index: i32) callconv(.c) void ```
-    pub fn OnRemoveAt(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QGraphicsAnchorLayout_OnRemoveAt(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsAnchorLayout, callback: *const fn (self: QtC.QGraphicsAnchorLayout, index: i32) callconv(.c) void ```
+    pub fn OnRemoveAt(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QGraphicsAnchorLayout_OnRemoveAt(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsanchorlayout.html#removeAt)
@@ -631,9 +631,9 @@ pub const qgraphicsanchorlayout = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsAnchorLayout, slot: fn (self: QtC.QGraphicsAnchorLayout, rect: QtC.QRectF) callconv(.c) void ```
-    pub fn OnSetGeometry(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsAnchorLayout_OnSetGeometry(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsAnchorLayout, callback: *const fn (self: QtC.QGraphicsAnchorLayout, rect: QtC.QRectF) callconv(.c) void ```
+    pub fn OnSetGeometry(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsAnchorLayout_OnSetGeometry(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsanchorlayout.html#setGeometry)
@@ -656,9 +656,9 @@ pub const qgraphicsanchorlayout = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsAnchorLayout, slot: fn () callconv(.c) i32 ```
-    pub fn OnCount(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QGraphicsAnchorLayout_OnCount(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsAnchorLayout, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnCount(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QGraphicsAnchorLayout_OnCount(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsanchorlayout.html#count)
@@ -681,9 +681,9 @@ pub const qgraphicsanchorlayout = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsAnchorLayout, slot: fn (self: QtC.QGraphicsAnchorLayout, index: i32) callconv(.c) QtC.QGraphicsLayoutItem ```
-    pub fn OnItemAt(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) QtC.QGraphicsLayoutItem) void {
-        qtc.QGraphicsAnchorLayout_OnItemAt(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsAnchorLayout, callback: *const fn (self: QtC.QGraphicsAnchorLayout, index: i32) callconv(.c) QtC.QGraphicsLayoutItem ```
+    pub fn OnItemAt(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QGraphicsLayoutItem) void {
+        qtc.QGraphicsAnchorLayout_OnItemAt(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsanchorlayout.html#itemAt)
@@ -706,9 +706,9 @@ pub const qgraphicsanchorlayout = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsAnchorLayout, slot: fn () callconv(.c) void ```
-    pub fn OnInvalidate(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QGraphicsAnchorLayout_OnInvalidate(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsAnchorLayout, callback: *const fn () callconv(.c) void ```
+    pub fn OnInvalidate(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QGraphicsAnchorLayout_OnInvalidate(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsanchorlayout.html#invalidate)
@@ -731,9 +731,9 @@ pub const qgraphicsanchorlayout = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsAnchorLayout, slot: fn (self: QtC.QGraphicsAnchorLayout, which: qnamespace_enums.SizeHint, constraint: QtC.QSizeF) callconv(.c) QtC.QSizeF ```
-    pub fn OnSizeHint(self: ?*anyopaque, slot: fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QSizeF) void {
-        qtc.QGraphicsAnchorLayout_OnSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsAnchorLayout, callback: *const fn (self: QtC.QGraphicsAnchorLayout, which: qnamespace_enums.SizeHint, constraint: QtC.QSizeF) callconv(.c) QtC.QSizeF ```
+    pub fn OnSizeHint(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QSizeF) void {
+        qtc.QGraphicsAnchorLayout_OnSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsanchorlayout.html#sizeHint)
@@ -1131,9 +1131,9 @@ pub const qgraphicsanchorlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsAnchorLayout, slot: fn (self: QtC.QGraphicsAnchorLayout, left: *f64, top: *f64, right: *f64, bottom: *f64) callconv(.c) void ```
-    pub fn OnGetContentsMargins(self: ?*anyopaque, slot: fn (?*anyopaque, *f64, *f64, *f64, *f64) callconv(.c) void) void {
-        qtc.QGraphicsAnchorLayout_OnGetContentsMargins(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsAnchorLayout, callback: *const fn (self: QtC.QGraphicsAnchorLayout, left: *f64, top: *f64, right: *f64, bottom: *f64) callconv(.c) void ```
+    pub fn OnGetContentsMargins(self: ?*anyopaque, callback: *const fn (?*anyopaque, *f64, *f64, *f64, *f64) callconv(.c) void) void {
+        qtc.QGraphicsAnchorLayout_OnGetContentsMargins(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsLayout
@@ -1164,9 +1164,9 @@ pub const qgraphicsanchorlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsAnchorLayout, slot: fn () callconv(.c) void ```
-    pub fn OnUpdateGeometry(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QGraphicsAnchorLayout_OnUpdateGeometry(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsAnchorLayout, callback: *const fn () callconv(.c) void ```
+    pub fn OnUpdateGeometry(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QGraphicsAnchorLayout_OnUpdateGeometry(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsLayout
@@ -1197,9 +1197,9 @@ pub const qgraphicsanchorlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsAnchorLayout, slot: fn (self: QtC.QGraphicsAnchorLayout, e: QtC.QEvent) callconv(.c) void ```
-    pub fn OnWidgetEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsAnchorLayout_OnWidgetEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsAnchorLayout, callback: *const fn (self: QtC.QGraphicsAnchorLayout, e: QtC.QEvent) callconv(.c) void ```
+    pub fn OnWidgetEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsAnchorLayout_OnWidgetEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -1230,9 +1230,9 @@ pub const qgraphicsanchorlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsAnchorLayout, slot: fn () callconv(.c) bool ```
-    pub fn OnIsEmpty(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.QGraphicsAnchorLayout_OnIsEmpty(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsAnchorLayout, callback: *const fn () callconv(.c) bool ```
+    pub fn OnIsEmpty(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.QGraphicsAnchorLayout_OnIsEmpty(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsLayout
@@ -1263,9 +1263,9 @@ pub const qgraphicsanchorlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsAnchorLayout, slot: fn (self: QtC.QGraphicsAnchorLayout, layoutItem: QtC.QGraphicsLayoutItem) callconv(.c) void ```
-    pub fn OnAddChildLayoutItem(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsAnchorLayout_OnAddChildLayoutItem(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsAnchorLayout, callback: *const fn (self: QtC.QGraphicsAnchorLayout, layoutItem: QtC.QGraphicsLayoutItem) callconv(.c) void ```
+    pub fn OnAddChildLayoutItem(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsAnchorLayout_OnAddChildLayoutItem(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -1296,9 +1296,9 @@ pub const qgraphicsanchorlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsAnchorLayout, slot: fn (self: QtC.QGraphicsAnchorLayout, item: QtC.QGraphicsItem) callconv(.c) void ```
-    pub fn OnSetGraphicsItem(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsAnchorLayout_OnSetGraphicsItem(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsAnchorLayout, callback: *const fn (self: QtC.QGraphicsAnchorLayout, item: QtC.QGraphicsItem) callconv(.c) void ```
+    pub fn OnSetGraphicsItem(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsAnchorLayout_OnSetGraphicsItem(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsLayoutItem
@@ -1329,9 +1329,9 @@ pub const qgraphicsanchorlayout = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsAnchorLayout, slot: fn (self: QtC.QGraphicsAnchorLayout, ownedByLayout: bool) callconv(.c) void ```
-    pub fn OnSetOwnedByLayout(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QGraphicsAnchorLayout_OnSetOwnedByLayout(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsAnchorLayout, callback: *const fn (self: QtC.QGraphicsAnchorLayout, ownedByLayout: bool) callconv(.c) void ```
+    pub fn OnSetOwnedByLayout(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QGraphicsAnchorLayout_OnSetOwnedByLayout(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsanchorlayout.html#dtor.QGraphicsAnchorLayout)

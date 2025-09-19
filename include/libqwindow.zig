@@ -49,9 +49,9 @@ pub const qwindow = struct {
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QWindow_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWindow, callback: *const fn (self: QtC.QWindow, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+        qtc.QWindow_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -93,9 +93,9 @@ pub const qwindow = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWindow, slot: fn () callconv(.c) i32 ```
-    pub fn OnSurfaceType(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QWindow_OnSurfaceType(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWindow, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSurfaceType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QWindow_OnSurfaceType(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#surfaceType)
@@ -208,9 +208,9 @@ pub const qwindow = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWindow, slot: fn () callconv(.c) QtC.QSurfaceFormat ```
-    pub fn OnFormat(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QSurfaceFormat) void {
-        qtc.QWindow_OnFormat(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWindow, callback: *const fn () callconv(.c) QtC.QSurfaceFormat ```
+    pub fn OnFormat(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSurfaceFormat) void {
+        qtc.QWindow_OnFormat(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#format)
@@ -548,9 +548,9 @@ pub const qwindow = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWindow, slot: fn () callconv(.c) QtC.QSize ```
-    pub fn OnSize(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QSize) void {
-        qtc.QWindow_OnSize(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWindow, callback: *const fn () callconv(.c) QtC.QSize ```
+    pub fn OnSize(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
+        qtc.QWindow_OnSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#size)
@@ -679,9 +679,9 @@ pub const qwindow = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWindow, slot: fn () callconv(.c) QtC.QAccessibleInterface ```
-    pub fn OnAccessibleRoot(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QAccessibleInterface) void {
-        qtc.QWindow_OnAccessibleRoot(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWindow, callback: *const fn () callconv(.c) QtC.QAccessibleInterface ```
+    pub fn OnAccessibleRoot(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QAccessibleInterface) void {
+        qtc.QWindow_OnAccessibleRoot(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#accessibleRoot)
@@ -704,9 +704,9 @@ pub const qwindow = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWindow, slot: fn () callconv(.c) QtC.QObject ```
-    pub fn OnFocusObject(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
-        qtc.QWindow_OnFocusObject(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWindow, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnFocusObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.QWindow_OnFocusObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#focusObject)
@@ -786,9 +786,9 @@ pub const qwindow = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, name: [*:0]const u8, revision: i32) callconv(.c) ?*anyopaque ```
-    pub fn OnResolveInterface(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, i32) callconv(.c) ?*anyopaque) void {
-        qtc.QWindow_OnResolveInterface(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWindow, callback: *const fn (self: QtC.QWindow, name: [*:0]const u8, revision: i32) callconv(.c) ?*anyopaque ```
+    pub fn OnResolveInterface(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32) callconv(.c) ?*anyopaque) void {
+        qtc.QWindow_OnResolveInterface(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#resolveInterface)
@@ -996,9 +996,9 @@ pub const qwindow = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#screenChanged)
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, screen: QtC.QScreen) callconv(.c) void ```
-    pub fn OnScreenChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWindow_Connect_ScreenChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWindow, callback: *const fn (self: QtC.QWindow, screen: QtC.QScreen) callconv(.c) void ```
+    pub fn OnScreenChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QWindow_Connect_ScreenChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#modalityChanged)
@@ -1010,9 +1010,9 @@ pub const qwindow = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#modalityChanged)
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, modality: qnamespace_enums.WindowModality) callconv(.c) void ```
-    pub fn OnModalityChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QWindow_Connect_ModalityChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWindow, callback: *const fn (self: QtC.QWindow, modality: qnamespace_enums.WindowModality) callconv(.c) void ```
+    pub fn OnModalityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QWindow_Connect_ModalityChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#windowStateChanged)
@@ -1024,9 +1024,9 @@ pub const qwindow = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#windowStateChanged)
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, windowState: qnamespace_enums.WindowState) callconv(.c) void ```
-    pub fn OnWindowStateChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QWindow_Connect_WindowStateChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWindow, callback: *const fn (self: QtC.QWindow, windowState: qnamespace_enums.WindowState) callconv(.c) void ```
+    pub fn OnWindowStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QWindow_Connect_WindowStateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#windowTitleChanged)
@@ -1042,9 +1042,9 @@ pub const qwindow = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#windowTitleChanged)
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, title: [*:0]const u8) callconv(.c) void ```
-    pub fn OnWindowTitleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWindow_Connect_WindowTitleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWindow, callback: *const fn (self: QtC.QWindow, title: [*:0]const u8) callconv(.c) void ```
+    pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QWindow_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#xChanged)
@@ -1056,9 +1056,9 @@ pub const qwindow = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#xChanged)
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, arg: i32) callconv(.c) void ```
-    pub fn OnXChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QWindow_Connect_XChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWindow, callback: *const fn (self: QtC.QWindow, arg: i32) callconv(.c) void ```
+    pub fn OnXChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QWindow_Connect_XChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#yChanged)
@@ -1070,9 +1070,9 @@ pub const qwindow = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#yChanged)
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, arg: i32) callconv(.c) void ```
-    pub fn OnYChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QWindow_Connect_YChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWindow, callback: *const fn (self: QtC.QWindow, arg: i32) callconv(.c) void ```
+    pub fn OnYChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QWindow_Connect_YChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#widthChanged)
@@ -1084,9 +1084,9 @@ pub const qwindow = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#widthChanged)
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, arg: i32) callconv(.c) void ```
-    pub fn OnWidthChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QWindow_Connect_WidthChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWindow, callback: *const fn (self: QtC.QWindow, arg: i32) callconv(.c) void ```
+    pub fn OnWidthChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QWindow_Connect_WidthChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#heightChanged)
@@ -1098,9 +1098,9 @@ pub const qwindow = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#heightChanged)
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, arg: i32) callconv(.c) void ```
-    pub fn OnHeightChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QWindow_Connect_HeightChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWindow, callback: *const fn (self: QtC.QWindow, arg: i32) callconv(.c) void ```
+    pub fn OnHeightChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QWindow_Connect_HeightChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#minimumWidthChanged)
@@ -1112,9 +1112,9 @@ pub const qwindow = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#minimumWidthChanged)
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, arg: i32) callconv(.c) void ```
-    pub fn OnMinimumWidthChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QWindow_Connect_MinimumWidthChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWindow, callback: *const fn (self: QtC.QWindow, arg: i32) callconv(.c) void ```
+    pub fn OnMinimumWidthChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QWindow_Connect_MinimumWidthChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#minimumHeightChanged)
@@ -1126,9 +1126,9 @@ pub const qwindow = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#minimumHeightChanged)
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, arg: i32) callconv(.c) void ```
-    pub fn OnMinimumHeightChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QWindow_Connect_MinimumHeightChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWindow, callback: *const fn (self: QtC.QWindow, arg: i32) callconv(.c) void ```
+    pub fn OnMinimumHeightChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QWindow_Connect_MinimumHeightChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#maximumWidthChanged)
@@ -1140,9 +1140,9 @@ pub const qwindow = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#maximumWidthChanged)
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, arg: i32) callconv(.c) void ```
-    pub fn OnMaximumWidthChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QWindow_Connect_MaximumWidthChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWindow, callback: *const fn (self: QtC.QWindow, arg: i32) callconv(.c) void ```
+    pub fn OnMaximumWidthChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QWindow_Connect_MaximumWidthChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#maximumHeightChanged)
@@ -1154,9 +1154,9 @@ pub const qwindow = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#maximumHeightChanged)
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, arg: i32) callconv(.c) void ```
-    pub fn OnMaximumHeightChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QWindow_Connect_MaximumHeightChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWindow, callback: *const fn (self: QtC.QWindow, arg: i32) callconv(.c) void ```
+    pub fn OnMaximumHeightChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QWindow_Connect_MaximumHeightChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#visibleChanged)
@@ -1168,9 +1168,9 @@ pub const qwindow = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#visibleChanged)
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, arg: bool) callconv(.c) void ```
-    pub fn OnVisibleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QWindow_Connect_VisibleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWindow, callback: *const fn (self: QtC.QWindow, arg: bool) callconv(.c) void ```
+    pub fn OnVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QWindow_Connect_VisibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#visibilityChanged)
@@ -1182,9 +1182,9 @@ pub const qwindow = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#visibilityChanged)
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, visibility: qwindow_enums.Visibility) callconv(.c) void ```
-    pub fn OnVisibilityChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QWindow_Connect_VisibilityChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWindow, callback: *const fn (self: QtC.QWindow, visibility: qwindow_enums.Visibility) callconv(.c) void ```
+    pub fn OnVisibilityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QWindow_Connect_VisibilityChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#activeChanged)
@@ -1196,9 +1196,9 @@ pub const qwindow = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#activeChanged)
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow) callconv(.c) void ```
-    pub fn OnActiveChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QWindow_Connect_ActiveChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWindow, callback: *const fn (self: QtC.QWindow) callconv(.c) void ```
+    pub fn OnActiveChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QWindow_Connect_ActiveChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#contentOrientationChanged)
@@ -1210,9 +1210,9 @@ pub const qwindow = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#contentOrientationChanged)
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, orientation: qnamespace_enums.ScreenOrientation) callconv(.c) void ```
-    pub fn OnContentOrientationChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QWindow_Connect_ContentOrientationChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWindow, callback: *const fn (self: QtC.QWindow, orientation: qnamespace_enums.ScreenOrientation) callconv(.c) void ```
+    pub fn OnContentOrientationChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QWindow_Connect_ContentOrientationChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#focusObjectChanged)
@@ -1224,9 +1224,9 @@ pub const qwindow = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#focusObjectChanged)
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, object: QtC.QObject) callconv(.c) void ```
-    pub fn OnFocusObjectChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWindow_Connect_FocusObjectChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWindow, callback: *const fn (self: QtC.QWindow, object: QtC.QObject) callconv(.c) void ```
+    pub fn OnFocusObjectChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QWindow_Connect_FocusObjectChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#opacityChanged)
@@ -1238,9 +1238,9 @@ pub const qwindow = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#opacityChanged)
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, opacity: f64) callconv(.c) void ```
-    pub fn OnOpacityChanged(self: ?*anyopaque, slot: fn (?*anyopaque, f64) callconv(.c) void) void {
-        qtc.QWindow_Connect_OpacityChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWindow, callback: *const fn (self: QtC.QWindow, opacity: f64) callconv(.c) void ```
+    pub fn OnOpacityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
+        qtc.QWindow_Connect_OpacityChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#transientParentChanged)
@@ -1252,9 +1252,9 @@ pub const qwindow = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#transientParentChanged)
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, transientParent: QtC.QWindow) callconv(.c) void ```
-    pub fn OnTransientParentChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWindow_Connect_TransientParentChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWindow, callback: *const fn (self: QtC.QWindow, transientParent: QtC.QWindow) callconv(.c) void ```
+    pub fn OnTransientParentChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QWindow_Connect_TransientParentChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#exposeEvent)
@@ -1268,9 +1268,9 @@ pub const qwindow = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, param1: QtC.QExposeEvent) callconv(.c) void ```
-    pub fn OnExposeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWindow_OnExposeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWindow, callback: *const fn (self: QtC.QWindow, param1: QtC.QExposeEvent) callconv(.c) void ```
+    pub fn OnExposeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QWindow_OnExposeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#exposeEvent)
@@ -1293,9 +1293,9 @@ pub const qwindow = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, param1: QtC.QResizeEvent) callconv(.c) void ```
-    pub fn OnResizeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWindow_OnResizeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWindow, callback: *const fn (self: QtC.QWindow, param1: QtC.QResizeEvent) callconv(.c) void ```
+    pub fn OnResizeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QWindow_OnResizeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#resizeEvent)
@@ -1318,9 +1318,9 @@ pub const qwindow = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, param1: QtC.QPaintEvent) callconv(.c) void ```
-    pub fn OnPaintEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWindow_OnPaintEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWindow, callback: *const fn (self: QtC.QWindow, param1: QtC.QPaintEvent) callconv(.c) void ```
+    pub fn OnPaintEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QWindow_OnPaintEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#paintEvent)
@@ -1343,9 +1343,9 @@ pub const qwindow = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, param1: QtC.QMoveEvent) callconv(.c) void ```
-    pub fn OnMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWindow_OnMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWindow, callback: *const fn (self: QtC.QWindow, param1: QtC.QMoveEvent) callconv(.c) void ```
+    pub fn OnMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QWindow_OnMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#moveEvent)
@@ -1368,9 +1368,9 @@ pub const qwindow = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, param1: QtC.QFocusEvent) callconv(.c) void ```
-    pub fn OnFocusInEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWindow_OnFocusInEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWindow, callback: *const fn (self: QtC.QWindow, param1: QtC.QFocusEvent) callconv(.c) void ```
+    pub fn OnFocusInEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QWindow_OnFocusInEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#focusInEvent)
@@ -1393,9 +1393,9 @@ pub const qwindow = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, param1: QtC.QFocusEvent) callconv(.c) void ```
-    pub fn OnFocusOutEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWindow_OnFocusOutEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWindow, callback: *const fn (self: QtC.QWindow, param1: QtC.QFocusEvent) callconv(.c) void ```
+    pub fn OnFocusOutEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QWindow_OnFocusOutEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#focusOutEvent)
@@ -1418,9 +1418,9 @@ pub const qwindow = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, param1: QtC.QShowEvent) callconv(.c) void ```
-    pub fn OnShowEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWindow_OnShowEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWindow, callback: *const fn (self: QtC.QWindow, param1: QtC.QShowEvent) callconv(.c) void ```
+    pub fn OnShowEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QWindow_OnShowEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#showEvent)
@@ -1443,9 +1443,9 @@ pub const qwindow = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, param1: QtC.QHideEvent) callconv(.c) void ```
-    pub fn OnHideEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWindow_OnHideEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWindow, callback: *const fn (self: QtC.QWindow, param1: QtC.QHideEvent) callconv(.c) void ```
+    pub fn OnHideEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QWindow_OnHideEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#hideEvent)
@@ -1468,9 +1468,9 @@ pub const qwindow = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, param1: QtC.QCloseEvent) callconv(.c) void ```
-    pub fn OnCloseEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWindow_OnCloseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWindow, callback: *const fn (self: QtC.QWindow, param1: QtC.QCloseEvent) callconv(.c) void ```
+    pub fn OnCloseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QWindow_OnCloseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#closeEvent)
@@ -1493,9 +1493,9 @@ pub const qwindow = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, param1: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QWindow_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWindow, callback: *const fn (self: QtC.QWindow, param1: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QWindow_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#event)
@@ -1518,9 +1518,9 @@ pub const qwindow = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, param1: QtC.QKeyEvent) callconv(.c) void ```
-    pub fn OnKeyPressEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWindow_OnKeyPressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWindow, callback: *const fn (self: QtC.QWindow, param1: QtC.QKeyEvent) callconv(.c) void ```
+    pub fn OnKeyPressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QWindow_OnKeyPressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#keyPressEvent)
@@ -1543,9 +1543,9 @@ pub const qwindow = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, param1: QtC.QKeyEvent) callconv(.c) void ```
-    pub fn OnKeyReleaseEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWindow_OnKeyReleaseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWindow, callback: *const fn (self: QtC.QWindow, param1: QtC.QKeyEvent) callconv(.c) void ```
+    pub fn OnKeyReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QWindow_OnKeyReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#keyReleaseEvent)
@@ -1568,9 +1568,9 @@ pub const qwindow = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, param1: QtC.QMouseEvent) callconv(.c) void ```
-    pub fn OnMousePressEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWindow_OnMousePressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWindow, callback: *const fn (self: QtC.QWindow, param1: QtC.QMouseEvent) callconv(.c) void ```
+    pub fn OnMousePressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QWindow_OnMousePressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#mousePressEvent)
@@ -1593,9 +1593,9 @@ pub const qwindow = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, param1: QtC.QMouseEvent) callconv(.c) void ```
-    pub fn OnMouseReleaseEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWindow_OnMouseReleaseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWindow, callback: *const fn (self: QtC.QWindow, param1: QtC.QMouseEvent) callconv(.c) void ```
+    pub fn OnMouseReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QWindow_OnMouseReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#mouseReleaseEvent)
@@ -1618,9 +1618,9 @@ pub const qwindow = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, param1: QtC.QMouseEvent) callconv(.c) void ```
-    pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWindow_OnMouseDoubleClickEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWindow, callback: *const fn (self: QtC.QWindow, param1: QtC.QMouseEvent) callconv(.c) void ```
+    pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QWindow_OnMouseDoubleClickEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#mouseDoubleClickEvent)
@@ -1643,9 +1643,9 @@ pub const qwindow = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, param1: QtC.QMouseEvent) callconv(.c) void ```
-    pub fn OnMouseMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWindow_OnMouseMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWindow, callback: *const fn (self: QtC.QWindow, param1: QtC.QMouseEvent) callconv(.c) void ```
+    pub fn OnMouseMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QWindow_OnMouseMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#mouseMoveEvent)
@@ -1668,9 +1668,9 @@ pub const qwindow = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, param1: QtC.QWheelEvent) callconv(.c) void ```
-    pub fn OnWheelEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWindow_OnWheelEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWindow, callback: *const fn (self: QtC.QWindow, param1: QtC.QWheelEvent) callconv(.c) void ```
+    pub fn OnWheelEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QWindow_OnWheelEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#wheelEvent)
@@ -1693,9 +1693,9 @@ pub const qwindow = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, param1: QtC.QTouchEvent) callconv(.c) void ```
-    pub fn OnTouchEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWindow_OnTouchEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWindow, callback: *const fn (self: QtC.QWindow, param1: QtC.QTouchEvent) callconv(.c) void ```
+    pub fn OnTouchEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QWindow_OnTouchEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#touchEvent)
@@ -1718,9 +1718,9 @@ pub const qwindow = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, param1: QtC.QTabletEvent) callconv(.c) void ```
-    pub fn OnTabletEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWindow_OnTabletEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWindow, callback: *const fn (self: QtC.QWindow, param1: QtC.QTabletEvent) callconv(.c) void ```
+    pub fn OnTabletEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QWindow_OnTabletEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#tabletEvent)
@@ -1747,9 +1747,9 @@ pub const qwindow = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, eventType: [*:0]u8, message: ?*anyopaque, result: *isize) callconv(.c) bool ```
-    pub fn OnNativeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]u8, ?*anyopaque, *isize) callconv(.c) bool) void {
-        qtc.QWindow_OnNativeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWindow, callback: *const fn (self: QtC.QWindow, eventType: [*:0]u8, message: ?*anyopaque, result: *isize) callconv(.c) bool ```
+    pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]u8, ?*anyopaque, *isize) callconv(.c) bool) void {
+        qtc.QWindow_OnNativeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#nativeEvent)
@@ -2091,9 +2091,9 @@ pub const qwindow = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWindow, callback: *const fn (self: QtC.QWindow) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2166,9 +2166,9 @@ pub const qwindow = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWindow, callback: *const fn (self: QtC.QWindow, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QSurface
@@ -2219,9 +2219,9 @@ pub const qwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QWindow_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWindow, callback: *const fn (self: QtC.QWindow, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QWindow_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2252,9 +2252,9 @@ pub const qwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, event: QtC.QTimerEvent) callconv(.c) void ```
-    pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWindow_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWindow, callback: *const fn (self: QtC.QWindow, event: QtC.QTimerEvent) callconv(.c) void ```
+    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QWindow_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2285,9 +2285,9 @@ pub const qwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, event: QtC.QChildEvent) callconv(.c) void ```
-    pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWindow_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWindow, callback: *const fn (self: QtC.QWindow, event: QtC.QChildEvent) callconv(.c) void ```
+    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QWindow_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2318,9 +2318,9 @@ pub const qwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWindow_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWindow, callback: *const fn (self: QtC.QWindow, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QWindow_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2351,9 +2351,9 @@ pub const qwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWindow_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWindow, callback: *const fn (self: QtC.QWindow, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QWindow_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2384,9 +2384,9 @@ pub const qwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWindow_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWindow, callback: *const fn (self: QtC.QWindow, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QWindow_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2417,9 +2417,9 @@ pub const qwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QWindow, slot: fn () callconv(.c) QtC.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
-        qtc.QWindow_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWindow, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.QWindow_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2450,9 +2450,9 @@ pub const qwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QWindow, slot: fn () callconv(.c) i32 ```
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QWindow_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWindow, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QWindow_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2485,9 +2485,9 @@ pub const qwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, signal: [*:0]const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QWindow_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWindow, callback: *const fn (self: QtC.QWindow, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QWindow_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2518,9 +2518,9 @@ pub const qwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, signal: QtC.QMetaMethod) callconv(.c) bool ```
-    pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QWindow_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWindow, callback: *const fn (self: QtC.QWindow, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QWindow_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2529,9 +2529,9 @@ pub const qwindow = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QWindow, slot: fn (self: QtC.QWindow, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWindow, callback: *const fn (self: QtC.QWindow, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwindow.html#dtor.QWindow)

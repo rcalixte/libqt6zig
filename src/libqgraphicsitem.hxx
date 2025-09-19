@@ -10,7 +10,7 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QGraphicsItem so that we can call protected methods
-class VirtualQGraphicsItem final : public QGraphicsItem {
+class VirtualQGraphicsItem : public QGraphicsItem {
 
   public:
     // Virtual class boolean flag
@@ -884,7 +884,7 @@ class VirtualQGraphicsItem final : public QGraphicsItem {
 };
 
 // This class is a subclass of QGraphicsObject so that we can call protected methods
-class VirtualQGraphicsObject final : public QGraphicsObject {
+class VirtualQGraphicsObject : public QGraphicsObject {
 
   public:
     // Virtual class boolean flag
@@ -2030,7 +2030,7 @@ class VirtualQGraphicsObject final : public QGraphicsObject {
 };
 
 // This class is a subclass of QAbstractGraphicsShapeItem so that we can call protected methods
-class VirtualQAbstractGraphicsShapeItem final : public QAbstractGraphicsShapeItem {
+class VirtualQAbstractGraphicsShapeItem : public QAbstractGraphicsShapeItem {
 
   public:
     // Virtual class boolean flag

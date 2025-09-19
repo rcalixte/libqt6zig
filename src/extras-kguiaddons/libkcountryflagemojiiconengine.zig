@@ -28,9 +28,9 @@ pub const kcountryflagemojiiconengine = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KCountryFlagEmojiIconEngine, slot: fn () callconv(.c) QtC.QIconEngine ```
-    pub fn OnClone(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QIconEngine) void {
-        qtc.KCountryFlagEmojiIconEngine_OnClone(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCountryFlagEmojiIconEngine, callback: *const fn () callconv(.c) QtC.QIconEngine ```
+    pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QIconEngine) void {
+        qtc.KCountryFlagEmojiIconEngine_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kcountryflagemojiiconengine.html#clone)
@@ -57,9 +57,9 @@ pub const kcountryflagemojiiconengine = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KCountryFlagEmojiIconEngine, slot: fn () callconv(.c) [*:0]const u8 ```
-    pub fn OnKey(self: ?*anyopaque, slot: fn () callconv(.c) [*:0]const u8) void {
-        qtc.KCountryFlagEmojiIconEngine_OnKey(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCountryFlagEmojiIconEngine, callback: *const fn () callconv(.c) [*:0]const u8 ```
+    pub fn OnKey(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
+        qtc.KCountryFlagEmojiIconEngine_OnKey(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kcountryflagemojiiconengine.html#key)
@@ -86,9 +86,9 @@ pub const kcountryflagemojiiconengine = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KCountryFlagEmojiIconEngine, slot: fn (self: QtC.KCountryFlagEmojiIconEngine, painter: QtC.QPainter, rect: QtC.QRect, mode: qicon_enums.Mode, state: qicon_enums.State) callconv(.c) void ```
-    pub fn OnPaint(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.KCountryFlagEmojiIconEngine_OnPaint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCountryFlagEmojiIconEngine, callback: *const fn (self: QtC.KCountryFlagEmojiIconEngine, painter: QtC.QPainter, rect: QtC.QRect, mode: qicon_enums.Mode, state: qicon_enums.State) callconv(.c) void ```
+    pub fn OnPaint(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
+        qtc.KCountryFlagEmojiIconEngine_OnPaint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kcountryflagemojiiconengine.html#paint)
@@ -111,9 +111,9 @@ pub const kcountryflagemojiiconengine = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KCountryFlagEmojiIconEngine, slot: fn (self: QtC.KCountryFlagEmojiIconEngine, size: QtC.QSize, mode: qicon_enums.Mode, state: qicon_enums.State) callconv(.c) QtC.QPixmap ```
-    pub fn OnPixmap(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) QtC.QPixmap) void {
-        qtc.KCountryFlagEmojiIconEngine_OnPixmap(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCountryFlagEmojiIconEngine, callback: *const fn (self: QtC.KCountryFlagEmojiIconEngine, size: QtC.QSize, mode: qicon_enums.Mode, state: qicon_enums.State) callconv(.c) QtC.QPixmap ```
+    pub fn OnPixmap(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) QtC.QPixmap) void {
+        qtc.KCountryFlagEmojiIconEngine_OnPixmap(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kcountryflagemojiiconengine.html#pixmap)
@@ -136,9 +136,9 @@ pub const kcountryflagemojiiconengine = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KCountryFlagEmojiIconEngine, slot: fn (self: QtC.KCountryFlagEmojiIconEngine, size: QtC.QSize, mode: qicon_enums.Mode, state: qicon_enums.State, scale: f64) callconv(.c) QtC.QPixmap ```
-    pub fn OnScaledPixmap(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, i32, f64) callconv(.c) QtC.QPixmap) void {
-        qtc.KCountryFlagEmojiIconEngine_OnScaledPixmap(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCountryFlagEmojiIconEngine, callback: *const fn (self: QtC.KCountryFlagEmojiIconEngine, size: QtC.QSize, mode: qicon_enums.Mode, state: qicon_enums.State, scale: f64) callconv(.c) QtC.QPixmap ```
+    pub fn OnScaledPixmap(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, f64) callconv(.c) QtC.QPixmap) void {
+        qtc.KCountryFlagEmojiIconEngine_OnScaledPixmap(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kcountryflagemojiiconengine.html#scaledPixmap)
@@ -161,9 +161,9 @@ pub const kcountryflagemojiiconengine = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KCountryFlagEmojiIconEngine, slot: fn () callconv(.c) bool ```
-    pub fn OnIsNull(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.KCountryFlagEmojiIconEngine_OnIsNull(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCountryFlagEmojiIconEngine, callback: *const fn () callconv(.c) bool ```
+    pub fn OnIsNull(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.KCountryFlagEmojiIconEngine_OnIsNull(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kcountryflagemojiiconengine.html#isNull)
@@ -210,9 +210,9 @@ pub const kcountryflagemojiiconengine = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCountryFlagEmojiIconEngine, slot: fn (self: QtC.KCountryFlagEmojiIconEngine, size: QtC.QSize, mode: qicon_enums.Mode, state: qicon_enums.State) callconv(.c) QtC.QSize ```
-    pub fn OnActualSize(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) QtC.QSize) void {
-        qtc.KCountryFlagEmojiIconEngine_OnActualSize(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCountryFlagEmojiIconEngine, callback: *const fn (self: QtC.KCountryFlagEmojiIconEngine, size: QtC.QSize, mode: qicon_enums.Mode, state: qicon_enums.State) callconv(.c) QtC.QSize ```
+    pub fn OnActualSize(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) QtC.QSize) void {
+        qtc.KCountryFlagEmojiIconEngine_OnActualSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIconEngine
@@ -243,9 +243,9 @@ pub const kcountryflagemojiiconengine = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCountryFlagEmojiIconEngine, slot: fn (self: QtC.KCountryFlagEmojiIconEngine, pixmap: QtC.QPixmap, mode: qicon_enums.Mode, state: qicon_enums.State) callconv(.c) void ```
-    pub fn OnAddPixmap(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.KCountryFlagEmojiIconEngine_OnAddPixmap(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCountryFlagEmojiIconEngine, callback: *const fn (self: QtC.KCountryFlagEmojiIconEngine, pixmap: QtC.QPixmap, mode: qicon_enums.Mode, state: qicon_enums.State) callconv(.c) void ```
+    pub fn OnAddPixmap(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
+        qtc.KCountryFlagEmojiIconEngine_OnAddPixmap(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIconEngine
@@ -284,9 +284,9 @@ pub const kcountryflagemojiiconengine = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCountryFlagEmojiIconEngine, slot: fn (self: QtC.KCountryFlagEmojiIconEngine, fileName: [*:0]const u8, size: QtC.QSize, mode: qicon_enums.Mode, state: qicon_enums.State) callconv(.c) void ```
-    pub fn OnAddFile(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.KCountryFlagEmojiIconEngine_OnAddFile(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCountryFlagEmojiIconEngine, callback: *const fn (self: QtC.KCountryFlagEmojiIconEngine, fileName: [*:0]const u8, size: QtC.QSize, mode: qicon_enums.Mode, state: qicon_enums.State) callconv(.c) void ```
+    pub fn OnAddFile(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, ?*anyopaque, i32, i32) callconv(.c) void) void {
+        qtc.KCountryFlagEmojiIconEngine_OnAddFile(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIconEngine
@@ -317,9 +317,9 @@ pub const kcountryflagemojiiconengine = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCountryFlagEmojiIconEngine, slot: fn (self: QtC.KCountryFlagEmojiIconEngine, in: QtC.QDataStream) callconv(.c) bool ```
-    pub fn OnRead(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KCountryFlagEmojiIconEngine_OnRead(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCountryFlagEmojiIconEngine, callback: *const fn (self: QtC.KCountryFlagEmojiIconEngine, in: QtC.QDataStream) callconv(.c) bool ```
+    pub fn OnRead(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KCountryFlagEmojiIconEngine_OnRead(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIconEngine
@@ -350,9 +350,9 @@ pub const kcountryflagemojiiconengine = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCountryFlagEmojiIconEngine, slot: fn (self: QtC.KCountryFlagEmojiIconEngine, out: QtC.QDataStream) callconv(.c) bool ```
-    pub fn OnWrite(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KCountryFlagEmojiIconEngine_OnWrite(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCountryFlagEmojiIconEngine, callback: *const fn (self: QtC.KCountryFlagEmojiIconEngine, out: QtC.QDataStream) callconv(.c) bool ```
+    pub fn OnWrite(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KCountryFlagEmojiIconEngine_OnWrite(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIconEngine
@@ -393,9 +393,9 @@ pub const kcountryflagemojiiconengine = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCountryFlagEmojiIconEngine, slot: fn (self: QtC.KCountryFlagEmojiIconEngine, mode: qicon_enums.Mode, state: qicon_enums.State) callconv(.c) [*:null]QtC.QSize ```
-    pub fn OnAvailableSizes(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32) callconv(.c) [*:null]QtC.QSize) void {
-        qtc.KCountryFlagEmojiIconEngine_OnAvailableSizes(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCountryFlagEmojiIconEngine, callback: *const fn (self: QtC.KCountryFlagEmojiIconEngine, mode: qicon_enums.Mode, state: qicon_enums.State) callconv(.c) [*:null]QtC.QSize ```
+    pub fn OnAvailableSizes(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) [*:null]QtC.QSize) void {
+        qtc.KCountryFlagEmojiIconEngine_OnAvailableSizes(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIconEngine
@@ -434,9 +434,9 @@ pub const kcountryflagemojiiconengine = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCountryFlagEmojiIconEngine, slot: fn () callconv(.c) [*:0]const u8 ```
-    pub fn OnIconName(self: ?*anyopaque, slot: fn () callconv(.c) [*:0]const u8) void {
-        qtc.KCountryFlagEmojiIconEngine_OnIconName(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCountryFlagEmojiIconEngine, callback: *const fn () callconv(.c) [*:0]const u8 ```
+    pub fn OnIconName(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
+        qtc.KCountryFlagEmojiIconEngine_OnIconName(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIconEngine
@@ -467,9 +467,9 @@ pub const kcountryflagemojiiconengine = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCountryFlagEmojiIconEngine, slot: fn (self: QtC.KCountryFlagEmojiIconEngine, id: i32, data: ?*anyopaque) callconv(.c) void ```
-    pub fn OnVirtualHook(self: ?*anyopaque, slot: fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCountryFlagEmojiIconEngine_OnVirtualHook(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCountryFlagEmojiIconEngine, callback: *const fn (self: QtC.KCountryFlagEmojiIconEngine, id: i32, data: ?*anyopaque) callconv(.c) void ```
+    pub fn OnVirtualHook(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCountryFlagEmojiIconEngine_OnVirtualHook(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kcountryflagemojiiconengine.html#dtor.KCountryFlagEmojiIconEngine)

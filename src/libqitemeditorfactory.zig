@@ -66,9 +66,9 @@ pub const qitemeditorfactory = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QItemEditorFactory, slot: fn (self: QtC.QItemEditorFactory, userType: i32, parent: QtC.QWidget) callconv(.c) QtC.QWidget ```
-    pub fn OnCreateEditor(self: ?*anyopaque, slot: fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QWidget) void {
-        qtc.QItemEditorFactory_OnCreateEditor(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QItemEditorFactory, callback: *const fn (self: QtC.QItemEditorFactory, userType: i32, parent: QtC.QWidget) callconv(.c) QtC.QWidget ```
+    pub fn OnCreateEditor(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QWidget) void {
+        qtc.QItemEditorFactory_OnCreateEditor(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qitemeditorfactory.html#createEditor)
@@ -95,9 +95,9 @@ pub const qitemeditorfactory = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QItemEditorFactory, slot: fn (self: QtC.QItemEditorFactory, userType: i32) callconv(.c) [*:0]u8 ```
-    pub fn OnValuePropertyName(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) [*:0]u8) void {
-        qtc.QItemEditorFactory_OnValuePropertyName(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QItemEditorFactory, callback: *const fn (self: QtC.QItemEditorFactory, userType: i32) callconv(.c) [*:0]u8 ```
+    pub fn OnValuePropertyName(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) [*:0]u8) void {
+        qtc.QItemEditorFactory_OnValuePropertyName(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qitemeditorfactory.html#valuePropertyName)

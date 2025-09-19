@@ -34,9 +34,9 @@ pub const kcompletion = struct {
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KCompletion, slot: fn (self: QtC.KCompletion, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
-        qtc.KCompletion_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCompletion, callback: *const fn (self: QtC.KCompletion, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+        qtc.KCompletion_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -99,9 +99,9 @@ pub const kcompletion = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KCompletion, slot: fn () callconv(.c) [*:0]const u8 ```
-    pub fn OnLastMatch(self: ?*anyopaque, slot: fn () callconv(.c) [*:0]const u8) void {
-        qtc.KCompletion_OnLastMatch(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCompletion, callback: *const fn () callconv(.c) [*:0]const u8 ```
+    pub fn OnLastMatch(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
+        qtc.KCompletion_OnLastMatch(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kcompletion.html#lastMatch)
@@ -157,9 +157,9 @@ pub const kcompletion = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KCompletion, slot: fn (self: QtC.KCompletion, mode: kcompletion_enums.CompletionMode) callconv(.c) void ```
-    pub fn OnSetCompletionMode(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KCompletion_OnSetCompletionMode(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCompletion, callback: *const fn (self: QtC.KCompletion, mode: kcompletion_enums.CompletionMode) callconv(.c) void ```
+    pub fn OnSetCompletionMode(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.KCompletion_OnSetCompletionMode(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kcompletion.html#setCompletionMode)
@@ -191,9 +191,9 @@ pub const kcompletion = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KCompletion, slot: fn (self: QtC.KCompletion, order: kcompletion_enums.CompOrder) callconv(.c) void ```
-    pub fn OnSetOrder(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KCompletion_OnSetOrder(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCompletion, callback: *const fn (self: QtC.KCompletion, order: kcompletion_enums.CompOrder) callconv(.c) void ```
+    pub fn OnSetOrder(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.KCompletion_OnSetOrder(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kcompletion.html#setOrder)
@@ -225,9 +225,9 @@ pub const kcompletion = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KCompletion, slot: fn (self: QtC.KCompletion, ignoreCase: bool) callconv(.c) void ```
-    pub fn OnSetIgnoreCase(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.KCompletion_OnSetIgnoreCase(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCompletion, callback: *const fn (self: QtC.KCompletion, ignoreCase: bool) callconv(.c) void ```
+    pub fn OnSetIgnoreCase(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.KCompletion_OnSetIgnoreCase(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kcompletion.html#setIgnoreCase)
@@ -312,9 +312,9 @@ pub const kcompletion = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KCompletion, slot: fn (self: QtC.KCompletion, enable: bool) callconv(.c) void ```
-    pub fn OnSetSoundsEnabled(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.KCompletion_OnSetSoundsEnabled(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCompletion, callback: *const fn (self: QtC.KCompletion, enable: bool) callconv(.c) void ```
+    pub fn OnSetSoundsEnabled(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.KCompletion_OnSetSoundsEnabled(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kcompletion.html#setSoundsEnabled)
@@ -359,9 +359,9 @@ pub const kcompletion = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KCompletion, slot: fn (self: QtC.KCompletion, stringVal: [*:0]const u8) callconv(.c) [*:0]const u8 ```
-    pub fn OnMakeCompletion(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) [*:0]const u8) void {
-        qtc.KCompletion_OnMakeCompletion(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCompletion, callback: *const fn (self: QtC.KCompletion, stringVal: [*:0]const u8) callconv(.c) [*:0]const u8 ```
+    pub fn OnMakeCompletion(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) [*:0]const u8) void {
+        qtc.KCompletion_OnMakeCompletion(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kcompletion.html#makeCompletion)
@@ -445,9 +445,9 @@ pub const kcompletion = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KCompletion, slot: fn (self: QtC.KCompletion, itemList: [*][*:0]const u8) callconv(.c) void ```
-    pub fn OnSetItems(self: ?*anyopaque, slot: fn (?*anyopaque, [*][*:0]const u8) callconv(.c) void) void {
-        qtc.KCompletion_OnSetItems(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCompletion, callback: *const fn (self: QtC.KCompletion, itemList: [*][*:0]const u8) callconv(.c) void ```
+    pub fn OnSetItems(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*][*:0]const u8) callconv(.c) void) void {
+        qtc.KCompletion_OnSetItems(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kcompletion.html#setItems)
@@ -515,9 +515,9 @@ pub const kcompletion = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KCompletion, slot: fn () callconv(.c) void ```
-    pub fn OnClear(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KCompletion_OnClear(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCompletion, callback: *const fn () callconv(.c) void ```
+    pub fn OnClear(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KCompletion_OnClear(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kcompletion.html#clear)
@@ -542,9 +542,9 @@ pub const kcompletion = struct {
 
     /// [Qt documentation](https://api.kde.org/kcompletion.html#match)
     ///
-    /// ``` self: QtC.KCompletion, slot: fn (self: QtC.KCompletion, item: [*:0]const u8) callconv(.c) void ```
-    pub fn OnMatch(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KCompletion_Connect_Match(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCompletion, callback: *const fn (self: QtC.KCompletion, item: [*:0]const u8) callconv(.c) void ```
+    pub fn OnMatch(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.KCompletion_Connect_Match(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kcompletion.html#matches)
@@ -568,9 +568,9 @@ pub const kcompletion = struct {
 
     /// [Qt documentation](https://api.kde.org/kcompletion.html#matches)
     ///
-    /// ``` self: QtC.KCompletion, slot: fn (self: QtC.KCompletion, matchlist: [*][*:0]const u8) callconv(.c) void ```
-    pub fn OnMatches(self: ?*anyopaque, slot: fn (?*anyopaque, [*][*:0]const u8) callconv(.c) void) void {
-        qtc.KCompletion_Connect_Matches(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCompletion, callback: *const fn (self: QtC.KCompletion, matchlist: [*][*:0]const u8) callconv(.c) void ```
+    pub fn OnMatches(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*][*:0]const u8) callconv(.c) void) void {
+        qtc.KCompletion_Connect_Matches(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kcompletion.html#multipleMatches)
@@ -582,9 +582,9 @@ pub const kcompletion = struct {
 
     /// [Qt documentation](https://api.kde.org/kcompletion.html#multipleMatches)
     ///
-    /// ``` self: QtC.KCompletion, slot: fn (self: QtC.KCompletion) callconv(.c) void ```
-    pub fn OnMultipleMatches(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.KCompletion_Connect_MultipleMatches(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCompletion, callback: *const fn (self: QtC.KCompletion) callconv(.c) void ```
+    pub fn OnMultipleMatches(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.KCompletion_Connect_MultipleMatches(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kcompletion.html#postProcessMatches)
@@ -610,9 +610,9 @@ pub const kcompletion = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KCompletion, slot: fn (self: QtC.KCompletion, matchList: [*][*:0]const u8) callconv(.c) void ```
-    pub fn OnPostProcessMatches(self: ?*anyopaque, slot: fn (?*anyopaque, [*][*:0]const u8) callconv(.c) void) void {
-        qtc.KCompletion_OnPostProcessMatches(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCompletion, callback: *const fn (self: QtC.KCompletion, matchList: [*][*:0]const u8) callconv(.c) void ```
+    pub fn OnPostProcessMatches(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*][*:0]const u8) callconv(.c) void) void {
+        qtc.KCompletion_OnPostProcessMatches(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kcompletion.html#postProcessMatches)
@@ -647,9 +647,9 @@ pub const kcompletion = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KCompletion, slot: fn (self: QtC.KCompletion, shouldAutosuggest: bool) callconv(.c) void ```
-    pub fn OnSetShouldAutoSuggest(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.KCompletion_OnSetShouldAutoSuggest(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCompletion, callback: *const fn (self: QtC.KCompletion, shouldAutosuggest: bool) callconv(.c) void ```
+    pub fn OnSetShouldAutoSuggest(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.KCompletion_OnSetShouldAutoSuggest(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kcompletion.html#setShouldAutoSuggest)
@@ -975,9 +975,9 @@ pub const kcompletion = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KCompletion, slot: fn (self: QtC.KCompletion) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCompletion, callback: *const fn (self: QtC.KCompletion) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1059,9 +1059,9 @@ pub const kcompletion = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KCompletion, slot: fn (self: QtC.KCompletion, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCompletion, callback: *const fn (self: QtC.KCompletion, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1092,9 +1092,9 @@ pub const kcompletion = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCompletion, slot: fn (self: QtC.KCompletion, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KCompletion_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCompletion, callback: *const fn (self: QtC.KCompletion, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KCompletion_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1125,9 +1125,9 @@ pub const kcompletion = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCompletion, slot: fn (self: QtC.KCompletion, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KCompletion_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCompletion, callback: *const fn (self: QtC.KCompletion, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KCompletion_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1158,9 +1158,9 @@ pub const kcompletion = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCompletion, slot: fn (self: QtC.KCompletion, event: QtC.QTimerEvent) callconv(.c) void ```
-    pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCompletion_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCompletion, callback: *const fn (self: QtC.KCompletion, event: QtC.QTimerEvent) callconv(.c) void ```
+    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCompletion_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1191,9 +1191,9 @@ pub const kcompletion = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCompletion, slot: fn (self: QtC.KCompletion, event: QtC.QChildEvent) callconv(.c) void ```
-    pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCompletion_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCompletion, callback: *const fn (self: QtC.KCompletion, event: QtC.QChildEvent) callconv(.c) void ```
+    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCompletion_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1224,9 +1224,9 @@ pub const kcompletion = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCompletion, slot: fn (self: QtC.KCompletion, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCompletion_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCompletion, callback: *const fn (self: QtC.KCompletion, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCompletion_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1257,9 +1257,9 @@ pub const kcompletion = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCompletion, slot: fn (self: QtC.KCompletion, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCompletion_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCompletion, callback: *const fn (self: QtC.KCompletion, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCompletion_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1290,9 +1290,9 @@ pub const kcompletion = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCompletion, slot: fn (self: QtC.KCompletion, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCompletion_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCompletion, callback: *const fn (self: QtC.KCompletion, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCompletion_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1323,9 +1323,9 @@ pub const kcompletion = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCompletion, slot: fn () callconv(.c) QtC.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
-        qtc.KCompletion_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCompletion, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.KCompletion_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1356,9 +1356,9 @@ pub const kcompletion = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCompletion, slot: fn () callconv(.c) i32 ```
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.KCompletion_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCompletion, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.KCompletion_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1391,9 +1391,9 @@ pub const kcompletion = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCompletion, slot: fn (self: QtC.KCompletion, signal: [*:0]const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KCompletion_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCompletion, callback: *const fn (self: QtC.KCompletion, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
+        qtc.KCompletion_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1424,9 +1424,9 @@ pub const kcompletion = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KCompletion, slot: fn (self: QtC.KCompletion, signal: QtC.QMetaMethod) callconv(.c) bool ```
-    pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KCompletion_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCompletion, callback: *const fn (self: QtC.KCompletion, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KCompletion_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1435,9 +1435,9 @@ pub const kcompletion = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KCompletion, slot: fn (self: QtC.KCompletion, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCompletion, callback: *const fn (self: QtC.KCompletion, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kcompletion.html#dtor.KCompletion)

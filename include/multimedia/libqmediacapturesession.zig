@@ -40,9 +40,9 @@ pub const qmediacapturesession = struct {
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QMediaCaptureSession, slot: fn (self: QtC.QMediaCaptureSession, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QMediaCaptureSession_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QMediaCaptureSession, callback: *const fn (self: QtC.QMediaCaptureSession, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+        qtc.QMediaCaptureSession_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -227,9 +227,9 @@ pub const qmediacapturesession = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmediacapturesession.html#audioInputChanged)
     ///
-    /// ``` self: QtC.QMediaCaptureSession, slot: fn (self: QtC.QMediaCaptureSession) callconv(.c) void ```
-    pub fn OnAudioInputChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QMediaCaptureSession_Connect_AudioInputChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QMediaCaptureSession, callback: *const fn (self: QtC.QMediaCaptureSession) callconv(.c) void ```
+    pub fn OnAudioInputChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QMediaCaptureSession_Connect_AudioInputChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmediacapturesession.html#audioBufferInputChanged)
@@ -241,9 +241,9 @@ pub const qmediacapturesession = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmediacapturesession.html#audioBufferInputChanged)
     ///
-    /// ``` self: QtC.QMediaCaptureSession, slot: fn (self: QtC.QMediaCaptureSession) callconv(.c) void ```
-    pub fn OnAudioBufferInputChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QMediaCaptureSession_Connect_AudioBufferInputChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QMediaCaptureSession, callback: *const fn (self: QtC.QMediaCaptureSession) callconv(.c) void ```
+    pub fn OnAudioBufferInputChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QMediaCaptureSession_Connect_AudioBufferInputChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmediacapturesession.html#cameraChanged)
@@ -255,9 +255,9 @@ pub const qmediacapturesession = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmediacapturesession.html#cameraChanged)
     ///
-    /// ``` self: QtC.QMediaCaptureSession, slot: fn (self: QtC.QMediaCaptureSession) callconv(.c) void ```
-    pub fn OnCameraChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QMediaCaptureSession_Connect_CameraChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QMediaCaptureSession, callback: *const fn (self: QtC.QMediaCaptureSession) callconv(.c) void ```
+    pub fn OnCameraChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QMediaCaptureSession_Connect_CameraChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmediacapturesession.html#screenCaptureChanged)
@@ -269,9 +269,9 @@ pub const qmediacapturesession = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmediacapturesession.html#screenCaptureChanged)
     ///
-    /// ``` self: QtC.QMediaCaptureSession, slot: fn (self: QtC.QMediaCaptureSession) callconv(.c) void ```
-    pub fn OnScreenCaptureChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QMediaCaptureSession_Connect_ScreenCaptureChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QMediaCaptureSession, callback: *const fn (self: QtC.QMediaCaptureSession) callconv(.c) void ```
+    pub fn OnScreenCaptureChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QMediaCaptureSession_Connect_ScreenCaptureChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmediacapturesession.html#windowCaptureChanged)
@@ -283,9 +283,9 @@ pub const qmediacapturesession = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmediacapturesession.html#windowCaptureChanged)
     ///
-    /// ``` self: QtC.QMediaCaptureSession, slot: fn (self: QtC.QMediaCaptureSession) callconv(.c) void ```
-    pub fn OnWindowCaptureChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QMediaCaptureSession_Connect_WindowCaptureChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QMediaCaptureSession, callback: *const fn (self: QtC.QMediaCaptureSession) callconv(.c) void ```
+    pub fn OnWindowCaptureChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QMediaCaptureSession_Connect_WindowCaptureChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmediacapturesession.html#videoFrameInputChanged)
@@ -297,9 +297,9 @@ pub const qmediacapturesession = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmediacapturesession.html#videoFrameInputChanged)
     ///
-    /// ``` self: QtC.QMediaCaptureSession, slot: fn (self: QtC.QMediaCaptureSession) callconv(.c) void ```
-    pub fn OnVideoFrameInputChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QMediaCaptureSession_Connect_VideoFrameInputChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QMediaCaptureSession, callback: *const fn (self: QtC.QMediaCaptureSession) callconv(.c) void ```
+    pub fn OnVideoFrameInputChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QMediaCaptureSession_Connect_VideoFrameInputChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmediacapturesession.html#imageCaptureChanged)
@@ -311,9 +311,9 @@ pub const qmediacapturesession = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmediacapturesession.html#imageCaptureChanged)
     ///
-    /// ``` self: QtC.QMediaCaptureSession, slot: fn (self: QtC.QMediaCaptureSession) callconv(.c) void ```
-    pub fn OnImageCaptureChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QMediaCaptureSession_Connect_ImageCaptureChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QMediaCaptureSession, callback: *const fn (self: QtC.QMediaCaptureSession) callconv(.c) void ```
+    pub fn OnImageCaptureChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QMediaCaptureSession_Connect_ImageCaptureChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmediacapturesession.html#recorderChanged)
@@ -325,9 +325,9 @@ pub const qmediacapturesession = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmediacapturesession.html#recorderChanged)
     ///
-    /// ``` self: QtC.QMediaCaptureSession, slot: fn (self: QtC.QMediaCaptureSession) callconv(.c) void ```
-    pub fn OnRecorderChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QMediaCaptureSession_Connect_RecorderChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QMediaCaptureSession, callback: *const fn (self: QtC.QMediaCaptureSession) callconv(.c) void ```
+    pub fn OnRecorderChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QMediaCaptureSession_Connect_RecorderChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmediacapturesession.html#videoOutputChanged)
@@ -339,9 +339,9 @@ pub const qmediacapturesession = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmediacapturesession.html#videoOutputChanged)
     ///
-    /// ``` self: QtC.QMediaCaptureSession, slot: fn (self: QtC.QMediaCaptureSession) callconv(.c) void ```
-    pub fn OnVideoOutputChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QMediaCaptureSession_Connect_VideoOutputChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QMediaCaptureSession, callback: *const fn (self: QtC.QMediaCaptureSession) callconv(.c) void ```
+    pub fn OnVideoOutputChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QMediaCaptureSession_Connect_VideoOutputChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmediacapturesession.html#audioOutputChanged)
@@ -353,9 +353,9 @@ pub const qmediacapturesession = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmediacapturesession.html#audioOutputChanged)
     ///
-    /// ``` self: QtC.QMediaCaptureSession, slot: fn (self: QtC.QMediaCaptureSession) callconv(.c) void ```
-    pub fn OnAudioOutputChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QMediaCaptureSession_Connect_AudioOutputChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QMediaCaptureSession, callback: *const fn (self: QtC.QMediaCaptureSession) callconv(.c) void ```
+    pub fn OnAudioOutputChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QMediaCaptureSession_Connect_AudioOutputChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -672,9 +672,9 @@ pub const qmediacapturesession = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QMediaCaptureSession, slot: fn (self: QtC.QMediaCaptureSession) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QMediaCaptureSession, callback: *const fn (self: QtC.QMediaCaptureSession) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -756,9 +756,9 @@ pub const qmediacapturesession = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QMediaCaptureSession, slot: fn (self: QtC.QMediaCaptureSession, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QMediaCaptureSession, callback: *const fn (self: QtC.QMediaCaptureSession, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -789,9 +789,9 @@ pub const qmediacapturesession = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QMediaCaptureSession, slot: fn (self: QtC.QMediaCaptureSession, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QMediaCaptureSession_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QMediaCaptureSession, callback: *const fn (self: QtC.QMediaCaptureSession, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QMediaCaptureSession_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -822,9 +822,9 @@ pub const qmediacapturesession = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QMediaCaptureSession, slot: fn (self: QtC.QMediaCaptureSession, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QMediaCaptureSession_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QMediaCaptureSession, callback: *const fn (self: QtC.QMediaCaptureSession, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QMediaCaptureSession_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -855,9 +855,9 @@ pub const qmediacapturesession = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QMediaCaptureSession, slot: fn (self: QtC.QMediaCaptureSession, event: QtC.QTimerEvent) callconv(.c) void ```
-    pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QMediaCaptureSession_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QMediaCaptureSession, callback: *const fn (self: QtC.QMediaCaptureSession, event: QtC.QTimerEvent) callconv(.c) void ```
+    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QMediaCaptureSession_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -888,9 +888,9 @@ pub const qmediacapturesession = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QMediaCaptureSession, slot: fn (self: QtC.QMediaCaptureSession, event: QtC.QChildEvent) callconv(.c) void ```
-    pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QMediaCaptureSession_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QMediaCaptureSession, callback: *const fn (self: QtC.QMediaCaptureSession, event: QtC.QChildEvent) callconv(.c) void ```
+    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QMediaCaptureSession_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -921,9 +921,9 @@ pub const qmediacapturesession = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QMediaCaptureSession, slot: fn (self: QtC.QMediaCaptureSession, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QMediaCaptureSession_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QMediaCaptureSession, callback: *const fn (self: QtC.QMediaCaptureSession, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QMediaCaptureSession_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -954,9 +954,9 @@ pub const qmediacapturesession = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QMediaCaptureSession, slot: fn (self: QtC.QMediaCaptureSession, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QMediaCaptureSession_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QMediaCaptureSession, callback: *const fn (self: QtC.QMediaCaptureSession, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QMediaCaptureSession_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -987,9 +987,9 @@ pub const qmediacapturesession = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QMediaCaptureSession, slot: fn (self: QtC.QMediaCaptureSession, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QMediaCaptureSession_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QMediaCaptureSession, callback: *const fn (self: QtC.QMediaCaptureSession, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QMediaCaptureSession_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1020,9 +1020,9 @@ pub const qmediacapturesession = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QMediaCaptureSession, slot: fn () callconv(.c) QtC.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
-        qtc.QMediaCaptureSession_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QMediaCaptureSession, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.QMediaCaptureSession_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1053,9 +1053,9 @@ pub const qmediacapturesession = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QMediaCaptureSession, slot: fn () callconv(.c) i32 ```
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QMediaCaptureSession_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QMediaCaptureSession, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QMediaCaptureSession_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1088,9 +1088,9 @@ pub const qmediacapturesession = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QMediaCaptureSession, slot: fn (self: QtC.QMediaCaptureSession, signal: [*:0]const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QMediaCaptureSession_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QMediaCaptureSession, callback: *const fn (self: QtC.QMediaCaptureSession, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QMediaCaptureSession_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1121,9 +1121,9 @@ pub const qmediacapturesession = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QMediaCaptureSession, slot: fn (self: QtC.QMediaCaptureSession, signal: QtC.QMetaMethod) callconv(.c) bool ```
-    pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QMediaCaptureSession_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QMediaCaptureSession, callback: *const fn (self: QtC.QMediaCaptureSession, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QMediaCaptureSession_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1132,9 +1132,9 @@ pub const qmediacapturesession = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QMediaCaptureSession, slot: fn (self: QtC.QMediaCaptureSession, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QMediaCaptureSession, callback: *const fn (self: QtC.QMediaCaptureSession, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmediacapturesession.html#dtor.QMediaCaptureSession)

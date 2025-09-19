@@ -26,9 +26,9 @@ pub const kmessageboxdontaskagaininterface = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KMessageBoxDontAskAgainInterface, slot: fn (self: QtC.KMessageBoxDontAskAgainInterface, dontShowAgainName: [*:0]const u8, result: *kmessagebox_enums.ButtonCode) callconv(.c) bool ```
-    pub fn OnShouldBeShownTwoActions(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, *i32) callconv(.c) bool) void {
-        qtc.KMessageBoxDontAskAgainInterface_OnShouldBeShownTwoActions(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KMessageBoxDontAskAgainInterface, callback: *const fn (self: QtC.KMessageBoxDontAskAgainInterface, dontShowAgainName: [*:0]const u8, result: *kmessagebox_enums.ButtonCode) callconv(.c) bool ```
+    pub fn OnShouldBeShownTwoActions(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, *i32) callconv(.c) bool) void {
+        qtc.KMessageBoxDontAskAgainInterface_OnShouldBeShownTwoActions(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kmessageboxdontaskagaininterface.html#shouldBeShownTwoActions)
@@ -59,9 +59,9 @@ pub const kmessageboxdontaskagaininterface = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KMessageBoxDontAskAgainInterface, slot: fn (self: QtC.KMessageBoxDontAskAgainInterface, dontShowAgainName: [*:0]const u8) callconv(.c) bool ```
-    pub fn OnShouldBeShownContinue(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) bool) void {
-        qtc.KMessageBoxDontAskAgainInterface_OnShouldBeShownContinue(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KMessageBoxDontAskAgainInterface, callback: *const fn (self: QtC.KMessageBoxDontAskAgainInterface, dontShowAgainName: [*:0]const u8) callconv(.c) bool ```
+    pub fn OnShouldBeShownContinue(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) bool) void {
+        qtc.KMessageBoxDontAskAgainInterface_OnShouldBeShownContinue(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kmessageboxdontaskagaininterface.html#shouldBeShownContinue)
@@ -92,9 +92,9 @@ pub const kmessageboxdontaskagaininterface = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KMessageBoxDontAskAgainInterface, slot: fn (self: QtC.KMessageBoxDontAskAgainInterface, dontShowAgainName: [*:0]const u8, result: kmessagebox_enums.ButtonCode) callconv(.c) void ```
-    pub fn OnSaveDontShowAgainTwoActions(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, i32) callconv(.c) void) void {
-        qtc.KMessageBoxDontAskAgainInterface_OnSaveDontShowAgainTwoActions(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KMessageBoxDontAskAgainInterface, callback: *const fn (self: QtC.KMessageBoxDontAskAgainInterface, dontShowAgainName: [*:0]const u8, result: kmessagebox_enums.ButtonCode) callconv(.c) void ```
+    pub fn OnSaveDontShowAgainTwoActions(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32) callconv(.c) void) void {
+        qtc.KMessageBoxDontAskAgainInterface_OnSaveDontShowAgainTwoActions(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kmessageboxdontaskagaininterface.html#saveDontShowAgainTwoActions)
@@ -125,9 +125,9 @@ pub const kmessageboxdontaskagaininterface = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KMessageBoxDontAskAgainInterface, slot: fn (self: QtC.KMessageBoxDontAskAgainInterface, dontShowAgainName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnSaveDontShowAgainContinue(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KMessageBoxDontAskAgainInterface_OnSaveDontShowAgainContinue(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KMessageBoxDontAskAgainInterface, callback: *const fn (self: QtC.KMessageBoxDontAskAgainInterface, dontShowAgainName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnSaveDontShowAgainContinue(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.KMessageBoxDontAskAgainInterface_OnSaveDontShowAgainContinue(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kmessageboxdontaskagaininterface.html#saveDontShowAgainContinue)
@@ -154,9 +154,9 @@ pub const kmessageboxdontaskagaininterface = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KMessageBoxDontAskAgainInterface, slot: fn () callconv(.c) void ```
-    pub fn OnEnableAllMessages(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KMessageBoxDontAskAgainInterface_OnEnableAllMessages(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KMessageBoxDontAskAgainInterface, callback: *const fn () callconv(.c) void ```
+    pub fn OnEnableAllMessages(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KMessageBoxDontAskAgainInterface_OnEnableAllMessages(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kmessageboxdontaskagaininterface.html#enableAllMessages)
@@ -183,9 +183,9 @@ pub const kmessageboxdontaskagaininterface = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KMessageBoxDontAskAgainInterface, slot: fn (self: QtC.KMessageBoxDontAskAgainInterface, dontShowAgainName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnEnableMessage(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KMessageBoxDontAskAgainInterface_OnEnableMessage(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KMessageBoxDontAskAgainInterface, callback: *const fn (self: QtC.KMessageBoxDontAskAgainInterface, dontShowAgainName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnEnableMessage(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.KMessageBoxDontAskAgainInterface_OnEnableMessage(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kmessageboxdontaskagaininterface.html#enableMessage)
@@ -212,9 +212,9 @@ pub const kmessageboxdontaskagaininterface = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KMessageBoxDontAskAgainInterface, slot: fn (self: QtC.KMessageBoxDontAskAgainInterface, config: QtC.KConfig) callconv(.c) void ```
-    pub fn OnSetConfig(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KMessageBoxDontAskAgainInterface_OnSetConfig(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KMessageBoxDontAskAgainInterface, callback: *const fn (self: QtC.KMessageBoxDontAskAgainInterface, config: QtC.KConfig) callconv(.c) void ```
+    pub fn OnSetConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KMessageBoxDontAskAgainInterface_OnSetConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kmessageboxdontaskagaininterface.html#setConfig)

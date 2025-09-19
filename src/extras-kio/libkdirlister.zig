@@ -42,9 +42,9 @@ pub const kdirlister = struct {
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KDirLister, slot: fn (self: QtC.KDirLister, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
-        qtc.KDirLister_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirLister, callback: *const fn (self: QtC.KDirLister, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+        qtc.KDirLister_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -98,9 +98,9 @@ pub const kdirlister = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KDirLister, slot: fn (self: QtC.KDirLister, param1: QtC.KIO__ListJob) callconv(.c) void ```
-    pub fn OnJobStarted(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KDirLister_OnJobStarted(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirLister, callback: *const fn (self: QtC.KDirLister, param1: QtC.KIO__ListJob) callconv(.c) void ```
+    pub fn OnJobStarted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KDirLister_OnJobStarted(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kdirlister.html#jobStarted)
@@ -495,9 +495,9 @@ pub const kdirlister = struct {
     ///
     /// [Qt documentation](https://api.kde.org/kcoredirlister.html#started)
     ///
-    /// ``` self: QtC.KDirLister, slot: fn (self: QtC.KDirLister, dirUrl: QtC.QUrl) callconv(.c) void ```
-    pub fn OnStarted(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreDirLister_Connect_Started(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirLister, callback: *const fn (self: QtC.KDirLister, dirUrl: QtC.QUrl) callconv(.c) void ```
+    pub fn OnStarted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCoreDirLister_Connect_Started(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCoreDirLister
@@ -513,9 +513,9 @@ pub const kdirlister = struct {
     ///
     /// [Qt documentation](https://api.kde.org/kcoredirlister.html#completed)
     ///
-    /// ``` self: QtC.KDirLister, slot: fn (self: QtC.KDirLister) callconv(.c) void ```
-    pub fn OnCompleted(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreDirLister_Connect_Completed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirLister, callback: *const fn (self: QtC.KDirLister) callconv(.c) void ```
+    pub fn OnCompleted(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.KCoreDirLister_Connect_Completed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCoreDirLister
@@ -531,9 +531,9 @@ pub const kdirlister = struct {
     ///
     /// [Qt documentation](https://api.kde.org/kcoredirlister.html#listingDirCompleted)
     ///
-    /// ``` self: QtC.KDirLister, slot: fn (self: QtC.KDirLister, dirUrl: QtC.QUrl) callconv(.c) void ```
-    pub fn OnListingDirCompleted(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreDirLister_Connect_ListingDirCompleted(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirLister, callback: *const fn (self: QtC.KDirLister, dirUrl: QtC.QUrl) callconv(.c) void ```
+    pub fn OnListingDirCompleted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCoreDirLister_Connect_ListingDirCompleted(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCoreDirLister
@@ -549,9 +549,9 @@ pub const kdirlister = struct {
     ///
     /// [Qt documentation](https://api.kde.org/kcoredirlister.html#canceled)
     ///
-    /// ``` self: QtC.KDirLister, slot: fn (self: QtC.KDirLister) callconv(.c) void ```
-    pub fn OnCanceled(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreDirLister_Connect_Canceled(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirLister, callback: *const fn (self: QtC.KDirLister) callconv(.c) void ```
+    pub fn OnCanceled(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.KCoreDirLister_Connect_Canceled(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCoreDirLister
@@ -567,9 +567,9 @@ pub const kdirlister = struct {
     ///
     /// [Qt documentation](https://api.kde.org/kcoredirlister.html#listingDirCanceled)
     ///
-    /// ``` self: QtC.KDirLister, slot: fn (self: QtC.KDirLister, dirUrl: QtC.QUrl) callconv(.c) void ```
-    pub fn OnListingDirCanceled(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreDirLister_Connect_ListingDirCanceled(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirLister, callback: *const fn (self: QtC.KDirLister, dirUrl: QtC.QUrl) callconv(.c) void ```
+    pub fn OnListingDirCanceled(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCoreDirLister_Connect_ListingDirCanceled(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCoreDirLister
@@ -585,9 +585,9 @@ pub const kdirlister = struct {
     ///
     /// [Qt documentation](https://api.kde.org/kcoredirlister.html#redirection)
     ///
-    /// ``` self: QtC.KDirLister, slot: fn (self: QtC.KDirLister, oldUrl: QtC.QUrl, newUrl: QtC.QUrl) callconv(.c) void ```
-    pub fn OnRedirection(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreDirLister_Connect_Redirection(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirLister, callback: *const fn (self: QtC.KDirLister, oldUrl: QtC.QUrl, newUrl: QtC.QUrl) callconv(.c) void ```
+    pub fn OnRedirection(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCoreDirLister_Connect_Redirection(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCoreDirLister
@@ -603,9 +603,9 @@ pub const kdirlister = struct {
     ///
     /// [Qt documentation](https://api.kde.org/kcoredirlister.html#clear)
     ///
-    /// ``` self: QtC.KDirLister, slot: fn (self: QtC.KDirLister) callconv(.c) void ```
-    pub fn OnClear(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreDirLister_Connect_Clear(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirLister, callback: *const fn (self: QtC.KDirLister) callconv(.c) void ```
+    pub fn OnClear(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.KCoreDirLister_Connect_Clear(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCoreDirLister
@@ -621,9 +621,9 @@ pub const kdirlister = struct {
     ///
     /// [Qt documentation](https://api.kde.org/kcoredirlister.html#clearDir)
     ///
-    /// ``` self: QtC.KDirLister, slot: fn (self: QtC.KDirLister, dirUrl: QtC.QUrl) callconv(.c) void ```
-    pub fn OnClearDir(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreDirLister_Connect_ClearDir(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirLister, callback: *const fn (self: QtC.KDirLister, dirUrl: QtC.QUrl) callconv(.c) void ```
+    pub fn OnClearDir(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCoreDirLister_Connect_ClearDir(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCoreDirLister
@@ -639,9 +639,9 @@ pub const kdirlister = struct {
     ///
     /// [Qt documentation](https://api.kde.org/kcoredirlister.html#newItems)
     ///
-    /// ``` self: QtC.KDirLister, slot: fn (self: QtC.KDirLister, items: QtC.KFileItemList) callconv(.c) void ```
-    pub fn OnNewItems(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreDirLister_Connect_NewItems(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirLister, callback: *const fn (self: QtC.KDirLister, items: QtC.KFileItemList) callconv(.c) void ```
+    pub fn OnNewItems(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCoreDirLister_Connect_NewItems(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCoreDirLister
@@ -657,9 +657,9 @@ pub const kdirlister = struct {
     ///
     /// [Qt documentation](https://api.kde.org/kcoredirlister.html#itemsAdded)
     ///
-    /// ``` self: QtC.KDirLister, slot: fn (self: QtC.KDirLister, directoryUrl: QtC.QUrl, items: QtC.KFileItemList) callconv(.c) void ```
-    pub fn OnItemsAdded(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreDirLister_Connect_ItemsAdded(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirLister, callback: *const fn (self: QtC.KDirLister, directoryUrl: QtC.QUrl, items: QtC.KFileItemList) callconv(.c) void ```
+    pub fn OnItemsAdded(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCoreDirLister_Connect_ItemsAdded(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCoreDirLister
@@ -675,9 +675,9 @@ pub const kdirlister = struct {
     ///
     /// [Qt documentation](https://api.kde.org/kcoredirlister.html#itemsFilteredByMime)
     ///
-    /// ``` self: QtC.KDirLister, slot: fn (self: QtC.KDirLister, items: QtC.KFileItemList) callconv(.c) void ```
-    pub fn OnItemsFilteredByMime(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreDirLister_Connect_ItemsFilteredByMime(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirLister, callback: *const fn (self: QtC.KDirLister, items: QtC.KFileItemList) callconv(.c) void ```
+    pub fn OnItemsFilteredByMime(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCoreDirLister_Connect_ItemsFilteredByMime(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCoreDirLister
@@ -693,9 +693,9 @@ pub const kdirlister = struct {
     ///
     /// [Qt documentation](https://api.kde.org/kcoredirlister.html#itemsDeleted)
     ///
-    /// ``` self: QtC.KDirLister, slot: fn (self: QtC.KDirLister, items: QtC.KFileItemList) callconv(.c) void ```
-    pub fn OnItemsDeleted(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreDirLister_Connect_ItemsDeleted(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirLister, callback: *const fn (self: QtC.KDirLister, items: QtC.KFileItemList) callconv(.c) void ```
+    pub fn OnItemsDeleted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCoreDirLister_Connect_ItemsDeleted(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCoreDirLister
@@ -728,9 +728,9 @@ pub const kdirlister = struct {
     ///
     /// [Qt documentation](https://api.kde.org/kcoredirlister.html#infoMessage)
     ///
-    /// ``` self: QtC.KDirLister, slot: fn (self: QtC.KDirLister, msg: [*:0]const u8) callconv(.c) void ```
-    pub fn OnInfoMessage(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KCoreDirLister_Connect_InfoMessage(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirLister, callback: *const fn (self: QtC.KDirLister, msg: [*:0]const u8) callconv(.c) void ```
+    pub fn OnInfoMessage(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.KCoreDirLister_Connect_InfoMessage(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCoreDirLister
@@ -746,9 +746,9 @@ pub const kdirlister = struct {
     ///
     /// [Qt documentation](https://api.kde.org/kcoredirlister.html#percent)
     ///
-    /// ``` self: QtC.KDirLister, slot: fn (self: QtC.KDirLister, percent: i32) callconv(.c) void ```
-    pub fn OnPercent(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KCoreDirLister_Connect_Percent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirLister, callback: *const fn (self: QtC.KDirLister, percent: i32) callconv(.c) void ```
+    pub fn OnPercent(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.KCoreDirLister_Connect_Percent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCoreDirLister
@@ -764,9 +764,9 @@ pub const kdirlister = struct {
     ///
     /// [Qt documentation](https://api.kde.org/kcoredirlister.html#totalSize)
     ///
-    /// ``` self: QtC.KDirLister, slot: fn (self: QtC.KDirLister, size: u64) callconv(.c) void ```
-    pub fn OnTotalSize(self: ?*anyopaque, slot: fn (?*anyopaque, u64) callconv(.c) void) void {
-        qtc.KCoreDirLister_Connect_TotalSize(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirLister, callback: *const fn (self: QtC.KDirLister, size: u64) callconv(.c) void ```
+    pub fn OnTotalSize(self: ?*anyopaque, callback: *const fn (?*anyopaque, u64) callconv(.c) void) void {
+        qtc.KCoreDirLister_Connect_TotalSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCoreDirLister
@@ -782,9 +782,9 @@ pub const kdirlister = struct {
     ///
     /// [Qt documentation](https://api.kde.org/kcoredirlister.html#processedSize)
     ///
-    /// ``` self: QtC.KDirLister, slot: fn (self: QtC.KDirLister, size: u64) callconv(.c) void ```
-    pub fn OnProcessedSize(self: ?*anyopaque, slot: fn (?*anyopaque, u64) callconv(.c) void) void {
-        qtc.KCoreDirLister_Connect_ProcessedSize(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirLister, callback: *const fn (self: QtC.KDirLister, size: u64) callconv(.c) void ```
+    pub fn OnProcessedSize(self: ?*anyopaque, callback: *const fn (?*anyopaque, u64) callconv(.c) void) void {
+        qtc.KCoreDirLister_Connect_ProcessedSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCoreDirLister
@@ -800,9 +800,9 @@ pub const kdirlister = struct {
     ///
     /// [Qt documentation](https://api.kde.org/kcoredirlister.html#speed)
     ///
-    /// ``` self: QtC.KDirLister, slot: fn (self: QtC.KDirLister, bytes_per_second: i32) callconv(.c) void ```
-    pub fn OnSpeed(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KCoreDirLister_Connect_Speed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirLister, callback: *const fn (self: QtC.KDirLister, bytes_per_second: i32) callconv(.c) void ```
+    pub fn OnSpeed(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.KCoreDirLister_Connect_Speed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCoreDirLister
@@ -818,9 +818,9 @@ pub const kdirlister = struct {
     ///
     /// [Qt documentation](https://api.kde.org/kcoredirlister.html#jobError)
     ///
-    /// ``` self: QtC.KDirLister, slot: fn (self: QtC.KDirLister, job: QtC.KIO__Job) callconv(.c) void ```
-    pub fn OnJobError(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KCoreDirLister_Connect_JobError(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirLister, callback: *const fn (self: QtC.KDirLister, job: QtC.KIO__Job) callconv(.c) void ```
+    pub fn OnJobError(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCoreDirLister_Connect_JobError(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCoreDirLister
@@ -1138,9 +1138,9 @@ pub const kdirlister = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KDirLister, slot: fn (self: QtC.KDirLister) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirLister, callback: *const fn (self: QtC.KDirLister) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1222,9 +1222,9 @@ pub const kdirlister = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KDirLister, slot: fn (self: QtC.KDirLister, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirLister, callback: *const fn (self: QtC.KDirLister, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1255,9 +1255,9 @@ pub const kdirlister = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirLister, slot: fn (self: QtC.KDirLister, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KDirLister_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirLister, callback: *const fn (self: QtC.KDirLister, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KDirLister_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1288,9 +1288,9 @@ pub const kdirlister = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirLister, slot: fn (self: QtC.KDirLister, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KDirLister_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirLister, callback: *const fn (self: QtC.KDirLister, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KDirLister_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1321,9 +1321,9 @@ pub const kdirlister = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirLister, slot: fn (self: QtC.KDirLister, event: QtC.QTimerEvent) callconv(.c) void ```
-    pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KDirLister_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirLister, callback: *const fn (self: QtC.KDirLister, event: QtC.QTimerEvent) callconv(.c) void ```
+    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KDirLister_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1354,9 +1354,9 @@ pub const kdirlister = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirLister, slot: fn (self: QtC.KDirLister, event: QtC.QChildEvent) callconv(.c) void ```
-    pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KDirLister_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirLister, callback: *const fn (self: QtC.KDirLister, event: QtC.QChildEvent) callconv(.c) void ```
+    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KDirLister_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1387,9 +1387,9 @@ pub const kdirlister = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirLister, slot: fn (self: QtC.KDirLister, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KDirLister_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirLister, callback: *const fn (self: QtC.KDirLister, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KDirLister_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1420,9 +1420,9 @@ pub const kdirlister = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirLister, slot: fn (self: QtC.KDirLister, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KDirLister_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirLister, callback: *const fn (self: QtC.KDirLister, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KDirLister_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1453,9 +1453,9 @@ pub const kdirlister = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirLister, slot: fn (self: QtC.KDirLister, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KDirLister_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirLister, callback: *const fn (self: QtC.KDirLister, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KDirLister_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1486,9 +1486,9 @@ pub const kdirlister = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirLister, slot: fn () callconv(.c) QtC.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
-        qtc.KDirLister_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirLister, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.KDirLister_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1519,9 +1519,9 @@ pub const kdirlister = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirLister, slot: fn () callconv(.c) i32 ```
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.KDirLister_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirLister, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.KDirLister_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1554,9 +1554,9 @@ pub const kdirlister = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirLister, slot: fn (self: QtC.KDirLister, signal: [*:0]const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KDirLister_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirLister, callback: *const fn (self: QtC.KDirLister, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
+        qtc.KDirLister_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1587,9 +1587,9 @@ pub const kdirlister = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirLister, slot: fn (self: QtC.KDirLister, signal: QtC.QMetaMethod) callconv(.c) bool ```
-    pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KDirLister_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirLister, callback: *const fn (self: QtC.KDirLister, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KDirLister_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1598,9 +1598,9 @@ pub const kdirlister = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KDirLister, slot: fn (self: QtC.KDirLister, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirLister, callback: *const fn (self: QtC.KDirLister, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kdirlister.html#dtor.KDirLister)

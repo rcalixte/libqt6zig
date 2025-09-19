@@ -40,9 +40,9 @@ pub const qevent = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QEvent, slot: fn (self: QtC.QEvent, accepted: bool) callconv(.c) void ```
-    pub fn OnSetAccepted(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QEvent_OnSetAccepted(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QEvent, callback: *const fn (self: QtC.QEvent, accepted: bool) callconv(.c) void ```
+    pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QEvent_OnSetAccepted(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#setAccepted)
@@ -114,9 +114,9 @@ pub const qevent = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QEvent, slot: fn () callconv(.c) QtC.QEvent ```
-    pub fn OnClone(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QEvent) void {
-        qtc.QEvent_OnClone(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QEvent, callback: *const fn () callconv(.c) QtC.QEvent ```
+    pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QEvent) void {
+        qtc.QEvent_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qevent.html#clone)
@@ -172,9 +172,9 @@ pub const qtimerevent = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTimerEvent, slot: fn () callconv(.c) QtC.QTimerEvent ```
-    pub fn OnClone(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QTimerEvent) void {
-        qtc.QTimerEvent_OnClone(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimerEvent, callback: *const fn () callconv(.c) QtC.QTimerEvent ```
+    pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QTimerEvent) void {
+        qtc.QTimerEvent_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtimerevent.html#clone)
@@ -322,9 +322,9 @@ pub const qtimerevent = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTimerEvent, slot: fn (self: QtC.QTimerEvent, accepted: bool) callconv(.c) void ```
-    pub fn OnSetAccepted(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QTimerEvent_OnSetAccepted(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTimerEvent, callback: *const fn (self: QtC.QTimerEvent, accepted: bool) callconv(.c) void ```
+    pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QTimerEvent_OnSetAccepted(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtimerevent.html#dtor.QTimerEvent)
@@ -357,9 +357,9 @@ pub const qchildevent = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QChildEvent, slot: fn () callconv(.c) QtC.QChildEvent ```
-    pub fn OnClone(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QChildEvent) void {
-        qtc.QChildEvent_OnClone(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QChildEvent, callback: *const fn () callconv(.c) QtC.QChildEvent ```
+    pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QChildEvent) void {
+        qtc.QChildEvent_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qchildevent.html#clone)
@@ -519,9 +519,9 @@ pub const qchildevent = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QChildEvent, slot: fn (self: QtC.QChildEvent, accepted: bool) callconv(.c) void ```
-    pub fn OnSetAccepted(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QChildEvent_OnSetAccepted(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QChildEvent, callback: *const fn (self: QtC.QChildEvent, accepted: bool) callconv(.c) void ```
+    pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QChildEvent_OnSetAccepted(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qchildevent.html#dtor.QChildEvent)
@@ -559,9 +559,9 @@ pub const qdynamicpropertychangeevent = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QDynamicPropertyChangeEvent, slot: fn () callconv(.c) QtC.QDynamicPropertyChangeEvent ```
-    pub fn OnClone(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QDynamicPropertyChangeEvent) void {
-        qtc.QDynamicPropertyChangeEvent_OnClone(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDynamicPropertyChangeEvent, callback: *const fn () callconv(.c) QtC.QDynamicPropertyChangeEvent ```
+    pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QDynamicPropertyChangeEvent) void {
+        qtc.QDynamicPropertyChangeEvent_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdynamicpropertychangeevent.html#clone)
@@ -704,9 +704,9 @@ pub const qdynamicpropertychangeevent = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QDynamicPropertyChangeEvent, slot: fn (self: QtC.QDynamicPropertyChangeEvent, accepted: bool) callconv(.c) void ```
-    pub fn OnSetAccepted(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QDynamicPropertyChangeEvent_OnSetAccepted(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QDynamicPropertyChangeEvent, callback: *const fn (self: QtC.QDynamicPropertyChangeEvent, accepted: bool) callconv(.c) void ```
+    pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QDynamicPropertyChangeEvent_OnSetAccepted(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdynamicpropertychangeevent.html#dtor.QDynamicPropertyChangeEvent)

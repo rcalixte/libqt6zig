@@ -34,9 +34,9 @@ pub const kmodifierkeyinfoprovider = struct {
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KModifierKeyInfoProvider, slot: fn (self: QtC.KModifierKeyInfoProvider, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
-        qtc.KModifierKeyInfoProvider_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KModifierKeyInfoProvider, callback: *const fn (self: QtC.KModifierKeyInfoProvider, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+        qtc.KModifierKeyInfoProvider_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -83,9 +83,9 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KModifierKeyInfoProvider, slot: fn (self: QtC.KModifierKeyInfoProvider, key: qnamespace_enums.Key, latched: bool) callconv(.c) bool ```
-    pub fn OnSetKeyLatched(self: ?*anyopaque, slot: fn (?*anyopaque, i32, bool) callconv(.c) bool) void {
-        qtc.KModifierKeyInfoProvider_OnSetKeyLatched(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KModifierKeyInfoProvider, callback: *const fn (self: QtC.KModifierKeyInfoProvider, key: qnamespace_enums.Key, latched: bool) callconv(.c) bool ```
+    pub fn OnSetKeyLatched(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, bool) callconv(.c) bool) void {
+        qtc.KModifierKeyInfoProvider_OnSetKeyLatched(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kmodifierkeyinfoprovider.html#setKeyLatched)
@@ -115,9 +115,9 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KModifierKeyInfoProvider, slot: fn (self: QtC.KModifierKeyInfoProvider, key: qnamespace_enums.Key, locked: bool) callconv(.c) bool ```
-    pub fn OnSetKeyLocked(self: ?*anyopaque, slot: fn (?*anyopaque, i32, bool) callconv(.c) bool) void {
-        qtc.KModifierKeyInfoProvider_OnSetKeyLocked(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KModifierKeyInfoProvider, callback: *const fn (self: QtC.KModifierKeyInfoProvider, key: qnamespace_enums.Key, locked: bool) callconv(.c) bool ```
+    pub fn OnSetKeyLocked(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, bool) callconv(.c) bool) void {
+        qtc.KModifierKeyInfoProvider_OnSetKeyLocked(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kmodifierkeyinfoprovider.html#setKeyLocked)
@@ -166,9 +166,9 @@ pub const kmodifierkeyinfoprovider = struct {
 
     /// [Qt documentation](https://api.kde.org/kmodifierkeyinfoprovider.html#keyLatched)
     ///
-    /// ``` self: QtC.KModifierKeyInfoProvider, slot: fn (self: QtC.KModifierKeyInfoProvider, key: qnamespace_enums.Key, state: bool) callconv(.c) void ```
-    pub fn OnKeyLatched(self: ?*anyopaque, slot: fn (?*anyopaque, i32, bool) callconv(.c) void) void {
-        qtc.KModifierKeyInfoProvider_Connect_KeyLatched(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KModifierKeyInfoProvider, callback: *const fn (self: QtC.KModifierKeyInfoProvider, key: qnamespace_enums.Key, state: bool) callconv(.c) void ```
+    pub fn OnKeyLatched(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, bool) callconv(.c) void) void {
+        qtc.KModifierKeyInfoProvider_Connect_KeyLatched(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kmodifierkeyinfoprovider.html#keyLocked)
@@ -180,9 +180,9 @@ pub const kmodifierkeyinfoprovider = struct {
 
     /// [Qt documentation](https://api.kde.org/kmodifierkeyinfoprovider.html#keyLocked)
     ///
-    /// ``` self: QtC.KModifierKeyInfoProvider, slot: fn (self: QtC.KModifierKeyInfoProvider, key: qnamespace_enums.Key, state: bool) callconv(.c) void ```
-    pub fn OnKeyLocked(self: ?*anyopaque, slot: fn (?*anyopaque, i32, bool) callconv(.c) void) void {
-        qtc.KModifierKeyInfoProvider_Connect_KeyLocked(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KModifierKeyInfoProvider, callback: *const fn (self: QtC.KModifierKeyInfoProvider, key: qnamespace_enums.Key, state: bool) callconv(.c) void ```
+    pub fn OnKeyLocked(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, bool) callconv(.c) void) void {
+        qtc.KModifierKeyInfoProvider_Connect_KeyLocked(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kmodifierkeyinfoprovider.html#keyPressed)
@@ -194,9 +194,9 @@ pub const kmodifierkeyinfoprovider = struct {
 
     /// [Qt documentation](https://api.kde.org/kmodifierkeyinfoprovider.html#keyPressed)
     ///
-    /// ``` self: QtC.KModifierKeyInfoProvider, slot: fn (self: QtC.KModifierKeyInfoProvider, key: qnamespace_enums.Key, state: bool) callconv(.c) void ```
-    pub fn OnKeyPressed(self: ?*anyopaque, slot: fn (?*anyopaque, i32, bool) callconv(.c) void) void {
-        qtc.KModifierKeyInfoProvider_Connect_KeyPressed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KModifierKeyInfoProvider, callback: *const fn (self: QtC.KModifierKeyInfoProvider, key: qnamespace_enums.Key, state: bool) callconv(.c) void ```
+    pub fn OnKeyPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, bool) callconv(.c) void) void {
+        qtc.KModifierKeyInfoProvider_Connect_KeyPressed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kmodifierkeyinfoprovider.html#buttonPressed)
@@ -208,9 +208,9 @@ pub const kmodifierkeyinfoprovider = struct {
 
     /// [Qt documentation](https://api.kde.org/kmodifierkeyinfoprovider.html#buttonPressed)
     ///
-    /// ``` self: QtC.KModifierKeyInfoProvider, slot: fn (self: QtC.KModifierKeyInfoProvider, button: qnamespace_enums.MouseButton, state: bool) callconv(.c) void ```
-    pub fn OnButtonPressed(self: ?*anyopaque, slot: fn (?*anyopaque, i64, bool) callconv(.c) void) void {
-        qtc.KModifierKeyInfoProvider_Connect_ButtonPressed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KModifierKeyInfoProvider, callback: *const fn (self: QtC.KModifierKeyInfoProvider, button: qnamespace_enums.MouseButton, state: bool) callconv(.c) void ```
+    pub fn OnButtonPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64, bool) callconv(.c) void) void {
+        qtc.KModifierKeyInfoProvider_Connect_ButtonPressed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kmodifierkeyinfoprovider.html#keyAdded)
@@ -222,9 +222,9 @@ pub const kmodifierkeyinfoprovider = struct {
 
     /// [Qt documentation](https://api.kde.org/kmodifierkeyinfoprovider.html#keyAdded)
     ///
-    /// ``` self: QtC.KModifierKeyInfoProvider, slot: fn (self: QtC.KModifierKeyInfoProvider, key: qnamespace_enums.Key) callconv(.c) void ```
-    pub fn OnKeyAdded(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KModifierKeyInfoProvider_Connect_KeyAdded(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KModifierKeyInfoProvider, callback: *const fn (self: QtC.KModifierKeyInfoProvider, key: qnamespace_enums.Key) callconv(.c) void ```
+    pub fn OnKeyAdded(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.KModifierKeyInfoProvider_Connect_KeyAdded(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kmodifierkeyinfoprovider.html#keyRemoved)
@@ -236,9 +236,9 @@ pub const kmodifierkeyinfoprovider = struct {
 
     /// [Qt documentation](https://api.kde.org/kmodifierkeyinfoprovider.html#keyRemoved)
     ///
-    /// ``` self: QtC.KModifierKeyInfoProvider, slot: fn (self: QtC.KModifierKeyInfoProvider, key: qnamespace_enums.Key) callconv(.c) void ```
-    pub fn OnKeyRemoved(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KModifierKeyInfoProvider_Connect_KeyRemoved(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KModifierKeyInfoProvider, callback: *const fn (self: QtC.KModifierKeyInfoProvider, key: qnamespace_enums.Key) callconv(.c) void ```
+    pub fn OnKeyRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.KModifierKeyInfoProvider_Connect_KeyRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kmodifierkeyinfoprovider.html#stateUpdated)
@@ -252,9 +252,9 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KModifierKeyInfoProvider, slot: fn (self: QtC.KModifierKeyInfoProvider, key: qnamespace_enums.Key, state: flag of kmodifierkeyinfoprovider_p_enums.ModifierState) callconv(.c) void ```
-    pub fn OnStateUpdated(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.KModifierKeyInfoProvider_OnStateUpdated(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KModifierKeyInfoProvider, callback: *const fn (self: QtC.KModifierKeyInfoProvider, key: qnamespace_enums.Key, state: flag of kmodifierkeyinfoprovider_p_enums.ModifierState) callconv(.c) void ```
+    pub fn OnStateUpdated(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
+        qtc.KModifierKeyInfoProvider_OnStateUpdated(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kmodifierkeyinfoprovider.html#stateUpdated)
@@ -580,9 +580,9 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KModifierKeyInfoProvider, slot: fn (self: QtC.KModifierKeyInfoProvider) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KModifierKeyInfoProvider, callback: *const fn (self: QtC.KModifierKeyInfoProvider) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -664,9 +664,9 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KModifierKeyInfoProvider, slot: fn (self: QtC.KModifierKeyInfoProvider, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KModifierKeyInfoProvider, callback: *const fn (self: QtC.KModifierKeyInfoProvider, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -697,9 +697,9 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KModifierKeyInfoProvider, slot: fn (self: QtC.KModifierKeyInfoProvider, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KModifierKeyInfoProvider_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KModifierKeyInfoProvider, callback: *const fn (self: QtC.KModifierKeyInfoProvider, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KModifierKeyInfoProvider_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -730,9 +730,9 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KModifierKeyInfoProvider, slot: fn (self: QtC.KModifierKeyInfoProvider, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KModifierKeyInfoProvider_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KModifierKeyInfoProvider, callback: *const fn (self: QtC.KModifierKeyInfoProvider, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KModifierKeyInfoProvider_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -763,9 +763,9 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KModifierKeyInfoProvider, slot: fn (self: QtC.KModifierKeyInfoProvider, event: QtC.QTimerEvent) callconv(.c) void ```
-    pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KModifierKeyInfoProvider_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KModifierKeyInfoProvider, callback: *const fn (self: QtC.KModifierKeyInfoProvider, event: QtC.QTimerEvent) callconv(.c) void ```
+    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KModifierKeyInfoProvider_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -796,9 +796,9 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KModifierKeyInfoProvider, slot: fn (self: QtC.KModifierKeyInfoProvider, event: QtC.QChildEvent) callconv(.c) void ```
-    pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KModifierKeyInfoProvider_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KModifierKeyInfoProvider, callback: *const fn (self: QtC.KModifierKeyInfoProvider, event: QtC.QChildEvent) callconv(.c) void ```
+    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KModifierKeyInfoProvider_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -829,9 +829,9 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KModifierKeyInfoProvider, slot: fn (self: QtC.KModifierKeyInfoProvider, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KModifierKeyInfoProvider_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KModifierKeyInfoProvider, callback: *const fn (self: QtC.KModifierKeyInfoProvider, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KModifierKeyInfoProvider_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -862,9 +862,9 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KModifierKeyInfoProvider, slot: fn (self: QtC.KModifierKeyInfoProvider, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KModifierKeyInfoProvider_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KModifierKeyInfoProvider, callback: *const fn (self: QtC.KModifierKeyInfoProvider, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KModifierKeyInfoProvider_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -895,9 +895,9 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KModifierKeyInfoProvider, slot: fn (self: QtC.KModifierKeyInfoProvider, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KModifierKeyInfoProvider_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KModifierKeyInfoProvider, callback: *const fn (self: QtC.KModifierKeyInfoProvider, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KModifierKeyInfoProvider_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -928,9 +928,9 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KModifierKeyInfoProvider, slot: fn () callconv(.c) QtC.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
-        qtc.KModifierKeyInfoProvider_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KModifierKeyInfoProvider, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.KModifierKeyInfoProvider_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -961,9 +961,9 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KModifierKeyInfoProvider, slot: fn () callconv(.c) i32 ```
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.KModifierKeyInfoProvider_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KModifierKeyInfoProvider, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.KModifierKeyInfoProvider_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -996,9 +996,9 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KModifierKeyInfoProvider, slot: fn (self: QtC.KModifierKeyInfoProvider, signal: [*:0]const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KModifierKeyInfoProvider_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KModifierKeyInfoProvider, callback: *const fn (self: QtC.KModifierKeyInfoProvider, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
+        qtc.KModifierKeyInfoProvider_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1029,9 +1029,9 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KModifierKeyInfoProvider, slot: fn (self: QtC.KModifierKeyInfoProvider, signal: QtC.QMetaMethod) callconv(.c) bool ```
-    pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KModifierKeyInfoProvider_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KModifierKeyInfoProvider, callback: *const fn (self: QtC.KModifierKeyInfoProvider, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KModifierKeyInfoProvider_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1040,9 +1040,9 @@ pub const kmodifierkeyinfoprovider = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KModifierKeyInfoProvider, slot: fn (self: QtC.KModifierKeyInfoProvider, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KModifierKeyInfoProvider, callback: *const fn (self: QtC.KModifierKeyInfoProvider, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kmodifierkeyinfoprovider.html#dtor.KModifierKeyInfoProvider)

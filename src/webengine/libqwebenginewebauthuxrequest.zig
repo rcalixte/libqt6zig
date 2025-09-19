@@ -104,9 +104,9 @@ pub const qwebenginewebauthuxrequest = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginewebauthuxrequest.html#stateChanged)
     ///
-    /// ``` self: QtC.QWebEngineWebAuthUxRequest, slot: fn (self: QtC.QWebEngineWebAuthUxRequest, state: qwebenginewebauthuxrequest_enums.WebAuthUxState) callconv(.c) void ```
-    pub fn OnStateChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QWebEngineWebAuthUxRequest_Connect_StateChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWebEngineWebAuthUxRequest, callback: *const fn (self: QtC.QWebEngineWebAuthUxRequest, state: qwebenginewebauthuxrequest_enums.WebAuthUxState) callconv(.c) void ```
+    pub fn OnStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QWebEngineWebAuthUxRequest_Connect_StateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginewebauthuxrequest.html#cancel)
@@ -477,9 +477,9 @@ pub const qwebenginewebauthuxrequest = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QWebEngineWebAuthUxRequest, slot: fn (self: QtC.QWebEngineWebAuthUxRequest) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWebEngineWebAuthUxRequest, callback: *const fn (self: QtC.QWebEngineWebAuthUxRequest) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -561,9 +561,9 @@ pub const qwebenginewebauthuxrequest = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QWebEngineWebAuthUxRequest, slot: fn (self: QtC.QWebEngineWebAuthUxRequest, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWebEngineWebAuthUxRequest, callback: *const fn (self: QtC.QWebEngineWebAuthUxRequest, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -572,9 +572,9 @@ pub const qwebenginewebauthuxrequest = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QWebEngineWebAuthUxRequest, slot: fn (self: QtC.QWebEngineWebAuthUxRequest, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWebEngineWebAuthUxRequest, callback: *const fn (self: QtC.QWebEngineWebAuthUxRequest, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginewebauthuxrequest.html#dtor.QWebEngineWebAuthUxRequest)

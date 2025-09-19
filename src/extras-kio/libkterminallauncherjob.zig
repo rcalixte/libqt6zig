@@ -52,9 +52,9 @@ pub const kterminallauncherjob = struct {
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KTerminalLauncherJob, slot: fn (self: QtC.KTerminalLauncherJob, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
-        qtc.KTerminalLauncherJob_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KTerminalLauncherJob, callback: *const fn (self: QtC.KTerminalLauncherJob, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+        qtc.KTerminalLauncherJob_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -116,9 +116,9 @@ pub const kterminallauncherjob = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KTerminalLauncherJob, slot: fn () callconv(.c) void ```
-    pub fn OnStart(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KTerminalLauncherJob_OnStart(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KTerminalLauncherJob, callback: *const fn () callconv(.c) void ```
+    pub fn OnStart(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KTerminalLauncherJob_OnStart(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kterminallauncherjob.html#start)
@@ -350,9 +350,9 @@ pub const kterminallauncherjob = struct {
     ///
     /// [Qt documentation](https://api.kde.org/kjob.html#description)
     ///
-    /// ``` self: QtC.KTerminalLauncherJob, slot: fn (self: QtC.KTerminalLauncherJob, job: QtC.KJob, title: [*:0]const u8) callconv(.c) void ```
-    pub fn OnDescription(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KJob_Connect_Description(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KTerminalLauncherJob, callback: *const fn (self: QtC.KTerminalLauncherJob, job: QtC.KJob, title: [*:0]const u8) callconv(.c) void ```
+    pub fn OnDescription(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.KJob_Connect_Description(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -372,9 +372,9 @@ pub const kterminallauncherjob = struct {
     ///
     /// [Qt documentation](https://api.kde.org/kjob.html#infoMessage)
     ///
-    /// ``` self: QtC.KTerminalLauncherJob, slot: fn (self: QtC.KTerminalLauncherJob, job: QtC.KJob, message: [*:0]const u8) callconv(.c) void ```
-    pub fn OnInfoMessage(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KJob_Connect_InfoMessage(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KTerminalLauncherJob, callback: *const fn (self: QtC.KTerminalLauncherJob, job: QtC.KJob, message: [*:0]const u8) callconv(.c) void ```
+    pub fn OnInfoMessage(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.KJob_Connect_InfoMessage(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -394,9 +394,9 @@ pub const kterminallauncherjob = struct {
     ///
     /// [Qt documentation](https://api.kde.org/kjob.html#warning)
     ///
-    /// ``` self: QtC.KTerminalLauncherJob, slot: fn (self: QtC.KTerminalLauncherJob, job: QtC.KJob, message: [*:0]const u8) callconv(.c) void ```
-    pub fn OnWarning(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KJob_Connect_Warning(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KTerminalLauncherJob, callback: *const fn (self: QtC.KTerminalLauncherJob, job: QtC.KJob, message: [*:0]const u8) callconv(.c) void ```
+    pub fn OnWarning(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.KJob_Connect_Warning(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -412,9 +412,9 @@ pub const kterminallauncherjob = struct {
     ///
     /// [Qt documentation](https://api.kde.org/kjob.html#totalSize)
     ///
-    /// ``` self: QtC.KTerminalLauncherJob, slot: fn (self: QtC.KTerminalLauncherJob, job: QtC.KJob, size: u64) callconv(.c) void ```
-    pub fn OnTotalSize(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
-        qtc.KJob_Connect_TotalSize(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KTerminalLauncherJob, callback: *const fn (self: QtC.KTerminalLauncherJob, job: QtC.KJob, size: u64) callconv(.c) void ```
+    pub fn OnTotalSize(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
+        qtc.KJob_Connect_TotalSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -430,9 +430,9 @@ pub const kterminallauncherjob = struct {
     ///
     /// [Qt documentation](https://api.kde.org/kjob.html#processedSize)
     ///
-    /// ``` self: QtC.KTerminalLauncherJob, slot: fn (self: QtC.KTerminalLauncherJob, job: QtC.KJob, size: u64) callconv(.c) void ```
-    pub fn OnProcessedSize(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
-        qtc.KJob_Connect_ProcessedSize(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KTerminalLauncherJob, callback: *const fn (self: QtC.KTerminalLauncherJob, job: QtC.KJob, size: u64) callconv(.c) void ```
+    pub fn OnProcessedSize(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
+        qtc.KJob_Connect_ProcessedSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -448,9 +448,9 @@ pub const kterminallauncherjob = struct {
     ///
     /// [Qt documentation](https://api.kde.org/kjob.html#speed)
     ///
-    /// ``` self: QtC.KTerminalLauncherJob, slot: fn (self: QtC.KTerminalLauncherJob, job: QtC.KJob, speed: u64) callconv(.c) void ```
-    pub fn OnSpeed(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
-        qtc.KJob_Connect_Speed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KTerminalLauncherJob, callback: *const fn (self: QtC.KTerminalLauncherJob, job: QtC.KJob, speed: u64) callconv(.c) void ```
+    pub fn OnSpeed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
+        qtc.KJob_Connect_Speed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -492,9 +492,9 @@ pub const kterminallauncherjob = struct {
     ///
     /// [Qt documentation](https://api.kde.org/kjob.html#description)
     ///
-    /// ``` self: QtC.KTerminalLauncherJob, slot: fn (self: QtC.KTerminalLauncherJob, job: QtC.KJob, title: [*:0]const u8, field1: struct_constu8_constu8) callconv(.c) void ```
-    pub fn OnDescription3(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, [*:0]const u8, struct_constu8_constu8) callconv(.c) void) void {
-        qtc.KJob_Connect_Description3(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KTerminalLauncherJob, callback: *const fn (self: QtC.KTerminalLauncherJob, job: QtC.KJob, title: [*:0]const u8, field1: struct_constu8_constu8) callconv(.c) void ```
+    pub fn OnDescription3(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8, struct_constu8_constu8) callconv(.c) void) void {
+        qtc.KJob_Connect_Description3(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -522,9 +522,9 @@ pub const kterminallauncherjob = struct {
     ///
     /// [Qt documentation](https://api.kde.org/kjob.html#description)
     ///
-    /// ``` self: QtC.KTerminalLauncherJob, slot: fn (self: QtC.KTerminalLauncherJob, job: QtC.KJob, title: [*:0]const u8, field1: struct_constu8_constu8, field2: struct_constu8_constu8) callconv(.c) void ```
-    pub fn OnDescription4(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, [*:0]const u8, struct_constu8_constu8, struct_constu8_constu8) callconv(.c) void) void {
-        qtc.KJob_Connect_Description4(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KTerminalLauncherJob, callback: *const fn (self: QtC.KTerminalLauncherJob, job: QtC.KJob, title: [*:0]const u8, field1: struct_constu8_constu8, field2: struct_constu8_constu8) callconv(.c) void ```
+    pub fn OnDescription4(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8, struct_constu8_constu8, struct_constu8_constu8) callconv(.c) void) void {
+        qtc.KJob_Connect_Description4(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -815,9 +815,9 @@ pub const kterminallauncherjob = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KTerminalLauncherJob, slot: fn (self: QtC.KTerminalLauncherJob) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KTerminalLauncherJob, callback: *const fn (self: QtC.KTerminalLauncherJob) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -899,9 +899,9 @@ pub const kterminallauncherjob = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KTerminalLauncherJob, slot: fn (self: QtC.KTerminalLauncherJob, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KTerminalLauncherJob, callback: *const fn (self: QtC.KTerminalLauncherJob, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -932,9 +932,9 @@ pub const kterminallauncherjob = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KTerminalLauncherJob, slot: fn () callconv(.c) bool ```
-    pub fn OnDoKill(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.KTerminalLauncherJob_OnDoKill(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KTerminalLauncherJob, callback: *const fn () callconv(.c) bool ```
+    pub fn OnDoKill(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.KTerminalLauncherJob_OnDoKill(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -965,9 +965,9 @@ pub const kterminallauncherjob = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KTerminalLauncherJob, slot: fn () callconv(.c) bool ```
-    pub fn OnDoSuspend(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.KTerminalLauncherJob_OnDoSuspend(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KTerminalLauncherJob, callback: *const fn () callconv(.c) bool ```
+    pub fn OnDoSuspend(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.KTerminalLauncherJob_OnDoSuspend(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -998,9 +998,9 @@ pub const kterminallauncherjob = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KTerminalLauncherJob, slot: fn () callconv(.c) bool ```
-    pub fn OnDoResume(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.KTerminalLauncherJob_OnDoResume(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KTerminalLauncherJob, callback: *const fn () callconv(.c) bool ```
+    pub fn OnDoResume(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.KTerminalLauncherJob_OnDoResume(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -1039,9 +1039,9 @@ pub const kterminallauncherjob = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KTerminalLauncherJob, slot: fn () callconv(.c) [*:0]const u8 ```
-    pub fn OnErrorString(self: ?*anyopaque, slot: fn () callconv(.c) [*:0]const u8) void {
-        qtc.KTerminalLauncherJob_OnErrorString(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KTerminalLauncherJob, callback: *const fn () callconv(.c) [*:0]const u8 ```
+    pub fn OnErrorString(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
+        qtc.KTerminalLauncherJob_OnErrorString(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1072,9 +1072,9 @@ pub const kterminallauncherjob = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KTerminalLauncherJob, slot: fn (self: QtC.KTerminalLauncherJob, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KTerminalLauncherJob_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KTerminalLauncherJob, callback: *const fn (self: QtC.KTerminalLauncherJob, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KTerminalLauncherJob_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1105,9 +1105,9 @@ pub const kterminallauncherjob = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KTerminalLauncherJob, slot: fn (self: QtC.KTerminalLauncherJob, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KTerminalLauncherJob_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KTerminalLauncherJob, callback: *const fn (self: QtC.KTerminalLauncherJob, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KTerminalLauncherJob_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1138,9 +1138,9 @@ pub const kterminallauncherjob = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KTerminalLauncherJob, slot: fn (self: QtC.KTerminalLauncherJob, event: QtC.QTimerEvent) callconv(.c) void ```
-    pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTerminalLauncherJob_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KTerminalLauncherJob, callback: *const fn (self: QtC.KTerminalLauncherJob, event: QtC.QTimerEvent) callconv(.c) void ```
+    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KTerminalLauncherJob_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1171,9 +1171,9 @@ pub const kterminallauncherjob = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KTerminalLauncherJob, slot: fn (self: QtC.KTerminalLauncherJob, event: QtC.QChildEvent) callconv(.c) void ```
-    pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTerminalLauncherJob_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KTerminalLauncherJob, callback: *const fn (self: QtC.KTerminalLauncherJob, event: QtC.QChildEvent) callconv(.c) void ```
+    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KTerminalLauncherJob_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1204,9 +1204,9 @@ pub const kterminallauncherjob = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KTerminalLauncherJob, slot: fn (self: QtC.KTerminalLauncherJob, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTerminalLauncherJob_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KTerminalLauncherJob, callback: *const fn (self: QtC.KTerminalLauncherJob, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KTerminalLauncherJob_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1237,9 +1237,9 @@ pub const kterminallauncherjob = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KTerminalLauncherJob, slot: fn (self: QtC.KTerminalLauncherJob, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTerminalLauncherJob_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KTerminalLauncherJob, callback: *const fn (self: QtC.KTerminalLauncherJob, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KTerminalLauncherJob_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1270,9 +1270,9 @@ pub const kterminallauncherjob = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KTerminalLauncherJob, slot: fn (self: QtC.KTerminalLauncherJob, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTerminalLauncherJob_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KTerminalLauncherJob, callback: *const fn (self: QtC.KTerminalLauncherJob, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KTerminalLauncherJob_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -1303,9 +1303,9 @@ pub const kterminallauncherjob = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KTerminalLauncherJob, slot: fn (self: QtC.KTerminalLauncherJob, capabilities: flag of kjob_enums.Capability) callconv(.c) void ```
-    pub fn OnSetCapabilities(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KTerminalLauncherJob_OnSetCapabilities(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KTerminalLauncherJob, callback: *const fn (self: QtC.KTerminalLauncherJob, capabilities: flag of kjob_enums.Capability) callconv(.c) void ```
+    pub fn OnSetCapabilities(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.KTerminalLauncherJob_OnSetCapabilities(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -1336,9 +1336,9 @@ pub const kterminallauncherjob = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KTerminalLauncherJob, slot: fn () callconv(.c) bool ```
-    pub fn OnIsFinished(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.KTerminalLauncherJob_OnIsFinished(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KTerminalLauncherJob, callback: *const fn () callconv(.c) bool ```
+    pub fn OnIsFinished(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.KTerminalLauncherJob_OnIsFinished(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -1369,9 +1369,9 @@ pub const kterminallauncherjob = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KTerminalLauncherJob, slot: fn (self: QtC.KTerminalLauncherJob, errorCode: i32) callconv(.c) void ```
-    pub fn OnSetError(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KTerminalLauncherJob_OnSetError(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KTerminalLauncherJob, callback: *const fn (self: QtC.KTerminalLauncherJob, errorCode: i32) callconv(.c) void ```
+    pub fn OnSetError(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.KTerminalLauncherJob_OnSetError(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -1410,9 +1410,9 @@ pub const kterminallauncherjob = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KTerminalLauncherJob, slot: fn (self: QtC.KTerminalLauncherJob, errorText: [*:0]const u8) callconv(.c) void ```
-    pub fn OnSetErrorText(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KTerminalLauncherJob_OnSetErrorText(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KTerminalLauncherJob, callback: *const fn (self: QtC.KTerminalLauncherJob, errorText: [*:0]const u8) callconv(.c) void ```
+    pub fn OnSetErrorText(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.KTerminalLauncherJob_OnSetErrorText(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -1443,9 +1443,9 @@ pub const kterminallauncherjob = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KTerminalLauncherJob, slot: fn (self: QtC.KTerminalLauncherJob, unit: kjob_enums.Unit, amount: u64) callconv(.c) void ```
-    pub fn OnSetProcessedAmount(self: ?*anyopaque, slot: fn (?*anyopaque, i32, u64) callconv(.c) void) void {
-        qtc.KTerminalLauncherJob_OnSetProcessedAmount(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KTerminalLauncherJob, callback: *const fn (self: QtC.KTerminalLauncherJob, unit: kjob_enums.Unit, amount: u64) callconv(.c) void ```
+    pub fn OnSetProcessedAmount(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, u64) callconv(.c) void) void {
+        qtc.KTerminalLauncherJob_OnSetProcessedAmount(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -1476,9 +1476,9 @@ pub const kterminallauncherjob = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KTerminalLauncherJob, slot: fn (self: QtC.KTerminalLauncherJob, unit: kjob_enums.Unit, amount: u64) callconv(.c) void ```
-    pub fn OnSetTotalAmount(self: ?*anyopaque, slot: fn (?*anyopaque, i32, u64) callconv(.c) void) void {
-        qtc.KTerminalLauncherJob_OnSetTotalAmount(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KTerminalLauncherJob, callback: *const fn (self: QtC.KTerminalLauncherJob, unit: kjob_enums.Unit, amount: u64) callconv(.c) void ```
+    pub fn OnSetTotalAmount(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, u64) callconv(.c) void) void {
+        qtc.KTerminalLauncherJob_OnSetTotalAmount(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -1509,9 +1509,9 @@ pub const kterminallauncherjob = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KTerminalLauncherJob, slot: fn (self: QtC.KTerminalLauncherJob, unit: kjob_enums.Unit) callconv(.c) void ```
-    pub fn OnSetProgressUnit(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KTerminalLauncherJob_OnSetProgressUnit(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KTerminalLauncherJob, callback: *const fn (self: QtC.KTerminalLauncherJob, unit: kjob_enums.Unit) callconv(.c) void ```
+    pub fn OnSetProgressUnit(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.KTerminalLauncherJob_OnSetProgressUnit(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -1542,9 +1542,9 @@ pub const kterminallauncherjob = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KTerminalLauncherJob, slot: fn (self: QtC.KTerminalLauncherJob, percentage: u64) callconv(.c) void ```
-    pub fn OnSetPercent(self: ?*anyopaque, slot: fn (?*anyopaque, u64) callconv(.c) void) void {
-        qtc.KTerminalLauncherJob_OnSetPercent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KTerminalLauncherJob, callback: *const fn (self: QtC.KTerminalLauncherJob, percentage: u64) callconv(.c) void ```
+    pub fn OnSetPercent(self: ?*anyopaque, callback: *const fn (?*anyopaque, u64) callconv(.c) void) void {
+        qtc.KTerminalLauncherJob_OnSetPercent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -1575,9 +1575,9 @@ pub const kterminallauncherjob = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KTerminalLauncherJob, slot: fn () callconv(.c) void ```
-    pub fn OnEmitResult(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KTerminalLauncherJob_OnEmitResult(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KTerminalLauncherJob, callback: *const fn () callconv(.c) void ```
+    pub fn OnEmitResult(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KTerminalLauncherJob_OnEmitResult(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -1608,9 +1608,9 @@ pub const kterminallauncherjob = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KTerminalLauncherJob, slot: fn (self: QtC.KTerminalLauncherJob, processedAmount: u64, totalAmount: u64) callconv(.c) void ```
-    pub fn OnEmitPercent(self: ?*anyopaque, slot: fn (?*anyopaque, u64, u64) callconv(.c) void) void {
-        qtc.KTerminalLauncherJob_OnEmitPercent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KTerminalLauncherJob, callback: *const fn (self: QtC.KTerminalLauncherJob, processedAmount: u64, totalAmount: u64) callconv(.c) void ```
+    pub fn OnEmitPercent(self: ?*anyopaque, callback: *const fn (?*anyopaque, u64, u64) callconv(.c) void) void {
+        qtc.KTerminalLauncherJob_OnEmitPercent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -1641,9 +1641,9 @@ pub const kterminallauncherjob = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KTerminalLauncherJob, slot: fn (self: QtC.KTerminalLauncherJob, speed: u64) callconv(.c) void ```
-    pub fn OnEmitSpeed(self: ?*anyopaque, slot: fn (?*anyopaque, u64) callconv(.c) void) void {
-        qtc.KTerminalLauncherJob_OnEmitSpeed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KTerminalLauncherJob, callback: *const fn (self: QtC.KTerminalLauncherJob, speed: u64) callconv(.c) void ```
+    pub fn OnEmitSpeed(self: ?*anyopaque, callback: *const fn (?*anyopaque, u64) callconv(.c) void) void {
+        qtc.KTerminalLauncherJob_OnEmitSpeed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -1674,9 +1674,9 @@ pub const kterminallauncherjob = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KTerminalLauncherJob, slot: fn () callconv(.c) void ```
-    pub fn OnStartElapsedTimer(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KTerminalLauncherJob_OnStartElapsedTimer(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KTerminalLauncherJob, callback: *const fn () callconv(.c) void ```
+    pub fn OnStartElapsedTimer(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KTerminalLauncherJob_OnStartElapsedTimer(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1707,9 +1707,9 @@ pub const kterminallauncherjob = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KTerminalLauncherJob, slot: fn () callconv(.c) QtC.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
-        qtc.KTerminalLauncherJob_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KTerminalLauncherJob, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.KTerminalLauncherJob_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1740,9 +1740,9 @@ pub const kterminallauncherjob = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KTerminalLauncherJob, slot: fn () callconv(.c) i32 ```
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.KTerminalLauncherJob_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KTerminalLauncherJob, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.KTerminalLauncherJob_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1775,9 +1775,9 @@ pub const kterminallauncherjob = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KTerminalLauncherJob, slot: fn (self: QtC.KTerminalLauncherJob, signal: [*:0]const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KTerminalLauncherJob_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KTerminalLauncherJob, callback: *const fn (self: QtC.KTerminalLauncherJob, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
+        qtc.KTerminalLauncherJob_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1808,9 +1808,9 @@ pub const kterminallauncherjob = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KTerminalLauncherJob, slot: fn (self: QtC.KTerminalLauncherJob, signal: QtC.QMetaMethod) callconv(.c) bool ```
-    pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KTerminalLauncherJob_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KTerminalLauncherJob, callback: *const fn (self: QtC.KTerminalLauncherJob, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KTerminalLauncherJob_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -1819,9 +1819,9 @@ pub const kterminallauncherjob = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KTerminalLauncherJob, slot: fn (self: QtC.KTerminalLauncherJob, job: QtC.KJob) callconv(.c) void ```
-    pub fn OnFinished(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KJob_Connect_Finished(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KTerminalLauncherJob, callback: *const fn (self: QtC.KTerminalLauncherJob, job: QtC.KJob) callconv(.c) void ```
+    pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KJob_Connect_Finished(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -1830,9 +1830,9 @@ pub const kterminallauncherjob = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KTerminalLauncherJob, slot: fn (self: QtC.KTerminalLauncherJob, job: QtC.KJob) callconv(.c) void ```
-    pub fn OnSuspended(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KJob_Connect_Suspended(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KTerminalLauncherJob, callback: *const fn (self: QtC.KTerminalLauncherJob, job: QtC.KJob) callconv(.c) void ```
+    pub fn OnSuspended(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KJob_Connect_Suspended(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -1841,9 +1841,9 @@ pub const kterminallauncherjob = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KTerminalLauncherJob, slot: fn (self: QtC.KTerminalLauncherJob, job: QtC.KJob) callconv(.c) void ```
-    pub fn OnResumed(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KJob_Connect_Resumed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KTerminalLauncherJob, callback: *const fn (self: QtC.KTerminalLauncherJob, job: QtC.KJob) callconv(.c) void ```
+    pub fn OnResumed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KJob_Connect_Resumed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -1852,9 +1852,9 @@ pub const kterminallauncherjob = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KTerminalLauncherJob, slot: fn (self: QtC.KTerminalLauncherJob, job: QtC.KJob) callconv(.c) void ```
-    pub fn OnResult(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KJob_Connect_Result(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KTerminalLauncherJob, callback: *const fn (self: QtC.KTerminalLauncherJob, job: QtC.KJob) callconv(.c) void ```
+    pub fn OnResult(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KJob_Connect_Result(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -1863,9 +1863,9 @@ pub const kterminallauncherjob = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KTerminalLauncherJob, slot: fn (self: QtC.KTerminalLauncherJob, job: QtC.KJob, unit: kjob_enums.Unit, amount: u64) callconv(.c) void ```
-    pub fn OnTotalAmountChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, u64) callconv(.c) void) void {
-        qtc.KJob_Connect_TotalAmountChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KTerminalLauncherJob, callback: *const fn (self: QtC.KTerminalLauncherJob, job: QtC.KJob, unit: kjob_enums.Unit, amount: u64) callconv(.c) void ```
+    pub fn OnTotalAmountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, u64) callconv(.c) void) void {
+        qtc.KJob_Connect_TotalAmountChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -1874,9 +1874,9 @@ pub const kterminallauncherjob = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KTerminalLauncherJob, slot: fn (self: QtC.KTerminalLauncherJob, job: QtC.KJob, unit: kjob_enums.Unit, amount: u64) callconv(.c) void ```
-    pub fn OnProcessedAmountChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, u64) callconv(.c) void) void {
-        qtc.KJob_Connect_ProcessedAmountChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KTerminalLauncherJob, callback: *const fn (self: QtC.KTerminalLauncherJob, job: QtC.KJob, unit: kjob_enums.Unit, amount: u64) callconv(.c) void ```
+    pub fn OnProcessedAmountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, u64) callconv(.c) void) void {
+        qtc.KJob_Connect_ProcessedAmountChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -1885,9 +1885,9 @@ pub const kterminallauncherjob = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KTerminalLauncherJob, slot: fn (self: QtC.KTerminalLauncherJob, job: QtC.KJob, percent: u64) callconv(.c) void ```
-    pub fn OnPercentChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
-        qtc.KJob_Connect_PercentChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KTerminalLauncherJob, callback: *const fn (self: QtC.KTerminalLauncherJob, job: QtC.KJob, percent: u64) callconv(.c) void ```
+    pub fn OnPercentChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
+        qtc.KJob_Connect_PercentChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1896,9 +1896,9 @@ pub const kterminallauncherjob = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KTerminalLauncherJob, slot: fn (self: QtC.KTerminalLauncherJob, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KTerminalLauncherJob, callback: *const fn (self: QtC.KTerminalLauncherJob, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kterminallauncherjob.html#dtor.KTerminalLauncherJob)

@@ -10,7 +10,7 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QGraphicsEffect so that we can call protected methods
-class VirtualQGraphicsEffect final : public QGraphicsEffect {
+class VirtualQGraphicsEffect : public QGraphicsEffect {
 
   public:
     // Virtual class boolean flag

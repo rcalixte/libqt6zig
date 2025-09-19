@@ -98,9 +98,9 @@ pub const qtextdocument = struct {
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTextDocument, slot: fn (self: QtC.QTextDocument, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QTextDocument_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTextDocument, callback: *const fn (self: QtC.QTextDocument, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+        qtc.QTextDocument_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -147,9 +147,9 @@ pub const qtextdocument = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTextDocument, slot: fn () callconv(.c) void ```
-    pub fn OnClear(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QTextDocument_OnClear(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTextDocument, callback: *const fn () callconv(.c) void ```
+    pub fn OnClear(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QTextDocument_OnClear(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextdocument.html#clear)
@@ -796,9 +796,9 @@ pub const qtextdocument = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextdocument.html#contentsChange)
     ///
-    /// ``` self: QtC.QTextDocument, slot: fn (self: QtC.QTextDocument, from: i32, charsRemoved: i32, charsAdded: i32) callconv(.c) void ```
-    pub fn OnContentsChange(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, i32) callconv(.c) void) void {
-        qtc.QTextDocument_Connect_ContentsChange(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTextDocument, callback: *const fn (self: QtC.QTextDocument, from: i32, charsRemoved: i32, charsAdded: i32) callconv(.c) void ```
+    pub fn OnContentsChange(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32) callconv(.c) void) void {
+        qtc.QTextDocument_Connect_ContentsChange(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextdocument.html#contentsChanged)
@@ -810,9 +810,9 @@ pub const qtextdocument = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextdocument.html#contentsChanged)
     ///
-    /// ``` self: QtC.QTextDocument, slot: fn (self: QtC.QTextDocument) callconv(.c) void ```
-    pub fn OnContentsChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QTextDocument_Connect_ContentsChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTextDocument, callback: *const fn (self: QtC.QTextDocument) callconv(.c) void ```
+    pub fn OnContentsChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QTextDocument_Connect_ContentsChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextdocument.html#undoAvailable)
@@ -824,9 +824,9 @@ pub const qtextdocument = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextdocument.html#undoAvailable)
     ///
-    /// ``` self: QtC.QTextDocument, slot: fn (self: QtC.QTextDocument, param1: bool) callconv(.c) void ```
-    pub fn OnUndoAvailable(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QTextDocument_Connect_UndoAvailable(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTextDocument, callback: *const fn (self: QtC.QTextDocument, param1: bool) callconv(.c) void ```
+    pub fn OnUndoAvailable(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QTextDocument_Connect_UndoAvailable(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextdocument.html#redoAvailable)
@@ -838,9 +838,9 @@ pub const qtextdocument = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextdocument.html#redoAvailable)
     ///
-    /// ``` self: QtC.QTextDocument, slot: fn (self: QtC.QTextDocument, param1: bool) callconv(.c) void ```
-    pub fn OnRedoAvailable(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QTextDocument_Connect_RedoAvailable(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTextDocument, callback: *const fn (self: QtC.QTextDocument, param1: bool) callconv(.c) void ```
+    pub fn OnRedoAvailable(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QTextDocument_Connect_RedoAvailable(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextdocument.html#undoCommandAdded)
@@ -852,9 +852,9 @@ pub const qtextdocument = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextdocument.html#undoCommandAdded)
     ///
-    /// ``` self: QtC.QTextDocument, slot: fn (self: QtC.QTextDocument) callconv(.c) void ```
-    pub fn OnUndoCommandAdded(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QTextDocument_Connect_UndoCommandAdded(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTextDocument, callback: *const fn (self: QtC.QTextDocument) callconv(.c) void ```
+    pub fn OnUndoCommandAdded(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QTextDocument_Connect_UndoCommandAdded(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextdocument.html#modificationChanged)
@@ -866,9 +866,9 @@ pub const qtextdocument = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextdocument.html#modificationChanged)
     ///
-    /// ``` self: QtC.QTextDocument, slot: fn (self: QtC.QTextDocument, m: bool) callconv(.c) void ```
-    pub fn OnModificationChanged(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QTextDocument_Connect_ModificationChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTextDocument, callback: *const fn (self: QtC.QTextDocument, m: bool) callconv(.c) void ```
+    pub fn OnModificationChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QTextDocument_Connect_ModificationChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextdocument.html#cursorPositionChanged)
@@ -880,9 +880,9 @@ pub const qtextdocument = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextdocument.html#cursorPositionChanged)
     ///
-    /// ``` self: QtC.QTextDocument, slot: fn (self: QtC.QTextDocument, cursor: QtC.QTextCursor) callconv(.c) void ```
-    pub fn OnCursorPositionChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTextDocument_Connect_CursorPositionChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTextDocument, callback: *const fn (self: QtC.QTextDocument, cursor: QtC.QTextCursor) callconv(.c) void ```
+    pub fn OnCursorPositionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTextDocument_Connect_CursorPositionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextdocument.html#blockCountChanged)
@@ -894,9 +894,9 @@ pub const qtextdocument = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextdocument.html#blockCountChanged)
     ///
-    /// ``` self: QtC.QTextDocument, slot: fn (self: QtC.QTextDocument, newBlockCount: i32) callconv(.c) void ```
-    pub fn OnBlockCountChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QTextDocument_Connect_BlockCountChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTextDocument, callback: *const fn (self: QtC.QTextDocument, newBlockCount: i32) callconv(.c) void ```
+    pub fn OnBlockCountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QTextDocument_Connect_BlockCountChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextdocument.html#baseUrlChanged)
@@ -908,9 +908,9 @@ pub const qtextdocument = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextdocument.html#baseUrlChanged)
     ///
-    /// ``` self: QtC.QTextDocument, slot: fn (self: QtC.QTextDocument, url: QtC.QUrl) callconv(.c) void ```
-    pub fn OnBaseUrlChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTextDocument_Connect_BaseUrlChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTextDocument, callback: *const fn (self: QtC.QTextDocument, url: QtC.QUrl) callconv(.c) void ```
+    pub fn OnBaseUrlChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTextDocument_Connect_BaseUrlChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextdocument.html#documentLayoutChanged)
@@ -922,9 +922,9 @@ pub const qtextdocument = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextdocument.html#documentLayoutChanged)
     ///
-    /// ``` self: QtC.QTextDocument, slot: fn (self: QtC.QTextDocument) callconv(.c) void ```
-    pub fn OnDocumentLayoutChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QTextDocument_Connect_DocumentLayoutChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTextDocument, callback: *const fn (self: QtC.QTextDocument) callconv(.c) void ```
+    pub fn OnDocumentLayoutChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QTextDocument_Connect_DocumentLayoutChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextdocument.html#undo)
@@ -966,9 +966,9 @@ pub const qtextdocument = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTextDocument, slot: fn (self: QtC.QTextDocument, f: QtC.QTextFormat) callconv(.c) QtC.QTextObject ```
-    pub fn OnCreateObject(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QTextObject) void {
-        qtc.QTextDocument_OnCreateObject(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTextDocument, callback: *const fn (self: QtC.QTextDocument, f: QtC.QTextFormat) callconv(.c) QtC.QTextObject ```
+    pub fn OnCreateObject(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QTextObject) void {
+        qtc.QTextDocument_OnCreateObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextdocument.html#createObject)
@@ -991,9 +991,9 @@ pub const qtextdocument = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTextDocument, slot: fn (self: QtC.QTextDocument, typeVal: i32, name: QtC.QUrl) callconv(.c) QtC.QVariant ```
-    pub fn OnLoadResource(self: ?*anyopaque, slot: fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QVariant) void {
-        qtc.QTextDocument_OnLoadResource(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTextDocument, callback: *const fn (self: QtC.QTextDocument, typeVal: i32, name: QtC.QUrl) callconv(.c) QtC.QVariant ```
+    pub fn OnLoadResource(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QVariant) void {
+        qtc.QTextDocument_OnLoadResource(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextdocument.html#loadResource)
@@ -1423,9 +1423,9 @@ pub const qtextdocument = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QTextDocument, slot: fn (self: QtC.QTextDocument) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTextDocument, callback: *const fn (self: QtC.QTextDocument) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1507,9 +1507,9 @@ pub const qtextdocument = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QTextDocument, slot: fn (self: QtC.QTextDocument, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTextDocument, callback: *const fn (self: QtC.QTextDocument, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1540,9 +1540,9 @@ pub const qtextdocument = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTextDocument, slot: fn (self: QtC.QTextDocument, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QTextDocument_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTextDocument, callback: *const fn (self: QtC.QTextDocument, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QTextDocument_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1573,9 +1573,9 @@ pub const qtextdocument = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTextDocument, slot: fn (self: QtC.QTextDocument, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QTextDocument_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTextDocument, callback: *const fn (self: QtC.QTextDocument, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QTextDocument_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1606,9 +1606,9 @@ pub const qtextdocument = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTextDocument, slot: fn (self: QtC.QTextDocument, event: QtC.QTimerEvent) callconv(.c) void ```
-    pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTextDocument_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTextDocument, callback: *const fn (self: QtC.QTextDocument, event: QtC.QTimerEvent) callconv(.c) void ```
+    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTextDocument_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1639,9 +1639,9 @@ pub const qtextdocument = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTextDocument, slot: fn (self: QtC.QTextDocument, event: QtC.QChildEvent) callconv(.c) void ```
-    pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTextDocument_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTextDocument, callback: *const fn (self: QtC.QTextDocument, event: QtC.QChildEvent) callconv(.c) void ```
+    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTextDocument_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1672,9 +1672,9 @@ pub const qtextdocument = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTextDocument, slot: fn (self: QtC.QTextDocument, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTextDocument_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTextDocument, callback: *const fn (self: QtC.QTextDocument, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTextDocument_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1705,9 +1705,9 @@ pub const qtextdocument = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTextDocument, slot: fn (self: QtC.QTextDocument, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTextDocument_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTextDocument, callback: *const fn (self: QtC.QTextDocument, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTextDocument_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1738,9 +1738,9 @@ pub const qtextdocument = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTextDocument, slot: fn (self: QtC.QTextDocument, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTextDocument_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTextDocument, callback: *const fn (self: QtC.QTextDocument, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTextDocument_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1771,9 +1771,9 @@ pub const qtextdocument = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTextDocument, slot: fn () callconv(.c) QtC.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
-        qtc.QTextDocument_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTextDocument, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.QTextDocument_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1804,9 +1804,9 @@ pub const qtextdocument = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTextDocument, slot: fn () callconv(.c) i32 ```
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QTextDocument_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTextDocument, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QTextDocument_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1839,9 +1839,9 @@ pub const qtextdocument = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTextDocument, slot: fn (self: QtC.QTextDocument, signal: [*:0]const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QTextDocument_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTextDocument, callback: *const fn (self: QtC.QTextDocument, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QTextDocument_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1872,9 +1872,9 @@ pub const qtextdocument = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTextDocument, slot: fn (self: QtC.QTextDocument, signal: QtC.QMetaMethod) callconv(.c) bool ```
-    pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QTextDocument_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTextDocument, callback: *const fn (self: QtC.QTextDocument, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QTextDocument_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1883,9 +1883,9 @@ pub const qtextdocument = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QTextDocument, slot: fn (self: QtC.QTextDocument, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTextDocument, callback: *const fn (self: QtC.QTextDocument, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextdocument.html#dtor.QTextDocument)

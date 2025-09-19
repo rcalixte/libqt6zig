@@ -10,7 +10,7 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QPaintEngine so that we can call protected methods
-class VirtualQPaintEngine final : public QPaintEngine {
+class VirtualQPaintEngine : public QPaintEngine {
 
   public:
     // Virtual class boolean flag

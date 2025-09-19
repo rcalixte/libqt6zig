@@ -5,7 +5,7 @@
 #include <KFileItem>
 #include <KFilePreviewGenerator>
 #define WORKAROUND_INNER_CLASS_DEFINITION_KIO__CopyJob
-#define WORKAROUND_INNER_CLASS_DEFINITION_KIO__DeleteJob
+#include <KIO/DeleteJob>
 #include <KPreviewWidgetBase>
 #include <QAbstractItemView>
 #include <QAction>

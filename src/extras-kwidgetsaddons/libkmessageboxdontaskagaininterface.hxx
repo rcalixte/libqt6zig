@@ -10,7 +10,7 @@
 #include "../qtlibc.h"
 
 // This class is a subclass of KMessageBoxDontAskAgainInterface so that we can call protected methods
-class VirtualKMessageBoxDontAskAgainInterface final : public KMessageBoxDontAskAgainInterface {
+class VirtualKMessageBoxDontAskAgainInterface : public KMessageBoxDontAskAgainInterface {
 
   public:
     // Virtual class boolean flag

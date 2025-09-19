@@ -40,9 +40,9 @@ pub const qvpiemodelmapper = struct {
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QVPieModelMapper, slot: fn (self: QtC.QVPieModelMapper, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QVPieModelMapper_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVPieModelMapper, callback: *const fn (self: QtC.QVPieModelMapper, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+        qtc.QVPieModelMapper_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -157,9 +157,9 @@ pub const qvpiemodelmapper = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvpiemodelmapper-qtcharts.html#seriesReplaced)
     ///
-    /// ``` self: QtC.QVPieModelMapper, slot: fn (self: QtC.QVPieModelMapper) callconv(.c) void ```
-    pub fn OnSeriesReplaced(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QVPieModelMapper_Connect_SeriesReplaced(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVPieModelMapper, callback: *const fn (self: QtC.QVPieModelMapper) callconv(.c) void ```
+    pub fn OnSeriesReplaced(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QVPieModelMapper_Connect_SeriesReplaced(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvpiemodelmapper-qtcharts.html#modelReplaced)
@@ -171,9 +171,9 @@ pub const qvpiemodelmapper = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvpiemodelmapper-qtcharts.html#modelReplaced)
     ///
-    /// ``` self: QtC.QVPieModelMapper, slot: fn (self: QtC.QVPieModelMapper) callconv(.c) void ```
-    pub fn OnModelReplaced(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QVPieModelMapper_Connect_ModelReplaced(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVPieModelMapper, callback: *const fn (self: QtC.QVPieModelMapper) callconv(.c) void ```
+    pub fn OnModelReplaced(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QVPieModelMapper_Connect_ModelReplaced(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvpiemodelmapper-qtcharts.html#valuesColumnChanged)
@@ -185,9 +185,9 @@ pub const qvpiemodelmapper = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvpiemodelmapper-qtcharts.html#valuesColumnChanged)
     ///
-    /// ``` self: QtC.QVPieModelMapper, slot: fn (self: QtC.QVPieModelMapper) callconv(.c) void ```
-    pub fn OnValuesColumnChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QVPieModelMapper_Connect_ValuesColumnChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVPieModelMapper, callback: *const fn (self: QtC.QVPieModelMapper) callconv(.c) void ```
+    pub fn OnValuesColumnChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QVPieModelMapper_Connect_ValuesColumnChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvpiemodelmapper-qtcharts.html#labelsColumnChanged)
@@ -199,9 +199,9 @@ pub const qvpiemodelmapper = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvpiemodelmapper-qtcharts.html#labelsColumnChanged)
     ///
-    /// ``` self: QtC.QVPieModelMapper, slot: fn (self: QtC.QVPieModelMapper) callconv(.c) void ```
-    pub fn OnLabelsColumnChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QVPieModelMapper_Connect_LabelsColumnChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVPieModelMapper, callback: *const fn (self: QtC.QVPieModelMapper) callconv(.c) void ```
+    pub fn OnLabelsColumnChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QVPieModelMapper_Connect_LabelsColumnChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvpiemodelmapper-qtcharts.html#firstRowChanged)
@@ -213,9 +213,9 @@ pub const qvpiemodelmapper = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvpiemodelmapper-qtcharts.html#firstRowChanged)
     ///
-    /// ``` self: QtC.QVPieModelMapper, slot: fn (self: QtC.QVPieModelMapper) callconv(.c) void ```
-    pub fn OnFirstRowChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QVPieModelMapper_Connect_FirstRowChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVPieModelMapper, callback: *const fn (self: QtC.QVPieModelMapper) callconv(.c) void ```
+    pub fn OnFirstRowChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QVPieModelMapper_Connect_FirstRowChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvpiemodelmapper-qtcharts.html#rowCountChanged)
@@ -227,9 +227,9 @@ pub const qvpiemodelmapper = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvpiemodelmapper-qtcharts.html#rowCountChanged)
     ///
-    /// ``` self: QtC.QVPieModelMapper, slot: fn (self: QtC.QVPieModelMapper) callconv(.c) void ```
-    pub fn OnRowCountChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QVPieModelMapper_Connect_RowCountChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVPieModelMapper, callback: *const fn (self: QtC.QVPieModelMapper) callconv(.c) void ```
+    pub fn OnRowCountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QVPieModelMapper_Connect_RowCountChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -546,9 +546,9 @@ pub const qvpiemodelmapper = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QVPieModelMapper, slot: fn (self: QtC.QVPieModelMapper) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVPieModelMapper, callback: *const fn (self: QtC.QVPieModelMapper) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -630,9 +630,9 @@ pub const qvpiemodelmapper = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QVPieModelMapper, slot: fn (self: QtC.QVPieModelMapper, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVPieModelMapper, callback: *const fn (self: QtC.QVPieModelMapper, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -663,9 +663,9 @@ pub const qvpiemodelmapper = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVPieModelMapper, slot: fn (self: QtC.QVPieModelMapper, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QVPieModelMapper_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVPieModelMapper, callback: *const fn (self: QtC.QVPieModelMapper, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QVPieModelMapper_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -696,9 +696,9 @@ pub const qvpiemodelmapper = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVPieModelMapper, slot: fn (self: QtC.QVPieModelMapper, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QVPieModelMapper_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVPieModelMapper, callback: *const fn (self: QtC.QVPieModelMapper, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QVPieModelMapper_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -729,9 +729,9 @@ pub const qvpiemodelmapper = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVPieModelMapper, slot: fn (self: QtC.QVPieModelMapper, event: QtC.QTimerEvent) callconv(.c) void ```
-    pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QVPieModelMapper_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVPieModelMapper, callback: *const fn (self: QtC.QVPieModelMapper, event: QtC.QTimerEvent) callconv(.c) void ```
+    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QVPieModelMapper_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -762,9 +762,9 @@ pub const qvpiemodelmapper = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVPieModelMapper, slot: fn (self: QtC.QVPieModelMapper, event: QtC.QChildEvent) callconv(.c) void ```
-    pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QVPieModelMapper_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVPieModelMapper, callback: *const fn (self: QtC.QVPieModelMapper, event: QtC.QChildEvent) callconv(.c) void ```
+    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QVPieModelMapper_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -795,9 +795,9 @@ pub const qvpiemodelmapper = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVPieModelMapper, slot: fn (self: QtC.QVPieModelMapper, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QVPieModelMapper_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVPieModelMapper, callback: *const fn (self: QtC.QVPieModelMapper, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QVPieModelMapper_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -828,9 +828,9 @@ pub const qvpiemodelmapper = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVPieModelMapper, slot: fn (self: QtC.QVPieModelMapper, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QVPieModelMapper_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVPieModelMapper, callback: *const fn (self: QtC.QVPieModelMapper, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QVPieModelMapper_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -861,9 +861,9 @@ pub const qvpiemodelmapper = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVPieModelMapper, slot: fn (self: QtC.QVPieModelMapper, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QVPieModelMapper_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVPieModelMapper, callback: *const fn (self: QtC.QVPieModelMapper, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QVPieModelMapper_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPieModelMapper
@@ -894,9 +894,9 @@ pub const qvpiemodelmapper = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVPieModelMapper, slot: fn () callconv(.c) i32 ```
-    pub fn OnFirst(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QVPieModelMapper_OnFirst(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVPieModelMapper, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnFirst(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QVPieModelMapper_OnFirst(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPieModelMapper
@@ -927,9 +927,9 @@ pub const qvpiemodelmapper = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVPieModelMapper, slot: fn (self: QtC.QVPieModelMapper, first: i32) callconv(.c) void ```
-    pub fn OnSetFirst(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QVPieModelMapper_OnSetFirst(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVPieModelMapper, callback: *const fn (self: QtC.QVPieModelMapper, first: i32) callconv(.c) void ```
+    pub fn OnSetFirst(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QVPieModelMapper_OnSetFirst(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPieModelMapper
@@ -960,9 +960,9 @@ pub const qvpiemodelmapper = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVPieModelMapper, slot: fn () callconv(.c) i32 ```
-    pub fn OnCount(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QVPieModelMapper_OnCount(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVPieModelMapper, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnCount(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QVPieModelMapper_OnCount(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPieModelMapper
@@ -993,9 +993,9 @@ pub const qvpiemodelmapper = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVPieModelMapper, slot: fn (self: QtC.QVPieModelMapper, count: i32) callconv(.c) void ```
-    pub fn OnSetCount(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QVPieModelMapper_OnSetCount(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVPieModelMapper, callback: *const fn (self: QtC.QVPieModelMapper, count: i32) callconv(.c) void ```
+    pub fn OnSetCount(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QVPieModelMapper_OnSetCount(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPieModelMapper
@@ -1026,9 +1026,9 @@ pub const qvpiemodelmapper = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVPieModelMapper, slot: fn () callconv(.c) i32 ```
-    pub fn OnValuesSection(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QVPieModelMapper_OnValuesSection(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVPieModelMapper, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnValuesSection(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QVPieModelMapper_OnValuesSection(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPieModelMapper
@@ -1059,9 +1059,9 @@ pub const qvpiemodelmapper = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVPieModelMapper, slot: fn (self: QtC.QVPieModelMapper, valuesSection: i32) callconv(.c) void ```
-    pub fn OnSetValuesSection(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QVPieModelMapper_OnSetValuesSection(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVPieModelMapper, callback: *const fn (self: QtC.QVPieModelMapper, valuesSection: i32) callconv(.c) void ```
+    pub fn OnSetValuesSection(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QVPieModelMapper_OnSetValuesSection(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPieModelMapper
@@ -1092,9 +1092,9 @@ pub const qvpiemodelmapper = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVPieModelMapper, slot: fn () callconv(.c) i32 ```
-    pub fn OnLabelsSection(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QVPieModelMapper_OnLabelsSection(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVPieModelMapper, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnLabelsSection(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QVPieModelMapper_OnLabelsSection(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPieModelMapper
@@ -1125,9 +1125,9 @@ pub const qvpiemodelmapper = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVPieModelMapper, slot: fn (self: QtC.QVPieModelMapper, labelsSection: i32) callconv(.c) void ```
-    pub fn OnSetLabelsSection(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QVPieModelMapper_OnSetLabelsSection(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVPieModelMapper, callback: *const fn (self: QtC.QVPieModelMapper, labelsSection: i32) callconv(.c) void ```
+    pub fn OnSetLabelsSection(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QVPieModelMapper_OnSetLabelsSection(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPieModelMapper
@@ -1162,9 +1162,9 @@ pub const qvpiemodelmapper = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVPieModelMapper, slot: fn () callconv(.c) i32 ```
-    pub fn OnOrientation(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QVPieModelMapper_OnOrientation(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVPieModelMapper, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnOrientation(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QVPieModelMapper_OnOrientation(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPieModelMapper
@@ -1195,9 +1195,9 @@ pub const qvpiemodelmapper = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVPieModelMapper, slot: fn (self: QtC.QVPieModelMapper, orientation: qnamespace_enums.Orientation) callconv(.c) void ```
-    pub fn OnSetOrientation(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QVPieModelMapper_OnSetOrientation(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVPieModelMapper, callback: *const fn (self: QtC.QVPieModelMapper, orientation: qnamespace_enums.Orientation) callconv(.c) void ```
+    pub fn OnSetOrientation(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QVPieModelMapper_OnSetOrientation(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1228,9 +1228,9 @@ pub const qvpiemodelmapper = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVPieModelMapper, slot: fn () callconv(.c) QtC.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
-        qtc.QVPieModelMapper_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVPieModelMapper, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.QVPieModelMapper_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1261,9 +1261,9 @@ pub const qvpiemodelmapper = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVPieModelMapper, slot: fn () callconv(.c) i32 ```
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QVPieModelMapper_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVPieModelMapper, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QVPieModelMapper_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1296,9 +1296,9 @@ pub const qvpiemodelmapper = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVPieModelMapper, slot: fn (self: QtC.QVPieModelMapper, signal: [*:0]const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QVPieModelMapper_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVPieModelMapper, callback: *const fn (self: QtC.QVPieModelMapper, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QVPieModelMapper_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1329,9 +1329,9 @@ pub const qvpiemodelmapper = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVPieModelMapper, slot: fn (self: QtC.QVPieModelMapper, signal: QtC.QMetaMethod) callconv(.c) bool ```
-    pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QVPieModelMapper_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVPieModelMapper, callback: *const fn (self: QtC.QVPieModelMapper, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QVPieModelMapper_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1340,9 +1340,9 @@ pub const qvpiemodelmapper = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QVPieModelMapper, slot: fn (self: QtC.QVPieModelMapper, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVPieModelMapper, callback: *const fn (self: QtC.QVPieModelMapper, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvpiemodelmapper-qtcharts.html#dtor.QVPieModelMapper)

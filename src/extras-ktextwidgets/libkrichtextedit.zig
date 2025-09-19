@@ -75,9 +75,9 @@ pub const krichtextedit = struct {
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
-        qtc.KRichTextEdit_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+        qtc.KRichTextEdit_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -394,9 +394,9 @@ pub const krichtextedit = struct {
 
     /// [Qt documentation](https://api.kde.org/krichtextedit.html#textModeChanged)
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, mode: krichtextedit_enums.Mode) callconv(.c) void ```
-    pub fn OnTextModeChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KRichTextEdit_Connect_TextModeChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, mode: krichtextedit_enums.Mode) callconv(.c) void ```
+    pub fn OnTextModeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.KRichTextEdit_Connect_TextModeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/krichtextedit.html#keyPressEvent)
@@ -410,9 +410,9 @@ pub const krichtextedit = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, event: QtC.QKeyEvent) callconv(.c) void ```
-    pub fn OnKeyPressEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRichTextEdit_OnKeyPressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, event: QtC.QKeyEvent) callconv(.c) void ```
+    pub fn OnKeyPressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KRichTextEdit_OnKeyPressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/krichtextedit.html#keyPressEvent)
@@ -539,9 +539,9 @@ pub const krichtextedit = struct {
     ///
     /// [Qt documentation](https://api.kde.org/ktextedit.html#checkSpellingChanged)
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, param1: bool) callconv(.c) void ```
-    pub fn OnCheckSpellingChanged(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.KTextEdit_Connect_CheckSpellingChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, param1: bool) callconv(.c) void ```
+    pub fn OnCheckSpellingChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.KTextEdit_Connect_CheckSpellingChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
@@ -561,9 +561,9 @@ pub const krichtextedit = struct {
     ///
     /// [Qt documentation](https://api.kde.org/ktextedit.html#spellCheckStatus)
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, param1: [*:0]const u8) callconv(.c) void ```
-    pub fn OnSpellCheckStatus(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KTextEdit_Connect_SpellCheckStatus(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, param1: [*:0]const u8) callconv(.c) void ```
+    pub fn OnSpellCheckStatus(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.KTextEdit_Connect_SpellCheckStatus(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
@@ -583,9 +583,9 @@ pub const krichtextedit = struct {
     ///
     /// [Qt documentation](https://api.kde.org/ktextedit.html#languageChanged)
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, language: [*:0]const u8) callconv(.c) void ```
-    pub fn OnLanguageChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KTextEdit_Connect_LanguageChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, language: [*:0]const u8) callconv(.c) void ```
+    pub fn OnLanguageChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.KTextEdit_Connect_LanguageChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
@@ -601,9 +601,9 @@ pub const krichtextedit = struct {
     ///
     /// [Qt documentation](https://api.kde.org/ktextedit.html#aboutToShowContextMenu)
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, menu: QtC.QMenu) callconv(.c) void ```
-    pub fn OnAboutToShowContextMenu(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KTextEdit_Connect_AboutToShowContextMenu(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, menu: QtC.QMenu) callconv(.c) void ```
+    pub fn OnAboutToShowContextMenu(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KTextEdit_Connect_AboutToShowContextMenu(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
@@ -627,9 +627,9 @@ pub const krichtextedit = struct {
     ///
     /// [Qt documentation](https://api.kde.org/ktextedit.html#spellCheckerAutoCorrect)
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, currentWord: [*:0]const u8, autoCorrectWord: [*:0]const u8) callconv(.c) void ```
-    pub fn OnSpellCheckerAutoCorrect(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
-        qtc.KTextEdit_Connect_SpellCheckerAutoCorrect(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, currentWord: [*:0]const u8, autoCorrectWord: [*:0]const u8) callconv(.c) void ```
+    pub fn OnSpellCheckerAutoCorrect(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
+        qtc.KTextEdit_Connect_SpellCheckerAutoCorrect(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
@@ -645,9 +645,9 @@ pub const krichtextedit = struct {
     ///
     /// [Qt documentation](https://api.kde.org/ktextedit.html#spellCheckingFinished)
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit) callconv(.c) void ```
-    pub fn OnSpellCheckingFinished(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.KTextEdit_Connect_SpellCheckingFinished(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit) callconv(.c) void ```
+    pub fn OnSpellCheckingFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.KTextEdit_Connect_SpellCheckingFinished(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
@@ -663,9 +663,9 @@ pub const krichtextedit = struct {
     ///
     /// [Qt documentation](https://api.kde.org/ktextedit.html#spellCheckingCanceled)
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit) callconv(.c) void ```
-    pub fn OnSpellCheckingCanceled(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.KTextEdit_Connect_SpellCheckingCanceled(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit) callconv(.c) void ```
+    pub fn OnSpellCheckingCanceled(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.KTextEdit_Connect_SpellCheckingCanceled(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
@@ -1608,9 +1608,9 @@ pub const krichtextedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#textChanged)
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit) callconv(.c) void ```
-    pub fn OnTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QTextEdit_Connect_TextChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit) callconv(.c) void ```
+    pub fn OnTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QTextEdit_Connect_TextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -1626,9 +1626,9 @@ pub const krichtextedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#undoAvailable)
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, b: bool) callconv(.c) void ```
-    pub fn OnUndoAvailable(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QTextEdit_Connect_UndoAvailable(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, b: bool) callconv(.c) void ```
+    pub fn OnUndoAvailable(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QTextEdit_Connect_UndoAvailable(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -1644,9 +1644,9 @@ pub const krichtextedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#redoAvailable)
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, b: bool) callconv(.c) void ```
-    pub fn OnRedoAvailable(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QTextEdit_Connect_RedoAvailable(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, b: bool) callconv(.c) void ```
+    pub fn OnRedoAvailable(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QTextEdit_Connect_RedoAvailable(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -1662,9 +1662,9 @@ pub const krichtextedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#currentCharFormatChanged)
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, format: QtC.QTextCharFormat) callconv(.c) void ```
-    pub fn OnCurrentCharFormatChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTextEdit_Connect_CurrentCharFormatChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, format: QtC.QTextCharFormat) callconv(.c) void ```
+    pub fn OnCurrentCharFormatChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTextEdit_Connect_CurrentCharFormatChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -1680,9 +1680,9 @@ pub const krichtextedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#copyAvailable)
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, b: bool) callconv(.c) void ```
-    pub fn OnCopyAvailable(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QTextEdit_Connect_CopyAvailable(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, b: bool) callconv(.c) void ```
+    pub fn OnCopyAvailable(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QTextEdit_Connect_CopyAvailable(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -1698,9 +1698,9 @@ pub const krichtextedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#selectionChanged)
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit) callconv(.c) void ```
-    pub fn OnSelectionChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QTextEdit_Connect_SelectionChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit) callconv(.c) void ```
+    pub fn OnSelectionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QTextEdit_Connect_SelectionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -1716,9 +1716,9 @@ pub const krichtextedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qtextedit.html#cursorPositionChanged)
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit) callconv(.c) void ```
-    pub fn OnCursorPositionChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QTextEdit_Connect_CursorPositionChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit) callconv(.c) void ```
+    pub fn OnCursorPositionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QTextEdit_Connect_CursorPositionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -4425,9 +4425,9 @@ pub const krichtextedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, title: [*:0]const u8) callconv(.c) void ```
-    pub fn OnWindowTitleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, title: [*:0]const u8) callconv(.c) void ```
+    pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4443,9 +4443,9 @@ pub const krichtextedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, icon: QtC.QIcon) callconv(.c) void ```
-    pub fn OnWindowIconChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, icon: QtC.QIcon) callconv(.c) void ```
+    pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4465,9 +4465,9 @@ pub const krichtextedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, iconText: [*:0]const u8) callconv(.c) void ```
-    pub fn OnWindowIconTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, iconText: [*:0]const u8) callconv(.c) void ```
+    pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4483,9 +4483,9 @@ pub const krichtextedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, pos: QtC.QPoint) callconv(.c) void ```
-    pub fn OnCustomContextMenuRequested(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, pos: QtC.QPoint) callconv(.c) void ```
+    pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4922,9 +4922,9 @@ pub const krichtextedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5006,9 +5006,9 @@ pub const krichtextedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -5156,9 +5156,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, readOnly: bool) callconv(.c) void ```
-    pub fn OnSetReadOnly(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.KRichTextEdit_OnSetReadOnly(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, readOnly: bool) callconv(.c) void ```
+    pub fn OnSetReadOnly(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.KRichTextEdit_OnSetReadOnly(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
@@ -5189,9 +5189,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, check: bool) callconv(.c) void ```
-    pub fn OnSetCheckSpellingEnabled(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.KRichTextEdit_OnSetCheckSpellingEnabled(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, check: bool) callconv(.c) void ```
+    pub fn OnSetCheckSpellingEnabled(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.KRichTextEdit_OnSetCheckSpellingEnabled(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
@@ -5222,9 +5222,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn () callconv(.c) bool ```
-    pub fn OnCheckSpellingEnabled(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.KRichTextEdit_OnCheckSpellingEnabled(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn () callconv(.c) bool ```
+    pub fn OnCheckSpellingEnabled(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.KRichTextEdit_OnCheckSpellingEnabled(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
@@ -5263,9 +5263,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, block: [*:0]const u8) callconv(.c) bool ```
-    pub fn OnShouldBlockBeSpellChecked(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) bool) void {
-        qtc.KRichTextEdit_OnShouldBlockBeSpellChecked(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, block: [*:0]const u8) callconv(.c) bool ```
+    pub fn OnShouldBlockBeSpellChecked(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) bool) void {
+        qtc.KRichTextEdit_OnShouldBlockBeSpellChecked(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
@@ -5296,9 +5296,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn () callconv(.c) void ```
-    pub fn OnCreateHighlighter(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KRichTextEdit_OnCreateHighlighter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn () callconv(.c) void ```
+    pub fn OnCreateHighlighter(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KRichTextEdit_OnCreateHighlighter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
@@ -5329,9 +5329,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn () callconv(.c) QtC.QMenu ```
-    pub fn OnMousePopupMenu(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QMenu) void {
-        qtc.KRichTextEdit_OnMousePopupMenu(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn () callconv(.c) QtC.QMenu ```
+    pub fn OnMousePopupMenu(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMenu) void {
+        qtc.KRichTextEdit_OnMousePopupMenu(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
@@ -5362,9 +5362,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, param1: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KRichTextEdit_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, param1: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KRichTextEdit_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
@@ -5395,9 +5395,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, param1: QtC.QFocusEvent) callconv(.c) void ```
-    pub fn OnFocusInEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRichTextEdit_OnFocusInEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, param1: QtC.QFocusEvent) callconv(.c) void ```
+    pub fn OnFocusInEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KRichTextEdit_OnFocusInEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
@@ -5428,9 +5428,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn () callconv(.c) void ```
-    pub fn OnDeleteWordBack(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KRichTextEdit_OnDeleteWordBack(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn () callconv(.c) void ```
+    pub fn OnDeleteWordBack(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KRichTextEdit_OnDeleteWordBack(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
@@ -5461,9 +5461,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn () callconv(.c) void ```
-    pub fn OnDeleteWordForward(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KRichTextEdit_OnDeleteWordForward(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn () callconv(.c) void ```
+    pub fn OnDeleteWordForward(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KRichTextEdit_OnDeleteWordForward(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
@@ -5494,9 +5494,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, param1: QtC.QContextMenuEvent) callconv(.c) void ```
-    pub fn OnContextMenuEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRichTextEdit_OnContextMenuEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, param1: QtC.QContextMenuEvent) callconv(.c) void ```
+    pub fn OnContextMenuEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KRichTextEdit_OnContextMenuEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -5527,9 +5527,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, typeVal: i32, name: QtC.QUrl) callconv(.c) QtC.QVariant ```
-    pub fn OnLoadResource(self: ?*anyopaque, slot: fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QVariant) void {
-        qtc.KRichTextEdit_OnLoadResource(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, typeVal: i32, name: QtC.QUrl) callconv(.c) QtC.QVariant ```
+    pub fn OnLoadResource(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QVariant) void {
+        qtc.KRichTextEdit_OnLoadResource(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -5560,9 +5560,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, property: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant ```
-    pub fn OnInputMethodQuery(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) QtC.QVariant) void {
-        qtc.KRichTextEdit_OnInputMethodQuery(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, property: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant ```
+    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) QtC.QVariant) void {
+        qtc.KRichTextEdit_OnInputMethodQuery(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -5593,9 +5593,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, e: QtC.QTimerEvent) callconv(.c) void ```
-    pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRichTextEdit_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, e: QtC.QTimerEvent) callconv(.c) void ```
+    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KRichTextEdit_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -5626,9 +5626,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, e: QtC.QKeyEvent) callconv(.c) void ```
-    pub fn OnKeyReleaseEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRichTextEdit_OnKeyReleaseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, e: QtC.QKeyEvent) callconv(.c) void ```
+    pub fn OnKeyReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KRichTextEdit_OnKeyReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -5659,9 +5659,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, e: QtC.QResizeEvent) callconv(.c) void ```
-    pub fn OnResizeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRichTextEdit_OnResizeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, e: QtC.QResizeEvent) callconv(.c) void ```
+    pub fn OnResizeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KRichTextEdit_OnResizeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -5692,9 +5692,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, e: QtC.QPaintEvent) callconv(.c) void ```
-    pub fn OnPaintEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRichTextEdit_OnPaintEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, e: QtC.QPaintEvent) callconv(.c) void ```
+    pub fn OnPaintEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KRichTextEdit_OnPaintEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -5725,9 +5725,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, e: QtC.QMouseEvent) callconv(.c) void ```
-    pub fn OnMousePressEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRichTextEdit_OnMousePressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, e: QtC.QMouseEvent) callconv(.c) void ```
+    pub fn OnMousePressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KRichTextEdit_OnMousePressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -5758,9 +5758,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, e: QtC.QMouseEvent) callconv(.c) void ```
-    pub fn OnMouseMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRichTextEdit_OnMouseMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, e: QtC.QMouseEvent) callconv(.c) void ```
+    pub fn OnMouseMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KRichTextEdit_OnMouseMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -5791,9 +5791,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, e: QtC.QMouseEvent) callconv(.c) void ```
-    pub fn OnMouseReleaseEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRichTextEdit_OnMouseReleaseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, e: QtC.QMouseEvent) callconv(.c) void ```
+    pub fn OnMouseReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KRichTextEdit_OnMouseReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -5824,9 +5824,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, e: QtC.QMouseEvent) callconv(.c) void ```
-    pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRichTextEdit_OnMouseDoubleClickEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, e: QtC.QMouseEvent) callconv(.c) void ```
+    pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KRichTextEdit_OnMouseDoubleClickEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -5857,9 +5857,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, next: bool) callconv(.c) bool ```
-    pub fn OnFocusNextPrevChild(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) bool) void {
-        qtc.KRichTextEdit_OnFocusNextPrevChild(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, next: bool) callconv(.c) bool ```
+    pub fn OnFocusNextPrevChild(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) bool) void {
+        qtc.KRichTextEdit_OnFocusNextPrevChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -5890,9 +5890,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, e: QtC.QDragEnterEvent) callconv(.c) void ```
-    pub fn OnDragEnterEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRichTextEdit_OnDragEnterEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, e: QtC.QDragEnterEvent) callconv(.c) void ```
+    pub fn OnDragEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KRichTextEdit_OnDragEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -5923,9 +5923,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, e: QtC.QDragLeaveEvent) callconv(.c) void ```
-    pub fn OnDragLeaveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRichTextEdit_OnDragLeaveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, e: QtC.QDragLeaveEvent) callconv(.c) void ```
+    pub fn OnDragLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KRichTextEdit_OnDragLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -5956,9 +5956,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, e: QtC.QDragMoveEvent) callconv(.c) void ```
-    pub fn OnDragMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRichTextEdit_OnDragMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, e: QtC.QDragMoveEvent) callconv(.c) void ```
+    pub fn OnDragMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KRichTextEdit_OnDragMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -5989,9 +5989,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, e: QtC.QDropEvent) callconv(.c) void ```
-    pub fn OnDropEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRichTextEdit_OnDropEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, e: QtC.QDropEvent) callconv(.c) void ```
+    pub fn OnDropEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KRichTextEdit_OnDropEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -6022,9 +6022,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, e: QtC.QFocusEvent) callconv(.c) void ```
-    pub fn OnFocusOutEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRichTextEdit_OnFocusOutEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, e: QtC.QFocusEvent) callconv(.c) void ```
+    pub fn OnFocusOutEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KRichTextEdit_OnFocusOutEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -6055,9 +6055,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, param1: QtC.QShowEvent) callconv(.c) void ```
-    pub fn OnShowEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRichTextEdit_OnShowEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, param1: QtC.QShowEvent) callconv(.c) void ```
+    pub fn OnShowEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KRichTextEdit_OnShowEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -6088,9 +6088,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, e: QtC.QEvent) callconv(.c) void ```
-    pub fn OnChangeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRichTextEdit_OnChangeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, e: QtC.QEvent) callconv(.c) void ```
+    pub fn OnChangeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KRichTextEdit_OnChangeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -6121,9 +6121,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, e: QtC.QWheelEvent) callconv(.c) void ```
-    pub fn OnWheelEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRichTextEdit_OnWheelEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, e: QtC.QWheelEvent) callconv(.c) void ```
+    pub fn OnWheelEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KRichTextEdit_OnWheelEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -6154,9 +6154,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn () callconv(.c) QtC.QMimeData ```
-    pub fn OnCreateMimeDataFromSelection(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QMimeData) void {
-        qtc.KRichTextEdit_OnCreateMimeDataFromSelection(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn () callconv(.c) QtC.QMimeData ```
+    pub fn OnCreateMimeDataFromSelection(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMimeData) void {
+        qtc.KRichTextEdit_OnCreateMimeDataFromSelection(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -6187,9 +6187,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, source: QtC.QMimeData) callconv(.c) bool ```
-    pub fn OnCanInsertFromMimeData(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KRichTextEdit_OnCanInsertFromMimeData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, source: QtC.QMimeData) callconv(.c) bool ```
+    pub fn OnCanInsertFromMimeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KRichTextEdit_OnCanInsertFromMimeData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -6220,9 +6220,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, source: QtC.QMimeData) callconv(.c) void ```
-    pub fn OnInsertFromMimeData(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRichTextEdit_OnInsertFromMimeData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, source: QtC.QMimeData) callconv(.c) void ```
+    pub fn OnInsertFromMimeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KRichTextEdit_OnInsertFromMimeData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -6253,9 +6253,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, param1: QtC.QInputMethodEvent) callconv(.c) void ```
-    pub fn OnInputMethodEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRichTextEdit_OnInputMethodEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, param1: QtC.QInputMethodEvent) callconv(.c) void ```
+    pub fn OnInputMethodEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KRichTextEdit_OnInputMethodEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -6286,9 +6286,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, dx: i32, dy: i32) callconv(.c) void ```
-    pub fn OnScrollContentsBy(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.KRichTextEdit_OnScrollContentsBy(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, dx: i32, dy: i32) callconv(.c) void ```
+    pub fn OnScrollContentsBy(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
+        qtc.KRichTextEdit_OnScrollContentsBy(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -6319,9 +6319,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, cursor: QtC.QTextCursor) callconv(.c) void ```
-    pub fn OnDoSetTextCursor(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRichTextEdit_OnDoSetTextCursor(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, cursor: QtC.QTextCursor) callconv(.c) void ```
+    pub fn OnDoSetTextCursor(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KRichTextEdit_OnDoSetTextCursor(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -6352,9 +6352,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn () callconv(.c) QtC.QSize ```
-    pub fn OnMinimumSizeHint(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QSize) void {
-        qtc.KRichTextEdit_OnMinimumSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn () callconv(.c) QtC.QSize ```
+    pub fn OnMinimumSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
+        qtc.KRichTextEdit_OnMinimumSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -6385,9 +6385,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn () callconv(.c) QtC.QSize ```
-    pub fn OnSizeHint(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QSize) void {
-        qtc.KRichTextEdit_OnSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn () callconv(.c) QtC.QSize ```
+    pub fn OnSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
+        qtc.KRichTextEdit_OnSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -6418,9 +6418,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, viewport: QtC.QWidget) callconv(.c) void ```
-    pub fn OnSetupViewport(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRichTextEdit_OnSetupViewport(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, viewport: QtC.QWidget) callconv(.c) void ```
+    pub fn OnSetupViewport(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KRichTextEdit_OnSetupViewport(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -6451,9 +6451,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, param1: QtC.QObject, param2: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KRichTextEdit_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, param1: QtC.QObject, param2: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KRichTextEdit_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -6484,9 +6484,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, param1: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnViewportEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KRichTextEdit_OnViewportEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, param1: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnViewportEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KRichTextEdit_OnViewportEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -6517,9 +6517,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn () callconv(.c) QtC.QSize ```
-    pub fn OnViewportSizeHint(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QSize) void {
-        qtc.KRichTextEdit_OnViewportSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn () callconv(.c) QtC.QSize ```
+    pub fn OnViewportSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
+        qtc.KRichTextEdit_OnViewportSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFrame
@@ -6550,9 +6550,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, option: QtC.QStyleOptionFrame) callconv(.c) void ```
-    pub fn OnInitStyleOption(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRichTextEdit_OnInitStyleOption(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, option: QtC.QStyleOptionFrame) callconv(.c) void ```
+    pub fn OnInitStyleOption(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KRichTextEdit_OnInitStyleOption(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6583,9 +6583,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn () callconv(.c) i32 ```
-    pub fn OnDevType(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.KRichTextEdit_OnDevType(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnDevType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.KRichTextEdit_OnDevType(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6616,9 +6616,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, visible: bool) callconv(.c) void ```
-    pub fn OnSetVisible(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.KRichTextEdit_OnSetVisible(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, visible: bool) callconv(.c) void ```
+    pub fn OnSetVisible(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.KRichTextEdit_OnSetVisible(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6649,9 +6649,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, param1: i32) callconv(.c) i32 ```
-    pub fn OnHeightForWidth(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.KRichTextEdit_OnHeightForWidth(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, param1: i32) callconv(.c) i32 ```
+    pub fn OnHeightForWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
+        qtc.KRichTextEdit_OnHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6682,9 +6682,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn () callconv(.c) bool ```
-    pub fn OnHasHeightForWidth(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.KRichTextEdit_OnHasHeightForWidth(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn () callconv(.c) bool ```
+    pub fn OnHasHeightForWidth(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.KRichTextEdit_OnHasHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6715,9 +6715,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn () callconv(.c) QtC.QPaintEngine ```
-    pub fn OnPaintEngine(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QPaintEngine) void {
-        qtc.KRichTextEdit_OnPaintEngine(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn () callconv(.c) QtC.QPaintEngine ```
+    pub fn OnPaintEngine(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPaintEngine) void {
+        qtc.KRichTextEdit_OnPaintEngine(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6748,9 +6748,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, event: QtC.QEnterEvent) callconv(.c) void ```
-    pub fn OnEnterEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRichTextEdit_OnEnterEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, event: QtC.QEnterEvent) callconv(.c) void ```
+    pub fn OnEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KRichTextEdit_OnEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6781,9 +6781,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnLeaveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRichTextEdit_OnLeaveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KRichTextEdit_OnLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6814,9 +6814,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, event: QtC.QMoveEvent) callconv(.c) void ```
-    pub fn OnMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRichTextEdit_OnMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, event: QtC.QMoveEvent) callconv(.c) void ```
+    pub fn OnMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KRichTextEdit_OnMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6847,9 +6847,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, event: QtC.QCloseEvent) callconv(.c) void ```
-    pub fn OnCloseEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRichTextEdit_OnCloseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, event: QtC.QCloseEvent) callconv(.c) void ```
+    pub fn OnCloseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KRichTextEdit_OnCloseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6880,9 +6880,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, event: QtC.QTabletEvent) callconv(.c) void ```
-    pub fn OnTabletEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRichTextEdit_OnTabletEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, event: QtC.QTabletEvent) callconv(.c) void ```
+    pub fn OnTabletEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KRichTextEdit_OnTabletEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6913,9 +6913,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, event: QtC.QActionEvent) callconv(.c) void ```
-    pub fn OnActionEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRichTextEdit_OnActionEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, event: QtC.QActionEvent) callconv(.c) void ```
+    pub fn OnActionEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KRichTextEdit_OnActionEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6946,9 +6946,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, event: QtC.QHideEvent) callconv(.c) void ```
-    pub fn OnHideEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRichTextEdit_OnHideEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, event: QtC.QHideEvent) callconv(.c) void ```
+    pub fn OnHideEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KRichTextEdit_OnHideEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6987,9 +6987,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, eventType: [*:0]u8, message: ?*anyopaque, result: *isize) callconv(.c) bool ```
-    pub fn OnNativeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]u8, ?*anyopaque, *isize) callconv(.c) bool) void {
-        qtc.KRichTextEdit_OnNativeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, eventType: [*:0]u8, message: ?*anyopaque, result: *isize) callconv(.c) bool ```
+    pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]u8, ?*anyopaque, *isize) callconv(.c) bool) void {
+        qtc.KRichTextEdit_OnNativeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7020,9 +7020,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 ```
-    pub fn OnMetric(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.KRichTextEdit_OnMetric(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 ```
+    pub fn OnMetric(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
+        qtc.KRichTextEdit_OnMetric(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7053,9 +7053,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, painter: QtC.QPainter) callconv(.c) void ```
-    pub fn OnInitPainter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRichTextEdit_OnInitPainter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, painter: QtC.QPainter) callconv(.c) void ```
+    pub fn OnInitPainter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KRichTextEdit_OnInitPainter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7086,9 +7086,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, offset: QtC.QPoint) callconv(.c) QtC.QPaintDevice ```
-    pub fn OnRedirected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPaintDevice) void {
-        qtc.KRichTextEdit_OnRedirected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, offset: QtC.QPoint) callconv(.c) QtC.QPaintDevice ```
+    pub fn OnRedirected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPaintDevice) void {
+        qtc.KRichTextEdit_OnRedirected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7119,9 +7119,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn () callconv(.c) QtC.QPainter ```
-    pub fn OnSharedPainter(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QPainter) void {
-        qtc.KRichTextEdit_OnSharedPainter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn () callconv(.c) QtC.QPainter ```
+    pub fn OnSharedPainter(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainter) void {
+        qtc.KRichTextEdit_OnSharedPainter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7152,9 +7152,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, event: QtC.QChildEvent) callconv(.c) void ```
-    pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRichTextEdit_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, event: QtC.QChildEvent) callconv(.c) void ```
+    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KRichTextEdit_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7185,9 +7185,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRichTextEdit_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KRichTextEdit_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7218,9 +7218,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRichTextEdit_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KRichTextEdit_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7251,9 +7251,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRichTextEdit_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KRichTextEdit_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
@@ -7284,9 +7284,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn () callconv(.c) void ```
-    pub fn OnSlotDoReplace(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KRichTextEdit_OnSlotDoReplace(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn () callconv(.c) void ```
+    pub fn OnSlotDoReplace(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KRichTextEdit_OnSlotDoReplace(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
@@ -7317,9 +7317,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn () callconv(.c) void ```
-    pub fn OnSlotReplaceNext(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KRichTextEdit_OnSlotReplaceNext(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn () callconv(.c) void ```
+    pub fn OnSlotReplaceNext(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KRichTextEdit_OnSlotReplaceNext(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
@@ -7350,9 +7350,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn () callconv(.c) void ```
-    pub fn OnSlotDoFind(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KRichTextEdit_OnSlotDoFind(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn () callconv(.c) void ```
+    pub fn OnSlotDoFind(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KRichTextEdit_OnSlotDoFind(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
@@ -7383,9 +7383,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn () callconv(.c) void ```
-    pub fn OnSlotFind(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KRichTextEdit_OnSlotFind(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn () callconv(.c) void ```
+    pub fn OnSlotFind(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KRichTextEdit_OnSlotFind(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
@@ -7416,9 +7416,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn () callconv(.c) void ```
-    pub fn OnSlotFindNext(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KRichTextEdit_OnSlotFindNext(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn () callconv(.c) void ```
+    pub fn OnSlotFindNext(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KRichTextEdit_OnSlotFindNext(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
@@ -7449,9 +7449,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn () callconv(.c) void ```
-    pub fn OnSlotFindPrevious(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KRichTextEdit_OnSlotFindPrevious(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn () callconv(.c) void ```
+    pub fn OnSlotFindPrevious(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KRichTextEdit_OnSlotFindPrevious(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
@@ -7482,9 +7482,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn () callconv(.c) void ```
-    pub fn OnSlotReplace(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KRichTextEdit_OnSlotReplace(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn () callconv(.c) void ```
+    pub fn OnSlotReplace(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KRichTextEdit_OnSlotReplace(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KTextEdit
@@ -7515,9 +7515,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn () callconv(.c) void ```
-    pub fn OnSlotSpeakText(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KRichTextEdit_OnSlotSpeakText(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn () callconv(.c) void ```
+    pub fn OnSlotSpeakText(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KRichTextEdit_OnSlotSpeakText(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QTextEdit
@@ -7548,9 +7548,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, range: f32) callconv(.c) void ```
-    pub fn OnZoomInF(self: ?*anyopaque, slot: fn (?*anyopaque, f32) callconv(.c) void) void {
-        qtc.KRichTextEdit_OnZoomInF(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, range: f32) callconv(.c) void ```
+    pub fn OnZoomInF(self: ?*anyopaque, callback: *const fn (?*anyopaque, f32) callconv(.c) void) void {
+        qtc.KRichTextEdit_OnZoomInF(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -7581,9 +7581,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, left: i32, top: i32, right: i32, bottom: i32) callconv(.c) void ```
-    pub fn OnSetViewportMargins(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, i32, i32) callconv(.c) void) void {
-        qtc.KRichTextEdit_OnSetViewportMargins(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, left: i32, top: i32, right: i32, bottom: i32) callconv(.c) void ```
+    pub fn OnSetViewportMargins(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32, i32) callconv(.c) void) void {
+        qtc.KRichTextEdit_OnSetViewportMargins(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractScrollArea
@@ -7614,9 +7614,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn () callconv(.c) QtC.QMargins ```
-    pub fn OnViewportMargins(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QMargins) void {
-        qtc.KRichTextEdit_OnViewportMargins(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn () callconv(.c) QtC.QMargins ```
+    pub fn OnViewportMargins(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMargins) void {
+        qtc.KRichTextEdit_OnViewportMargins(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFrame
@@ -7647,9 +7647,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, param1: QtC.QPainter) callconv(.c) void ```
-    pub fn OnDrawFrame(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KRichTextEdit_OnDrawFrame(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, param1: QtC.QPainter) callconv(.c) void ```
+    pub fn OnDrawFrame(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KRichTextEdit_OnDrawFrame(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7680,9 +7680,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn () callconv(.c) void ```
-    pub fn OnUpdateMicroFocus(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KRichTextEdit_OnUpdateMicroFocus(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn () callconv(.c) void ```
+    pub fn OnUpdateMicroFocus(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KRichTextEdit_OnUpdateMicroFocus(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7713,9 +7713,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn () callconv(.c) void ```
-    pub fn OnCreate(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KRichTextEdit_OnCreate(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn () callconv(.c) void ```
+    pub fn OnCreate(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KRichTextEdit_OnCreate(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7746,9 +7746,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn () callconv(.c) void ```
-    pub fn OnDestroy(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KRichTextEdit_OnDestroy(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn () callconv(.c) void ```
+    pub fn OnDestroy(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KRichTextEdit_OnDestroy(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7779,9 +7779,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn () callconv(.c) bool ```
-    pub fn OnFocusNextChild(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.KRichTextEdit_OnFocusNextChild(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn () callconv(.c) bool ```
+    pub fn OnFocusNextChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.KRichTextEdit_OnFocusNextChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7812,9 +7812,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn () callconv(.c) bool ```
-    pub fn OnFocusPreviousChild(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.KRichTextEdit_OnFocusPreviousChild(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn () callconv(.c) bool ```
+    pub fn OnFocusPreviousChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.KRichTextEdit_OnFocusPreviousChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7845,9 +7845,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn () callconv(.c) QtC.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
-        qtc.KRichTextEdit_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.KRichTextEdit_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7878,9 +7878,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn () callconv(.c) i32 ```
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.KRichTextEdit_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.KRichTextEdit_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7913,9 +7913,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, signal: [*:0]const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KRichTextEdit_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
+        qtc.KRichTextEdit_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7946,9 +7946,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, signal: QtC.QMetaMethod) callconv(.c) bool ```
-    pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KRichTextEdit_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KRichTextEdit_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -7979,9 +7979,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 ```
-    pub fn OnGetDecodedMetricF(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
-        qtc.KRichTextEdit_OnGetDecodedMetricF(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 ```
+    pub fn OnGetDecodedMetricF(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
+        qtc.KRichTextEdit_OnGetDecodedMetricF(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7990,9 +7990,9 @@ pub const krichtextedit = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KRichTextEdit, slot: fn (self: QtC.KRichTextEdit, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KRichTextEdit, callback: *const fn (self: QtC.KRichTextEdit, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/krichtextedit.html#dtor.KRichTextEdit)

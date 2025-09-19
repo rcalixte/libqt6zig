@@ -10,7 +10,7 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QGenericPlugin so that we can call protected methods
-class VirtualQGenericPlugin final : public QGenericPlugin {
+class VirtualQGenericPlugin : public QGenericPlugin {
 
   public:
     // Virtual class boolean flag

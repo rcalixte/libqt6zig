@@ -10,7 +10,7 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QGraphicsLayout so that we can call protected methods
-class VirtualQGraphicsLayout final : public QGraphicsLayout {
+class VirtualQGraphicsLayout : public QGraphicsLayout {
 
   public:
     // Virtual class boolean flag

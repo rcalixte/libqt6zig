@@ -10,7 +10,7 @@
 #include "../qtlibc.h"
 
 // This class is a subclass of QNetworkProxyFactory so that we can call protected methods
-class VirtualQNetworkProxyFactory final : public QNetworkProxyFactory {
+class VirtualQNetworkProxyFactory : public QNetworkProxyFactory {
 
   public:
     // Virtual class boolean flag

@@ -1,4 +1,4 @@
-#define WORKAROUND_INNER_CLASS_DEFINITION_KIO__UDSEntry
+#include <KIO/UDSEntry>
 #include <QList>
 #include <QString>
 #include <QByteArray>

@@ -459,9 +459,9 @@ pub const kio__workerbase = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KIO__WorkerBase, slot: fn () callconv(.c) void ```
-    pub fn OnAppConnectionMade(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KIO__WorkerBase_OnAppConnectionMade(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__WorkerBase, callback: *const fn () callconv(.c) void ```
+    pub fn OnAppConnectionMade(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KIO__WorkerBase_OnAppConnectionMade(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kio-workerbase.html#appConnectionMade)
@@ -496,9 +496,9 @@ pub const kio__workerbase = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KIO__WorkerBase, slot: fn (self: QtC.KIO__WorkerBase, host: [*:0]const u8, port: u16, user: [*:0]const u8, pass: [*:0]const u8) callconv(.c) void ```
-    pub fn OnSetHost(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, u16, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
-        qtc.KIO__WorkerBase_OnSetHost(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__WorkerBase, callback: *const fn (self: QtC.KIO__WorkerBase, host: [*:0]const u8, port: u16, user: [*:0]const u8, pass: [*:0]const u8) callconv(.c) void ```
+    pub fn OnSetHost(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, u16, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
+        qtc.KIO__WorkerBase_OnSetHost(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kio-workerbase.html#setHost)
@@ -533,9 +533,9 @@ pub const kio__workerbase = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KIO__WorkerBase, slot: fn () callconv(.c) QtC.KIO__WorkerResult ```
-    pub fn OnOpenConnection(self: ?*anyopaque, slot: fn () callconv(.c) QtC.KIO__WorkerResult) void {
-        qtc.KIO__WorkerBase_OnOpenConnection(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__WorkerBase, callback: *const fn () callconv(.c) QtC.KIO__WorkerResult ```
+    pub fn OnOpenConnection(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.KIO__WorkerResult) void {
+        qtc.KIO__WorkerBase_OnOpenConnection(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kio-workerbase.html#openConnection)
@@ -558,9 +558,9 @@ pub const kio__workerbase = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KIO__WorkerBase, slot: fn () callconv(.c) void ```
-    pub fn OnCloseConnection(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KIO__WorkerBase_OnCloseConnection(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__WorkerBase, callback: *const fn () callconv(.c) void ```
+    pub fn OnCloseConnection(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KIO__WorkerBase_OnCloseConnection(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kio-workerbase.html#closeConnection)
@@ -583,9 +583,9 @@ pub const kio__workerbase = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KIO__WorkerBase, slot: fn (self: QtC.KIO__WorkerBase, url: QtC.QUrl) callconv(.c) QtC.KIO__WorkerResult ```
-    pub fn OnGet(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.KIO__WorkerResult) void {
-        qtc.KIO__WorkerBase_OnGet(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__WorkerBase, callback: *const fn (self: QtC.KIO__WorkerBase, url: QtC.QUrl) callconv(.c) QtC.KIO__WorkerResult ```
+    pub fn OnGet(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.KIO__WorkerResult) void {
+        qtc.KIO__WorkerBase_OnGet(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kio-workerbase.html#get)
@@ -608,9 +608,9 @@ pub const kio__workerbase = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KIO__WorkerBase, slot: fn (self: QtC.KIO__WorkerBase, url: QtC.QUrl, mode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) QtC.KIO__WorkerResult ```
-    pub fn OnOpen(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) QtC.KIO__WorkerResult) void {
-        qtc.KIO__WorkerBase_OnOpen(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__WorkerBase, callback: *const fn (self: QtC.KIO__WorkerBase, url: QtC.QUrl, mode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) QtC.KIO__WorkerResult ```
+    pub fn OnOpen(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) QtC.KIO__WorkerResult) void {
+        qtc.KIO__WorkerBase_OnOpen(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kio-workerbase.html#open)
@@ -633,9 +633,9 @@ pub const kio__workerbase = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KIO__WorkerBase, slot: fn (self: QtC.KIO__WorkerBase, size: u64) callconv(.c) QtC.KIO__WorkerResult ```
-    pub fn OnRead(self: ?*anyopaque, slot: fn (?*anyopaque, u64) callconv(.c) QtC.KIO__WorkerResult) void {
-        qtc.KIO__WorkerBase_OnRead(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__WorkerBase, callback: *const fn (self: QtC.KIO__WorkerBase, size: u64) callconv(.c) QtC.KIO__WorkerResult ```
+    pub fn OnRead(self: ?*anyopaque, callback: *const fn (?*anyopaque, u64) callconv(.c) QtC.KIO__WorkerResult) void {
+        qtc.KIO__WorkerBase_OnRead(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kio-workerbase.html#read)
@@ -662,9 +662,9 @@ pub const kio__workerbase = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KIO__WorkerBase, slot: fn (self: QtC.KIO__WorkerBase, data: [*:0]u8) callconv(.c) QtC.KIO__WorkerResult ```
-    pub fn OnWrite(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]u8) callconv(.c) QtC.KIO__WorkerResult) void {
-        qtc.KIO__WorkerBase_OnWrite(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__WorkerBase, callback: *const fn (self: QtC.KIO__WorkerBase, data: [*:0]u8) callconv(.c) QtC.KIO__WorkerResult ```
+    pub fn OnWrite(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]u8) callconv(.c) QtC.KIO__WorkerResult) void {
+        qtc.KIO__WorkerBase_OnWrite(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kio-workerbase.html#write)
@@ -691,9 +691,9 @@ pub const kio__workerbase = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KIO__WorkerBase, slot: fn (self: QtC.KIO__WorkerBase, offset: u64) callconv(.c) QtC.KIO__WorkerResult ```
-    pub fn OnSeek(self: ?*anyopaque, slot: fn (?*anyopaque, u64) callconv(.c) QtC.KIO__WorkerResult) void {
-        qtc.KIO__WorkerBase_OnSeek(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__WorkerBase, callback: *const fn (self: QtC.KIO__WorkerBase, offset: u64) callconv(.c) QtC.KIO__WorkerResult ```
+    pub fn OnSeek(self: ?*anyopaque, callback: *const fn (?*anyopaque, u64) callconv(.c) QtC.KIO__WorkerResult) void {
+        qtc.KIO__WorkerBase_OnSeek(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kio-workerbase.html#seek)
@@ -716,9 +716,9 @@ pub const kio__workerbase = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KIO__WorkerBase, slot: fn (self: QtC.KIO__WorkerBase, size: u64) callconv(.c) QtC.KIO__WorkerResult ```
-    pub fn OnTruncate(self: ?*anyopaque, slot: fn (?*anyopaque, u64) callconv(.c) QtC.KIO__WorkerResult) void {
-        qtc.KIO__WorkerBase_OnTruncate(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__WorkerBase, callback: *const fn (self: QtC.KIO__WorkerBase, size: u64) callconv(.c) QtC.KIO__WorkerResult ```
+    pub fn OnTruncate(self: ?*anyopaque, callback: *const fn (?*anyopaque, u64) callconv(.c) QtC.KIO__WorkerResult) void {
+        qtc.KIO__WorkerBase_OnTruncate(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kio-workerbase.html#truncate)
@@ -741,9 +741,9 @@ pub const kio__workerbase = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KIO__WorkerBase, slot: fn () callconv(.c) QtC.KIO__WorkerResult ```
-    pub fn OnClose(self: ?*anyopaque, slot: fn () callconv(.c) QtC.KIO__WorkerResult) void {
-        qtc.KIO__WorkerBase_OnClose(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__WorkerBase, callback: *const fn () callconv(.c) QtC.KIO__WorkerResult ```
+    pub fn OnClose(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.KIO__WorkerResult) void {
+        qtc.KIO__WorkerBase_OnClose(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kio-workerbase.html#close)
@@ -766,9 +766,9 @@ pub const kio__workerbase = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KIO__WorkerBase, slot: fn (self: QtC.KIO__WorkerBase, url: QtC.QUrl, permissions: i32, flags: flag of dropjob_enums.JobFlag) callconv(.c) QtC.KIO__WorkerResult ```
-    pub fn OnPut(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) QtC.KIO__WorkerResult) void {
-        qtc.KIO__WorkerBase_OnPut(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__WorkerBase, callback: *const fn (self: QtC.KIO__WorkerBase, url: QtC.QUrl, permissions: i32, flags: flag of dropjob_enums.JobFlag) callconv(.c) QtC.KIO__WorkerResult ```
+    pub fn OnPut(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) QtC.KIO__WorkerResult) void {
+        qtc.KIO__WorkerBase_OnPut(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kio-workerbase.html#put)
@@ -791,9 +791,9 @@ pub const kio__workerbase = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KIO__WorkerBase, slot: fn (self: QtC.KIO__WorkerBase, url: QtC.QUrl) callconv(.c) QtC.KIO__WorkerResult ```
-    pub fn OnStat(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.KIO__WorkerResult) void {
-        qtc.KIO__WorkerBase_OnStat(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__WorkerBase, callback: *const fn (self: QtC.KIO__WorkerBase, url: QtC.QUrl) callconv(.c) QtC.KIO__WorkerResult ```
+    pub fn OnStat(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.KIO__WorkerResult) void {
+        qtc.KIO__WorkerBase_OnStat(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kio-workerbase.html#stat)
@@ -816,9 +816,9 @@ pub const kio__workerbase = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KIO__WorkerBase, slot: fn (self: QtC.KIO__WorkerBase, url: QtC.QUrl) callconv(.c) QtC.KIO__WorkerResult ```
-    pub fn OnMimetype(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.KIO__WorkerResult) void {
-        qtc.KIO__WorkerBase_OnMimetype(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__WorkerBase, callback: *const fn (self: QtC.KIO__WorkerBase, url: QtC.QUrl) callconv(.c) QtC.KIO__WorkerResult ```
+    pub fn OnMimetype(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.KIO__WorkerResult) void {
+        qtc.KIO__WorkerBase_OnMimetype(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kio-workerbase.html#mimetype)
@@ -841,9 +841,9 @@ pub const kio__workerbase = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KIO__WorkerBase, slot: fn (self: QtC.KIO__WorkerBase, url: QtC.QUrl) callconv(.c) QtC.KIO__WorkerResult ```
-    pub fn OnListDir(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.KIO__WorkerResult) void {
-        qtc.KIO__WorkerBase_OnListDir(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__WorkerBase, callback: *const fn (self: QtC.KIO__WorkerBase, url: QtC.QUrl) callconv(.c) QtC.KIO__WorkerResult ```
+    pub fn OnListDir(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.KIO__WorkerResult) void {
+        qtc.KIO__WorkerBase_OnListDir(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kio-workerbase.html#listDir)
@@ -866,9 +866,9 @@ pub const kio__workerbase = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KIO__WorkerBase, slot: fn (self: QtC.KIO__WorkerBase, url: QtC.QUrl, permissions: i32) callconv(.c) QtC.KIO__WorkerResult ```
-    pub fn OnMkdir(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) QtC.KIO__WorkerResult) void {
-        qtc.KIO__WorkerBase_OnMkdir(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__WorkerBase, callback: *const fn (self: QtC.KIO__WorkerBase, url: QtC.QUrl, permissions: i32) callconv(.c) QtC.KIO__WorkerResult ```
+    pub fn OnMkdir(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) QtC.KIO__WorkerResult) void {
+        qtc.KIO__WorkerBase_OnMkdir(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kio-workerbase.html#mkdir)
@@ -891,9 +891,9 @@ pub const kio__workerbase = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KIO__WorkerBase, slot: fn (self: QtC.KIO__WorkerBase, src: QtC.QUrl, dest: QtC.QUrl, flags: flag of dropjob_enums.JobFlag) callconv(.c) QtC.KIO__WorkerResult ```
-    pub fn OnRename(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i32) callconv(.c) QtC.KIO__WorkerResult) void {
-        qtc.KIO__WorkerBase_OnRename(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__WorkerBase, callback: *const fn (self: QtC.KIO__WorkerBase, src: QtC.QUrl, dest: QtC.QUrl, flags: flag of dropjob_enums.JobFlag) callconv(.c) QtC.KIO__WorkerResult ```
+    pub fn OnRename(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i32) callconv(.c) QtC.KIO__WorkerResult) void {
+        qtc.KIO__WorkerBase_OnRename(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kio-workerbase.html#rename)
@@ -920,9 +920,9 @@ pub const kio__workerbase = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KIO__WorkerBase, slot: fn (self: QtC.KIO__WorkerBase, target: [*:0]const u8, dest: QtC.QUrl, flags: flag of dropjob_enums.JobFlag) callconv(.c) QtC.KIO__WorkerResult ```
-    pub fn OnSymlink(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, ?*anyopaque, i32) callconv(.c) QtC.KIO__WorkerResult) void {
-        qtc.KIO__WorkerBase_OnSymlink(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__WorkerBase, callback: *const fn (self: QtC.KIO__WorkerBase, target: [*:0]const u8, dest: QtC.QUrl, flags: flag of dropjob_enums.JobFlag) callconv(.c) QtC.KIO__WorkerResult ```
+    pub fn OnSymlink(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, ?*anyopaque, i32) callconv(.c) QtC.KIO__WorkerResult) void {
+        qtc.KIO__WorkerBase_OnSymlink(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kio-workerbase.html#symlink)
@@ -949,9 +949,9 @@ pub const kio__workerbase = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KIO__WorkerBase, slot: fn (self: QtC.KIO__WorkerBase, url: QtC.QUrl, permissions: i32) callconv(.c) QtC.KIO__WorkerResult ```
-    pub fn OnChmod(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) QtC.KIO__WorkerResult) void {
-        qtc.KIO__WorkerBase_OnChmod(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__WorkerBase, callback: *const fn (self: QtC.KIO__WorkerBase, url: QtC.QUrl, permissions: i32) callconv(.c) QtC.KIO__WorkerResult ```
+    pub fn OnChmod(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) QtC.KIO__WorkerResult) void {
+        qtc.KIO__WorkerBase_OnChmod(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kio-workerbase.html#chmod)
@@ -982,9 +982,9 @@ pub const kio__workerbase = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KIO__WorkerBase, slot: fn (self: QtC.KIO__WorkerBase, url: QtC.QUrl, owner: [*:0]const u8, group: [*:0]const u8) callconv(.c) QtC.KIO__WorkerResult ```
-    pub fn OnChown(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, [*:0]const u8, [*:0]const u8) callconv(.c) QtC.KIO__WorkerResult) void {
-        qtc.KIO__WorkerBase_OnChown(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__WorkerBase, callback: *const fn (self: QtC.KIO__WorkerBase, url: QtC.QUrl, owner: [*:0]const u8, group: [*:0]const u8) callconv(.c) QtC.KIO__WorkerResult ```
+    pub fn OnChown(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8, [*:0]const u8) callconv(.c) QtC.KIO__WorkerResult) void {
+        qtc.KIO__WorkerBase_OnChown(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kio-workerbase.html#chown)
@@ -1015,9 +1015,9 @@ pub const kio__workerbase = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KIO__WorkerBase, slot: fn (self: QtC.KIO__WorkerBase, url: QtC.QUrl, mtime: QtC.QDateTime) callconv(.c) QtC.KIO__WorkerResult ```
-    pub fn OnSetModificationTime(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) QtC.KIO__WorkerResult) void {
-        qtc.KIO__WorkerBase_OnSetModificationTime(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__WorkerBase, callback: *const fn (self: QtC.KIO__WorkerBase, url: QtC.QUrl, mtime: QtC.QDateTime) callconv(.c) QtC.KIO__WorkerResult ```
+    pub fn OnSetModificationTime(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) QtC.KIO__WorkerResult) void {
+        qtc.KIO__WorkerBase_OnSetModificationTime(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kio-workerbase.html#setModificationTime)
@@ -1040,9 +1040,9 @@ pub const kio__workerbase = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KIO__WorkerBase, slot: fn (self: QtC.KIO__WorkerBase, src: QtC.QUrl, dest: QtC.QUrl, permissions: i32, flags: flag of dropjob_enums.JobFlag) callconv(.c) QtC.KIO__WorkerResult ```
-    pub fn OnCopy(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) QtC.KIO__WorkerResult) void {
-        qtc.KIO__WorkerBase_OnCopy(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__WorkerBase, callback: *const fn (self: QtC.KIO__WorkerBase, src: QtC.QUrl, dest: QtC.QUrl, permissions: i32, flags: flag of dropjob_enums.JobFlag) callconv(.c) QtC.KIO__WorkerResult ```
+    pub fn OnCopy(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) QtC.KIO__WorkerResult) void {
+        qtc.KIO__WorkerBase_OnCopy(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kio-workerbase.html#copy)
@@ -1065,9 +1065,9 @@ pub const kio__workerbase = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KIO__WorkerBase, slot: fn (self: QtC.KIO__WorkerBase, url: QtC.QUrl, isfile: bool) callconv(.c) QtC.KIO__WorkerResult ```
-    pub fn OnDel(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, bool) callconv(.c) QtC.KIO__WorkerResult) void {
-        qtc.KIO__WorkerBase_OnDel(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__WorkerBase, callback: *const fn (self: QtC.KIO__WorkerBase, url: QtC.QUrl, isfile: bool) callconv(.c) QtC.KIO__WorkerResult ```
+    pub fn OnDel(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, bool) callconv(.c) QtC.KIO__WorkerResult) void {
+        qtc.KIO__WorkerBase_OnDel(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kio-workerbase.html#del)
@@ -1094,9 +1094,9 @@ pub const kio__workerbase = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KIO__WorkerBase, slot: fn (self: QtC.KIO__WorkerBase, data: [*:0]u8) callconv(.c) QtC.KIO__WorkerResult ```
-    pub fn OnSpecial(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]u8) callconv(.c) QtC.KIO__WorkerResult) void {
-        qtc.KIO__WorkerBase_OnSpecial(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__WorkerBase, callback: *const fn (self: QtC.KIO__WorkerBase, data: [*:0]u8) callconv(.c) QtC.KIO__WorkerResult ```
+    pub fn OnSpecial(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]u8) callconv(.c) QtC.KIO__WorkerResult) void {
+        qtc.KIO__WorkerBase_OnSpecial(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kio-workerbase.html#special)
@@ -1123,9 +1123,9 @@ pub const kio__workerbase = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KIO__WorkerBase, slot: fn (self: QtC.KIO__WorkerBase, url: QtC.QUrl) callconv(.c) QtC.KIO__WorkerResult ```
-    pub fn OnFileSystemFreeSpace(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.KIO__WorkerResult) void {
-        qtc.KIO__WorkerBase_OnFileSystemFreeSpace(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__WorkerBase, callback: *const fn (self: QtC.KIO__WorkerBase, url: QtC.QUrl) callconv(.c) QtC.KIO__WorkerResult ```
+    pub fn OnFileSystemFreeSpace(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.KIO__WorkerResult) void {
+        qtc.KIO__WorkerBase_OnFileSystemFreeSpace(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kio-workerbase.html#fileSystemFreeSpace)
@@ -1148,9 +1148,9 @@ pub const kio__workerbase = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KIO__WorkerBase, slot: fn () callconv(.c) void ```
-    pub fn OnWorkerStatus2(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KIO__WorkerBase_OnWorkerStatus2(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__WorkerBase, callback: *const fn () callconv(.c) void ```
+    pub fn OnWorkerStatus2(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KIO__WorkerBase_OnWorkerStatus2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kio-workerbase.html#worker_status)
@@ -1173,9 +1173,9 @@ pub const kio__workerbase = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KIO__WorkerBase, slot: fn () callconv(.c) void ```
-    pub fn OnReparseConfiguration(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KIO__WorkerBase_OnReparseConfiguration(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__WorkerBase, callback: *const fn () callconv(.c) void ```
+    pub fn OnReparseConfiguration(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KIO__WorkerBase_OnReparseConfiguration(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kio-workerbase.html#reparseConfiguration)

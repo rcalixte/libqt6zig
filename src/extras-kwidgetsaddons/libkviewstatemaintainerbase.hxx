@@ -10,7 +10,7 @@
 #include "../qtlibc.h"
 
 // This class is a subclass of KViewStateMaintainerBase so that we can call protected methods
-class VirtualKViewStateMaintainerBase final : public KViewStateMaintainerBase {
+class VirtualKViewStateMaintainerBase : public KViewStateMaintainerBase {
 
   public:
     // Virtual class boolean flag

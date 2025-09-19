@@ -17,12 +17,8 @@ extern "C" {
 #if defined(WORKAROUND_INNER_CLASS_DEFINITION_KIO__EmptyTrashJob)
 typedef KIO::EmptyTrashJob KIO__EmptyTrashJob;
 #endif
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_KIO__Job)
 typedef KIO::Job KIO__Job;
-#endif
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_KIO__SimpleJob)
 typedef KIO::SimpleJob KIO__SimpleJob;
-#endif
 #else
 typedef struct KCompositeJob KCompositeJob;
 typedef struct KIO KIO;

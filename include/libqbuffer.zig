@@ -41,9 +41,9 @@ pub const qbuffer = struct {
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QBuffer, slot: fn (self: QtC.QBuffer, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QBuffer_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBuffer, callback: *const fn (self: QtC.QBuffer, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+        qtc.QBuffer_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -128,9 +128,9 @@ pub const qbuffer = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QBuffer, slot: fn (self: QtC.QBuffer, openMode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) bool ```
-    pub fn OnOpen(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QBuffer_OnOpen(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBuffer, callback: *const fn (self: QtC.QBuffer, openMode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) bool ```
+    pub fn OnOpen(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
+        qtc.QBuffer_OnOpen(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbuffer.html#open)
@@ -153,9 +153,9 @@ pub const qbuffer = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QBuffer, slot: fn () callconv(.c) void ```
-    pub fn OnClose(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QBuffer_OnClose(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBuffer, callback: *const fn () callconv(.c) void ```
+    pub fn OnClose(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QBuffer_OnClose(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbuffer.html#close)
@@ -178,9 +178,9 @@ pub const qbuffer = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QBuffer, slot: fn () callconv(.c) i64 ```
-    pub fn OnSize(self: ?*anyopaque, slot: fn () callconv(.c) i64) void {
-        qtc.QBuffer_OnSize(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBuffer, callback: *const fn () callconv(.c) i64 ```
+    pub fn OnSize(self: ?*anyopaque, callback: *const fn () callconv(.c) i64) void {
+        qtc.QBuffer_OnSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbuffer.html#size)
@@ -203,9 +203,9 @@ pub const qbuffer = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QBuffer, slot: fn () callconv(.c) i64 ```
-    pub fn OnPos(self: ?*anyopaque, slot: fn () callconv(.c) i64) void {
-        qtc.QBuffer_OnPos(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBuffer, callback: *const fn () callconv(.c) i64 ```
+    pub fn OnPos(self: ?*anyopaque, callback: *const fn () callconv(.c) i64) void {
+        qtc.QBuffer_OnPos(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbuffer.html#pos)
@@ -228,9 +228,9 @@ pub const qbuffer = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QBuffer, slot: fn (self: QtC.QBuffer, off: i64) callconv(.c) bool ```
-    pub fn OnSeek(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) bool) void {
-        qtc.QBuffer_OnSeek(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBuffer, callback: *const fn (self: QtC.QBuffer, off: i64) callconv(.c) bool ```
+    pub fn OnSeek(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) bool) void {
+        qtc.QBuffer_OnSeek(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbuffer.html#seek)
@@ -253,9 +253,9 @@ pub const qbuffer = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QBuffer, slot: fn () callconv(.c) bool ```
-    pub fn OnAtEnd(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.QBuffer_OnAtEnd(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBuffer, callback: *const fn () callconv(.c) bool ```
+    pub fn OnAtEnd(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.QBuffer_OnAtEnd(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbuffer.html#atEnd)
@@ -278,9 +278,9 @@ pub const qbuffer = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QBuffer, slot: fn () callconv(.c) bool ```
-    pub fn OnCanReadLine(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.QBuffer_OnCanReadLine(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBuffer, callback: *const fn () callconv(.c) bool ```
+    pub fn OnCanReadLine(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.QBuffer_OnCanReadLine(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbuffer.html#canReadLine)
@@ -303,9 +303,9 @@ pub const qbuffer = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QBuffer, slot: fn (self: QtC.QBuffer, param1: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QBuffer_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBuffer, callback: *const fn (self: QtC.QBuffer, param1: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QBuffer_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbuffer.html#connectNotify)
@@ -328,9 +328,9 @@ pub const qbuffer = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QBuffer, slot: fn (self: QtC.QBuffer, param1: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QBuffer_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBuffer, callback: *const fn (self: QtC.QBuffer, param1: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QBuffer_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbuffer.html#disconnectNotify)
@@ -354,9 +354,9 @@ pub const qbuffer = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QBuffer, slot: fn (self: QtC.QBuffer, data: [*:0]const u8, maxlen: i64) callconv(.c) i64 ```
-    pub fn OnReadData(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, i64) callconv(.c) i64) void {
-        qtc.QBuffer_OnReadData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBuffer, callback: *const fn (self: QtC.QBuffer, data: [*:0]const u8, maxlen: i64) callconv(.c) i64 ```
+    pub fn OnReadData(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i64) callconv(.c) i64) void {
+        qtc.QBuffer_OnReadData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbuffer.html#readData)
@@ -381,9 +381,9 @@ pub const qbuffer = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QBuffer, slot: fn (self: QtC.QBuffer, data: [*:0]const u8, lenVal: i64) callconv(.c) i64 ```
-    pub fn OnWriteData(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, i64) callconv(.c) i64) void {
-        qtc.QBuffer_OnWriteData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBuffer, callback: *const fn (self: QtC.QBuffer, data: [*:0]const u8, lenVal: i64) callconv(.c) i64 ```
+    pub fn OnWriteData(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i64) callconv(.c) i64) void {
+        qtc.QBuffer_OnWriteData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbuffer.html#writeData)
@@ -746,9 +746,9 @@ pub const qbuffer = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#readyRead)
     ///
-    /// ``` self: QtC.QBuffer, slot: fn (self: QtC.QBuffer) callconv(.c) void ```
-    pub fn OnReadyRead(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QIODevice_Connect_ReadyRead(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBuffer, callback: *const fn (self: QtC.QBuffer) callconv(.c) void ```
+    pub fn OnReadyRead(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QIODevice_Connect_ReadyRead(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -764,9 +764,9 @@ pub const qbuffer = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#channelReadyRead)
     ///
-    /// ``` self: QtC.QBuffer, slot: fn (self: QtC.QBuffer, channel: i32) callconv(.c) void ```
-    pub fn OnChannelReadyRead(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QIODevice_Connect_ChannelReadyRead(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBuffer, callback: *const fn (self: QtC.QBuffer, channel: i32) callconv(.c) void ```
+    pub fn OnChannelReadyRead(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QIODevice_Connect_ChannelReadyRead(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -782,9 +782,9 @@ pub const qbuffer = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#bytesWritten)
     ///
-    /// ``` self: QtC.QBuffer, slot: fn (self: QtC.QBuffer, bytes: i64) callconv(.c) void ```
-    pub fn OnBytesWritten(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
-        qtc.QIODevice_Connect_BytesWritten(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBuffer, callback: *const fn (self: QtC.QBuffer, bytes: i64) callconv(.c) void ```
+    pub fn OnBytesWritten(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) void) void {
+        qtc.QIODevice_Connect_BytesWritten(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -800,9 +800,9 @@ pub const qbuffer = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#channelBytesWritten)
     ///
-    /// ``` self: QtC.QBuffer, slot: fn (self: QtC.QBuffer, channel: i32, bytes: i64) callconv(.c) void ```
-    pub fn OnChannelBytesWritten(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i64) callconv(.c) void) void {
-        qtc.QIODevice_Connect_ChannelBytesWritten(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBuffer, callback: *const fn (self: QtC.QBuffer, channel: i32, bytes: i64) callconv(.c) void ```
+    pub fn OnChannelBytesWritten(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i64) callconv(.c) void) void {
+        qtc.QIODevice_Connect_ChannelBytesWritten(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -818,9 +818,9 @@ pub const qbuffer = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#aboutToClose)
     ///
-    /// ``` self: QtC.QBuffer, slot: fn (self: QtC.QBuffer) callconv(.c) void ```
-    pub fn OnAboutToClose(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QIODevice_Connect_AboutToClose(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBuffer, callback: *const fn (self: QtC.QBuffer) callconv(.c) void ```
+    pub fn OnAboutToClose(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QIODevice_Connect_AboutToClose(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -836,9 +836,9 @@ pub const qbuffer = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#readChannelFinished)
     ///
-    /// ``` self: QtC.QBuffer, slot: fn (self: QtC.QBuffer) callconv(.c) void ```
-    pub fn OnReadChannelFinished(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QIODevice_Connect_ReadChannelFinished(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBuffer, callback: *const fn (self: QtC.QBuffer) callconv(.c) void ```
+    pub fn OnReadChannelFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QIODevice_Connect_ReadChannelFinished(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -1142,9 +1142,9 @@ pub const qbuffer = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QBuffer, slot: fn (self: QtC.QBuffer) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBuffer, callback: *const fn (self: QtC.QBuffer) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1226,9 +1226,9 @@ pub const qbuffer = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QBuffer, slot: fn (self: QtC.QBuffer, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBuffer, callback: *const fn (self: QtC.QBuffer, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -1259,9 +1259,9 @@ pub const qbuffer = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBuffer, slot: fn () callconv(.c) bool ```
-    pub fn OnIsSequential(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.QBuffer_OnIsSequential(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBuffer, callback: *const fn () callconv(.c) bool ```
+    pub fn OnIsSequential(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.QBuffer_OnIsSequential(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -1292,9 +1292,9 @@ pub const qbuffer = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBuffer, slot: fn () callconv(.c) bool ```
-    pub fn OnReset(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.QBuffer_OnReset(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBuffer, callback: *const fn () callconv(.c) bool ```
+    pub fn OnReset(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.QBuffer_OnReset(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -1325,9 +1325,9 @@ pub const qbuffer = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBuffer, slot: fn () callconv(.c) i64 ```
-    pub fn OnBytesAvailable(self: ?*anyopaque, slot: fn () callconv(.c) i64) void {
-        qtc.QBuffer_OnBytesAvailable(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBuffer, callback: *const fn () callconv(.c) i64 ```
+    pub fn OnBytesAvailable(self: ?*anyopaque, callback: *const fn () callconv(.c) i64) void {
+        qtc.QBuffer_OnBytesAvailable(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -1358,9 +1358,9 @@ pub const qbuffer = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBuffer, slot: fn () callconv(.c) i64 ```
-    pub fn OnBytesToWrite(self: ?*anyopaque, slot: fn () callconv(.c) i64) void {
-        qtc.QBuffer_OnBytesToWrite(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBuffer, callback: *const fn () callconv(.c) i64 ```
+    pub fn OnBytesToWrite(self: ?*anyopaque, callback: *const fn () callconv(.c) i64) void {
+        qtc.QBuffer_OnBytesToWrite(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -1391,9 +1391,9 @@ pub const qbuffer = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBuffer, slot: fn (self: QtC.QBuffer, msecs: i32) callconv(.c) bool ```
-    pub fn OnWaitForReadyRead(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QBuffer_OnWaitForReadyRead(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBuffer, callback: *const fn (self: QtC.QBuffer, msecs: i32) callconv(.c) bool ```
+    pub fn OnWaitForReadyRead(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
+        qtc.QBuffer_OnWaitForReadyRead(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -1424,9 +1424,9 @@ pub const qbuffer = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBuffer, slot: fn (self: QtC.QBuffer, msecs: i32) callconv(.c) bool ```
-    pub fn OnWaitForBytesWritten(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QBuffer_OnWaitForBytesWritten(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBuffer, callback: *const fn (self: QtC.QBuffer, msecs: i32) callconv(.c) bool ```
+    pub fn OnWaitForBytesWritten(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
+        qtc.QBuffer_OnWaitForBytesWritten(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -1459,9 +1459,9 @@ pub const qbuffer = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBuffer, slot: fn (self: QtC.QBuffer, data: [*:0]const u8, maxlen: i64) callconv(.c) i64 ```
-    pub fn OnReadLineData(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, i64) callconv(.c) i64) void {
-        qtc.QBuffer_OnReadLineData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBuffer, callback: *const fn (self: QtC.QBuffer, data: [*:0]const u8, maxlen: i64) callconv(.c) i64 ```
+    pub fn OnReadLineData(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i64) callconv(.c) i64) void {
+        qtc.QBuffer_OnReadLineData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -1492,9 +1492,9 @@ pub const qbuffer = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBuffer, slot: fn (self: QtC.QBuffer, maxSize: i64) callconv(.c) i64 ```
-    pub fn OnSkipData(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) i64) void {
-        qtc.QBuffer_OnSkipData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBuffer, callback: *const fn (self: QtC.QBuffer, maxSize: i64) callconv(.c) i64 ```
+    pub fn OnSkipData(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) i64) void {
+        qtc.QBuffer_OnSkipData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1525,9 +1525,9 @@ pub const qbuffer = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBuffer, slot: fn (self: QtC.QBuffer, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QBuffer_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBuffer, callback: *const fn (self: QtC.QBuffer, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QBuffer_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1558,9 +1558,9 @@ pub const qbuffer = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBuffer, slot: fn (self: QtC.QBuffer, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QBuffer_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBuffer, callback: *const fn (self: QtC.QBuffer, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QBuffer_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1591,9 +1591,9 @@ pub const qbuffer = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBuffer, slot: fn (self: QtC.QBuffer, event: QtC.QTimerEvent) callconv(.c) void ```
-    pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QBuffer_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBuffer, callback: *const fn (self: QtC.QBuffer, event: QtC.QTimerEvent) callconv(.c) void ```
+    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QBuffer_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1624,9 +1624,9 @@ pub const qbuffer = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBuffer, slot: fn (self: QtC.QBuffer, event: QtC.QChildEvent) callconv(.c) void ```
-    pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QBuffer_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBuffer, callback: *const fn (self: QtC.QBuffer, event: QtC.QChildEvent) callconv(.c) void ```
+    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QBuffer_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1657,9 +1657,9 @@ pub const qbuffer = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBuffer, slot: fn (self: QtC.QBuffer, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QBuffer_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBuffer, callback: *const fn (self: QtC.QBuffer, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QBuffer_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -1690,9 +1690,9 @@ pub const qbuffer = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBuffer, slot: fn (self: QtC.QBuffer, openMode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) void ```
-    pub fn OnSetOpenMode(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QBuffer_OnSetOpenMode(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBuffer, callback: *const fn (self: QtC.QBuffer, openMode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) void ```
+    pub fn OnSetOpenMode(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QBuffer_OnSetOpenMode(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -1731,9 +1731,9 @@ pub const qbuffer = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBuffer, slot: fn (self: QtC.QBuffer, errorString: [*:0]const u8) callconv(.c) void ```
-    pub fn OnSetErrorString(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QBuffer_OnSetErrorString(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBuffer, callback: *const fn (self: QtC.QBuffer, errorString: [*:0]const u8) callconv(.c) void ```
+    pub fn OnSetErrorString(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QBuffer_OnSetErrorString(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1764,9 +1764,9 @@ pub const qbuffer = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBuffer, slot: fn () callconv(.c) QtC.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
-        qtc.QBuffer_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBuffer, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.QBuffer_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1797,9 +1797,9 @@ pub const qbuffer = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBuffer, slot: fn () callconv(.c) i32 ```
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QBuffer_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBuffer, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QBuffer_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1832,9 +1832,9 @@ pub const qbuffer = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBuffer, slot: fn (self: QtC.QBuffer, signal: [*:0]const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QBuffer_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBuffer, callback: *const fn (self: QtC.QBuffer, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QBuffer_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1865,9 +1865,9 @@ pub const qbuffer = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBuffer, slot: fn (self: QtC.QBuffer, signal: QtC.QMetaMethod) callconv(.c) bool ```
-    pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QBuffer_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBuffer, callback: *const fn (self: QtC.QBuffer, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QBuffer_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1876,9 +1876,9 @@ pub const qbuffer = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QBuffer, slot: fn (self: QtC.QBuffer, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBuffer, callback: *const fn (self: QtC.QBuffer, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbuffer.html#dtor.QBuffer)

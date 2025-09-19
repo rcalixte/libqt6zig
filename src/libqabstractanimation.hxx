@@ -10,7 +10,7 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QAbstractAnimation so that we can call protected methods
-class VirtualQAbstractAnimation final : public QAbstractAnimation {
+class VirtualQAbstractAnimation : public QAbstractAnimation {
 
   public:
     // Virtual class boolean flag

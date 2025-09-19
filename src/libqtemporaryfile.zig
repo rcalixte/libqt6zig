@@ -66,9 +66,9 @@ pub const qtemporaryfile = struct {
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTemporaryFile, slot: fn (self: QtC.QTemporaryFile, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QTemporaryFile_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTemporaryFile, callback: *const fn (self: QtC.QTemporaryFile, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+        qtc.QTemporaryFile_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -126,9 +126,9 @@ pub const qtemporaryfile = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTemporaryFile, slot: fn () callconv(.c) [*:0]const u8 ```
-    pub fn OnFileName(self: ?*anyopaque, slot: fn () callconv(.c) [*:0]const u8) void {
-        qtc.QTemporaryFile_OnFileName(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTemporaryFile, callback: *const fn () callconv(.c) [*:0]const u8 ```
+    pub fn OnFileName(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
+        qtc.QTemporaryFile_OnFileName(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtemporaryfile.html#fileName)
@@ -206,9 +206,9 @@ pub const qtemporaryfile = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QTemporaryFile, slot: fn (self: QtC.QTemporaryFile, flags: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) bool ```
-    pub fn OnOpen2(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QTemporaryFile_OnOpen2(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTemporaryFile, callback: *const fn (self: QtC.QTemporaryFile, flags: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) bool ```
+    pub fn OnOpen2(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
+        qtc.QTemporaryFile_OnOpen2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtemporaryfile.html#open)
@@ -946,9 +946,9 @@ pub const qtemporaryfile = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#readyRead)
     ///
-    /// ``` self: QtC.QTemporaryFile, slot: fn (self: QtC.QTemporaryFile) callconv(.c) void ```
-    pub fn OnReadyRead(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QIODevice_Connect_ReadyRead(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTemporaryFile, callback: *const fn (self: QtC.QTemporaryFile) callconv(.c) void ```
+    pub fn OnReadyRead(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QIODevice_Connect_ReadyRead(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -964,9 +964,9 @@ pub const qtemporaryfile = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#channelReadyRead)
     ///
-    /// ``` self: QtC.QTemporaryFile, slot: fn (self: QtC.QTemporaryFile, channel: i32) callconv(.c) void ```
-    pub fn OnChannelReadyRead(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QIODevice_Connect_ChannelReadyRead(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTemporaryFile, callback: *const fn (self: QtC.QTemporaryFile, channel: i32) callconv(.c) void ```
+    pub fn OnChannelReadyRead(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QIODevice_Connect_ChannelReadyRead(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -982,9 +982,9 @@ pub const qtemporaryfile = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#bytesWritten)
     ///
-    /// ``` self: QtC.QTemporaryFile, slot: fn (self: QtC.QTemporaryFile, bytes: i64) callconv(.c) void ```
-    pub fn OnBytesWritten(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) void) void {
-        qtc.QIODevice_Connect_BytesWritten(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTemporaryFile, callback: *const fn (self: QtC.QTemporaryFile, bytes: i64) callconv(.c) void ```
+    pub fn OnBytesWritten(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) void) void {
+        qtc.QIODevice_Connect_BytesWritten(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -1000,9 +1000,9 @@ pub const qtemporaryfile = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#channelBytesWritten)
     ///
-    /// ``` self: QtC.QTemporaryFile, slot: fn (self: QtC.QTemporaryFile, channel: i32, bytes: i64) callconv(.c) void ```
-    pub fn OnChannelBytesWritten(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i64) callconv(.c) void) void {
-        qtc.QIODevice_Connect_ChannelBytesWritten(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTemporaryFile, callback: *const fn (self: QtC.QTemporaryFile, channel: i32, bytes: i64) callconv(.c) void ```
+    pub fn OnChannelBytesWritten(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i64) callconv(.c) void) void {
+        qtc.QIODevice_Connect_ChannelBytesWritten(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -1018,9 +1018,9 @@ pub const qtemporaryfile = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#aboutToClose)
     ///
-    /// ``` self: QtC.QTemporaryFile, slot: fn (self: QtC.QTemporaryFile) callconv(.c) void ```
-    pub fn OnAboutToClose(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QIODevice_Connect_AboutToClose(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTemporaryFile, callback: *const fn (self: QtC.QTemporaryFile) callconv(.c) void ```
+    pub fn OnAboutToClose(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QIODevice_Connect_AboutToClose(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -1036,9 +1036,9 @@ pub const qtemporaryfile = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#readChannelFinished)
     ///
-    /// ``` self: QtC.QTemporaryFile, slot: fn (self: QtC.QTemporaryFile) callconv(.c) void ```
-    pub fn OnReadChannelFinished(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QIODevice_Connect_ReadChannelFinished(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTemporaryFile, callback: *const fn (self: QtC.QTemporaryFile) callconv(.c) void ```
+    pub fn OnReadChannelFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QIODevice_Connect_ReadChannelFinished(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -1342,9 +1342,9 @@ pub const qtemporaryfile = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QTemporaryFile, slot: fn (self: QtC.QTemporaryFile) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTemporaryFile, callback: *const fn (self: QtC.QTemporaryFile) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1426,9 +1426,9 @@ pub const qtemporaryfile = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QTemporaryFile, slot: fn (self: QtC.QTemporaryFile, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTemporaryFile, callback: *const fn (self: QtC.QTemporaryFile, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFile
@@ -1459,9 +1459,9 @@ pub const qtemporaryfile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTemporaryFile, slot: fn () callconv(.c) i64 ```
-    pub fn OnSize(self: ?*anyopaque, slot: fn () callconv(.c) i64) void {
-        qtc.QTemporaryFile_OnSize(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTemporaryFile, callback: *const fn () callconv(.c) i64 ```
+    pub fn OnSize(self: ?*anyopaque, callback: *const fn () callconv(.c) i64) void {
+        qtc.QTemporaryFile_OnSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFile
@@ -1492,9 +1492,9 @@ pub const qtemporaryfile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTemporaryFile, slot: fn (self: QtC.QTemporaryFile, sz: i64) callconv(.c) bool ```
-    pub fn OnResize(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) bool) void {
-        qtc.QTemporaryFile_OnResize(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTemporaryFile, callback: *const fn (self: QtC.QTemporaryFile, sz: i64) callconv(.c) bool ```
+    pub fn OnResize(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) bool) void {
+        qtc.QTemporaryFile_OnResize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFile
@@ -1529,9 +1529,9 @@ pub const qtemporaryfile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTemporaryFile, slot: fn () callconv(.c) i32 ```
-    pub fn OnPermissions(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QTemporaryFile_OnPermissions(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTemporaryFile, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnPermissions(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QTemporaryFile_OnPermissions(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFile
@@ -1562,9 +1562,9 @@ pub const qtemporaryfile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTemporaryFile, slot: fn (self: QtC.QTemporaryFile, permissionSpec: flag of qfiledevice_enums.Permission) callconv(.c) bool ```
-    pub fn OnSetPermissions(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QTemporaryFile_OnSetPermissions(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTemporaryFile, callback: *const fn (self: QtC.QTemporaryFile, permissionSpec: flag of qfiledevice_enums.Permission) callconv(.c) bool ```
+    pub fn OnSetPermissions(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
+        qtc.QTemporaryFile_OnSetPermissions(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFileDevice
@@ -1595,9 +1595,9 @@ pub const qtemporaryfile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTemporaryFile, slot: fn () callconv(.c) void ```
-    pub fn OnClose(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QTemporaryFile_OnClose(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTemporaryFile, callback: *const fn () callconv(.c) void ```
+    pub fn OnClose(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QTemporaryFile_OnClose(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFileDevice
@@ -1628,9 +1628,9 @@ pub const qtemporaryfile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTemporaryFile, slot: fn () callconv(.c) bool ```
-    pub fn OnIsSequential(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.QTemporaryFile_OnIsSequential(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTemporaryFile, callback: *const fn () callconv(.c) bool ```
+    pub fn OnIsSequential(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.QTemporaryFile_OnIsSequential(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFileDevice
@@ -1661,9 +1661,9 @@ pub const qtemporaryfile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTemporaryFile, slot: fn () callconv(.c) i64 ```
-    pub fn OnPos(self: ?*anyopaque, slot: fn () callconv(.c) i64) void {
-        qtc.QTemporaryFile_OnPos(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTemporaryFile, callback: *const fn () callconv(.c) i64 ```
+    pub fn OnPos(self: ?*anyopaque, callback: *const fn () callconv(.c) i64) void {
+        qtc.QTemporaryFile_OnPos(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFileDevice
@@ -1694,9 +1694,9 @@ pub const qtemporaryfile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTemporaryFile, slot: fn (self: QtC.QTemporaryFile, offset: i64) callconv(.c) bool ```
-    pub fn OnSeek(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) bool) void {
-        qtc.QTemporaryFile_OnSeek(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTemporaryFile, callback: *const fn (self: QtC.QTemporaryFile, offset: i64) callconv(.c) bool ```
+    pub fn OnSeek(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) bool) void {
+        qtc.QTemporaryFile_OnSeek(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFileDevice
@@ -1727,9 +1727,9 @@ pub const qtemporaryfile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTemporaryFile, slot: fn () callconv(.c) bool ```
-    pub fn OnAtEnd(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.QTemporaryFile_OnAtEnd(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTemporaryFile, callback: *const fn () callconv(.c) bool ```
+    pub fn OnAtEnd(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.QTemporaryFile_OnAtEnd(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFileDevice
@@ -1762,9 +1762,9 @@ pub const qtemporaryfile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTemporaryFile, slot: fn (self: QtC.QTemporaryFile, data: [*:0]const u8, maxlen: i64) callconv(.c) i64 ```
-    pub fn OnReadData(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, i64) callconv(.c) i64) void {
-        qtc.QTemporaryFile_OnReadData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTemporaryFile, callback: *const fn (self: QtC.QTemporaryFile, data: [*:0]const u8, maxlen: i64) callconv(.c) i64 ```
+    pub fn OnReadData(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i64) callconv(.c) i64) void {
+        qtc.QTemporaryFile_OnReadData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFileDevice
@@ -1797,9 +1797,9 @@ pub const qtemporaryfile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTemporaryFile, slot: fn (self: QtC.QTemporaryFile, data: [*:0]const u8, lenVal: i64) callconv(.c) i64 ```
-    pub fn OnWriteData(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, i64) callconv(.c) i64) void {
-        qtc.QTemporaryFile_OnWriteData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTemporaryFile, callback: *const fn (self: QtC.QTemporaryFile, data: [*:0]const u8, lenVal: i64) callconv(.c) i64 ```
+    pub fn OnWriteData(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i64) callconv(.c) i64) void {
+        qtc.QTemporaryFile_OnWriteData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QFileDevice
@@ -1832,9 +1832,9 @@ pub const qtemporaryfile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTemporaryFile, slot: fn (self: QtC.QTemporaryFile, data: [*:0]const u8, maxlen: i64) callconv(.c) i64 ```
-    pub fn OnReadLineData(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, i64) callconv(.c) i64) void {
-        qtc.QTemporaryFile_OnReadLineData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTemporaryFile, callback: *const fn (self: QtC.QTemporaryFile, data: [*:0]const u8, maxlen: i64) callconv(.c) i64 ```
+    pub fn OnReadLineData(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i64) callconv(.c) i64) void {
+        qtc.QTemporaryFile_OnReadLineData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -1865,9 +1865,9 @@ pub const qtemporaryfile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTemporaryFile, slot: fn () callconv(.c) bool ```
-    pub fn OnReset(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.QTemporaryFile_OnReset(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTemporaryFile, callback: *const fn () callconv(.c) bool ```
+    pub fn OnReset(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.QTemporaryFile_OnReset(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -1898,9 +1898,9 @@ pub const qtemporaryfile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTemporaryFile, slot: fn () callconv(.c) i64 ```
-    pub fn OnBytesAvailable(self: ?*anyopaque, slot: fn () callconv(.c) i64) void {
-        qtc.QTemporaryFile_OnBytesAvailable(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTemporaryFile, callback: *const fn () callconv(.c) i64 ```
+    pub fn OnBytesAvailable(self: ?*anyopaque, callback: *const fn () callconv(.c) i64) void {
+        qtc.QTemporaryFile_OnBytesAvailable(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -1931,9 +1931,9 @@ pub const qtemporaryfile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTemporaryFile, slot: fn () callconv(.c) i64 ```
-    pub fn OnBytesToWrite(self: ?*anyopaque, slot: fn () callconv(.c) i64) void {
-        qtc.QTemporaryFile_OnBytesToWrite(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTemporaryFile, callback: *const fn () callconv(.c) i64 ```
+    pub fn OnBytesToWrite(self: ?*anyopaque, callback: *const fn () callconv(.c) i64) void {
+        qtc.QTemporaryFile_OnBytesToWrite(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -1964,9 +1964,9 @@ pub const qtemporaryfile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTemporaryFile, slot: fn () callconv(.c) bool ```
-    pub fn OnCanReadLine(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.QTemporaryFile_OnCanReadLine(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTemporaryFile, callback: *const fn () callconv(.c) bool ```
+    pub fn OnCanReadLine(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.QTemporaryFile_OnCanReadLine(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -1997,9 +1997,9 @@ pub const qtemporaryfile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTemporaryFile, slot: fn (self: QtC.QTemporaryFile, msecs: i32) callconv(.c) bool ```
-    pub fn OnWaitForReadyRead(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QTemporaryFile_OnWaitForReadyRead(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTemporaryFile, callback: *const fn (self: QtC.QTemporaryFile, msecs: i32) callconv(.c) bool ```
+    pub fn OnWaitForReadyRead(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
+        qtc.QTemporaryFile_OnWaitForReadyRead(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -2030,9 +2030,9 @@ pub const qtemporaryfile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTemporaryFile, slot: fn (self: QtC.QTemporaryFile, msecs: i32) callconv(.c) bool ```
-    pub fn OnWaitForBytesWritten(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QTemporaryFile_OnWaitForBytesWritten(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTemporaryFile, callback: *const fn (self: QtC.QTemporaryFile, msecs: i32) callconv(.c) bool ```
+    pub fn OnWaitForBytesWritten(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
+        qtc.QTemporaryFile_OnWaitForBytesWritten(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -2063,9 +2063,9 @@ pub const qtemporaryfile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTemporaryFile, slot: fn (self: QtC.QTemporaryFile, maxSize: i64) callconv(.c) i64 ```
-    pub fn OnSkipData(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) i64) void {
-        qtc.QTemporaryFile_OnSkipData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTemporaryFile, callback: *const fn (self: QtC.QTemporaryFile, maxSize: i64) callconv(.c) i64 ```
+    pub fn OnSkipData(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) i64) void {
+        qtc.QTemporaryFile_OnSkipData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2096,9 +2096,9 @@ pub const qtemporaryfile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTemporaryFile, slot: fn (self: QtC.QTemporaryFile, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QTemporaryFile_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTemporaryFile, callback: *const fn (self: QtC.QTemporaryFile, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QTemporaryFile_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2129,9 +2129,9 @@ pub const qtemporaryfile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTemporaryFile, slot: fn (self: QtC.QTemporaryFile, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QTemporaryFile_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTemporaryFile, callback: *const fn (self: QtC.QTemporaryFile, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QTemporaryFile_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2162,9 +2162,9 @@ pub const qtemporaryfile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTemporaryFile, slot: fn (self: QtC.QTemporaryFile, event: QtC.QTimerEvent) callconv(.c) void ```
-    pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTemporaryFile_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTemporaryFile, callback: *const fn (self: QtC.QTemporaryFile, event: QtC.QTimerEvent) callconv(.c) void ```
+    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTemporaryFile_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2195,9 +2195,9 @@ pub const qtemporaryfile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTemporaryFile, slot: fn (self: QtC.QTemporaryFile, event: QtC.QChildEvent) callconv(.c) void ```
-    pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTemporaryFile_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTemporaryFile, callback: *const fn (self: QtC.QTemporaryFile, event: QtC.QChildEvent) callconv(.c) void ```
+    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTemporaryFile_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2228,9 +2228,9 @@ pub const qtemporaryfile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTemporaryFile, slot: fn (self: QtC.QTemporaryFile, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTemporaryFile_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTemporaryFile, callback: *const fn (self: QtC.QTemporaryFile, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTemporaryFile_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2261,9 +2261,9 @@ pub const qtemporaryfile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTemporaryFile, slot: fn (self: QtC.QTemporaryFile, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTemporaryFile_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTemporaryFile, callback: *const fn (self: QtC.QTemporaryFile, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTemporaryFile_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2294,9 +2294,9 @@ pub const qtemporaryfile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTemporaryFile, slot: fn (self: QtC.QTemporaryFile, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QTemporaryFile_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTemporaryFile, callback: *const fn (self: QtC.QTemporaryFile, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QTemporaryFile_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -2327,9 +2327,9 @@ pub const qtemporaryfile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTemporaryFile, slot: fn (self: QtC.QTemporaryFile, openMode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) void ```
-    pub fn OnSetOpenMode(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QTemporaryFile_OnSetOpenMode(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTemporaryFile, callback: *const fn (self: QtC.QTemporaryFile, openMode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) void ```
+    pub fn OnSetOpenMode(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QTemporaryFile_OnSetOpenMode(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QIODevice
@@ -2368,9 +2368,9 @@ pub const qtemporaryfile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTemporaryFile, slot: fn (self: QtC.QTemporaryFile, errorString: [*:0]const u8) callconv(.c) void ```
-    pub fn OnSetErrorString(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QTemporaryFile_OnSetErrorString(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTemporaryFile, callback: *const fn (self: QtC.QTemporaryFile, errorString: [*:0]const u8) callconv(.c) void ```
+    pub fn OnSetErrorString(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QTemporaryFile_OnSetErrorString(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2401,9 +2401,9 @@ pub const qtemporaryfile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTemporaryFile, slot: fn () callconv(.c) QtC.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
-        qtc.QTemporaryFile_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTemporaryFile, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.QTemporaryFile_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2434,9 +2434,9 @@ pub const qtemporaryfile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTemporaryFile, slot: fn () callconv(.c) i32 ```
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QTemporaryFile_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTemporaryFile, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QTemporaryFile_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2469,9 +2469,9 @@ pub const qtemporaryfile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTemporaryFile, slot: fn (self: QtC.QTemporaryFile, signal: [*:0]const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QTemporaryFile_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTemporaryFile, callback: *const fn (self: QtC.QTemporaryFile, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QTemporaryFile_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2502,9 +2502,9 @@ pub const qtemporaryfile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QTemporaryFile, slot: fn (self: QtC.QTemporaryFile, signal: QtC.QMetaMethod) callconv(.c) bool ```
-    pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QTemporaryFile_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTemporaryFile, callback: *const fn (self: QtC.QTemporaryFile, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QTemporaryFile_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2513,9 +2513,9 @@ pub const qtemporaryfile = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QTemporaryFile, slot: fn (self: QtC.QTemporaryFile, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QTemporaryFile, callback: *const fn (self: QtC.QTemporaryFile, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtemporaryfile.html#dtor.QTemporaryFile)

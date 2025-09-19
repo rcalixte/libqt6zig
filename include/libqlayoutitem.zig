@@ -37,9 +37,9 @@ pub const qlayoutitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QLayoutItem, slot: fn () callconv(.c) QtC.QSize ```
-    pub fn OnSizeHint(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QSize) void {
-        qtc.QLayoutItem_OnSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QLayoutItem, callback: *const fn () callconv(.c) QtC.QSize ```
+    pub fn OnSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
+        qtc.QLayoutItem_OnSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#sizeHint)
@@ -62,9 +62,9 @@ pub const qlayoutitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QLayoutItem, slot: fn () callconv(.c) QtC.QSize ```
-    pub fn OnMinimumSize(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QSize) void {
-        qtc.QLayoutItem_OnMinimumSize(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QLayoutItem, callback: *const fn () callconv(.c) QtC.QSize ```
+    pub fn OnMinimumSize(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
+        qtc.QLayoutItem_OnMinimumSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#minimumSize)
@@ -87,9 +87,9 @@ pub const qlayoutitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QLayoutItem, slot: fn () callconv(.c) QtC.QSize ```
-    pub fn OnMaximumSize(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QSize) void {
-        qtc.QLayoutItem_OnMaximumSize(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QLayoutItem, callback: *const fn () callconv(.c) QtC.QSize ```
+    pub fn OnMaximumSize(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
+        qtc.QLayoutItem_OnMaximumSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#maximumSize)
@@ -114,9 +114,9 @@ pub const qlayoutitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QLayoutItem, slot: fn () callconv(.c) i32 ```
-    pub fn OnExpandingDirections(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QLayoutItem_OnExpandingDirections(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QLayoutItem, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnExpandingDirections(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QLayoutItem_OnExpandingDirections(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#expandingDirections)
@@ -141,9 +141,9 @@ pub const qlayoutitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QLayoutItem, slot: fn (self: QtC.QLayoutItem, geometry: QtC.QRect) callconv(.c) void ```
-    pub fn OnSetGeometry(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QLayoutItem_OnSetGeometry(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QLayoutItem, callback: *const fn (self: QtC.QLayoutItem, geometry: QtC.QRect) callconv(.c) void ```
+    pub fn OnSetGeometry(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QLayoutItem_OnSetGeometry(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#setGeometry)
@@ -166,9 +166,9 @@ pub const qlayoutitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QLayoutItem, slot: fn () callconv(.c) QtC.QRect ```
-    pub fn OnGeometry(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QRect) void {
-        qtc.QLayoutItem_OnGeometry(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QLayoutItem, callback: *const fn () callconv(.c) QtC.QRect ```
+    pub fn OnGeometry(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QRect) void {
+        qtc.QLayoutItem_OnGeometry(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#geometry)
@@ -191,9 +191,9 @@ pub const qlayoutitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QLayoutItem, slot: fn () callconv(.c) bool ```
-    pub fn OnIsEmpty(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.QLayoutItem_OnIsEmpty(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QLayoutItem, callback: *const fn () callconv(.c) bool ```
+    pub fn OnIsEmpty(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.QLayoutItem_OnIsEmpty(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#isEmpty)
@@ -216,9 +216,9 @@ pub const qlayoutitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QLayoutItem, slot: fn () callconv(.c) bool ```
-    pub fn OnHasHeightForWidth(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.QLayoutItem_OnHasHeightForWidth(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QLayoutItem, callback: *const fn () callconv(.c) bool ```
+    pub fn OnHasHeightForWidth(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.QLayoutItem_OnHasHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#hasHeightForWidth)
@@ -241,9 +241,9 @@ pub const qlayoutitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QLayoutItem, slot: fn (self: QtC.QLayoutItem, param1: i32) callconv(.c) i32 ```
-    pub fn OnHeightForWidth(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QLayoutItem_OnHeightForWidth(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QLayoutItem, callback: *const fn (self: QtC.QLayoutItem, param1: i32) callconv(.c) i32 ```
+    pub fn OnHeightForWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
+        qtc.QLayoutItem_OnHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#heightForWidth)
@@ -266,9 +266,9 @@ pub const qlayoutitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QLayoutItem, slot: fn (self: QtC.QLayoutItem, param1: i32) callconv(.c) i32 ```
-    pub fn OnMinimumHeightForWidth(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QLayoutItem_OnMinimumHeightForWidth(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QLayoutItem, callback: *const fn (self: QtC.QLayoutItem, param1: i32) callconv(.c) i32 ```
+    pub fn OnMinimumHeightForWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
+        qtc.QLayoutItem_OnMinimumHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#minimumHeightForWidth)
@@ -291,9 +291,9 @@ pub const qlayoutitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QLayoutItem, slot: fn () callconv(.c) void ```
-    pub fn OnInvalidate(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QLayoutItem_OnInvalidate(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QLayoutItem, callback: *const fn () callconv(.c) void ```
+    pub fn OnInvalidate(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QLayoutItem_OnInvalidate(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#invalidate)
@@ -316,9 +316,9 @@ pub const qlayoutitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QLayoutItem, slot: fn () callconv(.c) QtC.QWidget ```
-    pub fn OnWidget(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QWidget) void {
-        qtc.QLayoutItem_OnWidget(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QLayoutItem, callback: *const fn () callconv(.c) QtC.QWidget ```
+    pub fn OnWidget(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QWidget) void {
+        qtc.QLayoutItem_OnWidget(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#widget)
@@ -341,9 +341,9 @@ pub const qlayoutitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QLayoutItem, slot: fn () callconv(.c) QtC.QLayout ```
-    pub fn OnLayout(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QLayout) void {
-        qtc.QLayoutItem_OnLayout(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QLayoutItem, callback: *const fn () callconv(.c) QtC.QLayout ```
+    pub fn OnLayout(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QLayout) void {
+        qtc.QLayoutItem_OnLayout(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#layout)
@@ -366,9 +366,9 @@ pub const qlayoutitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QLayoutItem, slot: fn () callconv(.c) QtC.QSpacerItem ```
-    pub fn OnSpacerItem(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QSpacerItem) void {
-        qtc.QLayoutItem_OnSpacerItem(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QLayoutItem, callback: *const fn () callconv(.c) QtC.QSpacerItem ```
+    pub fn OnSpacerItem(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSpacerItem) void {
+        qtc.QLayoutItem_OnSpacerItem(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#spacerItem)
@@ -409,9 +409,9 @@ pub const qlayoutitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QLayoutItem, slot: fn () callconv(.c) i32 ```
-    pub fn OnControlTypes(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QLayoutItem_OnControlTypes(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QLayoutItem, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnControlTypes(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QLayoutItem_OnControlTypes(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#controlTypes)
@@ -436,9 +436,9 @@ pub const qlayoutitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QLayoutItem, slot: fn (self: QtC.QLayoutItem, param1: QtC.QLayoutItem) callconv(.c) void ```
-    pub fn OnOperatorAssign(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QLayoutItem_OnOperatorAssign(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QLayoutItem, callback: *const fn (self: QtC.QLayoutItem, param1: QtC.QLayoutItem) callconv(.c) void ```
+    pub fn OnOperatorAssign(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QLayoutItem_OnOperatorAssign(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlayoutitem.html#operator-eq)
@@ -508,9 +508,9 @@ pub const qspaceritem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSpacerItem, slot: fn () callconv(.c) QtC.QSize ```
-    pub fn OnSizeHint(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QSize) void {
-        qtc.QSpacerItem_OnSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSpacerItem, callback: *const fn () callconv(.c) QtC.QSize ```
+    pub fn OnSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
+        qtc.QSpacerItem_OnSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qspaceritem.html#sizeHint)
@@ -533,9 +533,9 @@ pub const qspaceritem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSpacerItem, slot: fn () callconv(.c) QtC.QSize ```
-    pub fn OnMinimumSize(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QSize) void {
-        qtc.QSpacerItem_OnMinimumSize(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSpacerItem, callback: *const fn () callconv(.c) QtC.QSize ```
+    pub fn OnMinimumSize(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
+        qtc.QSpacerItem_OnMinimumSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qspaceritem.html#minimumSize)
@@ -558,9 +558,9 @@ pub const qspaceritem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSpacerItem, slot: fn () callconv(.c) QtC.QSize ```
-    pub fn OnMaximumSize(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QSize) void {
-        qtc.QSpacerItem_OnMaximumSize(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSpacerItem, callback: *const fn () callconv(.c) QtC.QSize ```
+    pub fn OnMaximumSize(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
+        qtc.QSpacerItem_OnMaximumSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qspaceritem.html#maximumSize)
@@ -585,9 +585,9 @@ pub const qspaceritem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSpacerItem, slot: fn () callconv(.c) i32 ```
-    pub fn OnExpandingDirections(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QSpacerItem_OnExpandingDirections(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSpacerItem, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnExpandingDirections(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QSpacerItem_OnExpandingDirections(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qspaceritem.html#expandingDirections)
@@ -612,9 +612,9 @@ pub const qspaceritem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSpacerItem, slot: fn () callconv(.c) bool ```
-    pub fn OnIsEmpty(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.QSpacerItem_OnIsEmpty(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSpacerItem, callback: *const fn () callconv(.c) bool ```
+    pub fn OnIsEmpty(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.QSpacerItem_OnIsEmpty(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qspaceritem.html#isEmpty)
@@ -637,9 +637,9 @@ pub const qspaceritem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSpacerItem, slot: fn (self: QtC.QSpacerItem, geometry: QtC.QRect) callconv(.c) void ```
-    pub fn OnSetGeometry(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSpacerItem_OnSetGeometry(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSpacerItem, callback: *const fn (self: QtC.QSpacerItem, geometry: QtC.QRect) callconv(.c) void ```
+    pub fn OnSetGeometry(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QSpacerItem_OnSetGeometry(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qspaceritem.html#setGeometry)
@@ -662,9 +662,9 @@ pub const qspaceritem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSpacerItem, slot: fn () callconv(.c) QtC.QRect ```
-    pub fn OnGeometry(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QRect) void {
-        qtc.QSpacerItem_OnGeometry(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSpacerItem, callback: *const fn () callconv(.c) QtC.QRect ```
+    pub fn OnGeometry(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QRect) void {
+        qtc.QSpacerItem_OnGeometry(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qspaceritem.html#geometry)
@@ -687,9 +687,9 @@ pub const qspaceritem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSpacerItem, slot: fn () callconv(.c) QtC.QSpacerItem ```
-    pub fn OnSpacerItem(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QSpacerItem) void {
-        qtc.QSpacerItem_OnSpacerItem(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSpacerItem, callback: *const fn () callconv(.c) QtC.QSpacerItem ```
+    pub fn OnSpacerItem(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSpacerItem) void {
+        qtc.QSpacerItem_OnSpacerItem(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qspaceritem.html#spacerItem)
@@ -770,9 +770,9 @@ pub const qspaceritem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSpacerItem, slot: fn () callconv(.c) bool ```
-    pub fn OnHasHeightForWidth(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.QSpacerItem_OnHasHeightForWidth(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSpacerItem, callback: *const fn () callconv(.c) bool ```
+    pub fn OnHasHeightForWidth(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.QSpacerItem_OnHasHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayoutItem
@@ -803,9 +803,9 @@ pub const qspaceritem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSpacerItem, slot: fn (self: QtC.QSpacerItem, param1: i32) callconv(.c) i32 ```
-    pub fn OnHeightForWidth(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QSpacerItem_OnHeightForWidth(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSpacerItem, callback: *const fn (self: QtC.QSpacerItem, param1: i32) callconv(.c) i32 ```
+    pub fn OnHeightForWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
+        qtc.QSpacerItem_OnHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayoutItem
@@ -836,9 +836,9 @@ pub const qspaceritem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSpacerItem, slot: fn (self: QtC.QSpacerItem, param1: i32) callconv(.c) i32 ```
-    pub fn OnMinimumHeightForWidth(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QSpacerItem_OnMinimumHeightForWidth(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSpacerItem, callback: *const fn (self: QtC.QSpacerItem, param1: i32) callconv(.c) i32 ```
+    pub fn OnMinimumHeightForWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
+        qtc.QSpacerItem_OnMinimumHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayoutItem
@@ -869,9 +869,9 @@ pub const qspaceritem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSpacerItem, slot: fn () callconv(.c) void ```
-    pub fn OnInvalidate(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QSpacerItem_OnInvalidate(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSpacerItem, callback: *const fn () callconv(.c) void ```
+    pub fn OnInvalidate(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QSpacerItem_OnInvalidate(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayoutItem
@@ -902,9 +902,9 @@ pub const qspaceritem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSpacerItem, slot: fn () callconv(.c) QtC.QWidget ```
-    pub fn OnWidget(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QWidget) void {
-        qtc.QSpacerItem_OnWidget(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSpacerItem, callback: *const fn () callconv(.c) QtC.QWidget ```
+    pub fn OnWidget(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QWidget) void {
+        qtc.QSpacerItem_OnWidget(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayoutItem
@@ -935,9 +935,9 @@ pub const qspaceritem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSpacerItem, slot: fn () callconv(.c) QtC.QLayout ```
-    pub fn OnLayout(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QLayout) void {
-        qtc.QSpacerItem_OnLayout(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSpacerItem, callback: *const fn () callconv(.c) QtC.QLayout ```
+    pub fn OnLayout(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QLayout) void {
+        qtc.QSpacerItem_OnLayout(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayoutItem
@@ -972,9 +972,9 @@ pub const qspaceritem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSpacerItem, slot: fn () callconv(.c) i32 ```
-    pub fn OnControlTypes(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QSpacerItem_OnControlTypes(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSpacerItem, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnControlTypes(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QSpacerItem_OnControlTypes(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qspaceritem.html#dtor.QSpacerItem)
@@ -1007,9 +1007,9 @@ pub const qwidgetitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWidgetItem, slot: fn () callconv(.c) QtC.QSize ```
-    pub fn OnSizeHint(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QSize) void {
-        qtc.QWidgetItem_OnSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWidgetItem, callback: *const fn () callconv(.c) QtC.QSize ```
+    pub fn OnSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
+        qtc.QWidgetItem_OnSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#sizeHint)
@@ -1032,9 +1032,9 @@ pub const qwidgetitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWidgetItem, slot: fn () callconv(.c) QtC.QSize ```
-    pub fn OnMinimumSize(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QSize) void {
-        qtc.QWidgetItem_OnMinimumSize(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWidgetItem, callback: *const fn () callconv(.c) QtC.QSize ```
+    pub fn OnMinimumSize(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
+        qtc.QWidgetItem_OnMinimumSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#minimumSize)
@@ -1057,9 +1057,9 @@ pub const qwidgetitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWidgetItem, slot: fn () callconv(.c) QtC.QSize ```
-    pub fn OnMaximumSize(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QSize) void {
-        qtc.QWidgetItem_OnMaximumSize(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWidgetItem, callback: *const fn () callconv(.c) QtC.QSize ```
+    pub fn OnMaximumSize(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
+        qtc.QWidgetItem_OnMaximumSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#maximumSize)
@@ -1084,9 +1084,9 @@ pub const qwidgetitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWidgetItem, slot: fn () callconv(.c) i32 ```
-    pub fn OnExpandingDirections(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QWidgetItem_OnExpandingDirections(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWidgetItem, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnExpandingDirections(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QWidgetItem_OnExpandingDirections(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#expandingDirections)
@@ -1111,9 +1111,9 @@ pub const qwidgetitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWidgetItem, slot: fn () callconv(.c) bool ```
-    pub fn OnIsEmpty(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.QWidgetItem_OnIsEmpty(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWidgetItem, callback: *const fn () callconv(.c) bool ```
+    pub fn OnIsEmpty(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.QWidgetItem_OnIsEmpty(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#isEmpty)
@@ -1136,9 +1136,9 @@ pub const qwidgetitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWidgetItem, slot: fn (self: QtC.QWidgetItem, geometry: QtC.QRect) callconv(.c) void ```
-    pub fn OnSetGeometry(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidgetItem_OnSetGeometry(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWidgetItem, callback: *const fn (self: QtC.QWidgetItem, geometry: QtC.QRect) callconv(.c) void ```
+    pub fn OnSetGeometry(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QWidgetItem_OnSetGeometry(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#setGeometry)
@@ -1161,9 +1161,9 @@ pub const qwidgetitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWidgetItem, slot: fn () callconv(.c) QtC.QRect ```
-    pub fn OnGeometry(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QRect) void {
-        qtc.QWidgetItem_OnGeometry(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWidgetItem, callback: *const fn () callconv(.c) QtC.QRect ```
+    pub fn OnGeometry(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QRect) void {
+        qtc.QWidgetItem_OnGeometry(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#geometry)
@@ -1186,9 +1186,9 @@ pub const qwidgetitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWidgetItem, slot: fn () callconv(.c) QtC.QWidget ```
-    pub fn OnWidget(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QWidget) void {
-        qtc.QWidgetItem_OnWidget(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWidgetItem, callback: *const fn () callconv(.c) QtC.QWidget ```
+    pub fn OnWidget(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QWidget) void {
+        qtc.QWidgetItem_OnWidget(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#widget)
@@ -1211,9 +1211,9 @@ pub const qwidgetitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWidgetItem, slot: fn () callconv(.c) bool ```
-    pub fn OnHasHeightForWidth(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.QWidgetItem_OnHasHeightForWidth(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWidgetItem, callback: *const fn () callconv(.c) bool ```
+    pub fn OnHasHeightForWidth(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.QWidgetItem_OnHasHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#hasHeightForWidth)
@@ -1236,9 +1236,9 @@ pub const qwidgetitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWidgetItem, slot: fn (self: QtC.QWidgetItem, param1: i32) callconv(.c) i32 ```
-    pub fn OnHeightForWidth(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QWidgetItem_OnHeightForWidth(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWidgetItem, callback: *const fn (self: QtC.QWidgetItem, param1: i32) callconv(.c) i32 ```
+    pub fn OnHeightForWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
+        qtc.QWidgetItem_OnHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#heightForWidth)
@@ -1261,9 +1261,9 @@ pub const qwidgetitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWidgetItem, slot: fn (self: QtC.QWidgetItem, param1: i32) callconv(.c) i32 ```
-    pub fn OnMinimumHeightForWidth(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QWidgetItem_OnMinimumHeightForWidth(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWidgetItem, callback: *const fn (self: QtC.QWidgetItem, param1: i32) callconv(.c) i32 ```
+    pub fn OnMinimumHeightForWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
+        qtc.QWidgetItem_OnMinimumHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#minimumHeightForWidth)
@@ -1288,9 +1288,9 @@ pub const qwidgetitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWidgetItem, slot: fn () callconv(.c) i32 ```
-    pub fn OnControlTypes(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QWidgetItem_OnControlTypes(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWidgetItem, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnControlTypes(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QWidgetItem_OnControlTypes(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#controlTypes)
@@ -1352,9 +1352,9 @@ pub const qwidgetitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QWidgetItem, slot: fn () callconv(.c) void ```
-    pub fn OnInvalidate(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QWidgetItem_OnInvalidate(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWidgetItem, callback: *const fn () callconv(.c) void ```
+    pub fn OnInvalidate(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QWidgetItem_OnInvalidate(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayoutItem
@@ -1385,9 +1385,9 @@ pub const qwidgetitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QWidgetItem, slot: fn () callconv(.c) QtC.QLayout ```
-    pub fn OnLayout(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QLayout) void {
-        qtc.QWidgetItem_OnLayout(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWidgetItem, callback: *const fn () callconv(.c) QtC.QLayout ```
+    pub fn OnLayout(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QLayout) void {
+        qtc.QWidgetItem_OnLayout(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayoutItem
@@ -1418,9 +1418,9 @@ pub const qwidgetitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QWidgetItem, slot: fn () callconv(.c) QtC.QSpacerItem ```
-    pub fn OnSpacerItem(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QSpacerItem) void {
-        qtc.QWidgetItem_OnSpacerItem(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWidgetItem, callback: *const fn () callconv(.c) QtC.QSpacerItem ```
+    pub fn OnSpacerItem(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSpacerItem) void {
+        qtc.QWidgetItem_OnSpacerItem(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitem.html#dtor.QWidgetItem)
@@ -1453,9 +1453,9 @@ pub const qwidgetitemv2 = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWidgetItemV2, slot: fn () callconv(.c) QtC.QSize ```
-    pub fn OnSizeHint(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QSize) void {
-        qtc.QWidgetItemV2_OnSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWidgetItemV2, callback: *const fn () callconv(.c) QtC.QSize ```
+    pub fn OnSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
+        qtc.QWidgetItemV2_OnSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitemv2.html#sizeHint)
@@ -1478,9 +1478,9 @@ pub const qwidgetitemv2 = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWidgetItemV2, slot: fn () callconv(.c) QtC.QSize ```
-    pub fn OnMinimumSize(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QSize) void {
-        qtc.QWidgetItemV2_OnMinimumSize(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWidgetItemV2, callback: *const fn () callconv(.c) QtC.QSize ```
+    pub fn OnMinimumSize(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
+        qtc.QWidgetItemV2_OnMinimumSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitemv2.html#minimumSize)
@@ -1503,9 +1503,9 @@ pub const qwidgetitemv2 = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWidgetItemV2, slot: fn () callconv(.c) QtC.QSize ```
-    pub fn OnMaximumSize(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QSize) void {
-        qtc.QWidgetItemV2_OnMaximumSize(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWidgetItemV2, callback: *const fn () callconv(.c) QtC.QSize ```
+    pub fn OnMaximumSize(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
+        qtc.QWidgetItemV2_OnMaximumSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitemv2.html#maximumSize)
@@ -1528,9 +1528,9 @@ pub const qwidgetitemv2 = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QWidgetItemV2, slot: fn (self: QtC.QWidgetItemV2, width: i32) callconv(.c) i32 ```
-    pub fn OnHeightForWidth(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QWidgetItemV2_OnHeightForWidth(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWidgetItemV2, callback: *const fn (self: QtC.QWidgetItemV2, width: i32) callconv(.c) i32 ```
+    pub fn OnHeightForWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
+        qtc.QWidgetItemV2_OnHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitemv2.html#heightForWidth)
@@ -1594,9 +1594,9 @@ pub const qwidgetitemv2 = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QWidgetItemV2, slot: fn () callconv(.c) i32 ```
-    pub fn OnExpandingDirections(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QWidgetItemV2_OnExpandingDirections(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWidgetItemV2, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnExpandingDirections(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QWidgetItemV2_OnExpandingDirections(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidgetItem
@@ -1627,9 +1627,9 @@ pub const qwidgetitemv2 = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QWidgetItemV2, slot: fn () callconv(.c) bool ```
-    pub fn OnIsEmpty(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.QWidgetItemV2_OnIsEmpty(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWidgetItemV2, callback: *const fn () callconv(.c) bool ```
+    pub fn OnIsEmpty(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.QWidgetItemV2_OnIsEmpty(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidgetItem
@@ -1660,9 +1660,9 @@ pub const qwidgetitemv2 = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QWidgetItemV2, slot: fn (self: QtC.QWidgetItemV2, geometry: QtC.QRect) callconv(.c) void ```
-    pub fn OnSetGeometry(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidgetItemV2_OnSetGeometry(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWidgetItemV2, callback: *const fn (self: QtC.QWidgetItemV2, geometry: QtC.QRect) callconv(.c) void ```
+    pub fn OnSetGeometry(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QWidgetItemV2_OnSetGeometry(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidgetItem
@@ -1693,9 +1693,9 @@ pub const qwidgetitemv2 = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QWidgetItemV2, slot: fn () callconv(.c) QtC.QRect ```
-    pub fn OnGeometry(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QRect) void {
-        qtc.QWidgetItemV2_OnGeometry(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWidgetItemV2, callback: *const fn () callconv(.c) QtC.QRect ```
+    pub fn OnGeometry(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QRect) void {
+        qtc.QWidgetItemV2_OnGeometry(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidgetItem
@@ -1726,9 +1726,9 @@ pub const qwidgetitemv2 = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QWidgetItemV2, slot: fn () callconv(.c) QtC.QWidget ```
-    pub fn OnWidget(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QWidget) void {
-        qtc.QWidgetItemV2_OnWidget(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWidgetItemV2, callback: *const fn () callconv(.c) QtC.QWidget ```
+    pub fn OnWidget(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QWidget) void {
+        qtc.QWidgetItemV2_OnWidget(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidgetItem
@@ -1759,9 +1759,9 @@ pub const qwidgetitemv2 = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QWidgetItemV2, slot: fn () callconv(.c) bool ```
-    pub fn OnHasHeightForWidth(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.QWidgetItemV2_OnHasHeightForWidth(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWidgetItemV2, callback: *const fn () callconv(.c) bool ```
+    pub fn OnHasHeightForWidth(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.QWidgetItemV2_OnHasHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidgetItem
@@ -1792,9 +1792,9 @@ pub const qwidgetitemv2 = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QWidgetItemV2, slot: fn (self: QtC.QWidgetItemV2, param1: i32) callconv(.c) i32 ```
-    pub fn OnMinimumHeightForWidth(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QWidgetItemV2_OnMinimumHeightForWidth(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWidgetItemV2, callback: *const fn (self: QtC.QWidgetItemV2, param1: i32) callconv(.c) i32 ```
+    pub fn OnMinimumHeightForWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
+        qtc.QWidgetItemV2_OnMinimumHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidgetItem
@@ -1829,9 +1829,9 @@ pub const qwidgetitemv2 = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QWidgetItemV2, slot: fn () callconv(.c) i32 ```
-    pub fn OnControlTypes(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QWidgetItemV2_OnControlTypes(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWidgetItemV2, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnControlTypes(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QWidgetItemV2_OnControlTypes(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayoutItem
@@ -1862,9 +1862,9 @@ pub const qwidgetitemv2 = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QWidgetItemV2, slot: fn () callconv(.c) void ```
-    pub fn OnInvalidate(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QWidgetItemV2_OnInvalidate(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWidgetItemV2, callback: *const fn () callconv(.c) void ```
+    pub fn OnInvalidate(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QWidgetItemV2_OnInvalidate(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayoutItem
@@ -1895,9 +1895,9 @@ pub const qwidgetitemv2 = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QWidgetItemV2, slot: fn () callconv(.c) QtC.QLayout ```
-    pub fn OnLayout(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QLayout) void {
-        qtc.QWidgetItemV2_OnLayout(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWidgetItemV2, callback: *const fn () callconv(.c) QtC.QLayout ```
+    pub fn OnLayout(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QLayout) void {
+        qtc.QWidgetItemV2_OnLayout(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLayoutItem
@@ -1928,9 +1928,9 @@ pub const qwidgetitemv2 = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QWidgetItemV2, slot: fn () callconv(.c) QtC.QSpacerItem ```
-    pub fn OnSpacerItem(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QSpacerItem) void {
-        qtc.QWidgetItemV2_OnSpacerItem(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWidgetItemV2, callback: *const fn () callconv(.c) QtC.QSpacerItem ```
+    pub fn OnSpacerItem(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSpacerItem) void {
+        qtc.QWidgetItemV2_OnSpacerItem(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidgetitemv2.html#dtor.QWidgetItemV2)

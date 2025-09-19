@@ -10,7 +10,7 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QAbstractProxyModel so that we can call protected methods
-class VirtualQAbstractProxyModel final : public QAbstractProxyModel {
+class VirtualQAbstractProxyModel : public QAbstractProxyModel {
 
   public:
     // Virtual class boolean flag

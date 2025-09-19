@@ -51,9 +51,9 @@ pub const qsqltablemodel = struct {
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QSqlTableModel_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+        qtc.QSqlTableModel_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -90,9 +90,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, tableName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnSetTable(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QSqlTableModel_OnSetTable(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, tableName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnSetTable(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QSqlTableModel_OnSetTable(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#setTable)
@@ -132,9 +132,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, index: QtC.QModelIndex) callconv(.c) i32 ```
-    pub fn OnFlags(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QSqlTableModel_OnFlags(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, index: QtC.QModelIndex) callconv(.c) i32 ```
+    pub fn OnFlags(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
+        qtc.QSqlTableModel_OnFlags(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#flags)
@@ -173,9 +173,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, idx: QtC.QModelIndex, role: i32) callconv(.c) QtC.QVariant ```
-    pub fn OnData(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
-        qtc.QSqlTableModel_OnData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, idx: QtC.QModelIndex, role: i32) callconv(.c) QtC.QVariant ```
+    pub fn OnData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
+        qtc.QSqlTableModel_OnData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#data)
@@ -198,9 +198,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, index: QtC.QModelIndex, value: QtC.QVariant, role: i32) callconv(.c) bool ```
-    pub fn OnSetData(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QSqlTableModel_OnSetData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, index: QtC.QModelIndex, value: QtC.QVariant, role: i32) callconv(.c) bool ```
+    pub fn OnSetData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
+        qtc.QSqlTableModel_OnSetData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#setData)
@@ -223,9 +223,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, index: QtC.QModelIndex) callconv(.c) bool ```
-    pub fn OnClearItemData(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QSqlTableModel_OnClearItemData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, index: QtC.QModelIndex) callconv(.c) bool ```
+    pub fn OnClearItemData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QSqlTableModel_OnClearItemData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#clearItemData)
@@ -248,9 +248,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, section: i32, orientation: qnamespace_enums.Orientation, role: i32) callconv(.c) QtC.QVariant ```
-    pub fn OnHeaderData(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, i32) callconv(.c) QtC.QVariant) void {
-        qtc.QSqlTableModel_OnHeaderData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, section: i32, orientation: qnamespace_enums.Orientation, role: i32) callconv(.c) QtC.QVariant ```
+    pub fn OnHeaderData(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32) callconv(.c) QtC.QVariant) void {
+        qtc.QSqlTableModel_OnHeaderData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#headerData)
@@ -287,9 +287,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn () callconv(.c) void ```
-    pub fn OnClear(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QSqlTableModel_OnClear(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn () callconv(.c) void ```
+    pub fn OnClear(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QSqlTableModel_OnClear(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#clear)
@@ -312,9 +312,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, strategy: qsqltablemodel_enums.EditStrategy) callconv(.c) void ```
-    pub fn OnSetEditStrategy(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QSqlTableModel_OnSetEditStrategy(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, strategy: qsqltablemodel_enums.EditStrategy) callconv(.c) void ```
+    pub fn OnSetEditStrategy(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QSqlTableModel_OnSetEditStrategy(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#setEditStrategy)
@@ -371,9 +371,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, column: i32, order: qnamespace_enums.SortOrder) callconv(.c) void ```
-    pub fn OnSort(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QSqlTableModel_OnSort(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, column: i32, order: qnamespace_enums.SortOrder) callconv(.c) void ```
+    pub fn OnSort(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
+        qtc.QSqlTableModel_OnSort(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#sort)
@@ -396,9 +396,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, column: i32, order: qnamespace_enums.SortOrder) callconv(.c) void ```
-    pub fn OnSetSort(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QSqlTableModel_OnSetSort(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, column: i32, order: qnamespace_enums.SortOrder) callconv(.c) void ```
+    pub fn OnSetSort(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
+        qtc.QSqlTableModel_OnSetSort(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#setSort)
@@ -436,9 +436,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, filter: [*:0]const u8) callconv(.c) void ```
-    pub fn OnSetFilter(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QSqlTableModel_OnSetFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, filter: [*:0]const u8) callconv(.c) void ```
+    pub fn OnSetFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QSqlTableModel_OnSetFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#setFilter)
@@ -465,9 +465,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, parent: QtC.QModelIndex) callconv(.c) i32 ```
-    pub fn OnRowCount(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QSqlTableModel_OnRowCount(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, parent: QtC.QModelIndex) callconv(.c) i32 ```
+    pub fn OnRowCount(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
+        qtc.QSqlTableModel_OnRowCount(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#rowCount)
@@ -490,9 +490,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, column: i32, count: i32, parent: QtC.QModelIndex) callconv(.c) bool ```
-    pub fn OnRemoveColumns(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QSqlTableModel_OnRemoveColumns(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, column: i32, count: i32, parent: QtC.QModelIndex) callconv(.c) bool ```
+    pub fn OnRemoveColumns(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QSqlTableModel_OnRemoveColumns(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#removeColumns)
@@ -515,9 +515,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, row: i32, count: i32, parent: QtC.QModelIndex) callconv(.c) bool ```
-    pub fn OnRemoveRows(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QSqlTableModel_OnRemoveRows(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, row: i32, count: i32, parent: QtC.QModelIndex) callconv(.c) bool ```
+    pub fn OnRemoveRows(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QSqlTableModel_OnRemoveRows(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#removeRows)
@@ -540,9 +540,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, row: i32, count: i32, parent: QtC.QModelIndex) callconv(.c) bool ```
-    pub fn OnInsertRows(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QSqlTableModel_OnInsertRows(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, row: i32, count: i32, parent: QtC.QModelIndex) callconv(.c) bool ```
+    pub fn OnInsertRows(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QSqlTableModel_OnInsertRows(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#insertRows)
@@ -579,9 +579,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, row: i32) callconv(.c) void ```
-    pub fn OnRevertRow(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QSqlTableModel_OnRevertRow(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, row: i32) callconv(.c) void ```
+    pub fn OnRevertRow(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QSqlTableModel_OnRevertRow(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#revertRow)
@@ -604,9 +604,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn () callconv(.c) bool ```
-    pub fn OnSelect(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.QSqlTableModel_OnSelect(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn () callconv(.c) bool ```
+    pub fn OnSelect(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.QSqlTableModel_OnSelect(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#select)
@@ -629,9 +629,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, row: i32) callconv(.c) bool ```
-    pub fn OnSelectRow(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QSqlTableModel_OnSelectRow(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, row: i32) callconv(.c) bool ```
+    pub fn OnSelectRow(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
+        qtc.QSqlTableModel_OnSelectRow(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#selectRow)
@@ -654,9 +654,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn () callconv(.c) bool ```
-    pub fn OnSubmit(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.QSqlTableModel_OnSubmit(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn () callconv(.c) bool ```
+    pub fn OnSubmit(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.QSqlTableModel_OnSubmit(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#submit)
@@ -679,9 +679,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn () callconv(.c) void ```
-    pub fn OnRevert(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QSqlTableModel_OnRevert(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn () callconv(.c) void ```
+    pub fn OnRevert(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QSqlTableModel_OnRevert(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#revert)
@@ -716,9 +716,9 @@ pub const qsqltablemodel = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#primeInsert)
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, row: i32, record: QtC.QSqlRecord) callconv(.c) void ```
-    pub fn OnPrimeInsert(self: ?*anyopaque, slot: fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSqlTableModel_Connect_PrimeInsert(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, row: i32, record: QtC.QSqlRecord) callconv(.c) void ```
+    pub fn OnPrimeInsert(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
+        qtc.QSqlTableModel_Connect_PrimeInsert(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#beforeInsert)
@@ -730,9 +730,9 @@ pub const qsqltablemodel = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#beforeInsert)
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, record: QtC.QSqlRecord) callconv(.c) void ```
-    pub fn OnBeforeInsert(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSqlTableModel_Connect_BeforeInsert(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, record: QtC.QSqlRecord) callconv(.c) void ```
+    pub fn OnBeforeInsert(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QSqlTableModel_Connect_BeforeInsert(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#beforeUpdate)
@@ -744,9 +744,9 @@ pub const qsqltablemodel = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#beforeUpdate)
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, row: i32, record: QtC.QSqlRecord) callconv(.c) void ```
-    pub fn OnBeforeUpdate(self: ?*anyopaque, slot: fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSqlTableModel_Connect_BeforeUpdate(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, row: i32, record: QtC.QSqlRecord) callconv(.c) void ```
+    pub fn OnBeforeUpdate(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
+        qtc.QSqlTableModel_Connect_BeforeUpdate(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#beforeDelete)
@@ -758,9 +758,9 @@ pub const qsqltablemodel = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#beforeDelete)
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, row: i32) callconv(.c) void ```
-    pub fn OnBeforeDelete(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QSqlTableModel_Connect_BeforeDelete(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, row: i32) callconv(.c) void ```
+    pub fn OnBeforeDelete(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QSqlTableModel_Connect_BeforeDelete(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#updateRowInTable)
@@ -774,9 +774,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, row: i32, values: QtC.QSqlRecord) callconv(.c) bool ```
-    pub fn OnUpdateRowInTable(self: ?*anyopaque, slot: fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QSqlTableModel_OnUpdateRowInTable(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, row: i32, values: QtC.QSqlRecord) callconv(.c) bool ```
+    pub fn OnUpdateRowInTable(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QSqlTableModel_OnUpdateRowInTable(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#updateRowInTable)
@@ -799,9 +799,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, values: QtC.QSqlRecord) callconv(.c) bool ```
-    pub fn OnInsertRowIntoTable(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QSqlTableModel_OnInsertRowIntoTable(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, values: QtC.QSqlRecord) callconv(.c) bool ```
+    pub fn OnInsertRowIntoTable(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QSqlTableModel_OnInsertRowIntoTable(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#insertRowIntoTable)
@@ -824,9 +824,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, row: i32) callconv(.c) bool ```
-    pub fn OnDeleteRowFromTable(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QSqlTableModel_OnDeleteRowFromTable(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, row: i32) callconv(.c) bool ```
+    pub fn OnDeleteRowFromTable(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
+        qtc.QSqlTableModel_OnDeleteRowFromTable(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#deleteRowFromTable)
@@ -853,9 +853,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn () callconv(.c) [*:0]const u8 ```
-    pub fn OnOrderByClause(self: ?*anyopaque, slot: fn () callconv(.c) [*:0]const u8) void {
-        qtc.QSqlTableModel_OnOrderByClause(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn () callconv(.c) [*:0]const u8 ```
+    pub fn OnOrderByClause(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
+        qtc.QSqlTableModel_OnOrderByClause(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#orderByClause)
@@ -886,9 +886,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn () callconv(.c) [*:0]const u8 ```
-    pub fn OnSelectStatement(self: ?*anyopaque, slot: fn () callconv(.c) [*:0]const u8) void {
-        qtc.QSqlTableModel_OnSelectStatement(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn () callconv(.c) [*:0]const u8 ```
+    pub fn OnSelectStatement(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
+        qtc.QSqlTableModel_OnSelectStatement(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#selectStatement)
@@ -915,9 +915,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, key: QtC.QSqlIndex) callconv(.c) void ```
-    pub fn OnSetPrimaryKey(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSqlTableModel_OnSetPrimaryKey(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, key: QtC.QSqlIndex) callconv(.c) void ```
+    pub fn OnSetPrimaryKey(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QSqlTableModel_OnSetPrimaryKey(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#setPrimaryKey)
@@ -940,9 +940,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, item: QtC.QModelIndex) callconv(.c) QtC.QModelIndex ```
-    pub fn OnIndexInQuery(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QModelIndex) void {
-        qtc.QSqlTableModel_OnIndexInQuery(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, item: QtC.QModelIndex) callconv(.c) QtC.QModelIndex ```
+    pub fn OnIndexInQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QModelIndex) void {
+        qtc.QSqlTableModel_OnIndexInQuery(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#indexInQuery)
@@ -965,9 +965,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, row: i32) callconv(.c) QtC.QSqlRecord ```
-    pub fn OnPrimaryValues(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) QtC.QSqlRecord) void {
-        qtc.QSqlTableModel_OnPrimaryValues(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, row: i32) callconv(.c) QtC.QSqlRecord ```
+    pub fn OnPrimaryValues(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QSqlRecord) void {
+        qtc.QSqlTableModel_OnPrimaryValues(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#primaryValues)
@@ -1091,9 +1091,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, child: QtC.QModelIndex) callconv(.c) QtC.QModelIndex ```
-    pub fn OnParent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QModelIndex) void {
-        qtc.QAbstractItemModel_OnParent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, child: QtC.QModelIndex) callconv(.c) QtC.QModelIndex ```
+    pub fn OnParent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QModelIndex) void {
+        qtc.QAbstractItemModel_OnParent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1122,9 +1122,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, parent: QtC.QModelIndex) callconv(.c) bool ```
-    pub fn OnHasChildren(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAbstractItemModel_OnHasChildren(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, parent: QtC.QModelIndex) callconv(.c) bool ```
+    pub fn OnHasChildren(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QAbstractItemModel_OnHasChildren(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1214,9 +1214,9 @@ pub const qsqltablemodel = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#dataChanged)
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex) callconv(.c) void ```
-    pub fn OnDataChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_DataChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex) callconv(.c) void ```
+    pub fn OnDataChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_DataChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1232,9 +1232,9 @@ pub const qsqltablemodel = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#headerDataChanged)
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, orientation: qnamespace_enums.Orientation, first: i32, last: i32) callconv(.c) void ```
-    pub fn OnHeaderDataChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_HeaderDataChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, orientation: qnamespace_enums.Orientation, first: i32, last: i32) callconv(.c) void ```
+    pub fn OnHeaderDataChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_HeaderDataChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1250,9 +1250,9 @@ pub const qsqltablemodel = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel) callconv(.c) void ```
-    pub fn OnLayoutChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel) callconv(.c) void ```
+    pub fn OnLayoutChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_LayoutChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1268,9 +1268,9 @@ pub const qsqltablemodel = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel) callconv(.c) void ```
-    pub fn OnLayoutAboutToBeChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel) callconv(.c) void ```
+    pub fn OnLayoutAboutToBeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1344,9 +1344,9 @@ pub const qsqltablemodel = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#dataChanged)
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: [*:-1]i32) callconv(.c) void ```
-    pub fn OnDataChanged3(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, [*:-1]i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_DataChanged3(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, topLeft: QtC.QModelIndex, bottomRight: QtC.QModelIndex, roles: [*:-1]i32) callconv(.c) void ```
+    pub fn OnDataChanged3(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, [*:-1]i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_DataChanged3(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1366,9 +1366,9 @@ pub const qsqltablemodel = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, parents: [*]QtC.QPersistentModelIndex) callconv(.c) void ```
-    pub fn OnLayoutChanged1(self: ?*anyopaque, slot: fn (?*anyopaque, [*]QtC.QPersistentModelIndex) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutChanged1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, parents: [*]QtC.QPersistentModelIndex) callconv(.c) void ```
+    pub fn OnLayoutChanged1(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QPersistentModelIndex) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_LayoutChanged1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1388,9 +1388,9 @@ pub const qsqltablemodel = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, parents: [*]QtC.QPersistentModelIndex, hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void ```
-    pub fn OnLayoutChanged2(self: ?*anyopaque, slot: fn (?*anyopaque, [*]QtC.QPersistentModelIndex, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutChanged2(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, parents: [*]QtC.QPersistentModelIndex, hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void ```
+    pub fn OnLayoutChanged2(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QPersistentModelIndex, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_LayoutChanged2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1410,9 +1410,9 @@ pub const qsqltablemodel = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, parents: [*]QtC.QPersistentModelIndex) callconv(.c) void ```
-    pub fn OnLayoutAboutToBeChanged1(self: ?*anyopaque, slot: fn (?*anyopaque, [*]QtC.QPersistentModelIndex) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, parents: [*]QtC.QPersistentModelIndex) callconv(.c) void ```
+    pub fn OnLayoutAboutToBeChanged1(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QPersistentModelIndex) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -1432,9 +1432,9 @@ pub const qsqltablemodel = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutAboutToBeChanged)
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, parents: [*]QtC.QPersistentModelIndex, hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void ```
-    pub fn OnLayoutAboutToBeChanged2(self: ?*anyopaque, slot: fn (?*anyopaque, [*]QtC.QPersistentModelIndex, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged2(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, parents: [*]QtC.QPersistentModelIndex, hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void ```
+    pub fn OnLayoutAboutToBeChanged2(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QPersistentModelIndex, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1725,9 +1725,9 @@ pub const qsqltablemodel = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1800,9 +1800,9 @@ pub const qsqltablemodel = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QSqlQueryModel
@@ -1833,9 +1833,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, parent: QtC.QModelIndex) callconv(.c) i32 ```
-    pub fn OnColumnCount(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QSqlTableModel_OnColumnCount(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, parent: QtC.QModelIndex) callconv(.c) i32 ```
+    pub fn OnColumnCount(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
+        qtc.QSqlTableModel_OnColumnCount(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QSqlQueryModel
@@ -1866,9 +1866,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, section: i32, orientation: qnamespace_enums.Orientation, value: QtC.QVariant, role: i32) callconv(.c) bool ```
-    pub fn OnSetHeaderData(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QSqlTableModel_OnSetHeaderData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, section: i32, orientation: qnamespace_enums.Orientation, value: QtC.QVariant, role: i32) callconv(.c) bool ```
+    pub fn OnSetHeaderData(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) bool) void {
+        qtc.QSqlTableModel_OnSetHeaderData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QSqlQueryModel
@@ -1899,9 +1899,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, column: i32, count: i32, parent: QtC.QModelIndex) callconv(.c) bool ```
-    pub fn OnInsertColumns(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QSqlTableModel_OnInsertColumns(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, column: i32, count: i32, parent: QtC.QModelIndex) callconv(.c) bool ```
+    pub fn OnInsertColumns(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QSqlTableModel_OnInsertColumns(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QSqlQueryModel
@@ -1932,9 +1932,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, parent: QtC.QModelIndex) callconv(.c) void ```
-    pub fn OnFetchMore(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSqlTableModel_OnFetchMore(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, parent: QtC.QModelIndex) callconv(.c) void ```
+    pub fn OnFetchMore(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QSqlTableModel_OnFetchMore(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QSqlQueryModel
@@ -1965,9 +1965,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, parent: QtC.QModelIndex) callconv(.c) bool ```
-    pub fn OnCanFetchMore(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QSqlTableModel_OnCanFetchMore(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, parent: QtC.QModelIndex) callconv(.c) bool ```
+    pub fn OnCanFetchMore(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QSqlTableModel_OnCanFetchMore(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QSqlQueryModel
@@ -2026,9 +2026,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn () callconv(.c) map_i32_u8 ```
-    pub fn OnRoleNames(self: ?*anyopaque, slot: fn () callconv(.c) map_i32_u8) void {
-        qtc.QSqlTableModel_OnRoleNames(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn () callconv(.c) map_i32_u8 ```
+    pub fn OnRoleNames(self: ?*anyopaque, callback: *const fn () callconv(.c) map_i32_u8) void {
+        qtc.QSqlTableModel_OnRoleNames(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QSqlQueryModel
@@ -2059,9 +2059,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn () callconv(.c) void ```
-    pub fn OnQueryChange(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QSqlTableModel_OnQueryChange(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn () callconv(.c) void ```
+    pub fn OnQueryChange(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QSqlTableModel_OnQueryChange(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractTableModel
@@ -2092,9 +2092,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, row: i32, column: i32, parent: QtC.QModelIndex) callconv(.c) QtC.QModelIndex ```
-    pub fn OnIndex(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) QtC.QModelIndex) void {
-        qtc.QSqlTableModel_OnIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, row: i32, column: i32, parent: QtC.QModelIndex) callconv(.c) QtC.QModelIndex ```
+    pub fn OnIndex(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) QtC.QModelIndex) void {
+        qtc.QSqlTableModel_OnIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractTableModel
@@ -2125,9 +2125,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, row: i32, column: i32, idx: QtC.QModelIndex) callconv(.c) QtC.QModelIndex ```
-    pub fn OnSibling(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) QtC.QModelIndex) void {
-        qtc.QSqlTableModel_OnSibling(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, row: i32, column: i32, idx: QtC.QModelIndex) callconv(.c) QtC.QModelIndex ```
+    pub fn OnSibling(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) QtC.QModelIndex) void {
+        qtc.QSqlTableModel_OnSibling(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractTableModel
@@ -2158,9 +2158,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, data: QtC.QMimeData, action: qnamespace_enums.DropAction, row: i32, column: i32, parent: QtC.QModelIndex) callconv(.c) bool ```
-    pub fn OnDropMimeData(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, i32, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QSqlTableModel_OnDropMimeData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, data: QtC.QMimeData, action: qnamespace_enums.DropAction, row: i32, column: i32, parent: QtC.QModelIndex) callconv(.c) bool ```
+    pub fn OnDropMimeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, i32, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QSqlTableModel_OnDropMimeData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2219,9 +2219,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, index: QtC.QModelIndex) callconv(.c) map_i32_qtcqvariant ```
-    pub fn OnItemData(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) map_i32_qtcqvariant) void {
-        qtc.QSqlTableModel_OnItemData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, index: QtC.QModelIndex) callconv(.c) map_i32_qtcqvariant ```
+    pub fn OnItemData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) map_i32_qtcqvariant) void {
+        qtc.QSqlTableModel_OnItemData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2286,9 +2286,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, index: QtC.QModelIndex, roles: map_i32_qtcqvariant) callconv(.c) bool ```
-    pub fn OnSetItemData(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, map_i32_qtcqvariant) callconv(.c) bool) void {
-        qtc.QSqlTableModel_OnSetItemData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, index: QtC.QModelIndex, roles: map_i32_qtcqvariant) callconv(.c) bool ```
+    pub fn OnSetItemData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, map_i32_qtcqvariant) callconv(.c) bool) void {
+        qtc.QSqlTableModel_OnSetItemData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2349,9 +2349,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn () callconv(.c) [*][*:0]const u8 ```
-    pub fn OnMimeTypes(self: ?*anyopaque, slot: fn () callconv(.c) [*][*:0]const u8) void {
-        qtc.QSqlTableModel_OnMimeTypes(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn () callconv(.c) [*][*:0]const u8 ```
+    pub fn OnMimeTypes(self: ?*anyopaque, callback: *const fn () callconv(.c) [*][*:0]const u8) void {
+        qtc.QSqlTableModel_OnMimeTypes(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2390,9 +2390,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, indexes: [*]QtC.QModelIndex) callconv(.c) QtC.QMimeData ```
-    pub fn OnMimeData(self: ?*anyopaque, slot: fn (?*anyopaque, [*]QtC.QModelIndex) callconv(.c) QtC.QMimeData) void {
-        qtc.QSqlTableModel_OnMimeData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, indexes: [*]QtC.QModelIndex) callconv(.c) QtC.QMimeData ```
+    pub fn OnMimeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QModelIndex) callconv(.c) QtC.QMimeData) void {
+        qtc.QSqlTableModel_OnMimeData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2423,9 +2423,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, data: QtC.QMimeData, action: qnamespace_enums.DropAction, row: i32, column: i32, parent: QtC.QModelIndex) callconv(.c) bool ```
-    pub fn OnCanDropMimeData(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, i32, i32, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QSqlTableModel_OnCanDropMimeData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, data: QtC.QMimeData, action: qnamespace_enums.DropAction, row: i32, column: i32, parent: QtC.QModelIndex) callconv(.c) bool ```
+    pub fn OnCanDropMimeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, i32, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QSqlTableModel_OnCanDropMimeData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2460,9 +2460,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn () callconv(.c) i32 ```
-    pub fn OnSupportedDropActions(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QSqlTableModel_OnSupportedDropActions(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSupportedDropActions(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QSqlTableModel_OnSupportedDropActions(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2497,9 +2497,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn () callconv(.c) i32 ```
-    pub fn OnSupportedDragActions(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QSqlTableModel_OnSupportedDragActions(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSupportedDragActions(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QSqlTableModel_OnSupportedDragActions(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2530,9 +2530,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, sourceParent: QtC.QModelIndex, sourceRow: i32, count: i32, destinationParent: QtC.QModelIndex, destinationChild: i32) callconv(.c) bool ```
-    pub fn OnMoveRows(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QSqlTableModel_OnMoveRows(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, sourceParent: QtC.QModelIndex, sourceRow: i32, count: i32, destinationParent: QtC.QModelIndex, destinationChild: i32) callconv(.c) bool ```
+    pub fn OnMoveRows(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) bool) void {
+        qtc.QSqlTableModel_OnMoveRows(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2563,9 +2563,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, sourceParent: QtC.QModelIndex, sourceColumn: i32, count: i32, destinationParent: QtC.QModelIndex, destinationChild: i32) callconv(.c) bool ```
-    pub fn OnMoveColumns(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QSqlTableModel_OnMoveColumns(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, sourceParent: QtC.QModelIndex, sourceColumn: i32, count: i32, destinationParent: QtC.QModelIndex, destinationChild: i32) callconv(.c) bool ```
+    pub fn OnMoveColumns(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) bool) void {
+        qtc.QSqlTableModel_OnMoveColumns(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2596,9 +2596,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, index: QtC.QModelIndex) callconv(.c) QtC.QModelIndex ```
-    pub fn OnBuddy(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QModelIndex) void {
-        qtc.QSqlTableModel_OnBuddy(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, index: QtC.QModelIndex) callconv(.c) QtC.QModelIndex ```
+    pub fn OnBuddy(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QModelIndex) void {
+        qtc.QSqlTableModel_OnBuddy(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2639,9 +2639,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, start: QtC.QModelIndex, role: i32, value: QtC.QVariant, hits: i32, flags: flag of qnamespace_enums.MatchFlag) callconv(.c) [*:null]QtC.QModelIndex ```
-    pub fn OnMatch(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, ?*anyopaque, i32, i32) callconv(.c) [*:null]QtC.QModelIndex) void {
-        qtc.QSqlTableModel_OnMatch(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, start: QtC.QModelIndex, role: i32, value: QtC.QVariant, hits: i32, flags: flag of qnamespace_enums.MatchFlag) callconv(.c) [*:null]QtC.QModelIndex ```
+    pub fn OnMatch(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, ?*anyopaque, i32, i32) callconv(.c) [*:null]QtC.QModelIndex) void {
+        qtc.QSqlTableModel_OnMatch(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2672,9 +2672,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, index: QtC.QModelIndex) callconv(.c) QtC.QSize ```
-    pub fn OnSpan(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QSize) void {
-        qtc.QSqlTableModel_OnSpan(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, index: QtC.QModelIndex) callconv(.c) QtC.QSize ```
+    pub fn OnSpan(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QSize) void {
+        qtc.QSqlTableModel_OnSpan(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2705,9 +2705,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, index: QtC.QModelIndex, roleDataSpan: QtC.QModelRoleDataSpan) callconv(.c) void ```
-    pub fn OnMultiData(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, QtC.QModelRoleDataSpan) callconv(.c) void) void {
-        qtc.QSqlTableModel_OnMultiData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, index: QtC.QModelIndex, roleDataSpan: QtC.QModelRoleDataSpan) callconv(.c) void ```
+    pub fn OnMultiData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, QtC.QModelRoleDataSpan) callconv(.c) void) void {
+        qtc.QSqlTableModel_OnMultiData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -2738,9 +2738,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn () callconv(.c) void ```
-    pub fn OnResetInternalData(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QSqlTableModel_OnResetInternalData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn () callconv(.c) void ```
+    pub fn OnResetInternalData(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QSqlTableModel_OnResetInternalData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2771,9 +2771,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QSqlTableModel_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QSqlTableModel_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2804,9 +2804,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QSqlTableModel_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QSqlTableModel_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2837,9 +2837,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, event: QtC.QTimerEvent) callconv(.c) void ```
-    pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSqlTableModel_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, event: QtC.QTimerEvent) callconv(.c) void ```
+    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QSqlTableModel_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2870,9 +2870,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, event: QtC.QChildEvent) callconv(.c) void ```
-    pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSqlTableModel_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, event: QtC.QChildEvent) callconv(.c) void ```
+    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QSqlTableModel_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2903,9 +2903,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSqlTableModel_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QSqlTableModel_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2936,9 +2936,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSqlTableModel_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QSqlTableModel_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2969,9 +2969,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSqlTableModel_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QSqlTableModel_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QSqlQueryModel
@@ -3002,9 +3002,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void ```
-    pub fn OnBeginInsertRows(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QSqlTableModel_OnBeginInsertRows(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void ```
+    pub fn OnBeginInsertRows(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
+        qtc.QSqlTableModel_OnBeginInsertRows(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QSqlQueryModel
@@ -3035,9 +3035,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn () callconv(.c) void ```
-    pub fn OnEndInsertRows(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QSqlTableModel_OnEndInsertRows(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn () callconv(.c) void ```
+    pub fn OnEndInsertRows(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QSqlTableModel_OnEndInsertRows(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QSqlQueryModel
@@ -3068,9 +3068,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void ```
-    pub fn OnBeginRemoveRows(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QSqlTableModel_OnBeginRemoveRows(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void ```
+    pub fn OnBeginRemoveRows(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
+        qtc.QSqlTableModel_OnBeginRemoveRows(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QSqlQueryModel
@@ -3101,9 +3101,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn () callconv(.c) void ```
-    pub fn OnEndRemoveRows(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QSqlTableModel_OnEndRemoveRows(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn () callconv(.c) void ```
+    pub fn OnEndRemoveRows(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QSqlTableModel_OnEndRemoveRows(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QSqlQueryModel
@@ -3134,9 +3134,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void ```
-    pub fn OnBeginInsertColumns(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QSqlTableModel_OnBeginInsertColumns(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void ```
+    pub fn OnBeginInsertColumns(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
+        qtc.QSqlTableModel_OnBeginInsertColumns(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QSqlQueryModel
@@ -3167,9 +3167,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn () callconv(.c) void ```
-    pub fn OnEndInsertColumns(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QSqlTableModel_OnEndInsertColumns(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn () callconv(.c) void ```
+    pub fn OnEndInsertColumns(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QSqlTableModel_OnEndInsertColumns(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QSqlQueryModel
@@ -3200,9 +3200,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void ```
-    pub fn OnBeginRemoveColumns(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QSqlTableModel_OnBeginRemoveColumns(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void ```
+    pub fn OnBeginRemoveColumns(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
+        qtc.QSqlTableModel_OnBeginRemoveColumns(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QSqlQueryModel
@@ -3233,9 +3233,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn () callconv(.c) void ```
-    pub fn OnEndRemoveColumns(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QSqlTableModel_OnEndRemoveColumns(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn () callconv(.c) void ```
+    pub fn OnEndRemoveColumns(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QSqlTableModel_OnEndRemoveColumns(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QSqlQueryModel
@@ -3266,9 +3266,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn () callconv(.c) void ```
-    pub fn OnBeginResetModel(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QSqlTableModel_OnBeginResetModel(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn () callconv(.c) void ```
+    pub fn OnBeginResetModel(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QSqlTableModel_OnBeginResetModel(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QSqlQueryModel
@@ -3299,9 +3299,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn () callconv(.c) void ```
-    pub fn OnEndResetModel(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QSqlTableModel_OnEndResetModel(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn () callconv(.c) void ```
+    pub fn OnEndResetModel(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QSqlTableModel_OnEndResetModel(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QSqlQueryModel
@@ -3332,9 +3332,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, errorVal: QtC.QSqlError) callconv(.c) void ```
-    pub fn OnSetLastError(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSqlTableModel_OnSetLastError(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, errorVal: QtC.QSqlError) callconv(.c) void ```
+    pub fn OnSetLastError(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QSqlTableModel_OnSetLastError(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3365,9 +3365,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, row: i32, column: i32) callconv(.c) QtC.QModelIndex ```
-    pub fn OnCreateIndex(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32) callconv(.c) QtC.QModelIndex) void {
-        qtc.QSqlTableModel_OnCreateIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, row: i32, column: i32) callconv(.c) QtC.QModelIndex ```
+    pub fn OnCreateIndex(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) QtC.QModelIndex) void {
+        qtc.QSqlTableModel_OnCreateIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3406,9 +3406,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, indexes: [*]QtC.QModelIndex, stream: QtC.QDataStream) callconv(.c) void ```
-    pub fn OnEncodeData(self: ?*anyopaque, slot: fn (?*anyopaque, [*]QtC.QModelIndex, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSqlTableModel_OnEncodeData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, indexes: [*]QtC.QModelIndex, stream: QtC.QDataStream) callconv(.c) void ```
+    pub fn OnEncodeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QModelIndex, ?*anyopaque) callconv(.c) void) void {
+        qtc.QSqlTableModel_OnEncodeData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3439,9 +3439,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, row: i32, column: i32, parent: QtC.QModelIndex, stream: QtC.QDataStream) callconv(.c) bool ```
-    pub fn OnDecodeData(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QSqlTableModel_OnDecodeData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, row: i32, column: i32, parent: QtC.QModelIndex, stream: QtC.QDataStream) callconv(.c) bool ```
+    pub fn OnDecodeData(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QSqlTableModel_OnDecodeData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3472,9 +3472,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, sourceParent: QtC.QModelIndex, sourceFirst: i32, sourceLast: i32, destinationParent: QtC.QModelIndex, destinationRow: i32) callconv(.c) bool ```
-    pub fn OnBeginMoveRows(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QSqlTableModel_OnBeginMoveRows(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, sourceParent: QtC.QModelIndex, sourceFirst: i32, sourceLast: i32, destinationParent: QtC.QModelIndex, destinationRow: i32) callconv(.c) bool ```
+    pub fn OnBeginMoveRows(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) bool) void {
+        qtc.QSqlTableModel_OnBeginMoveRows(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3505,9 +3505,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn () callconv(.c) void ```
-    pub fn OnEndMoveRows(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QSqlTableModel_OnEndMoveRows(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn () callconv(.c) void ```
+    pub fn OnEndMoveRows(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QSqlTableModel_OnEndMoveRows(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3538,9 +3538,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, sourceParent: QtC.QModelIndex, sourceFirst: i32, sourceLast: i32, destinationParent: QtC.QModelIndex, destinationColumn: i32) callconv(.c) bool ```
-    pub fn OnBeginMoveColumns(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QSqlTableModel_OnBeginMoveColumns(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, sourceParent: QtC.QModelIndex, sourceFirst: i32, sourceLast: i32, destinationParent: QtC.QModelIndex, destinationColumn: i32) callconv(.c) bool ```
+    pub fn OnBeginMoveColumns(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) bool) void {
+        qtc.QSqlTableModel_OnBeginMoveColumns(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3571,9 +3571,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn () callconv(.c) void ```
-    pub fn OnEndMoveColumns(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QSqlTableModel_OnEndMoveColumns(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn () callconv(.c) void ```
+    pub fn OnEndMoveColumns(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QSqlTableModel_OnEndMoveColumns(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3604,9 +3604,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, from: QtC.QModelIndex, to: QtC.QModelIndex) callconv(.c) void ```
-    pub fn OnChangePersistentIndex(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSqlTableModel_OnChangePersistentIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, from: QtC.QModelIndex, to: QtC.QModelIndex) callconv(.c) void ```
+    pub fn OnChangePersistentIndex(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QSqlTableModel_OnChangePersistentIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3653,9 +3653,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, from: [*]QtC.QModelIndex, to: [*]QtC.QModelIndex) callconv(.c) void ```
-    pub fn OnChangePersistentIndexList(self: ?*anyopaque, slot: fn (?*anyopaque, [*]QtC.QModelIndex, [*]QtC.QModelIndex) callconv(.c) void) void {
-        qtc.QSqlTableModel_OnChangePersistentIndexList(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, from: [*]QtC.QModelIndex, to: [*]QtC.QModelIndex) callconv(.c) void ```
+    pub fn OnChangePersistentIndexList(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QModelIndex, [*]QtC.QModelIndex) callconv(.c) void) void {
+        qtc.QSqlTableModel_OnChangePersistentIndexList(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3696,9 +3696,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn () callconv(.c) [*:null]QtC.QModelIndex ```
-    pub fn OnPersistentIndexList(self: ?*anyopaque, slot: fn () callconv(.c) [*:null]QtC.QModelIndex) void {
-        qtc.QSqlTableModel_OnPersistentIndexList(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn () callconv(.c) [*:null]QtC.QModelIndex ```
+    pub fn OnPersistentIndexList(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:null]QtC.QModelIndex) void {
+        qtc.QSqlTableModel_OnPersistentIndexList(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3729,9 +3729,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn () callconv(.c) QtC.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
-        qtc.QSqlTableModel_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.QSqlTableModel_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3762,9 +3762,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn () callconv(.c) i32 ```
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QSqlTableModel_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QSqlTableModel_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3797,9 +3797,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, signal: [*:0]const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QSqlTableModel_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QSqlTableModel_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3830,9 +3830,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, signal: QtC.QMetaMethod) callconv(.c) bool ```
-    pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QSqlTableModel_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QSqlTableModel_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3841,9 +3841,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void ```
-    pub fn OnRowsAboutToBeInserted(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsAboutToBeInserted(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void ```
+    pub fn OnRowsAboutToBeInserted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_RowsAboutToBeInserted(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3852,9 +3852,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void ```
-    pub fn OnRowsInserted(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsInserted(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void ```
+    pub fn OnRowsInserted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_RowsInserted(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3863,9 +3863,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void ```
-    pub fn OnRowsAboutToBeRemoved(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsAboutToBeRemoved(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void ```
+    pub fn OnRowsAboutToBeRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_RowsAboutToBeRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3874,9 +3874,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void ```
-    pub fn OnRowsRemoved(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsRemoved(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void ```
+    pub fn OnRowsRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_RowsRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3885,9 +3885,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void ```
-    pub fn OnColumnsAboutToBeInserted(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeInserted(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void ```
+    pub fn OnColumnsAboutToBeInserted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeInserted(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3896,9 +3896,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void ```
-    pub fn OnColumnsInserted(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsInserted(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void ```
+    pub fn OnColumnsInserted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_ColumnsInserted(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3907,9 +3907,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void ```
-    pub fn OnColumnsAboutToBeRemoved(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeRemoved(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void ```
+    pub fn OnColumnsAboutToBeRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3918,9 +3918,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void ```
-    pub fn OnColumnsRemoved(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsRemoved(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, parent: QtC.QModelIndex, first: i32, last: i32) callconv(.c) void ```
+    pub fn OnColumnsRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_ColumnsRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3929,9 +3929,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel) callconv(.c) void ```
-    pub fn OnModelAboutToBeReset(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ModelAboutToBeReset(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel) callconv(.c) void ```
+    pub fn OnModelAboutToBeReset(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_ModelAboutToBeReset(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3940,9 +3940,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel) callconv(.c) void ```
-    pub fn OnModelReset(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ModelReset(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel) callconv(.c) void ```
+    pub fn OnModelReset(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_ModelReset(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3951,9 +3951,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, sourceParent: QtC.QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QtC.QModelIndex, destinationRow: i32) callconv(.c) void ```
-    pub fn OnRowsAboutToBeMoved(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsAboutToBeMoved(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, sourceParent: QtC.QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QtC.QModelIndex, destinationRow: i32) callconv(.c) void ```
+    pub fn OnRowsAboutToBeMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_RowsAboutToBeMoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3962,9 +3962,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, sourceParent: QtC.QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QtC.QModelIndex, destinationRow: i32) callconv(.c) void ```
-    pub fn OnRowsMoved(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_RowsMoved(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, sourceParent: QtC.QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QtC.QModelIndex, destinationRow: i32) callconv(.c) void ```
+    pub fn OnRowsMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_RowsMoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3973,9 +3973,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, sourceParent: QtC.QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QtC.QModelIndex, destinationColumn: i32) callconv(.c) void ```
-    pub fn OnColumnsAboutToBeMoved(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeMoved(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, sourceParent: QtC.QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QtC.QModelIndex, destinationColumn: i32) callconv(.c) void ```
+    pub fn OnColumnsAboutToBeMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_ColumnsAboutToBeMoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel
@@ -3984,9 +3984,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, sourceParent: QtC.QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QtC.QModelIndex, destinationColumn: i32) callconv(.c) void ```
-    pub fn OnColumnsMoved(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractItemModel_Connect_ColumnsMoved(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, sourceParent: QtC.QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QtC.QModelIndex, destinationColumn: i32) callconv(.c) void ```
+    pub fn OnColumnsMoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32, ?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QAbstractItemModel_Connect_ColumnsMoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3995,9 +3995,9 @@ pub const qsqltablemodel = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QSqlTableModel, slot: fn (self: QtC.QSqlTableModel, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSqlTableModel, callback: *const fn (self: QtC.QSqlTableModel, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsqltablemodel.html#dtor.QSqlTableModel)

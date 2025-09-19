@@ -14,12 +14,8 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_KIO__DeleteJob)
 typedef KIO::DeleteJob KIO__DeleteJob;
-#endif
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_KIO__Job)
 typedef KIO::Job KIO__Job;
-#endif
 #else
 typedef struct KCompositeJob KCompositeJob;
 typedef struct KIO KIO;

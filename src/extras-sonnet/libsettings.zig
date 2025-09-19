@@ -40,9 +40,9 @@ pub const sonnet__settings = struct {
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.Sonnet__Settings, slot: fn (self: QtC.Sonnet__Settings, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
-        qtc.Sonnet__Settings_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__Settings, callback: *const fn (self: QtC.Sonnet__Settings, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+        qtc.Sonnet__Settings_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -402,9 +402,9 @@ pub const sonnet__settings = struct {
 
     /// [Qt documentation](https://api.kde.org/sonnet-settings.html#skipUppercaseChanged)
     ///
-    /// ``` self: QtC.Sonnet__Settings, slot: fn (self: QtC.Sonnet__Settings) callconv(.c) void ```
-    pub fn OnSkipUppercaseChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.Sonnet__Settings_Connect_SkipUppercaseChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__Settings, callback: *const fn (self: QtC.Sonnet__Settings) callconv(.c) void ```
+    pub fn OnSkipUppercaseChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.Sonnet__Settings_Connect_SkipUppercaseChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/sonnet-settings.html#autodetectLanguageChanged)
@@ -416,9 +416,9 @@ pub const sonnet__settings = struct {
 
     /// [Qt documentation](https://api.kde.org/sonnet-settings.html#autodetectLanguageChanged)
     ///
-    /// ``` self: QtC.Sonnet__Settings, slot: fn (self: QtC.Sonnet__Settings) callconv(.c) void ```
-    pub fn OnAutodetectLanguageChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.Sonnet__Settings_Connect_AutodetectLanguageChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__Settings, callback: *const fn (self: QtC.Sonnet__Settings) callconv(.c) void ```
+    pub fn OnAutodetectLanguageChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.Sonnet__Settings_Connect_AutodetectLanguageChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/sonnet-settings.html#backgroundCheckerEnabledChanged)
@@ -430,9 +430,9 @@ pub const sonnet__settings = struct {
 
     /// [Qt documentation](https://api.kde.org/sonnet-settings.html#backgroundCheckerEnabledChanged)
     ///
-    /// ``` self: QtC.Sonnet__Settings, slot: fn (self: QtC.Sonnet__Settings) callconv(.c) void ```
-    pub fn OnBackgroundCheckerEnabledChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.Sonnet__Settings_Connect_BackgroundCheckerEnabledChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__Settings, callback: *const fn (self: QtC.Sonnet__Settings) callconv(.c) void ```
+    pub fn OnBackgroundCheckerEnabledChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.Sonnet__Settings_Connect_BackgroundCheckerEnabledChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/sonnet-settings.html#defaultClientChanged)
@@ -444,9 +444,9 @@ pub const sonnet__settings = struct {
 
     /// [Qt documentation](https://api.kde.org/sonnet-settings.html#defaultClientChanged)
     ///
-    /// ``` self: QtC.Sonnet__Settings, slot: fn (self: QtC.Sonnet__Settings) callconv(.c) void ```
-    pub fn OnDefaultClientChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.Sonnet__Settings_Connect_DefaultClientChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__Settings, callback: *const fn (self: QtC.Sonnet__Settings) callconv(.c) void ```
+    pub fn OnDefaultClientChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.Sonnet__Settings_Connect_DefaultClientChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/sonnet-settings.html#defaultLanguageChanged)
@@ -458,9 +458,9 @@ pub const sonnet__settings = struct {
 
     /// [Qt documentation](https://api.kde.org/sonnet-settings.html#defaultLanguageChanged)
     ///
-    /// ``` self: QtC.Sonnet__Settings, slot: fn (self: QtC.Sonnet__Settings) callconv(.c) void ```
-    pub fn OnDefaultLanguageChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.Sonnet__Settings_Connect_DefaultLanguageChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__Settings, callback: *const fn (self: QtC.Sonnet__Settings) callconv(.c) void ```
+    pub fn OnDefaultLanguageChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.Sonnet__Settings_Connect_DefaultLanguageChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/sonnet-settings.html#preferredLanguagesChanged)
@@ -472,9 +472,9 @@ pub const sonnet__settings = struct {
 
     /// [Qt documentation](https://api.kde.org/sonnet-settings.html#preferredLanguagesChanged)
     ///
-    /// ``` self: QtC.Sonnet__Settings, slot: fn (self: QtC.Sonnet__Settings) callconv(.c) void ```
-    pub fn OnPreferredLanguagesChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.Sonnet__Settings_Connect_PreferredLanguagesChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__Settings, callback: *const fn (self: QtC.Sonnet__Settings) callconv(.c) void ```
+    pub fn OnPreferredLanguagesChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.Sonnet__Settings_Connect_PreferredLanguagesChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/sonnet-settings.html#skipRunTogetherChanged)
@@ -486,9 +486,9 @@ pub const sonnet__settings = struct {
 
     /// [Qt documentation](https://api.kde.org/sonnet-settings.html#skipRunTogetherChanged)
     ///
-    /// ``` self: QtC.Sonnet__Settings, slot: fn (self: QtC.Sonnet__Settings) callconv(.c) void ```
-    pub fn OnSkipRunTogetherChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.Sonnet__Settings_Connect_SkipRunTogetherChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__Settings, callback: *const fn (self: QtC.Sonnet__Settings) callconv(.c) void ```
+    pub fn OnSkipRunTogetherChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.Sonnet__Settings_Connect_SkipRunTogetherChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/sonnet-settings.html#checkerEnabledByDefaultChanged)
@@ -500,9 +500,9 @@ pub const sonnet__settings = struct {
 
     /// [Qt documentation](https://api.kde.org/sonnet-settings.html#checkerEnabledByDefaultChanged)
     ///
-    /// ``` self: QtC.Sonnet__Settings, slot: fn (self: QtC.Sonnet__Settings) callconv(.c) void ```
-    pub fn OnCheckerEnabledByDefaultChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.Sonnet__Settings_Connect_CheckerEnabledByDefaultChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__Settings, callback: *const fn (self: QtC.Sonnet__Settings) callconv(.c) void ```
+    pub fn OnCheckerEnabledByDefaultChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.Sonnet__Settings_Connect_CheckerEnabledByDefaultChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/sonnet-settings.html#currentIgnoreListChanged)
@@ -514,9 +514,9 @@ pub const sonnet__settings = struct {
 
     /// [Qt documentation](https://api.kde.org/sonnet-settings.html#currentIgnoreListChanged)
     ///
-    /// ``` self: QtC.Sonnet__Settings, slot: fn (self: QtC.Sonnet__Settings) callconv(.c) void ```
-    pub fn OnCurrentIgnoreListChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.Sonnet__Settings_Connect_CurrentIgnoreListChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__Settings, callback: *const fn (self: QtC.Sonnet__Settings) callconv(.c) void ```
+    pub fn OnCurrentIgnoreListChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.Sonnet__Settings_Connect_CurrentIgnoreListChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/sonnet-settings.html#modifiedChanged)
@@ -528,9 +528,9 @@ pub const sonnet__settings = struct {
 
     /// [Qt documentation](https://api.kde.org/sonnet-settings.html#modifiedChanged)
     ///
-    /// ``` self: QtC.Sonnet__Settings, slot: fn (self: QtC.Sonnet__Settings) callconv(.c) void ```
-    pub fn OnModifiedChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.Sonnet__Settings_Connect_ModifiedChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__Settings, callback: *const fn (self: QtC.Sonnet__Settings) callconv(.c) void ```
+    pub fn OnModifiedChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.Sonnet__Settings_Connect_ModifiedChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -847,9 +847,9 @@ pub const sonnet__settings = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.Sonnet__Settings, slot: fn (self: QtC.Sonnet__Settings) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__Settings, callback: *const fn (self: QtC.Sonnet__Settings) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -931,9 +931,9 @@ pub const sonnet__settings = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.Sonnet__Settings, slot: fn (self: QtC.Sonnet__Settings, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__Settings, callback: *const fn (self: QtC.Sonnet__Settings, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -964,9 +964,9 @@ pub const sonnet__settings = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Sonnet__Settings, slot: fn (self: QtC.Sonnet__Settings, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.Sonnet__Settings_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__Settings, callback: *const fn (self: QtC.Sonnet__Settings, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.Sonnet__Settings_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -997,9 +997,9 @@ pub const sonnet__settings = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Sonnet__Settings, slot: fn (self: QtC.Sonnet__Settings, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.Sonnet__Settings_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__Settings, callback: *const fn (self: QtC.Sonnet__Settings, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.Sonnet__Settings_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1030,9 +1030,9 @@ pub const sonnet__settings = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Sonnet__Settings, slot: fn (self: QtC.Sonnet__Settings, event: QtC.QTimerEvent) callconv(.c) void ```
-    pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Sonnet__Settings_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__Settings, callback: *const fn (self: QtC.Sonnet__Settings, event: QtC.QTimerEvent) callconv(.c) void ```
+    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.Sonnet__Settings_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1063,9 +1063,9 @@ pub const sonnet__settings = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Sonnet__Settings, slot: fn (self: QtC.Sonnet__Settings, event: QtC.QChildEvent) callconv(.c) void ```
-    pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Sonnet__Settings_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__Settings, callback: *const fn (self: QtC.Sonnet__Settings, event: QtC.QChildEvent) callconv(.c) void ```
+    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.Sonnet__Settings_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1096,9 +1096,9 @@ pub const sonnet__settings = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Sonnet__Settings, slot: fn (self: QtC.Sonnet__Settings, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Sonnet__Settings_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__Settings, callback: *const fn (self: QtC.Sonnet__Settings, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.Sonnet__Settings_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1129,9 +1129,9 @@ pub const sonnet__settings = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Sonnet__Settings, slot: fn (self: QtC.Sonnet__Settings, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Sonnet__Settings_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__Settings, callback: *const fn (self: QtC.Sonnet__Settings, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.Sonnet__Settings_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1162,9 +1162,9 @@ pub const sonnet__settings = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Sonnet__Settings, slot: fn (self: QtC.Sonnet__Settings, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Sonnet__Settings_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__Settings, callback: *const fn (self: QtC.Sonnet__Settings, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.Sonnet__Settings_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1195,9 +1195,9 @@ pub const sonnet__settings = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Sonnet__Settings, slot: fn () callconv(.c) QtC.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
-        qtc.Sonnet__Settings_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__Settings, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.Sonnet__Settings_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1228,9 +1228,9 @@ pub const sonnet__settings = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Sonnet__Settings, slot: fn () callconv(.c) i32 ```
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.Sonnet__Settings_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__Settings, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.Sonnet__Settings_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1263,9 +1263,9 @@ pub const sonnet__settings = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Sonnet__Settings, slot: fn (self: QtC.Sonnet__Settings, signal: [*:0]const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.Sonnet__Settings_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__Settings, callback: *const fn (self: QtC.Sonnet__Settings, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
+        qtc.Sonnet__Settings_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1296,9 +1296,9 @@ pub const sonnet__settings = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Sonnet__Settings, slot: fn (self: QtC.Sonnet__Settings, signal: QtC.QMetaMethod) callconv(.c) bool ```
-    pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.Sonnet__Settings_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__Settings, callback: *const fn (self: QtC.Sonnet__Settings, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.Sonnet__Settings_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1307,9 +1307,9 @@ pub const sonnet__settings = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.Sonnet__Settings, slot: fn (self: QtC.Sonnet__Settings, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__Settings, callback: *const fn (self: QtC.Sonnet__Settings, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Delete this object from C++ memory.

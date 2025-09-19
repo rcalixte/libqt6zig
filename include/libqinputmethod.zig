@@ -188,9 +188,9 @@ pub const qinputmethod = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputmethod.html#cursorRectangleChanged)
     ///
-    /// ``` self: QtC.QInputMethod, slot: fn (self: QtC.QInputMethod) callconv(.c) void ```
-    pub fn OnCursorRectangleChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QInputMethod_Connect_CursorRectangleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QInputMethod, callback: *const fn (self: QtC.QInputMethod) callconv(.c) void ```
+    pub fn OnCursorRectangleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QInputMethod_Connect_CursorRectangleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputmethod.html#anchorRectangleChanged)
@@ -202,9 +202,9 @@ pub const qinputmethod = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputmethod.html#anchorRectangleChanged)
     ///
-    /// ``` self: QtC.QInputMethod, slot: fn (self: QtC.QInputMethod) callconv(.c) void ```
-    pub fn OnAnchorRectangleChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QInputMethod_Connect_AnchorRectangleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QInputMethod, callback: *const fn (self: QtC.QInputMethod) callconv(.c) void ```
+    pub fn OnAnchorRectangleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QInputMethod_Connect_AnchorRectangleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputmethod.html#keyboardRectangleChanged)
@@ -216,9 +216,9 @@ pub const qinputmethod = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputmethod.html#keyboardRectangleChanged)
     ///
-    /// ``` self: QtC.QInputMethod, slot: fn (self: QtC.QInputMethod) callconv(.c) void ```
-    pub fn OnKeyboardRectangleChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QInputMethod_Connect_KeyboardRectangleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QInputMethod, callback: *const fn (self: QtC.QInputMethod) callconv(.c) void ```
+    pub fn OnKeyboardRectangleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QInputMethod_Connect_KeyboardRectangleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputmethod.html#inputItemClipRectangleChanged)
@@ -230,9 +230,9 @@ pub const qinputmethod = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputmethod.html#inputItemClipRectangleChanged)
     ///
-    /// ``` self: QtC.QInputMethod, slot: fn (self: QtC.QInputMethod) callconv(.c) void ```
-    pub fn OnInputItemClipRectangleChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QInputMethod_Connect_InputItemClipRectangleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QInputMethod, callback: *const fn (self: QtC.QInputMethod) callconv(.c) void ```
+    pub fn OnInputItemClipRectangleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QInputMethod_Connect_InputItemClipRectangleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputmethod.html#visibleChanged)
@@ -244,9 +244,9 @@ pub const qinputmethod = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputmethod.html#visibleChanged)
     ///
-    /// ``` self: QtC.QInputMethod, slot: fn (self: QtC.QInputMethod) callconv(.c) void ```
-    pub fn OnVisibleChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QInputMethod_Connect_VisibleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QInputMethod, callback: *const fn (self: QtC.QInputMethod) callconv(.c) void ```
+    pub fn OnVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QInputMethod_Connect_VisibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputmethod.html#animatingChanged)
@@ -258,9 +258,9 @@ pub const qinputmethod = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputmethod.html#animatingChanged)
     ///
-    /// ``` self: QtC.QInputMethod, slot: fn (self: QtC.QInputMethod) callconv(.c) void ```
-    pub fn OnAnimatingChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QInputMethod_Connect_AnimatingChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QInputMethod, callback: *const fn (self: QtC.QInputMethod) callconv(.c) void ```
+    pub fn OnAnimatingChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QInputMethod_Connect_AnimatingChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputmethod.html#localeChanged)
@@ -272,9 +272,9 @@ pub const qinputmethod = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputmethod.html#localeChanged)
     ///
-    /// ``` self: QtC.QInputMethod, slot: fn (self: QtC.QInputMethod) callconv(.c) void ```
-    pub fn OnLocaleChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QInputMethod_Connect_LocaleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QInputMethod, callback: *const fn (self: QtC.QInputMethod) callconv(.c) void ```
+    pub fn OnLocaleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QInputMethod_Connect_LocaleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputmethod.html#inputDirectionChanged)
@@ -286,9 +286,9 @@ pub const qinputmethod = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qinputmethod.html#inputDirectionChanged)
     ///
-    /// ``` self: QtC.QInputMethod, slot: fn (self: QtC.QInputMethod, newDirection: qnamespace_enums.LayoutDirection) callconv(.c) void ```
-    pub fn OnInputDirectionChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QInputMethod_Connect_InputDirectionChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QInputMethod, callback: *const fn (self: QtC.QInputMethod, newDirection: qnamespace_enums.LayoutDirection) callconv(.c) void ```
+    pub fn OnInputDirectionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QInputMethod_Connect_InputDirectionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -623,9 +623,9 @@ pub const qinputmethod = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QInputMethod, slot: fn (self: QtC.QInputMethod) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QInputMethod, callback: *const fn (self: QtC.QInputMethod) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -707,9 +707,9 @@ pub const qinputmethod = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QInputMethod, slot: fn (self: QtC.QInputMethod, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QInputMethod, callback: *const fn (self: QtC.QInputMethod, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -718,9 +718,9 @@ pub const qinputmethod = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QInputMethod, slot: fn (self: QtC.QInputMethod, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QInputMethod, callback: *const fn (self: QtC.QInputMethod, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 };
 

@@ -1,6 +1,6 @@
 #include <KCompositeJob>
 #define WORKAROUND_INNER_CLASS_DEFINITION_KIO__FileCopyJob
-#define WORKAROUND_INNER_CLASS_DEFINITION_KIO__Job
+#include <KIO/Job>
 #include <KJob>
 #include <QDateTime>
 #include <QList>

@@ -58,9 +58,9 @@ pub const kxmlguibuilder = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KXMLGUIBuilder, slot: fn () callconv(.c) [*][*:0]const u8 ```
-    pub fn OnContainerTags(self: ?*anyopaque, slot: fn () callconv(.c) [*][*:0]const u8) void {
-        qtc.KXMLGUIBuilder_OnContainerTags(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXMLGUIBuilder, callback: *const fn () callconv(.c) [*][*:0]const u8 ```
+    pub fn OnContainerTags(self: ?*anyopaque, callback: *const fn () callconv(.c) [*][*:0]const u8) void {
+        qtc.KXMLGUIBuilder_OnContainerTags(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kxmlguibuilder.html#containerTags)
@@ -98,9 +98,9 @@ pub const kxmlguibuilder = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KXMLGUIBuilder, slot: fn (self: QtC.KXMLGUIBuilder, parent: QtC.QWidget, index: i32, element: QtC.QDomElement, containerAction: QtC.QAction) callconv(.c) QtC.QWidget ```
-    pub fn OnCreateContainer(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, ?*anyopaque, ?**anyopaque) callconv(.c) QtC.QWidget) void {
-        qtc.KXMLGUIBuilder_OnCreateContainer(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXMLGUIBuilder, callback: *const fn (self: QtC.KXMLGUIBuilder, parent: QtC.QWidget, index: i32, element: QtC.QDomElement, containerAction: QtC.QAction) callconv(.c) QtC.QWidget ```
+    pub fn OnCreateContainer(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, ?*anyopaque, ?**anyopaque) callconv(.c) QtC.QWidget) void {
+        qtc.KXMLGUIBuilder_OnCreateContainer(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kxmlguibuilder.html#createContainer)
@@ -123,9 +123,9 @@ pub const kxmlguibuilder = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KXMLGUIBuilder, slot: fn (self: QtC.KXMLGUIBuilder, container: QtC.QWidget, parent: QtC.QWidget, element: QtC.QDomElement, containerAction: QtC.QAction) callconv(.c) void ```
-    pub fn OnRemoveContainer(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXMLGUIBuilder_OnRemoveContainer(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXMLGUIBuilder, callback: *const fn (self: QtC.KXMLGUIBuilder, container: QtC.QWidget, parent: QtC.QWidget, element: QtC.QDomElement, containerAction: QtC.QAction) callconv(.c) void ```
+    pub fn OnRemoveContainer(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KXMLGUIBuilder_OnRemoveContainer(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kxmlguibuilder.html#removeContainer)
@@ -163,9 +163,9 @@ pub const kxmlguibuilder = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KXMLGUIBuilder, slot: fn () callconv(.c) [*][*:0]const u8 ```
-    pub fn OnCustomTags(self: ?*anyopaque, slot: fn () callconv(.c) [*][*:0]const u8) void {
-        qtc.KXMLGUIBuilder_OnCustomTags(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXMLGUIBuilder, callback: *const fn () callconv(.c) [*][*:0]const u8 ```
+    pub fn OnCustomTags(self: ?*anyopaque, callback: *const fn () callconv(.c) [*][*:0]const u8) void {
+        qtc.KXMLGUIBuilder_OnCustomTags(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kxmlguibuilder.html#customTags)
@@ -203,9 +203,9 @@ pub const kxmlguibuilder = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KXMLGUIBuilder, slot: fn (self: QtC.KXMLGUIBuilder, parent: QtC.QWidget, index: i32, element: QtC.QDomElement) callconv(.c) QtC.QAction ```
-    pub fn OnCreateCustomElement(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QAction) void {
-        qtc.KXMLGUIBuilder_OnCreateCustomElement(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXMLGUIBuilder, callback: *const fn (self: QtC.KXMLGUIBuilder, parent: QtC.QWidget, index: i32, element: QtC.QDomElement) callconv(.c) QtC.QAction ```
+    pub fn OnCreateCustomElement(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QAction) void {
+        qtc.KXMLGUIBuilder_OnCreateCustomElement(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kxmlguibuilder.html#createCustomElement)
@@ -228,9 +228,9 @@ pub const kxmlguibuilder = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KXMLGUIBuilder, slot: fn (self: QtC.KXMLGUIBuilder, client: QtC.KXMLGUIClient) callconv(.c) void ```
-    pub fn OnFinalizeGUI(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXMLGUIBuilder_OnFinalizeGUI(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXMLGUIBuilder, callback: *const fn (self: QtC.KXMLGUIBuilder, client: QtC.KXMLGUIClient) callconv(.c) void ```
+    pub fn OnFinalizeGUI(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KXMLGUIBuilder_OnFinalizeGUI(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kxmlguibuilder.html#finalizeGUI)
@@ -253,9 +253,9 @@ pub const kxmlguibuilder = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KXMLGUIBuilder, slot: fn (self: QtC.KXMLGUIBuilder, id: i32, data: ?*anyopaque) callconv(.c) void ```
-    pub fn OnVirtualHook(self: ?*anyopaque, slot: fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXMLGUIBuilder_OnVirtualHook(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXMLGUIBuilder, callback: *const fn (self: QtC.KXMLGUIBuilder, id: i32, data: ?*anyopaque) callconv(.c) void ```
+    pub fn OnVirtualHook(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
+        qtc.KXMLGUIBuilder_OnVirtualHook(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kxmlguibuilder.html#virtual_hook)

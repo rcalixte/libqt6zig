@@ -42,9 +42,9 @@ pub const qhorizontalpercentbarseries = struct {
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QHorizontalPercentBarSeries, slot: fn (self: QtC.QHorizontalPercentBarSeries, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QHorizontalPercentBarSeries_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHorizontalPercentBarSeries, callback: *const fn (self: QtC.QHorizontalPercentBarSeries, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+        qtc.QHorizontalPercentBarSeries_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -79,9 +79,9 @@ pub const qhorizontalpercentbarseries = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QHorizontalPercentBarSeries, slot: fn () callconv(.c) i32 ```
-    pub fn OnType(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QHorizontalPercentBarSeries_OnType(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHorizontalPercentBarSeries, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QHorizontalPercentBarSeries_OnType(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qhorizontalpercentbarseries-qtcharts.html#type)
@@ -333,9 +333,9 @@ pub const qhorizontalpercentbarseries = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractbarseries.html#clicked)
     ///
-    /// ``` self: QtC.QHorizontalPercentBarSeries, slot: fn (self: QtC.QHorizontalPercentBarSeries, index: i32, barset: QtC.QBarSet) callconv(.c) void ```
-    pub fn OnClicked(self: ?*anyopaque, slot: fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractBarSeries_Connect_Clicked(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHorizontalPercentBarSeries, callback: *const fn (self: QtC.QHorizontalPercentBarSeries, index: i32, barset: QtC.QBarSet) callconv(.c) void ```
+    pub fn OnClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractBarSeries_Connect_Clicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractBarSeries
@@ -351,9 +351,9 @@ pub const qhorizontalpercentbarseries = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractbarseries.html#hovered)
     ///
-    /// ``` self: QtC.QHorizontalPercentBarSeries, slot: fn (self: QtC.QHorizontalPercentBarSeries, status: bool, index: i32, barset: QtC.QBarSet) callconv(.c) void ```
-    pub fn OnHovered(self: ?*anyopaque, slot: fn (?*anyopaque, bool, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractBarSeries_Connect_Hovered(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHorizontalPercentBarSeries, callback: *const fn (self: QtC.QHorizontalPercentBarSeries, status: bool, index: i32, barset: QtC.QBarSet) callconv(.c) void ```
+    pub fn OnHovered(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool, i32, ?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractBarSeries_Connect_Hovered(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractBarSeries
@@ -369,9 +369,9 @@ pub const qhorizontalpercentbarseries = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractbarseries.html#pressed)
     ///
-    /// ``` self: QtC.QHorizontalPercentBarSeries, slot: fn (self: QtC.QHorizontalPercentBarSeries, index: i32, barset: QtC.QBarSet) callconv(.c) void ```
-    pub fn OnPressed(self: ?*anyopaque, slot: fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractBarSeries_Connect_Pressed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHorizontalPercentBarSeries, callback: *const fn (self: QtC.QHorizontalPercentBarSeries, index: i32, barset: QtC.QBarSet) callconv(.c) void ```
+    pub fn OnPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractBarSeries_Connect_Pressed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractBarSeries
@@ -387,9 +387,9 @@ pub const qhorizontalpercentbarseries = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractbarseries.html#released)
     ///
-    /// ``` self: QtC.QHorizontalPercentBarSeries, slot: fn (self: QtC.QHorizontalPercentBarSeries, index: i32, barset: QtC.QBarSet) callconv(.c) void ```
-    pub fn OnReleased(self: ?*anyopaque, slot: fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractBarSeries_Connect_Released(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHorizontalPercentBarSeries, callback: *const fn (self: QtC.QHorizontalPercentBarSeries, index: i32, barset: QtC.QBarSet) callconv(.c) void ```
+    pub fn OnReleased(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractBarSeries_Connect_Released(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractBarSeries
@@ -405,9 +405,9 @@ pub const qhorizontalpercentbarseries = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractbarseries.html#doubleClicked)
     ///
-    /// ``` self: QtC.QHorizontalPercentBarSeries, slot: fn (self: QtC.QHorizontalPercentBarSeries, index: i32, barset: QtC.QBarSet) callconv(.c) void ```
-    pub fn OnDoubleClicked(self: ?*anyopaque, slot: fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractBarSeries_Connect_DoubleClicked(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHorizontalPercentBarSeries, callback: *const fn (self: QtC.QHorizontalPercentBarSeries, index: i32, barset: QtC.QBarSet) callconv(.c) void ```
+    pub fn OnDoubleClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractBarSeries_Connect_DoubleClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractBarSeries
@@ -423,9 +423,9 @@ pub const qhorizontalpercentbarseries = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractbarseries.html#countChanged)
     ///
-    /// ``` self: QtC.QHorizontalPercentBarSeries, slot: fn (self: QtC.QHorizontalPercentBarSeries) callconv(.c) void ```
-    pub fn OnCountChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractBarSeries_Connect_CountChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHorizontalPercentBarSeries, callback: *const fn (self: QtC.QHorizontalPercentBarSeries) callconv(.c) void ```
+    pub fn OnCountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractBarSeries_Connect_CountChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractBarSeries
@@ -441,9 +441,9 @@ pub const qhorizontalpercentbarseries = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractbarseries.html#labelsVisibleChanged)
     ///
-    /// ``` self: QtC.QHorizontalPercentBarSeries, slot: fn (self: QtC.QHorizontalPercentBarSeries) callconv(.c) void ```
-    pub fn OnLabelsVisibleChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractBarSeries_Connect_LabelsVisibleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHorizontalPercentBarSeries, callback: *const fn (self: QtC.QHorizontalPercentBarSeries) callconv(.c) void ```
+    pub fn OnLabelsVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractBarSeries_Connect_LabelsVisibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractBarSeries
@@ -463,9 +463,9 @@ pub const qhorizontalpercentbarseries = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractbarseries.html#labelsFormatChanged)
     ///
-    /// ``` self: QtC.QHorizontalPercentBarSeries, slot: fn (self: QtC.QHorizontalPercentBarSeries, format: [*:0]const u8) callconv(.c) void ```
-    pub fn OnLabelsFormatChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QAbstractBarSeries_Connect_LabelsFormatChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHorizontalPercentBarSeries, callback: *const fn (self: QtC.QHorizontalPercentBarSeries, format: [*:0]const u8) callconv(.c) void ```
+    pub fn OnLabelsFormatChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QAbstractBarSeries_Connect_LabelsFormatChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractBarSeries
@@ -481,9 +481,9 @@ pub const qhorizontalpercentbarseries = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractbarseries.html#labelsPositionChanged)
     ///
-    /// ``` self: QtC.QHorizontalPercentBarSeries, slot: fn (self: QtC.QHorizontalPercentBarSeries, position: qabstractbarseries_enums.LabelsPosition) callconv(.c) void ```
-    pub fn OnLabelsPositionChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractBarSeries_Connect_LabelsPositionChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHorizontalPercentBarSeries, callback: *const fn (self: QtC.QHorizontalPercentBarSeries, position: qabstractbarseries_enums.LabelsPosition) callconv(.c) void ```
+    pub fn OnLabelsPositionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QAbstractBarSeries_Connect_LabelsPositionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractBarSeries
@@ -499,9 +499,9 @@ pub const qhorizontalpercentbarseries = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractbarseries.html#labelsAngleChanged)
     ///
-    /// ``` self: QtC.QHorizontalPercentBarSeries, slot: fn (self: QtC.QHorizontalPercentBarSeries, angle: f64) callconv(.c) void ```
-    pub fn OnLabelsAngleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, f64) callconv(.c) void) void {
-        qtc.QAbstractBarSeries_Connect_LabelsAngleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHorizontalPercentBarSeries, callback: *const fn (self: QtC.QHorizontalPercentBarSeries, angle: f64) callconv(.c) void ```
+    pub fn OnLabelsAngleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
+        qtc.QAbstractBarSeries_Connect_LabelsAngleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractBarSeries
@@ -517,9 +517,9 @@ pub const qhorizontalpercentbarseries = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractbarseries.html#labelsPrecisionChanged)
     ///
-    /// ``` self: QtC.QHorizontalPercentBarSeries, slot: fn (self: QtC.QHorizontalPercentBarSeries, precision: i32) callconv(.c) void ```
-    pub fn OnLabelsPrecisionChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractBarSeries_Connect_LabelsPrecisionChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHorizontalPercentBarSeries, callback: *const fn (self: QtC.QHorizontalPercentBarSeries, precision: i32) callconv(.c) void ```
+    pub fn OnLabelsPrecisionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QAbstractBarSeries_Connect_LabelsPrecisionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractBarSeries
@@ -539,9 +539,9 @@ pub const qhorizontalpercentbarseries = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractbarseries.html#barsetsAdded)
     ///
-    /// ``` self: QtC.QHorizontalPercentBarSeries, slot: fn (self: QtC.QHorizontalPercentBarSeries, sets: [*]QtC.QBarSet) callconv(.c) void ```
-    pub fn OnBarsetsAdded(self: ?*anyopaque, slot: fn (?*anyopaque, [*]?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractBarSeries_Connect_BarsetsAdded(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHorizontalPercentBarSeries, callback: *const fn (self: QtC.QHorizontalPercentBarSeries, sets: [*]QtC.QBarSet) callconv(.c) void ```
+    pub fn OnBarsetsAdded(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractBarSeries_Connect_BarsetsAdded(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractBarSeries
@@ -561,9 +561,9 @@ pub const qhorizontalpercentbarseries = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractbarseries.html#barsetsRemoved)
     ///
-    /// ``` self: QtC.QHorizontalPercentBarSeries, slot: fn (self: QtC.QHorizontalPercentBarSeries, sets: [*]QtC.QBarSet) callconv(.c) void ```
-    pub fn OnBarsetsRemoved(self: ?*anyopaque, slot: fn (?*anyopaque, [*]?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractBarSeries_Connect_BarsetsRemoved(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHorizontalPercentBarSeries, callback: *const fn (self: QtC.QHorizontalPercentBarSeries, sets: [*]QtC.QBarSet) callconv(.c) void ```
+    pub fn OnBarsetsRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractBarSeries_Connect_BarsetsRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractBarSeries
@@ -727,9 +727,9 @@ pub const qhorizontalpercentbarseries = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries.html#nameChanged)
     ///
-    /// ``` self: QtC.QHorizontalPercentBarSeries, slot: fn (self: QtC.QHorizontalPercentBarSeries) callconv(.c) void ```
-    pub fn OnNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSeries_Connect_NameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHorizontalPercentBarSeries, callback: *const fn (self: QtC.QHorizontalPercentBarSeries) callconv(.c) void ```
+    pub fn OnNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractSeries_Connect_NameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSeries
@@ -745,9 +745,9 @@ pub const qhorizontalpercentbarseries = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries.html#visibleChanged)
     ///
-    /// ``` self: QtC.QHorizontalPercentBarSeries, slot: fn (self: QtC.QHorizontalPercentBarSeries) callconv(.c) void ```
-    pub fn OnVisibleChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSeries_Connect_VisibleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHorizontalPercentBarSeries, callback: *const fn (self: QtC.QHorizontalPercentBarSeries) callconv(.c) void ```
+    pub fn OnVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractSeries_Connect_VisibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSeries
@@ -763,9 +763,9 @@ pub const qhorizontalpercentbarseries = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries.html#opacityChanged)
     ///
-    /// ``` self: QtC.QHorizontalPercentBarSeries, slot: fn (self: QtC.QHorizontalPercentBarSeries) callconv(.c) void ```
-    pub fn OnOpacityChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSeries_Connect_OpacityChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHorizontalPercentBarSeries, callback: *const fn (self: QtC.QHorizontalPercentBarSeries) callconv(.c) void ```
+    pub fn OnOpacityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractSeries_Connect_OpacityChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSeries
@@ -781,9 +781,9 @@ pub const qhorizontalpercentbarseries = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries.html#useOpenGLChanged)
     ///
-    /// ``` self: QtC.QHorizontalPercentBarSeries, slot: fn (self: QtC.QHorizontalPercentBarSeries) callconv(.c) void ```
-    pub fn OnUseOpenGLChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSeries_Connect_UseOpenGLChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHorizontalPercentBarSeries, callback: *const fn (self: QtC.QHorizontalPercentBarSeries) callconv(.c) void ```
+    pub fn OnUseOpenGLChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractSeries_Connect_UseOpenGLChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSeries
@@ -1092,9 +1092,9 @@ pub const qhorizontalpercentbarseries = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QHorizontalPercentBarSeries, slot: fn (self: QtC.QHorizontalPercentBarSeries) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHorizontalPercentBarSeries, callback: *const fn (self: QtC.QHorizontalPercentBarSeries) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1176,9 +1176,9 @@ pub const qhorizontalpercentbarseries = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QHorizontalPercentBarSeries, slot: fn (self: QtC.QHorizontalPercentBarSeries, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHorizontalPercentBarSeries, callback: *const fn (self: QtC.QHorizontalPercentBarSeries, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1209,9 +1209,9 @@ pub const qhorizontalpercentbarseries = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHorizontalPercentBarSeries, slot: fn (self: QtC.QHorizontalPercentBarSeries, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QHorizontalPercentBarSeries_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHorizontalPercentBarSeries, callback: *const fn (self: QtC.QHorizontalPercentBarSeries, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QHorizontalPercentBarSeries_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1242,9 +1242,9 @@ pub const qhorizontalpercentbarseries = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHorizontalPercentBarSeries, slot: fn (self: QtC.QHorizontalPercentBarSeries, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QHorizontalPercentBarSeries_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHorizontalPercentBarSeries, callback: *const fn (self: QtC.QHorizontalPercentBarSeries, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QHorizontalPercentBarSeries_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1275,9 +1275,9 @@ pub const qhorizontalpercentbarseries = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHorizontalPercentBarSeries, slot: fn (self: QtC.QHorizontalPercentBarSeries, event: QtC.QTimerEvent) callconv(.c) void ```
-    pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QHorizontalPercentBarSeries_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHorizontalPercentBarSeries, callback: *const fn (self: QtC.QHorizontalPercentBarSeries, event: QtC.QTimerEvent) callconv(.c) void ```
+    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QHorizontalPercentBarSeries_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1308,9 +1308,9 @@ pub const qhorizontalpercentbarseries = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHorizontalPercentBarSeries, slot: fn (self: QtC.QHorizontalPercentBarSeries, event: QtC.QChildEvent) callconv(.c) void ```
-    pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QHorizontalPercentBarSeries_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHorizontalPercentBarSeries, callback: *const fn (self: QtC.QHorizontalPercentBarSeries, event: QtC.QChildEvent) callconv(.c) void ```
+    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QHorizontalPercentBarSeries_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1341,9 +1341,9 @@ pub const qhorizontalpercentbarseries = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHorizontalPercentBarSeries, slot: fn (self: QtC.QHorizontalPercentBarSeries, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QHorizontalPercentBarSeries_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHorizontalPercentBarSeries, callback: *const fn (self: QtC.QHorizontalPercentBarSeries, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QHorizontalPercentBarSeries_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1374,9 +1374,9 @@ pub const qhorizontalpercentbarseries = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHorizontalPercentBarSeries, slot: fn (self: QtC.QHorizontalPercentBarSeries, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QHorizontalPercentBarSeries_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHorizontalPercentBarSeries, callback: *const fn (self: QtC.QHorizontalPercentBarSeries, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QHorizontalPercentBarSeries_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1407,9 +1407,9 @@ pub const qhorizontalpercentbarseries = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHorizontalPercentBarSeries, slot: fn (self: QtC.QHorizontalPercentBarSeries, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QHorizontalPercentBarSeries_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHorizontalPercentBarSeries, callback: *const fn (self: QtC.QHorizontalPercentBarSeries, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QHorizontalPercentBarSeries_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1440,9 +1440,9 @@ pub const qhorizontalpercentbarseries = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHorizontalPercentBarSeries, slot: fn () callconv(.c) QtC.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
-        qtc.QHorizontalPercentBarSeries_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHorizontalPercentBarSeries, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.QHorizontalPercentBarSeries_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1473,9 +1473,9 @@ pub const qhorizontalpercentbarseries = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHorizontalPercentBarSeries, slot: fn () callconv(.c) i32 ```
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QHorizontalPercentBarSeries_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHorizontalPercentBarSeries, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QHorizontalPercentBarSeries_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1508,9 +1508,9 @@ pub const qhorizontalpercentbarseries = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHorizontalPercentBarSeries, slot: fn (self: QtC.QHorizontalPercentBarSeries, signal: [*:0]const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QHorizontalPercentBarSeries_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHorizontalPercentBarSeries, callback: *const fn (self: QtC.QHorizontalPercentBarSeries, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QHorizontalPercentBarSeries_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1541,9 +1541,9 @@ pub const qhorizontalpercentbarseries = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QHorizontalPercentBarSeries, slot: fn (self: QtC.QHorizontalPercentBarSeries, signal: QtC.QMetaMethod) callconv(.c) bool ```
-    pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QHorizontalPercentBarSeries_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHorizontalPercentBarSeries, callback: *const fn (self: QtC.QHorizontalPercentBarSeries, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QHorizontalPercentBarSeries_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1552,9 +1552,9 @@ pub const qhorizontalpercentbarseries = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QHorizontalPercentBarSeries, slot: fn (self: QtC.QHorizontalPercentBarSeries, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QHorizontalPercentBarSeries, callback: *const fn (self: QtC.QHorizontalPercentBarSeries, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qhorizontalpercentbarseries-qtcharts.html#dtor.QHorizontalPercentBarSeries)

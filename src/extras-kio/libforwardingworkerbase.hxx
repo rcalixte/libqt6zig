@@ -10,7 +10,7 @@
 #include "../qtlibc.h"
 
 // This class is a subclass of KIO::ForwardingWorkerBase so that we can call protected methods
-class VirtualKIOForwardingWorkerBase final : public KIO::ForwardingWorkerBase {
+class VirtualKIOForwardingWorkerBase : public KIO::ForwardingWorkerBase {
 
   public:
     // Virtual class boolean flag

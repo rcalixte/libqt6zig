@@ -10,7 +10,7 @@
 #include "../qtlibc.h"
 
 // This class is a subclass of KAbstractViewAdapter so that we can call protected methods
-class VirtualKAbstractViewAdapter final : public KAbstractViewAdapter {
+class VirtualKAbstractViewAdapter : public KAbstractViewAdapter {
 
   public:
     // Virtual class boolean flag

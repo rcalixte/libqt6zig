@@ -14,12 +14,8 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_KIO__Job)
 typedef KIO::Job KIO__Job;
-#endif
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_KIO__ListJob)
 typedef KIO::ListJob KIO__ListJob;
-#endif
 #else
 typedef struct KCoreDirLister KCoreDirLister;
 typedef struct KFileItem KFileItem;

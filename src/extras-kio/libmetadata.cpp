@@ -1,4 +1,4 @@
-#define WORKAROUND_INNER_CLASS_DEFINITION_KIO__MetaData
+#include <KIO/MetaData>
 #include <QMap>
 #include <QString>
 #include <QByteArray>

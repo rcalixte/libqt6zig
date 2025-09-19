@@ -10,7 +10,7 @@
 #include "../qtlibc.h"
 
 // This class is a subclass of QWebEngineUrlSchemeHandler so that we can call protected methods
-class VirtualQWebEngineUrlSchemeHandler final : public QWebEngineUrlSchemeHandler {
+class VirtualQWebEngineUrlSchemeHandler : public QWebEngineUrlSchemeHandler {
 
   public:
     // Virtual class boolean flag

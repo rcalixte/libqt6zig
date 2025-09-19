@@ -10,7 +10,7 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QAnimationGroup so that we can call protected methods
-class VirtualQAnimationGroup final : public QAnimationGroup {
+class VirtualQAnimationGroup : public QAnimationGroup {
 
   public:
     // Virtual class boolean flag

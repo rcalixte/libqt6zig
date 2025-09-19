@@ -10,7 +10,7 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QAbstractNativeEventFilter so that we can call protected methods
-class VirtualQAbstractNativeEventFilter final : public QAbstractNativeEventFilter {
+class VirtualQAbstractNativeEventFilter : public QAbstractNativeEventFilter {
 
   public:
     // Virtual class boolean flag

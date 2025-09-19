@@ -10,7 +10,7 @@
 #include "../qtlibc.h"
 
 // This class is a subclass of QsciLexerHex so that we can call protected methods
-class VirtualQsciLexerHex final : public QsciLexerHex {
+class VirtualQsciLexerHex : public QsciLexerHex {
 
   public:
     // Virtual class boolean flag

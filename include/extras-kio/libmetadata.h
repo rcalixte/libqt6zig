@@ -14,9 +14,7 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_KIO__MetaData)
 typedef KIO::MetaData KIO__MetaData;
-#endif
 #else
 typedef struct KIO__MetaData KIO__MetaData;
 typedef struct QVariant QVariant;

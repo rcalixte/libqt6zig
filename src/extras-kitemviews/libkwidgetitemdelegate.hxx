@@ -10,7 +10,7 @@
 #include "../qtlibc.h"
 
 // This class is a subclass of KWidgetItemDelegate so that we can call protected methods
-class VirtualKWidgetItemDelegate final : public KWidgetItemDelegate {
+class VirtualKWidgetItemDelegate : public KWidgetItemDelegate {
 
   public:
     // Virtual class boolean flag

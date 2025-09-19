@@ -193,9 +193,9 @@ pub const qabstracteventdispatcher = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#aboutToBlock)
     ///
-    /// ``` self: QtC.QAbstractEventDispatcher, slot: fn (self: QtC.QAbstractEventDispatcher) callconv(.c) void ```
-    pub fn OnAboutToBlock(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractEventDispatcher_Connect_AboutToBlock(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAbstractEventDispatcher, callback: *const fn (self: QtC.QAbstractEventDispatcher) callconv(.c) void ```
+    pub fn OnAboutToBlock(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractEventDispatcher_Connect_AboutToBlock(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#awake)
@@ -207,9 +207,9 @@ pub const qabstracteventdispatcher = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#awake)
     ///
-    /// ``` self: QtC.QAbstractEventDispatcher, slot: fn (self: QtC.QAbstractEventDispatcher) callconv(.c) void ```
-    pub fn OnAwake(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractEventDispatcher_Connect_Awake(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAbstractEventDispatcher, callback: *const fn (self: QtC.QAbstractEventDispatcher) callconv(.c) void ```
+    pub fn OnAwake(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractEventDispatcher_Connect_Awake(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -551,9 +551,9 @@ pub const qabstracteventdispatcher = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QAbstractEventDispatcher, slot: fn (self: QtC.QAbstractEventDispatcher) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAbstractEventDispatcher, callback: *const fn (self: QtC.QAbstractEventDispatcher) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -635,9 +635,9 @@ pub const qabstracteventdispatcher = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QAbstractEventDispatcher, slot: fn (self: QtC.QAbstractEventDispatcher, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAbstractEventDispatcher, callback: *const fn (self: QtC.QAbstractEventDispatcher, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -646,9 +646,9 @@ pub const qabstracteventdispatcher = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QAbstractEventDispatcher, slot: fn (self: QtC.QAbstractEventDispatcher, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAbstractEventDispatcher, callback: *const fn (self: QtC.QAbstractEventDispatcher, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#dtor.QAbstractEventDispatcher)
@@ -920,9 +920,9 @@ pub const qabstracteventdispatcherv2 = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#aboutToBlock)
     ///
-    /// ``` self: QtC.QAbstractEventDispatcherV2, slot: fn (self: QtC.QAbstractEventDispatcherV2) callconv(.c) void ```
-    pub fn OnAboutToBlock(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractEventDispatcher_Connect_AboutToBlock(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAbstractEventDispatcherV2, callback: *const fn (self: QtC.QAbstractEventDispatcherV2) callconv(.c) void ```
+    pub fn OnAboutToBlock(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractEventDispatcher_Connect_AboutToBlock(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractEventDispatcher
@@ -938,9 +938,9 @@ pub const qabstracteventdispatcherv2 = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#awake)
     ///
-    /// ``` self: QtC.QAbstractEventDispatcherV2, slot: fn (self: QtC.QAbstractEventDispatcherV2) callconv(.c) void ```
-    pub fn OnAwake(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractEventDispatcher_Connect_Awake(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAbstractEventDispatcherV2, callback: *const fn (self: QtC.QAbstractEventDispatcherV2) callconv(.c) void ```
+    pub fn OnAwake(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractEventDispatcher_Connect_Awake(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractEventDispatcher
@@ -1258,9 +1258,9 @@ pub const qabstracteventdispatcherv2 = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QAbstractEventDispatcherV2, slot: fn (self: QtC.QAbstractEventDispatcherV2) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAbstractEventDispatcherV2, callback: *const fn (self: QtC.QAbstractEventDispatcherV2) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1342,9 +1342,9 @@ pub const qabstracteventdispatcherv2 = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QAbstractEventDispatcherV2, slot: fn (self: QtC.QAbstractEventDispatcherV2, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAbstractEventDispatcherV2, callback: *const fn (self: QtC.QAbstractEventDispatcherV2, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1353,9 +1353,9 @@ pub const qabstracteventdispatcherv2 = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QAbstractEventDispatcherV2, slot: fn (self: QtC.QAbstractEventDispatcherV2, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAbstractEventDispatcherV2, callback: *const fn (self: QtC.QAbstractEventDispatcherV2, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcherv2.html#dtor.QAbstractEventDispatcherV2)

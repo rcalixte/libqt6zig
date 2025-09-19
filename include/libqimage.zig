@@ -120,9 +120,9 @@ pub const qimage = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QImage, slot: fn () callconv(.c) i32 ```
-    pub fn OnDevType(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QImage_OnDevType(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QImage, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnDevType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QImage_OnDevType(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#devType)
@@ -807,9 +807,9 @@ pub const qimage = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QImage, slot: fn () callconv(.c) QtC.QPaintEngine ```
-    pub fn OnPaintEngine(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QPaintEngine) void {
-        qtc.QImage_OnPaintEngine(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QImage, callback: *const fn () callconv(.c) QtC.QPaintEngine ```
+    pub fn OnPaintEngine(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPaintEngine) void {
+        qtc.QImage_OnPaintEngine(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#paintEngine)
@@ -945,9 +945,9 @@ pub const qimage = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QImage, slot: fn (self: QtC.QImage, metric: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 ```
-    pub fn OnMetric(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QImage_OnMetric(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QImage, callback: *const fn (self: QtC.QImage, metric: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 ```
+    pub fn OnMetric(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
+        qtc.QImage_OnMetric(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#metric)
@@ -970,9 +970,9 @@ pub const qimage = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QImage, slot: fn (self: QtC.QImage, horizontal: bool, vertical: bool) callconv(.c) QtC.QImage ```
-    pub fn OnMirroredHelper(self: ?*anyopaque, slot: fn (?*anyopaque, bool, bool) callconv(.c) QtC.QImage) void {
-        qtc.QImage_OnMirroredHelper(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QImage, callback: *const fn (self: QtC.QImage, horizontal: bool, vertical: bool) callconv(.c) QtC.QImage ```
+    pub fn OnMirroredHelper(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool, bool) callconv(.c) QtC.QImage) void {
+        qtc.QImage_OnMirroredHelper(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#mirrored_helper)
@@ -995,9 +995,9 @@ pub const qimage = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QImage, slot: fn () callconv(.c) QtC.QImage ```
-    pub fn OnRgbSwappedHelper(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QImage) void {
-        qtc.QImage_OnRgbSwappedHelper(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QImage, callback: *const fn () callconv(.c) QtC.QImage ```
+    pub fn OnRgbSwappedHelper(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QImage) void {
+        qtc.QImage_OnRgbSwappedHelper(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#rgbSwapped_helper)
@@ -1020,9 +1020,9 @@ pub const qimage = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QImage, slot: fn (self: QtC.QImage, horizontal: bool, vertical: bool) callconv(.c) void ```
-    pub fn OnMirroredInplace(self: ?*anyopaque, slot: fn (?*anyopaque, bool, bool) callconv(.c) void) void {
-        qtc.QImage_OnMirroredInplace(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QImage, callback: *const fn (self: QtC.QImage, horizontal: bool, vertical: bool) callconv(.c) void ```
+    pub fn OnMirroredInplace(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool, bool) callconv(.c) void) void {
+        qtc.QImage_OnMirroredInplace(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#mirrored_inplace)
@@ -1045,9 +1045,9 @@ pub const qimage = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QImage, slot: fn () callconv(.c) void ```
-    pub fn OnRgbSwappedInplace(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QImage_OnRgbSwappedInplace(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QImage, callback: *const fn () callconv(.c) void ```
+    pub fn OnRgbSwappedInplace(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QImage_OnRgbSwappedInplace(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#rgbSwapped_inplace)
@@ -1070,9 +1070,9 @@ pub const qimage = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QImage, slot: fn (self: QtC.QImage, format: qimage_enums.Format, flags: flag of qnamespace_enums.ImageConversionFlag) callconv(.c) QtC.QImage ```
-    pub fn OnConvertToFormatHelper(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32) callconv(.c) QtC.QImage) void {
-        qtc.QImage_OnConvertToFormatHelper(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QImage, callback: *const fn (self: QtC.QImage, format: qimage_enums.Format, flags: flag of qnamespace_enums.ImageConversionFlag) callconv(.c) QtC.QImage ```
+    pub fn OnConvertToFormatHelper(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) QtC.QImage) void {
+        qtc.QImage_OnConvertToFormatHelper(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#convertToFormat_helper)
@@ -1095,9 +1095,9 @@ pub const qimage = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QImage, slot: fn (self: QtC.QImage, format: qimage_enums.Format, flags: flag of qnamespace_enums.ImageConversionFlag) callconv(.c) bool ```
-    pub fn OnConvertToFormatInplace(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32) callconv(.c) bool) void {
-        qtc.QImage_OnConvertToFormatInplace(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QImage, callback: *const fn (self: QtC.QImage, format: qimage_enums.Format, flags: flag of qnamespace_enums.ImageConversionFlag) callconv(.c) bool ```
+    pub fn OnConvertToFormatInplace(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) bool) void {
+        qtc.QImage_OnConvertToFormatInplace(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#convertToFormat_inplace)
@@ -1120,9 +1120,9 @@ pub const qimage = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QImage, slot: fn (self: QtC.QImage, w: i32, h: i32) callconv(.c) QtC.QImage ```
-    pub fn OnSmoothScaled(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32) callconv(.c) QtC.QImage) void {
-        qtc.QImage_OnSmoothScaled(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QImage, callback: *const fn (self: QtC.QImage, w: i32, h: i32) callconv(.c) QtC.QImage ```
+    pub fn OnSmoothScaled(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) QtC.QImage) void {
+        qtc.QImage_OnSmoothScaled(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#smoothScaled)
@@ -1145,9 +1145,9 @@ pub const qimage = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QImage, slot: fn () callconv(.c) void ```
-    pub fn OnDetachMetadata(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QImage_OnDetachMetadata(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QImage, callback: *const fn () callconv(.c) void ```
+    pub fn OnDetachMetadata(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QImage_OnDetachMetadata(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#detachMetadata)
@@ -1465,9 +1465,9 @@ pub const qimage = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QImage, slot: fn (self: QtC.QImage, invalidateCache: bool) callconv(.c) void ```
-    pub fn OnDetachMetadata1(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QImage_OnDetachMetadata1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QImage, callback: *const fn (self: QtC.QImage, invalidateCache: bool) callconv(.c) void ```
+    pub fn OnDetachMetadata1(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QImage_OnDetachMetadata1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#detachMetadata)
@@ -1597,9 +1597,9 @@ pub const qimage = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QImage, slot: fn (self: QtC.QImage, painter: QtC.QPainter) callconv(.c) void ```
-    pub fn OnInitPainter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QImage_OnInitPainter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QImage, callback: *const fn (self: QtC.QImage, painter: QtC.QPainter) callconv(.c) void ```
+    pub fn OnInitPainter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QImage_OnInitPainter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -1630,9 +1630,9 @@ pub const qimage = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QImage, slot: fn (self: QtC.QImage, offset: QtC.QPoint) callconv(.c) QtC.QPaintDevice ```
-    pub fn OnRedirected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPaintDevice) void {
-        qtc.QImage_OnRedirected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QImage, callback: *const fn (self: QtC.QImage, offset: QtC.QPoint) callconv(.c) QtC.QPaintDevice ```
+    pub fn OnRedirected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPaintDevice) void {
+        qtc.QImage_OnRedirected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -1663,9 +1663,9 @@ pub const qimage = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QImage, slot: fn () callconv(.c) QtC.QPainter ```
-    pub fn OnSharedPainter(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QPainter) void {
-        qtc.QImage_OnSharedPainter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QImage, callback: *const fn () callconv(.c) QtC.QPainter ```
+    pub fn OnSharedPainter(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainter) void {
+        qtc.QImage_OnSharedPainter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -1696,9 +1696,9 @@ pub const qimage = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QImage, slot: fn (self: QtC.QImage, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 ```
-    pub fn OnGetDecodedMetricF(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
-        qtc.QImage_OnGetDecodedMetricF(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QImage, callback: *const fn (self: QtC.QImage, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 ```
+    pub fn OnGetDecodedMetricF(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
+        qtc.QImage_OnGetDecodedMetricF(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#dtor.QImage)

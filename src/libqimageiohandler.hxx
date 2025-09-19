@@ -10,7 +10,7 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QImageIOHandler so that we can call protected methods
-class VirtualQImageIOHandler final : public QImageIOHandler {
+class VirtualQImageIOHandler : public QImageIOHandler {
 
   public:
     // Virtual class boolean flag
@@ -289,6 +289,354 @@ class VirtualQImageIOHandler final : public QImageIOHandler {
             return QImageIOHandler::currentImageRect();
         }
     }
+};
+
+// This class is a subclass of QImageIOPlugin so that we can call protected methods
+class VirtualQImageIOPlugin : public QImageIOPlugin {
+
+  public:
+    // Virtual class boolean flag
+    bool isVirtualQImageIOPlugin = true;
+
+    // Virtual class public types (including callbacks)
+    using QImageIOPlugin_Metacall_Callback = int (*)(QImageIOPlugin*, int, int, void**);
+    using QImageIOPlugin_Capabilities_Callback = int (*)(const QImageIOPlugin*, QIODevice*, libqt_string);
+    using QImageIOPlugin_Create_Callback = QImageIOHandler* (*)(const QImageIOPlugin*, QIODevice*, libqt_string);
+    using QImageIOPlugin_Event_Callback = bool (*)(QImageIOPlugin*, QEvent*);
+    using QImageIOPlugin_EventFilter_Callback = bool (*)(QImageIOPlugin*, QObject*, QEvent*);
+    using QImageIOPlugin_TimerEvent_Callback = void (*)(QImageIOPlugin*, QTimerEvent*);
+    using QImageIOPlugin_ChildEvent_Callback = void (*)(QImageIOPlugin*, QChildEvent*);
+    using QImageIOPlugin_CustomEvent_Callback = void (*)(QImageIOPlugin*, QEvent*);
+    using QImageIOPlugin_ConnectNotify_Callback = void (*)(QImageIOPlugin*, QMetaMethod*);
+    using QImageIOPlugin_DisconnectNotify_Callback = void (*)(QImageIOPlugin*, QMetaMethod*);
+    using QImageIOPlugin_Sender_Callback = QObject* (*)();
+    using QImageIOPlugin_SenderSignalIndex_Callback = int (*)();
+    using QImageIOPlugin_Receivers_Callback = int (*)(const QImageIOPlugin*, const char*);
+    using QImageIOPlugin_IsSignalConnected_Callback = bool (*)(const QImageIOPlugin*, QMetaMethod*);
+
+  protected:
+    // Instance callback storage
+    QImageIOPlugin_Metacall_Callback qimageioplugin_metacall_callback = nullptr;
+    QImageIOPlugin_Capabilities_Callback qimageioplugin_capabilities_callback = nullptr;
+    QImageIOPlugin_Create_Callback qimageioplugin_create_callback = nullptr;
+    QImageIOPlugin_Event_Callback qimageioplugin_event_callback = nullptr;
+    QImageIOPlugin_EventFilter_Callback qimageioplugin_eventfilter_callback = nullptr;
+    QImageIOPlugin_TimerEvent_Callback qimageioplugin_timerevent_callback = nullptr;
+    QImageIOPlugin_ChildEvent_Callback qimageioplugin_childevent_callback = nullptr;
+    QImageIOPlugin_CustomEvent_Callback qimageioplugin_customevent_callback = nullptr;
+    QImageIOPlugin_ConnectNotify_Callback qimageioplugin_connectnotify_callback = nullptr;
+    QImageIOPlugin_DisconnectNotify_Callback qimageioplugin_disconnectnotify_callback = nullptr;
+    QImageIOPlugin_Sender_Callback qimageioplugin_sender_callback = nullptr;
+    QImageIOPlugin_SenderSignalIndex_Callback qimageioplugin_sendersignalindex_callback = nullptr;
+    QImageIOPlugin_Receivers_Callback qimageioplugin_receivers_callback = nullptr;
+    QImageIOPlugin_IsSignalConnected_Callback qimageioplugin_issignalconnected_callback = nullptr;
+
+    // Instance base flags
+    mutable bool qimageioplugin_metacall_isbase = false;
+    mutable bool qimageioplugin_capabilities_isbase = false;
+    mutable bool qimageioplugin_create_isbase = false;
+    mutable bool qimageioplugin_event_isbase = false;
+    mutable bool qimageioplugin_eventfilter_isbase = false;
+    mutable bool qimageioplugin_timerevent_isbase = false;
+    mutable bool qimageioplugin_childevent_isbase = false;
+    mutable bool qimageioplugin_customevent_isbase = false;
+    mutable bool qimageioplugin_connectnotify_isbase = false;
+    mutable bool qimageioplugin_disconnectnotify_isbase = false;
+    mutable bool qimageioplugin_sender_isbase = false;
+    mutable bool qimageioplugin_sendersignalindex_isbase = false;
+    mutable bool qimageioplugin_receivers_isbase = false;
+    mutable bool qimageioplugin_issignalconnected_isbase = false;
+
+  public:
+    VirtualQImageIOPlugin() : QImageIOPlugin() {};
+    VirtualQImageIOPlugin(QObject* parent) : QImageIOPlugin(parent) {};
+
+    ~VirtualQImageIOPlugin() {
+        qimageioplugin_metacall_callback = nullptr;
+        qimageioplugin_capabilities_callback = nullptr;
+        qimageioplugin_create_callback = nullptr;
+        qimageioplugin_event_callback = nullptr;
+        qimageioplugin_eventfilter_callback = nullptr;
+        qimageioplugin_timerevent_callback = nullptr;
+        qimageioplugin_childevent_callback = nullptr;
+        qimageioplugin_customevent_callback = nullptr;
+        qimageioplugin_connectnotify_callback = nullptr;
+        qimageioplugin_disconnectnotify_callback = nullptr;
+        qimageioplugin_sender_callback = nullptr;
+        qimageioplugin_sendersignalindex_callback = nullptr;
+        qimageioplugin_receivers_callback = nullptr;
+        qimageioplugin_issignalconnected_callback = nullptr;
+    }
+
+    // Callback setters
+    inline void setQImageIOPlugin_Metacall_Callback(QImageIOPlugin_Metacall_Callback cb) { qimageioplugin_metacall_callback = cb; }
+    inline void setQImageIOPlugin_Capabilities_Callback(QImageIOPlugin_Capabilities_Callback cb) { qimageioplugin_capabilities_callback = cb; }
+    inline void setQImageIOPlugin_Create_Callback(QImageIOPlugin_Create_Callback cb) { qimageioplugin_create_callback = cb; }
+    inline void setQImageIOPlugin_Event_Callback(QImageIOPlugin_Event_Callback cb) { qimageioplugin_event_callback = cb; }
+    inline void setQImageIOPlugin_EventFilter_Callback(QImageIOPlugin_EventFilter_Callback cb) { qimageioplugin_eventfilter_callback = cb; }
+    inline void setQImageIOPlugin_TimerEvent_Callback(QImageIOPlugin_TimerEvent_Callback cb) { qimageioplugin_timerevent_callback = cb; }
+    inline void setQImageIOPlugin_ChildEvent_Callback(QImageIOPlugin_ChildEvent_Callback cb) { qimageioplugin_childevent_callback = cb; }
+    inline void setQImageIOPlugin_CustomEvent_Callback(QImageIOPlugin_CustomEvent_Callback cb) { qimageioplugin_customevent_callback = cb; }
+    inline void setQImageIOPlugin_ConnectNotify_Callback(QImageIOPlugin_ConnectNotify_Callback cb) { qimageioplugin_connectnotify_callback = cb; }
+    inline void setQImageIOPlugin_DisconnectNotify_Callback(QImageIOPlugin_DisconnectNotify_Callback cb) { qimageioplugin_disconnectnotify_callback = cb; }
+    inline void setQImageIOPlugin_Sender_Callback(QImageIOPlugin_Sender_Callback cb) { qimageioplugin_sender_callback = cb; }
+    inline void setQImageIOPlugin_SenderSignalIndex_Callback(QImageIOPlugin_SenderSignalIndex_Callback cb) { qimageioplugin_sendersignalindex_callback = cb; }
+    inline void setQImageIOPlugin_Receivers_Callback(QImageIOPlugin_Receivers_Callback cb) { qimageioplugin_receivers_callback = cb; }
+    inline void setQImageIOPlugin_IsSignalConnected_Callback(QImageIOPlugin_IsSignalConnected_Callback cb) { qimageioplugin_issignalconnected_callback = cb; }
+
+    // Base flag setters
+    inline void setQImageIOPlugin_Metacall_IsBase(bool value) const { qimageioplugin_metacall_isbase = value; }
+    inline void setQImageIOPlugin_Capabilities_IsBase(bool value) const { qimageioplugin_capabilities_isbase = value; }
+    inline void setQImageIOPlugin_Create_IsBase(bool value) const { qimageioplugin_create_isbase = value; }
+    inline void setQImageIOPlugin_Event_IsBase(bool value) const { qimageioplugin_event_isbase = value; }
+    inline void setQImageIOPlugin_EventFilter_IsBase(bool value) const { qimageioplugin_eventfilter_isbase = value; }
+    inline void setQImageIOPlugin_TimerEvent_IsBase(bool value) const { qimageioplugin_timerevent_isbase = value; }
+    inline void setQImageIOPlugin_ChildEvent_IsBase(bool value) const { qimageioplugin_childevent_isbase = value; }
+    inline void setQImageIOPlugin_CustomEvent_IsBase(bool value) const { qimageioplugin_customevent_isbase = value; }
+    inline void setQImageIOPlugin_ConnectNotify_IsBase(bool value) const { qimageioplugin_connectnotify_isbase = value; }
+    inline void setQImageIOPlugin_DisconnectNotify_IsBase(bool value) const { qimageioplugin_disconnectnotify_isbase = value; }
+    inline void setQImageIOPlugin_Sender_IsBase(bool value) const { qimageioplugin_sender_isbase = value; }
+    inline void setQImageIOPlugin_SenderSignalIndex_IsBase(bool value) const { qimageioplugin_sendersignalindex_isbase = value; }
+    inline void setQImageIOPlugin_Receivers_IsBase(bool value) const { qimageioplugin_receivers_isbase = value; }
+    inline void setQImageIOPlugin_IsSignalConnected_IsBase(bool value) const { qimageioplugin_issignalconnected_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual int qt_metacall(QMetaObject::Call param1, int param2, void** param3) override {
+        if (qimageioplugin_metacall_isbase) {
+            qimageioplugin_metacall_isbase = false;
+            return QImageIOPlugin::qt_metacall(param1, param2, param3);
+        } else if (qimageioplugin_metacall_callback != nullptr) {
+            int cbval1 = static_cast<int>(param1);
+            int cbval2 = param2;
+            void** cbval3 = param3;
+
+            int callback_ret = qimageioplugin_metacall_callback(this, cbval1, cbval2, cbval3);
+            return static_cast<int>(callback_ret);
+        } else {
+            return QImageIOPlugin::qt_metacall(param1, param2, param3);
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual QImageIOPlugin::Capabilities capabilities(QIODevice* device, const QByteArray& format) const override {
+        if (qimageioplugin_capabilities_callback != nullptr) {
+            QIODevice* cbval1 = device;
+            const QByteArray format_qb = format;
+            libqt_string format_str;
+            format_str.len = format_qb.length();
+            format_str.data = static_cast<const char*>(malloc(format_str.len + 1));
+            memcpy((void*)format_str.data, format_qb.data(), format_str.len);
+            ((char*)format_str.data)[format_str.len] = '\0';
+            libqt_string cbval2 = format_str;
+
+            int callback_ret = qimageioplugin_capabilities_callback(this, cbval1, cbval2);
+            return static_cast<QImageIOPlugin::Capabilities>(callback_ret);
+        } else {
+            return {};
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual QImageIOHandler* create(QIODevice* device, const QByteArray& format) const override {
+        if (qimageioplugin_create_callback != nullptr) {
+            QIODevice* cbval1 = device;
+            const QByteArray format_qb = format;
+            libqt_string format_str;
+            format_str.len = format_qb.length();
+            format_str.data = static_cast<const char*>(malloc(format_str.len + 1));
+            memcpy((void*)format_str.data, format_qb.data(), format_str.len);
+            ((char*)format_str.data)[format_str.len] = '\0';
+            libqt_string cbval2 = format_str;
+
+            QImageIOHandler* callback_ret = qimageioplugin_create_callback(this, cbval1, cbval2);
+            return callback_ret;
+        } else {
+            return {};
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual bool event(QEvent* event) override {
+        if (qimageioplugin_event_isbase) {
+            qimageioplugin_event_isbase = false;
+            return QImageIOPlugin::event(event);
+        } else if (qimageioplugin_event_callback != nullptr) {
+            QEvent* cbval1 = event;
+
+            bool callback_ret = qimageioplugin_event_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QImageIOPlugin::event(event);
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual bool eventFilter(QObject* watched, QEvent* event) override {
+        if (qimageioplugin_eventfilter_isbase) {
+            qimageioplugin_eventfilter_isbase = false;
+            return QImageIOPlugin::eventFilter(watched, event);
+        } else if (qimageioplugin_eventfilter_callback != nullptr) {
+            QObject* cbval1 = watched;
+            QEvent* cbval2 = event;
+
+            bool callback_ret = qimageioplugin_eventfilter_callback(this, cbval1, cbval2);
+            return callback_ret;
+        } else {
+            return QImageIOPlugin::eventFilter(watched, event);
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void timerEvent(QTimerEvent* event) override {
+        if (qimageioplugin_timerevent_isbase) {
+            qimageioplugin_timerevent_isbase = false;
+            QImageIOPlugin::timerEvent(event);
+        } else if (qimageioplugin_timerevent_callback != nullptr) {
+            QTimerEvent* cbval1 = event;
+
+            qimageioplugin_timerevent_callback(this, cbval1);
+        } else {
+            QImageIOPlugin::timerEvent(event);
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void childEvent(QChildEvent* event) override {
+        if (qimageioplugin_childevent_isbase) {
+            qimageioplugin_childevent_isbase = false;
+            QImageIOPlugin::childEvent(event);
+        } else if (qimageioplugin_childevent_callback != nullptr) {
+            QChildEvent* cbval1 = event;
+
+            qimageioplugin_childevent_callback(this, cbval1);
+        } else {
+            QImageIOPlugin::childEvent(event);
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void customEvent(QEvent* event) override {
+        if (qimageioplugin_customevent_isbase) {
+            qimageioplugin_customevent_isbase = false;
+            QImageIOPlugin::customEvent(event);
+        } else if (qimageioplugin_customevent_callback != nullptr) {
+            QEvent* cbval1 = event;
+
+            qimageioplugin_customevent_callback(this, cbval1);
+        } else {
+            QImageIOPlugin::customEvent(event);
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void connectNotify(const QMetaMethod& signal) override {
+        if (qimageioplugin_connectnotify_isbase) {
+            qimageioplugin_connectnotify_isbase = false;
+            QImageIOPlugin::connectNotify(signal);
+        } else if (qimageioplugin_connectnotify_callback != nullptr) {
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qimageioplugin_connectnotify_callback(this, cbval1);
+        } else {
+            QImageIOPlugin::connectNotify(signal);
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void disconnectNotify(const QMetaMethod& signal) override {
+        if (qimageioplugin_disconnectnotify_isbase) {
+            qimageioplugin_disconnectnotify_isbase = false;
+            QImageIOPlugin::disconnectNotify(signal);
+        } else if (qimageioplugin_disconnectnotify_callback != nullptr) {
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            qimageioplugin_disconnectnotify_callback(this, cbval1);
+        } else {
+            QImageIOPlugin::disconnectNotify(signal);
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    QObject* sender() const {
+        if (qimageioplugin_sender_isbase) {
+            qimageioplugin_sender_isbase = false;
+            return QImageIOPlugin::sender();
+        } else if (qimageioplugin_sender_callback != nullptr) {
+            QObject* callback_ret = qimageioplugin_sender_callback();
+            return callback_ret;
+        } else {
+            return QImageIOPlugin::sender();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    int senderSignalIndex() const {
+        if (qimageioplugin_sendersignalindex_isbase) {
+            qimageioplugin_sendersignalindex_isbase = false;
+            return QImageIOPlugin::senderSignalIndex();
+        } else if (qimageioplugin_sendersignalindex_callback != nullptr) {
+            int callback_ret = qimageioplugin_sendersignalindex_callback();
+            return static_cast<int>(callback_ret);
+        } else {
+            return QImageIOPlugin::senderSignalIndex();
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    int receivers(const char* signal) const {
+        if (qimageioplugin_receivers_isbase) {
+            qimageioplugin_receivers_isbase = false;
+            return QImageIOPlugin::receivers(signal);
+        } else if (qimageioplugin_receivers_callback != nullptr) {
+            const char* cbval1 = (const char*)signal;
+
+            int callback_ret = qimageioplugin_receivers_callback(this, cbval1);
+            return static_cast<int>(callback_ret);
+        } else {
+            return QImageIOPlugin::receivers(signal);
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    bool isSignalConnected(const QMetaMethod& signal) const {
+        if (qimageioplugin_issignalconnected_isbase) {
+            qimageioplugin_issignalconnected_isbase = false;
+            return QImageIOPlugin::isSignalConnected(signal);
+        } else if (qimageioplugin_issignalconnected_callback != nullptr) {
+            const QMetaMethod& signal_ret = signal;
+            // Cast returned reference into pointer
+            QMetaMethod* cbval1 = const_cast<QMetaMethod*>(&signal_ret);
+
+            bool callback_ret = qimageioplugin_issignalconnected_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return QImageIOPlugin::isSignalConnected(signal);
+        }
+    }
+
+    // Friend functions
+    friend void QImageIOPlugin_TimerEvent(QImageIOPlugin* self, QTimerEvent* event);
+    friend void QImageIOPlugin_QBaseTimerEvent(QImageIOPlugin* self, QTimerEvent* event);
+    friend void QImageIOPlugin_ChildEvent(QImageIOPlugin* self, QChildEvent* event);
+    friend void QImageIOPlugin_QBaseChildEvent(QImageIOPlugin* self, QChildEvent* event);
+    friend void QImageIOPlugin_CustomEvent(QImageIOPlugin* self, QEvent* event);
+    friend void QImageIOPlugin_QBaseCustomEvent(QImageIOPlugin* self, QEvent* event);
+    friend void QImageIOPlugin_ConnectNotify(QImageIOPlugin* self, const QMetaMethod* signal);
+    friend void QImageIOPlugin_QBaseConnectNotify(QImageIOPlugin* self, const QMetaMethod* signal);
+    friend void QImageIOPlugin_DisconnectNotify(QImageIOPlugin* self, const QMetaMethod* signal);
+    friend void QImageIOPlugin_QBaseDisconnectNotify(QImageIOPlugin* self, const QMetaMethod* signal);
+    friend QObject* QImageIOPlugin_Sender(const QImageIOPlugin* self);
+    friend QObject* QImageIOPlugin_QBaseSender(const QImageIOPlugin* self);
+    friend int QImageIOPlugin_SenderSignalIndex(const QImageIOPlugin* self);
+    friend int QImageIOPlugin_QBaseSenderSignalIndex(const QImageIOPlugin* self);
+    friend int QImageIOPlugin_Receivers(const QImageIOPlugin* self, const char* signal);
+    friend int QImageIOPlugin_QBaseReceivers(const QImageIOPlugin* self, const char* signal);
+    friend bool QImageIOPlugin_IsSignalConnected(const QImageIOPlugin* self, const QMetaMethod* signal);
+    friend bool QImageIOPlugin_QBaseIsSignalConnected(const QImageIOPlugin* self, const QMetaMethod* signal);
 };
 
 #endif

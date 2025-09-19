@@ -161,9 +161,9 @@ pub const qgraphicssceneevent = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsSceneEvent, slot: fn (self: QtC.QGraphicsSceneEvent, accepted: bool) callconv(.c) void ```
-    pub fn OnSetAccepted(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QGraphicsSceneEvent_OnSetAccepted(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsSceneEvent, callback: *const fn (self: QtC.QGraphicsSceneEvent, accepted: bool) callconv(.c) void ```
+    pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QGraphicsSceneEvent_OnSetAccepted(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QEvent
@@ -194,9 +194,9 @@ pub const qgraphicssceneevent = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsSceneEvent, slot: fn () callconv(.c) QtC.QEvent ```
-    pub fn OnClone(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QEvent) void {
-        qtc.QGraphicsSceneEvent_OnClone(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsSceneEvent, callback: *const fn () callconv(.c) QtC.QEvent ```
+    pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QEvent) void {
+        qtc.QGraphicsSceneEvent_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneevent.html#dtor.QGraphicsSceneEvent)
@@ -587,9 +587,9 @@ pub const qgraphicsscenemouseevent = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsSceneMouseEvent, slot: fn (self: QtC.QGraphicsSceneMouseEvent, accepted: bool) callconv(.c) void ```
-    pub fn OnSetAccepted(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QGraphicsSceneMouseEvent_OnSetAccepted(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsSceneMouseEvent, callback: *const fn (self: QtC.QGraphicsSceneMouseEvent, accepted: bool) callconv(.c) void ```
+    pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QGraphicsSceneMouseEvent_OnSetAccepted(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QEvent
@@ -620,9 +620,9 @@ pub const qgraphicsscenemouseevent = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsSceneMouseEvent, slot: fn () callconv(.c) QtC.QEvent ```
-    pub fn OnClone(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QEvent) void {
-        qtc.QGraphicsSceneMouseEvent_OnClone(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsSceneMouseEvent, callback: *const fn () callconv(.c) QtC.QEvent ```
+    pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QEvent) void {
+        qtc.QGraphicsSceneMouseEvent_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#dtor.QGraphicsSceneMouseEvent)
@@ -955,9 +955,9 @@ pub const qgraphicsscenewheelevent = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsSceneWheelEvent, slot: fn (self: QtC.QGraphicsSceneWheelEvent, accepted: bool) callconv(.c) void ```
-    pub fn OnSetAccepted(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QGraphicsSceneWheelEvent_OnSetAccepted(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsSceneWheelEvent, callback: *const fn (self: QtC.QGraphicsSceneWheelEvent, accepted: bool) callconv(.c) void ```
+    pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QGraphicsSceneWheelEvent_OnSetAccepted(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QEvent
@@ -988,9 +988,9 @@ pub const qgraphicsscenewheelevent = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsSceneWheelEvent, slot: fn () callconv(.c) QtC.QEvent ```
-    pub fn OnClone(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QEvent) void {
-        qtc.QGraphicsSceneWheelEvent_OnClone(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsSceneWheelEvent, callback: *const fn () callconv(.c) QtC.QEvent ```
+    pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QEvent) void {
+        qtc.QGraphicsSceneWheelEvent_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#dtor.QGraphicsSceneWheelEvent)
@@ -1249,9 +1249,9 @@ pub const qgraphicsscenecontextmenuevent = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsSceneContextMenuEvent, slot: fn (self: QtC.QGraphicsSceneContextMenuEvent, accepted: bool) callconv(.c) void ```
-    pub fn OnSetAccepted(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QGraphicsSceneContextMenuEvent_OnSetAccepted(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsSceneContextMenuEvent, callback: *const fn (self: QtC.QGraphicsSceneContextMenuEvent, accepted: bool) callconv(.c) void ```
+    pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QGraphicsSceneContextMenuEvent_OnSetAccepted(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QEvent
@@ -1282,9 +1282,9 @@ pub const qgraphicsscenecontextmenuevent = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsSceneContextMenuEvent, slot: fn () callconv(.c) QtC.QEvent ```
-    pub fn OnClone(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QEvent) void {
-        qtc.QGraphicsSceneContextMenuEvent_OnClone(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsSceneContextMenuEvent, callback: *const fn () callconv(.c) QtC.QEvent ```
+    pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QEvent) void {
+        qtc.QGraphicsSceneContextMenuEvent_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenecontextmenuevent.html#dtor.QGraphicsSceneContextMenuEvent)
@@ -1569,9 +1569,9 @@ pub const qgraphicsscenehoverevent = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsSceneHoverEvent, slot: fn (self: QtC.QGraphicsSceneHoverEvent, accepted: bool) callconv(.c) void ```
-    pub fn OnSetAccepted(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QGraphicsSceneHoverEvent_OnSetAccepted(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsSceneHoverEvent, callback: *const fn (self: QtC.QGraphicsSceneHoverEvent, accepted: bool) callconv(.c) void ```
+    pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QGraphicsSceneHoverEvent_OnSetAccepted(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QEvent
@@ -1602,9 +1602,9 @@ pub const qgraphicsscenehoverevent = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsSceneHoverEvent, slot: fn () callconv(.c) QtC.QEvent ```
-    pub fn OnClone(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QEvent) void {
-        qtc.QGraphicsSceneHoverEvent_OnClone(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsSceneHoverEvent, callback: *const fn () callconv(.c) QtC.QEvent ```
+    pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QEvent) void {
+        qtc.QGraphicsSceneHoverEvent_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenehoverevent.html#dtor.QGraphicsSceneHoverEvent)
@@ -1817,9 +1817,9 @@ pub const qgraphicsscenehelpevent = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsSceneHelpEvent, slot: fn (self: QtC.QGraphicsSceneHelpEvent, accepted: bool) callconv(.c) void ```
-    pub fn OnSetAccepted(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QGraphicsSceneHelpEvent_OnSetAccepted(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsSceneHelpEvent, callback: *const fn (self: QtC.QGraphicsSceneHelpEvent, accepted: bool) callconv(.c) void ```
+    pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QGraphicsSceneHelpEvent_OnSetAccepted(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QEvent
@@ -1850,9 +1850,9 @@ pub const qgraphicsscenehelpevent = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsSceneHelpEvent, slot: fn () callconv(.c) QtC.QEvent ```
-    pub fn OnClone(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QEvent) void {
-        qtc.QGraphicsSceneHelpEvent_OnClone(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsSceneHelpEvent, callback: *const fn () callconv(.c) QtC.QEvent ```
+    pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QEvent) void {
+        qtc.QGraphicsSceneHelpEvent_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenehelpevent.html#dtor.QGraphicsSceneHelpEvent)
@@ -2194,9 +2194,9 @@ pub const qgraphicsscenedragdropevent = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsSceneDragDropEvent, slot: fn (self: QtC.QGraphicsSceneDragDropEvent, accepted: bool) callconv(.c) void ```
-    pub fn OnSetAccepted(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QGraphicsSceneDragDropEvent_OnSetAccepted(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsSceneDragDropEvent, callback: *const fn (self: QtC.QGraphicsSceneDragDropEvent, accepted: bool) callconv(.c) void ```
+    pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QGraphicsSceneDragDropEvent_OnSetAccepted(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QEvent
@@ -2227,9 +2227,9 @@ pub const qgraphicsscenedragdropevent = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsSceneDragDropEvent, slot: fn () callconv(.c) QtC.QEvent ```
-    pub fn OnClone(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QEvent) void {
-        qtc.QGraphicsSceneDragDropEvent_OnClone(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsSceneDragDropEvent, callback: *const fn () callconv(.c) QtC.QEvent ```
+    pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QEvent) void {
+        qtc.QGraphicsSceneDragDropEvent_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#dtor.QGraphicsSceneDragDropEvent)
@@ -2435,9 +2435,9 @@ pub const qgraphicssceneresizeevent = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsSceneResizeEvent, slot: fn (self: QtC.QGraphicsSceneResizeEvent, accepted: bool) callconv(.c) void ```
-    pub fn OnSetAccepted(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QGraphicsSceneResizeEvent_OnSetAccepted(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsSceneResizeEvent, callback: *const fn (self: QtC.QGraphicsSceneResizeEvent, accepted: bool) callconv(.c) void ```
+    pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QGraphicsSceneResizeEvent_OnSetAccepted(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QEvent
@@ -2468,9 +2468,9 @@ pub const qgraphicssceneresizeevent = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsSceneResizeEvent, slot: fn () callconv(.c) QtC.QEvent ```
-    pub fn OnClone(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QEvent) void {
-        qtc.QGraphicsSceneResizeEvent_OnClone(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsSceneResizeEvent, callback: *const fn () callconv(.c) QtC.QEvent ```
+    pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QEvent) void {
+        qtc.QGraphicsSceneResizeEvent_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssceneresizeevent.html#dtor.QGraphicsSceneResizeEvent)
@@ -2676,9 +2676,9 @@ pub const qgraphicsscenemoveevent = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsSceneMoveEvent, slot: fn (self: QtC.QGraphicsSceneMoveEvent, accepted: bool) callconv(.c) void ```
-    pub fn OnSetAccepted(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QGraphicsSceneMoveEvent_OnSetAccepted(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsSceneMoveEvent, callback: *const fn (self: QtC.QGraphicsSceneMoveEvent, accepted: bool) callconv(.c) void ```
+    pub fn OnSetAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QGraphicsSceneMoveEvent_OnSetAccepted(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QEvent
@@ -2709,9 +2709,9 @@ pub const qgraphicsscenemoveevent = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsSceneMoveEvent, slot: fn () callconv(.c) QtC.QEvent ```
-    pub fn OnClone(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QEvent) void {
-        qtc.QGraphicsSceneMoveEvent_OnClone(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsSceneMoveEvent, callback: *const fn () callconv(.c) QtC.QEvent ```
+    pub fn OnClone(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QEvent) void {
+        qtc.QGraphicsSceneMoveEvent_OnClone(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsscenemoveevent.html#dtor.QGraphicsSceneMoveEvent)

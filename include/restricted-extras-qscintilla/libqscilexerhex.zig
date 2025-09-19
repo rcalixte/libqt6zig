@@ -40,9 +40,9 @@ pub const qscilexerhex = struct {
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QsciLexerHex, slot: fn (self: QtC.QsciLexerHex, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QsciLexerHex_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciLexerHex, callback: *const fn (self: QtC.QsciLexerHex, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+        qtc.QsciLexerHex_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -216,9 +216,9 @@ pub const qscilexerhex = struct {
     ///
     /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
-    /// ``` self: QtC.QsciLexerHex, slot: fn (self: QtC.QsciLexerHex, c: QtC.QColor, style: i32) callconv(.c) void ```
-    pub fn OnColorChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QsciLexer_Connect_ColorChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciLexerHex, callback: *const fn (self: QtC.QsciLexerHex, c: QtC.QColor, style: i32) callconv(.c) void ```
+    pub fn OnColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QsciLexer_Connect_ColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -234,9 +234,9 @@ pub const qscilexerhex = struct {
     ///
     /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
-    /// ``` self: QtC.QsciLexerHex, slot: fn (self: QtC.QsciLexerHex, eolfilled: bool, style: i32) callconv(.c) void ```
-    pub fn OnEolFillChanged(self: ?*anyopaque, slot: fn (?*anyopaque, bool, i32) callconv(.c) void) void {
-        qtc.QsciLexer_Connect_EolFillChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciLexerHex, callback: *const fn (self: QtC.QsciLexerHex, eolfilled: bool, style: i32) callconv(.c) void ```
+    pub fn OnEolFillChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool, i32) callconv(.c) void) void {
+        qtc.QsciLexer_Connect_EolFillChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -252,9 +252,9 @@ pub const qscilexerhex = struct {
     ///
     /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
-    /// ``` self: QtC.QsciLexerHex, slot: fn (self: QtC.QsciLexerHex, f: QtC.QFont, style: i32) callconv(.c) void ```
-    pub fn OnFontChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QsciLexer_Connect_FontChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciLexerHex, callback: *const fn (self: QtC.QsciLexerHex, f: QtC.QFont, style: i32) callconv(.c) void ```
+    pub fn OnFontChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QsciLexer_Connect_FontChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -270,9 +270,9 @@ pub const qscilexerhex = struct {
     ///
     /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
-    /// ``` self: QtC.QsciLexerHex, slot: fn (self: QtC.QsciLexerHex, c: QtC.QColor, style: i32) callconv(.c) void ```
-    pub fn OnPaperChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QsciLexer_Connect_PaperChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciLexerHex, callback: *const fn (self: QtC.QsciLexerHex, c: QtC.QColor, style: i32) callconv(.c) void ```
+    pub fn OnPaperChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QsciLexer_Connect_PaperChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -290,9 +290,9 @@ pub const qscilexerhex = struct {
     ///
     /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexer.html)
     ///
-    /// ``` self: QtC.QsciLexerHex, slot: fn (self: QtC.QsciLexerHex, prop: [*:0]const u8, val: [*:0]const u8) callconv(.c) void ```
-    pub fn OnPropertyChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
-        qtc.QsciLexer_Connect_PropertyChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciLexerHex, callback: *const fn (self: QtC.QsciLexerHex, prop: [*:0]const u8, val: [*:0]const u8) callconv(.c) void ```
+    pub fn OnPropertyChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
+        qtc.QsciLexer_Connect_PropertyChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -603,9 +603,9 @@ pub const qscilexerhex = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QsciLexerHex, slot: fn (self: QtC.QsciLexerHex) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciLexerHex, callback: *const fn (self: QtC.QsciLexerHex) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -687,9 +687,9 @@ pub const qscilexerhex = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QsciLexerHex, slot: fn (self: QtC.QsciLexerHex, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciLexerHex, callback: *const fn (self: QtC.QsciLexerHex, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -722,9 +722,9 @@ pub const qscilexerhex = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerHex, slot: fn () callconv(.c) [*:0]const u8 ```
-    pub fn OnLanguage(self: ?*anyopaque, slot: fn () callconv(.c) [*:0]const u8) void {
-        qtc.QsciLexerHex_OnLanguage(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciLexerHex, callback: *const fn () callconv(.c) [*:0]const u8 ```
+    pub fn OnLanguage(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
+        qtc.QsciLexerHex_OnLanguage(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -757,9 +757,9 @@ pub const qscilexerhex = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerHex, slot: fn () callconv(.c) [*:0]const u8 ```
-    pub fn OnLexer(self: ?*anyopaque, slot: fn () callconv(.c) [*:0]const u8) void {
-        qtc.QsciLexerHex_OnLexer(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciLexerHex, callback: *const fn () callconv(.c) [*:0]const u8 ```
+    pub fn OnLexer(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
+        qtc.QsciLexerHex_OnLexer(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -790,9 +790,9 @@ pub const qscilexerhex = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerHex, slot: fn () callconv(.c) i32 ```
-    pub fn OnLexerId(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QsciLexerHex_OnLexerId(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciLexerHex, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnLexerId(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QsciLexerHex_OnLexerId(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -825,9 +825,9 @@ pub const qscilexerhex = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerHex, slot: fn () callconv(.c) [*:0]const u8 ```
-    pub fn OnAutoCompletionFillups(self: ?*anyopaque, slot: fn () callconv(.c) [*:0]const u8) void {
-        qtc.QsciLexerHex_OnAutoCompletionFillups(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciLexerHex, callback: *const fn () callconv(.c) [*:0]const u8 ```
+    pub fn OnAutoCompletionFillups(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
+        qtc.QsciLexerHex_OnAutoCompletionFillups(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -888,9 +888,9 @@ pub const qscilexerhex = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerHex, slot: fn () callconv(.c) [*][*:0]const u8 ```
-    pub fn OnAutoCompletionWordSeparators(self: ?*anyopaque, slot: fn () callconv(.c) [*][*:0]const u8) void {
-        qtc.QsciLexerHex_OnAutoCompletionWordSeparators(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciLexerHex, callback: *const fn () callconv(.c) [*][*:0]const u8 ```
+    pub fn OnAutoCompletionWordSeparators(self: ?*anyopaque, callback: *const fn () callconv(.c) [*][*:0]const u8) void {
+        qtc.QsciLexerHex_OnAutoCompletionWordSeparators(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -923,9 +923,9 @@ pub const qscilexerhex = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerHex, slot: fn (self: QtC.QsciLexerHex, style: *i32) callconv(.c) [*:0]const u8 ```
-    pub fn OnBlockEnd(self: ?*anyopaque, slot: fn (?*anyopaque, *i32) callconv(.c) [*:0]const u8) void {
-        qtc.QsciLexerHex_OnBlockEnd(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciLexerHex, callback: *const fn (self: QtC.QsciLexerHex, style: *i32) callconv(.c) [*:0]const u8 ```
+    pub fn OnBlockEnd(self: ?*anyopaque, callback: *const fn (?*anyopaque, *i32) callconv(.c) [*:0]const u8) void {
+        qtc.QsciLexerHex_OnBlockEnd(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -956,9 +956,9 @@ pub const qscilexerhex = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerHex, slot: fn () callconv(.c) i32 ```
-    pub fn OnBlockLookback(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QsciLexerHex_OnBlockLookback(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciLexerHex, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnBlockLookback(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QsciLexerHex_OnBlockLookback(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -991,9 +991,9 @@ pub const qscilexerhex = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerHex, slot: fn (self: QtC.QsciLexerHex, style: *i32) callconv(.c) [*:0]const u8 ```
-    pub fn OnBlockStart(self: ?*anyopaque, slot: fn (?*anyopaque, *i32) callconv(.c) [*:0]const u8) void {
-        qtc.QsciLexerHex_OnBlockStart(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciLexerHex, callback: *const fn (self: QtC.QsciLexerHex, style: *i32) callconv(.c) [*:0]const u8 ```
+    pub fn OnBlockStart(self: ?*anyopaque, callback: *const fn (?*anyopaque, *i32) callconv(.c) [*:0]const u8) void {
+        qtc.QsciLexerHex_OnBlockStart(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -1026,9 +1026,9 @@ pub const qscilexerhex = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerHex, slot: fn (self: QtC.QsciLexerHex, style: *i32) callconv(.c) [*:0]const u8 ```
-    pub fn OnBlockStartKeyword(self: ?*anyopaque, slot: fn (?*anyopaque, *i32) callconv(.c) [*:0]const u8) void {
-        qtc.QsciLexerHex_OnBlockStartKeyword(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciLexerHex, callback: *const fn (self: QtC.QsciLexerHex, style: *i32) callconv(.c) [*:0]const u8 ```
+    pub fn OnBlockStartKeyword(self: ?*anyopaque, callback: *const fn (?*anyopaque, *i32) callconv(.c) [*:0]const u8) void {
+        qtc.QsciLexerHex_OnBlockStartKeyword(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -1059,9 +1059,9 @@ pub const qscilexerhex = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerHex, slot: fn () callconv(.c) i32 ```
-    pub fn OnBraceStyle(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QsciLexerHex_OnBraceStyle(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciLexerHex, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnBraceStyle(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QsciLexerHex_OnBraceStyle(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -1092,9 +1092,9 @@ pub const qscilexerhex = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerHex, slot: fn () callconv(.c) bool ```
-    pub fn OnCaseSensitive(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.QsciLexerHex_OnCaseSensitive(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciLexerHex, callback: *const fn () callconv(.c) bool ```
+    pub fn OnCaseSensitive(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.QsciLexerHex_OnCaseSensitive(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -1125,9 +1125,9 @@ pub const qscilexerhex = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerHex, slot: fn (self: QtC.QsciLexerHex, style: i32) callconv(.c) QtC.QColor ```
-    pub fn OnColor(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) QtC.QColor) void {
-        qtc.QsciLexerHex_OnColor(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciLexerHex, callback: *const fn (self: QtC.QsciLexerHex, style: i32) callconv(.c) QtC.QColor ```
+    pub fn OnColor(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QColor) void {
+        qtc.QsciLexerHex_OnColor(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -1158,9 +1158,9 @@ pub const qscilexerhex = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerHex, slot: fn (self: QtC.QsciLexerHex, style: i32) callconv(.c) bool ```
-    pub fn OnEolFill(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QsciLexerHex_OnEolFill(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciLexerHex, callback: *const fn (self: QtC.QsciLexerHex, style: i32) callconv(.c) bool ```
+    pub fn OnEolFill(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
+        qtc.QsciLexerHex_OnEolFill(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -1191,9 +1191,9 @@ pub const qscilexerhex = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerHex, slot: fn (self: QtC.QsciLexerHex, style: i32) callconv(.c) QtC.QFont ```
-    pub fn OnFont(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) QtC.QFont) void {
-        qtc.QsciLexerHex_OnFont(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciLexerHex, callback: *const fn (self: QtC.QsciLexerHex, style: i32) callconv(.c) QtC.QFont ```
+    pub fn OnFont(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QFont) void {
+        qtc.QsciLexerHex_OnFont(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -1224,9 +1224,9 @@ pub const qscilexerhex = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerHex, slot: fn () callconv(.c) i32 ```
-    pub fn OnIndentationGuideView(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QsciLexerHex_OnIndentationGuideView(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciLexerHex, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnIndentationGuideView(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QsciLexerHex_OnIndentationGuideView(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -1259,9 +1259,9 @@ pub const qscilexerhex = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerHex, slot: fn (self: QtC.QsciLexerHex, set: i32) callconv(.c) [*:0]const u8 ```
-    pub fn OnKeywords(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) [*:0]const u8) void {
-        qtc.QsciLexerHex_OnKeywords(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciLexerHex, callback: *const fn (self: QtC.QsciLexerHex, set: i32) callconv(.c) [*:0]const u8 ```
+    pub fn OnKeywords(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) [*:0]const u8) void {
+        qtc.QsciLexerHex_OnKeywords(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -1292,9 +1292,9 @@ pub const qscilexerhex = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerHex, slot: fn () callconv(.c) i32 ```
-    pub fn OnDefaultStyle(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QsciLexerHex_OnDefaultStyle(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciLexerHex, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnDefaultStyle(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QsciLexerHex_OnDefaultStyle(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -1325,9 +1325,9 @@ pub const qscilexerhex = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerHex, slot: fn (self: QtC.QsciLexerHex, style: i32) callconv(.c) QtC.QColor ```
-    pub fn OnPaper(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) QtC.QColor) void {
-        qtc.QsciLexerHex_OnPaper(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciLexerHex, callback: *const fn (self: QtC.QsciLexerHex, style: i32) callconv(.c) QtC.QColor ```
+    pub fn OnPaper(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QColor) void {
+        qtc.QsciLexerHex_OnPaper(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -1358,9 +1358,9 @@ pub const qscilexerhex = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerHex, slot: fn (self: QtC.QsciLexerHex, style: i32) callconv(.c) QtC.QColor ```
-    pub fn OnDefaultColor2(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) QtC.QColor) void {
-        qtc.QsciLexerHex_OnDefaultColor2(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciLexerHex, callback: *const fn (self: QtC.QsciLexerHex, style: i32) callconv(.c) QtC.QColor ```
+    pub fn OnDefaultColor2(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QColor) void {
+        qtc.QsciLexerHex_OnDefaultColor2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -1391,9 +1391,9 @@ pub const qscilexerhex = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerHex, slot: fn (self: QtC.QsciLexerHex, style: i32) callconv(.c) bool ```
-    pub fn OnDefaultEolFill(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QsciLexerHex_OnDefaultEolFill(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciLexerHex, callback: *const fn (self: QtC.QsciLexerHex, style: i32) callconv(.c) bool ```
+    pub fn OnDefaultEolFill(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
+        qtc.QsciLexerHex_OnDefaultEolFill(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -1424,9 +1424,9 @@ pub const qscilexerhex = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerHex, slot: fn (self: QtC.QsciLexerHex, style: i32) callconv(.c) QtC.QFont ```
-    pub fn OnDefaultFont2(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) QtC.QFont) void {
-        qtc.QsciLexerHex_OnDefaultFont2(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciLexerHex, callback: *const fn (self: QtC.QsciLexerHex, style: i32) callconv(.c) QtC.QFont ```
+    pub fn OnDefaultFont2(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QFont) void {
+        qtc.QsciLexerHex_OnDefaultFont2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -1457,9 +1457,9 @@ pub const qscilexerhex = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerHex, slot: fn (self: QtC.QsciLexerHex, style: i32) callconv(.c) QtC.QColor ```
-    pub fn OnDefaultPaper2(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) QtC.QColor) void {
-        qtc.QsciLexerHex_OnDefaultPaper2(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciLexerHex, callback: *const fn (self: QtC.QsciLexerHex, style: i32) callconv(.c) QtC.QColor ```
+    pub fn OnDefaultPaper2(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QColor) void {
+        qtc.QsciLexerHex_OnDefaultPaper2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -1490,9 +1490,9 @@ pub const qscilexerhex = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerHex, slot: fn (self: QtC.QsciLexerHex, editor: QtC.QsciScintilla) callconv(.c) void ```
-    pub fn OnSetEditor(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciLexerHex_OnSetEditor(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciLexerHex, callback: *const fn (self: QtC.QsciLexerHex, editor: QtC.QsciScintilla) callconv(.c) void ```
+    pub fn OnSetEditor(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QsciLexerHex_OnSetEditor(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -1523,9 +1523,9 @@ pub const qscilexerhex = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerHex, slot: fn () callconv(.c) void ```
-    pub fn OnRefreshProperties(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QsciLexerHex_OnRefreshProperties(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciLexerHex, callback: *const fn () callconv(.c) void ```
+    pub fn OnRefreshProperties(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QsciLexerHex_OnRefreshProperties(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -1556,9 +1556,9 @@ pub const qscilexerhex = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerHex, slot: fn () callconv(.c) i32 ```
-    pub fn OnStyleBitsNeeded(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QsciLexerHex_OnStyleBitsNeeded(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciLexerHex, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnStyleBitsNeeded(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QsciLexerHex_OnStyleBitsNeeded(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -1591,9 +1591,9 @@ pub const qscilexerhex = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerHex, slot: fn () callconv(.c) [*:0]const u8 ```
-    pub fn OnWordCharacters(self: ?*anyopaque, slot: fn () callconv(.c) [*:0]const u8) void {
-        qtc.QsciLexerHex_OnWordCharacters(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciLexerHex, callback: *const fn () callconv(.c) [*:0]const u8 ```
+    pub fn OnWordCharacters(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
+        qtc.QsciLexerHex_OnWordCharacters(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -1624,9 +1624,9 @@ pub const qscilexerhex = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerHex, slot: fn (self: QtC.QsciLexerHex, autoindentstyle: i32) callconv(.c) void ```
-    pub fn OnSetAutoIndentStyle(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QsciLexerHex_OnSetAutoIndentStyle(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciLexerHex, callback: *const fn (self: QtC.QsciLexerHex, autoindentstyle: i32) callconv(.c) void ```
+    pub fn OnSetAutoIndentStyle(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QsciLexerHex_OnSetAutoIndentStyle(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -1657,9 +1657,9 @@ pub const qscilexerhex = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerHex, slot: fn (self: QtC.QsciLexerHex, c: QtC.QColor, style: i32) callconv(.c) void ```
-    pub fn OnSetColor(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QsciLexerHex_OnSetColor(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciLexerHex, callback: *const fn (self: QtC.QsciLexerHex, c: QtC.QColor, style: i32) callconv(.c) void ```
+    pub fn OnSetColor(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QsciLexerHex_OnSetColor(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -1690,9 +1690,9 @@ pub const qscilexerhex = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerHex, slot: fn (self: QtC.QsciLexerHex, eoffill: bool, style: i32) callconv(.c) void ```
-    pub fn OnSetEolFill(self: ?*anyopaque, slot: fn (?*anyopaque, bool, i32) callconv(.c) void) void {
-        qtc.QsciLexerHex_OnSetEolFill(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciLexerHex, callback: *const fn (self: QtC.QsciLexerHex, eoffill: bool, style: i32) callconv(.c) void ```
+    pub fn OnSetEolFill(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool, i32) callconv(.c) void) void {
+        qtc.QsciLexerHex_OnSetEolFill(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -1723,9 +1723,9 @@ pub const qscilexerhex = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerHex, slot: fn (self: QtC.QsciLexerHex, f: QtC.QFont, style: i32) callconv(.c) void ```
-    pub fn OnSetFont(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QsciLexerHex_OnSetFont(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciLexerHex, callback: *const fn (self: QtC.QsciLexerHex, f: QtC.QFont, style: i32) callconv(.c) void ```
+    pub fn OnSetFont(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QsciLexerHex_OnSetFont(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -1756,9 +1756,9 @@ pub const qscilexerhex = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerHex, slot: fn (self: QtC.QsciLexerHex, c: QtC.QColor, style: i32) callconv(.c) void ```
-    pub fn OnSetPaper(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QsciLexerHex_OnSetPaper(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciLexerHex, callback: *const fn (self: QtC.QsciLexerHex, c: QtC.QColor, style: i32) callconv(.c) void ```
+    pub fn OnSetPaper(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QsciLexerHex_OnSetPaper(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -1797,9 +1797,9 @@ pub const qscilexerhex = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerHex, slot: fn (self: QtC.QsciLexerHex, qs: QtC.QSettings, prefix: [*:0]const u8) callconv(.c) bool ```
-    pub fn OnReadProperties(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) bool) void {
-        qtc.QsciLexerHex_OnReadProperties(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciLexerHex, callback: *const fn (self: QtC.QsciLexerHex, qs: QtC.QSettings, prefix: [*:0]const u8) callconv(.c) bool ```
+    pub fn OnReadProperties(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) bool) void {
+        qtc.QsciLexerHex_OnReadProperties(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -1838,9 +1838,9 @@ pub const qscilexerhex = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerHex, slot: fn (self: QtC.QsciLexerHex, qs: QtC.QSettings, prefix: [*:0]const u8) callconv(.c) bool ```
-    pub fn OnWriteProperties(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) bool) void {
-        qtc.QsciLexerHex_OnWriteProperties(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciLexerHex, callback: *const fn (self: QtC.QsciLexerHex, qs: QtC.QSettings, prefix: [*:0]const u8) callconv(.c) bool ```
+    pub fn OnWriteProperties(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) bool) void {
+        qtc.QsciLexerHex_OnWriteProperties(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1871,9 +1871,9 @@ pub const qscilexerhex = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerHex, slot: fn (self: QtC.QsciLexerHex, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QsciLexerHex_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciLexerHex, callback: *const fn (self: QtC.QsciLexerHex, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QsciLexerHex_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1904,9 +1904,9 @@ pub const qscilexerhex = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerHex, slot: fn (self: QtC.QsciLexerHex, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QsciLexerHex_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciLexerHex, callback: *const fn (self: QtC.QsciLexerHex, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QsciLexerHex_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1937,9 +1937,9 @@ pub const qscilexerhex = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerHex, slot: fn (self: QtC.QsciLexerHex, event: QtC.QTimerEvent) callconv(.c) void ```
-    pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciLexerHex_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciLexerHex, callback: *const fn (self: QtC.QsciLexerHex, event: QtC.QTimerEvent) callconv(.c) void ```
+    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QsciLexerHex_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1970,9 +1970,9 @@ pub const qscilexerhex = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerHex, slot: fn (self: QtC.QsciLexerHex, event: QtC.QChildEvent) callconv(.c) void ```
-    pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciLexerHex_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciLexerHex, callback: *const fn (self: QtC.QsciLexerHex, event: QtC.QChildEvent) callconv(.c) void ```
+    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QsciLexerHex_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2003,9 +2003,9 @@ pub const qscilexerhex = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerHex, slot: fn (self: QtC.QsciLexerHex, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciLexerHex_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciLexerHex, callback: *const fn (self: QtC.QsciLexerHex, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QsciLexerHex_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2036,9 +2036,9 @@ pub const qscilexerhex = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerHex, slot: fn (self: QtC.QsciLexerHex, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciLexerHex_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciLexerHex, callback: *const fn (self: QtC.QsciLexerHex, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QsciLexerHex_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2069,9 +2069,9 @@ pub const qscilexerhex = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerHex, slot: fn (self: QtC.QsciLexerHex, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciLexerHex_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciLexerHex, callback: *const fn (self: QtC.QsciLexerHex, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QsciLexerHex_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -2118,9 +2118,9 @@ pub const qscilexerhex = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerHex, slot: fn (self: QtC.QsciLexerHex, text: [*:0]const u8) callconv(.c) [*:0]u8 ```
-    pub fn OnTextAsBytes(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) [*:0]u8) void {
-        qtc.QsciLexerHex_OnTextAsBytes(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciLexerHex, callback: *const fn (self: QtC.QsciLexerHex, text: [*:0]const u8) callconv(.c) [*:0]u8 ```
+    pub fn OnTextAsBytes(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) [*:0]u8) void {
+        qtc.QsciLexerHex_OnTextAsBytes(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QsciLexer
@@ -2161,9 +2161,9 @@ pub const qscilexerhex = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerHex, slot: fn (self: QtC.QsciLexerHex, bytes: [*:0]const u8, size: i32) callconv(.c) [*:0]const u8 ```
-    pub fn OnBytesAsText(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, i32) callconv(.c) [*:0]const u8) void {
-        qtc.QsciLexerHex_OnBytesAsText(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciLexerHex, callback: *const fn (self: QtC.QsciLexerHex, bytes: [*:0]const u8, size: i32) callconv(.c) [*:0]const u8 ```
+    pub fn OnBytesAsText(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32) callconv(.c) [*:0]const u8) void {
+        qtc.QsciLexerHex_OnBytesAsText(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2194,9 +2194,9 @@ pub const qscilexerhex = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerHex, slot: fn () callconv(.c) QtC.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
-        qtc.QsciLexerHex_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciLexerHex, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.QsciLexerHex_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2227,9 +2227,9 @@ pub const qscilexerhex = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerHex, slot: fn () callconv(.c) i32 ```
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QsciLexerHex_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciLexerHex, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QsciLexerHex_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2262,9 +2262,9 @@ pub const qscilexerhex = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerHex, slot: fn (self: QtC.QsciLexerHex, signal: [*:0]const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QsciLexerHex_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciLexerHex, callback: *const fn (self: QtC.QsciLexerHex, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QsciLexerHex_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2295,9 +2295,9 @@ pub const qscilexerhex = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciLexerHex, slot: fn (self: QtC.QsciLexerHex, signal: QtC.QMetaMethod) callconv(.c) bool ```
-    pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QsciLexerHex_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciLexerHex, callback: *const fn (self: QtC.QsciLexerHex, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QsciLexerHex_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2306,9 +2306,9 @@ pub const qscilexerhex = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QsciLexerHex, slot: fn (self: QtC.QsciLexerHex, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciLexerHex, callback: *const fn (self: QtC.QsciLexerHex, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciLexerHex.html)

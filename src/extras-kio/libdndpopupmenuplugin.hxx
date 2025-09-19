@@ -10,7 +10,7 @@
 #include "../qtlibc.h"
 
 // This class is a subclass of KIO::DndPopupMenuPlugin so that we can call protected methods
-class VirtualKIODndPopupMenuPlugin final : public KIO::DndPopupMenuPlugin {
+class VirtualKIODndPopupMenuPlugin : public KIO::DndPopupMenuPlugin {
 
   public:
     // Virtual class boolean flag

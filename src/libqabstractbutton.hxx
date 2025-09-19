@@ -10,7 +10,7 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QAbstractButton so that we can call protected methods
-class VirtualQAbstractButton final : public QAbstractButton {
+class VirtualQAbstractButton : public QAbstractButton {
 
   public:
     // Virtual class boolean flag

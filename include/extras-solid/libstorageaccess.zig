@@ -134,9 +134,9 @@ pub const solid__storageaccess = struct {
 
     /// [Qt documentation](https://api.kde.org/solid-storageaccess.html#accessibilityChanged)
     ///
-    /// ``` self: QtC.Solid__StorageAccess, slot: fn (self: QtC.Solid__StorageAccess, accessible: bool, udi: [*:0]const u8) callconv(.c) void ```
-    pub fn OnAccessibilityChanged(self: ?*anyopaque, slot: fn (?*anyopaque, bool, [*:0]const u8) callconv(.c) void) void {
-        qtc.Solid__StorageAccess_Connect_AccessibilityChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Solid__StorageAccess, callback: *const fn (self: QtC.Solid__StorageAccess, accessible: bool, udi: [*:0]const u8) callconv(.c) void ```
+    pub fn OnAccessibilityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool, [*:0]const u8) callconv(.c) void) void {
+        qtc.Solid__StorageAccess_Connect_AccessibilityChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/solid-storageaccess.html#setupDone)
@@ -152,9 +152,9 @@ pub const solid__storageaccess = struct {
 
     /// [Qt documentation](https://api.kde.org/solid-storageaccess.html#setupDone)
     ///
-    /// ``` self: QtC.Solid__StorageAccess, slot: fn (self: QtC.Solid__StorageAccess, errorVal: solidnamespace_enums.ErrorType, errorData: QtC.QVariant, udi: [*:0]const u8) callconv(.c) void ```
-    pub fn OnSetupDone(self: ?*anyopaque, slot: fn (?*anyopaque, i32, QtC.QVariant, [*:0]const u8) callconv(.c) void) void {
-        qtc.Solid__StorageAccess_Connect_SetupDone(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Solid__StorageAccess, callback: *const fn (self: QtC.Solid__StorageAccess, errorVal: solidnamespace_enums.ErrorType, errorData: QtC.QVariant, udi: [*:0]const u8) callconv(.c) void ```
+    pub fn OnSetupDone(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, QtC.QVariant, [*:0]const u8) callconv(.c) void) void {
+        qtc.Solid__StorageAccess_Connect_SetupDone(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/solid-storageaccess.html#teardownDone)
@@ -170,9 +170,9 @@ pub const solid__storageaccess = struct {
 
     /// [Qt documentation](https://api.kde.org/solid-storageaccess.html#teardownDone)
     ///
-    /// ``` self: QtC.Solid__StorageAccess, slot: fn (self: QtC.Solid__StorageAccess, errorVal: solidnamespace_enums.ErrorType, errorData: QtC.QVariant, udi: [*:0]const u8) callconv(.c) void ```
-    pub fn OnTeardownDone(self: ?*anyopaque, slot: fn (?*anyopaque, i32, QtC.QVariant, [*:0]const u8) callconv(.c) void) void {
-        qtc.Solid__StorageAccess_Connect_TeardownDone(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Solid__StorageAccess, callback: *const fn (self: QtC.Solid__StorageAccess, errorVal: solidnamespace_enums.ErrorType, errorData: QtC.QVariant, udi: [*:0]const u8) callconv(.c) void ```
+    pub fn OnTeardownDone(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, QtC.QVariant, [*:0]const u8) callconv(.c) void) void {
+        qtc.Solid__StorageAccess_Connect_TeardownDone(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/solid-storageaccess.html#setupRequested)
@@ -188,9 +188,9 @@ pub const solid__storageaccess = struct {
 
     /// [Qt documentation](https://api.kde.org/solid-storageaccess.html#setupRequested)
     ///
-    /// ``` self: QtC.Solid__StorageAccess, slot: fn (self: QtC.Solid__StorageAccess, udi: [*:0]const u8) callconv(.c) void ```
-    pub fn OnSetupRequested(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.Solid__StorageAccess_Connect_SetupRequested(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Solid__StorageAccess, callback: *const fn (self: QtC.Solid__StorageAccess, udi: [*:0]const u8) callconv(.c) void ```
+    pub fn OnSetupRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.Solid__StorageAccess_Connect_SetupRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/solid-storageaccess.html#teardownRequested)
@@ -206,9 +206,9 @@ pub const solid__storageaccess = struct {
 
     /// [Qt documentation](https://api.kde.org/solid-storageaccess.html#teardownRequested)
     ///
-    /// ``` self: QtC.Solid__StorageAccess, slot: fn (self: QtC.Solid__StorageAccess, udi: [*:0]const u8) callconv(.c) void ```
-    pub fn OnTeardownRequested(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.Solid__StorageAccess_Connect_TeardownRequested(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Solid__StorageAccess, callback: *const fn (self: QtC.Solid__StorageAccess, udi: [*:0]const u8) callconv(.c) void ```
+    pub fn OnTeardownRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.Solid__StorageAccess_Connect_TeardownRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/solid-storageaccess.html#checkRequested)
@@ -224,9 +224,9 @@ pub const solid__storageaccess = struct {
 
     /// [Qt documentation](https://api.kde.org/solid-storageaccess.html#checkRequested)
     ///
-    /// ``` self: QtC.Solid__StorageAccess, slot: fn (self: QtC.Solid__StorageAccess, udi: [*:0]const u8) callconv(.c) void ```
-    pub fn OnCheckRequested(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.Solid__StorageAccess_Connect_CheckRequested(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Solid__StorageAccess, callback: *const fn (self: QtC.Solid__StorageAccess, udi: [*:0]const u8) callconv(.c) void ```
+    pub fn OnCheckRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.Solid__StorageAccess_Connect_CheckRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/solid-storageaccess.html#checkDone)
@@ -242,9 +242,9 @@ pub const solid__storageaccess = struct {
 
     /// [Qt documentation](https://api.kde.org/solid-storageaccess.html#checkDone)
     ///
-    /// ``` self: QtC.Solid__StorageAccess, slot: fn (self: QtC.Solid__StorageAccess, errorVal: solidnamespace_enums.ErrorType, errorData: QtC.QVariant, udi: [*:0]const u8) callconv(.c) void ```
-    pub fn OnCheckDone(self: ?*anyopaque, slot: fn (?*anyopaque, i32, QtC.QVariant, [*:0]const u8) callconv(.c) void) void {
-        qtc.Solid__StorageAccess_Connect_CheckDone(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Solid__StorageAccess, callback: *const fn (self: QtC.Solid__StorageAccess, errorVal: solidnamespace_enums.ErrorType, errorData: QtC.QVariant, udi: [*:0]const u8) callconv(.c) void ```
+    pub fn OnCheckDone(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, QtC.QVariant, [*:0]const u8) callconv(.c) void) void {
+        qtc.Solid__StorageAccess_Connect_CheckDone(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/solid-storageaccess.html#repairRequested)
@@ -260,9 +260,9 @@ pub const solid__storageaccess = struct {
 
     /// [Qt documentation](https://api.kde.org/solid-storageaccess.html#repairRequested)
     ///
-    /// ``` self: QtC.Solid__StorageAccess, slot: fn (self: QtC.Solid__StorageAccess, udi: [*:0]const u8) callconv(.c) void ```
-    pub fn OnRepairRequested(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.Solid__StorageAccess_Connect_RepairRequested(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Solid__StorageAccess, callback: *const fn (self: QtC.Solid__StorageAccess, udi: [*:0]const u8) callconv(.c) void ```
+    pub fn OnRepairRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.Solid__StorageAccess_Connect_RepairRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/solid-storageaccess.html#repairDone)
@@ -278,9 +278,9 @@ pub const solid__storageaccess = struct {
 
     /// [Qt documentation](https://api.kde.org/solid-storageaccess.html#repairDone)
     ///
-    /// ``` self: QtC.Solid__StorageAccess, slot: fn (self: QtC.Solid__StorageAccess, errorVal: solidnamespace_enums.ErrorType, errorData: QtC.QVariant, udi: [*:0]const u8) callconv(.c) void ```
-    pub fn OnRepairDone(self: ?*anyopaque, slot: fn (?*anyopaque, i32, QtC.QVariant, [*:0]const u8) callconv(.c) void) void {
-        qtc.Solid__StorageAccess_Connect_RepairDone(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Solid__StorageAccess, callback: *const fn (self: QtC.Solid__StorageAccess, errorVal: solidnamespace_enums.ErrorType, errorData: QtC.QVariant, udi: [*:0]const u8) callconv(.c) void ```
+    pub fn OnRepairDone(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, QtC.QVariant, [*:0]const u8) callconv(.c) void) void {
+        qtc.Solid__StorageAccess_Connect_RepairDone(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -665,9 +665,9 @@ pub const solid__storageaccess = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.Solid__StorageAccess, slot: fn (self: QtC.Solid__StorageAccess) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Solid__StorageAccess, callback: *const fn (self: QtC.Solid__StorageAccess) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -749,9 +749,9 @@ pub const solid__storageaccess = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.Solid__StorageAccess, slot: fn (self: QtC.Solid__StorageAccess, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Solid__StorageAccess, callback: *const fn (self: QtC.Solid__StorageAccess, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -760,9 +760,9 @@ pub const solid__storageaccess = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.Solid__StorageAccess, slot: fn (self: QtC.Solid__StorageAccess, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Solid__StorageAccess, callback: *const fn (self: QtC.Solid__StorageAccess, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Delete this object from C++ memory.

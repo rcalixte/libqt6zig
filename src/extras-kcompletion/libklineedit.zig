@@ -72,9 +72,9 @@ pub const klineedit = struct {
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
-        qtc.KLineEdit_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+        qtc.KLineEdit_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -114,9 +114,9 @@ pub const klineedit = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, mode: kcompletion_enums.CompletionMode) callconv(.c) void ```
-    pub fn OnSetCompletionMode(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KLineEdit_OnSetCompletionMode(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, mode: kcompletion_enums.CompletionMode) callconv(.c) void ```
+    pub fn OnSetCompletionMode(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.KLineEdit_OnSetCompletionMode(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/klineedit.html#setCompletionMode)
@@ -167,9 +167,9 @@ pub const klineedit = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, create: bool) callconv(.c) QtC.KCompletionBox ```
-    pub fn OnCompletionBox(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) QtC.KCompletionBox) void {
-        qtc.KLineEdit_OnCompletionBox(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, create: bool) callconv(.c) QtC.KCompletionBox ```
+    pub fn OnCompletionBox(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) QtC.KCompletionBox) void {
+        qtc.KLineEdit_OnCompletionBox(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/klineedit.html#completionBox)
@@ -192,9 +192,9 @@ pub const klineedit = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, param1: QtC.KCompletion, handle: bool) callconv(.c) void ```
-    pub fn OnSetCompletionObject(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, bool) callconv(.c) void) void {
-        qtc.KLineEdit_OnSetCompletionObject(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, param1: QtC.KCompletion, handle: bool) callconv(.c) void ```
+    pub fn OnSetCompletionObject(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, bool) callconv(.c) void) void {
+        qtc.KLineEdit_OnSetCompletionObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/klineedit.html#setCompletionObject)
@@ -217,9 +217,9 @@ pub const klineedit = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn () callconv(.c) void ```
-    pub fn OnCopy(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KLineEdit_OnCopy(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn () callconv(.c) void ```
+    pub fn OnCopy(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KLineEdit_OnCopy(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/klineedit.html#copy)
@@ -305,9 +305,9 @@ pub const klineedit = struct {
 
     /// [Qt documentation](https://api.kde.org/klineedit.html#completionBoxActivated)
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, param1: [*:0]const u8) callconv(.c) void ```
-    pub fn OnCompletionBoxActivated(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KLineEdit_Connect_CompletionBoxActivated(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, param1: [*:0]const u8) callconv(.c) void ```
+    pub fn OnCompletionBoxActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.KLineEdit_Connect_CompletionBoxActivated(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/klineedit.html#returnKeyPressed)
@@ -323,9 +323,9 @@ pub const klineedit = struct {
 
     /// [Qt documentation](https://api.kde.org/klineedit.html#returnKeyPressed)
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, text: [*:0]const u8) callconv(.c) void ```
-    pub fn OnReturnKeyPressed(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KLineEdit_Connect_ReturnKeyPressed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, text: [*:0]const u8) callconv(.c) void ```
+    pub fn OnReturnKeyPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.KLineEdit_Connect_ReturnKeyPressed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/klineedit.html#completion)
@@ -341,9 +341,9 @@ pub const klineedit = struct {
 
     /// [Qt documentation](https://api.kde.org/klineedit.html#completion)
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, param1: [*:0]const u8) callconv(.c) void ```
-    pub fn OnCompletion(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KLineEdit_Connect_Completion(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, param1: [*:0]const u8) callconv(.c) void ```
+    pub fn OnCompletion(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.KLineEdit_Connect_Completion(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/klineedit.html#substringCompletion)
@@ -359,9 +359,9 @@ pub const klineedit = struct {
 
     /// [Qt documentation](https://api.kde.org/klineedit.html#substringCompletion)
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, param1: [*:0]const u8) callconv(.c) void ```
-    pub fn OnSubstringCompletion(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KLineEdit_Connect_SubstringCompletion(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, param1: [*:0]const u8) callconv(.c) void ```
+    pub fn OnSubstringCompletion(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.KLineEdit_Connect_SubstringCompletion(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/klineedit.html#textRotation)
@@ -373,9 +373,9 @@ pub const klineedit = struct {
 
     /// [Qt documentation](https://api.kde.org/klineedit.html#textRotation)
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, param1: kcompletionbase_enums.KeyBindingType) callconv(.c) void ```
-    pub fn OnTextRotation(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KLineEdit_Connect_TextRotation(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, param1: kcompletionbase_enums.KeyBindingType) callconv(.c) void ```
+    pub fn OnTextRotation(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.KLineEdit_Connect_TextRotation(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/klineedit.html#completionModeChanged)
@@ -387,9 +387,9 @@ pub const klineedit = struct {
 
     /// [Qt documentation](https://api.kde.org/klineedit.html#completionModeChanged)
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, param1: kcompletion_enums.CompletionMode) callconv(.c) void ```
-    pub fn OnCompletionModeChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KLineEdit_Connect_CompletionModeChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, param1: kcompletion_enums.CompletionMode) callconv(.c) void ```
+    pub fn OnCompletionModeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.KLineEdit_Connect_CompletionModeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/klineedit.html#aboutToShowContextMenu)
@@ -401,9 +401,9 @@ pub const klineedit = struct {
 
     /// [Qt documentation](https://api.kde.org/klineedit.html#aboutToShowContextMenu)
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, contextMenu: QtC.QMenu) callconv(.c) void ```
-    pub fn OnAboutToShowContextMenu(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KLineEdit_Connect_AboutToShowContextMenu(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, contextMenu: QtC.QMenu) callconv(.c) void ```
+    pub fn OnAboutToShowContextMenu(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KLineEdit_Connect_AboutToShowContextMenu(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/klineedit.html#clearButtonClicked)
@@ -415,9 +415,9 @@ pub const klineedit = struct {
 
     /// [Qt documentation](https://api.kde.org/klineedit.html#clearButtonClicked)
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit) callconv(.c) void ```
-    pub fn OnClearButtonClicked(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.KLineEdit_Connect_ClearButtonClicked(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit) callconv(.c) void ```
+    pub fn OnClearButtonClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.KLineEdit_Connect_ClearButtonClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/klineedit.html#setReadOnly)
@@ -431,9 +431,9 @@ pub const klineedit = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, readOnly: bool) callconv(.c) void ```
-    pub fn OnSetReadOnly(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.KLineEdit_OnSetReadOnly(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, readOnly: bool) callconv(.c) void ```
+    pub fn OnSetReadOnly(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.KLineEdit_OnSetReadOnly(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/klineedit.html#setReadOnly)
@@ -467,9 +467,9 @@ pub const klineedit = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, completedText: [*:0]const u8) callconv(.c) void ```
-    pub fn OnSetCompletedText(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KLineEdit_OnSetCompletedText(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, completedText: [*:0]const u8) callconv(.c) void ```
+    pub fn OnSetCompletedText(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.KLineEdit_OnSetCompletedText(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/klineedit.html#setCompletedText)
@@ -508,9 +508,9 @@ pub const klineedit = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, items: [*][*:0]const u8, autoSuggest: bool) callconv(.c) void ```
-    pub fn OnSetCompletedItems(self: ?*anyopaque, slot: fn (?*anyopaque, [*][*:0]const u8, bool) callconv(.c) void) void {
-        qtc.KLineEdit_OnSetCompletedItems(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, items: [*][*:0]const u8, autoSuggest: bool) callconv(.c) void ```
+    pub fn OnSetCompletedItems(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*][*:0]const u8, bool) callconv(.c) void) void {
+        qtc.KLineEdit_OnSetCompletedItems(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/klineedit.html#setCompletedItems)
@@ -560,9 +560,9 @@ pub const klineedit = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, text: [*:0]const u8) callconv(.c) void ```
-    pub fn OnSetText(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KLineEdit_OnSetText(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, text: [*:0]const u8) callconv(.c) void ```
+    pub fn OnSetText(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.KLineEdit_OnSetText(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/klineedit.html#setText)
@@ -593,9 +593,9 @@ pub const klineedit = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, param1: [*:0]const u8) callconv(.c) void ```
-    pub fn OnMakeCompletion(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KLineEdit_OnMakeCompletion(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, param1: [*:0]const u8) callconv(.c) void ```
+    pub fn OnMakeCompletion(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.KLineEdit_OnMakeCompletion(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/klineedit.html#makeCompletion)
@@ -626,9 +626,9 @@ pub const klineedit = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, cancelText: [*:0]const u8) callconv(.c) void ```
-    pub fn OnUserCancelled(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KLineEdit_OnUserCancelled(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, cancelText: [*:0]const u8) callconv(.c) void ```
+    pub fn OnUserCancelled(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.KLineEdit_OnUserCancelled(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/klineedit.html#userCancelled)
@@ -655,9 +655,9 @@ pub const klineedit = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, param1: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KLineEdit_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, param1: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KLineEdit_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/klineedit.html#event)
@@ -680,9 +680,9 @@ pub const klineedit = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, param1: QtC.QResizeEvent) callconv(.c) void ```
-    pub fn OnResizeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KLineEdit_OnResizeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, param1: QtC.QResizeEvent) callconv(.c) void ```
+    pub fn OnResizeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KLineEdit_OnResizeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/klineedit.html#resizeEvent)
@@ -705,9 +705,9 @@ pub const klineedit = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, param1: QtC.QKeyEvent) callconv(.c) void ```
-    pub fn OnKeyPressEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KLineEdit_OnKeyPressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, param1: QtC.QKeyEvent) callconv(.c) void ```
+    pub fn OnKeyPressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KLineEdit_OnKeyPressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/klineedit.html#keyPressEvent)
@@ -730,9 +730,9 @@ pub const klineedit = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, param1: QtC.QMouseEvent) callconv(.c) void ```
-    pub fn OnMousePressEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KLineEdit_OnMousePressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, param1: QtC.QMouseEvent) callconv(.c) void ```
+    pub fn OnMousePressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KLineEdit_OnMousePressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/klineedit.html#mousePressEvent)
@@ -755,9 +755,9 @@ pub const klineedit = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, param1: QtC.QMouseEvent) callconv(.c) void ```
-    pub fn OnMouseReleaseEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KLineEdit_OnMouseReleaseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, param1: QtC.QMouseEvent) callconv(.c) void ```
+    pub fn OnMouseReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KLineEdit_OnMouseReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/klineedit.html#mouseReleaseEvent)
@@ -780,9 +780,9 @@ pub const klineedit = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, param1: QtC.QMouseEvent) callconv(.c) void ```
-    pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KLineEdit_OnMouseDoubleClickEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, param1: QtC.QMouseEvent) callconv(.c) void ```
+    pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KLineEdit_OnMouseDoubleClickEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/klineedit.html#mouseDoubleClickEvent)
@@ -805,9 +805,9 @@ pub const klineedit = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, param1: QtC.QContextMenuEvent) callconv(.c) void ```
-    pub fn OnContextMenuEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KLineEdit_OnContextMenuEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, param1: QtC.QContextMenuEvent) callconv(.c) void ```
+    pub fn OnContextMenuEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KLineEdit_OnContextMenuEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/klineedit.html#contextMenuEvent)
@@ -830,9 +830,9 @@ pub const klineedit = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn () callconv(.c) QtC.QMenu ```
-    pub fn OnCreateStandardContextMenu(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QMenu) void {
-        qtc.KLineEdit_OnCreateStandardContextMenu(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn () callconv(.c) QtC.QMenu ```
+    pub fn OnCreateStandardContextMenu(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMenu) void {
+        qtc.KLineEdit_OnCreateStandardContextMenu(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/klineedit.html#createStandardContextMenu)
@@ -859,9 +859,9 @@ pub const klineedit = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, param1: [*:0]const u8, param2: bool) callconv(.c) void ```
-    pub fn OnSetCompletedText2(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, bool) callconv(.c) void) void {
-        qtc.KLineEdit_OnSetCompletedText2(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, param1: [*:0]const u8, param2: bool) callconv(.c) void ```
+    pub fn OnSetCompletedText2(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, bool) callconv(.c) void) void {
+        qtc.KLineEdit_OnSetCompletedText2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/klineedit.html#setCompletedText)
@@ -888,9 +888,9 @@ pub const klineedit = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, userSelection: bool) callconv(.c) void ```
-    pub fn OnSetUserSelection(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.KLineEdit_OnSetUserSelection(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, userSelection: bool) callconv(.c) void ```
+    pub fn OnSetUserSelection(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.KLineEdit_OnSetUserSelection(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/klineedit.html#setUserSelection)
@@ -913,9 +913,9 @@ pub const klineedit = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn () callconv(.c) bool ```
-    pub fn OnAutoSuggest(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.KLineEdit_OnAutoSuggest(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn () callconv(.c) bool ```
+    pub fn OnAutoSuggest(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.KLineEdit_OnAutoSuggest(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/klineedit.html#autoSuggest)
@@ -938,9 +938,9 @@ pub const klineedit = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, ev: QtC.QPaintEvent) callconv(.c) void ```
-    pub fn OnPaintEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KLineEdit_OnPaintEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, ev: QtC.QPaintEvent) callconv(.c) void ```
+    pub fn OnPaintEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KLineEdit_OnPaintEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/klineedit.html#paintEvent)
@@ -1580,9 +1580,9 @@ pub const klineedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#textChanged)
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, param1: [*:0]const u8) callconv(.c) void ```
-    pub fn OnTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QLineEdit_Connect_TextChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, param1: [*:0]const u8) callconv(.c) void ```
+    pub fn OnTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QLineEdit_Connect_TextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLineEdit
@@ -1602,9 +1602,9 @@ pub const klineedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#textEdited)
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, param1: [*:0]const u8) callconv(.c) void ```
-    pub fn OnTextEdited(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QLineEdit_Connect_TextEdited(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, param1: [*:0]const u8) callconv(.c) void ```
+    pub fn OnTextEdited(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QLineEdit_Connect_TextEdited(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLineEdit
@@ -1620,9 +1620,9 @@ pub const klineedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#cursorPositionChanged)
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, param1: i32, param2: i32) callconv(.c) void ```
-    pub fn OnCursorPositionChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QLineEdit_Connect_CursorPositionChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, param1: i32, param2: i32) callconv(.c) void ```
+    pub fn OnCursorPositionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
+        qtc.QLineEdit_Connect_CursorPositionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLineEdit
@@ -1638,9 +1638,9 @@ pub const klineedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#returnPressed)
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit) callconv(.c) void ```
-    pub fn OnReturnPressed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QLineEdit_Connect_ReturnPressed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit) callconv(.c) void ```
+    pub fn OnReturnPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QLineEdit_Connect_ReturnPressed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLineEdit
@@ -1656,9 +1656,9 @@ pub const klineedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#editingFinished)
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit) callconv(.c) void ```
-    pub fn OnEditingFinished(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QLineEdit_Connect_EditingFinished(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit) callconv(.c) void ```
+    pub fn OnEditingFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QLineEdit_Connect_EditingFinished(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLineEdit
@@ -1674,9 +1674,9 @@ pub const klineedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#selectionChanged)
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit) callconv(.c) void ```
-    pub fn OnSelectionChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QLineEdit_Connect_SelectionChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit) callconv(.c) void ```
+    pub fn OnSelectionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QLineEdit_Connect_SelectionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLineEdit
@@ -1692,9 +1692,9 @@ pub const klineedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qlineedit.html#inputRejected)
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit) callconv(.c) void ```
-    pub fn OnInputRejected(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QLineEdit_Connect_InputRejected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit) callconv(.c) void ```
+    pub fn OnInputRejected(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QLineEdit_Connect_InputRejected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLineEdit
@@ -4077,9 +4077,9 @@ pub const klineedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, title: [*:0]const u8) callconv(.c) void ```
-    pub fn OnWindowTitleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, title: [*:0]const u8) callconv(.c) void ```
+    pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4095,9 +4095,9 @@ pub const klineedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, icon: QtC.QIcon) callconv(.c) void ```
-    pub fn OnWindowIconChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, icon: QtC.QIcon) callconv(.c) void ```
+    pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4117,9 +4117,9 @@ pub const klineedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, iconText: [*:0]const u8) callconv(.c) void ```
-    pub fn OnWindowIconTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, iconText: [*:0]const u8) callconv(.c) void ```
+    pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4135,9 +4135,9 @@ pub const klineedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, pos: QtC.QPoint) callconv(.c) void ```
-    pub fn OnCustomContextMenuRequested(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, pos: QtC.QPoint) callconv(.c) void ```
+    pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4574,9 +4574,9 @@ pub const klineedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4658,9 +4658,9 @@ pub const klineedit = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -4936,9 +4936,9 @@ pub const klineedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn () callconv(.c) QtC.QSize ```
-    pub fn OnSizeHint(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QSize) void {
-        qtc.KLineEdit_OnSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn () callconv(.c) QtC.QSize ```
+    pub fn OnSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
+        qtc.KLineEdit_OnSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLineEdit
@@ -4969,9 +4969,9 @@ pub const klineedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn () callconv(.c) QtC.QSize ```
-    pub fn OnMinimumSizeHint(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QSize) void {
-        qtc.KLineEdit_OnMinimumSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn () callconv(.c) QtC.QSize ```
+    pub fn OnMinimumSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
+        qtc.KLineEdit_OnMinimumSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLineEdit
@@ -5002,9 +5002,9 @@ pub const klineedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, param1: QtC.QMouseEvent) callconv(.c) void ```
-    pub fn OnMouseMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KLineEdit_OnMouseMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, param1: QtC.QMouseEvent) callconv(.c) void ```
+    pub fn OnMouseMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KLineEdit_OnMouseMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLineEdit
@@ -5035,9 +5035,9 @@ pub const klineedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, param1: QtC.QKeyEvent) callconv(.c) void ```
-    pub fn OnKeyReleaseEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KLineEdit_OnKeyReleaseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, param1: QtC.QKeyEvent) callconv(.c) void ```
+    pub fn OnKeyReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KLineEdit_OnKeyReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLineEdit
@@ -5068,9 +5068,9 @@ pub const klineedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, param1: QtC.QFocusEvent) callconv(.c) void ```
-    pub fn OnFocusInEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KLineEdit_OnFocusInEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, param1: QtC.QFocusEvent) callconv(.c) void ```
+    pub fn OnFocusInEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KLineEdit_OnFocusInEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLineEdit
@@ -5101,9 +5101,9 @@ pub const klineedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, param1: QtC.QFocusEvent) callconv(.c) void ```
-    pub fn OnFocusOutEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KLineEdit_OnFocusOutEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, param1: QtC.QFocusEvent) callconv(.c) void ```
+    pub fn OnFocusOutEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KLineEdit_OnFocusOutEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLineEdit
@@ -5134,9 +5134,9 @@ pub const klineedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, param1: QtC.QDragEnterEvent) callconv(.c) void ```
-    pub fn OnDragEnterEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KLineEdit_OnDragEnterEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, param1: QtC.QDragEnterEvent) callconv(.c) void ```
+    pub fn OnDragEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KLineEdit_OnDragEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLineEdit
@@ -5167,9 +5167,9 @@ pub const klineedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, e: QtC.QDragMoveEvent) callconv(.c) void ```
-    pub fn OnDragMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KLineEdit_OnDragMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, e: QtC.QDragMoveEvent) callconv(.c) void ```
+    pub fn OnDragMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KLineEdit_OnDragMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLineEdit
@@ -5200,9 +5200,9 @@ pub const klineedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, e: QtC.QDragLeaveEvent) callconv(.c) void ```
-    pub fn OnDragLeaveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KLineEdit_OnDragLeaveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, e: QtC.QDragLeaveEvent) callconv(.c) void ```
+    pub fn OnDragLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KLineEdit_OnDragLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLineEdit
@@ -5233,9 +5233,9 @@ pub const klineedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, param1: QtC.QDropEvent) callconv(.c) void ```
-    pub fn OnDropEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KLineEdit_OnDropEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, param1: QtC.QDropEvent) callconv(.c) void ```
+    pub fn OnDropEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KLineEdit_OnDropEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLineEdit
@@ -5266,9 +5266,9 @@ pub const klineedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, param1: QtC.QEvent) callconv(.c) void ```
-    pub fn OnChangeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KLineEdit_OnChangeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, param1: QtC.QEvent) callconv(.c) void ```
+    pub fn OnChangeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KLineEdit_OnChangeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLineEdit
@@ -5299,9 +5299,9 @@ pub const klineedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, param1: QtC.QInputMethodEvent) callconv(.c) void ```
-    pub fn OnInputMethodEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KLineEdit_OnInputMethodEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, param1: QtC.QInputMethodEvent) callconv(.c) void ```
+    pub fn OnInputMethodEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KLineEdit_OnInputMethodEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLineEdit
@@ -5332,9 +5332,9 @@ pub const klineedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, option: QtC.QStyleOptionFrame) callconv(.c) void ```
-    pub fn OnInitStyleOption(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KLineEdit_OnInitStyleOption(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, option: QtC.QStyleOptionFrame) callconv(.c) void ```
+    pub fn OnInitStyleOption(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KLineEdit_OnInitStyleOption(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLineEdit
@@ -5365,9 +5365,9 @@ pub const klineedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant ```
-    pub fn OnInputMethodQuery(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) QtC.QVariant) void {
-        qtc.KLineEdit_OnInputMethodQuery(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant ```
+    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) QtC.QVariant) void {
+        qtc.KLineEdit_OnInputMethodQuery(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLineEdit
@@ -5398,9 +5398,9 @@ pub const klineedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, param1: QtC.QTimerEvent) callconv(.c) void ```
-    pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KLineEdit_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, param1: QtC.QTimerEvent) callconv(.c) void ```
+    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KLineEdit_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5431,9 +5431,9 @@ pub const klineedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn () callconv(.c) i32 ```
-    pub fn OnDevType(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.KLineEdit_OnDevType(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnDevType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.KLineEdit_OnDevType(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5464,9 +5464,9 @@ pub const klineedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, visible: bool) callconv(.c) void ```
-    pub fn OnSetVisible(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.KLineEdit_OnSetVisible(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, visible: bool) callconv(.c) void ```
+    pub fn OnSetVisible(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.KLineEdit_OnSetVisible(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5497,9 +5497,9 @@ pub const klineedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, param1: i32) callconv(.c) i32 ```
-    pub fn OnHeightForWidth(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.KLineEdit_OnHeightForWidth(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, param1: i32) callconv(.c) i32 ```
+    pub fn OnHeightForWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
+        qtc.KLineEdit_OnHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5530,9 +5530,9 @@ pub const klineedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn () callconv(.c) bool ```
-    pub fn OnHasHeightForWidth(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.KLineEdit_OnHasHeightForWidth(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn () callconv(.c) bool ```
+    pub fn OnHasHeightForWidth(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.KLineEdit_OnHasHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5563,9 +5563,9 @@ pub const klineedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn () callconv(.c) QtC.QPaintEngine ```
-    pub fn OnPaintEngine(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QPaintEngine) void {
-        qtc.KLineEdit_OnPaintEngine(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn () callconv(.c) QtC.QPaintEngine ```
+    pub fn OnPaintEngine(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPaintEngine) void {
+        qtc.KLineEdit_OnPaintEngine(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5596,9 +5596,9 @@ pub const klineedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, event: QtC.QWheelEvent) callconv(.c) void ```
-    pub fn OnWheelEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KLineEdit_OnWheelEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, event: QtC.QWheelEvent) callconv(.c) void ```
+    pub fn OnWheelEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KLineEdit_OnWheelEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5629,9 +5629,9 @@ pub const klineedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, event: QtC.QEnterEvent) callconv(.c) void ```
-    pub fn OnEnterEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KLineEdit_OnEnterEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, event: QtC.QEnterEvent) callconv(.c) void ```
+    pub fn OnEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KLineEdit_OnEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5662,9 +5662,9 @@ pub const klineedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnLeaveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KLineEdit_OnLeaveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KLineEdit_OnLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5695,9 +5695,9 @@ pub const klineedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, event: QtC.QMoveEvent) callconv(.c) void ```
-    pub fn OnMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KLineEdit_OnMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, event: QtC.QMoveEvent) callconv(.c) void ```
+    pub fn OnMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KLineEdit_OnMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5728,9 +5728,9 @@ pub const klineedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, event: QtC.QCloseEvent) callconv(.c) void ```
-    pub fn OnCloseEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KLineEdit_OnCloseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, event: QtC.QCloseEvent) callconv(.c) void ```
+    pub fn OnCloseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KLineEdit_OnCloseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5761,9 +5761,9 @@ pub const klineedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, event: QtC.QTabletEvent) callconv(.c) void ```
-    pub fn OnTabletEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KLineEdit_OnTabletEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, event: QtC.QTabletEvent) callconv(.c) void ```
+    pub fn OnTabletEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KLineEdit_OnTabletEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5794,9 +5794,9 @@ pub const klineedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, event: QtC.QActionEvent) callconv(.c) void ```
-    pub fn OnActionEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KLineEdit_OnActionEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, event: QtC.QActionEvent) callconv(.c) void ```
+    pub fn OnActionEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KLineEdit_OnActionEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5827,9 +5827,9 @@ pub const klineedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, event: QtC.QShowEvent) callconv(.c) void ```
-    pub fn OnShowEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KLineEdit_OnShowEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, event: QtC.QShowEvent) callconv(.c) void ```
+    pub fn OnShowEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KLineEdit_OnShowEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5860,9 +5860,9 @@ pub const klineedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, event: QtC.QHideEvent) callconv(.c) void ```
-    pub fn OnHideEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KLineEdit_OnHideEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, event: QtC.QHideEvent) callconv(.c) void ```
+    pub fn OnHideEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KLineEdit_OnHideEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5901,9 +5901,9 @@ pub const klineedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, eventType: [*:0]u8, message: ?*anyopaque, result: *isize) callconv(.c) bool ```
-    pub fn OnNativeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]u8, ?*anyopaque, *isize) callconv(.c) bool) void {
-        qtc.KLineEdit_OnNativeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, eventType: [*:0]u8, message: ?*anyopaque, result: *isize) callconv(.c) bool ```
+    pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]u8, ?*anyopaque, *isize) callconv(.c) bool) void {
+        qtc.KLineEdit_OnNativeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5934,9 +5934,9 @@ pub const klineedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 ```
-    pub fn OnMetric(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.KLineEdit_OnMetric(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 ```
+    pub fn OnMetric(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
+        qtc.KLineEdit_OnMetric(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5967,9 +5967,9 @@ pub const klineedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, painter: QtC.QPainter) callconv(.c) void ```
-    pub fn OnInitPainter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KLineEdit_OnInitPainter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, painter: QtC.QPainter) callconv(.c) void ```
+    pub fn OnInitPainter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KLineEdit_OnInitPainter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6000,9 +6000,9 @@ pub const klineedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, offset: QtC.QPoint) callconv(.c) QtC.QPaintDevice ```
-    pub fn OnRedirected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPaintDevice) void {
-        qtc.KLineEdit_OnRedirected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, offset: QtC.QPoint) callconv(.c) QtC.QPaintDevice ```
+    pub fn OnRedirected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPaintDevice) void {
+        qtc.KLineEdit_OnRedirected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6033,9 +6033,9 @@ pub const klineedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn () callconv(.c) QtC.QPainter ```
-    pub fn OnSharedPainter(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QPainter) void {
-        qtc.KLineEdit_OnSharedPainter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn () callconv(.c) QtC.QPainter ```
+    pub fn OnSharedPainter(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainter) void {
+        qtc.KLineEdit_OnSharedPainter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6066,9 +6066,9 @@ pub const klineedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, next: bool) callconv(.c) bool ```
-    pub fn OnFocusNextPrevChild(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) bool) void {
-        qtc.KLineEdit_OnFocusNextPrevChild(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, next: bool) callconv(.c) bool ```
+    pub fn OnFocusNextPrevChild(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) bool) void {
+        qtc.KLineEdit_OnFocusNextPrevChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6099,9 +6099,9 @@ pub const klineedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KLineEdit_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KLineEdit_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6132,9 +6132,9 @@ pub const klineedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, event: QtC.QChildEvent) callconv(.c) void ```
-    pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KLineEdit_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, event: QtC.QChildEvent) callconv(.c) void ```
+    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KLineEdit_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6165,9 +6165,9 @@ pub const klineedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KLineEdit_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KLineEdit_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6198,9 +6198,9 @@ pub const klineedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KLineEdit_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KLineEdit_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6231,9 +6231,9 @@ pub const klineedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KLineEdit_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KLineEdit_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCompletionBase
@@ -6264,9 +6264,9 @@ pub const klineedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, handle: bool) callconv(.c) void ```
-    pub fn OnSetHandleSignals(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.KLineEdit_OnSetHandleSignals(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, handle: bool) callconv(.c) void ```
+    pub fn OnSetHandleSignals(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.KLineEdit_OnSetHandleSignals(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCompletionBase
@@ -6297,9 +6297,9 @@ pub const klineedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, id: i32, data: ?*anyopaque) callconv(.c) void ```
-    pub fn OnVirtualHook(self: ?*anyopaque, slot: fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.KLineEdit_OnVirtualHook(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, id: i32, data: ?*anyopaque) callconv(.c) void ```
+    pub fn OnVirtualHook(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
+        qtc.KLineEdit_OnVirtualHook(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QLineEdit
@@ -6330,9 +6330,9 @@ pub const klineedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn () callconv(.c) QtC.QRect ```
-    pub fn OnCursorRect(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QRect) void {
-        qtc.KLineEdit_OnCursorRect(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn () callconv(.c) QtC.QRect ```
+    pub fn OnCursorRect(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QRect) void {
+        qtc.KLineEdit_OnCursorRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6363,9 +6363,9 @@ pub const klineedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn () callconv(.c) void ```
-    pub fn OnUpdateMicroFocus(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KLineEdit_OnUpdateMicroFocus(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn () callconv(.c) void ```
+    pub fn OnUpdateMicroFocus(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KLineEdit_OnUpdateMicroFocus(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6396,9 +6396,9 @@ pub const klineedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn () callconv(.c) void ```
-    pub fn OnCreate(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KLineEdit_OnCreate(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn () callconv(.c) void ```
+    pub fn OnCreate(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KLineEdit_OnCreate(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6429,9 +6429,9 @@ pub const klineedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn () callconv(.c) void ```
-    pub fn OnDestroy(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KLineEdit_OnDestroy(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn () callconv(.c) void ```
+    pub fn OnDestroy(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KLineEdit_OnDestroy(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6462,9 +6462,9 @@ pub const klineedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn () callconv(.c) bool ```
-    pub fn OnFocusNextChild(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.KLineEdit_OnFocusNextChild(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn () callconv(.c) bool ```
+    pub fn OnFocusNextChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.KLineEdit_OnFocusNextChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6495,9 +6495,9 @@ pub const klineedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn () callconv(.c) bool ```
-    pub fn OnFocusPreviousChild(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.KLineEdit_OnFocusPreviousChild(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn () callconv(.c) bool ```
+    pub fn OnFocusPreviousChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.KLineEdit_OnFocusPreviousChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6528,9 +6528,9 @@ pub const klineedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn () callconv(.c) QtC.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
-        qtc.KLineEdit_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.KLineEdit_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6561,9 +6561,9 @@ pub const klineedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn () callconv(.c) i32 ```
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.KLineEdit_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.KLineEdit_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6596,9 +6596,9 @@ pub const klineedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, signal: [*:0]const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KLineEdit_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
+        qtc.KLineEdit_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6629,9 +6629,9 @@ pub const klineedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, signal: QtC.QMetaMethod) callconv(.c) bool ```
-    pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KLineEdit_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KLineEdit_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -6662,9 +6662,9 @@ pub const klineedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 ```
-    pub fn OnGetDecodedMetricF(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
-        qtc.KLineEdit_OnGetDecodedMetricF(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 ```
+    pub fn OnGetDecodedMetricF(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
+        qtc.KLineEdit_OnGetDecodedMetricF(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCompletionBase
@@ -6723,9 +6723,9 @@ pub const klineedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn () callconv(.c) map_i32_qtcqkeysequence ```
-    pub fn OnKeyBindingMap(self: ?*anyopaque, slot: fn () callconv(.c) map_i32_qtcqkeysequence) void {
-        qtc.KLineEdit_OnKeyBindingMap(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn () callconv(.c) map_i32_qtcqkeysequence ```
+    pub fn OnKeyBindingMap(self: ?*anyopaque, callback: *const fn () callconv(.c) map_i32_qtcqkeysequence) void {
+        qtc.KLineEdit_OnKeyBindingMap(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCompletionBase
@@ -6790,9 +6790,9 @@ pub const klineedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, keyBindingMap: map_i32_qtcqkeysequence) callconv(.c) void ```
-    pub fn OnSetKeyBindingMap(self: ?*anyopaque, slot: fn (?*anyopaque, map_i32_qtcqkeysequence) callconv(.c) void) void {
-        qtc.KLineEdit_OnSetKeyBindingMap(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, keyBindingMap: map_i32_qtcqkeysequence) callconv(.c) void ```
+    pub fn OnSetKeyBindingMap(self: ?*anyopaque, callback: *const fn (?*anyopaque, map_i32_qtcqkeysequence) callconv(.c) void) void {
+        qtc.KLineEdit_OnSetKeyBindingMap(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCompletionBase
@@ -6823,9 +6823,9 @@ pub const klineedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, delegate: QtC.KCompletionBase) callconv(.c) void ```
-    pub fn OnSetDelegate(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KLineEdit_OnSetDelegate(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, delegate: QtC.KCompletionBase) callconv(.c) void ```
+    pub fn OnSetDelegate(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KLineEdit_OnSetDelegate(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCompletionBase
@@ -6856,9 +6856,9 @@ pub const klineedit = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn () callconv(.c) QtC.KCompletionBase ```
-    pub fn OnDelegate(self: ?*anyopaque, slot: fn () callconv(.c) QtC.KCompletionBase) void {
-        qtc.KLineEdit_OnDelegate(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn () callconv(.c) QtC.KCompletionBase ```
+    pub fn OnDelegate(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.KCompletionBase) void {
+        qtc.KLineEdit_OnDelegate(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6867,9 +6867,9 @@ pub const klineedit = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KLineEdit, slot: fn (self: QtC.KLineEdit, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KLineEdit, callback: *const fn (self: QtC.KLineEdit, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/klineedit.html#dtor.KLineEdit)

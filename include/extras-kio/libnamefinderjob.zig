@@ -40,9 +40,9 @@ pub const kio__namefinderjob = struct {
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KIO__NameFinderJob, slot: fn (self: QtC.KIO__NameFinderJob, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
-        qtc.KIO__NameFinderJob_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__NameFinderJob, callback: *const fn (self: QtC.KIO__NameFinderJob, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+        qtc.KIO__NameFinderJob_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -75,9 +75,9 @@ pub const kio__namefinderjob = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KIO__NameFinderJob, slot: fn () callconv(.c) void ```
-    pub fn OnStart(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KIO__NameFinderJob_OnStart(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__NameFinderJob, callback: *const fn () callconv(.c) void ```
+    pub fn OnStart(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KIO__NameFinderJob_OnStart(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kio-namefinderjob.html#start)
@@ -334,9 +334,9 @@ pub const kio__namefinderjob = struct {
     ///
     /// [Qt documentation](https://api.kde.org/kjob.html#description)
     ///
-    /// ``` self: QtC.KIO__NameFinderJob, slot: fn (self: QtC.KIO__NameFinderJob, job: QtC.KJob, title: [*:0]const u8) callconv(.c) void ```
-    pub fn OnDescription(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KJob_Connect_Description(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__NameFinderJob, callback: *const fn (self: QtC.KIO__NameFinderJob, job: QtC.KJob, title: [*:0]const u8) callconv(.c) void ```
+    pub fn OnDescription(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.KJob_Connect_Description(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -356,9 +356,9 @@ pub const kio__namefinderjob = struct {
     ///
     /// [Qt documentation](https://api.kde.org/kjob.html#infoMessage)
     ///
-    /// ``` self: QtC.KIO__NameFinderJob, slot: fn (self: QtC.KIO__NameFinderJob, job: QtC.KJob, message: [*:0]const u8) callconv(.c) void ```
-    pub fn OnInfoMessage(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KJob_Connect_InfoMessage(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__NameFinderJob, callback: *const fn (self: QtC.KIO__NameFinderJob, job: QtC.KJob, message: [*:0]const u8) callconv(.c) void ```
+    pub fn OnInfoMessage(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.KJob_Connect_InfoMessage(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -378,9 +378,9 @@ pub const kio__namefinderjob = struct {
     ///
     /// [Qt documentation](https://api.kde.org/kjob.html#warning)
     ///
-    /// ``` self: QtC.KIO__NameFinderJob, slot: fn (self: QtC.KIO__NameFinderJob, job: QtC.KJob, message: [*:0]const u8) callconv(.c) void ```
-    pub fn OnWarning(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KJob_Connect_Warning(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__NameFinderJob, callback: *const fn (self: QtC.KIO__NameFinderJob, job: QtC.KJob, message: [*:0]const u8) callconv(.c) void ```
+    pub fn OnWarning(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.KJob_Connect_Warning(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -396,9 +396,9 @@ pub const kio__namefinderjob = struct {
     ///
     /// [Qt documentation](https://api.kde.org/kjob.html#totalSize)
     ///
-    /// ``` self: QtC.KIO__NameFinderJob, slot: fn (self: QtC.KIO__NameFinderJob, job: QtC.KJob, size: u64) callconv(.c) void ```
-    pub fn OnTotalSize(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
-        qtc.KJob_Connect_TotalSize(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__NameFinderJob, callback: *const fn (self: QtC.KIO__NameFinderJob, job: QtC.KJob, size: u64) callconv(.c) void ```
+    pub fn OnTotalSize(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
+        qtc.KJob_Connect_TotalSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -414,9 +414,9 @@ pub const kio__namefinderjob = struct {
     ///
     /// [Qt documentation](https://api.kde.org/kjob.html#processedSize)
     ///
-    /// ``` self: QtC.KIO__NameFinderJob, slot: fn (self: QtC.KIO__NameFinderJob, job: QtC.KJob, size: u64) callconv(.c) void ```
-    pub fn OnProcessedSize(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
-        qtc.KJob_Connect_ProcessedSize(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__NameFinderJob, callback: *const fn (self: QtC.KIO__NameFinderJob, job: QtC.KJob, size: u64) callconv(.c) void ```
+    pub fn OnProcessedSize(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
+        qtc.KJob_Connect_ProcessedSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -432,9 +432,9 @@ pub const kio__namefinderjob = struct {
     ///
     /// [Qt documentation](https://api.kde.org/kjob.html#speed)
     ///
-    /// ``` self: QtC.KIO__NameFinderJob, slot: fn (self: QtC.KIO__NameFinderJob, job: QtC.KJob, speed: u64) callconv(.c) void ```
-    pub fn OnSpeed(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
-        qtc.KJob_Connect_Speed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__NameFinderJob, callback: *const fn (self: QtC.KIO__NameFinderJob, job: QtC.KJob, speed: u64) callconv(.c) void ```
+    pub fn OnSpeed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
+        qtc.KJob_Connect_Speed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -476,9 +476,9 @@ pub const kio__namefinderjob = struct {
     ///
     /// [Qt documentation](https://api.kde.org/kjob.html#description)
     ///
-    /// ``` self: QtC.KIO__NameFinderJob, slot: fn (self: QtC.KIO__NameFinderJob, job: QtC.KJob, title: [*:0]const u8, field1: struct_constu8_constu8) callconv(.c) void ```
-    pub fn OnDescription3(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, [*:0]const u8, struct_constu8_constu8) callconv(.c) void) void {
-        qtc.KJob_Connect_Description3(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__NameFinderJob, callback: *const fn (self: QtC.KIO__NameFinderJob, job: QtC.KJob, title: [*:0]const u8, field1: struct_constu8_constu8) callconv(.c) void ```
+    pub fn OnDescription3(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8, struct_constu8_constu8) callconv(.c) void) void {
+        qtc.KJob_Connect_Description3(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -506,9 +506,9 @@ pub const kio__namefinderjob = struct {
     ///
     /// [Qt documentation](https://api.kde.org/kjob.html#description)
     ///
-    /// ``` self: QtC.KIO__NameFinderJob, slot: fn (self: QtC.KIO__NameFinderJob, job: QtC.KJob, title: [*:0]const u8, field1: struct_constu8_constu8, field2: struct_constu8_constu8) callconv(.c) void ```
-    pub fn OnDescription4(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, [*:0]const u8, struct_constu8_constu8, struct_constu8_constu8) callconv(.c) void) void {
-        qtc.KJob_Connect_Description4(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__NameFinderJob, callback: *const fn (self: QtC.KIO__NameFinderJob, job: QtC.KJob, title: [*:0]const u8, field1: struct_constu8_constu8, field2: struct_constu8_constu8) callconv(.c) void ```
+    pub fn OnDescription4(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8, struct_constu8_constu8, struct_constu8_constu8) callconv(.c) void) void {
+        qtc.KJob_Connect_Description4(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -799,9 +799,9 @@ pub const kio__namefinderjob = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KIO__NameFinderJob, slot: fn (self: QtC.KIO__NameFinderJob) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__NameFinderJob, callback: *const fn (self: QtC.KIO__NameFinderJob) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -883,9 +883,9 @@ pub const kio__namefinderjob = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KIO__NameFinderJob, slot: fn (self: QtC.KIO__NameFinderJob, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__NameFinderJob, callback: *const fn (self: QtC.KIO__NameFinderJob, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCompositeJob
@@ -916,9 +916,9 @@ pub const kio__namefinderjob = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KIO__NameFinderJob, slot: fn (self: QtC.KIO__NameFinderJob, job: QtC.KJob) callconv(.c) bool ```
-    pub fn OnAddSubjob(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KIO__NameFinderJob_OnAddSubjob(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__NameFinderJob, callback: *const fn (self: QtC.KIO__NameFinderJob, job: QtC.KJob) callconv(.c) bool ```
+    pub fn OnAddSubjob(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KIO__NameFinderJob_OnAddSubjob(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCompositeJob
@@ -949,9 +949,9 @@ pub const kio__namefinderjob = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KIO__NameFinderJob, slot: fn (self: QtC.KIO__NameFinderJob, job: QtC.KJob) callconv(.c) bool ```
-    pub fn OnRemoveSubjob(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KIO__NameFinderJob_OnRemoveSubjob(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__NameFinderJob, callback: *const fn (self: QtC.KIO__NameFinderJob, job: QtC.KJob) callconv(.c) bool ```
+    pub fn OnRemoveSubjob(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KIO__NameFinderJob_OnRemoveSubjob(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCompositeJob
@@ -982,9 +982,9 @@ pub const kio__namefinderjob = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KIO__NameFinderJob, slot: fn (self: QtC.KIO__NameFinderJob, job: QtC.KJob) callconv(.c) void ```
-    pub fn OnSlotResult(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIO__NameFinderJob_OnSlotResult(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__NameFinderJob, callback: *const fn (self: QtC.KIO__NameFinderJob, job: QtC.KJob) callconv(.c) void ```
+    pub fn OnSlotResult(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KIO__NameFinderJob_OnSlotResult(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCompositeJob
@@ -1023,9 +1023,9 @@ pub const kio__namefinderjob = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KIO__NameFinderJob, slot: fn (self: QtC.KIO__NameFinderJob, job: QtC.KJob, message: [*:0]const u8) callconv(.c) void ```
-    pub fn OnSlotInfoMessage(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KIO__NameFinderJob_OnSlotInfoMessage(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__NameFinderJob, callback: *const fn (self: QtC.KIO__NameFinderJob, job: QtC.KJob, message: [*:0]const u8) callconv(.c) void ```
+    pub fn OnSlotInfoMessage(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.KIO__NameFinderJob_OnSlotInfoMessage(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -1056,9 +1056,9 @@ pub const kio__namefinderjob = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KIO__NameFinderJob, slot: fn () callconv(.c) bool ```
-    pub fn OnDoKill(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.KIO__NameFinderJob_OnDoKill(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__NameFinderJob, callback: *const fn () callconv(.c) bool ```
+    pub fn OnDoKill(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.KIO__NameFinderJob_OnDoKill(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -1089,9 +1089,9 @@ pub const kio__namefinderjob = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KIO__NameFinderJob, slot: fn () callconv(.c) bool ```
-    pub fn OnDoSuspend(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.KIO__NameFinderJob_OnDoSuspend(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__NameFinderJob, callback: *const fn () callconv(.c) bool ```
+    pub fn OnDoSuspend(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.KIO__NameFinderJob_OnDoSuspend(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -1122,9 +1122,9 @@ pub const kio__namefinderjob = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KIO__NameFinderJob, slot: fn () callconv(.c) bool ```
-    pub fn OnDoResume(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.KIO__NameFinderJob_OnDoResume(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__NameFinderJob, callback: *const fn () callconv(.c) bool ```
+    pub fn OnDoResume(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.KIO__NameFinderJob_OnDoResume(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -1163,9 +1163,9 @@ pub const kio__namefinderjob = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KIO__NameFinderJob, slot: fn () callconv(.c) [*:0]const u8 ```
-    pub fn OnErrorString(self: ?*anyopaque, slot: fn () callconv(.c) [*:0]const u8) void {
-        qtc.KIO__NameFinderJob_OnErrorString(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__NameFinderJob, callback: *const fn () callconv(.c) [*:0]const u8 ```
+    pub fn OnErrorString(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
+        qtc.KIO__NameFinderJob_OnErrorString(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1196,9 +1196,9 @@ pub const kio__namefinderjob = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KIO__NameFinderJob, slot: fn (self: QtC.KIO__NameFinderJob, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KIO__NameFinderJob_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__NameFinderJob, callback: *const fn (self: QtC.KIO__NameFinderJob, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KIO__NameFinderJob_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1229,9 +1229,9 @@ pub const kio__namefinderjob = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KIO__NameFinderJob, slot: fn (self: QtC.KIO__NameFinderJob, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KIO__NameFinderJob_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__NameFinderJob, callback: *const fn (self: QtC.KIO__NameFinderJob, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KIO__NameFinderJob_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1262,9 +1262,9 @@ pub const kio__namefinderjob = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KIO__NameFinderJob, slot: fn (self: QtC.KIO__NameFinderJob, event: QtC.QTimerEvent) callconv(.c) void ```
-    pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIO__NameFinderJob_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__NameFinderJob, callback: *const fn (self: QtC.KIO__NameFinderJob, event: QtC.QTimerEvent) callconv(.c) void ```
+    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KIO__NameFinderJob_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1295,9 +1295,9 @@ pub const kio__namefinderjob = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KIO__NameFinderJob, slot: fn (self: QtC.KIO__NameFinderJob, event: QtC.QChildEvent) callconv(.c) void ```
-    pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIO__NameFinderJob_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__NameFinderJob, callback: *const fn (self: QtC.KIO__NameFinderJob, event: QtC.QChildEvent) callconv(.c) void ```
+    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KIO__NameFinderJob_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1328,9 +1328,9 @@ pub const kio__namefinderjob = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KIO__NameFinderJob, slot: fn (self: QtC.KIO__NameFinderJob, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIO__NameFinderJob_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__NameFinderJob, callback: *const fn (self: QtC.KIO__NameFinderJob, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KIO__NameFinderJob_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1361,9 +1361,9 @@ pub const kio__namefinderjob = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KIO__NameFinderJob, slot: fn (self: QtC.KIO__NameFinderJob, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIO__NameFinderJob_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__NameFinderJob, callback: *const fn (self: QtC.KIO__NameFinderJob, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KIO__NameFinderJob_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1394,9 +1394,9 @@ pub const kio__namefinderjob = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KIO__NameFinderJob, slot: fn (self: QtC.KIO__NameFinderJob, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIO__NameFinderJob_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__NameFinderJob, callback: *const fn (self: QtC.KIO__NameFinderJob, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KIO__NameFinderJob_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCompositeJob
@@ -1427,9 +1427,9 @@ pub const kio__namefinderjob = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KIO__NameFinderJob, slot: fn () callconv(.c) bool ```
-    pub fn OnHasSubjobs(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.KIO__NameFinderJob_OnHasSubjobs(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__NameFinderJob, callback: *const fn () callconv(.c) bool ```
+    pub fn OnHasSubjobs(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.KIO__NameFinderJob_OnHasSubjobs(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCompositeJob
@@ -1470,9 +1470,9 @@ pub const kio__namefinderjob = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KIO__NameFinderJob, slot: fn () callconv(.c) [*:null]QtC.KJob ```
-    pub fn OnSubjobs(self: ?*anyopaque, slot: fn () callconv(.c) [*:null]QtC.KJob) void {
-        qtc.KIO__NameFinderJob_OnSubjobs(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__NameFinderJob, callback: *const fn () callconv(.c) [*:null]QtC.KJob ```
+    pub fn OnSubjobs(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:null]QtC.KJob) void {
+        qtc.KIO__NameFinderJob_OnSubjobs(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCompositeJob
@@ -1503,9 +1503,9 @@ pub const kio__namefinderjob = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KIO__NameFinderJob, slot: fn () callconv(.c) void ```
-    pub fn OnClearSubjobs(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KIO__NameFinderJob_OnClearSubjobs(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__NameFinderJob, callback: *const fn () callconv(.c) void ```
+    pub fn OnClearSubjobs(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KIO__NameFinderJob_OnClearSubjobs(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -1536,9 +1536,9 @@ pub const kio__namefinderjob = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KIO__NameFinderJob, slot: fn (self: QtC.KIO__NameFinderJob, capabilities: flag of kjob_enums.Capability) callconv(.c) void ```
-    pub fn OnSetCapabilities(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KIO__NameFinderJob_OnSetCapabilities(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__NameFinderJob, callback: *const fn (self: QtC.KIO__NameFinderJob, capabilities: flag of kjob_enums.Capability) callconv(.c) void ```
+    pub fn OnSetCapabilities(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.KIO__NameFinderJob_OnSetCapabilities(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -1569,9 +1569,9 @@ pub const kio__namefinderjob = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KIO__NameFinderJob, slot: fn () callconv(.c) bool ```
-    pub fn OnIsFinished(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.KIO__NameFinderJob_OnIsFinished(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__NameFinderJob, callback: *const fn () callconv(.c) bool ```
+    pub fn OnIsFinished(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.KIO__NameFinderJob_OnIsFinished(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -1602,9 +1602,9 @@ pub const kio__namefinderjob = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KIO__NameFinderJob, slot: fn (self: QtC.KIO__NameFinderJob, errorCode: i32) callconv(.c) void ```
-    pub fn OnSetError(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KIO__NameFinderJob_OnSetError(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__NameFinderJob, callback: *const fn (self: QtC.KIO__NameFinderJob, errorCode: i32) callconv(.c) void ```
+    pub fn OnSetError(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.KIO__NameFinderJob_OnSetError(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -1643,9 +1643,9 @@ pub const kio__namefinderjob = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KIO__NameFinderJob, slot: fn (self: QtC.KIO__NameFinderJob, errorText: [*:0]const u8) callconv(.c) void ```
-    pub fn OnSetErrorText(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KIO__NameFinderJob_OnSetErrorText(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__NameFinderJob, callback: *const fn (self: QtC.KIO__NameFinderJob, errorText: [*:0]const u8) callconv(.c) void ```
+    pub fn OnSetErrorText(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.KIO__NameFinderJob_OnSetErrorText(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -1676,9 +1676,9 @@ pub const kio__namefinderjob = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KIO__NameFinderJob, slot: fn (self: QtC.KIO__NameFinderJob, unit: kjob_enums.Unit, amount: u64) callconv(.c) void ```
-    pub fn OnSetProcessedAmount(self: ?*anyopaque, slot: fn (?*anyopaque, i32, u64) callconv(.c) void) void {
-        qtc.KIO__NameFinderJob_OnSetProcessedAmount(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__NameFinderJob, callback: *const fn (self: QtC.KIO__NameFinderJob, unit: kjob_enums.Unit, amount: u64) callconv(.c) void ```
+    pub fn OnSetProcessedAmount(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, u64) callconv(.c) void) void {
+        qtc.KIO__NameFinderJob_OnSetProcessedAmount(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -1709,9 +1709,9 @@ pub const kio__namefinderjob = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KIO__NameFinderJob, slot: fn (self: QtC.KIO__NameFinderJob, unit: kjob_enums.Unit, amount: u64) callconv(.c) void ```
-    pub fn OnSetTotalAmount(self: ?*anyopaque, slot: fn (?*anyopaque, i32, u64) callconv(.c) void) void {
-        qtc.KIO__NameFinderJob_OnSetTotalAmount(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__NameFinderJob, callback: *const fn (self: QtC.KIO__NameFinderJob, unit: kjob_enums.Unit, amount: u64) callconv(.c) void ```
+    pub fn OnSetTotalAmount(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, u64) callconv(.c) void) void {
+        qtc.KIO__NameFinderJob_OnSetTotalAmount(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -1742,9 +1742,9 @@ pub const kio__namefinderjob = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KIO__NameFinderJob, slot: fn (self: QtC.KIO__NameFinderJob, unit: kjob_enums.Unit) callconv(.c) void ```
-    pub fn OnSetProgressUnit(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KIO__NameFinderJob_OnSetProgressUnit(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__NameFinderJob, callback: *const fn (self: QtC.KIO__NameFinderJob, unit: kjob_enums.Unit) callconv(.c) void ```
+    pub fn OnSetProgressUnit(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.KIO__NameFinderJob_OnSetProgressUnit(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -1775,9 +1775,9 @@ pub const kio__namefinderjob = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KIO__NameFinderJob, slot: fn (self: QtC.KIO__NameFinderJob, percentage: u64) callconv(.c) void ```
-    pub fn OnSetPercent(self: ?*anyopaque, slot: fn (?*anyopaque, u64) callconv(.c) void) void {
-        qtc.KIO__NameFinderJob_OnSetPercent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__NameFinderJob, callback: *const fn (self: QtC.KIO__NameFinderJob, percentage: u64) callconv(.c) void ```
+    pub fn OnSetPercent(self: ?*anyopaque, callback: *const fn (?*anyopaque, u64) callconv(.c) void) void {
+        qtc.KIO__NameFinderJob_OnSetPercent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -1808,9 +1808,9 @@ pub const kio__namefinderjob = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KIO__NameFinderJob, slot: fn () callconv(.c) void ```
-    pub fn OnEmitResult(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KIO__NameFinderJob_OnEmitResult(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__NameFinderJob, callback: *const fn () callconv(.c) void ```
+    pub fn OnEmitResult(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KIO__NameFinderJob_OnEmitResult(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -1841,9 +1841,9 @@ pub const kio__namefinderjob = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KIO__NameFinderJob, slot: fn (self: QtC.KIO__NameFinderJob, processedAmount: u64, totalAmount: u64) callconv(.c) void ```
-    pub fn OnEmitPercent(self: ?*anyopaque, slot: fn (?*anyopaque, u64, u64) callconv(.c) void) void {
-        qtc.KIO__NameFinderJob_OnEmitPercent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__NameFinderJob, callback: *const fn (self: QtC.KIO__NameFinderJob, processedAmount: u64, totalAmount: u64) callconv(.c) void ```
+    pub fn OnEmitPercent(self: ?*anyopaque, callback: *const fn (?*anyopaque, u64, u64) callconv(.c) void) void {
+        qtc.KIO__NameFinderJob_OnEmitPercent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -1874,9 +1874,9 @@ pub const kio__namefinderjob = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KIO__NameFinderJob, slot: fn (self: QtC.KIO__NameFinderJob, speed: u64) callconv(.c) void ```
-    pub fn OnEmitSpeed(self: ?*anyopaque, slot: fn (?*anyopaque, u64) callconv(.c) void) void {
-        qtc.KIO__NameFinderJob_OnEmitSpeed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__NameFinderJob, callback: *const fn (self: QtC.KIO__NameFinderJob, speed: u64) callconv(.c) void ```
+    pub fn OnEmitSpeed(self: ?*anyopaque, callback: *const fn (?*anyopaque, u64) callconv(.c) void) void {
+        qtc.KIO__NameFinderJob_OnEmitSpeed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -1907,9 +1907,9 @@ pub const kio__namefinderjob = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KIO__NameFinderJob, slot: fn () callconv(.c) void ```
-    pub fn OnStartElapsedTimer(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KIO__NameFinderJob_OnStartElapsedTimer(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__NameFinderJob, callback: *const fn () callconv(.c) void ```
+    pub fn OnStartElapsedTimer(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KIO__NameFinderJob_OnStartElapsedTimer(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1940,9 +1940,9 @@ pub const kio__namefinderjob = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KIO__NameFinderJob, slot: fn () callconv(.c) QtC.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
-        qtc.KIO__NameFinderJob_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__NameFinderJob, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.KIO__NameFinderJob_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1973,9 +1973,9 @@ pub const kio__namefinderjob = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KIO__NameFinderJob, slot: fn () callconv(.c) i32 ```
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.KIO__NameFinderJob_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__NameFinderJob, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.KIO__NameFinderJob_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2008,9 +2008,9 @@ pub const kio__namefinderjob = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KIO__NameFinderJob, slot: fn (self: QtC.KIO__NameFinderJob, signal: [*:0]const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KIO__NameFinderJob_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__NameFinderJob, callback: *const fn (self: QtC.KIO__NameFinderJob, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
+        qtc.KIO__NameFinderJob_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2041,9 +2041,9 @@ pub const kio__namefinderjob = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KIO__NameFinderJob, slot: fn (self: QtC.KIO__NameFinderJob, signal: QtC.QMetaMethod) callconv(.c) bool ```
-    pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KIO__NameFinderJob_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__NameFinderJob, callback: *const fn (self: QtC.KIO__NameFinderJob, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KIO__NameFinderJob_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -2052,9 +2052,9 @@ pub const kio__namefinderjob = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KIO__NameFinderJob, slot: fn (self: QtC.KIO__NameFinderJob, job: QtC.KJob) callconv(.c) void ```
-    pub fn OnFinished(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KJob_Connect_Finished(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__NameFinderJob, callback: *const fn (self: QtC.KIO__NameFinderJob, job: QtC.KJob) callconv(.c) void ```
+    pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KJob_Connect_Finished(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -2063,9 +2063,9 @@ pub const kio__namefinderjob = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KIO__NameFinderJob, slot: fn (self: QtC.KIO__NameFinderJob, job: QtC.KJob) callconv(.c) void ```
-    pub fn OnSuspended(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KJob_Connect_Suspended(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__NameFinderJob, callback: *const fn (self: QtC.KIO__NameFinderJob, job: QtC.KJob) callconv(.c) void ```
+    pub fn OnSuspended(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KJob_Connect_Suspended(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -2074,9 +2074,9 @@ pub const kio__namefinderjob = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KIO__NameFinderJob, slot: fn (self: QtC.KIO__NameFinderJob, job: QtC.KJob) callconv(.c) void ```
-    pub fn OnResumed(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KJob_Connect_Resumed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__NameFinderJob, callback: *const fn (self: QtC.KIO__NameFinderJob, job: QtC.KJob) callconv(.c) void ```
+    pub fn OnResumed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KJob_Connect_Resumed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -2085,9 +2085,9 @@ pub const kio__namefinderjob = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KIO__NameFinderJob, slot: fn (self: QtC.KIO__NameFinderJob, job: QtC.KJob) callconv(.c) void ```
-    pub fn OnResult(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KJob_Connect_Result(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__NameFinderJob, callback: *const fn (self: QtC.KIO__NameFinderJob, job: QtC.KJob) callconv(.c) void ```
+    pub fn OnResult(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KJob_Connect_Result(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -2096,9 +2096,9 @@ pub const kio__namefinderjob = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KIO__NameFinderJob, slot: fn (self: QtC.KIO__NameFinderJob, job: QtC.KJob, unit: kjob_enums.Unit, amount: u64) callconv(.c) void ```
-    pub fn OnTotalAmountChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, u64) callconv(.c) void) void {
-        qtc.KJob_Connect_TotalAmountChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__NameFinderJob, callback: *const fn (self: QtC.KIO__NameFinderJob, job: QtC.KJob, unit: kjob_enums.Unit, amount: u64) callconv(.c) void ```
+    pub fn OnTotalAmountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, u64) callconv(.c) void) void {
+        qtc.KJob_Connect_TotalAmountChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -2107,9 +2107,9 @@ pub const kio__namefinderjob = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KIO__NameFinderJob, slot: fn (self: QtC.KIO__NameFinderJob, job: QtC.KJob, unit: kjob_enums.Unit, amount: u64) callconv(.c) void ```
-    pub fn OnProcessedAmountChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, u64) callconv(.c) void) void {
-        qtc.KJob_Connect_ProcessedAmountChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__NameFinderJob, callback: *const fn (self: QtC.KIO__NameFinderJob, job: QtC.KJob, unit: kjob_enums.Unit, amount: u64) callconv(.c) void ```
+    pub fn OnProcessedAmountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, u64) callconv(.c) void) void {
+        qtc.KJob_Connect_ProcessedAmountChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -2118,9 +2118,9 @@ pub const kio__namefinderjob = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KIO__NameFinderJob, slot: fn (self: QtC.KIO__NameFinderJob, job: QtC.KJob, percent: u64) callconv(.c) void ```
-    pub fn OnPercentChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
-        qtc.KJob_Connect_PercentChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__NameFinderJob, callback: *const fn (self: QtC.KIO__NameFinderJob, job: QtC.KJob, percent: u64) callconv(.c) void ```
+    pub fn OnPercentChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
+        qtc.KJob_Connect_PercentChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2129,9 +2129,9 @@ pub const kio__namefinderjob = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KIO__NameFinderJob, slot: fn (self: QtC.KIO__NameFinderJob, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__NameFinderJob, callback: *const fn (self: QtC.KIO__NameFinderJob, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Delete this object from C++ memory.

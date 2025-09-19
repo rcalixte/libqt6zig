@@ -1,6 +1,6 @@
 #include <KCompositeJob>
-#define WORKAROUND_INNER_CLASS_DEFINITION_KIO__DeleteJob
-#define WORKAROUND_INNER_CLASS_DEFINITION_KIO__Job
+#include <KIO/DeleteJob>
+#include <KIO/Job>
 #include <KJob>
 #include <QList>
 #include <QMetaMethod>

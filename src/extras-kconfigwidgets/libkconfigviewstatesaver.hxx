@@ -10,7 +10,7 @@
 #include "../qtlibc.h"
 
 // This class is a subclass of KConfigViewStateSaver so that we can call protected methods
-class VirtualKConfigViewStateSaver final : public KConfigViewStateSaver {
+class VirtualKConfigViewStateSaver : public KConfigViewStateSaver {
 
   public:
     // Virtual class boolean flag

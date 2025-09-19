@@ -10,7 +10,7 @@
 #include "../qtlibc.h"
 
 // This class is a subclass of KAbstractFileItemActionPlugin so that we can call protected methods
-class VirtualKAbstractFileItemActionPlugin final : public KAbstractFileItemActionPlugin {
+class VirtualKAbstractFileItemActionPlugin : public KAbstractFileItemActionPlugin {
 
   public:
     // Virtual class boolean flag

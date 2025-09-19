@@ -10,7 +10,7 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QAbstractTextDocumentLayout so that we can call protected methods
-class VirtualQAbstractTextDocumentLayout final : public QAbstractTextDocumentLayout {
+class VirtualQAbstractTextDocumentLayout : public QAbstractTextDocumentLayout {
 
   public:
     // Virtual class boolean flag

@@ -10,7 +10,7 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QAbstractItemModel so that we can call protected methods
-class VirtualQAbstractItemModel final : public QAbstractItemModel {
+class VirtualQAbstractItemModel : public QAbstractItemModel {
 
   public:
     // Virtual class boolean flag
@@ -1768,7 +1768,7 @@ class VirtualQAbstractItemModel final : public QAbstractItemModel {
 };
 
 // This class is a subclass of QAbstractTableModel so that we can call protected methods
-class VirtualQAbstractTableModel final : public QAbstractTableModel {
+class VirtualQAbstractTableModel : public QAbstractTableModel {
 
   public:
     // Virtual class boolean flag
@@ -3436,7 +3436,7 @@ class VirtualQAbstractTableModel final : public QAbstractTableModel {
 };
 
 // This class is a subclass of QAbstractListModel so that we can call protected methods
-class VirtualQAbstractListModel final : public QAbstractListModel {
+class VirtualQAbstractListModel : public QAbstractListModel {
 
   public:
     // Virtual class boolean flag

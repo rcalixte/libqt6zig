@@ -10,7 +10,7 @@
 #include "../qtlibc.h"
 
 // This class is a subclass of KPageModel so that we can call protected methods
-class VirtualKPageModel final : public KPageModel {
+class VirtualKPageModel : public KPageModel {
 
   public:
     // Virtual class boolean flag

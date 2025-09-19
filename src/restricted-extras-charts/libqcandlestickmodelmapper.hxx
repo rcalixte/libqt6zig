@@ -10,7 +10,7 @@
 #include "../qtlibc.h"
 
 // This class is a subclass of QCandlestickModelMapper so that we can call protected methods
-class VirtualQCandlestickModelMapper final : public QCandlestickModelMapper {
+class VirtualQCandlestickModelMapper : public QCandlestickModelMapper {
 
   public:
     // Virtual class boolean flag

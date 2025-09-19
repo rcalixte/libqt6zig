@@ -17,9 +17,7 @@ extern "C" {
 #if defined(WORKAROUND_INNER_CLASS_DEFINITION_KFileItem__MostLocalUrlResult)
 typedef KFileItem::MostLocalUrlResult KFileItem__MostLocalUrlResult;
 #endif
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_KIO__UDSEntry)
 typedef KIO::UDSEntry KIO__UDSEntry;
-#endif
 #else
 typedef struct KACL KACL;
 typedef struct KFileItem KFileItem;

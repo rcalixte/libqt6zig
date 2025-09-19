@@ -41,9 +41,9 @@ pub const qcandlestickseries = struct {
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QCandlestickSeries, slot: fn (self: QtC.QCandlestickSeries, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QCandlestickSeries_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QCandlestickSeries, callback: *const fn (self: QtC.QCandlestickSeries, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+        qtc.QCandlestickSeries_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -154,9 +154,9 @@ pub const qcandlestickseries = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QCandlestickSeries, slot: fn () callconv(.c) i32 ```
-    pub fn OnType(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QCandlestickSeries_OnType(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QCandlestickSeries, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QCandlestickSeries_OnType(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#type)
@@ -319,9 +319,9 @@ pub const qcandlestickseries = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#clicked)
     ///
-    /// ``` self: QtC.QCandlestickSeries, slot: fn (self: QtC.QCandlestickSeries, set: QtC.QCandlestickSet) callconv(.c) void ```
-    pub fn OnClicked(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QCandlestickSeries_Connect_Clicked(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QCandlestickSeries, callback: *const fn (self: QtC.QCandlestickSeries, set: QtC.QCandlestickSet) callconv(.c) void ```
+    pub fn OnClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QCandlestickSeries_Connect_Clicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#hovered)
@@ -333,9 +333,9 @@ pub const qcandlestickseries = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#hovered)
     ///
-    /// ``` self: QtC.QCandlestickSeries, slot: fn (self: QtC.QCandlestickSeries, status: bool, set: QtC.QCandlestickSet) callconv(.c) void ```
-    pub fn OnHovered(self: ?*anyopaque, slot: fn (?*anyopaque, bool, ?*anyopaque) callconv(.c) void) void {
-        qtc.QCandlestickSeries_Connect_Hovered(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QCandlestickSeries, callback: *const fn (self: QtC.QCandlestickSeries, status: bool, set: QtC.QCandlestickSet) callconv(.c) void ```
+    pub fn OnHovered(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool, ?*anyopaque) callconv(.c) void) void {
+        qtc.QCandlestickSeries_Connect_Hovered(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#pressed)
@@ -347,9 +347,9 @@ pub const qcandlestickseries = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#pressed)
     ///
-    /// ``` self: QtC.QCandlestickSeries, slot: fn (self: QtC.QCandlestickSeries, set: QtC.QCandlestickSet) callconv(.c) void ```
-    pub fn OnPressed(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QCandlestickSeries_Connect_Pressed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QCandlestickSeries, callback: *const fn (self: QtC.QCandlestickSeries, set: QtC.QCandlestickSet) callconv(.c) void ```
+    pub fn OnPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QCandlestickSeries_Connect_Pressed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#released)
@@ -361,9 +361,9 @@ pub const qcandlestickseries = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#released)
     ///
-    /// ``` self: QtC.QCandlestickSeries, slot: fn (self: QtC.QCandlestickSeries, set: QtC.QCandlestickSet) callconv(.c) void ```
-    pub fn OnReleased(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QCandlestickSeries_Connect_Released(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QCandlestickSeries, callback: *const fn (self: QtC.QCandlestickSeries, set: QtC.QCandlestickSet) callconv(.c) void ```
+    pub fn OnReleased(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QCandlestickSeries_Connect_Released(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#doubleClicked)
@@ -375,9 +375,9 @@ pub const qcandlestickseries = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#doubleClicked)
     ///
-    /// ``` self: QtC.QCandlestickSeries, slot: fn (self: QtC.QCandlestickSeries, set: QtC.QCandlestickSet) callconv(.c) void ```
-    pub fn OnDoubleClicked(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QCandlestickSeries_Connect_DoubleClicked(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QCandlestickSeries, callback: *const fn (self: QtC.QCandlestickSeries, set: QtC.QCandlestickSet) callconv(.c) void ```
+    pub fn OnDoubleClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QCandlestickSeries_Connect_DoubleClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#candlestickSetsAdded)
@@ -393,9 +393,9 @@ pub const qcandlestickseries = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#candlestickSetsAdded)
     ///
-    /// ``` self: QtC.QCandlestickSeries, slot: fn (self: QtC.QCandlestickSeries, sets: [*]QtC.QCandlestickSet) callconv(.c) void ```
-    pub fn OnCandlestickSetsAdded(self: ?*anyopaque, slot: fn (?*anyopaque, [*]?*anyopaque) callconv(.c) void) void {
-        qtc.QCandlestickSeries_Connect_CandlestickSetsAdded(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QCandlestickSeries, callback: *const fn (self: QtC.QCandlestickSeries, sets: [*]QtC.QCandlestickSet) callconv(.c) void ```
+    pub fn OnCandlestickSetsAdded(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]?*anyopaque) callconv(.c) void) void {
+        qtc.QCandlestickSeries_Connect_CandlestickSetsAdded(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#candlestickSetsRemoved)
@@ -411,9 +411,9 @@ pub const qcandlestickseries = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#candlestickSetsRemoved)
     ///
-    /// ``` self: QtC.QCandlestickSeries, slot: fn (self: QtC.QCandlestickSeries, sets: [*]QtC.QCandlestickSet) callconv(.c) void ```
-    pub fn OnCandlestickSetsRemoved(self: ?*anyopaque, slot: fn (?*anyopaque, [*]?*anyopaque) callconv(.c) void) void {
-        qtc.QCandlestickSeries_Connect_CandlestickSetsRemoved(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QCandlestickSeries, callback: *const fn (self: QtC.QCandlestickSeries, sets: [*]QtC.QCandlestickSet) callconv(.c) void ```
+    pub fn OnCandlestickSetsRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]?*anyopaque) callconv(.c) void) void {
+        qtc.QCandlestickSeries_Connect_CandlestickSetsRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#countChanged)
@@ -425,9 +425,9 @@ pub const qcandlestickseries = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#countChanged)
     ///
-    /// ``` self: QtC.QCandlestickSeries, slot: fn (self: QtC.QCandlestickSeries) callconv(.c) void ```
-    pub fn OnCountChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QCandlestickSeries_Connect_CountChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QCandlestickSeries, callback: *const fn (self: QtC.QCandlestickSeries) callconv(.c) void ```
+    pub fn OnCountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QCandlestickSeries_Connect_CountChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#maximumColumnWidthChanged)
@@ -439,9 +439,9 @@ pub const qcandlestickseries = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#maximumColumnWidthChanged)
     ///
-    /// ``` self: QtC.QCandlestickSeries, slot: fn (self: QtC.QCandlestickSeries) callconv(.c) void ```
-    pub fn OnMaximumColumnWidthChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QCandlestickSeries_Connect_MaximumColumnWidthChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QCandlestickSeries, callback: *const fn (self: QtC.QCandlestickSeries) callconv(.c) void ```
+    pub fn OnMaximumColumnWidthChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QCandlestickSeries_Connect_MaximumColumnWidthChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#minimumColumnWidthChanged)
@@ -453,9 +453,9 @@ pub const qcandlestickseries = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#minimumColumnWidthChanged)
     ///
-    /// ``` self: QtC.QCandlestickSeries, slot: fn (self: QtC.QCandlestickSeries) callconv(.c) void ```
-    pub fn OnMinimumColumnWidthChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QCandlestickSeries_Connect_MinimumColumnWidthChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QCandlestickSeries, callback: *const fn (self: QtC.QCandlestickSeries) callconv(.c) void ```
+    pub fn OnMinimumColumnWidthChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QCandlestickSeries_Connect_MinimumColumnWidthChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#bodyWidthChanged)
@@ -467,9 +467,9 @@ pub const qcandlestickseries = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#bodyWidthChanged)
     ///
-    /// ``` self: QtC.QCandlestickSeries, slot: fn (self: QtC.QCandlestickSeries) callconv(.c) void ```
-    pub fn OnBodyWidthChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QCandlestickSeries_Connect_BodyWidthChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QCandlestickSeries, callback: *const fn (self: QtC.QCandlestickSeries) callconv(.c) void ```
+    pub fn OnBodyWidthChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QCandlestickSeries_Connect_BodyWidthChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#bodyOutlineVisibilityChanged)
@@ -481,9 +481,9 @@ pub const qcandlestickseries = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#bodyOutlineVisibilityChanged)
     ///
-    /// ``` self: QtC.QCandlestickSeries, slot: fn (self: QtC.QCandlestickSeries) callconv(.c) void ```
-    pub fn OnBodyOutlineVisibilityChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QCandlestickSeries_Connect_BodyOutlineVisibilityChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QCandlestickSeries, callback: *const fn (self: QtC.QCandlestickSeries) callconv(.c) void ```
+    pub fn OnBodyOutlineVisibilityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QCandlestickSeries_Connect_BodyOutlineVisibilityChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#capsWidthChanged)
@@ -495,9 +495,9 @@ pub const qcandlestickseries = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#capsWidthChanged)
     ///
-    /// ``` self: QtC.QCandlestickSeries, slot: fn (self: QtC.QCandlestickSeries) callconv(.c) void ```
-    pub fn OnCapsWidthChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QCandlestickSeries_Connect_CapsWidthChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QCandlestickSeries, callback: *const fn (self: QtC.QCandlestickSeries) callconv(.c) void ```
+    pub fn OnCapsWidthChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QCandlestickSeries_Connect_CapsWidthChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#capsVisibilityChanged)
@@ -509,9 +509,9 @@ pub const qcandlestickseries = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#capsVisibilityChanged)
     ///
-    /// ``` self: QtC.QCandlestickSeries, slot: fn (self: QtC.QCandlestickSeries) callconv(.c) void ```
-    pub fn OnCapsVisibilityChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QCandlestickSeries_Connect_CapsVisibilityChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QCandlestickSeries, callback: *const fn (self: QtC.QCandlestickSeries) callconv(.c) void ```
+    pub fn OnCapsVisibilityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QCandlestickSeries_Connect_CapsVisibilityChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#increasingColorChanged)
@@ -523,9 +523,9 @@ pub const qcandlestickseries = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#increasingColorChanged)
     ///
-    /// ``` self: QtC.QCandlestickSeries, slot: fn (self: QtC.QCandlestickSeries) callconv(.c) void ```
-    pub fn OnIncreasingColorChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QCandlestickSeries_Connect_IncreasingColorChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QCandlestickSeries, callback: *const fn (self: QtC.QCandlestickSeries) callconv(.c) void ```
+    pub fn OnIncreasingColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QCandlestickSeries_Connect_IncreasingColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#decreasingColorChanged)
@@ -537,9 +537,9 @@ pub const qcandlestickseries = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#decreasingColorChanged)
     ///
-    /// ``` self: QtC.QCandlestickSeries, slot: fn (self: QtC.QCandlestickSeries) callconv(.c) void ```
-    pub fn OnDecreasingColorChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QCandlestickSeries_Connect_DecreasingColorChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QCandlestickSeries, callback: *const fn (self: QtC.QCandlestickSeries) callconv(.c) void ```
+    pub fn OnDecreasingColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QCandlestickSeries_Connect_DecreasingColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#brushChanged)
@@ -551,9 +551,9 @@ pub const qcandlestickseries = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#brushChanged)
     ///
-    /// ``` self: QtC.QCandlestickSeries, slot: fn (self: QtC.QCandlestickSeries) callconv(.c) void ```
-    pub fn OnBrushChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QCandlestickSeries_Connect_BrushChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QCandlestickSeries, callback: *const fn (self: QtC.QCandlestickSeries) callconv(.c) void ```
+    pub fn OnBrushChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QCandlestickSeries_Connect_BrushChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#penChanged)
@@ -565,9 +565,9 @@ pub const qcandlestickseries = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#penChanged)
     ///
-    /// ``` self: QtC.QCandlestickSeries, slot: fn (self: QtC.QCandlestickSeries) callconv(.c) void ```
-    pub fn OnPenChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QCandlestickSeries_Connect_PenChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QCandlestickSeries, callback: *const fn (self: QtC.QCandlestickSeries) callconv(.c) void ```
+    pub fn OnPenChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QCandlestickSeries_Connect_PenChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -748,9 +748,9 @@ pub const qcandlestickseries = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries.html#nameChanged)
     ///
-    /// ``` self: QtC.QCandlestickSeries, slot: fn (self: QtC.QCandlestickSeries) callconv(.c) void ```
-    pub fn OnNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSeries_Connect_NameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QCandlestickSeries, callback: *const fn (self: QtC.QCandlestickSeries) callconv(.c) void ```
+    pub fn OnNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractSeries_Connect_NameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSeries
@@ -766,9 +766,9 @@ pub const qcandlestickseries = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries.html#visibleChanged)
     ///
-    /// ``` self: QtC.QCandlestickSeries, slot: fn (self: QtC.QCandlestickSeries) callconv(.c) void ```
-    pub fn OnVisibleChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSeries_Connect_VisibleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QCandlestickSeries, callback: *const fn (self: QtC.QCandlestickSeries) callconv(.c) void ```
+    pub fn OnVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractSeries_Connect_VisibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSeries
@@ -784,9 +784,9 @@ pub const qcandlestickseries = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries.html#opacityChanged)
     ///
-    /// ``` self: QtC.QCandlestickSeries, slot: fn (self: QtC.QCandlestickSeries) callconv(.c) void ```
-    pub fn OnOpacityChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSeries_Connect_OpacityChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QCandlestickSeries, callback: *const fn (self: QtC.QCandlestickSeries) callconv(.c) void ```
+    pub fn OnOpacityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractSeries_Connect_OpacityChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSeries
@@ -802,9 +802,9 @@ pub const qcandlestickseries = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries.html#useOpenGLChanged)
     ///
-    /// ``` self: QtC.QCandlestickSeries, slot: fn (self: QtC.QCandlestickSeries) callconv(.c) void ```
-    pub fn OnUseOpenGLChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSeries_Connect_UseOpenGLChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QCandlestickSeries, callback: *const fn (self: QtC.QCandlestickSeries) callconv(.c) void ```
+    pub fn OnUseOpenGLChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractSeries_Connect_UseOpenGLChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSeries
@@ -1113,9 +1113,9 @@ pub const qcandlestickseries = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QCandlestickSeries, slot: fn (self: QtC.QCandlestickSeries) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QCandlestickSeries, callback: *const fn (self: QtC.QCandlestickSeries) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1197,9 +1197,9 @@ pub const qcandlestickseries = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QCandlestickSeries, slot: fn (self: QtC.QCandlestickSeries, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QCandlestickSeries, callback: *const fn (self: QtC.QCandlestickSeries, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1230,9 +1230,9 @@ pub const qcandlestickseries = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QCandlestickSeries, slot: fn (self: QtC.QCandlestickSeries, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QCandlestickSeries_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QCandlestickSeries, callback: *const fn (self: QtC.QCandlestickSeries, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QCandlestickSeries_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1263,9 +1263,9 @@ pub const qcandlestickseries = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QCandlestickSeries, slot: fn (self: QtC.QCandlestickSeries, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QCandlestickSeries_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QCandlestickSeries, callback: *const fn (self: QtC.QCandlestickSeries, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QCandlestickSeries_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1296,9 +1296,9 @@ pub const qcandlestickseries = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QCandlestickSeries, slot: fn (self: QtC.QCandlestickSeries, event: QtC.QTimerEvent) callconv(.c) void ```
-    pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QCandlestickSeries_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QCandlestickSeries, callback: *const fn (self: QtC.QCandlestickSeries, event: QtC.QTimerEvent) callconv(.c) void ```
+    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QCandlestickSeries_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1329,9 +1329,9 @@ pub const qcandlestickseries = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QCandlestickSeries, slot: fn (self: QtC.QCandlestickSeries, event: QtC.QChildEvent) callconv(.c) void ```
-    pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QCandlestickSeries_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QCandlestickSeries, callback: *const fn (self: QtC.QCandlestickSeries, event: QtC.QChildEvent) callconv(.c) void ```
+    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QCandlestickSeries_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1362,9 +1362,9 @@ pub const qcandlestickseries = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QCandlestickSeries, slot: fn (self: QtC.QCandlestickSeries, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QCandlestickSeries_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QCandlestickSeries, callback: *const fn (self: QtC.QCandlestickSeries, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QCandlestickSeries_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1395,9 +1395,9 @@ pub const qcandlestickseries = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QCandlestickSeries, slot: fn (self: QtC.QCandlestickSeries, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QCandlestickSeries_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QCandlestickSeries, callback: *const fn (self: QtC.QCandlestickSeries, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QCandlestickSeries_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1428,9 +1428,9 @@ pub const qcandlestickseries = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QCandlestickSeries, slot: fn (self: QtC.QCandlestickSeries, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QCandlestickSeries_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QCandlestickSeries, callback: *const fn (self: QtC.QCandlestickSeries, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QCandlestickSeries_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1461,9 +1461,9 @@ pub const qcandlestickseries = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QCandlestickSeries, slot: fn () callconv(.c) QtC.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
-        qtc.QCandlestickSeries_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QCandlestickSeries, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.QCandlestickSeries_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1494,9 +1494,9 @@ pub const qcandlestickseries = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QCandlestickSeries, slot: fn () callconv(.c) i32 ```
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QCandlestickSeries_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QCandlestickSeries, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QCandlestickSeries_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1529,9 +1529,9 @@ pub const qcandlestickseries = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QCandlestickSeries, slot: fn (self: QtC.QCandlestickSeries, signal: [*:0]const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QCandlestickSeries_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QCandlestickSeries, callback: *const fn (self: QtC.QCandlestickSeries, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QCandlestickSeries_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1562,9 +1562,9 @@ pub const qcandlestickseries = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QCandlestickSeries, slot: fn (self: QtC.QCandlestickSeries, signal: QtC.QMetaMethod) callconv(.c) bool ```
-    pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QCandlestickSeries_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QCandlestickSeries, callback: *const fn (self: QtC.QCandlestickSeries, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QCandlestickSeries_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1573,9 +1573,9 @@ pub const qcandlestickseries = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QCandlestickSeries, slot: fn (self: QtC.QCandlestickSeries, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QCandlestickSeries, callback: *const fn (self: QtC.QCandlestickSeries, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qcandlestickseries-qtcharts.html#dtor.QCandlestickSeries)

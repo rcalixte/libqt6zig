@@ -10,7 +10,7 @@
 #include "../qtlibc.h"
 
 // This class is a subclass of KPreviewWidgetBase so that we can call protected methods
-class VirtualKPreviewWidgetBase final : public KPreviewWidgetBase {
+class VirtualKPreviewWidgetBase : public KPreviewWidgetBase {
 
   public:
     // Virtual class boolean flag

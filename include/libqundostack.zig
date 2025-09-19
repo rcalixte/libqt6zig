@@ -55,9 +55,9 @@ pub const qundocommand = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QUndoCommand, slot: fn () callconv(.c) void ```
-    pub fn OnUndo(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QUndoCommand_OnUndo(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QUndoCommand, callback: *const fn () callconv(.c) void ```
+    pub fn OnUndo(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QUndoCommand_OnUndo(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qundocommand.html#undo)
@@ -80,9 +80,9 @@ pub const qundocommand = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QUndoCommand, slot: fn () callconv(.c) void ```
-    pub fn OnRedo(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QUndoCommand_OnRedo(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QUndoCommand, callback: *const fn () callconv(.c) void ```
+    pub fn OnRedo(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QUndoCommand_OnRedo(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qundocommand.html#redo)
@@ -152,9 +152,9 @@ pub const qundocommand = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QUndoCommand, slot: fn () callconv(.c) i32 ```
-    pub fn OnId(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QUndoCommand_OnId(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QUndoCommand, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnId(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QUndoCommand_OnId(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qundocommand.html#id)
@@ -177,9 +177,9 @@ pub const qundocommand = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QUndoCommand, slot: fn (self: QtC.QUndoCommand, other: QtC.QUndoCommand) callconv(.c) bool ```
-    pub fn OnMergeWith(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QUndoCommand_OnMergeWith(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QUndoCommand, callback: *const fn (self: QtC.QUndoCommand, other: QtC.QUndoCommand) callconv(.c) bool ```
+    pub fn OnMergeWith(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QUndoCommand_OnMergeWith(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qundocommand.html#mergeWith)
@@ -251,9 +251,9 @@ pub const qundostack = struct {
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QUndoStack, slot: fn (self: QtC.QUndoStack, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QUndoStack_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QUndoStack, callback: *const fn (self: QtC.QUndoStack, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+        qtc.QUndoStack_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -475,9 +475,9 @@ pub const qundostack = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qundostack.html#indexChanged)
     ///
-    /// ``` self: QtC.QUndoStack, slot: fn (self: QtC.QUndoStack, idx: i32) callconv(.c) void ```
-    pub fn OnIndexChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QUndoStack_Connect_IndexChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QUndoStack, callback: *const fn (self: QtC.QUndoStack, idx: i32) callconv(.c) void ```
+    pub fn OnIndexChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QUndoStack_Connect_IndexChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qundostack.html#cleanChanged)
@@ -489,9 +489,9 @@ pub const qundostack = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qundostack.html#cleanChanged)
     ///
-    /// ``` self: QtC.QUndoStack, slot: fn (self: QtC.QUndoStack, clean: bool) callconv(.c) void ```
-    pub fn OnCleanChanged(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QUndoStack_Connect_CleanChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QUndoStack, callback: *const fn (self: QtC.QUndoStack, clean: bool) callconv(.c) void ```
+    pub fn OnCleanChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QUndoStack_Connect_CleanChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qundostack.html#canUndoChanged)
@@ -503,9 +503,9 @@ pub const qundostack = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qundostack.html#canUndoChanged)
     ///
-    /// ``` self: QtC.QUndoStack, slot: fn (self: QtC.QUndoStack, canUndo: bool) callconv(.c) void ```
-    pub fn OnCanUndoChanged(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QUndoStack_Connect_CanUndoChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QUndoStack, callback: *const fn (self: QtC.QUndoStack, canUndo: bool) callconv(.c) void ```
+    pub fn OnCanUndoChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QUndoStack_Connect_CanUndoChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qundostack.html#canRedoChanged)
@@ -517,9 +517,9 @@ pub const qundostack = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qundostack.html#canRedoChanged)
     ///
-    /// ``` self: QtC.QUndoStack, slot: fn (self: QtC.QUndoStack, canRedo: bool) callconv(.c) void ```
-    pub fn OnCanRedoChanged(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QUndoStack_Connect_CanRedoChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QUndoStack, callback: *const fn (self: QtC.QUndoStack, canRedo: bool) callconv(.c) void ```
+    pub fn OnCanRedoChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QUndoStack_Connect_CanRedoChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qundostack.html#undoTextChanged)
@@ -535,9 +535,9 @@ pub const qundostack = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qundostack.html#undoTextChanged)
     ///
-    /// ``` self: QtC.QUndoStack, slot: fn (self: QtC.QUndoStack, undoText: [*:0]const u8) callconv(.c) void ```
-    pub fn OnUndoTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QUndoStack_Connect_UndoTextChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QUndoStack, callback: *const fn (self: QtC.QUndoStack, undoText: [*:0]const u8) callconv(.c) void ```
+    pub fn OnUndoTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QUndoStack_Connect_UndoTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qundostack.html#redoTextChanged)
@@ -553,9 +553,9 @@ pub const qundostack = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qundostack.html#redoTextChanged)
     ///
-    /// ``` self: QtC.QUndoStack, slot: fn (self: QtC.QUndoStack, redoText: [*:0]const u8) callconv(.c) void ```
-    pub fn OnRedoTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QUndoStack_Connect_RedoTextChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QUndoStack, callback: *const fn (self: QtC.QUndoStack, redoText: [*:0]const u8) callconv(.c) void ```
+    pub fn OnRedoTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QUndoStack_Connect_RedoTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -901,9 +901,9 @@ pub const qundostack = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QUndoStack, slot: fn (self: QtC.QUndoStack) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QUndoStack, callback: *const fn (self: QtC.QUndoStack) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -985,9 +985,9 @@ pub const qundostack = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QUndoStack, slot: fn (self: QtC.QUndoStack, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QUndoStack, callback: *const fn (self: QtC.QUndoStack, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1018,9 +1018,9 @@ pub const qundostack = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QUndoStack, slot: fn (self: QtC.QUndoStack, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QUndoStack_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QUndoStack, callback: *const fn (self: QtC.QUndoStack, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QUndoStack_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1051,9 +1051,9 @@ pub const qundostack = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QUndoStack, slot: fn (self: QtC.QUndoStack, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QUndoStack_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QUndoStack, callback: *const fn (self: QtC.QUndoStack, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QUndoStack_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1084,9 +1084,9 @@ pub const qundostack = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QUndoStack, slot: fn (self: QtC.QUndoStack, event: QtC.QTimerEvent) callconv(.c) void ```
-    pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QUndoStack_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QUndoStack, callback: *const fn (self: QtC.QUndoStack, event: QtC.QTimerEvent) callconv(.c) void ```
+    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QUndoStack_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1117,9 +1117,9 @@ pub const qundostack = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QUndoStack, slot: fn (self: QtC.QUndoStack, event: QtC.QChildEvent) callconv(.c) void ```
-    pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QUndoStack_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QUndoStack, callback: *const fn (self: QtC.QUndoStack, event: QtC.QChildEvent) callconv(.c) void ```
+    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QUndoStack_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1150,9 +1150,9 @@ pub const qundostack = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QUndoStack, slot: fn (self: QtC.QUndoStack, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QUndoStack_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QUndoStack, callback: *const fn (self: QtC.QUndoStack, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QUndoStack_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1183,9 +1183,9 @@ pub const qundostack = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QUndoStack, slot: fn (self: QtC.QUndoStack, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QUndoStack_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QUndoStack, callback: *const fn (self: QtC.QUndoStack, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QUndoStack_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1216,9 +1216,9 @@ pub const qundostack = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QUndoStack, slot: fn (self: QtC.QUndoStack, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QUndoStack_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QUndoStack, callback: *const fn (self: QtC.QUndoStack, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QUndoStack_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1249,9 +1249,9 @@ pub const qundostack = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QUndoStack, slot: fn () callconv(.c) QtC.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
-        qtc.QUndoStack_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QUndoStack, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.QUndoStack_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1282,9 +1282,9 @@ pub const qundostack = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QUndoStack, slot: fn () callconv(.c) i32 ```
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QUndoStack_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QUndoStack, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QUndoStack_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1317,9 +1317,9 @@ pub const qundostack = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QUndoStack, slot: fn (self: QtC.QUndoStack, signal: [*:0]const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QUndoStack_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QUndoStack, callback: *const fn (self: QtC.QUndoStack, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QUndoStack_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1350,9 +1350,9 @@ pub const qundostack = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QUndoStack, slot: fn (self: QtC.QUndoStack, signal: QtC.QMetaMethod) callconv(.c) bool ```
-    pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QUndoStack_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QUndoStack, callback: *const fn (self: QtC.QUndoStack, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QUndoStack_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1361,9 +1361,9 @@ pub const qundostack = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QUndoStack, slot: fn (self: QtC.QUndoStack, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QUndoStack, callback: *const fn (self: QtC.QUndoStack, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qundostack.html#dtor.QUndoStack)

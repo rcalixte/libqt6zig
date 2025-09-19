@@ -147,9 +147,9 @@ pub const qfuturewatcherbase = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfuturewatcherbase.html#started)
     ///
-    /// ``` self: QtC.QFutureWatcherBase, slot: fn (self: QtC.QFutureWatcherBase) callconv(.c) void ```
-    pub fn OnStarted(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QFutureWatcherBase_Connect_Started(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QFutureWatcherBase, callback: *const fn (self: QtC.QFutureWatcherBase) callconv(.c) void ```
+    pub fn OnStarted(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QFutureWatcherBase_Connect_Started(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfuturewatcherbase.html#finished)
@@ -161,9 +161,9 @@ pub const qfuturewatcherbase = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfuturewatcherbase.html#finished)
     ///
-    /// ``` self: QtC.QFutureWatcherBase, slot: fn (self: QtC.QFutureWatcherBase) callconv(.c) void ```
-    pub fn OnFinished(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QFutureWatcherBase_Connect_Finished(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QFutureWatcherBase, callback: *const fn (self: QtC.QFutureWatcherBase) callconv(.c) void ```
+    pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QFutureWatcherBase_Connect_Finished(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfuturewatcherbase.html#canceled)
@@ -175,9 +175,9 @@ pub const qfuturewatcherbase = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfuturewatcherbase.html#canceled)
     ///
-    /// ``` self: QtC.QFutureWatcherBase, slot: fn (self: QtC.QFutureWatcherBase) callconv(.c) void ```
-    pub fn OnCanceled(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QFutureWatcherBase_Connect_Canceled(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QFutureWatcherBase, callback: *const fn (self: QtC.QFutureWatcherBase) callconv(.c) void ```
+    pub fn OnCanceled(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QFutureWatcherBase_Connect_Canceled(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfuturewatcherbase.html#paused)
@@ -189,9 +189,9 @@ pub const qfuturewatcherbase = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfuturewatcherbase.html#paused)
     ///
-    /// ``` self: QtC.QFutureWatcherBase, slot: fn (self: QtC.QFutureWatcherBase) callconv(.c) void ```
-    pub fn OnPaused(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QFutureWatcherBase_Connect_Paused(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QFutureWatcherBase, callback: *const fn (self: QtC.QFutureWatcherBase) callconv(.c) void ```
+    pub fn OnPaused(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QFutureWatcherBase_Connect_Paused(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfuturewatcherbase.html#suspending)
@@ -203,9 +203,9 @@ pub const qfuturewatcherbase = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfuturewatcherbase.html#suspending)
     ///
-    /// ``` self: QtC.QFutureWatcherBase, slot: fn (self: QtC.QFutureWatcherBase) callconv(.c) void ```
-    pub fn OnSuspending(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QFutureWatcherBase_Connect_Suspending(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QFutureWatcherBase, callback: *const fn (self: QtC.QFutureWatcherBase) callconv(.c) void ```
+    pub fn OnSuspending(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QFutureWatcherBase_Connect_Suspending(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfuturewatcherbase.html#suspended)
@@ -217,9 +217,9 @@ pub const qfuturewatcherbase = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfuturewatcherbase.html#suspended)
     ///
-    /// ``` self: QtC.QFutureWatcherBase, slot: fn (self: QtC.QFutureWatcherBase) callconv(.c) void ```
-    pub fn OnSuspended(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QFutureWatcherBase_Connect_Suspended(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QFutureWatcherBase, callback: *const fn (self: QtC.QFutureWatcherBase) callconv(.c) void ```
+    pub fn OnSuspended(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QFutureWatcherBase_Connect_Suspended(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfuturewatcherbase.html#resumed)
@@ -231,9 +231,9 @@ pub const qfuturewatcherbase = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfuturewatcherbase.html#resumed)
     ///
-    /// ``` self: QtC.QFutureWatcherBase, slot: fn (self: QtC.QFutureWatcherBase) callconv(.c) void ```
-    pub fn OnResumed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QFutureWatcherBase_Connect_Resumed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QFutureWatcherBase, callback: *const fn (self: QtC.QFutureWatcherBase) callconv(.c) void ```
+    pub fn OnResumed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QFutureWatcherBase_Connect_Resumed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfuturewatcherbase.html#resultReadyAt)
@@ -245,9 +245,9 @@ pub const qfuturewatcherbase = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfuturewatcherbase.html#resultReadyAt)
     ///
-    /// ``` self: QtC.QFutureWatcherBase, slot: fn (self: QtC.QFutureWatcherBase, resultIndex: i32) callconv(.c) void ```
-    pub fn OnResultReadyAt(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QFutureWatcherBase_Connect_ResultReadyAt(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QFutureWatcherBase, callback: *const fn (self: QtC.QFutureWatcherBase, resultIndex: i32) callconv(.c) void ```
+    pub fn OnResultReadyAt(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QFutureWatcherBase_Connect_ResultReadyAt(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfuturewatcherbase.html#resultsReadyAt)
@@ -259,9 +259,9 @@ pub const qfuturewatcherbase = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfuturewatcherbase.html#resultsReadyAt)
     ///
-    /// ``` self: QtC.QFutureWatcherBase, slot: fn (self: QtC.QFutureWatcherBase, beginIndex: i32, endIndex: i32) callconv(.c) void ```
-    pub fn OnResultsReadyAt(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QFutureWatcherBase_Connect_ResultsReadyAt(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QFutureWatcherBase, callback: *const fn (self: QtC.QFutureWatcherBase, beginIndex: i32, endIndex: i32) callconv(.c) void ```
+    pub fn OnResultsReadyAt(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
+        qtc.QFutureWatcherBase_Connect_ResultsReadyAt(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfuturewatcherbase.html#progressRangeChanged)
@@ -273,9 +273,9 @@ pub const qfuturewatcherbase = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfuturewatcherbase.html#progressRangeChanged)
     ///
-    /// ``` self: QtC.QFutureWatcherBase, slot: fn (self: QtC.QFutureWatcherBase, minimum: i32, maximum: i32) callconv(.c) void ```
-    pub fn OnProgressRangeChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QFutureWatcherBase_Connect_ProgressRangeChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QFutureWatcherBase, callback: *const fn (self: QtC.QFutureWatcherBase, minimum: i32, maximum: i32) callconv(.c) void ```
+    pub fn OnProgressRangeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
+        qtc.QFutureWatcherBase_Connect_ProgressRangeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfuturewatcherbase.html#progressValueChanged)
@@ -287,9 +287,9 @@ pub const qfuturewatcherbase = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfuturewatcherbase.html#progressValueChanged)
     ///
-    /// ``` self: QtC.QFutureWatcherBase, slot: fn (self: QtC.QFutureWatcherBase, progressValue: i32) callconv(.c) void ```
-    pub fn OnProgressValueChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QFutureWatcherBase_Connect_ProgressValueChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QFutureWatcherBase, callback: *const fn (self: QtC.QFutureWatcherBase, progressValue: i32) callconv(.c) void ```
+    pub fn OnProgressValueChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QFutureWatcherBase_Connect_ProgressValueChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfuturewatcherbase.html#progressTextChanged)
@@ -305,9 +305,9 @@ pub const qfuturewatcherbase = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfuturewatcherbase.html#progressTextChanged)
     ///
-    /// ``` self: QtC.QFutureWatcherBase, slot: fn (self: QtC.QFutureWatcherBase, progressText: [*:0]const u8) callconv(.c) void ```
-    pub fn OnProgressTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QFutureWatcherBase_Connect_ProgressTextChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QFutureWatcherBase, callback: *const fn (self: QtC.QFutureWatcherBase, progressText: [*:0]const u8) callconv(.c) void ```
+    pub fn OnProgressTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QFutureWatcherBase_Connect_ProgressTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfuturewatcherbase.html#cancel)
@@ -689,9 +689,9 @@ pub const qfuturewatcherbase = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QFutureWatcherBase, slot: fn (self: QtC.QFutureWatcherBase) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QFutureWatcherBase, callback: *const fn (self: QtC.QFutureWatcherBase) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -773,9 +773,9 @@ pub const qfuturewatcherbase = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QFutureWatcherBase, slot: fn (self: QtC.QFutureWatcherBase, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QFutureWatcherBase, callback: *const fn (self: QtC.QFutureWatcherBase, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -784,9 +784,9 @@ pub const qfuturewatcherbase = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QFutureWatcherBase, slot: fn (self: QtC.QFutureWatcherBase, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QFutureWatcherBase, callback: *const fn (self: QtC.QFutureWatcherBase, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qfuturewatcherbase.html#dtor.QFutureWatcherBase)

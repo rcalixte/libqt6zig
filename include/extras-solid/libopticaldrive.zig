@@ -104,9 +104,9 @@ pub const solid__opticaldrive = struct {
 
     /// [Qt documentation](https://api.kde.org/solid-opticaldrive.html#ejectPressed)
     ///
-    /// ``` self: QtC.Solid__OpticalDrive, slot: fn (self: QtC.Solid__OpticalDrive, udi: [*:0]const u8) callconv(.c) void ```
-    pub fn OnEjectPressed(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.Solid__OpticalDrive_Connect_EjectPressed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Solid__OpticalDrive, callback: *const fn (self: QtC.Solid__OpticalDrive, udi: [*:0]const u8) callconv(.c) void ```
+    pub fn OnEjectPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.Solid__OpticalDrive_Connect_EjectPressed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/solid-opticaldrive.html#ejectDone)
@@ -122,9 +122,9 @@ pub const solid__opticaldrive = struct {
 
     /// [Qt documentation](https://api.kde.org/solid-opticaldrive.html#ejectDone)
     ///
-    /// ``` self: QtC.Solid__OpticalDrive, slot: fn (self: QtC.Solid__OpticalDrive, errorVal: solidnamespace_enums.ErrorType, errorData: QtC.QVariant, udi: [*:0]const u8) callconv(.c) void ```
-    pub fn OnEjectDone(self: ?*anyopaque, slot: fn (?*anyopaque, i32, QtC.QVariant, [*:0]const u8) callconv(.c) void) void {
-        qtc.Solid__OpticalDrive_Connect_EjectDone(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Solid__OpticalDrive, callback: *const fn (self: QtC.Solid__OpticalDrive, errorVal: solidnamespace_enums.ErrorType, errorData: QtC.QVariant, udi: [*:0]const u8) callconv(.c) void ```
+    pub fn OnEjectDone(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, QtC.QVariant, [*:0]const u8) callconv(.c) void) void {
+        qtc.Solid__OpticalDrive_Connect_EjectDone(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/solid-opticaldrive.html#ejectRequested)
@@ -140,9 +140,9 @@ pub const solid__opticaldrive = struct {
 
     /// [Qt documentation](https://api.kde.org/solid-opticaldrive.html#ejectRequested)
     ///
-    /// ``` self: QtC.Solid__OpticalDrive, slot: fn (self: QtC.Solid__OpticalDrive, udi: [*:0]const u8) callconv(.c) void ```
-    pub fn OnEjectRequested(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.Solid__OpticalDrive_Connect_EjectRequested(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Solid__OpticalDrive, callback: *const fn (self: QtC.Solid__OpticalDrive, udi: [*:0]const u8) callconv(.c) void ```
+    pub fn OnEjectRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.Solid__OpticalDrive_Connect_EjectRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -603,9 +603,9 @@ pub const solid__opticaldrive = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.Solid__OpticalDrive, slot: fn (self: QtC.Solid__OpticalDrive) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Solid__OpticalDrive, callback: *const fn (self: QtC.Solid__OpticalDrive) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -687,9 +687,9 @@ pub const solid__opticaldrive = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.Solid__OpticalDrive, slot: fn (self: QtC.Solid__OpticalDrive, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Solid__OpticalDrive, callback: *const fn (self: QtC.Solid__OpticalDrive, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -698,9 +698,9 @@ pub const solid__opticaldrive = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.Solid__OpticalDrive, slot: fn (self: QtC.Solid__OpticalDrive, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Solid__OpticalDrive, callback: *const fn (self: QtC.Solid__OpticalDrive, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Delete this object from C++ memory.

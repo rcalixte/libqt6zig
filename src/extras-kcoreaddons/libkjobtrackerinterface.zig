@@ -42,9 +42,9 @@ pub const kjobtrackerinterface = struct {
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KJobTrackerInterface, slot: fn (self: QtC.KJobTrackerInterface, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
-        qtc.KJobTrackerInterface_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KJobTrackerInterface, callback: *const fn (self: QtC.KJobTrackerInterface, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+        qtc.KJobTrackerInterface_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -77,9 +77,9 @@ pub const kjobtrackerinterface = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KJobTrackerInterface, slot: fn (self: QtC.KJobTrackerInterface, job: QtC.KJob) callconv(.c) void ```
-    pub fn OnRegisterJob(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KJobTrackerInterface_OnRegisterJob(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KJobTrackerInterface, callback: *const fn (self: QtC.KJobTrackerInterface, job: QtC.KJob) callconv(.c) void ```
+    pub fn OnRegisterJob(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KJobTrackerInterface_OnRegisterJob(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kjobtrackerinterface.html#registerJob)
@@ -102,9 +102,9 @@ pub const kjobtrackerinterface = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KJobTrackerInterface, slot: fn (self: QtC.KJobTrackerInterface, job: QtC.KJob) callconv(.c) void ```
-    pub fn OnUnregisterJob(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KJobTrackerInterface_OnUnregisterJob(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KJobTrackerInterface, callback: *const fn (self: QtC.KJobTrackerInterface, job: QtC.KJob) callconv(.c) void ```
+    pub fn OnUnregisterJob(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KJobTrackerInterface_OnUnregisterJob(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kjobtrackerinterface.html#unregisterJob)
@@ -127,9 +127,9 @@ pub const kjobtrackerinterface = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KJobTrackerInterface, slot: fn (self: QtC.KJobTrackerInterface, job: QtC.KJob) callconv(.c) void ```
-    pub fn OnFinished(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KJobTrackerInterface_OnFinished(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KJobTrackerInterface, callback: *const fn (self: QtC.KJobTrackerInterface, job: QtC.KJob) callconv(.c) void ```
+    pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KJobTrackerInterface_OnFinished(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kjobtrackerinterface.html#finished)
@@ -152,9 +152,9 @@ pub const kjobtrackerinterface = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KJobTrackerInterface, slot: fn (self: QtC.KJobTrackerInterface, job: QtC.KJob) callconv(.c) void ```
-    pub fn OnSuspended(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KJobTrackerInterface_OnSuspended(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KJobTrackerInterface, callback: *const fn (self: QtC.KJobTrackerInterface, job: QtC.KJob) callconv(.c) void ```
+    pub fn OnSuspended(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KJobTrackerInterface_OnSuspended(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kjobtrackerinterface.html#suspended)
@@ -177,9 +177,9 @@ pub const kjobtrackerinterface = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KJobTrackerInterface, slot: fn (self: QtC.KJobTrackerInterface, job: QtC.KJob) callconv(.c) void ```
-    pub fn OnResumed(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KJobTrackerInterface_OnResumed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KJobTrackerInterface, callback: *const fn (self: QtC.KJobTrackerInterface, job: QtC.KJob) callconv(.c) void ```
+    pub fn OnResumed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KJobTrackerInterface_OnResumed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kjobtrackerinterface.html#resumed)
@@ -214,9 +214,9 @@ pub const kjobtrackerinterface = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KJobTrackerInterface, slot: fn (self: QtC.KJobTrackerInterface, job: QtC.KJob, title: [*:0]const u8, field1: struct_constu8_constu8, field2: struct_constu8_constu8) callconv(.c) void ```
-    pub fn OnDescription(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, [*:0]const u8, struct_constu8_constu8, struct_constu8_constu8) callconv(.c) void) void {
-        qtc.KJobTrackerInterface_OnDescription(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KJobTrackerInterface, callback: *const fn (self: QtC.KJobTrackerInterface, job: QtC.KJob, title: [*:0]const u8, field1: struct_constu8_constu8, field2: struct_constu8_constu8) callconv(.c) void ```
+    pub fn OnDescription(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8, struct_constu8_constu8, struct_constu8_constu8) callconv(.c) void) void {
+        qtc.KJobTrackerInterface_OnDescription(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kjobtrackerinterface.html#description)
@@ -255,9 +255,9 @@ pub const kjobtrackerinterface = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KJobTrackerInterface, slot: fn (self: QtC.KJobTrackerInterface, job: QtC.KJob, message: [*:0]const u8) callconv(.c) void ```
-    pub fn OnInfoMessage(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KJobTrackerInterface_OnInfoMessage(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KJobTrackerInterface, callback: *const fn (self: QtC.KJobTrackerInterface, job: QtC.KJob, message: [*:0]const u8) callconv(.c) void ```
+    pub fn OnInfoMessage(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.KJobTrackerInterface_OnInfoMessage(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kjobtrackerinterface.html#infoMessage)
@@ -288,9 +288,9 @@ pub const kjobtrackerinterface = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KJobTrackerInterface, slot: fn (self: QtC.KJobTrackerInterface, job: QtC.KJob, message: [*:0]const u8) callconv(.c) void ```
-    pub fn OnWarning(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KJobTrackerInterface_OnWarning(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KJobTrackerInterface, callback: *const fn (self: QtC.KJobTrackerInterface, job: QtC.KJob, message: [*:0]const u8) callconv(.c) void ```
+    pub fn OnWarning(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.KJobTrackerInterface_OnWarning(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kjobtrackerinterface.html#warning)
@@ -317,9 +317,9 @@ pub const kjobtrackerinterface = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KJobTrackerInterface, slot: fn (self: QtC.KJobTrackerInterface, job: QtC.KJob, unit: kjob_enums.Unit, amount: u64) callconv(.c) void ```
-    pub fn OnTotalAmount(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, u64) callconv(.c) void) void {
-        qtc.KJobTrackerInterface_OnTotalAmount(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KJobTrackerInterface, callback: *const fn (self: QtC.KJobTrackerInterface, job: QtC.KJob, unit: kjob_enums.Unit, amount: u64) callconv(.c) void ```
+    pub fn OnTotalAmount(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, u64) callconv(.c) void) void {
+        qtc.KJobTrackerInterface_OnTotalAmount(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kjobtrackerinterface.html#totalAmount)
@@ -342,9 +342,9 @@ pub const kjobtrackerinterface = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KJobTrackerInterface, slot: fn (self: QtC.KJobTrackerInterface, job: QtC.KJob, unit: kjob_enums.Unit, amount: u64) callconv(.c) void ```
-    pub fn OnProcessedAmount(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, u64) callconv(.c) void) void {
-        qtc.KJobTrackerInterface_OnProcessedAmount(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KJobTrackerInterface, callback: *const fn (self: QtC.KJobTrackerInterface, job: QtC.KJob, unit: kjob_enums.Unit, amount: u64) callconv(.c) void ```
+    pub fn OnProcessedAmount(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, u64) callconv(.c) void) void {
+        qtc.KJobTrackerInterface_OnProcessedAmount(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kjobtrackerinterface.html#processedAmount)
@@ -367,9 +367,9 @@ pub const kjobtrackerinterface = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KJobTrackerInterface, slot: fn (self: QtC.KJobTrackerInterface, job: QtC.KJob, percent: u64) callconv(.c) void ```
-    pub fn OnPercent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
-        qtc.KJobTrackerInterface_OnPercent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KJobTrackerInterface, callback: *const fn (self: QtC.KJobTrackerInterface, job: QtC.KJob, percent: u64) callconv(.c) void ```
+    pub fn OnPercent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
+        qtc.KJobTrackerInterface_OnPercent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kjobtrackerinterface.html#percent)
@@ -392,9 +392,9 @@ pub const kjobtrackerinterface = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KJobTrackerInterface, slot: fn (self: QtC.KJobTrackerInterface, job: QtC.KJob, value: u64) callconv(.c) void ```
-    pub fn OnSpeed(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
-        qtc.KJobTrackerInterface_OnSpeed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KJobTrackerInterface, callback: *const fn (self: QtC.KJobTrackerInterface, job: QtC.KJob, value: u64) callconv(.c) void ```
+    pub fn OnSpeed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
+        qtc.KJobTrackerInterface_OnSpeed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kjobtrackerinterface.html#speed)
@@ -720,9 +720,9 @@ pub const kjobtrackerinterface = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KJobTrackerInterface, slot: fn (self: QtC.KJobTrackerInterface) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KJobTrackerInterface, callback: *const fn (self: QtC.KJobTrackerInterface) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -804,9 +804,9 @@ pub const kjobtrackerinterface = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KJobTrackerInterface, slot: fn (self: QtC.KJobTrackerInterface, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KJobTrackerInterface, callback: *const fn (self: QtC.KJobTrackerInterface, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -837,9 +837,9 @@ pub const kjobtrackerinterface = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KJobTrackerInterface, slot: fn (self: QtC.KJobTrackerInterface, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KJobTrackerInterface_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KJobTrackerInterface, callback: *const fn (self: QtC.KJobTrackerInterface, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KJobTrackerInterface_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -870,9 +870,9 @@ pub const kjobtrackerinterface = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KJobTrackerInterface, slot: fn (self: QtC.KJobTrackerInterface, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KJobTrackerInterface_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KJobTrackerInterface, callback: *const fn (self: QtC.KJobTrackerInterface, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KJobTrackerInterface_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -903,9 +903,9 @@ pub const kjobtrackerinterface = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KJobTrackerInterface, slot: fn (self: QtC.KJobTrackerInterface, event: QtC.QTimerEvent) callconv(.c) void ```
-    pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KJobTrackerInterface_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KJobTrackerInterface, callback: *const fn (self: QtC.KJobTrackerInterface, event: QtC.QTimerEvent) callconv(.c) void ```
+    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KJobTrackerInterface_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -936,9 +936,9 @@ pub const kjobtrackerinterface = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KJobTrackerInterface, slot: fn (self: QtC.KJobTrackerInterface, event: QtC.QChildEvent) callconv(.c) void ```
-    pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KJobTrackerInterface_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KJobTrackerInterface, callback: *const fn (self: QtC.KJobTrackerInterface, event: QtC.QChildEvent) callconv(.c) void ```
+    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KJobTrackerInterface_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -969,9 +969,9 @@ pub const kjobtrackerinterface = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KJobTrackerInterface, slot: fn (self: QtC.KJobTrackerInterface, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KJobTrackerInterface_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KJobTrackerInterface, callback: *const fn (self: QtC.KJobTrackerInterface, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KJobTrackerInterface_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1002,9 +1002,9 @@ pub const kjobtrackerinterface = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KJobTrackerInterface, slot: fn (self: QtC.KJobTrackerInterface, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KJobTrackerInterface_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KJobTrackerInterface, callback: *const fn (self: QtC.KJobTrackerInterface, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KJobTrackerInterface_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1035,9 +1035,9 @@ pub const kjobtrackerinterface = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KJobTrackerInterface, slot: fn (self: QtC.KJobTrackerInterface, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KJobTrackerInterface_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KJobTrackerInterface, callback: *const fn (self: QtC.KJobTrackerInterface, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KJobTrackerInterface_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1068,9 +1068,9 @@ pub const kjobtrackerinterface = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KJobTrackerInterface, slot: fn () callconv(.c) QtC.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
-        qtc.KJobTrackerInterface_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KJobTrackerInterface, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.KJobTrackerInterface_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1101,9 +1101,9 @@ pub const kjobtrackerinterface = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KJobTrackerInterface, slot: fn () callconv(.c) i32 ```
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.KJobTrackerInterface_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KJobTrackerInterface, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.KJobTrackerInterface_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1136,9 +1136,9 @@ pub const kjobtrackerinterface = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KJobTrackerInterface, slot: fn (self: QtC.KJobTrackerInterface, signal: [*:0]const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KJobTrackerInterface_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KJobTrackerInterface, callback: *const fn (self: QtC.KJobTrackerInterface, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
+        qtc.KJobTrackerInterface_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1169,9 +1169,9 @@ pub const kjobtrackerinterface = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KJobTrackerInterface, slot: fn (self: QtC.KJobTrackerInterface, signal: QtC.QMetaMethod) callconv(.c) bool ```
-    pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KJobTrackerInterface_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KJobTrackerInterface, callback: *const fn (self: QtC.KJobTrackerInterface, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KJobTrackerInterface_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1180,9 +1180,9 @@ pub const kjobtrackerinterface = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KJobTrackerInterface, slot: fn (self: QtC.KJobTrackerInterface, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KJobTrackerInterface, callback: *const fn (self: QtC.KJobTrackerInterface, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kjobtrackerinterface.html#dtor.KJobTrackerInterface)

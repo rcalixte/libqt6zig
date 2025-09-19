@@ -10,7 +10,7 @@
 #include "../qtlibc.h"
 
 // This class is a subclass of QSqlDriver so that we can call protected methods
-class VirtualQSqlDriver final : public QSqlDriver {
+class VirtualQSqlDriver : public QSqlDriver {
 
   public:
     // Virtual class boolean flag

@@ -734,9 +734,9 @@ pub const qgraphicsitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsItem, slot: fn (self: QtC.QGraphicsItem, phase: i32) callconv(.c) void ```
-    pub fn OnAdvance(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QGraphicsItem_OnAdvance(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItem, callback: *const fn (self: QtC.QGraphicsItem, phase: i32) callconv(.c) void ```
+    pub fn OnAdvance(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QGraphicsItem_OnAdvance(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#advance)
@@ -780,9 +780,9 @@ pub const qgraphicsitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsItem, slot: fn () callconv(.c) QtC.QRectF ```
-    pub fn OnBoundingRect(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QRectF) void {
-        qtc.QGraphicsItem_OnBoundingRect(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItem, callback: *const fn () callconv(.c) QtC.QRectF ```
+    pub fn OnBoundingRect(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QRectF) void {
+        qtc.QGraphicsItem_OnBoundingRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#boundingRect)
@@ -819,9 +819,9 @@ pub const qgraphicsitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsItem, slot: fn () callconv(.c) QtC.QPainterPath ```
-    pub fn OnShape(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QPainterPath) void {
-        qtc.QGraphicsItem_OnShape(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItem, callback: *const fn () callconv(.c) QtC.QPainterPath ```
+    pub fn OnShape(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainterPath) void {
+        qtc.QGraphicsItem_OnShape(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#shape)
@@ -858,9 +858,9 @@ pub const qgraphicsitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsItem, slot: fn (self: QtC.QGraphicsItem, point: QtC.QPointF) callconv(.c) bool ```
-    pub fn OnContains(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsItem_OnContains(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItem, callback: *const fn (self: QtC.QGraphicsItem, point: QtC.QPointF) callconv(.c) bool ```
+    pub fn OnContains(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QGraphicsItem_OnContains(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#contains)
@@ -883,9 +883,9 @@ pub const qgraphicsitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsItem, slot: fn (self: QtC.QGraphicsItem, other: QtC.QGraphicsItem, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool ```
-    pub fn OnCollidesWithItem(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QGraphicsItem_OnCollidesWithItem(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItem, callback: *const fn (self: QtC.QGraphicsItem, other: QtC.QGraphicsItem, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool ```
+    pub fn OnCollidesWithItem(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
+        qtc.QGraphicsItem_OnCollidesWithItem(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#collidesWithItem)
@@ -908,9 +908,9 @@ pub const qgraphicsitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsItem, slot: fn (self: QtC.QGraphicsItem, path: QtC.QPainterPath, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool ```
-    pub fn OnCollidesWithPath(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QGraphicsItem_OnCollidesWithPath(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItem, callback: *const fn (self: QtC.QGraphicsItem, path: QtC.QPainterPath, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool ```
+    pub fn OnCollidesWithPath(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
+        qtc.QGraphicsItem_OnCollidesWithPath(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#collidesWithPath)
@@ -959,9 +959,9 @@ pub const qgraphicsitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsItem, slot: fn (self: QtC.QGraphicsItem, item: QtC.QGraphicsItem) callconv(.c) bool ```
-    pub fn OnIsObscuredBy(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsItem_OnIsObscuredBy(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItem, callback: *const fn (self: QtC.QGraphicsItem, item: QtC.QGraphicsItem) callconv(.c) bool ```
+    pub fn OnIsObscuredBy(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QGraphicsItem_OnIsObscuredBy(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#isObscuredBy)
@@ -984,9 +984,9 @@ pub const qgraphicsitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsItem, slot: fn () callconv(.c) QtC.QPainterPath ```
-    pub fn OnOpaqueArea(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QPainterPath) void {
-        qtc.QGraphicsItem_OnOpaqueArea(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItem, callback: *const fn () callconv(.c) QtC.QPainterPath ```
+    pub fn OnOpaqueArea(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainterPath) void {
+        qtc.QGraphicsItem_OnOpaqueArea(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#opaqueArea)
@@ -1030,9 +1030,9 @@ pub const qgraphicsitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsItem, slot: fn (self: QtC.QGraphicsItem, painter: QtC.QPainter, option: QtC.QStyleOptionGraphicsItem, widget: QtC.QWidget) callconv(.c) void ```
-    pub fn OnPaint(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItem_OnPaint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItem, callback: *const fn (self: QtC.QGraphicsItem, painter: QtC.QPainter, option: QtC.QStyleOptionGraphicsItem, widget: QtC.QWidget) callconv(.c) void ```
+    pub fn OnPaint(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsItem_OnPaint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#paint)
@@ -1337,9 +1337,9 @@ pub const qgraphicsitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsItem, slot: fn () callconv(.c) i32 ```
-    pub fn OnType(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QGraphicsItem_OnType(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItem, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QGraphicsItem_OnType(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#type)
@@ -1376,9 +1376,9 @@ pub const qgraphicsitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsItem, slot: fn () callconv(.c) void ```
-    pub fn OnUpdateMicroFocus(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QGraphicsItem_OnUpdateMicroFocus(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItem, callback: *const fn () callconv(.c) void ```
+    pub fn OnUpdateMicroFocus(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QGraphicsItem_OnUpdateMicroFocus(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#updateMicroFocus)
@@ -1401,9 +1401,9 @@ pub const qgraphicsitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsItem, slot: fn (self: QtC.QGraphicsItem, watched: QtC.QGraphicsItem, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnSceneEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsItem_OnSceneEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItem, callback: *const fn (self: QtC.QGraphicsItem, watched: QtC.QGraphicsItem, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnSceneEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QGraphicsItem_OnSceneEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#sceneEventFilter)
@@ -1426,9 +1426,9 @@ pub const qgraphicsitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsItem, slot: fn (self: QtC.QGraphicsItem, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnSceneEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsItem_OnSceneEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItem, callback: *const fn (self: QtC.QGraphicsItem, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnSceneEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QGraphicsItem_OnSceneEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#sceneEvent)
@@ -1451,9 +1451,9 @@ pub const qgraphicsitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsItem, slot: fn (self: QtC.QGraphicsItem, event: QtC.QGraphicsSceneContextMenuEvent) callconv(.c) void ```
-    pub fn OnContextMenuEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItem_OnContextMenuEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItem, callback: *const fn (self: QtC.QGraphicsItem, event: QtC.QGraphicsSceneContextMenuEvent) callconv(.c) void ```
+    pub fn OnContextMenuEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsItem_OnContextMenuEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#contextMenuEvent)
@@ -1476,9 +1476,9 @@ pub const qgraphicsitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsItem, slot: fn (self: QtC.QGraphicsItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
-    pub fn OnDragEnterEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItem_OnDragEnterEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItem, callback: *const fn (self: QtC.QGraphicsItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
+    pub fn OnDragEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsItem_OnDragEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#dragEnterEvent)
@@ -1501,9 +1501,9 @@ pub const qgraphicsitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsItem, slot: fn (self: QtC.QGraphicsItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
-    pub fn OnDragLeaveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItem_OnDragLeaveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItem, callback: *const fn (self: QtC.QGraphicsItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
+    pub fn OnDragLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsItem_OnDragLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#dragLeaveEvent)
@@ -1526,9 +1526,9 @@ pub const qgraphicsitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsItem, slot: fn (self: QtC.QGraphicsItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
-    pub fn OnDragMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItem_OnDragMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItem, callback: *const fn (self: QtC.QGraphicsItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
+    pub fn OnDragMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsItem_OnDragMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#dragMoveEvent)
@@ -1551,9 +1551,9 @@ pub const qgraphicsitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsItem, slot: fn (self: QtC.QGraphicsItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
-    pub fn OnDropEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItem_OnDropEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItem, callback: *const fn (self: QtC.QGraphicsItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
+    pub fn OnDropEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsItem_OnDropEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#dropEvent)
@@ -1576,9 +1576,9 @@ pub const qgraphicsitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsItem, slot: fn (self: QtC.QGraphicsItem, event: QtC.QFocusEvent) callconv(.c) void ```
-    pub fn OnFocusInEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItem_OnFocusInEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItem, callback: *const fn (self: QtC.QGraphicsItem, event: QtC.QFocusEvent) callconv(.c) void ```
+    pub fn OnFocusInEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsItem_OnFocusInEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#focusInEvent)
@@ -1601,9 +1601,9 @@ pub const qgraphicsitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsItem, slot: fn (self: QtC.QGraphicsItem, event: QtC.QFocusEvent) callconv(.c) void ```
-    pub fn OnFocusOutEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItem_OnFocusOutEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItem, callback: *const fn (self: QtC.QGraphicsItem, event: QtC.QFocusEvent) callconv(.c) void ```
+    pub fn OnFocusOutEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsItem_OnFocusOutEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#focusOutEvent)
@@ -1626,9 +1626,9 @@ pub const qgraphicsitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsItem, slot: fn (self: QtC.QGraphicsItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
-    pub fn OnHoverEnterEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItem_OnHoverEnterEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItem, callback: *const fn (self: QtC.QGraphicsItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
+    pub fn OnHoverEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsItem_OnHoverEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#hoverEnterEvent)
@@ -1651,9 +1651,9 @@ pub const qgraphicsitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsItem, slot: fn (self: QtC.QGraphicsItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
-    pub fn OnHoverMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItem_OnHoverMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItem, callback: *const fn (self: QtC.QGraphicsItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
+    pub fn OnHoverMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsItem_OnHoverMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#hoverMoveEvent)
@@ -1676,9 +1676,9 @@ pub const qgraphicsitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsItem, slot: fn (self: QtC.QGraphicsItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
-    pub fn OnHoverLeaveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItem_OnHoverLeaveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItem, callback: *const fn (self: QtC.QGraphicsItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
+    pub fn OnHoverLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsItem_OnHoverLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#hoverLeaveEvent)
@@ -1701,9 +1701,9 @@ pub const qgraphicsitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsItem, slot: fn (self: QtC.QGraphicsItem, event: QtC.QKeyEvent) callconv(.c) void ```
-    pub fn OnKeyPressEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItem_OnKeyPressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItem, callback: *const fn (self: QtC.QGraphicsItem, event: QtC.QKeyEvent) callconv(.c) void ```
+    pub fn OnKeyPressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsItem_OnKeyPressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#keyPressEvent)
@@ -1726,9 +1726,9 @@ pub const qgraphicsitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsItem, slot: fn (self: QtC.QGraphicsItem, event: QtC.QKeyEvent) callconv(.c) void ```
-    pub fn OnKeyReleaseEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItem_OnKeyReleaseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItem, callback: *const fn (self: QtC.QGraphicsItem, event: QtC.QKeyEvent) callconv(.c) void ```
+    pub fn OnKeyReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsItem_OnKeyReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#keyReleaseEvent)
@@ -1751,9 +1751,9 @@ pub const qgraphicsitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsItem, slot: fn (self: QtC.QGraphicsItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
-    pub fn OnMousePressEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItem_OnMousePressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItem, callback: *const fn (self: QtC.QGraphicsItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
+    pub fn OnMousePressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsItem_OnMousePressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mousePressEvent)
@@ -1776,9 +1776,9 @@ pub const qgraphicsitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsItem, slot: fn (self: QtC.QGraphicsItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
-    pub fn OnMouseMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItem_OnMouseMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItem, callback: *const fn (self: QtC.QGraphicsItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
+    pub fn OnMouseMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsItem_OnMouseMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mouseMoveEvent)
@@ -1801,9 +1801,9 @@ pub const qgraphicsitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsItem, slot: fn (self: QtC.QGraphicsItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
-    pub fn OnMouseReleaseEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItem_OnMouseReleaseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItem, callback: *const fn (self: QtC.QGraphicsItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
+    pub fn OnMouseReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsItem_OnMouseReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mouseReleaseEvent)
@@ -1826,9 +1826,9 @@ pub const qgraphicsitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsItem, slot: fn (self: QtC.QGraphicsItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
-    pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItem_OnMouseDoubleClickEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItem, callback: *const fn (self: QtC.QGraphicsItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
+    pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsItem_OnMouseDoubleClickEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#mouseDoubleClickEvent)
@@ -1851,9 +1851,9 @@ pub const qgraphicsitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsItem, slot: fn (self: QtC.QGraphicsItem, event: QtC.QGraphicsSceneWheelEvent) callconv(.c) void ```
-    pub fn OnWheelEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItem_OnWheelEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItem, callback: *const fn (self: QtC.QGraphicsItem, event: QtC.QGraphicsSceneWheelEvent) callconv(.c) void ```
+    pub fn OnWheelEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsItem_OnWheelEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#wheelEvent)
@@ -1876,9 +1876,9 @@ pub const qgraphicsitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsItem, slot: fn (self: QtC.QGraphicsItem, event: QtC.QInputMethodEvent) callconv(.c) void ```
-    pub fn OnInputMethodEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItem_OnInputMethodEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItem, callback: *const fn (self: QtC.QGraphicsItem, event: QtC.QInputMethodEvent) callconv(.c) void ```
+    pub fn OnInputMethodEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsItem_OnInputMethodEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#inputMethodEvent)
@@ -1901,9 +1901,9 @@ pub const qgraphicsitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsItem, slot: fn (self: QtC.QGraphicsItem, query: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant ```
-    pub fn OnInputMethodQuery(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) QtC.QVariant) void {
-        qtc.QGraphicsItem_OnInputMethodQuery(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItem, callback: *const fn (self: QtC.QGraphicsItem, query: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant ```
+    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) QtC.QVariant) void {
+        qtc.QGraphicsItem_OnInputMethodQuery(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#inputMethodQuery)
@@ -1926,9 +1926,9 @@ pub const qgraphicsitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsItem, slot: fn (self: QtC.QGraphicsItem, change: qgraphicsitem_enums.GraphicsItemChange, value: QtC.QVariant) callconv(.c) QtC.QVariant ```
-    pub fn OnItemChange(self: ?*anyopaque, slot: fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QVariant) void {
-        qtc.QGraphicsItem_OnItemChange(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItem, callback: *const fn (self: QtC.QGraphicsItem, change: qgraphicsitem_enums.GraphicsItemChange, value: QtC.QVariant) callconv(.c) QtC.QVariant ```
+    pub fn OnItemChange(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QVariant) void {
+        qtc.QGraphicsItem_OnItemChange(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#itemChange)
@@ -1951,9 +1951,9 @@ pub const qgraphicsitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsItem, slot: fn (self: QtC.QGraphicsItem, extension: qgraphicsitem_enums.Extension) callconv(.c) bool ```
-    pub fn OnSupportsExtension(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) bool) void {
-        qtc.QGraphicsItem_OnSupportsExtension(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItem, callback: *const fn (self: QtC.QGraphicsItem, extension: qgraphicsitem_enums.Extension) callconv(.c) bool ```
+    pub fn OnSupportsExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) bool) void {
+        qtc.QGraphicsItem_OnSupportsExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#supportsExtension)
@@ -1976,9 +1976,9 @@ pub const qgraphicsitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsItem, slot: fn (self: QtC.QGraphicsItem, extension: qgraphicsitem_enums.Extension, variant: QtC.QVariant) callconv(.c) void ```
-    pub fn OnSetExtension(self: ?*anyopaque, slot: fn (?*anyopaque, i64, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItem_OnSetExtension(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItem, callback: *const fn (self: QtC.QGraphicsItem, extension: qgraphicsitem_enums.Extension, variant: QtC.QVariant) callconv(.c) void ```
+    pub fn OnSetExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsItem_OnSetExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#setExtension)
@@ -2001,9 +2001,9 @@ pub const qgraphicsitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsItem, slot: fn (self: QtC.QGraphicsItem, variant: QtC.QVariant) callconv(.c) QtC.QVariant ```
-    pub fn OnExtension(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QVariant) void {
-        qtc.QGraphicsItem_OnExtension(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItem, callback: *const fn (self: QtC.QGraphicsItem, variant: QtC.QVariant) callconv(.c) QtC.QVariant ```
+    pub fn OnExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QVariant) void {
+        qtc.QGraphicsItem_OnExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#extension)
@@ -2026,9 +2026,9 @@ pub const qgraphicsitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsItem, slot: fn () callconv(.c) void ```
-    pub fn OnAddToIndex(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QGraphicsItem_OnAddToIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItem, callback: *const fn () callconv(.c) void ```
+    pub fn OnAddToIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QGraphicsItem_OnAddToIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#addToIndex)
@@ -2051,9 +2051,9 @@ pub const qgraphicsitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsItem, slot: fn () callconv(.c) void ```
-    pub fn OnRemoveFromIndex(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QGraphicsItem_OnRemoveFromIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItem, callback: *const fn () callconv(.c) void ```
+    pub fn OnRemoveFromIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QGraphicsItem_OnRemoveFromIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#removeFromIndex)
@@ -2076,9 +2076,9 @@ pub const qgraphicsitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsItem, slot: fn () callconv(.c) void ```
-    pub fn OnPrepareGeometryChange(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QGraphicsItem_OnPrepareGeometryChange(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItem, callback: *const fn () callconv(.c) void ```
+    pub fn OnPrepareGeometryChange(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QGraphicsItem_OnPrepareGeometryChange(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitem.html#prepareGeometryChange)
@@ -2239,9 +2239,9 @@ pub const qgraphicsobject = struct {
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn (self: QtC.QGraphicsObject, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QGraphicsObject_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsObject, callback: *const fn (self: QtC.QGraphicsObject, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+        qtc.QGraphicsObject_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -2288,9 +2288,9 @@ pub const qgraphicsobject = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn () callconv(.c) void ```
-    pub fn OnUpdateMicroFocus(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QGraphicsObject_OnUpdateMicroFocus(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsObject, callback: *const fn () callconv(.c) void ```
+    pub fn OnUpdateMicroFocus(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QGraphicsObject_OnUpdateMicroFocus(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#updateMicroFocus)
@@ -2311,9 +2311,9 @@ pub const qgraphicsobject = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#parentChanged)
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn (self: QtC.QGraphicsObject) callconv(.c) void ```
-    pub fn OnParentChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_ParentChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsObject, callback: *const fn (self: QtC.QGraphicsObject) callconv(.c) void ```
+    pub fn OnParentChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsObject_Connect_ParentChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#opacityChanged)
@@ -2325,9 +2325,9 @@ pub const qgraphicsobject = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#opacityChanged)
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn (self: QtC.QGraphicsObject) callconv(.c) void ```
-    pub fn OnOpacityChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_OpacityChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsObject, callback: *const fn (self: QtC.QGraphicsObject) callconv(.c) void ```
+    pub fn OnOpacityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsObject_Connect_OpacityChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#visibleChanged)
@@ -2339,9 +2339,9 @@ pub const qgraphicsobject = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#visibleChanged)
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn (self: QtC.QGraphicsObject) callconv(.c) void ```
-    pub fn OnVisibleChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_VisibleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsObject, callback: *const fn (self: QtC.QGraphicsObject) callconv(.c) void ```
+    pub fn OnVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsObject_Connect_VisibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#enabledChanged)
@@ -2353,9 +2353,9 @@ pub const qgraphicsobject = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#enabledChanged)
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn (self: QtC.QGraphicsObject) callconv(.c) void ```
-    pub fn OnEnabledChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_EnabledChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsObject, callback: *const fn (self: QtC.QGraphicsObject) callconv(.c) void ```
+    pub fn OnEnabledChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsObject_Connect_EnabledChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#xChanged)
@@ -2367,9 +2367,9 @@ pub const qgraphicsobject = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#xChanged)
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn (self: QtC.QGraphicsObject) callconv(.c) void ```
-    pub fn OnXChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_XChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsObject, callback: *const fn (self: QtC.QGraphicsObject) callconv(.c) void ```
+    pub fn OnXChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsObject_Connect_XChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#yChanged)
@@ -2381,9 +2381,9 @@ pub const qgraphicsobject = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#yChanged)
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn (self: QtC.QGraphicsObject) callconv(.c) void ```
-    pub fn OnYChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_YChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsObject, callback: *const fn (self: QtC.QGraphicsObject) callconv(.c) void ```
+    pub fn OnYChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsObject_Connect_YChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#zChanged)
@@ -2395,9 +2395,9 @@ pub const qgraphicsobject = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#zChanged)
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn (self: QtC.QGraphicsObject) callconv(.c) void ```
-    pub fn OnZChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_ZChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsObject, callback: *const fn (self: QtC.QGraphicsObject) callconv(.c) void ```
+    pub fn OnZChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsObject_Connect_ZChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#rotationChanged)
@@ -2409,9 +2409,9 @@ pub const qgraphicsobject = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#rotationChanged)
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn (self: QtC.QGraphicsObject) callconv(.c) void ```
-    pub fn OnRotationChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_RotationChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsObject, callback: *const fn (self: QtC.QGraphicsObject) callconv(.c) void ```
+    pub fn OnRotationChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsObject_Connect_RotationChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#scaleChanged)
@@ -2423,9 +2423,9 @@ pub const qgraphicsobject = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#scaleChanged)
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn (self: QtC.QGraphicsObject) callconv(.c) void ```
-    pub fn OnScaleChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_ScaleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsObject, callback: *const fn (self: QtC.QGraphicsObject) callconv(.c) void ```
+    pub fn OnScaleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsObject_Connect_ScaleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#childrenChanged)
@@ -2437,9 +2437,9 @@ pub const qgraphicsobject = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#childrenChanged)
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn (self: QtC.QGraphicsObject) callconv(.c) void ```
-    pub fn OnChildrenChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_ChildrenChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsObject, callback: *const fn (self: QtC.QGraphicsObject) callconv(.c) void ```
+    pub fn OnChildrenChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsObject_Connect_ChildrenChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#widthChanged)
@@ -2451,9 +2451,9 @@ pub const qgraphicsobject = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#widthChanged)
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn (self: QtC.QGraphicsObject) callconv(.c) void ```
-    pub fn OnWidthChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_WidthChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsObject, callback: *const fn (self: QtC.QGraphicsObject) callconv(.c) void ```
+    pub fn OnWidthChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsObject_Connect_WidthChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#heightChanged)
@@ -2465,9 +2465,9 @@ pub const qgraphicsobject = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#heightChanged)
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn (self: QtC.QGraphicsObject) callconv(.c) void ```
-    pub fn OnHeightChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_HeightChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsObject, callback: *const fn (self: QtC.QGraphicsObject) callconv(.c) void ```
+    pub fn OnHeightChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsObject_Connect_HeightChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#event)
@@ -2481,9 +2481,9 @@ pub const qgraphicsobject = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn (self: QtC.QGraphicsObject, ev: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsObject_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsObject, callback: *const fn (self: QtC.QGraphicsObject, ev: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QGraphicsObject_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#event)
@@ -2816,9 +2816,9 @@ pub const qgraphicsobject = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn (self: QtC.QGraphicsObject) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsObject, callback: *const fn (self: QtC.QGraphicsObject) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2900,9 +2900,9 @@ pub const qgraphicsobject = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn (self: QtC.QGraphicsObject, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsObject, callback: *const fn (self: QtC.QGraphicsObject, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -4460,9 +4460,9 @@ pub const qgraphicsobject = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn (self: QtC.QGraphicsObject, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsObject_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsObject, callback: *const fn (self: QtC.QGraphicsObject, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QGraphicsObject_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4493,9 +4493,9 @@ pub const qgraphicsobject = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn (self: QtC.QGraphicsObject, event: QtC.QTimerEvent) callconv(.c) void ```
-    pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsObject, callback: *const fn (self: QtC.QGraphicsObject, event: QtC.QTimerEvent) callconv(.c) void ```
+    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsObject_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4526,9 +4526,9 @@ pub const qgraphicsobject = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn (self: QtC.QGraphicsObject, event: QtC.QChildEvent) callconv(.c) void ```
-    pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsObject, callback: *const fn (self: QtC.QGraphicsObject, event: QtC.QChildEvent) callconv(.c) void ```
+    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsObject_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4559,9 +4559,9 @@ pub const qgraphicsobject = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn (self: QtC.QGraphicsObject, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsObject, callback: *const fn (self: QtC.QGraphicsObject, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsObject_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4592,9 +4592,9 @@ pub const qgraphicsobject = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn (self: QtC.QGraphicsObject, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsObject, callback: *const fn (self: QtC.QGraphicsObject, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsObject_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4625,9 +4625,9 @@ pub const qgraphicsobject = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn (self: QtC.QGraphicsObject, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsObject, callback: *const fn (self: QtC.QGraphicsObject, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsObject_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -4658,9 +4658,9 @@ pub const qgraphicsobject = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn (self: QtC.QGraphicsObject, phase: i32) callconv(.c) void ```
-    pub fn OnAdvance(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QGraphicsObject_OnAdvance(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsObject, callback: *const fn (self: QtC.QGraphicsObject, phase: i32) callconv(.c) void ```
+    pub fn OnAdvance(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QGraphicsObject_OnAdvance(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -4691,9 +4691,9 @@ pub const qgraphicsobject = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn () callconv(.c) QtC.QRectF ```
-    pub fn OnBoundingRect(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QRectF) void {
-        qtc.QGraphicsObject_OnBoundingRect(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsObject, callback: *const fn () callconv(.c) QtC.QRectF ```
+    pub fn OnBoundingRect(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QRectF) void {
+        qtc.QGraphicsObject_OnBoundingRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -4724,9 +4724,9 @@ pub const qgraphicsobject = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn () callconv(.c) QtC.QPainterPath ```
-    pub fn OnShape(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QPainterPath) void {
-        qtc.QGraphicsObject_OnShape(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsObject, callback: *const fn () callconv(.c) QtC.QPainterPath ```
+    pub fn OnShape(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainterPath) void {
+        qtc.QGraphicsObject_OnShape(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -4757,9 +4757,9 @@ pub const qgraphicsobject = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn (self: QtC.QGraphicsObject, point: QtC.QPointF) callconv(.c) bool ```
-    pub fn OnContains(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsObject_OnContains(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsObject, callback: *const fn (self: QtC.QGraphicsObject, point: QtC.QPointF) callconv(.c) bool ```
+    pub fn OnContains(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QGraphicsObject_OnContains(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -4790,9 +4790,9 @@ pub const qgraphicsobject = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn (self: QtC.QGraphicsObject, other: QtC.QGraphicsItem, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool ```
-    pub fn OnCollidesWithItem(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QGraphicsObject_OnCollidesWithItem(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsObject, callback: *const fn (self: QtC.QGraphicsObject, other: QtC.QGraphicsItem, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool ```
+    pub fn OnCollidesWithItem(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
+        qtc.QGraphicsObject_OnCollidesWithItem(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -4823,9 +4823,9 @@ pub const qgraphicsobject = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn (self: QtC.QGraphicsObject, path: QtC.QPainterPath, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool ```
-    pub fn OnCollidesWithPath(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QGraphicsObject_OnCollidesWithPath(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsObject, callback: *const fn (self: QtC.QGraphicsObject, path: QtC.QPainterPath, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool ```
+    pub fn OnCollidesWithPath(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
+        qtc.QGraphicsObject_OnCollidesWithPath(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -4856,9 +4856,9 @@ pub const qgraphicsobject = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn (self: QtC.QGraphicsObject, item: QtC.QGraphicsItem) callconv(.c) bool ```
-    pub fn OnIsObscuredBy(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsObject_OnIsObscuredBy(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsObject, callback: *const fn (self: QtC.QGraphicsObject, item: QtC.QGraphicsItem) callconv(.c) bool ```
+    pub fn OnIsObscuredBy(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QGraphicsObject_OnIsObscuredBy(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -4889,9 +4889,9 @@ pub const qgraphicsobject = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn () callconv(.c) QtC.QPainterPath ```
-    pub fn OnOpaqueArea(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QPainterPath) void {
-        qtc.QGraphicsObject_OnOpaqueArea(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsObject, callback: *const fn () callconv(.c) QtC.QPainterPath ```
+    pub fn OnOpaqueArea(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainterPath) void {
+        qtc.QGraphicsObject_OnOpaqueArea(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -4922,9 +4922,9 @@ pub const qgraphicsobject = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn (self: QtC.QGraphicsObject, painter: QtC.QPainter, option: QtC.QStyleOptionGraphicsItem, widget: QtC.QWidget) callconv(.c) void ```
-    pub fn OnPaint(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_OnPaint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsObject, callback: *const fn (self: QtC.QGraphicsObject, painter: QtC.QPainter, option: QtC.QStyleOptionGraphicsItem, widget: QtC.QWidget) callconv(.c) void ```
+    pub fn OnPaint(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsObject_OnPaint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -4955,9 +4955,9 @@ pub const qgraphicsobject = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn () callconv(.c) i32 ```
-    pub fn OnType(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QGraphicsObject_OnType(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsObject, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QGraphicsObject_OnType(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -4988,9 +4988,9 @@ pub const qgraphicsobject = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn (self: QtC.QGraphicsObject, watched: QtC.QGraphicsItem, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnSceneEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsObject_OnSceneEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsObject, callback: *const fn (self: QtC.QGraphicsObject, watched: QtC.QGraphicsItem, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnSceneEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QGraphicsObject_OnSceneEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -5021,9 +5021,9 @@ pub const qgraphicsobject = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn (self: QtC.QGraphicsObject, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnSceneEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsObject_OnSceneEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsObject, callback: *const fn (self: QtC.QGraphicsObject, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnSceneEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QGraphicsObject_OnSceneEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -5054,9 +5054,9 @@ pub const qgraphicsobject = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn (self: QtC.QGraphicsObject, event: QtC.QGraphicsSceneContextMenuEvent) callconv(.c) void ```
-    pub fn OnContextMenuEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_OnContextMenuEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsObject, callback: *const fn (self: QtC.QGraphicsObject, event: QtC.QGraphicsSceneContextMenuEvent) callconv(.c) void ```
+    pub fn OnContextMenuEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsObject_OnContextMenuEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -5087,9 +5087,9 @@ pub const qgraphicsobject = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn (self: QtC.QGraphicsObject, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
-    pub fn OnDragEnterEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_OnDragEnterEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsObject, callback: *const fn (self: QtC.QGraphicsObject, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
+    pub fn OnDragEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsObject_OnDragEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -5120,9 +5120,9 @@ pub const qgraphicsobject = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn (self: QtC.QGraphicsObject, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
-    pub fn OnDragLeaveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_OnDragLeaveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsObject, callback: *const fn (self: QtC.QGraphicsObject, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
+    pub fn OnDragLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsObject_OnDragLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -5153,9 +5153,9 @@ pub const qgraphicsobject = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn (self: QtC.QGraphicsObject, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
-    pub fn OnDragMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_OnDragMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsObject, callback: *const fn (self: QtC.QGraphicsObject, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
+    pub fn OnDragMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsObject_OnDragMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -5186,9 +5186,9 @@ pub const qgraphicsobject = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn (self: QtC.QGraphicsObject, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
-    pub fn OnDropEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_OnDropEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsObject, callback: *const fn (self: QtC.QGraphicsObject, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
+    pub fn OnDropEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsObject_OnDropEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -5219,9 +5219,9 @@ pub const qgraphicsobject = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn (self: QtC.QGraphicsObject, event: QtC.QFocusEvent) callconv(.c) void ```
-    pub fn OnFocusInEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_OnFocusInEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsObject, callback: *const fn (self: QtC.QGraphicsObject, event: QtC.QFocusEvent) callconv(.c) void ```
+    pub fn OnFocusInEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsObject_OnFocusInEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -5252,9 +5252,9 @@ pub const qgraphicsobject = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn (self: QtC.QGraphicsObject, event: QtC.QFocusEvent) callconv(.c) void ```
-    pub fn OnFocusOutEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_OnFocusOutEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsObject, callback: *const fn (self: QtC.QGraphicsObject, event: QtC.QFocusEvent) callconv(.c) void ```
+    pub fn OnFocusOutEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsObject_OnFocusOutEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -5285,9 +5285,9 @@ pub const qgraphicsobject = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn (self: QtC.QGraphicsObject, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
-    pub fn OnHoverEnterEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_OnHoverEnterEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsObject, callback: *const fn (self: QtC.QGraphicsObject, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
+    pub fn OnHoverEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsObject_OnHoverEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -5318,9 +5318,9 @@ pub const qgraphicsobject = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn (self: QtC.QGraphicsObject, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
-    pub fn OnHoverMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_OnHoverMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsObject, callback: *const fn (self: QtC.QGraphicsObject, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
+    pub fn OnHoverMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsObject_OnHoverMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -5351,9 +5351,9 @@ pub const qgraphicsobject = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn (self: QtC.QGraphicsObject, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
-    pub fn OnHoverLeaveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_OnHoverLeaveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsObject, callback: *const fn (self: QtC.QGraphicsObject, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
+    pub fn OnHoverLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsObject_OnHoverLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -5384,9 +5384,9 @@ pub const qgraphicsobject = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn (self: QtC.QGraphicsObject, event: QtC.QKeyEvent) callconv(.c) void ```
-    pub fn OnKeyPressEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_OnKeyPressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsObject, callback: *const fn (self: QtC.QGraphicsObject, event: QtC.QKeyEvent) callconv(.c) void ```
+    pub fn OnKeyPressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsObject_OnKeyPressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -5417,9 +5417,9 @@ pub const qgraphicsobject = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn (self: QtC.QGraphicsObject, event: QtC.QKeyEvent) callconv(.c) void ```
-    pub fn OnKeyReleaseEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_OnKeyReleaseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsObject, callback: *const fn (self: QtC.QGraphicsObject, event: QtC.QKeyEvent) callconv(.c) void ```
+    pub fn OnKeyReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsObject_OnKeyReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -5450,9 +5450,9 @@ pub const qgraphicsobject = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn (self: QtC.QGraphicsObject, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
-    pub fn OnMousePressEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_OnMousePressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsObject, callback: *const fn (self: QtC.QGraphicsObject, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
+    pub fn OnMousePressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsObject_OnMousePressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -5483,9 +5483,9 @@ pub const qgraphicsobject = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn (self: QtC.QGraphicsObject, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
-    pub fn OnMouseMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_OnMouseMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsObject, callback: *const fn (self: QtC.QGraphicsObject, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
+    pub fn OnMouseMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsObject_OnMouseMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -5516,9 +5516,9 @@ pub const qgraphicsobject = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn (self: QtC.QGraphicsObject, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
-    pub fn OnMouseReleaseEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_OnMouseReleaseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsObject, callback: *const fn (self: QtC.QGraphicsObject, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
+    pub fn OnMouseReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsObject_OnMouseReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -5549,9 +5549,9 @@ pub const qgraphicsobject = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn (self: QtC.QGraphicsObject, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
-    pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_OnMouseDoubleClickEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsObject, callback: *const fn (self: QtC.QGraphicsObject, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
+    pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsObject_OnMouseDoubleClickEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -5582,9 +5582,9 @@ pub const qgraphicsobject = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn (self: QtC.QGraphicsObject, event: QtC.QGraphicsSceneWheelEvent) callconv(.c) void ```
-    pub fn OnWheelEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_OnWheelEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsObject, callback: *const fn (self: QtC.QGraphicsObject, event: QtC.QGraphicsSceneWheelEvent) callconv(.c) void ```
+    pub fn OnWheelEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsObject_OnWheelEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -5615,9 +5615,9 @@ pub const qgraphicsobject = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn (self: QtC.QGraphicsObject, event: QtC.QInputMethodEvent) callconv(.c) void ```
-    pub fn OnInputMethodEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_OnInputMethodEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsObject, callback: *const fn (self: QtC.QGraphicsObject, event: QtC.QInputMethodEvent) callconv(.c) void ```
+    pub fn OnInputMethodEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsObject_OnInputMethodEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -5648,9 +5648,9 @@ pub const qgraphicsobject = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn (self: QtC.QGraphicsObject, query: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant ```
-    pub fn OnInputMethodQuery(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) QtC.QVariant) void {
-        qtc.QGraphicsObject_OnInputMethodQuery(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsObject, callback: *const fn (self: QtC.QGraphicsObject, query: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant ```
+    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) QtC.QVariant) void {
+        qtc.QGraphicsObject_OnInputMethodQuery(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -5681,9 +5681,9 @@ pub const qgraphicsobject = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn (self: QtC.QGraphicsObject, change: qgraphicsitem_enums.GraphicsItemChange, value: QtC.QVariant) callconv(.c) QtC.QVariant ```
-    pub fn OnItemChange(self: ?*anyopaque, slot: fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QVariant) void {
-        qtc.QGraphicsObject_OnItemChange(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsObject, callback: *const fn (self: QtC.QGraphicsObject, change: qgraphicsitem_enums.GraphicsItemChange, value: QtC.QVariant) callconv(.c) QtC.QVariant ```
+    pub fn OnItemChange(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QVariant) void {
+        qtc.QGraphicsObject_OnItemChange(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -5714,9 +5714,9 @@ pub const qgraphicsobject = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn (self: QtC.QGraphicsObject, extension: qgraphicsitem_enums.Extension) callconv(.c) bool ```
-    pub fn OnSupportsExtension(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) bool) void {
-        qtc.QGraphicsObject_OnSupportsExtension(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsObject, callback: *const fn (self: QtC.QGraphicsObject, extension: qgraphicsitem_enums.Extension) callconv(.c) bool ```
+    pub fn OnSupportsExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) bool) void {
+        qtc.QGraphicsObject_OnSupportsExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -5747,9 +5747,9 @@ pub const qgraphicsobject = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn (self: QtC.QGraphicsObject, extension: qgraphicsitem_enums.Extension, variant: QtC.QVariant) callconv(.c) void ```
-    pub fn OnSetExtension(self: ?*anyopaque, slot: fn (?*anyopaque, i64, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_OnSetExtension(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsObject, callback: *const fn (self: QtC.QGraphicsObject, extension: qgraphicsitem_enums.Extension, variant: QtC.QVariant) callconv(.c) void ```
+    pub fn OnSetExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsObject_OnSetExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -5780,9 +5780,9 @@ pub const qgraphicsobject = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn (self: QtC.QGraphicsObject, variant: QtC.QVariant) callconv(.c) QtC.QVariant ```
-    pub fn OnExtension(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QVariant) void {
-        qtc.QGraphicsObject_OnExtension(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsObject, callback: *const fn (self: QtC.QGraphicsObject, variant: QtC.QVariant) callconv(.c) QtC.QVariant ```
+    pub fn OnExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QVariant) void {
+        qtc.QGraphicsObject_OnExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5813,9 +5813,9 @@ pub const qgraphicsobject = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn () callconv(.c) QtC.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
-        qtc.QGraphicsObject_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsObject, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.QGraphicsObject_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5846,9 +5846,9 @@ pub const qgraphicsobject = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn () callconv(.c) i32 ```
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QGraphicsObject_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsObject, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QGraphicsObject_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5881,9 +5881,9 @@ pub const qgraphicsobject = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn (self: QtC.QGraphicsObject, signal: [*:0]const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QGraphicsObject_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsObject, callback: *const fn (self: QtC.QGraphicsObject, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QGraphicsObject_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -5914,9 +5914,9 @@ pub const qgraphicsobject = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn (self: QtC.QGraphicsObject, signal: QtC.QMetaMethod) callconv(.c) bool ```
-    pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsObject_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsObject, callback: *const fn (self: QtC.QGraphicsObject, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QGraphicsObject_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -5947,9 +5947,9 @@ pub const qgraphicsobject = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn () callconv(.c) void ```
-    pub fn OnAddToIndex(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QGraphicsObject_OnAddToIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsObject, callback: *const fn () callconv(.c) void ```
+    pub fn OnAddToIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QGraphicsObject_OnAddToIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -5980,9 +5980,9 @@ pub const qgraphicsobject = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn () callconv(.c) void ```
-    pub fn OnRemoveFromIndex(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QGraphicsObject_OnRemoveFromIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsObject, callback: *const fn () callconv(.c) void ```
+    pub fn OnRemoveFromIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QGraphicsObject_OnRemoveFromIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -6013,9 +6013,9 @@ pub const qgraphicsobject = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn () callconv(.c) void ```
-    pub fn OnPrepareGeometryChange(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QGraphicsObject_OnPrepareGeometryChange(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsObject, callback: *const fn () callconv(.c) void ```
+    pub fn OnPrepareGeometryChange(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QGraphicsObject_OnPrepareGeometryChange(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6024,9 +6024,9 @@ pub const qgraphicsobject = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QGraphicsObject, slot: fn (self: QtC.QGraphicsObject, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsObject, callback: *const fn (self: QtC.QGraphicsObject, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#dtor.QGraphicsObject)
@@ -6094,9 +6094,9 @@ pub const qabstractgraphicsshapeitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAbstractGraphicsShapeItem, slot: fn (self: QtC.QAbstractGraphicsShapeItem, item: QtC.QGraphicsItem) callconv(.c) bool ```
-    pub fn OnIsObscuredBy(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAbstractGraphicsShapeItem_OnIsObscuredBy(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAbstractGraphicsShapeItem, callback: *const fn (self: QtC.QAbstractGraphicsShapeItem, item: QtC.QGraphicsItem) callconv(.c) bool ```
+    pub fn OnIsObscuredBy(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QAbstractGraphicsShapeItem_OnIsObscuredBy(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractgraphicsshapeitem.html#isObscuredBy)
@@ -6119,9 +6119,9 @@ pub const qabstractgraphicsshapeitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAbstractGraphicsShapeItem, slot: fn () callconv(.c) QtC.QPainterPath ```
-    pub fn OnOpaqueArea(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QPainterPath) void {
-        qtc.QAbstractGraphicsShapeItem_OnOpaqueArea(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAbstractGraphicsShapeItem, callback: *const fn () callconv(.c) QtC.QPainterPath ```
+    pub fn OnOpaqueArea(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainterPath) void {
+        qtc.QAbstractGraphicsShapeItem_OnOpaqueArea(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractgraphicsshapeitem.html#opaqueArea)
@@ -7688,9 +7688,9 @@ pub const qabstractgraphicsshapeitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractGraphicsShapeItem, slot: fn (self: QtC.QAbstractGraphicsShapeItem, phase: i32) callconv(.c) void ```
-    pub fn OnAdvance(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractGraphicsShapeItem_OnAdvance(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAbstractGraphicsShapeItem, callback: *const fn (self: QtC.QAbstractGraphicsShapeItem, phase: i32) callconv(.c) void ```
+    pub fn OnAdvance(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QAbstractGraphicsShapeItem_OnAdvance(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -7721,9 +7721,9 @@ pub const qabstractgraphicsshapeitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractGraphicsShapeItem, slot: fn () callconv(.c) QtC.QRectF ```
-    pub fn OnBoundingRect(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QRectF) void {
-        qtc.QAbstractGraphicsShapeItem_OnBoundingRect(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAbstractGraphicsShapeItem, callback: *const fn () callconv(.c) QtC.QRectF ```
+    pub fn OnBoundingRect(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QRectF) void {
+        qtc.QAbstractGraphicsShapeItem_OnBoundingRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -7754,9 +7754,9 @@ pub const qabstractgraphicsshapeitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractGraphicsShapeItem, slot: fn () callconv(.c) QtC.QPainterPath ```
-    pub fn OnShape(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QPainterPath) void {
-        qtc.QAbstractGraphicsShapeItem_OnShape(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAbstractGraphicsShapeItem, callback: *const fn () callconv(.c) QtC.QPainterPath ```
+    pub fn OnShape(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainterPath) void {
+        qtc.QAbstractGraphicsShapeItem_OnShape(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -7787,9 +7787,9 @@ pub const qabstractgraphicsshapeitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractGraphicsShapeItem, slot: fn (self: QtC.QAbstractGraphicsShapeItem, point: QtC.QPointF) callconv(.c) bool ```
-    pub fn OnContains(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAbstractGraphicsShapeItem_OnContains(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAbstractGraphicsShapeItem, callback: *const fn (self: QtC.QAbstractGraphicsShapeItem, point: QtC.QPointF) callconv(.c) bool ```
+    pub fn OnContains(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QAbstractGraphicsShapeItem_OnContains(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -7820,9 +7820,9 @@ pub const qabstractgraphicsshapeitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractGraphicsShapeItem, slot: fn (self: QtC.QAbstractGraphicsShapeItem, other: QtC.QGraphicsItem, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool ```
-    pub fn OnCollidesWithItem(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QAbstractGraphicsShapeItem_OnCollidesWithItem(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAbstractGraphicsShapeItem, callback: *const fn (self: QtC.QAbstractGraphicsShapeItem, other: QtC.QGraphicsItem, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool ```
+    pub fn OnCollidesWithItem(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
+        qtc.QAbstractGraphicsShapeItem_OnCollidesWithItem(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -7853,9 +7853,9 @@ pub const qabstractgraphicsshapeitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractGraphicsShapeItem, slot: fn (self: QtC.QAbstractGraphicsShapeItem, path: QtC.QPainterPath, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool ```
-    pub fn OnCollidesWithPath(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QAbstractGraphicsShapeItem_OnCollidesWithPath(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAbstractGraphicsShapeItem, callback: *const fn (self: QtC.QAbstractGraphicsShapeItem, path: QtC.QPainterPath, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool ```
+    pub fn OnCollidesWithPath(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
+        qtc.QAbstractGraphicsShapeItem_OnCollidesWithPath(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -7886,9 +7886,9 @@ pub const qabstractgraphicsshapeitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractGraphicsShapeItem, slot: fn (self: QtC.QAbstractGraphicsShapeItem, painter: QtC.QPainter, option: QtC.QStyleOptionGraphicsItem, widget: QtC.QWidget) callconv(.c) void ```
-    pub fn OnPaint(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractGraphicsShapeItem_OnPaint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAbstractGraphicsShapeItem, callback: *const fn (self: QtC.QAbstractGraphicsShapeItem, painter: QtC.QPainter, option: QtC.QStyleOptionGraphicsItem, widget: QtC.QWidget) callconv(.c) void ```
+    pub fn OnPaint(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractGraphicsShapeItem_OnPaint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -7919,9 +7919,9 @@ pub const qabstractgraphicsshapeitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractGraphicsShapeItem, slot: fn () callconv(.c) i32 ```
-    pub fn OnType(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QAbstractGraphicsShapeItem_OnType(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAbstractGraphicsShapeItem, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QAbstractGraphicsShapeItem_OnType(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -7952,9 +7952,9 @@ pub const qabstractgraphicsshapeitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractGraphicsShapeItem, slot: fn (self: QtC.QAbstractGraphicsShapeItem, watched: QtC.QGraphicsItem, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnSceneEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAbstractGraphicsShapeItem_OnSceneEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAbstractGraphicsShapeItem, callback: *const fn (self: QtC.QAbstractGraphicsShapeItem, watched: QtC.QGraphicsItem, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnSceneEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QAbstractGraphicsShapeItem_OnSceneEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -7985,9 +7985,9 @@ pub const qabstractgraphicsshapeitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractGraphicsShapeItem, slot: fn (self: QtC.QAbstractGraphicsShapeItem, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnSceneEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QAbstractGraphicsShapeItem_OnSceneEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAbstractGraphicsShapeItem, callback: *const fn (self: QtC.QAbstractGraphicsShapeItem, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnSceneEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QAbstractGraphicsShapeItem_OnSceneEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -8018,9 +8018,9 @@ pub const qabstractgraphicsshapeitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractGraphicsShapeItem, slot: fn (self: QtC.QAbstractGraphicsShapeItem, event: QtC.QGraphicsSceneContextMenuEvent) callconv(.c) void ```
-    pub fn OnContextMenuEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractGraphicsShapeItem_OnContextMenuEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAbstractGraphicsShapeItem, callback: *const fn (self: QtC.QAbstractGraphicsShapeItem, event: QtC.QGraphicsSceneContextMenuEvent) callconv(.c) void ```
+    pub fn OnContextMenuEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractGraphicsShapeItem_OnContextMenuEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -8051,9 +8051,9 @@ pub const qabstractgraphicsshapeitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractGraphicsShapeItem, slot: fn (self: QtC.QAbstractGraphicsShapeItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
-    pub fn OnDragEnterEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractGraphicsShapeItem_OnDragEnterEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAbstractGraphicsShapeItem, callback: *const fn (self: QtC.QAbstractGraphicsShapeItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
+    pub fn OnDragEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractGraphicsShapeItem_OnDragEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -8084,9 +8084,9 @@ pub const qabstractgraphicsshapeitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractGraphicsShapeItem, slot: fn (self: QtC.QAbstractGraphicsShapeItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
-    pub fn OnDragLeaveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractGraphicsShapeItem_OnDragLeaveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAbstractGraphicsShapeItem, callback: *const fn (self: QtC.QAbstractGraphicsShapeItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
+    pub fn OnDragLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractGraphicsShapeItem_OnDragLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -8117,9 +8117,9 @@ pub const qabstractgraphicsshapeitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractGraphicsShapeItem, slot: fn (self: QtC.QAbstractGraphicsShapeItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
-    pub fn OnDragMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractGraphicsShapeItem_OnDragMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAbstractGraphicsShapeItem, callback: *const fn (self: QtC.QAbstractGraphicsShapeItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
+    pub fn OnDragMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractGraphicsShapeItem_OnDragMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -8150,9 +8150,9 @@ pub const qabstractgraphicsshapeitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractGraphicsShapeItem, slot: fn (self: QtC.QAbstractGraphicsShapeItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
-    pub fn OnDropEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractGraphicsShapeItem_OnDropEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAbstractGraphicsShapeItem, callback: *const fn (self: QtC.QAbstractGraphicsShapeItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
+    pub fn OnDropEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractGraphicsShapeItem_OnDropEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -8183,9 +8183,9 @@ pub const qabstractgraphicsshapeitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractGraphicsShapeItem, slot: fn (self: QtC.QAbstractGraphicsShapeItem, event: QtC.QFocusEvent) callconv(.c) void ```
-    pub fn OnFocusInEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractGraphicsShapeItem_OnFocusInEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAbstractGraphicsShapeItem, callback: *const fn (self: QtC.QAbstractGraphicsShapeItem, event: QtC.QFocusEvent) callconv(.c) void ```
+    pub fn OnFocusInEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractGraphicsShapeItem_OnFocusInEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -8216,9 +8216,9 @@ pub const qabstractgraphicsshapeitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractGraphicsShapeItem, slot: fn (self: QtC.QAbstractGraphicsShapeItem, event: QtC.QFocusEvent) callconv(.c) void ```
-    pub fn OnFocusOutEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractGraphicsShapeItem_OnFocusOutEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAbstractGraphicsShapeItem, callback: *const fn (self: QtC.QAbstractGraphicsShapeItem, event: QtC.QFocusEvent) callconv(.c) void ```
+    pub fn OnFocusOutEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractGraphicsShapeItem_OnFocusOutEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -8249,9 +8249,9 @@ pub const qabstractgraphicsshapeitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractGraphicsShapeItem, slot: fn (self: QtC.QAbstractGraphicsShapeItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
-    pub fn OnHoverEnterEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractGraphicsShapeItem_OnHoverEnterEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAbstractGraphicsShapeItem, callback: *const fn (self: QtC.QAbstractGraphicsShapeItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
+    pub fn OnHoverEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractGraphicsShapeItem_OnHoverEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -8282,9 +8282,9 @@ pub const qabstractgraphicsshapeitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractGraphicsShapeItem, slot: fn (self: QtC.QAbstractGraphicsShapeItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
-    pub fn OnHoverMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractGraphicsShapeItem_OnHoverMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAbstractGraphicsShapeItem, callback: *const fn (self: QtC.QAbstractGraphicsShapeItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
+    pub fn OnHoverMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractGraphicsShapeItem_OnHoverMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -8315,9 +8315,9 @@ pub const qabstractgraphicsshapeitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractGraphicsShapeItem, slot: fn (self: QtC.QAbstractGraphicsShapeItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
-    pub fn OnHoverLeaveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractGraphicsShapeItem_OnHoverLeaveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAbstractGraphicsShapeItem, callback: *const fn (self: QtC.QAbstractGraphicsShapeItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
+    pub fn OnHoverLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractGraphicsShapeItem_OnHoverLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -8348,9 +8348,9 @@ pub const qabstractgraphicsshapeitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractGraphicsShapeItem, slot: fn (self: QtC.QAbstractGraphicsShapeItem, event: QtC.QKeyEvent) callconv(.c) void ```
-    pub fn OnKeyPressEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractGraphicsShapeItem_OnKeyPressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAbstractGraphicsShapeItem, callback: *const fn (self: QtC.QAbstractGraphicsShapeItem, event: QtC.QKeyEvent) callconv(.c) void ```
+    pub fn OnKeyPressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractGraphicsShapeItem_OnKeyPressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -8381,9 +8381,9 @@ pub const qabstractgraphicsshapeitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractGraphicsShapeItem, slot: fn (self: QtC.QAbstractGraphicsShapeItem, event: QtC.QKeyEvent) callconv(.c) void ```
-    pub fn OnKeyReleaseEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractGraphicsShapeItem_OnKeyReleaseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAbstractGraphicsShapeItem, callback: *const fn (self: QtC.QAbstractGraphicsShapeItem, event: QtC.QKeyEvent) callconv(.c) void ```
+    pub fn OnKeyReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractGraphicsShapeItem_OnKeyReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -8414,9 +8414,9 @@ pub const qabstractgraphicsshapeitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractGraphicsShapeItem, slot: fn (self: QtC.QAbstractGraphicsShapeItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
-    pub fn OnMousePressEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractGraphicsShapeItem_OnMousePressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAbstractGraphicsShapeItem, callback: *const fn (self: QtC.QAbstractGraphicsShapeItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
+    pub fn OnMousePressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractGraphicsShapeItem_OnMousePressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -8447,9 +8447,9 @@ pub const qabstractgraphicsshapeitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractGraphicsShapeItem, slot: fn (self: QtC.QAbstractGraphicsShapeItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
-    pub fn OnMouseMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractGraphicsShapeItem_OnMouseMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAbstractGraphicsShapeItem, callback: *const fn (self: QtC.QAbstractGraphicsShapeItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
+    pub fn OnMouseMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractGraphicsShapeItem_OnMouseMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -8480,9 +8480,9 @@ pub const qabstractgraphicsshapeitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractGraphicsShapeItem, slot: fn (self: QtC.QAbstractGraphicsShapeItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
-    pub fn OnMouseReleaseEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractGraphicsShapeItem_OnMouseReleaseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAbstractGraphicsShapeItem, callback: *const fn (self: QtC.QAbstractGraphicsShapeItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
+    pub fn OnMouseReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractGraphicsShapeItem_OnMouseReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -8513,9 +8513,9 @@ pub const qabstractgraphicsshapeitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractGraphicsShapeItem, slot: fn (self: QtC.QAbstractGraphicsShapeItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
-    pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractGraphicsShapeItem_OnMouseDoubleClickEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAbstractGraphicsShapeItem, callback: *const fn (self: QtC.QAbstractGraphicsShapeItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
+    pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractGraphicsShapeItem_OnMouseDoubleClickEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -8546,9 +8546,9 @@ pub const qabstractgraphicsshapeitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractGraphicsShapeItem, slot: fn (self: QtC.QAbstractGraphicsShapeItem, event: QtC.QGraphicsSceneWheelEvent) callconv(.c) void ```
-    pub fn OnWheelEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractGraphicsShapeItem_OnWheelEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAbstractGraphicsShapeItem, callback: *const fn (self: QtC.QAbstractGraphicsShapeItem, event: QtC.QGraphicsSceneWheelEvent) callconv(.c) void ```
+    pub fn OnWheelEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractGraphicsShapeItem_OnWheelEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -8579,9 +8579,9 @@ pub const qabstractgraphicsshapeitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractGraphicsShapeItem, slot: fn (self: QtC.QAbstractGraphicsShapeItem, event: QtC.QInputMethodEvent) callconv(.c) void ```
-    pub fn OnInputMethodEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractGraphicsShapeItem_OnInputMethodEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAbstractGraphicsShapeItem, callback: *const fn (self: QtC.QAbstractGraphicsShapeItem, event: QtC.QInputMethodEvent) callconv(.c) void ```
+    pub fn OnInputMethodEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractGraphicsShapeItem_OnInputMethodEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -8612,9 +8612,9 @@ pub const qabstractgraphicsshapeitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractGraphicsShapeItem, slot: fn (self: QtC.QAbstractGraphicsShapeItem, query: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant ```
-    pub fn OnInputMethodQuery(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) QtC.QVariant) void {
-        qtc.QAbstractGraphicsShapeItem_OnInputMethodQuery(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAbstractGraphicsShapeItem, callback: *const fn (self: QtC.QAbstractGraphicsShapeItem, query: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant ```
+    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) QtC.QVariant) void {
+        qtc.QAbstractGraphicsShapeItem_OnInputMethodQuery(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -8645,9 +8645,9 @@ pub const qabstractgraphicsshapeitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractGraphicsShapeItem, slot: fn (self: QtC.QAbstractGraphicsShapeItem, change: qgraphicsitem_enums.GraphicsItemChange, value: QtC.QVariant) callconv(.c) QtC.QVariant ```
-    pub fn OnItemChange(self: ?*anyopaque, slot: fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QVariant) void {
-        qtc.QAbstractGraphicsShapeItem_OnItemChange(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAbstractGraphicsShapeItem, callback: *const fn (self: QtC.QAbstractGraphicsShapeItem, change: qgraphicsitem_enums.GraphicsItemChange, value: QtC.QVariant) callconv(.c) QtC.QVariant ```
+    pub fn OnItemChange(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QVariant) void {
+        qtc.QAbstractGraphicsShapeItem_OnItemChange(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -8678,9 +8678,9 @@ pub const qabstractgraphicsshapeitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractGraphicsShapeItem, slot: fn (self: QtC.QAbstractGraphicsShapeItem, extension: qgraphicsitem_enums.Extension) callconv(.c) bool ```
-    pub fn OnSupportsExtension(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) bool) void {
-        qtc.QAbstractGraphicsShapeItem_OnSupportsExtension(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAbstractGraphicsShapeItem, callback: *const fn (self: QtC.QAbstractGraphicsShapeItem, extension: qgraphicsitem_enums.Extension) callconv(.c) bool ```
+    pub fn OnSupportsExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) bool) void {
+        qtc.QAbstractGraphicsShapeItem_OnSupportsExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -8711,9 +8711,9 @@ pub const qabstractgraphicsshapeitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractGraphicsShapeItem, slot: fn (self: QtC.QAbstractGraphicsShapeItem, extension: qgraphicsitem_enums.Extension, variant: QtC.QVariant) callconv(.c) void ```
-    pub fn OnSetExtension(self: ?*anyopaque, slot: fn (?*anyopaque, i64, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractGraphicsShapeItem_OnSetExtension(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAbstractGraphicsShapeItem, callback: *const fn (self: QtC.QAbstractGraphicsShapeItem, extension: qgraphicsitem_enums.Extension, variant: QtC.QVariant) callconv(.c) void ```
+    pub fn OnSetExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64, ?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractGraphicsShapeItem_OnSetExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -8744,9 +8744,9 @@ pub const qabstractgraphicsshapeitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractGraphicsShapeItem, slot: fn (self: QtC.QAbstractGraphicsShapeItem, variant: QtC.QVariant) callconv(.c) QtC.QVariant ```
-    pub fn OnExtension(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QVariant) void {
-        qtc.QAbstractGraphicsShapeItem_OnExtension(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAbstractGraphicsShapeItem, callback: *const fn (self: QtC.QAbstractGraphicsShapeItem, variant: QtC.QVariant) callconv(.c) QtC.QVariant ```
+    pub fn OnExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QVariant) void {
+        qtc.QAbstractGraphicsShapeItem_OnExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -8777,9 +8777,9 @@ pub const qabstractgraphicsshapeitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractGraphicsShapeItem, slot: fn () callconv(.c) void ```
-    pub fn OnUpdateMicroFocus(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QAbstractGraphicsShapeItem_OnUpdateMicroFocus(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAbstractGraphicsShapeItem, callback: *const fn () callconv(.c) void ```
+    pub fn OnUpdateMicroFocus(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QAbstractGraphicsShapeItem_OnUpdateMicroFocus(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -8810,9 +8810,9 @@ pub const qabstractgraphicsshapeitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractGraphicsShapeItem, slot: fn () callconv(.c) void ```
-    pub fn OnAddToIndex(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QAbstractGraphicsShapeItem_OnAddToIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAbstractGraphicsShapeItem, callback: *const fn () callconv(.c) void ```
+    pub fn OnAddToIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QAbstractGraphicsShapeItem_OnAddToIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -8843,9 +8843,9 @@ pub const qabstractgraphicsshapeitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractGraphicsShapeItem, slot: fn () callconv(.c) void ```
-    pub fn OnRemoveFromIndex(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QAbstractGraphicsShapeItem_OnRemoveFromIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAbstractGraphicsShapeItem, callback: *const fn () callconv(.c) void ```
+    pub fn OnRemoveFromIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QAbstractGraphicsShapeItem_OnRemoveFromIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -8876,9 +8876,9 @@ pub const qabstractgraphicsshapeitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAbstractGraphicsShapeItem, slot: fn () callconv(.c) void ```
-    pub fn OnPrepareGeometryChange(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QAbstractGraphicsShapeItem_OnPrepareGeometryChange(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAbstractGraphicsShapeItem, callback: *const fn () callconv(.c) void ```
+    pub fn OnPrepareGeometryChange(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QAbstractGraphicsShapeItem_OnPrepareGeometryChange(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractgraphicsshapeitem.html#dtor.QAbstractGraphicsShapeItem)
@@ -8946,9 +8946,9 @@ pub const qgraphicspathitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsPathItem, slot: fn () callconv(.c) QtC.QRectF ```
-    pub fn OnBoundingRect(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QRectF) void {
-        qtc.QGraphicsPathItem_OnBoundingRect(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPathItem, callback: *const fn () callconv(.c) QtC.QRectF ```
+    pub fn OnBoundingRect(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QRectF) void {
+        qtc.QGraphicsPathItem_OnBoundingRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicspathitem.html#boundingRect)
@@ -8971,9 +8971,9 @@ pub const qgraphicspathitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsPathItem, slot: fn () callconv(.c) QtC.QPainterPath ```
-    pub fn OnShape(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QPainterPath) void {
-        qtc.QGraphicsPathItem_OnShape(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPathItem, callback: *const fn () callconv(.c) QtC.QPainterPath ```
+    pub fn OnShape(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainterPath) void {
+        qtc.QGraphicsPathItem_OnShape(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicspathitem.html#shape)
@@ -8996,9 +8996,9 @@ pub const qgraphicspathitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsPathItem, slot: fn (self: QtC.QGraphicsPathItem, point: QtC.QPointF) callconv(.c) bool ```
-    pub fn OnContains(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsPathItem_OnContains(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPathItem, callback: *const fn (self: QtC.QGraphicsPathItem, point: QtC.QPointF) callconv(.c) bool ```
+    pub fn OnContains(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QGraphicsPathItem_OnContains(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicspathitem.html#contains)
@@ -9021,9 +9021,9 @@ pub const qgraphicspathitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsPathItem, slot: fn (self: QtC.QGraphicsPathItem, painter: QtC.QPainter, option: QtC.QStyleOptionGraphicsItem, widget: QtC.QWidget) callconv(.c) void ```
-    pub fn OnPaint(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPathItem_OnPaint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPathItem, callback: *const fn (self: QtC.QGraphicsPathItem, painter: QtC.QPainter, option: QtC.QStyleOptionGraphicsItem, widget: QtC.QWidget) callconv(.c) void ```
+    pub fn OnPaint(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsPathItem_OnPaint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicspathitem.html#paint)
@@ -9046,9 +9046,9 @@ pub const qgraphicspathitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsPathItem, slot: fn (self: QtC.QGraphicsPathItem, item: QtC.QGraphicsItem) callconv(.c) bool ```
-    pub fn OnIsObscuredBy(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsPathItem_OnIsObscuredBy(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPathItem, callback: *const fn (self: QtC.QGraphicsPathItem, item: QtC.QGraphicsItem) callconv(.c) bool ```
+    pub fn OnIsObscuredBy(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QGraphicsPathItem_OnIsObscuredBy(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicspathitem.html#isObscuredBy)
@@ -9071,9 +9071,9 @@ pub const qgraphicspathitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsPathItem, slot: fn () callconv(.c) QtC.QPainterPath ```
-    pub fn OnOpaqueArea(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QPainterPath) void {
-        qtc.QGraphicsPathItem_OnOpaqueArea(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPathItem, callback: *const fn () callconv(.c) QtC.QPainterPath ```
+    pub fn OnOpaqueArea(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainterPath) void {
+        qtc.QGraphicsPathItem_OnOpaqueArea(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicspathitem.html#opaqueArea)
@@ -9096,9 +9096,9 @@ pub const qgraphicspathitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsPathItem, slot: fn () callconv(.c) i32 ```
-    pub fn OnType(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QGraphicsPathItem_OnType(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPathItem, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QGraphicsPathItem_OnType(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicspathitem.html#type)
@@ -9121,9 +9121,9 @@ pub const qgraphicspathitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsPathItem, slot: fn (self: QtC.QGraphicsPathItem, extension: qgraphicsitem_enums.Extension) callconv(.c) bool ```
-    pub fn OnSupportsExtension(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) bool) void {
-        qtc.QGraphicsPathItem_OnSupportsExtension(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPathItem, callback: *const fn (self: QtC.QGraphicsPathItem, extension: qgraphicsitem_enums.Extension) callconv(.c) bool ```
+    pub fn OnSupportsExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) bool) void {
+        qtc.QGraphicsPathItem_OnSupportsExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicspathitem.html#supportsExtension)
@@ -9146,9 +9146,9 @@ pub const qgraphicspathitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsPathItem, slot: fn (self: QtC.QGraphicsPathItem, extension: qgraphicsitem_enums.Extension, variant: QtC.QVariant) callconv(.c) void ```
-    pub fn OnSetExtension(self: ?*anyopaque, slot: fn (?*anyopaque, i64, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPathItem_OnSetExtension(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPathItem, callback: *const fn (self: QtC.QGraphicsPathItem, extension: qgraphicsitem_enums.Extension, variant: QtC.QVariant) callconv(.c) void ```
+    pub fn OnSetExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsPathItem_OnSetExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicspathitem.html#setExtension)
@@ -9171,9 +9171,9 @@ pub const qgraphicspathitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsPathItem, slot: fn (self: QtC.QGraphicsPathItem, variant: QtC.QVariant) callconv(.c) QtC.QVariant ```
-    pub fn OnExtension(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QVariant) void {
-        qtc.QGraphicsPathItem_OnExtension(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPathItem, callback: *const fn (self: QtC.QGraphicsPathItem, variant: QtC.QVariant) callconv(.c) QtC.QVariant ```
+    pub fn OnExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QVariant) void {
+        qtc.QGraphicsPathItem_OnExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicspathitem.html#extension)
@@ -10776,9 +10776,9 @@ pub const qgraphicspathitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPathItem, slot: fn (self: QtC.QGraphicsPathItem, phase: i32) callconv(.c) void ```
-    pub fn OnAdvance(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QGraphicsPathItem_OnAdvance(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPathItem, callback: *const fn (self: QtC.QGraphicsPathItem, phase: i32) callconv(.c) void ```
+    pub fn OnAdvance(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QGraphicsPathItem_OnAdvance(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -10809,9 +10809,9 @@ pub const qgraphicspathitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPathItem, slot: fn (self: QtC.QGraphicsPathItem, other: QtC.QGraphicsItem, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool ```
-    pub fn OnCollidesWithItem(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QGraphicsPathItem_OnCollidesWithItem(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPathItem, callback: *const fn (self: QtC.QGraphicsPathItem, other: QtC.QGraphicsItem, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool ```
+    pub fn OnCollidesWithItem(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
+        qtc.QGraphicsPathItem_OnCollidesWithItem(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -10842,9 +10842,9 @@ pub const qgraphicspathitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPathItem, slot: fn (self: QtC.QGraphicsPathItem, path: QtC.QPainterPath, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool ```
-    pub fn OnCollidesWithPath(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QGraphicsPathItem_OnCollidesWithPath(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPathItem, callback: *const fn (self: QtC.QGraphicsPathItem, path: QtC.QPainterPath, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool ```
+    pub fn OnCollidesWithPath(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
+        qtc.QGraphicsPathItem_OnCollidesWithPath(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -10875,9 +10875,9 @@ pub const qgraphicspathitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPathItem, slot: fn (self: QtC.QGraphicsPathItem, watched: QtC.QGraphicsItem, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnSceneEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsPathItem_OnSceneEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPathItem, callback: *const fn (self: QtC.QGraphicsPathItem, watched: QtC.QGraphicsItem, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnSceneEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QGraphicsPathItem_OnSceneEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -10908,9 +10908,9 @@ pub const qgraphicspathitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPathItem, slot: fn (self: QtC.QGraphicsPathItem, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnSceneEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsPathItem_OnSceneEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPathItem, callback: *const fn (self: QtC.QGraphicsPathItem, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnSceneEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QGraphicsPathItem_OnSceneEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -10941,9 +10941,9 @@ pub const qgraphicspathitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPathItem, slot: fn (self: QtC.QGraphicsPathItem, event: QtC.QGraphicsSceneContextMenuEvent) callconv(.c) void ```
-    pub fn OnContextMenuEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPathItem_OnContextMenuEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPathItem, callback: *const fn (self: QtC.QGraphicsPathItem, event: QtC.QGraphicsSceneContextMenuEvent) callconv(.c) void ```
+    pub fn OnContextMenuEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsPathItem_OnContextMenuEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -10974,9 +10974,9 @@ pub const qgraphicspathitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPathItem, slot: fn (self: QtC.QGraphicsPathItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
-    pub fn OnDragEnterEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPathItem_OnDragEnterEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPathItem, callback: *const fn (self: QtC.QGraphicsPathItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
+    pub fn OnDragEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsPathItem_OnDragEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -11007,9 +11007,9 @@ pub const qgraphicspathitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPathItem, slot: fn (self: QtC.QGraphicsPathItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
-    pub fn OnDragLeaveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPathItem_OnDragLeaveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPathItem, callback: *const fn (self: QtC.QGraphicsPathItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
+    pub fn OnDragLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsPathItem_OnDragLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -11040,9 +11040,9 @@ pub const qgraphicspathitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPathItem, slot: fn (self: QtC.QGraphicsPathItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
-    pub fn OnDragMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPathItem_OnDragMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPathItem, callback: *const fn (self: QtC.QGraphicsPathItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
+    pub fn OnDragMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsPathItem_OnDragMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -11073,9 +11073,9 @@ pub const qgraphicspathitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPathItem, slot: fn (self: QtC.QGraphicsPathItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
-    pub fn OnDropEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPathItem_OnDropEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPathItem, callback: *const fn (self: QtC.QGraphicsPathItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
+    pub fn OnDropEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsPathItem_OnDropEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -11106,9 +11106,9 @@ pub const qgraphicspathitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPathItem, slot: fn (self: QtC.QGraphicsPathItem, event: QtC.QFocusEvent) callconv(.c) void ```
-    pub fn OnFocusInEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPathItem_OnFocusInEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPathItem, callback: *const fn (self: QtC.QGraphicsPathItem, event: QtC.QFocusEvent) callconv(.c) void ```
+    pub fn OnFocusInEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsPathItem_OnFocusInEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -11139,9 +11139,9 @@ pub const qgraphicspathitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPathItem, slot: fn (self: QtC.QGraphicsPathItem, event: QtC.QFocusEvent) callconv(.c) void ```
-    pub fn OnFocusOutEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPathItem_OnFocusOutEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPathItem, callback: *const fn (self: QtC.QGraphicsPathItem, event: QtC.QFocusEvent) callconv(.c) void ```
+    pub fn OnFocusOutEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsPathItem_OnFocusOutEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -11172,9 +11172,9 @@ pub const qgraphicspathitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPathItem, slot: fn (self: QtC.QGraphicsPathItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
-    pub fn OnHoverEnterEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPathItem_OnHoverEnterEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPathItem, callback: *const fn (self: QtC.QGraphicsPathItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
+    pub fn OnHoverEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsPathItem_OnHoverEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -11205,9 +11205,9 @@ pub const qgraphicspathitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPathItem, slot: fn (self: QtC.QGraphicsPathItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
-    pub fn OnHoverMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPathItem_OnHoverMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPathItem, callback: *const fn (self: QtC.QGraphicsPathItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
+    pub fn OnHoverMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsPathItem_OnHoverMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -11238,9 +11238,9 @@ pub const qgraphicspathitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPathItem, slot: fn (self: QtC.QGraphicsPathItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
-    pub fn OnHoverLeaveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPathItem_OnHoverLeaveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPathItem, callback: *const fn (self: QtC.QGraphicsPathItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
+    pub fn OnHoverLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsPathItem_OnHoverLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -11271,9 +11271,9 @@ pub const qgraphicspathitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPathItem, slot: fn (self: QtC.QGraphicsPathItem, event: QtC.QKeyEvent) callconv(.c) void ```
-    pub fn OnKeyPressEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPathItem_OnKeyPressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPathItem, callback: *const fn (self: QtC.QGraphicsPathItem, event: QtC.QKeyEvent) callconv(.c) void ```
+    pub fn OnKeyPressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsPathItem_OnKeyPressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -11304,9 +11304,9 @@ pub const qgraphicspathitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPathItem, slot: fn (self: QtC.QGraphicsPathItem, event: QtC.QKeyEvent) callconv(.c) void ```
-    pub fn OnKeyReleaseEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPathItem_OnKeyReleaseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPathItem, callback: *const fn (self: QtC.QGraphicsPathItem, event: QtC.QKeyEvent) callconv(.c) void ```
+    pub fn OnKeyReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsPathItem_OnKeyReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -11337,9 +11337,9 @@ pub const qgraphicspathitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPathItem, slot: fn (self: QtC.QGraphicsPathItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
-    pub fn OnMousePressEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPathItem_OnMousePressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPathItem, callback: *const fn (self: QtC.QGraphicsPathItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
+    pub fn OnMousePressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsPathItem_OnMousePressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -11370,9 +11370,9 @@ pub const qgraphicspathitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPathItem, slot: fn (self: QtC.QGraphicsPathItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
-    pub fn OnMouseMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPathItem_OnMouseMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPathItem, callback: *const fn (self: QtC.QGraphicsPathItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
+    pub fn OnMouseMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsPathItem_OnMouseMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -11403,9 +11403,9 @@ pub const qgraphicspathitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPathItem, slot: fn (self: QtC.QGraphicsPathItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
-    pub fn OnMouseReleaseEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPathItem_OnMouseReleaseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPathItem, callback: *const fn (self: QtC.QGraphicsPathItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
+    pub fn OnMouseReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsPathItem_OnMouseReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -11436,9 +11436,9 @@ pub const qgraphicspathitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPathItem, slot: fn (self: QtC.QGraphicsPathItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
-    pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPathItem_OnMouseDoubleClickEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPathItem, callback: *const fn (self: QtC.QGraphicsPathItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
+    pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsPathItem_OnMouseDoubleClickEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -11469,9 +11469,9 @@ pub const qgraphicspathitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPathItem, slot: fn (self: QtC.QGraphicsPathItem, event: QtC.QGraphicsSceneWheelEvent) callconv(.c) void ```
-    pub fn OnWheelEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPathItem_OnWheelEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPathItem, callback: *const fn (self: QtC.QGraphicsPathItem, event: QtC.QGraphicsSceneWheelEvent) callconv(.c) void ```
+    pub fn OnWheelEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsPathItem_OnWheelEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -11502,9 +11502,9 @@ pub const qgraphicspathitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPathItem, slot: fn (self: QtC.QGraphicsPathItem, event: QtC.QInputMethodEvent) callconv(.c) void ```
-    pub fn OnInputMethodEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPathItem_OnInputMethodEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPathItem, callback: *const fn (self: QtC.QGraphicsPathItem, event: QtC.QInputMethodEvent) callconv(.c) void ```
+    pub fn OnInputMethodEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsPathItem_OnInputMethodEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -11535,9 +11535,9 @@ pub const qgraphicspathitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPathItem, slot: fn (self: QtC.QGraphicsPathItem, query: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant ```
-    pub fn OnInputMethodQuery(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) QtC.QVariant) void {
-        qtc.QGraphicsPathItem_OnInputMethodQuery(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPathItem, callback: *const fn (self: QtC.QGraphicsPathItem, query: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant ```
+    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) QtC.QVariant) void {
+        qtc.QGraphicsPathItem_OnInputMethodQuery(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -11568,9 +11568,9 @@ pub const qgraphicspathitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPathItem, slot: fn (self: QtC.QGraphicsPathItem, change: qgraphicsitem_enums.GraphicsItemChange, value: QtC.QVariant) callconv(.c) QtC.QVariant ```
-    pub fn OnItemChange(self: ?*anyopaque, slot: fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QVariant) void {
-        qtc.QGraphicsPathItem_OnItemChange(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPathItem, callback: *const fn (self: QtC.QGraphicsPathItem, change: qgraphicsitem_enums.GraphicsItemChange, value: QtC.QVariant) callconv(.c) QtC.QVariant ```
+    pub fn OnItemChange(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QVariant) void {
+        qtc.QGraphicsPathItem_OnItemChange(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -11601,9 +11601,9 @@ pub const qgraphicspathitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPathItem, slot: fn () callconv(.c) void ```
-    pub fn OnUpdateMicroFocus(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QGraphicsPathItem_OnUpdateMicroFocus(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPathItem, callback: *const fn () callconv(.c) void ```
+    pub fn OnUpdateMicroFocus(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QGraphicsPathItem_OnUpdateMicroFocus(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -11634,9 +11634,9 @@ pub const qgraphicspathitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPathItem, slot: fn () callconv(.c) void ```
-    pub fn OnAddToIndex(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QGraphicsPathItem_OnAddToIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPathItem, callback: *const fn () callconv(.c) void ```
+    pub fn OnAddToIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QGraphicsPathItem_OnAddToIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -11667,9 +11667,9 @@ pub const qgraphicspathitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPathItem, slot: fn () callconv(.c) void ```
-    pub fn OnRemoveFromIndex(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QGraphicsPathItem_OnRemoveFromIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPathItem, callback: *const fn () callconv(.c) void ```
+    pub fn OnRemoveFromIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QGraphicsPathItem_OnRemoveFromIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -11700,9 +11700,9 @@ pub const qgraphicspathitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPathItem, slot: fn () callconv(.c) void ```
-    pub fn OnPrepareGeometryChange(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QGraphicsPathItem_OnPrepareGeometryChange(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPathItem, callback: *const fn () callconv(.c) void ```
+    pub fn OnPrepareGeometryChange(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QGraphicsPathItem_OnPrepareGeometryChange(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicspathitem.html#dtor.QGraphicsPathItem)
@@ -11791,9 +11791,9 @@ pub const qgraphicsrectitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsRectItem, slot: fn () callconv(.c) QtC.QRectF ```
-    pub fn OnBoundingRect(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QRectF) void {
-        qtc.QGraphicsRectItem_OnBoundingRect(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsRectItem, callback: *const fn () callconv(.c) QtC.QRectF ```
+    pub fn OnBoundingRect(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QRectF) void {
+        qtc.QGraphicsRectItem_OnBoundingRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsrectitem.html#boundingRect)
@@ -11816,9 +11816,9 @@ pub const qgraphicsrectitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsRectItem, slot: fn () callconv(.c) QtC.QPainterPath ```
-    pub fn OnShape(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QPainterPath) void {
-        qtc.QGraphicsRectItem_OnShape(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsRectItem, callback: *const fn () callconv(.c) QtC.QPainterPath ```
+    pub fn OnShape(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainterPath) void {
+        qtc.QGraphicsRectItem_OnShape(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsrectitem.html#shape)
@@ -11841,9 +11841,9 @@ pub const qgraphicsrectitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsRectItem, slot: fn (self: QtC.QGraphicsRectItem, point: QtC.QPointF) callconv(.c) bool ```
-    pub fn OnContains(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsRectItem_OnContains(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsRectItem, callback: *const fn (self: QtC.QGraphicsRectItem, point: QtC.QPointF) callconv(.c) bool ```
+    pub fn OnContains(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QGraphicsRectItem_OnContains(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsrectitem.html#contains)
@@ -11866,9 +11866,9 @@ pub const qgraphicsrectitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsRectItem, slot: fn (self: QtC.QGraphicsRectItem, painter: QtC.QPainter, option: QtC.QStyleOptionGraphicsItem, widget: QtC.QWidget) callconv(.c) void ```
-    pub fn OnPaint(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsRectItem_OnPaint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsRectItem, callback: *const fn (self: QtC.QGraphicsRectItem, painter: QtC.QPainter, option: QtC.QStyleOptionGraphicsItem, widget: QtC.QWidget) callconv(.c) void ```
+    pub fn OnPaint(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsRectItem_OnPaint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsrectitem.html#paint)
@@ -11891,9 +11891,9 @@ pub const qgraphicsrectitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsRectItem, slot: fn (self: QtC.QGraphicsRectItem, item: QtC.QGraphicsItem) callconv(.c) bool ```
-    pub fn OnIsObscuredBy(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsRectItem_OnIsObscuredBy(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsRectItem, callback: *const fn (self: QtC.QGraphicsRectItem, item: QtC.QGraphicsItem) callconv(.c) bool ```
+    pub fn OnIsObscuredBy(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QGraphicsRectItem_OnIsObscuredBy(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsrectitem.html#isObscuredBy)
@@ -11916,9 +11916,9 @@ pub const qgraphicsrectitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsRectItem, slot: fn () callconv(.c) QtC.QPainterPath ```
-    pub fn OnOpaqueArea(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QPainterPath) void {
-        qtc.QGraphicsRectItem_OnOpaqueArea(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsRectItem, callback: *const fn () callconv(.c) QtC.QPainterPath ```
+    pub fn OnOpaqueArea(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainterPath) void {
+        qtc.QGraphicsRectItem_OnOpaqueArea(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsrectitem.html#opaqueArea)
@@ -11941,9 +11941,9 @@ pub const qgraphicsrectitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsRectItem, slot: fn () callconv(.c) i32 ```
-    pub fn OnType(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QGraphicsRectItem_OnType(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsRectItem, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QGraphicsRectItem_OnType(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsrectitem.html#type)
@@ -11966,9 +11966,9 @@ pub const qgraphicsrectitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsRectItem, slot: fn (self: QtC.QGraphicsRectItem, extension: qgraphicsitem_enums.Extension) callconv(.c) bool ```
-    pub fn OnSupportsExtension(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) bool) void {
-        qtc.QGraphicsRectItem_OnSupportsExtension(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsRectItem, callback: *const fn (self: QtC.QGraphicsRectItem, extension: qgraphicsitem_enums.Extension) callconv(.c) bool ```
+    pub fn OnSupportsExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) bool) void {
+        qtc.QGraphicsRectItem_OnSupportsExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsrectitem.html#supportsExtension)
@@ -11991,9 +11991,9 @@ pub const qgraphicsrectitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsRectItem, slot: fn (self: QtC.QGraphicsRectItem, extension: qgraphicsitem_enums.Extension, variant: QtC.QVariant) callconv(.c) void ```
-    pub fn OnSetExtension(self: ?*anyopaque, slot: fn (?*anyopaque, i64, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsRectItem_OnSetExtension(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsRectItem, callback: *const fn (self: QtC.QGraphicsRectItem, extension: qgraphicsitem_enums.Extension, variant: QtC.QVariant) callconv(.c) void ```
+    pub fn OnSetExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsRectItem_OnSetExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsrectitem.html#setExtension)
@@ -12016,9 +12016,9 @@ pub const qgraphicsrectitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsRectItem, slot: fn (self: QtC.QGraphicsRectItem, variant: QtC.QVariant) callconv(.c) QtC.QVariant ```
-    pub fn OnExtension(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QVariant) void {
-        qtc.QGraphicsRectItem_OnExtension(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsRectItem, callback: *const fn (self: QtC.QGraphicsRectItem, variant: QtC.QVariant) callconv(.c) QtC.QVariant ```
+    pub fn OnExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QVariant) void {
+        qtc.QGraphicsRectItem_OnExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsrectitem.html#extension)
@@ -13621,9 +13621,9 @@ pub const qgraphicsrectitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsRectItem, slot: fn (self: QtC.QGraphicsRectItem, phase: i32) callconv(.c) void ```
-    pub fn OnAdvance(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QGraphicsRectItem_OnAdvance(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsRectItem, callback: *const fn (self: QtC.QGraphicsRectItem, phase: i32) callconv(.c) void ```
+    pub fn OnAdvance(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QGraphicsRectItem_OnAdvance(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -13654,9 +13654,9 @@ pub const qgraphicsrectitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsRectItem, slot: fn (self: QtC.QGraphicsRectItem, other: QtC.QGraphicsItem, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool ```
-    pub fn OnCollidesWithItem(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QGraphicsRectItem_OnCollidesWithItem(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsRectItem, callback: *const fn (self: QtC.QGraphicsRectItem, other: QtC.QGraphicsItem, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool ```
+    pub fn OnCollidesWithItem(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
+        qtc.QGraphicsRectItem_OnCollidesWithItem(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -13687,9 +13687,9 @@ pub const qgraphicsrectitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsRectItem, slot: fn (self: QtC.QGraphicsRectItem, path: QtC.QPainterPath, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool ```
-    pub fn OnCollidesWithPath(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QGraphicsRectItem_OnCollidesWithPath(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsRectItem, callback: *const fn (self: QtC.QGraphicsRectItem, path: QtC.QPainterPath, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool ```
+    pub fn OnCollidesWithPath(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
+        qtc.QGraphicsRectItem_OnCollidesWithPath(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -13720,9 +13720,9 @@ pub const qgraphicsrectitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsRectItem, slot: fn (self: QtC.QGraphicsRectItem, watched: QtC.QGraphicsItem, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnSceneEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsRectItem_OnSceneEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsRectItem, callback: *const fn (self: QtC.QGraphicsRectItem, watched: QtC.QGraphicsItem, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnSceneEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QGraphicsRectItem_OnSceneEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -13753,9 +13753,9 @@ pub const qgraphicsrectitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsRectItem, slot: fn (self: QtC.QGraphicsRectItem, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnSceneEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsRectItem_OnSceneEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsRectItem, callback: *const fn (self: QtC.QGraphicsRectItem, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnSceneEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QGraphicsRectItem_OnSceneEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -13786,9 +13786,9 @@ pub const qgraphicsrectitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsRectItem, slot: fn (self: QtC.QGraphicsRectItem, event: QtC.QGraphicsSceneContextMenuEvent) callconv(.c) void ```
-    pub fn OnContextMenuEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsRectItem_OnContextMenuEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsRectItem, callback: *const fn (self: QtC.QGraphicsRectItem, event: QtC.QGraphicsSceneContextMenuEvent) callconv(.c) void ```
+    pub fn OnContextMenuEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsRectItem_OnContextMenuEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -13819,9 +13819,9 @@ pub const qgraphicsrectitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsRectItem, slot: fn (self: QtC.QGraphicsRectItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
-    pub fn OnDragEnterEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsRectItem_OnDragEnterEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsRectItem, callback: *const fn (self: QtC.QGraphicsRectItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
+    pub fn OnDragEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsRectItem_OnDragEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -13852,9 +13852,9 @@ pub const qgraphicsrectitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsRectItem, slot: fn (self: QtC.QGraphicsRectItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
-    pub fn OnDragLeaveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsRectItem_OnDragLeaveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsRectItem, callback: *const fn (self: QtC.QGraphicsRectItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
+    pub fn OnDragLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsRectItem_OnDragLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -13885,9 +13885,9 @@ pub const qgraphicsrectitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsRectItem, slot: fn (self: QtC.QGraphicsRectItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
-    pub fn OnDragMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsRectItem_OnDragMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsRectItem, callback: *const fn (self: QtC.QGraphicsRectItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
+    pub fn OnDragMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsRectItem_OnDragMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -13918,9 +13918,9 @@ pub const qgraphicsrectitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsRectItem, slot: fn (self: QtC.QGraphicsRectItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
-    pub fn OnDropEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsRectItem_OnDropEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsRectItem, callback: *const fn (self: QtC.QGraphicsRectItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
+    pub fn OnDropEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsRectItem_OnDropEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -13951,9 +13951,9 @@ pub const qgraphicsrectitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsRectItem, slot: fn (self: QtC.QGraphicsRectItem, event: QtC.QFocusEvent) callconv(.c) void ```
-    pub fn OnFocusInEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsRectItem_OnFocusInEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsRectItem, callback: *const fn (self: QtC.QGraphicsRectItem, event: QtC.QFocusEvent) callconv(.c) void ```
+    pub fn OnFocusInEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsRectItem_OnFocusInEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -13984,9 +13984,9 @@ pub const qgraphicsrectitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsRectItem, slot: fn (self: QtC.QGraphicsRectItem, event: QtC.QFocusEvent) callconv(.c) void ```
-    pub fn OnFocusOutEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsRectItem_OnFocusOutEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsRectItem, callback: *const fn (self: QtC.QGraphicsRectItem, event: QtC.QFocusEvent) callconv(.c) void ```
+    pub fn OnFocusOutEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsRectItem_OnFocusOutEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -14017,9 +14017,9 @@ pub const qgraphicsrectitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsRectItem, slot: fn (self: QtC.QGraphicsRectItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
-    pub fn OnHoverEnterEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsRectItem_OnHoverEnterEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsRectItem, callback: *const fn (self: QtC.QGraphicsRectItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
+    pub fn OnHoverEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsRectItem_OnHoverEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -14050,9 +14050,9 @@ pub const qgraphicsrectitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsRectItem, slot: fn (self: QtC.QGraphicsRectItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
-    pub fn OnHoverMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsRectItem_OnHoverMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsRectItem, callback: *const fn (self: QtC.QGraphicsRectItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
+    pub fn OnHoverMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsRectItem_OnHoverMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -14083,9 +14083,9 @@ pub const qgraphicsrectitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsRectItem, slot: fn (self: QtC.QGraphicsRectItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
-    pub fn OnHoverLeaveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsRectItem_OnHoverLeaveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsRectItem, callback: *const fn (self: QtC.QGraphicsRectItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
+    pub fn OnHoverLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsRectItem_OnHoverLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -14116,9 +14116,9 @@ pub const qgraphicsrectitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsRectItem, slot: fn (self: QtC.QGraphicsRectItem, event: QtC.QKeyEvent) callconv(.c) void ```
-    pub fn OnKeyPressEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsRectItem_OnKeyPressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsRectItem, callback: *const fn (self: QtC.QGraphicsRectItem, event: QtC.QKeyEvent) callconv(.c) void ```
+    pub fn OnKeyPressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsRectItem_OnKeyPressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -14149,9 +14149,9 @@ pub const qgraphicsrectitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsRectItem, slot: fn (self: QtC.QGraphicsRectItem, event: QtC.QKeyEvent) callconv(.c) void ```
-    pub fn OnKeyReleaseEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsRectItem_OnKeyReleaseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsRectItem, callback: *const fn (self: QtC.QGraphicsRectItem, event: QtC.QKeyEvent) callconv(.c) void ```
+    pub fn OnKeyReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsRectItem_OnKeyReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -14182,9 +14182,9 @@ pub const qgraphicsrectitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsRectItem, slot: fn (self: QtC.QGraphicsRectItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
-    pub fn OnMousePressEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsRectItem_OnMousePressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsRectItem, callback: *const fn (self: QtC.QGraphicsRectItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
+    pub fn OnMousePressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsRectItem_OnMousePressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -14215,9 +14215,9 @@ pub const qgraphicsrectitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsRectItem, slot: fn (self: QtC.QGraphicsRectItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
-    pub fn OnMouseMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsRectItem_OnMouseMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsRectItem, callback: *const fn (self: QtC.QGraphicsRectItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
+    pub fn OnMouseMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsRectItem_OnMouseMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -14248,9 +14248,9 @@ pub const qgraphicsrectitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsRectItem, slot: fn (self: QtC.QGraphicsRectItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
-    pub fn OnMouseReleaseEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsRectItem_OnMouseReleaseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsRectItem, callback: *const fn (self: QtC.QGraphicsRectItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
+    pub fn OnMouseReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsRectItem_OnMouseReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -14281,9 +14281,9 @@ pub const qgraphicsrectitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsRectItem, slot: fn (self: QtC.QGraphicsRectItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
-    pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsRectItem_OnMouseDoubleClickEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsRectItem, callback: *const fn (self: QtC.QGraphicsRectItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
+    pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsRectItem_OnMouseDoubleClickEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -14314,9 +14314,9 @@ pub const qgraphicsrectitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsRectItem, slot: fn (self: QtC.QGraphicsRectItem, event: QtC.QGraphicsSceneWheelEvent) callconv(.c) void ```
-    pub fn OnWheelEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsRectItem_OnWheelEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsRectItem, callback: *const fn (self: QtC.QGraphicsRectItem, event: QtC.QGraphicsSceneWheelEvent) callconv(.c) void ```
+    pub fn OnWheelEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsRectItem_OnWheelEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -14347,9 +14347,9 @@ pub const qgraphicsrectitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsRectItem, slot: fn (self: QtC.QGraphicsRectItem, event: QtC.QInputMethodEvent) callconv(.c) void ```
-    pub fn OnInputMethodEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsRectItem_OnInputMethodEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsRectItem, callback: *const fn (self: QtC.QGraphicsRectItem, event: QtC.QInputMethodEvent) callconv(.c) void ```
+    pub fn OnInputMethodEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsRectItem_OnInputMethodEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -14380,9 +14380,9 @@ pub const qgraphicsrectitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsRectItem, slot: fn (self: QtC.QGraphicsRectItem, query: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant ```
-    pub fn OnInputMethodQuery(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) QtC.QVariant) void {
-        qtc.QGraphicsRectItem_OnInputMethodQuery(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsRectItem, callback: *const fn (self: QtC.QGraphicsRectItem, query: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant ```
+    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) QtC.QVariant) void {
+        qtc.QGraphicsRectItem_OnInputMethodQuery(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -14413,9 +14413,9 @@ pub const qgraphicsrectitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsRectItem, slot: fn (self: QtC.QGraphicsRectItem, change: qgraphicsitem_enums.GraphicsItemChange, value: QtC.QVariant) callconv(.c) QtC.QVariant ```
-    pub fn OnItemChange(self: ?*anyopaque, slot: fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QVariant) void {
-        qtc.QGraphicsRectItem_OnItemChange(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsRectItem, callback: *const fn (self: QtC.QGraphicsRectItem, change: qgraphicsitem_enums.GraphicsItemChange, value: QtC.QVariant) callconv(.c) QtC.QVariant ```
+    pub fn OnItemChange(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QVariant) void {
+        qtc.QGraphicsRectItem_OnItemChange(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -14446,9 +14446,9 @@ pub const qgraphicsrectitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsRectItem, slot: fn () callconv(.c) void ```
-    pub fn OnUpdateMicroFocus(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QGraphicsRectItem_OnUpdateMicroFocus(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsRectItem, callback: *const fn () callconv(.c) void ```
+    pub fn OnUpdateMicroFocus(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QGraphicsRectItem_OnUpdateMicroFocus(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -14479,9 +14479,9 @@ pub const qgraphicsrectitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsRectItem, slot: fn () callconv(.c) void ```
-    pub fn OnAddToIndex(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QGraphicsRectItem_OnAddToIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsRectItem, callback: *const fn () callconv(.c) void ```
+    pub fn OnAddToIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QGraphicsRectItem_OnAddToIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -14512,9 +14512,9 @@ pub const qgraphicsrectitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsRectItem, slot: fn () callconv(.c) void ```
-    pub fn OnRemoveFromIndex(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QGraphicsRectItem_OnRemoveFromIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsRectItem, callback: *const fn () callconv(.c) void ```
+    pub fn OnRemoveFromIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QGraphicsRectItem_OnRemoveFromIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -14545,9 +14545,9 @@ pub const qgraphicsrectitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsRectItem, slot: fn () callconv(.c) void ```
-    pub fn OnPrepareGeometryChange(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QGraphicsRectItem_OnPrepareGeometryChange(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsRectItem, callback: *const fn () callconv(.c) void ```
+    pub fn OnPrepareGeometryChange(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QGraphicsRectItem_OnPrepareGeometryChange(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsrectitem.html#dtor.QGraphicsRectItem)
@@ -14664,9 +14664,9 @@ pub const qgraphicsellipseitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsEllipseItem, slot: fn () callconv(.c) QtC.QRectF ```
-    pub fn OnBoundingRect(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QRectF) void {
-        qtc.QGraphicsEllipseItem_OnBoundingRect(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsEllipseItem, callback: *const fn () callconv(.c) QtC.QRectF ```
+    pub fn OnBoundingRect(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QRectF) void {
+        qtc.QGraphicsEllipseItem_OnBoundingRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsellipseitem.html#boundingRect)
@@ -14689,9 +14689,9 @@ pub const qgraphicsellipseitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsEllipseItem, slot: fn () callconv(.c) QtC.QPainterPath ```
-    pub fn OnShape(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QPainterPath) void {
-        qtc.QGraphicsEllipseItem_OnShape(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsEllipseItem, callback: *const fn () callconv(.c) QtC.QPainterPath ```
+    pub fn OnShape(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainterPath) void {
+        qtc.QGraphicsEllipseItem_OnShape(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsellipseitem.html#shape)
@@ -14714,9 +14714,9 @@ pub const qgraphicsellipseitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsEllipseItem, slot: fn (self: QtC.QGraphicsEllipseItem, point: QtC.QPointF) callconv(.c) bool ```
-    pub fn OnContains(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsEllipseItem_OnContains(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsEllipseItem, callback: *const fn (self: QtC.QGraphicsEllipseItem, point: QtC.QPointF) callconv(.c) bool ```
+    pub fn OnContains(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QGraphicsEllipseItem_OnContains(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsellipseitem.html#contains)
@@ -14739,9 +14739,9 @@ pub const qgraphicsellipseitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsEllipseItem, slot: fn (self: QtC.QGraphicsEllipseItem, painter: QtC.QPainter, option: QtC.QStyleOptionGraphicsItem, widget: QtC.QWidget) callconv(.c) void ```
-    pub fn OnPaint(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsEllipseItem_OnPaint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsEllipseItem, callback: *const fn (self: QtC.QGraphicsEllipseItem, painter: QtC.QPainter, option: QtC.QStyleOptionGraphicsItem, widget: QtC.QWidget) callconv(.c) void ```
+    pub fn OnPaint(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsEllipseItem_OnPaint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsellipseitem.html#paint)
@@ -14764,9 +14764,9 @@ pub const qgraphicsellipseitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsEllipseItem, slot: fn (self: QtC.QGraphicsEllipseItem, item: QtC.QGraphicsItem) callconv(.c) bool ```
-    pub fn OnIsObscuredBy(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsEllipseItem_OnIsObscuredBy(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsEllipseItem, callback: *const fn (self: QtC.QGraphicsEllipseItem, item: QtC.QGraphicsItem) callconv(.c) bool ```
+    pub fn OnIsObscuredBy(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QGraphicsEllipseItem_OnIsObscuredBy(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsellipseitem.html#isObscuredBy)
@@ -14789,9 +14789,9 @@ pub const qgraphicsellipseitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsEllipseItem, slot: fn () callconv(.c) QtC.QPainterPath ```
-    pub fn OnOpaqueArea(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QPainterPath) void {
-        qtc.QGraphicsEllipseItem_OnOpaqueArea(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsEllipseItem, callback: *const fn () callconv(.c) QtC.QPainterPath ```
+    pub fn OnOpaqueArea(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainterPath) void {
+        qtc.QGraphicsEllipseItem_OnOpaqueArea(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsellipseitem.html#opaqueArea)
@@ -14814,9 +14814,9 @@ pub const qgraphicsellipseitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsEllipseItem, slot: fn () callconv(.c) i32 ```
-    pub fn OnType(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QGraphicsEllipseItem_OnType(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsEllipseItem, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QGraphicsEllipseItem_OnType(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsellipseitem.html#type)
@@ -14839,9 +14839,9 @@ pub const qgraphicsellipseitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsEllipseItem, slot: fn (self: QtC.QGraphicsEllipseItem, extension: qgraphicsitem_enums.Extension) callconv(.c) bool ```
-    pub fn OnSupportsExtension(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) bool) void {
-        qtc.QGraphicsEllipseItem_OnSupportsExtension(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsEllipseItem, callback: *const fn (self: QtC.QGraphicsEllipseItem, extension: qgraphicsitem_enums.Extension) callconv(.c) bool ```
+    pub fn OnSupportsExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) bool) void {
+        qtc.QGraphicsEllipseItem_OnSupportsExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsellipseitem.html#supportsExtension)
@@ -14864,9 +14864,9 @@ pub const qgraphicsellipseitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsEllipseItem, slot: fn (self: QtC.QGraphicsEllipseItem, extension: qgraphicsitem_enums.Extension, variant: QtC.QVariant) callconv(.c) void ```
-    pub fn OnSetExtension(self: ?*anyopaque, slot: fn (?*anyopaque, i64, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsEllipseItem_OnSetExtension(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsEllipseItem, callback: *const fn (self: QtC.QGraphicsEllipseItem, extension: qgraphicsitem_enums.Extension, variant: QtC.QVariant) callconv(.c) void ```
+    pub fn OnSetExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsEllipseItem_OnSetExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsellipseitem.html#setExtension)
@@ -14889,9 +14889,9 @@ pub const qgraphicsellipseitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsEllipseItem, slot: fn (self: QtC.QGraphicsEllipseItem, variant: QtC.QVariant) callconv(.c) QtC.QVariant ```
-    pub fn OnExtension(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QVariant) void {
-        qtc.QGraphicsEllipseItem_OnExtension(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsEllipseItem, callback: *const fn (self: QtC.QGraphicsEllipseItem, variant: QtC.QVariant) callconv(.c) QtC.QVariant ```
+    pub fn OnExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QVariant) void {
+        qtc.QGraphicsEllipseItem_OnExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsellipseitem.html#extension)
@@ -16494,9 +16494,9 @@ pub const qgraphicsellipseitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsEllipseItem, slot: fn (self: QtC.QGraphicsEllipseItem, phase: i32) callconv(.c) void ```
-    pub fn OnAdvance(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QGraphicsEllipseItem_OnAdvance(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsEllipseItem, callback: *const fn (self: QtC.QGraphicsEllipseItem, phase: i32) callconv(.c) void ```
+    pub fn OnAdvance(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QGraphicsEllipseItem_OnAdvance(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -16527,9 +16527,9 @@ pub const qgraphicsellipseitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsEllipseItem, slot: fn (self: QtC.QGraphicsEllipseItem, other: QtC.QGraphicsItem, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool ```
-    pub fn OnCollidesWithItem(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QGraphicsEllipseItem_OnCollidesWithItem(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsEllipseItem, callback: *const fn (self: QtC.QGraphicsEllipseItem, other: QtC.QGraphicsItem, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool ```
+    pub fn OnCollidesWithItem(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
+        qtc.QGraphicsEllipseItem_OnCollidesWithItem(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -16560,9 +16560,9 @@ pub const qgraphicsellipseitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsEllipseItem, slot: fn (self: QtC.QGraphicsEllipseItem, path: QtC.QPainterPath, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool ```
-    pub fn OnCollidesWithPath(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QGraphicsEllipseItem_OnCollidesWithPath(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsEllipseItem, callback: *const fn (self: QtC.QGraphicsEllipseItem, path: QtC.QPainterPath, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool ```
+    pub fn OnCollidesWithPath(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
+        qtc.QGraphicsEllipseItem_OnCollidesWithPath(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -16593,9 +16593,9 @@ pub const qgraphicsellipseitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsEllipseItem, slot: fn (self: QtC.QGraphicsEllipseItem, watched: QtC.QGraphicsItem, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnSceneEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsEllipseItem_OnSceneEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsEllipseItem, callback: *const fn (self: QtC.QGraphicsEllipseItem, watched: QtC.QGraphicsItem, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnSceneEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QGraphicsEllipseItem_OnSceneEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -16626,9 +16626,9 @@ pub const qgraphicsellipseitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsEllipseItem, slot: fn (self: QtC.QGraphicsEllipseItem, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnSceneEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsEllipseItem_OnSceneEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsEllipseItem, callback: *const fn (self: QtC.QGraphicsEllipseItem, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnSceneEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QGraphicsEllipseItem_OnSceneEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -16659,9 +16659,9 @@ pub const qgraphicsellipseitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsEllipseItem, slot: fn (self: QtC.QGraphicsEllipseItem, event: QtC.QGraphicsSceneContextMenuEvent) callconv(.c) void ```
-    pub fn OnContextMenuEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsEllipseItem_OnContextMenuEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsEllipseItem, callback: *const fn (self: QtC.QGraphicsEllipseItem, event: QtC.QGraphicsSceneContextMenuEvent) callconv(.c) void ```
+    pub fn OnContextMenuEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsEllipseItem_OnContextMenuEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -16692,9 +16692,9 @@ pub const qgraphicsellipseitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsEllipseItem, slot: fn (self: QtC.QGraphicsEllipseItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
-    pub fn OnDragEnterEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsEllipseItem_OnDragEnterEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsEllipseItem, callback: *const fn (self: QtC.QGraphicsEllipseItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
+    pub fn OnDragEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsEllipseItem_OnDragEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -16725,9 +16725,9 @@ pub const qgraphicsellipseitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsEllipseItem, slot: fn (self: QtC.QGraphicsEllipseItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
-    pub fn OnDragLeaveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsEllipseItem_OnDragLeaveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsEllipseItem, callback: *const fn (self: QtC.QGraphicsEllipseItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
+    pub fn OnDragLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsEllipseItem_OnDragLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -16758,9 +16758,9 @@ pub const qgraphicsellipseitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsEllipseItem, slot: fn (self: QtC.QGraphicsEllipseItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
-    pub fn OnDragMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsEllipseItem_OnDragMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsEllipseItem, callback: *const fn (self: QtC.QGraphicsEllipseItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
+    pub fn OnDragMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsEllipseItem_OnDragMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -16791,9 +16791,9 @@ pub const qgraphicsellipseitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsEllipseItem, slot: fn (self: QtC.QGraphicsEllipseItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
-    pub fn OnDropEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsEllipseItem_OnDropEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsEllipseItem, callback: *const fn (self: QtC.QGraphicsEllipseItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
+    pub fn OnDropEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsEllipseItem_OnDropEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -16824,9 +16824,9 @@ pub const qgraphicsellipseitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsEllipseItem, slot: fn (self: QtC.QGraphicsEllipseItem, event: QtC.QFocusEvent) callconv(.c) void ```
-    pub fn OnFocusInEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsEllipseItem_OnFocusInEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsEllipseItem, callback: *const fn (self: QtC.QGraphicsEllipseItem, event: QtC.QFocusEvent) callconv(.c) void ```
+    pub fn OnFocusInEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsEllipseItem_OnFocusInEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -16857,9 +16857,9 @@ pub const qgraphicsellipseitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsEllipseItem, slot: fn (self: QtC.QGraphicsEllipseItem, event: QtC.QFocusEvent) callconv(.c) void ```
-    pub fn OnFocusOutEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsEllipseItem_OnFocusOutEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsEllipseItem, callback: *const fn (self: QtC.QGraphicsEllipseItem, event: QtC.QFocusEvent) callconv(.c) void ```
+    pub fn OnFocusOutEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsEllipseItem_OnFocusOutEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -16890,9 +16890,9 @@ pub const qgraphicsellipseitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsEllipseItem, slot: fn (self: QtC.QGraphicsEllipseItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
-    pub fn OnHoverEnterEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsEllipseItem_OnHoverEnterEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsEllipseItem, callback: *const fn (self: QtC.QGraphicsEllipseItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
+    pub fn OnHoverEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsEllipseItem_OnHoverEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -16923,9 +16923,9 @@ pub const qgraphicsellipseitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsEllipseItem, slot: fn (self: QtC.QGraphicsEllipseItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
-    pub fn OnHoverMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsEllipseItem_OnHoverMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsEllipseItem, callback: *const fn (self: QtC.QGraphicsEllipseItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
+    pub fn OnHoverMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsEllipseItem_OnHoverMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -16956,9 +16956,9 @@ pub const qgraphicsellipseitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsEllipseItem, slot: fn (self: QtC.QGraphicsEllipseItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
-    pub fn OnHoverLeaveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsEllipseItem_OnHoverLeaveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsEllipseItem, callback: *const fn (self: QtC.QGraphicsEllipseItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
+    pub fn OnHoverLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsEllipseItem_OnHoverLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -16989,9 +16989,9 @@ pub const qgraphicsellipseitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsEllipseItem, slot: fn (self: QtC.QGraphicsEllipseItem, event: QtC.QKeyEvent) callconv(.c) void ```
-    pub fn OnKeyPressEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsEllipseItem_OnKeyPressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsEllipseItem, callback: *const fn (self: QtC.QGraphicsEllipseItem, event: QtC.QKeyEvent) callconv(.c) void ```
+    pub fn OnKeyPressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsEllipseItem_OnKeyPressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -17022,9 +17022,9 @@ pub const qgraphicsellipseitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsEllipseItem, slot: fn (self: QtC.QGraphicsEllipseItem, event: QtC.QKeyEvent) callconv(.c) void ```
-    pub fn OnKeyReleaseEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsEllipseItem_OnKeyReleaseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsEllipseItem, callback: *const fn (self: QtC.QGraphicsEllipseItem, event: QtC.QKeyEvent) callconv(.c) void ```
+    pub fn OnKeyReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsEllipseItem_OnKeyReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -17055,9 +17055,9 @@ pub const qgraphicsellipseitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsEllipseItem, slot: fn (self: QtC.QGraphicsEllipseItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
-    pub fn OnMousePressEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsEllipseItem_OnMousePressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsEllipseItem, callback: *const fn (self: QtC.QGraphicsEllipseItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
+    pub fn OnMousePressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsEllipseItem_OnMousePressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -17088,9 +17088,9 @@ pub const qgraphicsellipseitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsEllipseItem, slot: fn (self: QtC.QGraphicsEllipseItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
-    pub fn OnMouseMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsEllipseItem_OnMouseMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsEllipseItem, callback: *const fn (self: QtC.QGraphicsEllipseItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
+    pub fn OnMouseMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsEllipseItem_OnMouseMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -17121,9 +17121,9 @@ pub const qgraphicsellipseitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsEllipseItem, slot: fn (self: QtC.QGraphicsEllipseItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
-    pub fn OnMouseReleaseEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsEllipseItem_OnMouseReleaseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsEllipseItem, callback: *const fn (self: QtC.QGraphicsEllipseItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
+    pub fn OnMouseReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsEllipseItem_OnMouseReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -17154,9 +17154,9 @@ pub const qgraphicsellipseitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsEllipseItem, slot: fn (self: QtC.QGraphicsEllipseItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
-    pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsEllipseItem_OnMouseDoubleClickEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsEllipseItem, callback: *const fn (self: QtC.QGraphicsEllipseItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
+    pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsEllipseItem_OnMouseDoubleClickEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -17187,9 +17187,9 @@ pub const qgraphicsellipseitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsEllipseItem, slot: fn (self: QtC.QGraphicsEllipseItem, event: QtC.QGraphicsSceneWheelEvent) callconv(.c) void ```
-    pub fn OnWheelEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsEllipseItem_OnWheelEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsEllipseItem, callback: *const fn (self: QtC.QGraphicsEllipseItem, event: QtC.QGraphicsSceneWheelEvent) callconv(.c) void ```
+    pub fn OnWheelEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsEllipseItem_OnWheelEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -17220,9 +17220,9 @@ pub const qgraphicsellipseitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsEllipseItem, slot: fn (self: QtC.QGraphicsEllipseItem, event: QtC.QInputMethodEvent) callconv(.c) void ```
-    pub fn OnInputMethodEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsEllipseItem_OnInputMethodEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsEllipseItem, callback: *const fn (self: QtC.QGraphicsEllipseItem, event: QtC.QInputMethodEvent) callconv(.c) void ```
+    pub fn OnInputMethodEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsEllipseItem_OnInputMethodEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -17253,9 +17253,9 @@ pub const qgraphicsellipseitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsEllipseItem, slot: fn (self: QtC.QGraphicsEllipseItem, query: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant ```
-    pub fn OnInputMethodQuery(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) QtC.QVariant) void {
-        qtc.QGraphicsEllipseItem_OnInputMethodQuery(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsEllipseItem, callback: *const fn (self: QtC.QGraphicsEllipseItem, query: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant ```
+    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) QtC.QVariant) void {
+        qtc.QGraphicsEllipseItem_OnInputMethodQuery(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -17286,9 +17286,9 @@ pub const qgraphicsellipseitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsEllipseItem, slot: fn (self: QtC.QGraphicsEllipseItem, change: qgraphicsitem_enums.GraphicsItemChange, value: QtC.QVariant) callconv(.c) QtC.QVariant ```
-    pub fn OnItemChange(self: ?*anyopaque, slot: fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QVariant) void {
-        qtc.QGraphicsEllipseItem_OnItemChange(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsEllipseItem, callback: *const fn (self: QtC.QGraphicsEllipseItem, change: qgraphicsitem_enums.GraphicsItemChange, value: QtC.QVariant) callconv(.c) QtC.QVariant ```
+    pub fn OnItemChange(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QVariant) void {
+        qtc.QGraphicsEllipseItem_OnItemChange(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -17319,9 +17319,9 @@ pub const qgraphicsellipseitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsEllipseItem, slot: fn () callconv(.c) void ```
-    pub fn OnUpdateMicroFocus(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QGraphicsEllipseItem_OnUpdateMicroFocus(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsEllipseItem, callback: *const fn () callconv(.c) void ```
+    pub fn OnUpdateMicroFocus(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QGraphicsEllipseItem_OnUpdateMicroFocus(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -17352,9 +17352,9 @@ pub const qgraphicsellipseitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsEllipseItem, slot: fn () callconv(.c) void ```
-    pub fn OnAddToIndex(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QGraphicsEllipseItem_OnAddToIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsEllipseItem, callback: *const fn () callconv(.c) void ```
+    pub fn OnAddToIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QGraphicsEllipseItem_OnAddToIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -17385,9 +17385,9 @@ pub const qgraphicsellipseitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsEllipseItem, slot: fn () callconv(.c) void ```
-    pub fn OnRemoveFromIndex(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QGraphicsEllipseItem_OnRemoveFromIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsEllipseItem, callback: *const fn () callconv(.c) void ```
+    pub fn OnRemoveFromIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QGraphicsEllipseItem_OnRemoveFromIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -17418,9 +17418,9 @@ pub const qgraphicsellipseitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsEllipseItem, slot: fn () callconv(.c) void ```
-    pub fn OnPrepareGeometryChange(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QGraphicsEllipseItem_OnPrepareGeometryChange(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsEllipseItem, callback: *const fn () callconv(.c) void ```
+    pub fn OnPrepareGeometryChange(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QGraphicsEllipseItem_OnPrepareGeometryChange(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsellipseitem.html#dtor.QGraphicsEllipseItem)
@@ -17476,9 +17476,9 @@ pub const qgraphicspolygonitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsPolygonItem, slot: fn () callconv(.c) QtC.QRectF ```
-    pub fn OnBoundingRect(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QRectF) void {
-        qtc.QGraphicsPolygonItem_OnBoundingRect(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPolygonItem, callback: *const fn () callconv(.c) QtC.QRectF ```
+    pub fn OnBoundingRect(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QRectF) void {
+        qtc.QGraphicsPolygonItem_OnBoundingRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicspolygonitem.html#boundingRect)
@@ -17501,9 +17501,9 @@ pub const qgraphicspolygonitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsPolygonItem, slot: fn () callconv(.c) QtC.QPainterPath ```
-    pub fn OnShape(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QPainterPath) void {
-        qtc.QGraphicsPolygonItem_OnShape(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPolygonItem, callback: *const fn () callconv(.c) QtC.QPainterPath ```
+    pub fn OnShape(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainterPath) void {
+        qtc.QGraphicsPolygonItem_OnShape(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicspolygonitem.html#shape)
@@ -17526,9 +17526,9 @@ pub const qgraphicspolygonitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsPolygonItem, slot: fn (self: QtC.QGraphicsPolygonItem, point: QtC.QPointF) callconv(.c) bool ```
-    pub fn OnContains(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsPolygonItem_OnContains(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPolygonItem, callback: *const fn (self: QtC.QGraphicsPolygonItem, point: QtC.QPointF) callconv(.c) bool ```
+    pub fn OnContains(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QGraphicsPolygonItem_OnContains(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicspolygonitem.html#contains)
@@ -17551,9 +17551,9 @@ pub const qgraphicspolygonitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsPolygonItem, slot: fn (self: QtC.QGraphicsPolygonItem, painter: QtC.QPainter, option: QtC.QStyleOptionGraphicsItem, widget: QtC.QWidget) callconv(.c) void ```
-    pub fn OnPaint(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPolygonItem_OnPaint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPolygonItem, callback: *const fn (self: QtC.QGraphicsPolygonItem, painter: QtC.QPainter, option: QtC.QStyleOptionGraphicsItem, widget: QtC.QWidget) callconv(.c) void ```
+    pub fn OnPaint(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsPolygonItem_OnPaint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicspolygonitem.html#paint)
@@ -17576,9 +17576,9 @@ pub const qgraphicspolygonitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsPolygonItem, slot: fn (self: QtC.QGraphicsPolygonItem, item: QtC.QGraphicsItem) callconv(.c) bool ```
-    pub fn OnIsObscuredBy(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsPolygonItem_OnIsObscuredBy(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPolygonItem, callback: *const fn (self: QtC.QGraphicsPolygonItem, item: QtC.QGraphicsItem) callconv(.c) bool ```
+    pub fn OnIsObscuredBy(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QGraphicsPolygonItem_OnIsObscuredBy(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicspolygonitem.html#isObscuredBy)
@@ -17601,9 +17601,9 @@ pub const qgraphicspolygonitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsPolygonItem, slot: fn () callconv(.c) QtC.QPainterPath ```
-    pub fn OnOpaqueArea(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QPainterPath) void {
-        qtc.QGraphicsPolygonItem_OnOpaqueArea(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPolygonItem, callback: *const fn () callconv(.c) QtC.QPainterPath ```
+    pub fn OnOpaqueArea(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainterPath) void {
+        qtc.QGraphicsPolygonItem_OnOpaqueArea(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicspolygonitem.html#opaqueArea)
@@ -17626,9 +17626,9 @@ pub const qgraphicspolygonitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsPolygonItem, slot: fn () callconv(.c) i32 ```
-    pub fn OnType(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QGraphicsPolygonItem_OnType(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPolygonItem, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QGraphicsPolygonItem_OnType(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicspolygonitem.html#type)
@@ -17651,9 +17651,9 @@ pub const qgraphicspolygonitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsPolygonItem, slot: fn (self: QtC.QGraphicsPolygonItem, extension: qgraphicsitem_enums.Extension) callconv(.c) bool ```
-    pub fn OnSupportsExtension(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) bool) void {
-        qtc.QGraphicsPolygonItem_OnSupportsExtension(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPolygonItem, callback: *const fn (self: QtC.QGraphicsPolygonItem, extension: qgraphicsitem_enums.Extension) callconv(.c) bool ```
+    pub fn OnSupportsExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) bool) void {
+        qtc.QGraphicsPolygonItem_OnSupportsExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicspolygonitem.html#supportsExtension)
@@ -17676,9 +17676,9 @@ pub const qgraphicspolygonitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsPolygonItem, slot: fn (self: QtC.QGraphicsPolygonItem, extension: qgraphicsitem_enums.Extension, variant: QtC.QVariant) callconv(.c) void ```
-    pub fn OnSetExtension(self: ?*anyopaque, slot: fn (?*anyopaque, i64, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPolygonItem_OnSetExtension(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPolygonItem, callback: *const fn (self: QtC.QGraphicsPolygonItem, extension: qgraphicsitem_enums.Extension, variant: QtC.QVariant) callconv(.c) void ```
+    pub fn OnSetExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsPolygonItem_OnSetExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicspolygonitem.html#setExtension)
@@ -17701,9 +17701,9 @@ pub const qgraphicspolygonitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsPolygonItem, slot: fn (self: QtC.QGraphicsPolygonItem, variant: QtC.QVariant) callconv(.c) QtC.QVariant ```
-    pub fn OnExtension(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QVariant) void {
-        qtc.QGraphicsPolygonItem_OnExtension(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPolygonItem, callback: *const fn (self: QtC.QGraphicsPolygonItem, variant: QtC.QVariant) callconv(.c) QtC.QVariant ```
+    pub fn OnExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QVariant) void {
+        qtc.QGraphicsPolygonItem_OnExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicspolygonitem.html#extension)
@@ -19306,9 +19306,9 @@ pub const qgraphicspolygonitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPolygonItem, slot: fn (self: QtC.QGraphicsPolygonItem, phase: i32) callconv(.c) void ```
-    pub fn OnAdvance(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QGraphicsPolygonItem_OnAdvance(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPolygonItem, callback: *const fn (self: QtC.QGraphicsPolygonItem, phase: i32) callconv(.c) void ```
+    pub fn OnAdvance(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QGraphicsPolygonItem_OnAdvance(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -19339,9 +19339,9 @@ pub const qgraphicspolygonitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPolygonItem, slot: fn (self: QtC.QGraphicsPolygonItem, other: QtC.QGraphicsItem, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool ```
-    pub fn OnCollidesWithItem(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QGraphicsPolygonItem_OnCollidesWithItem(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPolygonItem, callback: *const fn (self: QtC.QGraphicsPolygonItem, other: QtC.QGraphicsItem, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool ```
+    pub fn OnCollidesWithItem(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
+        qtc.QGraphicsPolygonItem_OnCollidesWithItem(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -19372,9 +19372,9 @@ pub const qgraphicspolygonitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPolygonItem, slot: fn (self: QtC.QGraphicsPolygonItem, path: QtC.QPainterPath, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool ```
-    pub fn OnCollidesWithPath(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QGraphicsPolygonItem_OnCollidesWithPath(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPolygonItem, callback: *const fn (self: QtC.QGraphicsPolygonItem, path: QtC.QPainterPath, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool ```
+    pub fn OnCollidesWithPath(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
+        qtc.QGraphicsPolygonItem_OnCollidesWithPath(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -19405,9 +19405,9 @@ pub const qgraphicspolygonitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPolygonItem, slot: fn (self: QtC.QGraphicsPolygonItem, watched: QtC.QGraphicsItem, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnSceneEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsPolygonItem_OnSceneEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPolygonItem, callback: *const fn (self: QtC.QGraphicsPolygonItem, watched: QtC.QGraphicsItem, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnSceneEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QGraphicsPolygonItem_OnSceneEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -19438,9 +19438,9 @@ pub const qgraphicspolygonitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPolygonItem, slot: fn (self: QtC.QGraphicsPolygonItem, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnSceneEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsPolygonItem_OnSceneEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPolygonItem, callback: *const fn (self: QtC.QGraphicsPolygonItem, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnSceneEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QGraphicsPolygonItem_OnSceneEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -19471,9 +19471,9 @@ pub const qgraphicspolygonitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPolygonItem, slot: fn (self: QtC.QGraphicsPolygonItem, event: QtC.QGraphicsSceneContextMenuEvent) callconv(.c) void ```
-    pub fn OnContextMenuEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPolygonItem_OnContextMenuEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPolygonItem, callback: *const fn (self: QtC.QGraphicsPolygonItem, event: QtC.QGraphicsSceneContextMenuEvent) callconv(.c) void ```
+    pub fn OnContextMenuEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsPolygonItem_OnContextMenuEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -19504,9 +19504,9 @@ pub const qgraphicspolygonitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPolygonItem, slot: fn (self: QtC.QGraphicsPolygonItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
-    pub fn OnDragEnterEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPolygonItem_OnDragEnterEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPolygonItem, callback: *const fn (self: QtC.QGraphicsPolygonItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
+    pub fn OnDragEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsPolygonItem_OnDragEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -19537,9 +19537,9 @@ pub const qgraphicspolygonitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPolygonItem, slot: fn (self: QtC.QGraphicsPolygonItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
-    pub fn OnDragLeaveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPolygonItem_OnDragLeaveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPolygonItem, callback: *const fn (self: QtC.QGraphicsPolygonItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
+    pub fn OnDragLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsPolygonItem_OnDragLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -19570,9 +19570,9 @@ pub const qgraphicspolygonitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPolygonItem, slot: fn (self: QtC.QGraphicsPolygonItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
-    pub fn OnDragMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPolygonItem_OnDragMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPolygonItem, callback: *const fn (self: QtC.QGraphicsPolygonItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
+    pub fn OnDragMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsPolygonItem_OnDragMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -19603,9 +19603,9 @@ pub const qgraphicspolygonitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPolygonItem, slot: fn (self: QtC.QGraphicsPolygonItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
-    pub fn OnDropEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPolygonItem_OnDropEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPolygonItem, callback: *const fn (self: QtC.QGraphicsPolygonItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
+    pub fn OnDropEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsPolygonItem_OnDropEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -19636,9 +19636,9 @@ pub const qgraphicspolygonitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPolygonItem, slot: fn (self: QtC.QGraphicsPolygonItem, event: QtC.QFocusEvent) callconv(.c) void ```
-    pub fn OnFocusInEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPolygonItem_OnFocusInEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPolygonItem, callback: *const fn (self: QtC.QGraphicsPolygonItem, event: QtC.QFocusEvent) callconv(.c) void ```
+    pub fn OnFocusInEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsPolygonItem_OnFocusInEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -19669,9 +19669,9 @@ pub const qgraphicspolygonitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPolygonItem, slot: fn (self: QtC.QGraphicsPolygonItem, event: QtC.QFocusEvent) callconv(.c) void ```
-    pub fn OnFocusOutEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPolygonItem_OnFocusOutEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPolygonItem, callback: *const fn (self: QtC.QGraphicsPolygonItem, event: QtC.QFocusEvent) callconv(.c) void ```
+    pub fn OnFocusOutEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsPolygonItem_OnFocusOutEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -19702,9 +19702,9 @@ pub const qgraphicspolygonitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPolygonItem, slot: fn (self: QtC.QGraphicsPolygonItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
-    pub fn OnHoverEnterEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPolygonItem_OnHoverEnterEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPolygonItem, callback: *const fn (self: QtC.QGraphicsPolygonItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
+    pub fn OnHoverEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsPolygonItem_OnHoverEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -19735,9 +19735,9 @@ pub const qgraphicspolygonitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPolygonItem, slot: fn (self: QtC.QGraphicsPolygonItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
-    pub fn OnHoverMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPolygonItem_OnHoverMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPolygonItem, callback: *const fn (self: QtC.QGraphicsPolygonItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
+    pub fn OnHoverMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsPolygonItem_OnHoverMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -19768,9 +19768,9 @@ pub const qgraphicspolygonitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPolygonItem, slot: fn (self: QtC.QGraphicsPolygonItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
-    pub fn OnHoverLeaveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPolygonItem_OnHoverLeaveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPolygonItem, callback: *const fn (self: QtC.QGraphicsPolygonItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
+    pub fn OnHoverLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsPolygonItem_OnHoverLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -19801,9 +19801,9 @@ pub const qgraphicspolygonitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPolygonItem, slot: fn (self: QtC.QGraphicsPolygonItem, event: QtC.QKeyEvent) callconv(.c) void ```
-    pub fn OnKeyPressEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPolygonItem_OnKeyPressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPolygonItem, callback: *const fn (self: QtC.QGraphicsPolygonItem, event: QtC.QKeyEvent) callconv(.c) void ```
+    pub fn OnKeyPressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsPolygonItem_OnKeyPressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -19834,9 +19834,9 @@ pub const qgraphicspolygonitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPolygonItem, slot: fn (self: QtC.QGraphicsPolygonItem, event: QtC.QKeyEvent) callconv(.c) void ```
-    pub fn OnKeyReleaseEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPolygonItem_OnKeyReleaseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPolygonItem, callback: *const fn (self: QtC.QGraphicsPolygonItem, event: QtC.QKeyEvent) callconv(.c) void ```
+    pub fn OnKeyReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsPolygonItem_OnKeyReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -19867,9 +19867,9 @@ pub const qgraphicspolygonitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPolygonItem, slot: fn (self: QtC.QGraphicsPolygonItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
-    pub fn OnMousePressEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPolygonItem_OnMousePressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPolygonItem, callback: *const fn (self: QtC.QGraphicsPolygonItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
+    pub fn OnMousePressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsPolygonItem_OnMousePressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -19900,9 +19900,9 @@ pub const qgraphicspolygonitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPolygonItem, slot: fn (self: QtC.QGraphicsPolygonItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
-    pub fn OnMouseMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPolygonItem_OnMouseMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPolygonItem, callback: *const fn (self: QtC.QGraphicsPolygonItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
+    pub fn OnMouseMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsPolygonItem_OnMouseMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -19933,9 +19933,9 @@ pub const qgraphicspolygonitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPolygonItem, slot: fn (self: QtC.QGraphicsPolygonItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
-    pub fn OnMouseReleaseEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPolygonItem_OnMouseReleaseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPolygonItem, callback: *const fn (self: QtC.QGraphicsPolygonItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
+    pub fn OnMouseReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsPolygonItem_OnMouseReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -19966,9 +19966,9 @@ pub const qgraphicspolygonitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPolygonItem, slot: fn (self: QtC.QGraphicsPolygonItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
-    pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPolygonItem_OnMouseDoubleClickEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPolygonItem, callback: *const fn (self: QtC.QGraphicsPolygonItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
+    pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsPolygonItem_OnMouseDoubleClickEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -19999,9 +19999,9 @@ pub const qgraphicspolygonitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPolygonItem, slot: fn (self: QtC.QGraphicsPolygonItem, event: QtC.QGraphicsSceneWheelEvent) callconv(.c) void ```
-    pub fn OnWheelEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPolygonItem_OnWheelEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPolygonItem, callback: *const fn (self: QtC.QGraphicsPolygonItem, event: QtC.QGraphicsSceneWheelEvent) callconv(.c) void ```
+    pub fn OnWheelEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsPolygonItem_OnWheelEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -20032,9 +20032,9 @@ pub const qgraphicspolygonitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPolygonItem, slot: fn (self: QtC.QGraphicsPolygonItem, event: QtC.QInputMethodEvent) callconv(.c) void ```
-    pub fn OnInputMethodEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPolygonItem_OnInputMethodEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPolygonItem, callback: *const fn (self: QtC.QGraphicsPolygonItem, event: QtC.QInputMethodEvent) callconv(.c) void ```
+    pub fn OnInputMethodEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsPolygonItem_OnInputMethodEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -20065,9 +20065,9 @@ pub const qgraphicspolygonitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPolygonItem, slot: fn (self: QtC.QGraphicsPolygonItem, query: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant ```
-    pub fn OnInputMethodQuery(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) QtC.QVariant) void {
-        qtc.QGraphicsPolygonItem_OnInputMethodQuery(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPolygonItem, callback: *const fn (self: QtC.QGraphicsPolygonItem, query: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant ```
+    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) QtC.QVariant) void {
+        qtc.QGraphicsPolygonItem_OnInputMethodQuery(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -20098,9 +20098,9 @@ pub const qgraphicspolygonitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPolygonItem, slot: fn (self: QtC.QGraphicsPolygonItem, change: qgraphicsitem_enums.GraphicsItemChange, value: QtC.QVariant) callconv(.c) QtC.QVariant ```
-    pub fn OnItemChange(self: ?*anyopaque, slot: fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QVariant) void {
-        qtc.QGraphicsPolygonItem_OnItemChange(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPolygonItem, callback: *const fn (self: QtC.QGraphicsPolygonItem, change: qgraphicsitem_enums.GraphicsItemChange, value: QtC.QVariant) callconv(.c) QtC.QVariant ```
+    pub fn OnItemChange(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QVariant) void {
+        qtc.QGraphicsPolygonItem_OnItemChange(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -20131,9 +20131,9 @@ pub const qgraphicspolygonitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPolygonItem, slot: fn () callconv(.c) void ```
-    pub fn OnUpdateMicroFocus(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QGraphicsPolygonItem_OnUpdateMicroFocus(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPolygonItem, callback: *const fn () callconv(.c) void ```
+    pub fn OnUpdateMicroFocus(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QGraphicsPolygonItem_OnUpdateMicroFocus(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -20164,9 +20164,9 @@ pub const qgraphicspolygonitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPolygonItem, slot: fn () callconv(.c) void ```
-    pub fn OnAddToIndex(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QGraphicsPolygonItem_OnAddToIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPolygonItem, callback: *const fn () callconv(.c) void ```
+    pub fn OnAddToIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QGraphicsPolygonItem_OnAddToIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -20197,9 +20197,9 @@ pub const qgraphicspolygonitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPolygonItem, slot: fn () callconv(.c) void ```
-    pub fn OnRemoveFromIndex(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QGraphicsPolygonItem_OnRemoveFromIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPolygonItem, callback: *const fn () callconv(.c) void ```
+    pub fn OnRemoveFromIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QGraphicsPolygonItem_OnRemoveFromIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -20230,9 +20230,9 @@ pub const qgraphicspolygonitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPolygonItem, slot: fn () callconv(.c) void ```
-    pub fn OnPrepareGeometryChange(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QGraphicsPolygonItem_OnPrepareGeometryChange(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPolygonItem, callback: *const fn () callconv(.c) void ```
+    pub fn OnPrepareGeometryChange(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QGraphicsPolygonItem_OnPrepareGeometryChange(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicspolygonitem.html#dtor.QGraphicsPolygonItem)
@@ -20335,9 +20335,9 @@ pub const qgraphicslineitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsLineItem, slot: fn () callconv(.c) QtC.QRectF ```
-    pub fn OnBoundingRect(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QRectF) void {
-        qtc.QGraphicsLineItem_OnBoundingRect(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsLineItem, callback: *const fn () callconv(.c) QtC.QRectF ```
+    pub fn OnBoundingRect(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QRectF) void {
+        qtc.QGraphicsLineItem_OnBoundingRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslineitem.html#boundingRect)
@@ -20360,9 +20360,9 @@ pub const qgraphicslineitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsLineItem, slot: fn () callconv(.c) QtC.QPainterPath ```
-    pub fn OnShape(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QPainterPath) void {
-        qtc.QGraphicsLineItem_OnShape(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsLineItem, callback: *const fn () callconv(.c) QtC.QPainterPath ```
+    pub fn OnShape(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainterPath) void {
+        qtc.QGraphicsLineItem_OnShape(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslineitem.html#shape)
@@ -20385,9 +20385,9 @@ pub const qgraphicslineitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsLineItem, slot: fn (self: QtC.QGraphicsLineItem, point: QtC.QPointF) callconv(.c) bool ```
-    pub fn OnContains(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsLineItem_OnContains(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsLineItem, callback: *const fn (self: QtC.QGraphicsLineItem, point: QtC.QPointF) callconv(.c) bool ```
+    pub fn OnContains(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QGraphicsLineItem_OnContains(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslineitem.html#contains)
@@ -20410,9 +20410,9 @@ pub const qgraphicslineitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsLineItem, slot: fn (self: QtC.QGraphicsLineItem, painter: QtC.QPainter, option: QtC.QStyleOptionGraphicsItem, widget: QtC.QWidget) callconv(.c) void ```
-    pub fn OnPaint(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsLineItem_OnPaint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsLineItem, callback: *const fn (self: QtC.QGraphicsLineItem, painter: QtC.QPainter, option: QtC.QStyleOptionGraphicsItem, widget: QtC.QWidget) callconv(.c) void ```
+    pub fn OnPaint(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsLineItem_OnPaint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslineitem.html#paint)
@@ -20435,9 +20435,9 @@ pub const qgraphicslineitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsLineItem, slot: fn (self: QtC.QGraphicsLineItem, item: QtC.QGraphicsItem) callconv(.c) bool ```
-    pub fn OnIsObscuredBy(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsLineItem_OnIsObscuredBy(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsLineItem, callback: *const fn (self: QtC.QGraphicsLineItem, item: QtC.QGraphicsItem) callconv(.c) bool ```
+    pub fn OnIsObscuredBy(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QGraphicsLineItem_OnIsObscuredBy(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslineitem.html#isObscuredBy)
@@ -20460,9 +20460,9 @@ pub const qgraphicslineitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsLineItem, slot: fn () callconv(.c) QtC.QPainterPath ```
-    pub fn OnOpaqueArea(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QPainterPath) void {
-        qtc.QGraphicsLineItem_OnOpaqueArea(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsLineItem, callback: *const fn () callconv(.c) QtC.QPainterPath ```
+    pub fn OnOpaqueArea(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainterPath) void {
+        qtc.QGraphicsLineItem_OnOpaqueArea(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslineitem.html#opaqueArea)
@@ -20485,9 +20485,9 @@ pub const qgraphicslineitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsLineItem, slot: fn () callconv(.c) i32 ```
-    pub fn OnType(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QGraphicsLineItem_OnType(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsLineItem, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QGraphicsLineItem_OnType(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslineitem.html#type)
@@ -20510,9 +20510,9 @@ pub const qgraphicslineitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsLineItem, slot: fn (self: QtC.QGraphicsLineItem, extension: qgraphicsitem_enums.Extension) callconv(.c) bool ```
-    pub fn OnSupportsExtension(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) bool) void {
-        qtc.QGraphicsLineItem_OnSupportsExtension(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsLineItem, callback: *const fn (self: QtC.QGraphicsLineItem, extension: qgraphicsitem_enums.Extension) callconv(.c) bool ```
+    pub fn OnSupportsExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) bool) void {
+        qtc.QGraphicsLineItem_OnSupportsExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslineitem.html#supportsExtension)
@@ -20535,9 +20535,9 @@ pub const qgraphicslineitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsLineItem, slot: fn (self: QtC.QGraphicsLineItem, extension: qgraphicsitem_enums.Extension, variant: QtC.QVariant) callconv(.c) void ```
-    pub fn OnSetExtension(self: ?*anyopaque, slot: fn (?*anyopaque, i64, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsLineItem_OnSetExtension(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsLineItem, callback: *const fn (self: QtC.QGraphicsLineItem, extension: qgraphicsitem_enums.Extension, variant: QtC.QVariant) callconv(.c) void ```
+    pub fn OnSetExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsLineItem_OnSetExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslineitem.html#setExtension)
@@ -20560,9 +20560,9 @@ pub const qgraphicslineitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsLineItem, slot: fn (self: QtC.QGraphicsLineItem, variant: QtC.QVariant) callconv(.c) QtC.QVariant ```
-    pub fn OnExtension(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QVariant) void {
-        qtc.QGraphicsLineItem_OnExtension(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsLineItem, callback: *const fn (self: QtC.QGraphicsLineItem, variant: QtC.QVariant) callconv(.c) QtC.QVariant ```
+    pub fn OnExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QVariant) void {
+        qtc.QGraphicsLineItem_OnExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslineitem.html#extension)
@@ -22129,9 +22129,9 @@ pub const qgraphicslineitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsLineItem, slot: fn (self: QtC.QGraphicsLineItem, phase: i32) callconv(.c) void ```
-    pub fn OnAdvance(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QGraphicsLineItem_OnAdvance(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsLineItem, callback: *const fn (self: QtC.QGraphicsLineItem, phase: i32) callconv(.c) void ```
+    pub fn OnAdvance(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QGraphicsLineItem_OnAdvance(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -22162,9 +22162,9 @@ pub const qgraphicslineitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsLineItem, slot: fn (self: QtC.QGraphicsLineItem, other: QtC.QGraphicsItem, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool ```
-    pub fn OnCollidesWithItem(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QGraphicsLineItem_OnCollidesWithItem(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsLineItem, callback: *const fn (self: QtC.QGraphicsLineItem, other: QtC.QGraphicsItem, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool ```
+    pub fn OnCollidesWithItem(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
+        qtc.QGraphicsLineItem_OnCollidesWithItem(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -22195,9 +22195,9 @@ pub const qgraphicslineitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsLineItem, slot: fn (self: QtC.QGraphicsLineItem, path: QtC.QPainterPath, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool ```
-    pub fn OnCollidesWithPath(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QGraphicsLineItem_OnCollidesWithPath(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsLineItem, callback: *const fn (self: QtC.QGraphicsLineItem, path: QtC.QPainterPath, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool ```
+    pub fn OnCollidesWithPath(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
+        qtc.QGraphicsLineItem_OnCollidesWithPath(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -22228,9 +22228,9 @@ pub const qgraphicslineitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsLineItem, slot: fn (self: QtC.QGraphicsLineItem, watched: QtC.QGraphicsItem, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnSceneEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsLineItem_OnSceneEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsLineItem, callback: *const fn (self: QtC.QGraphicsLineItem, watched: QtC.QGraphicsItem, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnSceneEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QGraphicsLineItem_OnSceneEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -22261,9 +22261,9 @@ pub const qgraphicslineitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsLineItem, slot: fn (self: QtC.QGraphicsLineItem, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnSceneEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsLineItem_OnSceneEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsLineItem, callback: *const fn (self: QtC.QGraphicsLineItem, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnSceneEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QGraphicsLineItem_OnSceneEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -22294,9 +22294,9 @@ pub const qgraphicslineitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsLineItem, slot: fn (self: QtC.QGraphicsLineItem, event: QtC.QGraphicsSceneContextMenuEvent) callconv(.c) void ```
-    pub fn OnContextMenuEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsLineItem_OnContextMenuEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsLineItem, callback: *const fn (self: QtC.QGraphicsLineItem, event: QtC.QGraphicsSceneContextMenuEvent) callconv(.c) void ```
+    pub fn OnContextMenuEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsLineItem_OnContextMenuEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -22327,9 +22327,9 @@ pub const qgraphicslineitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsLineItem, slot: fn (self: QtC.QGraphicsLineItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
-    pub fn OnDragEnterEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsLineItem_OnDragEnterEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsLineItem, callback: *const fn (self: QtC.QGraphicsLineItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
+    pub fn OnDragEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsLineItem_OnDragEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -22360,9 +22360,9 @@ pub const qgraphicslineitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsLineItem, slot: fn (self: QtC.QGraphicsLineItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
-    pub fn OnDragLeaveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsLineItem_OnDragLeaveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsLineItem, callback: *const fn (self: QtC.QGraphicsLineItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
+    pub fn OnDragLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsLineItem_OnDragLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -22393,9 +22393,9 @@ pub const qgraphicslineitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsLineItem, slot: fn (self: QtC.QGraphicsLineItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
-    pub fn OnDragMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsLineItem_OnDragMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsLineItem, callback: *const fn (self: QtC.QGraphicsLineItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
+    pub fn OnDragMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsLineItem_OnDragMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -22426,9 +22426,9 @@ pub const qgraphicslineitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsLineItem, slot: fn (self: QtC.QGraphicsLineItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
-    pub fn OnDropEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsLineItem_OnDropEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsLineItem, callback: *const fn (self: QtC.QGraphicsLineItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
+    pub fn OnDropEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsLineItem_OnDropEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -22459,9 +22459,9 @@ pub const qgraphicslineitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsLineItem, slot: fn (self: QtC.QGraphicsLineItem, event: QtC.QFocusEvent) callconv(.c) void ```
-    pub fn OnFocusInEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsLineItem_OnFocusInEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsLineItem, callback: *const fn (self: QtC.QGraphicsLineItem, event: QtC.QFocusEvent) callconv(.c) void ```
+    pub fn OnFocusInEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsLineItem_OnFocusInEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -22492,9 +22492,9 @@ pub const qgraphicslineitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsLineItem, slot: fn (self: QtC.QGraphicsLineItem, event: QtC.QFocusEvent) callconv(.c) void ```
-    pub fn OnFocusOutEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsLineItem_OnFocusOutEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsLineItem, callback: *const fn (self: QtC.QGraphicsLineItem, event: QtC.QFocusEvent) callconv(.c) void ```
+    pub fn OnFocusOutEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsLineItem_OnFocusOutEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -22525,9 +22525,9 @@ pub const qgraphicslineitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsLineItem, slot: fn (self: QtC.QGraphicsLineItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
-    pub fn OnHoverEnterEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsLineItem_OnHoverEnterEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsLineItem, callback: *const fn (self: QtC.QGraphicsLineItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
+    pub fn OnHoverEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsLineItem_OnHoverEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -22558,9 +22558,9 @@ pub const qgraphicslineitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsLineItem, slot: fn (self: QtC.QGraphicsLineItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
-    pub fn OnHoverMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsLineItem_OnHoverMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsLineItem, callback: *const fn (self: QtC.QGraphicsLineItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
+    pub fn OnHoverMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsLineItem_OnHoverMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -22591,9 +22591,9 @@ pub const qgraphicslineitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsLineItem, slot: fn (self: QtC.QGraphicsLineItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
-    pub fn OnHoverLeaveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsLineItem_OnHoverLeaveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsLineItem, callback: *const fn (self: QtC.QGraphicsLineItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
+    pub fn OnHoverLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsLineItem_OnHoverLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -22624,9 +22624,9 @@ pub const qgraphicslineitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsLineItem, slot: fn (self: QtC.QGraphicsLineItem, event: QtC.QKeyEvent) callconv(.c) void ```
-    pub fn OnKeyPressEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsLineItem_OnKeyPressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsLineItem, callback: *const fn (self: QtC.QGraphicsLineItem, event: QtC.QKeyEvent) callconv(.c) void ```
+    pub fn OnKeyPressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsLineItem_OnKeyPressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -22657,9 +22657,9 @@ pub const qgraphicslineitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsLineItem, slot: fn (self: QtC.QGraphicsLineItem, event: QtC.QKeyEvent) callconv(.c) void ```
-    pub fn OnKeyReleaseEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsLineItem_OnKeyReleaseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsLineItem, callback: *const fn (self: QtC.QGraphicsLineItem, event: QtC.QKeyEvent) callconv(.c) void ```
+    pub fn OnKeyReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsLineItem_OnKeyReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -22690,9 +22690,9 @@ pub const qgraphicslineitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsLineItem, slot: fn (self: QtC.QGraphicsLineItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
-    pub fn OnMousePressEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsLineItem_OnMousePressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsLineItem, callback: *const fn (self: QtC.QGraphicsLineItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
+    pub fn OnMousePressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsLineItem_OnMousePressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -22723,9 +22723,9 @@ pub const qgraphicslineitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsLineItem, slot: fn (self: QtC.QGraphicsLineItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
-    pub fn OnMouseMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsLineItem_OnMouseMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsLineItem, callback: *const fn (self: QtC.QGraphicsLineItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
+    pub fn OnMouseMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsLineItem_OnMouseMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -22756,9 +22756,9 @@ pub const qgraphicslineitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsLineItem, slot: fn (self: QtC.QGraphicsLineItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
-    pub fn OnMouseReleaseEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsLineItem_OnMouseReleaseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsLineItem, callback: *const fn (self: QtC.QGraphicsLineItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
+    pub fn OnMouseReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsLineItem_OnMouseReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -22789,9 +22789,9 @@ pub const qgraphicslineitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsLineItem, slot: fn (self: QtC.QGraphicsLineItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
-    pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsLineItem_OnMouseDoubleClickEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsLineItem, callback: *const fn (self: QtC.QGraphicsLineItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
+    pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsLineItem_OnMouseDoubleClickEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -22822,9 +22822,9 @@ pub const qgraphicslineitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsLineItem, slot: fn (self: QtC.QGraphicsLineItem, event: QtC.QGraphicsSceneWheelEvent) callconv(.c) void ```
-    pub fn OnWheelEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsLineItem_OnWheelEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsLineItem, callback: *const fn (self: QtC.QGraphicsLineItem, event: QtC.QGraphicsSceneWheelEvent) callconv(.c) void ```
+    pub fn OnWheelEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsLineItem_OnWheelEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -22855,9 +22855,9 @@ pub const qgraphicslineitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsLineItem, slot: fn (self: QtC.QGraphicsLineItem, event: QtC.QInputMethodEvent) callconv(.c) void ```
-    pub fn OnInputMethodEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsLineItem_OnInputMethodEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsLineItem, callback: *const fn (self: QtC.QGraphicsLineItem, event: QtC.QInputMethodEvent) callconv(.c) void ```
+    pub fn OnInputMethodEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsLineItem_OnInputMethodEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -22888,9 +22888,9 @@ pub const qgraphicslineitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsLineItem, slot: fn (self: QtC.QGraphicsLineItem, query: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant ```
-    pub fn OnInputMethodQuery(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) QtC.QVariant) void {
-        qtc.QGraphicsLineItem_OnInputMethodQuery(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsLineItem, callback: *const fn (self: QtC.QGraphicsLineItem, query: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant ```
+    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) QtC.QVariant) void {
+        qtc.QGraphicsLineItem_OnInputMethodQuery(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -22921,9 +22921,9 @@ pub const qgraphicslineitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsLineItem, slot: fn (self: QtC.QGraphicsLineItem, change: qgraphicsitem_enums.GraphicsItemChange, value: QtC.QVariant) callconv(.c) QtC.QVariant ```
-    pub fn OnItemChange(self: ?*anyopaque, slot: fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QVariant) void {
-        qtc.QGraphicsLineItem_OnItemChange(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsLineItem, callback: *const fn (self: QtC.QGraphicsLineItem, change: qgraphicsitem_enums.GraphicsItemChange, value: QtC.QVariant) callconv(.c) QtC.QVariant ```
+    pub fn OnItemChange(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QVariant) void {
+        qtc.QGraphicsLineItem_OnItemChange(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -22954,9 +22954,9 @@ pub const qgraphicslineitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsLineItem, slot: fn () callconv(.c) void ```
-    pub fn OnUpdateMicroFocus(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QGraphicsLineItem_OnUpdateMicroFocus(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsLineItem, callback: *const fn () callconv(.c) void ```
+    pub fn OnUpdateMicroFocus(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QGraphicsLineItem_OnUpdateMicroFocus(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -22987,9 +22987,9 @@ pub const qgraphicslineitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsLineItem, slot: fn () callconv(.c) void ```
-    pub fn OnAddToIndex(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QGraphicsLineItem_OnAddToIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsLineItem, callback: *const fn () callconv(.c) void ```
+    pub fn OnAddToIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QGraphicsLineItem_OnAddToIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -23020,9 +23020,9 @@ pub const qgraphicslineitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsLineItem, slot: fn () callconv(.c) void ```
-    pub fn OnRemoveFromIndex(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QGraphicsLineItem_OnRemoveFromIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsLineItem, callback: *const fn () callconv(.c) void ```
+    pub fn OnRemoveFromIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QGraphicsLineItem_OnRemoveFromIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -23053,9 +23053,9 @@ pub const qgraphicslineitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsLineItem, slot: fn () callconv(.c) void ```
-    pub fn OnPrepareGeometryChange(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QGraphicsLineItem_OnPrepareGeometryChange(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsLineItem, callback: *const fn () callconv(.c) void ```
+    pub fn OnPrepareGeometryChange(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QGraphicsLineItem_OnPrepareGeometryChange(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicslineitem.html#dtor.QGraphicsLineItem)
@@ -23160,9 +23160,9 @@ pub const qgraphicspixmapitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsPixmapItem, slot: fn () callconv(.c) QtC.QRectF ```
-    pub fn OnBoundingRect(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QRectF) void {
-        qtc.QGraphicsPixmapItem_OnBoundingRect(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPixmapItem, callback: *const fn () callconv(.c) QtC.QRectF ```
+    pub fn OnBoundingRect(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QRectF) void {
+        qtc.QGraphicsPixmapItem_OnBoundingRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicspixmapitem.html#boundingRect)
@@ -23185,9 +23185,9 @@ pub const qgraphicspixmapitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsPixmapItem, slot: fn () callconv(.c) QtC.QPainterPath ```
-    pub fn OnShape(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QPainterPath) void {
-        qtc.QGraphicsPixmapItem_OnShape(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPixmapItem, callback: *const fn () callconv(.c) QtC.QPainterPath ```
+    pub fn OnShape(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainterPath) void {
+        qtc.QGraphicsPixmapItem_OnShape(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicspixmapitem.html#shape)
@@ -23210,9 +23210,9 @@ pub const qgraphicspixmapitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsPixmapItem, slot: fn (self: QtC.QGraphicsPixmapItem, point: QtC.QPointF) callconv(.c) bool ```
-    pub fn OnContains(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsPixmapItem_OnContains(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPixmapItem, callback: *const fn (self: QtC.QGraphicsPixmapItem, point: QtC.QPointF) callconv(.c) bool ```
+    pub fn OnContains(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QGraphicsPixmapItem_OnContains(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicspixmapitem.html#contains)
@@ -23235,9 +23235,9 @@ pub const qgraphicspixmapitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsPixmapItem, slot: fn (self: QtC.QGraphicsPixmapItem, painter: QtC.QPainter, option: QtC.QStyleOptionGraphicsItem, widget: QtC.QWidget) callconv(.c) void ```
-    pub fn OnPaint(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPixmapItem_OnPaint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPixmapItem, callback: *const fn (self: QtC.QGraphicsPixmapItem, painter: QtC.QPainter, option: QtC.QStyleOptionGraphicsItem, widget: QtC.QWidget) callconv(.c) void ```
+    pub fn OnPaint(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsPixmapItem_OnPaint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicspixmapitem.html#paint)
@@ -23260,9 +23260,9 @@ pub const qgraphicspixmapitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsPixmapItem, slot: fn (self: QtC.QGraphicsPixmapItem, item: QtC.QGraphicsItem) callconv(.c) bool ```
-    pub fn OnIsObscuredBy(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsPixmapItem_OnIsObscuredBy(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPixmapItem, callback: *const fn (self: QtC.QGraphicsPixmapItem, item: QtC.QGraphicsItem) callconv(.c) bool ```
+    pub fn OnIsObscuredBy(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QGraphicsPixmapItem_OnIsObscuredBy(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicspixmapitem.html#isObscuredBy)
@@ -23285,9 +23285,9 @@ pub const qgraphicspixmapitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsPixmapItem, slot: fn () callconv(.c) QtC.QPainterPath ```
-    pub fn OnOpaqueArea(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QPainterPath) void {
-        qtc.QGraphicsPixmapItem_OnOpaqueArea(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPixmapItem, callback: *const fn () callconv(.c) QtC.QPainterPath ```
+    pub fn OnOpaqueArea(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainterPath) void {
+        qtc.QGraphicsPixmapItem_OnOpaqueArea(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicspixmapitem.html#opaqueArea)
@@ -23310,9 +23310,9 @@ pub const qgraphicspixmapitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsPixmapItem, slot: fn () callconv(.c) i32 ```
-    pub fn OnType(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QGraphicsPixmapItem_OnType(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPixmapItem, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QGraphicsPixmapItem_OnType(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicspixmapitem.html#type)
@@ -23351,9 +23351,9 @@ pub const qgraphicspixmapitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsPixmapItem, slot: fn (self: QtC.QGraphicsPixmapItem, extension: qgraphicsitem_enums.Extension) callconv(.c) bool ```
-    pub fn OnSupportsExtension(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) bool) void {
-        qtc.QGraphicsPixmapItem_OnSupportsExtension(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPixmapItem, callback: *const fn (self: QtC.QGraphicsPixmapItem, extension: qgraphicsitem_enums.Extension) callconv(.c) bool ```
+    pub fn OnSupportsExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) bool) void {
+        qtc.QGraphicsPixmapItem_OnSupportsExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicspixmapitem.html#supportsExtension)
@@ -23376,9 +23376,9 @@ pub const qgraphicspixmapitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsPixmapItem, slot: fn (self: QtC.QGraphicsPixmapItem, extension: qgraphicsitem_enums.Extension, variant: QtC.QVariant) callconv(.c) void ```
-    pub fn OnSetExtension(self: ?*anyopaque, slot: fn (?*anyopaque, i64, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPixmapItem_OnSetExtension(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPixmapItem, callback: *const fn (self: QtC.QGraphicsPixmapItem, extension: qgraphicsitem_enums.Extension, variant: QtC.QVariant) callconv(.c) void ```
+    pub fn OnSetExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsPixmapItem_OnSetExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicspixmapitem.html#setExtension)
@@ -23401,9 +23401,9 @@ pub const qgraphicspixmapitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsPixmapItem, slot: fn (self: QtC.QGraphicsPixmapItem, variant: QtC.QVariant) callconv(.c) QtC.QVariant ```
-    pub fn OnExtension(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QVariant) void {
-        qtc.QGraphicsPixmapItem_OnExtension(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPixmapItem, callback: *const fn (self: QtC.QGraphicsPixmapItem, variant: QtC.QVariant) callconv(.c) QtC.QVariant ```
+    pub fn OnExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QVariant) void {
+        qtc.QGraphicsPixmapItem_OnExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicspixmapitem.html#extension)
@@ -24970,9 +24970,9 @@ pub const qgraphicspixmapitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPixmapItem, slot: fn (self: QtC.QGraphicsPixmapItem, phase: i32) callconv(.c) void ```
-    pub fn OnAdvance(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QGraphicsPixmapItem_OnAdvance(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPixmapItem, callback: *const fn (self: QtC.QGraphicsPixmapItem, phase: i32) callconv(.c) void ```
+    pub fn OnAdvance(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QGraphicsPixmapItem_OnAdvance(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -25003,9 +25003,9 @@ pub const qgraphicspixmapitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPixmapItem, slot: fn (self: QtC.QGraphicsPixmapItem, other: QtC.QGraphicsItem, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool ```
-    pub fn OnCollidesWithItem(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QGraphicsPixmapItem_OnCollidesWithItem(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPixmapItem, callback: *const fn (self: QtC.QGraphicsPixmapItem, other: QtC.QGraphicsItem, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool ```
+    pub fn OnCollidesWithItem(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
+        qtc.QGraphicsPixmapItem_OnCollidesWithItem(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -25036,9 +25036,9 @@ pub const qgraphicspixmapitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPixmapItem, slot: fn (self: QtC.QGraphicsPixmapItem, path: QtC.QPainterPath, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool ```
-    pub fn OnCollidesWithPath(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QGraphicsPixmapItem_OnCollidesWithPath(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPixmapItem, callback: *const fn (self: QtC.QGraphicsPixmapItem, path: QtC.QPainterPath, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool ```
+    pub fn OnCollidesWithPath(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
+        qtc.QGraphicsPixmapItem_OnCollidesWithPath(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -25069,9 +25069,9 @@ pub const qgraphicspixmapitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPixmapItem, slot: fn (self: QtC.QGraphicsPixmapItem, watched: QtC.QGraphicsItem, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnSceneEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsPixmapItem_OnSceneEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPixmapItem, callback: *const fn (self: QtC.QGraphicsPixmapItem, watched: QtC.QGraphicsItem, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnSceneEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QGraphicsPixmapItem_OnSceneEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -25102,9 +25102,9 @@ pub const qgraphicspixmapitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPixmapItem, slot: fn (self: QtC.QGraphicsPixmapItem, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnSceneEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsPixmapItem_OnSceneEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPixmapItem, callback: *const fn (self: QtC.QGraphicsPixmapItem, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnSceneEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QGraphicsPixmapItem_OnSceneEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -25135,9 +25135,9 @@ pub const qgraphicspixmapitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPixmapItem, slot: fn (self: QtC.QGraphicsPixmapItem, event: QtC.QGraphicsSceneContextMenuEvent) callconv(.c) void ```
-    pub fn OnContextMenuEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPixmapItem_OnContextMenuEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPixmapItem, callback: *const fn (self: QtC.QGraphicsPixmapItem, event: QtC.QGraphicsSceneContextMenuEvent) callconv(.c) void ```
+    pub fn OnContextMenuEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsPixmapItem_OnContextMenuEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -25168,9 +25168,9 @@ pub const qgraphicspixmapitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPixmapItem, slot: fn (self: QtC.QGraphicsPixmapItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
-    pub fn OnDragEnterEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPixmapItem_OnDragEnterEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPixmapItem, callback: *const fn (self: QtC.QGraphicsPixmapItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
+    pub fn OnDragEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsPixmapItem_OnDragEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -25201,9 +25201,9 @@ pub const qgraphicspixmapitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPixmapItem, slot: fn (self: QtC.QGraphicsPixmapItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
-    pub fn OnDragLeaveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPixmapItem_OnDragLeaveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPixmapItem, callback: *const fn (self: QtC.QGraphicsPixmapItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
+    pub fn OnDragLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsPixmapItem_OnDragLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -25234,9 +25234,9 @@ pub const qgraphicspixmapitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPixmapItem, slot: fn (self: QtC.QGraphicsPixmapItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
-    pub fn OnDragMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPixmapItem_OnDragMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPixmapItem, callback: *const fn (self: QtC.QGraphicsPixmapItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
+    pub fn OnDragMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsPixmapItem_OnDragMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -25267,9 +25267,9 @@ pub const qgraphicspixmapitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPixmapItem, slot: fn (self: QtC.QGraphicsPixmapItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
-    pub fn OnDropEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPixmapItem_OnDropEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPixmapItem, callback: *const fn (self: QtC.QGraphicsPixmapItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
+    pub fn OnDropEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsPixmapItem_OnDropEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -25300,9 +25300,9 @@ pub const qgraphicspixmapitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPixmapItem, slot: fn (self: QtC.QGraphicsPixmapItem, event: QtC.QFocusEvent) callconv(.c) void ```
-    pub fn OnFocusInEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPixmapItem_OnFocusInEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPixmapItem, callback: *const fn (self: QtC.QGraphicsPixmapItem, event: QtC.QFocusEvent) callconv(.c) void ```
+    pub fn OnFocusInEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsPixmapItem_OnFocusInEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -25333,9 +25333,9 @@ pub const qgraphicspixmapitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPixmapItem, slot: fn (self: QtC.QGraphicsPixmapItem, event: QtC.QFocusEvent) callconv(.c) void ```
-    pub fn OnFocusOutEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPixmapItem_OnFocusOutEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPixmapItem, callback: *const fn (self: QtC.QGraphicsPixmapItem, event: QtC.QFocusEvent) callconv(.c) void ```
+    pub fn OnFocusOutEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsPixmapItem_OnFocusOutEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -25366,9 +25366,9 @@ pub const qgraphicspixmapitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPixmapItem, slot: fn (self: QtC.QGraphicsPixmapItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
-    pub fn OnHoverEnterEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPixmapItem_OnHoverEnterEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPixmapItem, callback: *const fn (self: QtC.QGraphicsPixmapItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
+    pub fn OnHoverEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsPixmapItem_OnHoverEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -25399,9 +25399,9 @@ pub const qgraphicspixmapitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPixmapItem, slot: fn (self: QtC.QGraphicsPixmapItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
-    pub fn OnHoverMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPixmapItem_OnHoverMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPixmapItem, callback: *const fn (self: QtC.QGraphicsPixmapItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
+    pub fn OnHoverMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsPixmapItem_OnHoverMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -25432,9 +25432,9 @@ pub const qgraphicspixmapitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPixmapItem, slot: fn (self: QtC.QGraphicsPixmapItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
-    pub fn OnHoverLeaveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPixmapItem_OnHoverLeaveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPixmapItem, callback: *const fn (self: QtC.QGraphicsPixmapItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
+    pub fn OnHoverLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsPixmapItem_OnHoverLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -25465,9 +25465,9 @@ pub const qgraphicspixmapitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPixmapItem, slot: fn (self: QtC.QGraphicsPixmapItem, event: QtC.QKeyEvent) callconv(.c) void ```
-    pub fn OnKeyPressEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPixmapItem_OnKeyPressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPixmapItem, callback: *const fn (self: QtC.QGraphicsPixmapItem, event: QtC.QKeyEvent) callconv(.c) void ```
+    pub fn OnKeyPressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsPixmapItem_OnKeyPressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -25498,9 +25498,9 @@ pub const qgraphicspixmapitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPixmapItem, slot: fn (self: QtC.QGraphicsPixmapItem, event: QtC.QKeyEvent) callconv(.c) void ```
-    pub fn OnKeyReleaseEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPixmapItem_OnKeyReleaseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPixmapItem, callback: *const fn (self: QtC.QGraphicsPixmapItem, event: QtC.QKeyEvent) callconv(.c) void ```
+    pub fn OnKeyReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsPixmapItem_OnKeyReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -25531,9 +25531,9 @@ pub const qgraphicspixmapitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPixmapItem, slot: fn (self: QtC.QGraphicsPixmapItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
-    pub fn OnMousePressEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPixmapItem_OnMousePressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPixmapItem, callback: *const fn (self: QtC.QGraphicsPixmapItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
+    pub fn OnMousePressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsPixmapItem_OnMousePressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -25564,9 +25564,9 @@ pub const qgraphicspixmapitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPixmapItem, slot: fn (self: QtC.QGraphicsPixmapItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
-    pub fn OnMouseMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPixmapItem_OnMouseMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPixmapItem, callback: *const fn (self: QtC.QGraphicsPixmapItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
+    pub fn OnMouseMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsPixmapItem_OnMouseMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -25597,9 +25597,9 @@ pub const qgraphicspixmapitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPixmapItem, slot: fn (self: QtC.QGraphicsPixmapItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
-    pub fn OnMouseReleaseEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPixmapItem_OnMouseReleaseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPixmapItem, callback: *const fn (self: QtC.QGraphicsPixmapItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
+    pub fn OnMouseReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsPixmapItem_OnMouseReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -25630,9 +25630,9 @@ pub const qgraphicspixmapitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPixmapItem, slot: fn (self: QtC.QGraphicsPixmapItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
-    pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPixmapItem_OnMouseDoubleClickEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPixmapItem, callback: *const fn (self: QtC.QGraphicsPixmapItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
+    pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsPixmapItem_OnMouseDoubleClickEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -25663,9 +25663,9 @@ pub const qgraphicspixmapitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPixmapItem, slot: fn (self: QtC.QGraphicsPixmapItem, event: QtC.QGraphicsSceneWheelEvent) callconv(.c) void ```
-    pub fn OnWheelEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPixmapItem_OnWheelEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPixmapItem, callback: *const fn (self: QtC.QGraphicsPixmapItem, event: QtC.QGraphicsSceneWheelEvent) callconv(.c) void ```
+    pub fn OnWheelEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsPixmapItem_OnWheelEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -25696,9 +25696,9 @@ pub const qgraphicspixmapitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPixmapItem, slot: fn (self: QtC.QGraphicsPixmapItem, event: QtC.QInputMethodEvent) callconv(.c) void ```
-    pub fn OnInputMethodEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsPixmapItem_OnInputMethodEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPixmapItem, callback: *const fn (self: QtC.QGraphicsPixmapItem, event: QtC.QInputMethodEvent) callconv(.c) void ```
+    pub fn OnInputMethodEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsPixmapItem_OnInputMethodEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -25729,9 +25729,9 @@ pub const qgraphicspixmapitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPixmapItem, slot: fn (self: QtC.QGraphicsPixmapItem, query: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant ```
-    pub fn OnInputMethodQuery(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) QtC.QVariant) void {
-        qtc.QGraphicsPixmapItem_OnInputMethodQuery(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPixmapItem, callback: *const fn (self: QtC.QGraphicsPixmapItem, query: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant ```
+    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) QtC.QVariant) void {
+        qtc.QGraphicsPixmapItem_OnInputMethodQuery(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -25762,9 +25762,9 @@ pub const qgraphicspixmapitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPixmapItem, slot: fn (self: QtC.QGraphicsPixmapItem, change: qgraphicsitem_enums.GraphicsItemChange, value: QtC.QVariant) callconv(.c) QtC.QVariant ```
-    pub fn OnItemChange(self: ?*anyopaque, slot: fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QVariant) void {
-        qtc.QGraphicsPixmapItem_OnItemChange(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPixmapItem, callback: *const fn (self: QtC.QGraphicsPixmapItem, change: qgraphicsitem_enums.GraphicsItemChange, value: QtC.QVariant) callconv(.c) QtC.QVariant ```
+    pub fn OnItemChange(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QVariant) void {
+        qtc.QGraphicsPixmapItem_OnItemChange(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -25795,9 +25795,9 @@ pub const qgraphicspixmapitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPixmapItem, slot: fn () callconv(.c) void ```
-    pub fn OnUpdateMicroFocus(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QGraphicsPixmapItem_OnUpdateMicroFocus(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPixmapItem, callback: *const fn () callconv(.c) void ```
+    pub fn OnUpdateMicroFocus(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QGraphicsPixmapItem_OnUpdateMicroFocus(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -25828,9 +25828,9 @@ pub const qgraphicspixmapitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPixmapItem, slot: fn () callconv(.c) void ```
-    pub fn OnAddToIndex(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QGraphicsPixmapItem_OnAddToIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPixmapItem, callback: *const fn () callconv(.c) void ```
+    pub fn OnAddToIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QGraphicsPixmapItem_OnAddToIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -25861,9 +25861,9 @@ pub const qgraphicspixmapitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPixmapItem, slot: fn () callconv(.c) void ```
-    pub fn OnRemoveFromIndex(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QGraphicsPixmapItem_OnRemoveFromIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPixmapItem, callback: *const fn () callconv(.c) void ```
+    pub fn OnRemoveFromIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QGraphicsPixmapItem_OnRemoveFromIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -25894,9 +25894,9 @@ pub const qgraphicspixmapitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsPixmapItem, slot: fn () callconv(.c) void ```
-    pub fn OnPrepareGeometryChange(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QGraphicsPixmapItem_OnPrepareGeometryChange(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsPixmapItem, callback: *const fn () callconv(.c) void ```
+    pub fn OnPrepareGeometryChange(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QGraphicsPixmapItem_OnPrepareGeometryChange(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicspixmapitem.html#dtor.QGraphicsPixmapItem)
@@ -25969,9 +25969,9 @@ pub const qgraphicstextitem = struct {
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsTextItem, slot: fn (self: QtC.QGraphicsTextItem, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QGraphicsTextItem_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsTextItem, callback: *const fn (self: QtC.QGraphicsTextItem, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+        qtc.QGraphicsTextItem_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -26076,9 +26076,9 @@ pub const qgraphicstextitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsTextItem, slot: fn () callconv(.c) QtC.QRectF ```
-    pub fn OnBoundingRect(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QRectF) void {
-        qtc.QGraphicsTextItem_OnBoundingRect(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsTextItem, callback: *const fn () callconv(.c) QtC.QRectF ```
+    pub fn OnBoundingRect(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QRectF) void {
+        qtc.QGraphicsTextItem_OnBoundingRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicstextitem.html#boundingRect)
@@ -26101,9 +26101,9 @@ pub const qgraphicstextitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsTextItem, slot: fn () callconv(.c) QtC.QPainterPath ```
-    pub fn OnShape(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QPainterPath) void {
-        qtc.QGraphicsTextItem_OnShape(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsTextItem, callback: *const fn () callconv(.c) QtC.QPainterPath ```
+    pub fn OnShape(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainterPath) void {
+        qtc.QGraphicsTextItem_OnShape(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicstextitem.html#shape)
@@ -26126,9 +26126,9 @@ pub const qgraphicstextitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsTextItem, slot: fn (self: QtC.QGraphicsTextItem, point: QtC.QPointF) callconv(.c) bool ```
-    pub fn OnContains(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsTextItem_OnContains(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsTextItem, callback: *const fn (self: QtC.QGraphicsTextItem, point: QtC.QPointF) callconv(.c) bool ```
+    pub fn OnContains(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QGraphicsTextItem_OnContains(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicstextitem.html#contains)
@@ -26151,9 +26151,9 @@ pub const qgraphicstextitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsTextItem, slot: fn (self: QtC.QGraphicsTextItem, painter: QtC.QPainter, option: QtC.QStyleOptionGraphicsItem, widget: QtC.QWidget) callconv(.c) void ```
-    pub fn OnPaint(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsTextItem_OnPaint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsTextItem, callback: *const fn (self: QtC.QGraphicsTextItem, painter: QtC.QPainter, option: QtC.QStyleOptionGraphicsItem, widget: QtC.QWidget) callconv(.c) void ```
+    pub fn OnPaint(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsTextItem_OnPaint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicstextitem.html#paint)
@@ -26176,9 +26176,9 @@ pub const qgraphicstextitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsTextItem, slot: fn (self: QtC.QGraphicsTextItem, item: QtC.QGraphicsItem) callconv(.c) bool ```
-    pub fn OnIsObscuredBy(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsTextItem_OnIsObscuredBy(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsTextItem, callback: *const fn (self: QtC.QGraphicsTextItem, item: QtC.QGraphicsItem) callconv(.c) bool ```
+    pub fn OnIsObscuredBy(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QGraphicsTextItem_OnIsObscuredBy(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicstextitem.html#isObscuredBy)
@@ -26201,9 +26201,9 @@ pub const qgraphicstextitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsTextItem, slot: fn () callconv(.c) QtC.QPainterPath ```
-    pub fn OnOpaqueArea(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QPainterPath) void {
-        qtc.QGraphicsTextItem_OnOpaqueArea(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsTextItem, callback: *const fn () callconv(.c) QtC.QPainterPath ```
+    pub fn OnOpaqueArea(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainterPath) void {
+        qtc.QGraphicsTextItem_OnOpaqueArea(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicstextitem.html#opaqueArea)
@@ -26226,9 +26226,9 @@ pub const qgraphicstextitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsTextItem, slot: fn () callconv(.c) i32 ```
-    pub fn OnType(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QGraphicsTextItem_OnType(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsTextItem, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QGraphicsTextItem_OnType(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicstextitem.html#type)
@@ -26346,9 +26346,9 @@ pub const qgraphicstextitem = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicstextitem.html#linkActivated)
     ///
-    /// ``` self: QtC.QGraphicsTextItem, slot: fn (self: QtC.QGraphicsTextItem, param1: [*:0]const u8) callconv(.c) void ```
-    pub fn OnLinkActivated(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QGraphicsTextItem_Connect_LinkActivated(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsTextItem, callback: *const fn (self: QtC.QGraphicsTextItem, param1: [*:0]const u8) callconv(.c) void ```
+    pub fn OnLinkActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QGraphicsTextItem_Connect_LinkActivated(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicstextitem.html#linkHovered)
@@ -26364,9 +26364,9 @@ pub const qgraphicstextitem = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicstextitem.html#linkHovered)
     ///
-    /// ``` self: QtC.QGraphicsTextItem, slot: fn (self: QtC.QGraphicsTextItem, param1: [*:0]const u8) callconv(.c) void ```
-    pub fn OnLinkHovered(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QGraphicsTextItem_Connect_LinkHovered(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsTextItem, callback: *const fn (self: QtC.QGraphicsTextItem, param1: [*:0]const u8) callconv(.c) void ```
+    pub fn OnLinkHovered(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QGraphicsTextItem_Connect_LinkHovered(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicstextitem.html#sceneEvent)
@@ -26380,9 +26380,9 @@ pub const qgraphicstextitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsTextItem, slot: fn (self: QtC.QGraphicsTextItem, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnSceneEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsTextItem_OnSceneEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsTextItem, callback: *const fn (self: QtC.QGraphicsTextItem, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnSceneEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QGraphicsTextItem_OnSceneEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicstextitem.html#sceneEvent)
@@ -26405,9 +26405,9 @@ pub const qgraphicstextitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsTextItem, slot: fn (self: QtC.QGraphicsTextItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
-    pub fn OnMousePressEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsTextItem_OnMousePressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsTextItem, callback: *const fn (self: QtC.QGraphicsTextItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
+    pub fn OnMousePressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsTextItem_OnMousePressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicstextitem.html#mousePressEvent)
@@ -26430,9 +26430,9 @@ pub const qgraphicstextitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsTextItem, slot: fn (self: QtC.QGraphicsTextItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
-    pub fn OnMouseMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsTextItem_OnMouseMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsTextItem, callback: *const fn (self: QtC.QGraphicsTextItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
+    pub fn OnMouseMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsTextItem_OnMouseMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicstextitem.html#mouseMoveEvent)
@@ -26455,9 +26455,9 @@ pub const qgraphicstextitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsTextItem, slot: fn (self: QtC.QGraphicsTextItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
-    pub fn OnMouseReleaseEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsTextItem_OnMouseReleaseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsTextItem, callback: *const fn (self: QtC.QGraphicsTextItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
+    pub fn OnMouseReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsTextItem_OnMouseReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicstextitem.html#mouseReleaseEvent)
@@ -26480,9 +26480,9 @@ pub const qgraphicstextitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsTextItem, slot: fn (self: QtC.QGraphicsTextItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
-    pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsTextItem_OnMouseDoubleClickEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsTextItem, callback: *const fn (self: QtC.QGraphicsTextItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
+    pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsTextItem_OnMouseDoubleClickEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicstextitem.html#mouseDoubleClickEvent)
@@ -26505,9 +26505,9 @@ pub const qgraphicstextitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsTextItem, slot: fn (self: QtC.QGraphicsTextItem, event: QtC.QGraphicsSceneContextMenuEvent) callconv(.c) void ```
-    pub fn OnContextMenuEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsTextItem_OnContextMenuEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsTextItem, callback: *const fn (self: QtC.QGraphicsTextItem, event: QtC.QGraphicsSceneContextMenuEvent) callconv(.c) void ```
+    pub fn OnContextMenuEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsTextItem_OnContextMenuEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicstextitem.html#contextMenuEvent)
@@ -26530,9 +26530,9 @@ pub const qgraphicstextitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsTextItem, slot: fn (self: QtC.QGraphicsTextItem, event: QtC.QKeyEvent) callconv(.c) void ```
-    pub fn OnKeyPressEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsTextItem_OnKeyPressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsTextItem, callback: *const fn (self: QtC.QGraphicsTextItem, event: QtC.QKeyEvent) callconv(.c) void ```
+    pub fn OnKeyPressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsTextItem_OnKeyPressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicstextitem.html#keyPressEvent)
@@ -26555,9 +26555,9 @@ pub const qgraphicstextitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsTextItem, slot: fn (self: QtC.QGraphicsTextItem, event: QtC.QKeyEvent) callconv(.c) void ```
-    pub fn OnKeyReleaseEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsTextItem_OnKeyReleaseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsTextItem, callback: *const fn (self: QtC.QGraphicsTextItem, event: QtC.QKeyEvent) callconv(.c) void ```
+    pub fn OnKeyReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsTextItem_OnKeyReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicstextitem.html#keyReleaseEvent)
@@ -26580,9 +26580,9 @@ pub const qgraphicstextitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsTextItem, slot: fn (self: QtC.QGraphicsTextItem, event: QtC.QFocusEvent) callconv(.c) void ```
-    pub fn OnFocusInEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsTextItem_OnFocusInEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsTextItem, callback: *const fn (self: QtC.QGraphicsTextItem, event: QtC.QFocusEvent) callconv(.c) void ```
+    pub fn OnFocusInEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsTextItem_OnFocusInEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicstextitem.html#focusInEvent)
@@ -26605,9 +26605,9 @@ pub const qgraphicstextitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsTextItem, slot: fn (self: QtC.QGraphicsTextItem, event: QtC.QFocusEvent) callconv(.c) void ```
-    pub fn OnFocusOutEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsTextItem_OnFocusOutEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsTextItem, callback: *const fn (self: QtC.QGraphicsTextItem, event: QtC.QFocusEvent) callconv(.c) void ```
+    pub fn OnFocusOutEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsTextItem_OnFocusOutEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicstextitem.html#focusOutEvent)
@@ -26630,9 +26630,9 @@ pub const qgraphicstextitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsTextItem, slot: fn (self: QtC.QGraphicsTextItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
-    pub fn OnDragEnterEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsTextItem_OnDragEnterEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsTextItem, callback: *const fn (self: QtC.QGraphicsTextItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
+    pub fn OnDragEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsTextItem_OnDragEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicstextitem.html#dragEnterEvent)
@@ -26655,9 +26655,9 @@ pub const qgraphicstextitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsTextItem, slot: fn (self: QtC.QGraphicsTextItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
-    pub fn OnDragLeaveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsTextItem_OnDragLeaveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsTextItem, callback: *const fn (self: QtC.QGraphicsTextItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
+    pub fn OnDragLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsTextItem_OnDragLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicstextitem.html#dragLeaveEvent)
@@ -26680,9 +26680,9 @@ pub const qgraphicstextitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsTextItem, slot: fn (self: QtC.QGraphicsTextItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
-    pub fn OnDragMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsTextItem_OnDragMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsTextItem, callback: *const fn (self: QtC.QGraphicsTextItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
+    pub fn OnDragMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsTextItem_OnDragMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicstextitem.html#dragMoveEvent)
@@ -26705,9 +26705,9 @@ pub const qgraphicstextitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsTextItem, slot: fn (self: QtC.QGraphicsTextItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
-    pub fn OnDropEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsTextItem_OnDropEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsTextItem, callback: *const fn (self: QtC.QGraphicsTextItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
+    pub fn OnDropEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsTextItem_OnDropEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicstextitem.html#dropEvent)
@@ -26730,9 +26730,9 @@ pub const qgraphicstextitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsTextItem, slot: fn (self: QtC.QGraphicsTextItem, event: QtC.QInputMethodEvent) callconv(.c) void ```
-    pub fn OnInputMethodEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsTextItem_OnInputMethodEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsTextItem, callback: *const fn (self: QtC.QGraphicsTextItem, event: QtC.QInputMethodEvent) callconv(.c) void ```
+    pub fn OnInputMethodEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsTextItem_OnInputMethodEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicstextitem.html#inputMethodEvent)
@@ -26755,9 +26755,9 @@ pub const qgraphicstextitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsTextItem, slot: fn (self: QtC.QGraphicsTextItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
-    pub fn OnHoverEnterEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsTextItem_OnHoverEnterEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsTextItem, callback: *const fn (self: QtC.QGraphicsTextItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
+    pub fn OnHoverEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsTextItem_OnHoverEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicstextitem.html#hoverEnterEvent)
@@ -26780,9 +26780,9 @@ pub const qgraphicstextitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsTextItem, slot: fn (self: QtC.QGraphicsTextItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
-    pub fn OnHoverMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsTextItem_OnHoverMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsTextItem, callback: *const fn (self: QtC.QGraphicsTextItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
+    pub fn OnHoverMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsTextItem_OnHoverMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicstextitem.html#hoverMoveEvent)
@@ -26805,9 +26805,9 @@ pub const qgraphicstextitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsTextItem, slot: fn (self: QtC.QGraphicsTextItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
-    pub fn OnHoverLeaveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsTextItem_OnHoverLeaveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsTextItem, callback: *const fn (self: QtC.QGraphicsTextItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
+    pub fn OnHoverLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsTextItem_OnHoverLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicstextitem.html#hoverLeaveEvent)
@@ -26830,9 +26830,9 @@ pub const qgraphicstextitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsTextItem, slot: fn (self: QtC.QGraphicsTextItem, query: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant ```
-    pub fn OnInputMethodQuery(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) QtC.QVariant) void {
-        qtc.QGraphicsTextItem_OnInputMethodQuery(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsTextItem, callback: *const fn (self: QtC.QGraphicsTextItem, query: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant ```
+    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) QtC.QVariant) void {
+        qtc.QGraphicsTextItem_OnInputMethodQuery(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicstextitem.html#inputMethodQuery)
@@ -26855,9 +26855,9 @@ pub const qgraphicstextitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsTextItem, slot: fn (self: QtC.QGraphicsTextItem, extension: qgraphicsitem_enums.Extension) callconv(.c) bool ```
-    pub fn OnSupportsExtension(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) bool) void {
-        qtc.QGraphicsTextItem_OnSupportsExtension(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsTextItem, callback: *const fn (self: QtC.QGraphicsTextItem, extension: qgraphicsitem_enums.Extension) callconv(.c) bool ```
+    pub fn OnSupportsExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) bool) void {
+        qtc.QGraphicsTextItem_OnSupportsExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicstextitem.html#supportsExtension)
@@ -26880,9 +26880,9 @@ pub const qgraphicstextitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsTextItem, slot: fn (self: QtC.QGraphicsTextItem, extension: qgraphicsitem_enums.Extension, variant: QtC.QVariant) callconv(.c) void ```
-    pub fn OnSetExtension(self: ?*anyopaque, slot: fn (?*anyopaque, i64, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsTextItem_OnSetExtension(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsTextItem, callback: *const fn (self: QtC.QGraphicsTextItem, extension: qgraphicsitem_enums.Extension, variant: QtC.QVariant) callconv(.c) void ```
+    pub fn OnSetExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsTextItem_OnSetExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicstextitem.html#setExtension)
@@ -26905,9 +26905,9 @@ pub const qgraphicstextitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsTextItem, slot: fn (self: QtC.QGraphicsTextItem, variant: QtC.QVariant) callconv(.c) QtC.QVariant ```
-    pub fn OnExtension(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QVariant) void {
-        qtc.QGraphicsTextItem_OnExtension(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsTextItem, callback: *const fn (self: QtC.QGraphicsTextItem, variant: QtC.QVariant) callconv(.c) QtC.QVariant ```
+    pub fn OnExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QVariant) void {
+        qtc.QGraphicsTextItem_OnExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicstextitem.html#extension)
@@ -26976,9 +26976,9 @@ pub const qgraphicstextitem = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#parentChanged)
     ///
-    /// ``` self: QtC.QGraphicsTextItem, slot: fn (self: QtC.QGraphicsTextItem) callconv(.c) void ```
-    pub fn OnParentChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_ParentChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsTextItem, callback: *const fn (self: QtC.QGraphicsTextItem) callconv(.c) void ```
+    pub fn OnParentChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsObject_Connect_ParentChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -26994,9 +26994,9 @@ pub const qgraphicstextitem = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#opacityChanged)
     ///
-    /// ``` self: QtC.QGraphicsTextItem, slot: fn (self: QtC.QGraphicsTextItem) callconv(.c) void ```
-    pub fn OnOpacityChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_OpacityChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsTextItem, callback: *const fn (self: QtC.QGraphicsTextItem) callconv(.c) void ```
+    pub fn OnOpacityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsObject_Connect_OpacityChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -27012,9 +27012,9 @@ pub const qgraphicstextitem = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#visibleChanged)
     ///
-    /// ``` self: QtC.QGraphicsTextItem, slot: fn (self: QtC.QGraphicsTextItem) callconv(.c) void ```
-    pub fn OnVisibleChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_VisibleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsTextItem, callback: *const fn (self: QtC.QGraphicsTextItem) callconv(.c) void ```
+    pub fn OnVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsObject_Connect_VisibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -27030,9 +27030,9 @@ pub const qgraphicstextitem = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#enabledChanged)
     ///
-    /// ``` self: QtC.QGraphicsTextItem, slot: fn (self: QtC.QGraphicsTextItem) callconv(.c) void ```
-    pub fn OnEnabledChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_EnabledChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsTextItem, callback: *const fn (self: QtC.QGraphicsTextItem) callconv(.c) void ```
+    pub fn OnEnabledChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsObject_Connect_EnabledChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -27048,9 +27048,9 @@ pub const qgraphicstextitem = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#xChanged)
     ///
-    /// ``` self: QtC.QGraphicsTextItem, slot: fn (self: QtC.QGraphicsTextItem) callconv(.c) void ```
-    pub fn OnXChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_XChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsTextItem, callback: *const fn (self: QtC.QGraphicsTextItem) callconv(.c) void ```
+    pub fn OnXChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsObject_Connect_XChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -27066,9 +27066,9 @@ pub const qgraphicstextitem = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#yChanged)
     ///
-    /// ``` self: QtC.QGraphicsTextItem, slot: fn (self: QtC.QGraphicsTextItem) callconv(.c) void ```
-    pub fn OnYChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_YChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsTextItem, callback: *const fn (self: QtC.QGraphicsTextItem) callconv(.c) void ```
+    pub fn OnYChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsObject_Connect_YChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -27084,9 +27084,9 @@ pub const qgraphicstextitem = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#zChanged)
     ///
-    /// ``` self: QtC.QGraphicsTextItem, slot: fn (self: QtC.QGraphicsTextItem) callconv(.c) void ```
-    pub fn OnZChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_ZChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsTextItem, callback: *const fn (self: QtC.QGraphicsTextItem) callconv(.c) void ```
+    pub fn OnZChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsObject_Connect_ZChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -27102,9 +27102,9 @@ pub const qgraphicstextitem = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#rotationChanged)
     ///
-    /// ``` self: QtC.QGraphicsTextItem, slot: fn (self: QtC.QGraphicsTextItem) callconv(.c) void ```
-    pub fn OnRotationChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_RotationChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsTextItem, callback: *const fn (self: QtC.QGraphicsTextItem) callconv(.c) void ```
+    pub fn OnRotationChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsObject_Connect_RotationChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -27120,9 +27120,9 @@ pub const qgraphicstextitem = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#scaleChanged)
     ///
-    /// ``` self: QtC.QGraphicsTextItem, slot: fn (self: QtC.QGraphicsTextItem) callconv(.c) void ```
-    pub fn OnScaleChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_ScaleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsTextItem, callback: *const fn (self: QtC.QGraphicsTextItem) callconv(.c) void ```
+    pub fn OnScaleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsObject_Connect_ScaleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -27138,9 +27138,9 @@ pub const qgraphicstextitem = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#childrenChanged)
     ///
-    /// ``` self: QtC.QGraphicsTextItem, slot: fn (self: QtC.QGraphicsTextItem) callconv(.c) void ```
-    pub fn OnChildrenChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_ChildrenChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsTextItem, callback: *const fn (self: QtC.QGraphicsTextItem) callconv(.c) void ```
+    pub fn OnChildrenChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsObject_Connect_ChildrenChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -27156,9 +27156,9 @@ pub const qgraphicstextitem = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#widthChanged)
     ///
-    /// ``` self: QtC.QGraphicsTextItem, slot: fn (self: QtC.QGraphicsTextItem) callconv(.c) void ```
-    pub fn OnWidthChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_WidthChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsTextItem, callback: *const fn (self: QtC.QGraphicsTextItem) callconv(.c) void ```
+    pub fn OnWidthChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsObject_Connect_WidthChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -27174,9 +27174,9 @@ pub const qgraphicstextitem = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#heightChanged)
     ///
-    /// ``` self: QtC.QGraphicsTextItem, slot: fn (self: QtC.QGraphicsTextItem) callconv(.c) void ```
-    pub fn OnHeightChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_HeightChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsTextItem, callback: *const fn (self: QtC.QGraphicsTextItem) callconv(.c) void ```
+    pub fn OnHeightChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsObject_Connect_HeightChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -27476,9 +27476,9 @@ pub const qgraphicstextitem = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QGraphicsTextItem, slot: fn (self: QtC.QGraphicsTextItem) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsTextItem, callback: *const fn (self: QtC.QGraphicsTextItem) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -27560,9 +27560,9 @@ pub const qgraphicstextitem = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QGraphicsTextItem, slot: fn (self: QtC.QGraphicsTextItem, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsTextItem, callback: *const fn (self: QtC.QGraphicsTextItem, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -29120,9 +29120,9 @@ pub const qgraphicstextitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsTextItem, slot: fn (self: QtC.QGraphicsTextItem, ev: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsTextItem_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsTextItem, callback: *const fn (self: QtC.QGraphicsTextItem, ev: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QGraphicsTextItem_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -29153,9 +29153,9 @@ pub const qgraphicstextitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsTextItem, slot: fn (self: QtC.QGraphicsTextItem, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsTextItem_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsTextItem, callback: *const fn (self: QtC.QGraphicsTextItem, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QGraphicsTextItem_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -29186,9 +29186,9 @@ pub const qgraphicstextitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsTextItem, slot: fn (self: QtC.QGraphicsTextItem, event: QtC.QTimerEvent) callconv(.c) void ```
-    pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsTextItem_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsTextItem, callback: *const fn (self: QtC.QGraphicsTextItem, event: QtC.QTimerEvent) callconv(.c) void ```
+    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsTextItem_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -29219,9 +29219,9 @@ pub const qgraphicstextitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsTextItem, slot: fn (self: QtC.QGraphicsTextItem, event: QtC.QChildEvent) callconv(.c) void ```
-    pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsTextItem_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsTextItem, callback: *const fn (self: QtC.QGraphicsTextItem, event: QtC.QChildEvent) callconv(.c) void ```
+    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsTextItem_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -29252,9 +29252,9 @@ pub const qgraphicstextitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsTextItem, slot: fn (self: QtC.QGraphicsTextItem, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsTextItem_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsTextItem, callback: *const fn (self: QtC.QGraphicsTextItem, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsTextItem_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -29285,9 +29285,9 @@ pub const qgraphicstextitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsTextItem, slot: fn (self: QtC.QGraphicsTextItem, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsTextItem_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsTextItem, callback: *const fn (self: QtC.QGraphicsTextItem, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsTextItem_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -29318,9 +29318,9 @@ pub const qgraphicstextitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsTextItem, slot: fn (self: QtC.QGraphicsTextItem, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsTextItem_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsTextItem, callback: *const fn (self: QtC.QGraphicsTextItem, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsTextItem_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -29351,9 +29351,9 @@ pub const qgraphicstextitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsTextItem, slot: fn (self: QtC.QGraphicsTextItem, phase: i32) callconv(.c) void ```
-    pub fn OnAdvance(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QGraphicsTextItem_OnAdvance(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsTextItem, callback: *const fn (self: QtC.QGraphicsTextItem, phase: i32) callconv(.c) void ```
+    pub fn OnAdvance(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QGraphicsTextItem_OnAdvance(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -29384,9 +29384,9 @@ pub const qgraphicstextitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsTextItem, slot: fn (self: QtC.QGraphicsTextItem, other: QtC.QGraphicsItem, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool ```
-    pub fn OnCollidesWithItem(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QGraphicsTextItem_OnCollidesWithItem(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsTextItem, callback: *const fn (self: QtC.QGraphicsTextItem, other: QtC.QGraphicsItem, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool ```
+    pub fn OnCollidesWithItem(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
+        qtc.QGraphicsTextItem_OnCollidesWithItem(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -29417,9 +29417,9 @@ pub const qgraphicstextitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsTextItem, slot: fn (self: QtC.QGraphicsTextItem, path: QtC.QPainterPath, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool ```
-    pub fn OnCollidesWithPath(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QGraphicsTextItem_OnCollidesWithPath(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsTextItem, callback: *const fn (self: QtC.QGraphicsTextItem, path: QtC.QPainterPath, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool ```
+    pub fn OnCollidesWithPath(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
+        qtc.QGraphicsTextItem_OnCollidesWithPath(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -29450,9 +29450,9 @@ pub const qgraphicstextitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsTextItem, slot: fn (self: QtC.QGraphicsTextItem, watched: QtC.QGraphicsItem, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnSceneEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsTextItem_OnSceneEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsTextItem, callback: *const fn (self: QtC.QGraphicsTextItem, watched: QtC.QGraphicsItem, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnSceneEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QGraphicsTextItem_OnSceneEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -29483,9 +29483,9 @@ pub const qgraphicstextitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsTextItem, slot: fn (self: QtC.QGraphicsTextItem, event: QtC.QGraphicsSceneWheelEvent) callconv(.c) void ```
-    pub fn OnWheelEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsTextItem_OnWheelEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsTextItem, callback: *const fn (self: QtC.QGraphicsTextItem, event: QtC.QGraphicsSceneWheelEvent) callconv(.c) void ```
+    pub fn OnWheelEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsTextItem_OnWheelEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -29516,9 +29516,9 @@ pub const qgraphicstextitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsTextItem, slot: fn (self: QtC.QGraphicsTextItem, change: qgraphicsitem_enums.GraphicsItemChange, value: QtC.QVariant) callconv(.c) QtC.QVariant ```
-    pub fn OnItemChange(self: ?*anyopaque, slot: fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QVariant) void {
-        qtc.QGraphicsTextItem_OnItemChange(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsTextItem, callback: *const fn (self: QtC.QGraphicsTextItem, change: qgraphicsitem_enums.GraphicsItemChange, value: QtC.QVariant) callconv(.c) QtC.QVariant ```
+    pub fn OnItemChange(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QVariant) void {
+        qtc.QGraphicsTextItem_OnItemChange(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -29549,9 +29549,9 @@ pub const qgraphicstextitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsTextItem, slot: fn () callconv(.c) void ```
-    pub fn OnUpdateMicroFocus(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QGraphicsTextItem_OnUpdateMicroFocus(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsTextItem, callback: *const fn () callconv(.c) void ```
+    pub fn OnUpdateMicroFocus(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QGraphicsTextItem_OnUpdateMicroFocus(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -29582,9 +29582,9 @@ pub const qgraphicstextitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsTextItem, slot: fn () callconv(.c) QtC.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
-        qtc.QGraphicsTextItem_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsTextItem, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.QGraphicsTextItem_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -29615,9 +29615,9 @@ pub const qgraphicstextitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsTextItem, slot: fn () callconv(.c) i32 ```
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QGraphicsTextItem_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsTextItem, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QGraphicsTextItem_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -29650,9 +29650,9 @@ pub const qgraphicstextitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsTextItem, slot: fn (self: QtC.QGraphicsTextItem, signal: [*:0]const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QGraphicsTextItem_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsTextItem, callback: *const fn (self: QtC.QGraphicsTextItem, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QGraphicsTextItem_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -29683,9 +29683,9 @@ pub const qgraphicstextitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsTextItem, slot: fn (self: QtC.QGraphicsTextItem, signal: QtC.QMetaMethod) callconv(.c) bool ```
-    pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsTextItem_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsTextItem, callback: *const fn (self: QtC.QGraphicsTextItem, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QGraphicsTextItem_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -29716,9 +29716,9 @@ pub const qgraphicstextitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsTextItem, slot: fn () callconv(.c) void ```
-    pub fn OnAddToIndex(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QGraphicsTextItem_OnAddToIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsTextItem, callback: *const fn () callconv(.c) void ```
+    pub fn OnAddToIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QGraphicsTextItem_OnAddToIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -29749,9 +29749,9 @@ pub const qgraphicstextitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsTextItem, slot: fn () callconv(.c) void ```
-    pub fn OnRemoveFromIndex(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QGraphicsTextItem_OnRemoveFromIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsTextItem, callback: *const fn () callconv(.c) void ```
+    pub fn OnRemoveFromIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QGraphicsTextItem_OnRemoveFromIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -29782,9 +29782,9 @@ pub const qgraphicstextitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsTextItem, slot: fn () callconv(.c) void ```
-    pub fn OnPrepareGeometryChange(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QGraphicsTextItem_OnPrepareGeometryChange(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsTextItem, callback: *const fn () callconv(.c) void ```
+    pub fn OnPrepareGeometryChange(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QGraphicsTextItem_OnPrepareGeometryChange(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -29793,9 +29793,9 @@ pub const qgraphicstextitem = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QGraphicsTextItem, slot: fn (self: QtC.QGraphicsTextItem, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsTextItem, callback: *const fn (self: QtC.QGraphicsTextItem, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicstextitem.html#dtor.QGraphicsTextItem)
@@ -29895,9 +29895,9 @@ pub const qgraphicssimpletextitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsSimpleTextItem, slot: fn () callconv(.c) QtC.QRectF ```
-    pub fn OnBoundingRect(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QRectF) void {
-        qtc.QGraphicsSimpleTextItem_OnBoundingRect(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsSimpleTextItem, callback: *const fn () callconv(.c) QtC.QRectF ```
+    pub fn OnBoundingRect(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QRectF) void {
+        qtc.QGraphicsSimpleTextItem_OnBoundingRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssimpletextitem.html#boundingRect)
@@ -29920,9 +29920,9 @@ pub const qgraphicssimpletextitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsSimpleTextItem, slot: fn () callconv(.c) QtC.QPainterPath ```
-    pub fn OnShape(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QPainterPath) void {
-        qtc.QGraphicsSimpleTextItem_OnShape(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsSimpleTextItem, callback: *const fn () callconv(.c) QtC.QPainterPath ```
+    pub fn OnShape(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainterPath) void {
+        qtc.QGraphicsSimpleTextItem_OnShape(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssimpletextitem.html#shape)
@@ -29945,9 +29945,9 @@ pub const qgraphicssimpletextitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsSimpleTextItem, slot: fn (self: QtC.QGraphicsSimpleTextItem, point: QtC.QPointF) callconv(.c) bool ```
-    pub fn OnContains(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsSimpleTextItem_OnContains(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsSimpleTextItem, callback: *const fn (self: QtC.QGraphicsSimpleTextItem, point: QtC.QPointF) callconv(.c) bool ```
+    pub fn OnContains(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QGraphicsSimpleTextItem_OnContains(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssimpletextitem.html#contains)
@@ -29970,9 +29970,9 @@ pub const qgraphicssimpletextitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsSimpleTextItem, slot: fn (self: QtC.QGraphicsSimpleTextItem, painter: QtC.QPainter, option: QtC.QStyleOptionGraphicsItem, widget: QtC.QWidget) callconv(.c) void ```
-    pub fn OnPaint(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsSimpleTextItem_OnPaint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsSimpleTextItem, callback: *const fn (self: QtC.QGraphicsSimpleTextItem, painter: QtC.QPainter, option: QtC.QStyleOptionGraphicsItem, widget: QtC.QWidget) callconv(.c) void ```
+    pub fn OnPaint(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsSimpleTextItem_OnPaint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssimpletextitem.html#paint)
@@ -29995,9 +29995,9 @@ pub const qgraphicssimpletextitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsSimpleTextItem, slot: fn (self: QtC.QGraphicsSimpleTextItem, item: QtC.QGraphicsItem) callconv(.c) bool ```
-    pub fn OnIsObscuredBy(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsSimpleTextItem_OnIsObscuredBy(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsSimpleTextItem, callback: *const fn (self: QtC.QGraphicsSimpleTextItem, item: QtC.QGraphicsItem) callconv(.c) bool ```
+    pub fn OnIsObscuredBy(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QGraphicsSimpleTextItem_OnIsObscuredBy(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssimpletextitem.html#isObscuredBy)
@@ -30020,9 +30020,9 @@ pub const qgraphicssimpletextitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsSimpleTextItem, slot: fn () callconv(.c) QtC.QPainterPath ```
-    pub fn OnOpaqueArea(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QPainterPath) void {
-        qtc.QGraphicsSimpleTextItem_OnOpaqueArea(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsSimpleTextItem, callback: *const fn () callconv(.c) QtC.QPainterPath ```
+    pub fn OnOpaqueArea(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainterPath) void {
+        qtc.QGraphicsSimpleTextItem_OnOpaqueArea(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssimpletextitem.html#opaqueArea)
@@ -30045,9 +30045,9 @@ pub const qgraphicssimpletextitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsSimpleTextItem, slot: fn () callconv(.c) i32 ```
-    pub fn OnType(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QGraphicsSimpleTextItem_OnType(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsSimpleTextItem, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QGraphicsSimpleTextItem_OnType(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssimpletextitem.html#type)
@@ -30070,9 +30070,9 @@ pub const qgraphicssimpletextitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsSimpleTextItem, slot: fn (self: QtC.QGraphicsSimpleTextItem, extension: qgraphicsitem_enums.Extension) callconv(.c) bool ```
-    pub fn OnSupportsExtension(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) bool) void {
-        qtc.QGraphicsSimpleTextItem_OnSupportsExtension(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsSimpleTextItem, callback: *const fn (self: QtC.QGraphicsSimpleTextItem, extension: qgraphicsitem_enums.Extension) callconv(.c) bool ```
+    pub fn OnSupportsExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) bool) void {
+        qtc.QGraphicsSimpleTextItem_OnSupportsExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssimpletextitem.html#supportsExtension)
@@ -30095,9 +30095,9 @@ pub const qgraphicssimpletextitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsSimpleTextItem, slot: fn (self: QtC.QGraphicsSimpleTextItem, extension: qgraphicsitem_enums.Extension, variant: QtC.QVariant) callconv(.c) void ```
-    pub fn OnSetExtension(self: ?*anyopaque, slot: fn (?*anyopaque, i64, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsSimpleTextItem_OnSetExtension(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsSimpleTextItem, callback: *const fn (self: QtC.QGraphicsSimpleTextItem, extension: qgraphicsitem_enums.Extension, variant: QtC.QVariant) callconv(.c) void ```
+    pub fn OnSetExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsSimpleTextItem_OnSetExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssimpletextitem.html#setExtension)
@@ -30120,9 +30120,9 @@ pub const qgraphicssimpletextitem = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsSimpleTextItem, slot: fn (self: QtC.QGraphicsSimpleTextItem, variant: QtC.QVariant) callconv(.c) QtC.QVariant ```
-    pub fn OnExtension(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QVariant) void {
-        qtc.QGraphicsSimpleTextItem_OnExtension(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsSimpleTextItem, callback: *const fn (self: QtC.QGraphicsSimpleTextItem, variant: QtC.QVariant) callconv(.c) QtC.QVariant ```
+    pub fn OnExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QVariant) void {
+        qtc.QGraphicsSimpleTextItem_OnExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssimpletextitem.html#extension)
@@ -31725,9 +31725,9 @@ pub const qgraphicssimpletextitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsSimpleTextItem, slot: fn (self: QtC.QGraphicsSimpleTextItem, phase: i32) callconv(.c) void ```
-    pub fn OnAdvance(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QGraphicsSimpleTextItem_OnAdvance(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsSimpleTextItem, callback: *const fn (self: QtC.QGraphicsSimpleTextItem, phase: i32) callconv(.c) void ```
+    pub fn OnAdvance(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QGraphicsSimpleTextItem_OnAdvance(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -31758,9 +31758,9 @@ pub const qgraphicssimpletextitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsSimpleTextItem, slot: fn (self: QtC.QGraphicsSimpleTextItem, other: QtC.QGraphicsItem, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool ```
-    pub fn OnCollidesWithItem(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QGraphicsSimpleTextItem_OnCollidesWithItem(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsSimpleTextItem, callback: *const fn (self: QtC.QGraphicsSimpleTextItem, other: QtC.QGraphicsItem, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool ```
+    pub fn OnCollidesWithItem(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
+        qtc.QGraphicsSimpleTextItem_OnCollidesWithItem(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -31791,9 +31791,9 @@ pub const qgraphicssimpletextitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsSimpleTextItem, slot: fn (self: QtC.QGraphicsSimpleTextItem, path: QtC.QPainterPath, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool ```
-    pub fn OnCollidesWithPath(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QGraphicsSimpleTextItem_OnCollidesWithPath(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsSimpleTextItem, callback: *const fn (self: QtC.QGraphicsSimpleTextItem, path: QtC.QPainterPath, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool ```
+    pub fn OnCollidesWithPath(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
+        qtc.QGraphicsSimpleTextItem_OnCollidesWithPath(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -31824,9 +31824,9 @@ pub const qgraphicssimpletextitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsSimpleTextItem, slot: fn (self: QtC.QGraphicsSimpleTextItem, watched: QtC.QGraphicsItem, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnSceneEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsSimpleTextItem_OnSceneEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsSimpleTextItem, callback: *const fn (self: QtC.QGraphicsSimpleTextItem, watched: QtC.QGraphicsItem, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnSceneEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QGraphicsSimpleTextItem_OnSceneEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -31857,9 +31857,9 @@ pub const qgraphicssimpletextitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsSimpleTextItem, slot: fn (self: QtC.QGraphicsSimpleTextItem, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnSceneEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsSimpleTextItem_OnSceneEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsSimpleTextItem, callback: *const fn (self: QtC.QGraphicsSimpleTextItem, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnSceneEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QGraphicsSimpleTextItem_OnSceneEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -31890,9 +31890,9 @@ pub const qgraphicssimpletextitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsSimpleTextItem, slot: fn (self: QtC.QGraphicsSimpleTextItem, event: QtC.QGraphicsSceneContextMenuEvent) callconv(.c) void ```
-    pub fn OnContextMenuEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsSimpleTextItem_OnContextMenuEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsSimpleTextItem, callback: *const fn (self: QtC.QGraphicsSimpleTextItem, event: QtC.QGraphicsSceneContextMenuEvent) callconv(.c) void ```
+    pub fn OnContextMenuEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsSimpleTextItem_OnContextMenuEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -31923,9 +31923,9 @@ pub const qgraphicssimpletextitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsSimpleTextItem, slot: fn (self: QtC.QGraphicsSimpleTextItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
-    pub fn OnDragEnterEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsSimpleTextItem_OnDragEnterEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsSimpleTextItem, callback: *const fn (self: QtC.QGraphicsSimpleTextItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
+    pub fn OnDragEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsSimpleTextItem_OnDragEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -31956,9 +31956,9 @@ pub const qgraphicssimpletextitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsSimpleTextItem, slot: fn (self: QtC.QGraphicsSimpleTextItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
-    pub fn OnDragLeaveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsSimpleTextItem_OnDragLeaveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsSimpleTextItem, callback: *const fn (self: QtC.QGraphicsSimpleTextItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
+    pub fn OnDragLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsSimpleTextItem_OnDragLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -31989,9 +31989,9 @@ pub const qgraphicssimpletextitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsSimpleTextItem, slot: fn (self: QtC.QGraphicsSimpleTextItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
-    pub fn OnDragMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsSimpleTextItem_OnDragMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsSimpleTextItem, callback: *const fn (self: QtC.QGraphicsSimpleTextItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
+    pub fn OnDragMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsSimpleTextItem_OnDragMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -32022,9 +32022,9 @@ pub const qgraphicssimpletextitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsSimpleTextItem, slot: fn (self: QtC.QGraphicsSimpleTextItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
-    pub fn OnDropEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsSimpleTextItem_OnDropEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsSimpleTextItem, callback: *const fn (self: QtC.QGraphicsSimpleTextItem, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
+    pub fn OnDropEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsSimpleTextItem_OnDropEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -32055,9 +32055,9 @@ pub const qgraphicssimpletextitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsSimpleTextItem, slot: fn (self: QtC.QGraphicsSimpleTextItem, event: QtC.QFocusEvent) callconv(.c) void ```
-    pub fn OnFocusInEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsSimpleTextItem_OnFocusInEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsSimpleTextItem, callback: *const fn (self: QtC.QGraphicsSimpleTextItem, event: QtC.QFocusEvent) callconv(.c) void ```
+    pub fn OnFocusInEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsSimpleTextItem_OnFocusInEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -32088,9 +32088,9 @@ pub const qgraphicssimpletextitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsSimpleTextItem, slot: fn (self: QtC.QGraphicsSimpleTextItem, event: QtC.QFocusEvent) callconv(.c) void ```
-    pub fn OnFocusOutEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsSimpleTextItem_OnFocusOutEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsSimpleTextItem, callback: *const fn (self: QtC.QGraphicsSimpleTextItem, event: QtC.QFocusEvent) callconv(.c) void ```
+    pub fn OnFocusOutEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsSimpleTextItem_OnFocusOutEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -32121,9 +32121,9 @@ pub const qgraphicssimpletextitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsSimpleTextItem, slot: fn (self: QtC.QGraphicsSimpleTextItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
-    pub fn OnHoverEnterEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsSimpleTextItem_OnHoverEnterEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsSimpleTextItem, callback: *const fn (self: QtC.QGraphicsSimpleTextItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
+    pub fn OnHoverEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsSimpleTextItem_OnHoverEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -32154,9 +32154,9 @@ pub const qgraphicssimpletextitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsSimpleTextItem, slot: fn (self: QtC.QGraphicsSimpleTextItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
-    pub fn OnHoverMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsSimpleTextItem_OnHoverMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsSimpleTextItem, callback: *const fn (self: QtC.QGraphicsSimpleTextItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
+    pub fn OnHoverMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsSimpleTextItem_OnHoverMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -32187,9 +32187,9 @@ pub const qgraphicssimpletextitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsSimpleTextItem, slot: fn (self: QtC.QGraphicsSimpleTextItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
-    pub fn OnHoverLeaveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsSimpleTextItem_OnHoverLeaveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsSimpleTextItem, callback: *const fn (self: QtC.QGraphicsSimpleTextItem, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
+    pub fn OnHoverLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsSimpleTextItem_OnHoverLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -32220,9 +32220,9 @@ pub const qgraphicssimpletextitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsSimpleTextItem, slot: fn (self: QtC.QGraphicsSimpleTextItem, event: QtC.QKeyEvent) callconv(.c) void ```
-    pub fn OnKeyPressEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsSimpleTextItem_OnKeyPressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsSimpleTextItem, callback: *const fn (self: QtC.QGraphicsSimpleTextItem, event: QtC.QKeyEvent) callconv(.c) void ```
+    pub fn OnKeyPressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsSimpleTextItem_OnKeyPressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -32253,9 +32253,9 @@ pub const qgraphicssimpletextitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsSimpleTextItem, slot: fn (self: QtC.QGraphicsSimpleTextItem, event: QtC.QKeyEvent) callconv(.c) void ```
-    pub fn OnKeyReleaseEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsSimpleTextItem_OnKeyReleaseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsSimpleTextItem, callback: *const fn (self: QtC.QGraphicsSimpleTextItem, event: QtC.QKeyEvent) callconv(.c) void ```
+    pub fn OnKeyReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsSimpleTextItem_OnKeyReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -32286,9 +32286,9 @@ pub const qgraphicssimpletextitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsSimpleTextItem, slot: fn (self: QtC.QGraphicsSimpleTextItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
-    pub fn OnMousePressEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsSimpleTextItem_OnMousePressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsSimpleTextItem, callback: *const fn (self: QtC.QGraphicsSimpleTextItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
+    pub fn OnMousePressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsSimpleTextItem_OnMousePressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -32319,9 +32319,9 @@ pub const qgraphicssimpletextitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsSimpleTextItem, slot: fn (self: QtC.QGraphicsSimpleTextItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
-    pub fn OnMouseMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsSimpleTextItem_OnMouseMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsSimpleTextItem, callback: *const fn (self: QtC.QGraphicsSimpleTextItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
+    pub fn OnMouseMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsSimpleTextItem_OnMouseMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -32352,9 +32352,9 @@ pub const qgraphicssimpletextitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsSimpleTextItem, slot: fn (self: QtC.QGraphicsSimpleTextItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
-    pub fn OnMouseReleaseEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsSimpleTextItem_OnMouseReleaseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsSimpleTextItem, callback: *const fn (self: QtC.QGraphicsSimpleTextItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
+    pub fn OnMouseReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsSimpleTextItem_OnMouseReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -32385,9 +32385,9 @@ pub const qgraphicssimpletextitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsSimpleTextItem, slot: fn (self: QtC.QGraphicsSimpleTextItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
-    pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsSimpleTextItem_OnMouseDoubleClickEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsSimpleTextItem, callback: *const fn (self: QtC.QGraphicsSimpleTextItem, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
+    pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsSimpleTextItem_OnMouseDoubleClickEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -32418,9 +32418,9 @@ pub const qgraphicssimpletextitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsSimpleTextItem, slot: fn (self: QtC.QGraphicsSimpleTextItem, event: QtC.QGraphicsSceneWheelEvent) callconv(.c) void ```
-    pub fn OnWheelEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsSimpleTextItem_OnWheelEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsSimpleTextItem, callback: *const fn (self: QtC.QGraphicsSimpleTextItem, event: QtC.QGraphicsSceneWheelEvent) callconv(.c) void ```
+    pub fn OnWheelEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsSimpleTextItem_OnWheelEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -32451,9 +32451,9 @@ pub const qgraphicssimpletextitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsSimpleTextItem, slot: fn (self: QtC.QGraphicsSimpleTextItem, event: QtC.QInputMethodEvent) callconv(.c) void ```
-    pub fn OnInputMethodEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsSimpleTextItem_OnInputMethodEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsSimpleTextItem, callback: *const fn (self: QtC.QGraphicsSimpleTextItem, event: QtC.QInputMethodEvent) callconv(.c) void ```
+    pub fn OnInputMethodEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsSimpleTextItem_OnInputMethodEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -32484,9 +32484,9 @@ pub const qgraphicssimpletextitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsSimpleTextItem, slot: fn (self: QtC.QGraphicsSimpleTextItem, query: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant ```
-    pub fn OnInputMethodQuery(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) QtC.QVariant) void {
-        qtc.QGraphicsSimpleTextItem_OnInputMethodQuery(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsSimpleTextItem, callback: *const fn (self: QtC.QGraphicsSimpleTextItem, query: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant ```
+    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) QtC.QVariant) void {
+        qtc.QGraphicsSimpleTextItem_OnInputMethodQuery(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -32517,9 +32517,9 @@ pub const qgraphicssimpletextitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsSimpleTextItem, slot: fn (self: QtC.QGraphicsSimpleTextItem, change: qgraphicsitem_enums.GraphicsItemChange, value: QtC.QVariant) callconv(.c) QtC.QVariant ```
-    pub fn OnItemChange(self: ?*anyopaque, slot: fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QVariant) void {
-        qtc.QGraphicsSimpleTextItem_OnItemChange(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsSimpleTextItem, callback: *const fn (self: QtC.QGraphicsSimpleTextItem, change: qgraphicsitem_enums.GraphicsItemChange, value: QtC.QVariant) callconv(.c) QtC.QVariant ```
+    pub fn OnItemChange(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QVariant) void {
+        qtc.QGraphicsSimpleTextItem_OnItemChange(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -32550,9 +32550,9 @@ pub const qgraphicssimpletextitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsSimpleTextItem, slot: fn () callconv(.c) void ```
-    pub fn OnUpdateMicroFocus(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QGraphicsSimpleTextItem_OnUpdateMicroFocus(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsSimpleTextItem, callback: *const fn () callconv(.c) void ```
+    pub fn OnUpdateMicroFocus(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QGraphicsSimpleTextItem_OnUpdateMicroFocus(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -32583,9 +32583,9 @@ pub const qgraphicssimpletextitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsSimpleTextItem, slot: fn () callconv(.c) void ```
-    pub fn OnAddToIndex(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QGraphicsSimpleTextItem_OnAddToIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsSimpleTextItem, callback: *const fn () callconv(.c) void ```
+    pub fn OnAddToIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QGraphicsSimpleTextItem_OnAddToIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -32616,9 +32616,9 @@ pub const qgraphicssimpletextitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsSimpleTextItem, slot: fn () callconv(.c) void ```
-    pub fn OnRemoveFromIndex(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QGraphicsSimpleTextItem_OnRemoveFromIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsSimpleTextItem, callback: *const fn () callconv(.c) void ```
+    pub fn OnRemoveFromIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QGraphicsSimpleTextItem_OnRemoveFromIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -32649,9 +32649,9 @@ pub const qgraphicssimpletextitem = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsSimpleTextItem, slot: fn () callconv(.c) void ```
-    pub fn OnPrepareGeometryChange(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QGraphicsSimpleTextItem_OnPrepareGeometryChange(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsSimpleTextItem, callback: *const fn () callconv(.c) void ```
+    pub fn OnPrepareGeometryChange(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QGraphicsSimpleTextItem_OnPrepareGeometryChange(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicssimpletextitem.html#dtor.QGraphicsSimpleTextItem)
@@ -32705,9 +32705,9 @@ pub const qgraphicsitemgroup = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsItemGroup, slot: fn () callconv(.c) QtC.QRectF ```
-    pub fn OnBoundingRect(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QRectF) void {
-        qtc.QGraphicsItemGroup_OnBoundingRect(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItemGroup, callback: *const fn () callconv(.c) QtC.QRectF ```
+    pub fn OnBoundingRect(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QRectF) void {
+        qtc.QGraphicsItemGroup_OnBoundingRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitemgroup.html#boundingRect)
@@ -32730,9 +32730,9 @@ pub const qgraphicsitemgroup = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsItemGroup, slot: fn (self: QtC.QGraphicsItemGroup, painter: QtC.QPainter, option: QtC.QStyleOptionGraphicsItem, widget: QtC.QWidget) callconv(.c) void ```
-    pub fn OnPaint(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItemGroup_OnPaint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItemGroup, callback: *const fn (self: QtC.QGraphicsItemGroup, painter: QtC.QPainter, option: QtC.QStyleOptionGraphicsItem, widget: QtC.QWidget) callconv(.c) void ```
+    pub fn OnPaint(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsItemGroup_OnPaint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitemgroup.html#paint)
@@ -32755,9 +32755,9 @@ pub const qgraphicsitemgroup = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsItemGroup, slot: fn (self: QtC.QGraphicsItemGroup, item: QtC.QGraphicsItem) callconv(.c) bool ```
-    pub fn OnIsObscuredBy(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsItemGroup_OnIsObscuredBy(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItemGroup, callback: *const fn (self: QtC.QGraphicsItemGroup, item: QtC.QGraphicsItem) callconv(.c) bool ```
+    pub fn OnIsObscuredBy(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QGraphicsItemGroup_OnIsObscuredBy(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitemgroup.html#isObscuredBy)
@@ -32780,9 +32780,9 @@ pub const qgraphicsitemgroup = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsItemGroup, slot: fn () callconv(.c) QtC.QPainterPath ```
-    pub fn OnOpaqueArea(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QPainterPath) void {
-        qtc.QGraphicsItemGroup_OnOpaqueArea(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItemGroup, callback: *const fn () callconv(.c) QtC.QPainterPath ```
+    pub fn OnOpaqueArea(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainterPath) void {
+        qtc.QGraphicsItemGroup_OnOpaqueArea(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitemgroup.html#opaqueArea)
@@ -32805,9 +32805,9 @@ pub const qgraphicsitemgroup = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGraphicsItemGroup, slot: fn () callconv(.c) i32 ```
-    pub fn OnType(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QGraphicsItemGroup_OnType(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItemGroup, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QGraphicsItemGroup_OnType(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitemgroup.html#type)
@@ -34374,9 +34374,9 @@ pub const qgraphicsitemgroup = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsItemGroup, slot: fn (self: QtC.QGraphicsItemGroup, phase: i32) callconv(.c) void ```
-    pub fn OnAdvance(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QGraphicsItemGroup_OnAdvance(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItemGroup, callback: *const fn (self: QtC.QGraphicsItemGroup, phase: i32) callconv(.c) void ```
+    pub fn OnAdvance(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QGraphicsItemGroup_OnAdvance(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -34407,9 +34407,9 @@ pub const qgraphicsitemgroup = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsItemGroup, slot: fn () callconv(.c) QtC.QPainterPath ```
-    pub fn OnShape(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QPainterPath) void {
-        qtc.QGraphicsItemGroup_OnShape(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItemGroup, callback: *const fn () callconv(.c) QtC.QPainterPath ```
+    pub fn OnShape(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainterPath) void {
+        qtc.QGraphicsItemGroup_OnShape(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -34440,9 +34440,9 @@ pub const qgraphicsitemgroup = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsItemGroup, slot: fn (self: QtC.QGraphicsItemGroup, point: QtC.QPointF) callconv(.c) bool ```
-    pub fn OnContains(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsItemGroup_OnContains(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItemGroup, callback: *const fn (self: QtC.QGraphicsItemGroup, point: QtC.QPointF) callconv(.c) bool ```
+    pub fn OnContains(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QGraphicsItemGroup_OnContains(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -34473,9 +34473,9 @@ pub const qgraphicsitemgroup = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsItemGroup, slot: fn (self: QtC.QGraphicsItemGroup, other: QtC.QGraphicsItem, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool ```
-    pub fn OnCollidesWithItem(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QGraphicsItemGroup_OnCollidesWithItem(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItemGroup, callback: *const fn (self: QtC.QGraphicsItemGroup, other: QtC.QGraphicsItem, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool ```
+    pub fn OnCollidesWithItem(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
+        qtc.QGraphicsItemGroup_OnCollidesWithItem(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -34506,9 +34506,9 @@ pub const qgraphicsitemgroup = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsItemGroup, slot: fn (self: QtC.QGraphicsItemGroup, path: QtC.QPainterPath, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool ```
-    pub fn OnCollidesWithPath(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QGraphicsItemGroup_OnCollidesWithPath(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItemGroup, callback: *const fn (self: QtC.QGraphicsItemGroup, path: QtC.QPainterPath, mode: qnamespace_enums.ItemSelectionMode) callconv(.c) bool ```
+    pub fn OnCollidesWithPath(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
+        qtc.QGraphicsItemGroup_OnCollidesWithPath(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -34539,9 +34539,9 @@ pub const qgraphicsitemgroup = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsItemGroup, slot: fn (self: QtC.QGraphicsItemGroup, watched: QtC.QGraphicsItem, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnSceneEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsItemGroup_OnSceneEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItemGroup, callback: *const fn (self: QtC.QGraphicsItemGroup, watched: QtC.QGraphicsItem, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnSceneEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QGraphicsItemGroup_OnSceneEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -34572,9 +34572,9 @@ pub const qgraphicsitemgroup = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsItemGroup, slot: fn (self: QtC.QGraphicsItemGroup, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnSceneEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGraphicsItemGroup_OnSceneEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItemGroup, callback: *const fn (self: QtC.QGraphicsItemGroup, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnSceneEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QGraphicsItemGroup_OnSceneEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -34605,9 +34605,9 @@ pub const qgraphicsitemgroup = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsItemGroup, slot: fn (self: QtC.QGraphicsItemGroup, event: QtC.QGraphicsSceneContextMenuEvent) callconv(.c) void ```
-    pub fn OnContextMenuEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItemGroup_OnContextMenuEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItemGroup, callback: *const fn (self: QtC.QGraphicsItemGroup, event: QtC.QGraphicsSceneContextMenuEvent) callconv(.c) void ```
+    pub fn OnContextMenuEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsItemGroup_OnContextMenuEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -34638,9 +34638,9 @@ pub const qgraphicsitemgroup = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsItemGroup, slot: fn (self: QtC.QGraphicsItemGroup, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
-    pub fn OnDragEnterEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItemGroup_OnDragEnterEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItemGroup, callback: *const fn (self: QtC.QGraphicsItemGroup, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
+    pub fn OnDragEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsItemGroup_OnDragEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -34671,9 +34671,9 @@ pub const qgraphicsitemgroup = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsItemGroup, slot: fn (self: QtC.QGraphicsItemGroup, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
-    pub fn OnDragLeaveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItemGroup_OnDragLeaveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItemGroup, callback: *const fn (self: QtC.QGraphicsItemGroup, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
+    pub fn OnDragLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsItemGroup_OnDragLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -34704,9 +34704,9 @@ pub const qgraphicsitemgroup = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsItemGroup, slot: fn (self: QtC.QGraphicsItemGroup, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
-    pub fn OnDragMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItemGroup_OnDragMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItemGroup, callback: *const fn (self: QtC.QGraphicsItemGroup, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
+    pub fn OnDragMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsItemGroup_OnDragMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -34737,9 +34737,9 @@ pub const qgraphicsitemgroup = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsItemGroup, slot: fn (self: QtC.QGraphicsItemGroup, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
-    pub fn OnDropEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItemGroup_OnDropEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItemGroup, callback: *const fn (self: QtC.QGraphicsItemGroup, event: QtC.QGraphicsSceneDragDropEvent) callconv(.c) void ```
+    pub fn OnDropEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsItemGroup_OnDropEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -34770,9 +34770,9 @@ pub const qgraphicsitemgroup = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsItemGroup, slot: fn (self: QtC.QGraphicsItemGroup, event: QtC.QFocusEvent) callconv(.c) void ```
-    pub fn OnFocusInEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItemGroup_OnFocusInEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItemGroup, callback: *const fn (self: QtC.QGraphicsItemGroup, event: QtC.QFocusEvent) callconv(.c) void ```
+    pub fn OnFocusInEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsItemGroup_OnFocusInEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -34803,9 +34803,9 @@ pub const qgraphicsitemgroup = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsItemGroup, slot: fn (self: QtC.QGraphicsItemGroup, event: QtC.QFocusEvent) callconv(.c) void ```
-    pub fn OnFocusOutEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItemGroup_OnFocusOutEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItemGroup, callback: *const fn (self: QtC.QGraphicsItemGroup, event: QtC.QFocusEvent) callconv(.c) void ```
+    pub fn OnFocusOutEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsItemGroup_OnFocusOutEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -34836,9 +34836,9 @@ pub const qgraphicsitemgroup = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsItemGroup, slot: fn (self: QtC.QGraphicsItemGroup, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
-    pub fn OnHoverEnterEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItemGroup_OnHoverEnterEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItemGroup, callback: *const fn (self: QtC.QGraphicsItemGroup, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
+    pub fn OnHoverEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsItemGroup_OnHoverEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -34869,9 +34869,9 @@ pub const qgraphicsitemgroup = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsItemGroup, slot: fn (self: QtC.QGraphicsItemGroup, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
-    pub fn OnHoverMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItemGroup_OnHoverMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItemGroup, callback: *const fn (self: QtC.QGraphicsItemGroup, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
+    pub fn OnHoverMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsItemGroup_OnHoverMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -34902,9 +34902,9 @@ pub const qgraphicsitemgroup = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsItemGroup, slot: fn (self: QtC.QGraphicsItemGroup, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
-    pub fn OnHoverLeaveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItemGroup_OnHoverLeaveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItemGroup, callback: *const fn (self: QtC.QGraphicsItemGroup, event: QtC.QGraphicsSceneHoverEvent) callconv(.c) void ```
+    pub fn OnHoverLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsItemGroup_OnHoverLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -34935,9 +34935,9 @@ pub const qgraphicsitemgroup = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsItemGroup, slot: fn (self: QtC.QGraphicsItemGroup, event: QtC.QKeyEvent) callconv(.c) void ```
-    pub fn OnKeyPressEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItemGroup_OnKeyPressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItemGroup, callback: *const fn (self: QtC.QGraphicsItemGroup, event: QtC.QKeyEvent) callconv(.c) void ```
+    pub fn OnKeyPressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsItemGroup_OnKeyPressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -34968,9 +34968,9 @@ pub const qgraphicsitemgroup = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsItemGroup, slot: fn (self: QtC.QGraphicsItemGroup, event: QtC.QKeyEvent) callconv(.c) void ```
-    pub fn OnKeyReleaseEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItemGroup_OnKeyReleaseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItemGroup, callback: *const fn (self: QtC.QGraphicsItemGroup, event: QtC.QKeyEvent) callconv(.c) void ```
+    pub fn OnKeyReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsItemGroup_OnKeyReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -35001,9 +35001,9 @@ pub const qgraphicsitemgroup = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsItemGroup, slot: fn (self: QtC.QGraphicsItemGroup, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
-    pub fn OnMousePressEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItemGroup_OnMousePressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItemGroup, callback: *const fn (self: QtC.QGraphicsItemGroup, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
+    pub fn OnMousePressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsItemGroup_OnMousePressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -35034,9 +35034,9 @@ pub const qgraphicsitemgroup = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsItemGroup, slot: fn (self: QtC.QGraphicsItemGroup, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
-    pub fn OnMouseMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItemGroup_OnMouseMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItemGroup, callback: *const fn (self: QtC.QGraphicsItemGroup, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
+    pub fn OnMouseMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsItemGroup_OnMouseMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -35067,9 +35067,9 @@ pub const qgraphicsitemgroup = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsItemGroup, slot: fn (self: QtC.QGraphicsItemGroup, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
-    pub fn OnMouseReleaseEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItemGroup_OnMouseReleaseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItemGroup, callback: *const fn (self: QtC.QGraphicsItemGroup, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
+    pub fn OnMouseReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsItemGroup_OnMouseReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -35100,9 +35100,9 @@ pub const qgraphicsitemgroup = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsItemGroup, slot: fn (self: QtC.QGraphicsItemGroup, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
-    pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItemGroup_OnMouseDoubleClickEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItemGroup, callback: *const fn (self: QtC.QGraphicsItemGroup, event: QtC.QGraphicsSceneMouseEvent) callconv(.c) void ```
+    pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsItemGroup_OnMouseDoubleClickEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -35133,9 +35133,9 @@ pub const qgraphicsitemgroup = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsItemGroup, slot: fn (self: QtC.QGraphicsItemGroup, event: QtC.QGraphicsSceneWheelEvent) callconv(.c) void ```
-    pub fn OnWheelEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItemGroup_OnWheelEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItemGroup, callback: *const fn (self: QtC.QGraphicsItemGroup, event: QtC.QGraphicsSceneWheelEvent) callconv(.c) void ```
+    pub fn OnWheelEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsItemGroup_OnWheelEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -35166,9 +35166,9 @@ pub const qgraphicsitemgroup = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsItemGroup, slot: fn (self: QtC.QGraphicsItemGroup, event: QtC.QInputMethodEvent) callconv(.c) void ```
-    pub fn OnInputMethodEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItemGroup_OnInputMethodEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItemGroup, callback: *const fn (self: QtC.QGraphicsItemGroup, event: QtC.QInputMethodEvent) callconv(.c) void ```
+    pub fn OnInputMethodEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsItemGroup_OnInputMethodEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -35199,9 +35199,9 @@ pub const qgraphicsitemgroup = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsItemGroup, slot: fn (self: QtC.QGraphicsItemGroup, query: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant ```
-    pub fn OnInputMethodQuery(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) QtC.QVariant) void {
-        qtc.QGraphicsItemGroup_OnInputMethodQuery(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItemGroup, callback: *const fn (self: QtC.QGraphicsItemGroup, query: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant ```
+    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) QtC.QVariant) void {
+        qtc.QGraphicsItemGroup_OnInputMethodQuery(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -35232,9 +35232,9 @@ pub const qgraphicsitemgroup = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsItemGroup, slot: fn (self: QtC.QGraphicsItemGroup, change: qgraphicsitem_enums.GraphicsItemChange, value: QtC.QVariant) callconv(.c) QtC.QVariant ```
-    pub fn OnItemChange(self: ?*anyopaque, slot: fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QVariant) void {
-        qtc.QGraphicsItemGroup_OnItemChange(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItemGroup, callback: *const fn (self: QtC.QGraphicsItemGroup, change: qgraphicsitem_enums.GraphicsItemChange, value: QtC.QVariant) callconv(.c) QtC.QVariant ```
+    pub fn OnItemChange(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QVariant) void {
+        qtc.QGraphicsItemGroup_OnItemChange(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -35265,9 +35265,9 @@ pub const qgraphicsitemgroup = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsItemGroup, slot: fn (self: QtC.QGraphicsItemGroup, extension: qgraphicsitem_enums.Extension) callconv(.c) bool ```
-    pub fn OnSupportsExtension(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) bool) void {
-        qtc.QGraphicsItemGroup_OnSupportsExtension(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItemGroup, callback: *const fn (self: QtC.QGraphicsItemGroup, extension: qgraphicsitem_enums.Extension) callconv(.c) bool ```
+    pub fn OnSupportsExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) bool) void {
+        qtc.QGraphicsItemGroup_OnSupportsExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -35298,9 +35298,9 @@ pub const qgraphicsitemgroup = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsItemGroup, slot: fn (self: QtC.QGraphicsItemGroup, extension: qgraphicsitem_enums.Extension, variant: QtC.QVariant) callconv(.c) void ```
-    pub fn OnSetExtension(self: ?*anyopaque, slot: fn (?*anyopaque, i64, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsItemGroup_OnSetExtension(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItemGroup, callback: *const fn (self: QtC.QGraphicsItemGroup, extension: qgraphicsitem_enums.Extension, variant: QtC.QVariant) callconv(.c) void ```
+    pub fn OnSetExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsItemGroup_OnSetExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -35331,9 +35331,9 @@ pub const qgraphicsitemgroup = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsItemGroup, slot: fn (self: QtC.QGraphicsItemGroup, variant: QtC.QVariant) callconv(.c) QtC.QVariant ```
-    pub fn OnExtension(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QVariant) void {
-        qtc.QGraphicsItemGroup_OnExtension(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItemGroup, callback: *const fn (self: QtC.QGraphicsItemGroup, variant: QtC.QVariant) callconv(.c) QtC.QVariant ```
+    pub fn OnExtension(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QVariant) void {
+        qtc.QGraphicsItemGroup_OnExtension(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -35364,9 +35364,9 @@ pub const qgraphicsitemgroup = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsItemGroup, slot: fn () callconv(.c) void ```
-    pub fn OnUpdateMicroFocus(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QGraphicsItemGroup_OnUpdateMicroFocus(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItemGroup, callback: *const fn () callconv(.c) void ```
+    pub fn OnUpdateMicroFocus(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QGraphicsItemGroup_OnUpdateMicroFocus(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -35397,9 +35397,9 @@ pub const qgraphicsitemgroup = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsItemGroup, slot: fn () callconv(.c) void ```
-    pub fn OnAddToIndex(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QGraphicsItemGroup_OnAddToIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItemGroup, callback: *const fn () callconv(.c) void ```
+    pub fn OnAddToIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QGraphicsItemGroup_OnAddToIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -35430,9 +35430,9 @@ pub const qgraphicsitemgroup = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsItemGroup, slot: fn () callconv(.c) void ```
-    pub fn OnRemoveFromIndex(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QGraphicsItemGroup_OnRemoveFromIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItemGroup, callback: *const fn () callconv(.c) void ```
+    pub fn OnRemoveFromIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QGraphicsItemGroup_OnRemoveFromIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -35463,9 +35463,9 @@ pub const qgraphicsitemgroup = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGraphicsItemGroup, slot: fn () callconv(.c) void ```
-    pub fn OnPrepareGeometryChange(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QGraphicsItemGroup_OnPrepareGeometryChange(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGraphicsItemGroup, callback: *const fn () callconv(.c) void ```
+    pub fn OnPrepareGeometryChange(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QGraphicsItemGroup_OnPrepareGeometryChange(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsitemgroup.html#dtor.QGraphicsItemGroup)

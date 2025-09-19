@@ -10,7 +10,7 @@
 #include "../qtlibc.h"
 
 // This class is a subclass of KConfigSkeletonItem so that we can call protected methods
-class VirtualKConfigSkeletonItem final : public KConfigSkeletonItem {
+class VirtualKConfigSkeletonItem : public KConfigSkeletonItem {
 
   public:
     // Virtual class boolean flag

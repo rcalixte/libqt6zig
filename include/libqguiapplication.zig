@@ -47,9 +47,9 @@ pub const qguiapplication = struct {
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGuiApplication, slot: fn (self: QtC.QGuiApplication, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QGuiApplication_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGuiApplication, callback: *const fn (self: QtC.QGuiApplication, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+        qtc.QGuiApplication_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -437,9 +437,9 @@ pub const qguiapplication = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGuiApplication, slot: fn (self: QtC.QGuiApplication, param1: QtC.QObject, param2: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGuiApplication_OnNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGuiApplication, callback: *const fn (self: QtC.QGuiApplication, param1: QtC.QObject, param2: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QGuiApplication_OnNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qguiapplication.html#notify)
@@ -499,9 +499,9 @@ pub const qguiapplication = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGuiApplication, slot: fn (self: QtC.QGuiApplication, name: [*:0]const u8, revision: i32) callconv(.c) ?*anyopaque ```
-    pub fn OnResolveInterface(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, i32) callconv(.c) ?*anyopaque) void {
-        qtc.QGuiApplication_OnResolveInterface(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGuiApplication, callback: *const fn (self: QtC.QGuiApplication, name: [*:0]const u8, revision: i32) callconv(.c) ?*anyopaque ```
+    pub fn OnResolveInterface(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32) callconv(.c) ?*anyopaque) void {
+        qtc.QGuiApplication_OnResolveInterface(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qguiapplication.html#resolveInterface)
@@ -530,9 +530,9 @@ pub const qguiapplication = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qguiapplication.html#fontDatabaseChanged)
     ///
-    /// ``` self: QtC.QGuiApplication, slot: fn (self: QtC.QGuiApplication) callconv(.c) void ```
-    pub fn OnFontDatabaseChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGuiApplication_Connect_FontDatabaseChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGuiApplication, callback: *const fn (self: QtC.QGuiApplication) callconv(.c) void ```
+    pub fn OnFontDatabaseChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QGuiApplication_Connect_FontDatabaseChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qguiapplication.html#screenAdded)
@@ -544,9 +544,9 @@ pub const qguiapplication = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qguiapplication.html#screenAdded)
     ///
-    /// ``` self: QtC.QGuiApplication, slot: fn (self: QtC.QGuiApplication, screen: QtC.QScreen) callconv(.c) void ```
-    pub fn OnScreenAdded(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGuiApplication_Connect_ScreenAdded(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGuiApplication, callback: *const fn (self: QtC.QGuiApplication, screen: QtC.QScreen) callconv(.c) void ```
+    pub fn OnScreenAdded(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGuiApplication_Connect_ScreenAdded(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qguiapplication.html#screenRemoved)
@@ -558,9 +558,9 @@ pub const qguiapplication = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qguiapplication.html#screenRemoved)
     ///
-    /// ``` self: QtC.QGuiApplication, slot: fn (self: QtC.QGuiApplication, screen: QtC.QScreen) callconv(.c) void ```
-    pub fn OnScreenRemoved(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGuiApplication_Connect_ScreenRemoved(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGuiApplication, callback: *const fn (self: QtC.QGuiApplication, screen: QtC.QScreen) callconv(.c) void ```
+    pub fn OnScreenRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGuiApplication_Connect_ScreenRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qguiapplication.html#primaryScreenChanged)
@@ -572,9 +572,9 @@ pub const qguiapplication = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qguiapplication.html#primaryScreenChanged)
     ///
-    /// ``` self: QtC.QGuiApplication, slot: fn (self: QtC.QGuiApplication, screen: QtC.QScreen) callconv(.c) void ```
-    pub fn OnPrimaryScreenChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGuiApplication_Connect_PrimaryScreenChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGuiApplication, callback: *const fn (self: QtC.QGuiApplication, screen: QtC.QScreen) callconv(.c) void ```
+    pub fn OnPrimaryScreenChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGuiApplication_Connect_PrimaryScreenChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qguiapplication.html#lastWindowClosed)
@@ -586,9 +586,9 @@ pub const qguiapplication = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qguiapplication.html#lastWindowClosed)
     ///
-    /// ``` self: QtC.QGuiApplication, slot: fn (self: QtC.QGuiApplication) callconv(.c) void ```
-    pub fn OnLastWindowClosed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGuiApplication_Connect_LastWindowClosed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGuiApplication, callback: *const fn (self: QtC.QGuiApplication) callconv(.c) void ```
+    pub fn OnLastWindowClosed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QGuiApplication_Connect_LastWindowClosed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qguiapplication.html#focusObjectChanged)
@@ -600,9 +600,9 @@ pub const qguiapplication = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qguiapplication.html#focusObjectChanged)
     ///
-    /// ``` self: QtC.QGuiApplication, slot: fn (self: QtC.QGuiApplication, focusObject: QtC.QObject) callconv(.c) void ```
-    pub fn OnFocusObjectChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGuiApplication_Connect_FocusObjectChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGuiApplication, callback: *const fn (self: QtC.QGuiApplication, focusObject: QtC.QObject) callconv(.c) void ```
+    pub fn OnFocusObjectChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGuiApplication_Connect_FocusObjectChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qguiapplication.html#focusWindowChanged)
@@ -614,9 +614,9 @@ pub const qguiapplication = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qguiapplication.html#focusWindowChanged)
     ///
-    /// ``` self: QtC.QGuiApplication, slot: fn (self: QtC.QGuiApplication, focusWindow: QtC.QWindow) callconv(.c) void ```
-    pub fn OnFocusWindowChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGuiApplication_Connect_FocusWindowChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGuiApplication, callback: *const fn (self: QtC.QGuiApplication, focusWindow: QtC.QWindow) callconv(.c) void ```
+    pub fn OnFocusWindowChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGuiApplication_Connect_FocusWindowChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qguiapplication.html#applicationStateChanged)
@@ -628,9 +628,9 @@ pub const qguiapplication = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qguiapplication.html#applicationStateChanged)
     ///
-    /// ``` self: QtC.QGuiApplication, slot: fn (self: QtC.QGuiApplication, state: qnamespace_enums.ApplicationState) callconv(.c) void ```
-    pub fn OnApplicationStateChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QGuiApplication_Connect_ApplicationStateChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGuiApplication, callback: *const fn (self: QtC.QGuiApplication, state: qnamespace_enums.ApplicationState) callconv(.c) void ```
+    pub fn OnApplicationStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QGuiApplication_Connect_ApplicationStateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qguiapplication.html#layoutDirectionChanged)
@@ -642,9 +642,9 @@ pub const qguiapplication = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qguiapplication.html#layoutDirectionChanged)
     ///
-    /// ``` self: QtC.QGuiApplication, slot: fn (self: QtC.QGuiApplication, direction: qnamespace_enums.LayoutDirection) callconv(.c) void ```
-    pub fn OnLayoutDirectionChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QGuiApplication_Connect_LayoutDirectionChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGuiApplication, callback: *const fn (self: QtC.QGuiApplication, direction: qnamespace_enums.LayoutDirection) callconv(.c) void ```
+    pub fn OnLayoutDirectionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QGuiApplication_Connect_LayoutDirectionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qguiapplication.html#commitDataRequest)
@@ -656,9 +656,9 @@ pub const qguiapplication = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qguiapplication.html#commitDataRequest)
     ///
-    /// ``` self: QtC.QGuiApplication, slot: fn (self: QtC.QGuiApplication, sessionManager: QtC.QSessionManager) callconv(.c) void ```
-    pub fn OnCommitDataRequest(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGuiApplication_Connect_CommitDataRequest(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGuiApplication, callback: *const fn (self: QtC.QGuiApplication, sessionManager: QtC.QSessionManager) callconv(.c) void ```
+    pub fn OnCommitDataRequest(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGuiApplication_Connect_CommitDataRequest(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qguiapplication.html#saveStateRequest)
@@ -670,9 +670,9 @@ pub const qguiapplication = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qguiapplication.html#saveStateRequest)
     ///
-    /// ``` self: QtC.QGuiApplication, slot: fn (self: QtC.QGuiApplication, sessionManager: QtC.QSessionManager) callconv(.c) void ```
-    pub fn OnSaveStateRequest(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGuiApplication_Connect_SaveStateRequest(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGuiApplication, callback: *const fn (self: QtC.QGuiApplication, sessionManager: QtC.QSessionManager) callconv(.c) void ```
+    pub fn OnSaveStateRequest(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGuiApplication_Connect_SaveStateRequest(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qguiapplication.html#applicationDisplayNameChanged)
@@ -684,9 +684,9 @@ pub const qguiapplication = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qguiapplication.html#applicationDisplayNameChanged)
     ///
-    /// ``` self: QtC.QGuiApplication, slot: fn (self: QtC.QGuiApplication) callconv(.c) void ```
-    pub fn OnApplicationDisplayNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGuiApplication_Connect_ApplicationDisplayNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGuiApplication, callback: *const fn (self: QtC.QGuiApplication) callconv(.c) void ```
+    pub fn OnApplicationDisplayNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QGuiApplication_Connect_ApplicationDisplayNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qguiapplication.html#paletteChanged)
@@ -698,9 +698,9 @@ pub const qguiapplication = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qguiapplication.html#paletteChanged)
     ///
-    /// ``` self: QtC.QGuiApplication, slot: fn (self: QtC.QGuiApplication, pal: QtC.QPalette) callconv(.c) void ```
-    pub fn OnPaletteChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGuiApplication_Connect_PaletteChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGuiApplication, callback: *const fn (self: QtC.QGuiApplication, pal: QtC.QPalette) callconv(.c) void ```
+    pub fn OnPaletteChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGuiApplication_Connect_PaletteChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qguiapplication.html#fontChanged)
@@ -712,9 +712,9 @@ pub const qguiapplication = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qguiapplication.html#fontChanged)
     ///
-    /// ``` self: QtC.QGuiApplication, slot: fn (self: QtC.QGuiApplication, font: QtC.QFont) callconv(.c) void ```
-    pub fn OnFontChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGuiApplication_Connect_FontChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGuiApplication, callback: *const fn (self: QtC.QGuiApplication, font: QtC.QFont) callconv(.c) void ```
+    pub fn OnFontChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGuiApplication_Connect_FontChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qguiapplication.html#event)
@@ -728,9 +728,9 @@ pub const qguiapplication = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGuiApplication, slot: fn (self: QtC.QGuiApplication, param1: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGuiApplication_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGuiApplication, callback: *const fn (self: QtC.QGuiApplication, param1: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QGuiApplication_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qguiapplication.html#event)
@@ -1203,9 +1203,9 @@ pub const qguiapplication = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#installNativeEventFilter)
     ///
-    /// ``` self: QtC.QGuiApplication, slot: fn (self: QtC.QGuiApplication, filterObj: QtC.QAbstractNativeEventFilter) callconv(.c) void ```
-    pub fn OnInstallNativeEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QCoreApplication_Connect_InstallNativeEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGuiApplication, callback: *const fn (self: QtC.QGuiApplication, filterObj: QtC.QAbstractNativeEventFilter) callconv(.c) void ```
+    pub fn OnInstallNativeEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QCoreApplication_Connect_InstallNativeEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QCoreApplication
@@ -1221,9 +1221,9 @@ pub const qguiapplication = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#removeNativeEventFilter)
     ///
-    /// ``` self: QtC.QGuiApplication, slot: fn (self: QtC.QGuiApplication, filterObj: QtC.QAbstractNativeEventFilter) callconv(.c) void ```
-    pub fn OnRemoveNativeEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QCoreApplication_Connect_RemoveNativeEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGuiApplication, callback: *const fn (self: QtC.QGuiApplication, filterObj: QtC.QAbstractNativeEventFilter) callconv(.c) void ```
+    pub fn OnRemoveNativeEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QCoreApplication_Connect_RemoveNativeEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QCoreApplication
@@ -1275,9 +1275,9 @@ pub const qguiapplication = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#organizationNameChanged)
     ///
-    /// ``` self: QtC.QGuiApplication, slot: fn (self: QtC.QGuiApplication) callconv(.c) void ```
-    pub fn OnOrganizationNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QCoreApplication_Connect_OrganizationNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGuiApplication, callback: *const fn (self: QtC.QGuiApplication) callconv(.c) void ```
+    pub fn OnOrganizationNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QCoreApplication_Connect_OrganizationNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QCoreApplication
@@ -1293,9 +1293,9 @@ pub const qguiapplication = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#organizationDomainChanged)
     ///
-    /// ``` self: QtC.QGuiApplication, slot: fn (self: QtC.QGuiApplication) callconv(.c) void ```
-    pub fn OnOrganizationDomainChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QCoreApplication_Connect_OrganizationDomainChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGuiApplication, callback: *const fn (self: QtC.QGuiApplication) callconv(.c) void ```
+    pub fn OnOrganizationDomainChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QCoreApplication_Connect_OrganizationDomainChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QCoreApplication
@@ -1311,9 +1311,9 @@ pub const qguiapplication = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#applicationNameChanged)
     ///
-    /// ``` self: QtC.QGuiApplication, slot: fn (self: QtC.QGuiApplication) callconv(.c) void ```
-    pub fn OnApplicationNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QCoreApplication_Connect_ApplicationNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGuiApplication, callback: *const fn (self: QtC.QGuiApplication) callconv(.c) void ```
+    pub fn OnApplicationNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QCoreApplication_Connect_ApplicationNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QCoreApplication
@@ -1329,9 +1329,9 @@ pub const qguiapplication = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qcoreapplication.html#applicationVersionChanged)
     ///
-    /// ``` self: QtC.QGuiApplication, slot: fn (self: QtC.QGuiApplication) callconv(.c) void ```
-    pub fn OnApplicationVersionChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QCoreApplication_Connect_ApplicationVersionChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGuiApplication, callback: *const fn (self: QtC.QGuiApplication) callconv(.c) void ```
+    pub fn OnApplicationVersionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QCoreApplication_Connect_ApplicationVersionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QCoreApplication
@@ -1717,9 +1717,9 @@ pub const qguiapplication = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QGuiApplication, slot: fn (self: QtC.QGuiApplication) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGuiApplication, callback: *const fn (self: QtC.QGuiApplication) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1801,9 +1801,9 @@ pub const qguiapplication = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QGuiApplication, slot: fn (self: QtC.QGuiApplication, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGuiApplication, callback: *const fn (self: QtC.QGuiApplication, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1834,9 +1834,9 @@ pub const qguiapplication = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGuiApplication, slot: fn (self: QtC.QGuiApplication, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGuiApplication_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGuiApplication, callback: *const fn (self: QtC.QGuiApplication, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QGuiApplication_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1867,9 +1867,9 @@ pub const qguiapplication = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGuiApplication, slot: fn (self: QtC.QGuiApplication, event: QtC.QTimerEvent) callconv(.c) void ```
-    pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGuiApplication_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGuiApplication, callback: *const fn (self: QtC.QGuiApplication, event: QtC.QTimerEvent) callconv(.c) void ```
+    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGuiApplication_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1900,9 +1900,9 @@ pub const qguiapplication = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGuiApplication, slot: fn (self: QtC.QGuiApplication, event: QtC.QChildEvent) callconv(.c) void ```
-    pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGuiApplication_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGuiApplication, callback: *const fn (self: QtC.QGuiApplication, event: QtC.QChildEvent) callconv(.c) void ```
+    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGuiApplication_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1933,9 +1933,9 @@ pub const qguiapplication = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGuiApplication, slot: fn (self: QtC.QGuiApplication, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGuiApplication_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGuiApplication, callback: *const fn (self: QtC.QGuiApplication, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGuiApplication_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1966,9 +1966,9 @@ pub const qguiapplication = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGuiApplication, slot: fn (self: QtC.QGuiApplication, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGuiApplication_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGuiApplication, callback: *const fn (self: QtC.QGuiApplication, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGuiApplication_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1999,9 +1999,9 @@ pub const qguiapplication = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGuiApplication, slot: fn (self: QtC.QGuiApplication, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGuiApplication_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGuiApplication, callback: *const fn (self: QtC.QGuiApplication, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGuiApplication_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2032,9 +2032,9 @@ pub const qguiapplication = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGuiApplication, slot: fn () callconv(.c) QtC.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
-        qtc.QGuiApplication_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGuiApplication, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.QGuiApplication_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2065,9 +2065,9 @@ pub const qguiapplication = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGuiApplication, slot: fn () callconv(.c) i32 ```
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QGuiApplication_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGuiApplication, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QGuiApplication_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2100,9 +2100,9 @@ pub const qguiapplication = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGuiApplication, slot: fn (self: QtC.QGuiApplication, signal: [*:0]const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QGuiApplication_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGuiApplication, callback: *const fn (self: QtC.QGuiApplication, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QGuiApplication_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2133,9 +2133,9 @@ pub const qguiapplication = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QGuiApplication, slot: fn (self: QtC.QGuiApplication, signal: QtC.QMetaMethod) callconv(.c) bool ```
-    pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QGuiApplication_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGuiApplication, callback: *const fn (self: QtC.QGuiApplication, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QGuiApplication_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QCoreApplication
@@ -2144,9 +2144,9 @@ pub const qguiapplication = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QGuiApplication, slot: fn (self: QtC.QGuiApplication) callconv(.c) void ```
-    pub fn OnAboutToQuit(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QCoreApplication_Connect_AboutToQuit(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGuiApplication, callback: *const fn (self: QtC.QGuiApplication) callconv(.c) void ```
+    pub fn OnAboutToQuit(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QCoreApplication_Connect_AboutToQuit(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2155,9 +2155,9 @@ pub const qguiapplication = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QGuiApplication, slot: fn (self: QtC.QGuiApplication, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGuiApplication, callback: *const fn (self: QtC.QGuiApplication, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qguiapplication.html#dtor.QGuiApplication)

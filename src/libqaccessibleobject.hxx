@@ -10,7 +10,7 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QAccessibleObject so that we can call protected methods
-class VirtualQAccessibleObject final : public QAccessibleObject {
+class VirtualQAccessibleObject : public QAccessibleObject {
 
   public:
     // Virtual class boolean flag

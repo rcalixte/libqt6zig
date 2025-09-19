@@ -10,7 +10,7 @@
 #include "../qtlibc.h"
 
 // This class is a subclass of KBookmarkOwner so that we can call protected methods
-class VirtualKBookmarkOwner final : public KBookmarkOwner {
+class VirtualKBookmarkOwner : public KBookmarkOwner {
 
   public:
     // Virtual class boolean flag

@@ -25,9 +25,9 @@ pub const konsole__filter = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.Konsole__Filter, slot: fn () callconv(.c) void ```
-    pub fn OnProcess(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.Konsole__Filter_OnProcess(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__Filter, callback: *const fn () callconv(.c) void ```
+    pub fn OnProcess(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.Konsole__Filter_OnProcess(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -64,9 +64,9 @@ pub const konsole__filter = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.Konsole__Filter, slot: fn (self: QtC.Konsole__Filter, param1: QtC.Konsole__Filter__HotSpot) callconv(.c) void ```
-    pub fn OnAddHotSpot(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Konsole__Filter_OnAddHotSpot(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__Filter, callback: *const fn (self: QtC.Konsole__Filter, param1: QtC.Konsole__Filter__HotSpot) callconv(.c) void ```
+    pub fn OnAddHotSpot(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.Konsole__Filter_OnAddHotSpot(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -93,9 +93,9 @@ pub const konsole__filter = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.Konsole__Filter, slot: fn () callconv(.c) [*:0]const u8 ```
-    pub fn OnBuffer(self: ?*anyopaque, slot: fn () callconv(.c) [*:0]const u8) void {
-        qtc.Konsole__Filter_OnBuffer(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__Filter, callback: *const fn () callconv(.c) [*:0]const u8 ```
+    pub fn OnBuffer(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
+        qtc.Konsole__Filter_OnBuffer(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -122,9 +122,9 @@ pub const konsole__filter = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.Konsole__Filter, slot: fn (self: QtC.Konsole__Filter, position: i32, startLine: *i32, startColumn: *i32) callconv(.c) void ```
-    pub fn OnGetLineColumn(self: ?*anyopaque, slot: fn (?*anyopaque, i32, *i32, *i32) callconv(.c) void) void {
-        qtc.Konsole__Filter_OnGetLineColumn(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__Filter, callback: *const fn (self: QtC.Konsole__Filter, position: i32, startLine: *i32, startColumn: *i32) callconv(.c) void ```
+    pub fn OnGetLineColumn(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, *i32, *i32) callconv(.c) void) void {
+        qtc.Konsole__Filter_OnGetLineColumn(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -455,9 +455,9 @@ pub const konsole__filter = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.Konsole__Filter, slot: fn (self: QtC.Konsole__Filter) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__Filter, callback: *const fn (self: QtC.Konsole__Filter) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -569,9 +569,9 @@ pub const konsole__filter = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.Konsole__Filter, slot: fn (self: QtC.Konsole__Filter, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__Filter, callback: *const fn (self: QtC.Konsole__Filter, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -602,9 +602,9 @@ pub const konsole__filter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__Filter, slot: fn (self: QtC.Konsole__Filter, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
-        qtc.Konsole__Filter_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__Filter, callback: *const fn (self: QtC.Konsole__Filter, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+        qtc.Konsole__Filter_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -635,9 +635,9 @@ pub const konsole__filter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__Filter, slot: fn (self: QtC.Konsole__Filter, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.Konsole__Filter_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__Filter, callback: *const fn (self: QtC.Konsole__Filter, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.Konsole__Filter_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -668,9 +668,9 @@ pub const konsole__filter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__Filter, slot: fn (self: QtC.Konsole__Filter, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.Konsole__Filter_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__Filter, callback: *const fn (self: QtC.Konsole__Filter, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.Konsole__Filter_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -701,9 +701,9 @@ pub const konsole__filter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__Filter, slot: fn (self: QtC.Konsole__Filter, event: QtC.QTimerEvent) callconv(.c) void ```
-    pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Konsole__Filter_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__Filter, callback: *const fn (self: QtC.Konsole__Filter, event: QtC.QTimerEvent) callconv(.c) void ```
+    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.Konsole__Filter_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -734,9 +734,9 @@ pub const konsole__filter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__Filter, slot: fn (self: QtC.Konsole__Filter, event: QtC.QChildEvent) callconv(.c) void ```
-    pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Konsole__Filter_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__Filter, callback: *const fn (self: QtC.Konsole__Filter, event: QtC.QChildEvent) callconv(.c) void ```
+    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.Konsole__Filter_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -767,9 +767,9 @@ pub const konsole__filter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__Filter, slot: fn (self: QtC.Konsole__Filter, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Konsole__Filter_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__Filter, callback: *const fn (self: QtC.Konsole__Filter, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.Konsole__Filter_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -800,9 +800,9 @@ pub const konsole__filter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__Filter, slot: fn (self: QtC.Konsole__Filter, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Konsole__Filter_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__Filter, callback: *const fn (self: QtC.Konsole__Filter, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.Konsole__Filter_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -833,9 +833,9 @@ pub const konsole__filter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__Filter, slot: fn (self: QtC.Konsole__Filter, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Konsole__Filter_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__Filter, callback: *const fn (self: QtC.Konsole__Filter, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.Konsole__Filter_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -866,9 +866,9 @@ pub const konsole__filter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__Filter, slot: fn () callconv(.c) QtC.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
-        qtc.Konsole__Filter_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__Filter, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.Konsole__Filter_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -899,9 +899,9 @@ pub const konsole__filter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__Filter, slot: fn () callconv(.c) i32 ```
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.Konsole__Filter_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__Filter, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.Konsole__Filter_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -934,9 +934,9 @@ pub const konsole__filter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__Filter, slot: fn (self: QtC.Konsole__Filter, signal: [*:0]const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.Konsole__Filter_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__Filter, callback: *const fn (self: QtC.Konsole__Filter, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
+        qtc.Konsole__Filter_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -967,9 +967,9 @@ pub const konsole__filter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__Filter, slot: fn (self: QtC.Konsole__Filter, signal: QtC.QMetaMethod) callconv(.c) bool ```
-    pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.Konsole__Filter_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__Filter, callback: *const fn (self: QtC.Konsole__Filter, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.Konsole__Filter_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -978,9 +978,9 @@ pub const konsole__filter = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.Konsole__Filter, slot: fn (self: QtC.Konsole__Filter, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__Filter, callback: *const fn (self: QtC.Konsole__Filter, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Delete this object from C++ memory.
@@ -1025,9 +1025,9 @@ pub const konsole__regexpfilter = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, slot: fn () callconv(.c) void ```
-    pub fn OnProcess(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.Konsole__RegExpFilter_OnProcess(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__RegExpFilter, callback: *const fn () callconv(.c) void ```
+    pub fn OnProcess(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.Konsole__RegExpFilter_OnProcess(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1050,9 +1050,9 @@ pub const konsole__regexpfilter = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, slot: fn (self: QtC.Konsole__RegExpFilter, startLine: i32, startColumn: i32, endLine: i32, endColumn: i32) callconv(.c) QtC.Konsole__RegExpFilter__HotSpot ```
-    pub fn OnNewHotSpot(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, i32, i32) callconv(.c) QtC.Konsole__RegExpFilter__HotSpot) void {
-        qtc.Konsole__RegExpFilter_OnNewHotSpot(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__RegExpFilter, callback: *const fn (self: QtC.Konsole__RegExpFilter, startLine: i32, startColumn: i32, endLine: i32, endColumn: i32) callconv(.c) QtC.Konsole__RegExpFilter__HotSpot ```
+    pub fn OnNewHotSpot(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32, i32) callconv(.c) QtC.Konsole__RegExpFilter__HotSpot) void {
+        qtc.Konsole__RegExpFilter_OnNewHotSpot(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -1401,9 +1401,9 @@ pub const konsole__regexpfilter = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, slot: fn (self: QtC.Konsole__RegExpFilter) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__RegExpFilter, callback: *const fn (self: QtC.Konsole__RegExpFilter) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1515,9 +1515,9 @@ pub const konsole__regexpfilter = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, slot: fn (self: QtC.Konsole__RegExpFilter, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__RegExpFilter, callback: *const fn (self: QtC.Konsole__RegExpFilter, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1548,9 +1548,9 @@ pub const konsole__regexpfilter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, slot: fn (self: QtC.Konsole__RegExpFilter, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
-        qtc.Konsole__RegExpFilter_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__RegExpFilter, callback: *const fn (self: QtC.Konsole__RegExpFilter, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+        qtc.Konsole__RegExpFilter_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1581,9 +1581,9 @@ pub const konsole__regexpfilter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, slot: fn (self: QtC.Konsole__RegExpFilter, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.Konsole__RegExpFilter_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__RegExpFilter, callback: *const fn (self: QtC.Konsole__RegExpFilter, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.Konsole__RegExpFilter_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1614,9 +1614,9 @@ pub const konsole__regexpfilter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, slot: fn (self: QtC.Konsole__RegExpFilter, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.Konsole__RegExpFilter_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__RegExpFilter, callback: *const fn (self: QtC.Konsole__RegExpFilter, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.Konsole__RegExpFilter_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1647,9 +1647,9 @@ pub const konsole__regexpfilter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, slot: fn (self: QtC.Konsole__RegExpFilter, event: QtC.QTimerEvent) callconv(.c) void ```
-    pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Konsole__RegExpFilter_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__RegExpFilter, callback: *const fn (self: QtC.Konsole__RegExpFilter, event: QtC.QTimerEvent) callconv(.c) void ```
+    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.Konsole__RegExpFilter_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1680,9 +1680,9 @@ pub const konsole__regexpfilter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, slot: fn (self: QtC.Konsole__RegExpFilter, event: QtC.QChildEvent) callconv(.c) void ```
-    pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Konsole__RegExpFilter_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__RegExpFilter, callback: *const fn (self: QtC.Konsole__RegExpFilter, event: QtC.QChildEvent) callconv(.c) void ```
+    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.Konsole__RegExpFilter_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1713,9 +1713,9 @@ pub const konsole__regexpfilter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, slot: fn (self: QtC.Konsole__RegExpFilter, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Konsole__RegExpFilter_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__RegExpFilter, callback: *const fn (self: QtC.Konsole__RegExpFilter, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.Konsole__RegExpFilter_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1746,9 +1746,9 @@ pub const konsole__regexpfilter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, slot: fn (self: QtC.Konsole__RegExpFilter, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Konsole__RegExpFilter_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__RegExpFilter, callback: *const fn (self: QtC.Konsole__RegExpFilter, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.Konsole__RegExpFilter_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1779,9 +1779,9 @@ pub const konsole__regexpfilter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, slot: fn (self: QtC.Konsole__RegExpFilter, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Konsole__RegExpFilter_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__RegExpFilter, callback: *const fn (self: QtC.Konsole__RegExpFilter, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.Konsole__RegExpFilter_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from Konsole::Filter
@@ -1812,9 +1812,9 @@ pub const konsole__regexpfilter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, slot: fn (self: QtC.Konsole__RegExpFilter, param1: QtC.Konsole__Filter__HotSpot) callconv(.c) void ```
-    pub fn OnAddHotSpot(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Konsole__RegExpFilter_OnAddHotSpot(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__RegExpFilter, callback: *const fn (self: QtC.Konsole__RegExpFilter, param1: QtC.Konsole__Filter__HotSpot) callconv(.c) void ```
+    pub fn OnAddHotSpot(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.Konsole__RegExpFilter_OnAddHotSpot(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from Konsole::Filter
@@ -1853,9 +1853,9 @@ pub const konsole__regexpfilter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, slot: fn () callconv(.c) [*:0]const u8 ```
-    pub fn OnBuffer(self: ?*anyopaque, slot: fn () callconv(.c) [*:0]const u8) void {
-        qtc.Konsole__RegExpFilter_OnBuffer(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__RegExpFilter, callback: *const fn () callconv(.c) [*:0]const u8 ```
+    pub fn OnBuffer(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
+        qtc.Konsole__RegExpFilter_OnBuffer(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from Konsole::Filter
@@ -1886,9 +1886,9 @@ pub const konsole__regexpfilter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, slot: fn (self: QtC.Konsole__RegExpFilter, position: i32, startLine: *i32, startColumn: *i32) callconv(.c) void ```
-    pub fn OnGetLineColumn(self: ?*anyopaque, slot: fn (?*anyopaque, i32, *i32, *i32) callconv(.c) void) void {
-        qtc.Konsole__RegExpFilter_OnGetLineColumn(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__RegExpFilter, callback: *const fn (self: QtC.Konsole__RegExpFilter, position: i32, startLine: *i32, startColumn: *i32) callconv(.c) void ```
+    pub fn OnGetLineColumn(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, *i32, *i32) callconv(.c) void) void {
+        qtc.Konsole__RegExpFilter_OnGetLineColumn(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1919,9 +1919,9 @@ pub const konsole__regexpfilter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, slot: fn () callconv(.c) QtC.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
-        qtc.Konsole__RegExpFilter_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__RegExpFilter, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.Konsole__RegExpFilter_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1952,9 +1952,9 @@ pub const konsole__regexpfilter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, slot: fn () callconv(.c) i32 ```
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.Konsole__RegExpFilter_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__RegExpFilter, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.Konsole__RegExpFilter_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1987,9 +1987,9 @@ pub const konsole__regexpfilter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, slot: fn (self: QtC.Konsole__RegExpFilter, signal: [*:0]const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.Konsole__RegExpFilter_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__RegExpFilter, callback: *const fn (self: QtC.Konsole__RegExpFilter, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
+        qtc.Konsole__RegExpFilter_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2020,9 +2020,9 @@ pub const konsole__regexpfilter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, slot: fn (self: QtC.Konsole__RegExpFilter, signal: QtC.QMetaMethod) callconv(.c) bool ```
-    pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.Konsole__RegExpFilter_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__RegExpFilter, callback: *const fn (self: QtC.Konsole__RegExpFilter, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.Konsole__RegExpFilter_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2031,9 +2031,9 @@ pub const konsole__regexpfilter = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter, slot: fn (self: QtC.Konsole__RegExpFilter, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__RegExpFilter, callback: *const fn (self: QtC.Konsole__RegExpFilter, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Delete this object from C++ memory.
@@ -2073,9 +2073,9 @@ pub const konsole__urlfilter = struct {
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, slot: fn (self: QtC.Konsole__UrlFilter, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
-        qtc.Konsole__UrlFilter_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__UrlFilter, callback: *const fn (self: QtC.Konsole__UrlFilter, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+        qtc.Konsole__UrlFilter_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -2108,9 +2108,9 @@ pub const konsole__urlfilter = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, slot: fn (self: QtC.Konsole__UrlFilter, param1: i32, param2: i32, param3: i32, param4: i32) callconv(.c) QtC.Konsole__RegExpFilter__HotSpot ```
-    pub fn OnNewHotSpot(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, i32, i32) callconv(.c) QtC.Konsole__RegExpFilter__HotSpot) void {
-        qtc.Konsole__UrlFilter_OnNewHotSpot(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__UrlFilter, callback: *const fn (self: QtC.Konsole__UrlFilter, param1: i32, param2: i32, param3: i32, param4: i32) callconv(.c) QtC.Konsole__RegExpFilter__HotSpot ```
+    pub fn OnNewHotSpot(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, i32, i32) callconv(.c) QtC.Konsole__RegExpFilter__HotSpot) void {
+        qtc.Konsole__UrlFilter_OnNewHotSpot(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -2131,9 +2131,9 @@ pub const konsole__urlfilter = struct {
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, slot: fn (self: QtC.Konsole__UrlFilter, url: QtC.QUrl, fromContextMenu: bool) callconv(.c) void ```
-    pub fn OnActivated(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, bool) callconv(.c) void) void {
-        qtc.Konsole__UrlFilter_Connect_Activated(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__UrlFilter, callback: *const fn (self: QtC.Konsole__UrlFilter, url: QtC.QUrl, fromContextMenu: bool) callconv(.c) void ```
+    pub fn OnActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, bool) callconv(.c) void) void {
+        qtc.Konsole__UrlFilter_Connect_Activated(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -2486,9 +2486,9 @@ pub const konsole__urlfilter = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, slot: fn (self: QtC.Konsole__UrlFilter) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__UrlFilter, callback: *const fn (self: QtC.Konsole__UrlFilter) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2570,9 +2570,9 @@ pub const konsole__urlfilter = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, slot: fn (self: QtC.Konsole__UrlFilter, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__UrlFilter, callback: *const fn (self: QtC.Konsole__UrlFilter, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from Konsole::RegExpFilter
@@ -2603,9 +2603,9 @@ pub const konsole__urlfilter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, slot: fn () callconv(.c) void ```
-    pub fn OnProcess(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.Konsole__UrlFilter_OnProcess(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__UrlFilter, callback: *const fn () callconv(.c) void ```
+    pub fn OnProcess(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.Konsole__UrlFilter_OnProcess(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2636,9 +2636,9 @@ pub const konsole__urlfilter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, slot: fn (self: QtC.Konsole__UrlFilter, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.Konsole__UrlFilter_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__UrlFilter, callback: *const fn (self: QtC.Konsole__UrlFilter, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.Konsole__UrlFilter_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2669,9 +2669,9 @@ pub const konsole__urlfilter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, slot: fn (self: QtC.Konsole__UrlFilter, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.Konsole__UrlFilter_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__UrlFilter, callback: *const fn (self: QtC.Konsole__UrlFilter, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.Konsole__UrlFilter_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2702,9 +2702,9 @@ pub const konsole__urlfilter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, slot: fn (self: QtC.Konsole__UrlFilter, event: QtC.QTimerEvent) callconv(.c) void ```
-    pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Konsole__UrlFilter_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__UrlFilter, callback: *const fn (self: QtC.Konsole__UrlFilter, event: QtC.QTimerEvent) callconv(.c) void ```
+    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.Konsole__UrlFilter_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2735,9 +2735,9 @@ pub const konsole__urlfilter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, slot: fn (self: QtC.Konsole__UrlFilter, event: QtC.QChildEvent) callconv(.c) void ```
-    pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Konsole__UrlFilter_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__UrlFilter, callback: *const fn (self: QtC.Konsole__UrlFilter, event: QtC.QChildEvent) callconv(.c) void ```
+    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.Konsole__UrlFilter_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2768,9 +2768,9 @@ pub const konsole__urlfilter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, slot: fn (self: QtC.Konsole__UrlFilter, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Konsole__UrlFilter_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__UrlFilter, callback: *const fn (self: QtC.Konsole__UrlFilter, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.Konsole__UrlFilter_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2801,9 +2801,9 @@ pub const konsole__urlfilter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, slot: fn (self: QtC.Konsole__UrlFilter, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Konsole__UrlFilter_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__UrlFilter, callback: *const fn (self: QtC.Konsole__UrlFilter, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.Konsole__UrlFilter_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2834,9 +2834,9 @@ pub const konsole__urlfilter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, slot: fn (self: QtC.Konsole__UrlFilter, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Konsole__UrlFilter_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__UrlFilter, callback: *const fn (self: QtC.Konsole__UrlFilter, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.Konsole__UrlFilter_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from Konsole::Filter
@@ -2867,9 +2867,9 @@ pub const konsole__urlfilter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, slot: fn (self: QtC.Konsole__UrlFilter, param1: QtC.Konsole__Filter__HotSpot) callconv(.c) void ```
-    pub fn OnAddHotSpot(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Konsole__UrlFilter_OnAddHotSpot(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__UrlFilter, callback: *const fn (self: QtC.Konsole__UrlFilter, param1: QtC.Konsole__Filter__HotSpot) callconv(.c) void ```
+    pub fn OnAddHotSpot(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.Konsole__UrlFilter_OnAddHotSpot(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from Konsole::Filter
@@ -2908,9 +2908,9 @@ pub const konsole__urlfilter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, slot: fn () callconv(.c) [*:0]const u8 ```
-    pub fn OnBuffer(self: ?*anyopaque, slot: fn () callconv(.c) [*:0]const u8) void {
-        qtc.Konsole__UrlFilter_OnBuffer(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__UrlFilter, callback: *const fn () callconv(.c) [*:0]const u8 ```
+    pub fn OnBuffer(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
+        qtc.Konsole__UrlFilter_OnBuffer(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from Konsole::Filter
@@ -2941,9 +2941,9 @@ pub const konsole__urlfilter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, slot: fn (self: QtC.Konsole__UrlFilter, position: i32, startLine: *i32, startColumn: *i32) callconv(.c) void ```
-    pub fn OnGetLineColumn(self: ?*anyopaque, slot: fn (?*anyopaque, i32, *i32, *i32) callconv(.c) void) void {
-        qtc.Konsole__UrlFilter_OnGetLineColumn(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__UrlFilter, callback: *const fn (self: QtC.Konsole__UrlFilter, position: i32, startLine: *i32, startColumn: *i32) callconv(.c) void ```
+    pub fn OnGetLineColumn(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, *i32, *i32) callconv(.c) void) void {
+        qtc.Konsole__UrlFilter_OnGetLineColumn(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2974,9 +2974,9 @@ pub const konsole__urlfilter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, slot: fn () callconv(.c) QtC.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
-        qtc.Konsole__UrlFilter_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__UrlFilter, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.Konsole__UrlFilter_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3007,9 +3007,9 @@ pub const konsole__urlfilter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, slot: fn () callconv(.c) i32 ```
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.Konsole__UrlFilter_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__UrlFilter, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.Konsole__UrlFilter_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3042,9 +3042,9 @@ pub const konsole__urlfilter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, slot: fn (self: QtC.Konsole__UrlFilter, signal: [*:0]const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.Konsole__UrlFilter_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__UrlFilter, callback: *const fn (self: QtC.Konsole__UrlFilter, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
+        qtc.Konsole__UrlFilter_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3075,9 +3075,9 @@ pub const konsole__urlfilter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, slot: fn (self: QtC.Konsole__UrlFilter, signal: QtC.QMetaMethod) callconv(.c) bool ```
-    pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.Konsole__UrlFilter_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__UrlFilter, callback: *const fn (self: QtC.Konsole__UrlFilter, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.Konsole__UrlFilter_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3086,9 +3086,9 @@ pub const konsole__urlfilter = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.Konsole__UrlFilter, slot: fn (self: QtC.Konsole__UrlFilter, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__UrlFilter, callback: *const fn (self: QtC.Konsole__UrlFilter, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Delete this object from C++ memory.
@@ -3128,9 +3128,9 @@ pub const konsole__filterobject = struct {
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.Konsole__FilterObject, slot: fn (self: QtC.Konsole__FilterObject, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
-        qtc.Konsole__FilterObject_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__FilterObject, callback: *const fn (self: QtC.Konsole__FilterObject, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+        qtc.Konsole__FilterObject_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -3175,9 +3175,9 @@ pub const konsole__filterobject = struct {
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
-    /// ``` self: QtC.Konsole__FilterObject, slot: fn (self: QtC.Konsole__FilterObject, url: QtC.QUrl, fromContextMenu: bool) callconv(.c) void ```
-    pub fn OnActivated(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, bool) callconv(.c) void) void {
-        qtc.Konsole__FilterObject_Connect_Activated(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__FilterObject, callback: *const fn (self: QtC.Konsole__FilterObject, url: QtC.QUrl, fromContextMenu: bool) callconv(.c) void ```
+    pub fn OnActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, bool) callconv(.c) void) void {
+        qtc.Konsole__FilterObject_Connect_Activated(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -3494,9 +3494,9 @@ pub const konsole__filterobject = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.Konsole__FilterObject, slot: fn (self: QtC.Konsole__FilterObject) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__FilterObject, callback: *const fn (self: QtC.Konsole__FilterObject) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3578,9 +3578,9 @@ pub const konsole__filterobject = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.Konsole__FilterObject, slot: fn (self: QtC.Konsole__FilterObject, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__FilterObject, callback: *const fn (self: QtC.Konsole__FilterObject, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3611,9 +3611,9 @@ pub const konsole__filterobject = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__FilterObject, slot: fn (self: QtC.Konsole__FilterObject, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.Konsole__FilterObject_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__FilterObject, callback: *const fn (self: QtC.Konsole__FilterObject, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.Konsole__FilterObject_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3644,9 +3644,9 @@ pub const konsole__filterobject = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__FilterObject, slot: fn (self: QtC.Konsole__FilterObject, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.Konsole__FilterObject_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__FilterObject, callback: *const fn (self: QtC.Konsole__FilterObject, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.Konsole__FilterObject_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3677,9 +3677,9 @@ pub const konsole__filterobject = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__FilterObject, slot: fn (self: QtC.Konsole__FilterObject, event: QtC.QTimerEvent) callconv(.c) void ```
-    pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Konsole__FilterObject_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__FilterObject, callback: *const fn (self: QtC.Konsole__FilterObject, event: QtC.QTimerEvent) callconv(.c) void ```
+    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.Konsole__FilterObject_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3710,9 +3710,9 @@ pub const konsole__filterobject = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__FilterObject, slot: fn (self: QtC.Konsole__FilterObject, event: QtC.QChildEvent) callconv(.c) void ```
-    pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Konsole__FilterObject_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__FilterObject, callback: *const fn (self: QtC.Konsole__FilterObject, event: QtC.QChildEvent) callconv(.c) void ```
+    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.Konsole__FilterObject_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3743,9 +3743,9 @@ pub const konsole__filterobject = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__FilterObject, slot: fn (self: QtC.Konsole__FilterObject, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Konsole__FilterObject_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__FilterObject, callback: *const fn (self: QtC.Konsole__FilterObject, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.Konsole__FilterObject_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3776,9 +3776,9 @@ pub const konsole__filterobject = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__FilterObject, slot: fn (self: QtC.Konsole__FilterObject, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Konsole__FilterObject_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__FilterObject, callback: *const fn (self: QtC.Konsole__FilterObject, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.Konsole__FilterObject_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3809,9 +3809,9 @@ pub const konsole__filterobject = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__FilterObject, slot: fn (self: QtC.Konsole__FilterObject, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Konsole__FilterObject_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__FilterObject, callback: *const fn (self: QtC.Konsole__FilterObject, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.Konsole__FilterObject_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3842,9 +3842,9 @@ pub const konsole__filterobject = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__FilterObject, slot: fn () callconv(.c) QtC.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
-        qtc.Konsole__FilterObject_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__FilterObject, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.Konsole__FilterObject_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3875,9 +3875,9 @@ pub const konsole__filterobject = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__FilterObject, slot: fn () callconv(.c) i32 ```
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.Konsole__FilterObject_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__FilterObject, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.Konsole__FilterObject_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3910,9 +3910,9 @@ pub const konsole__filterobject = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__FilterObject, slot: fn (self: QtC.Konsole__FilterObject, signal: [*:0]const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.Konsole__FilterObject_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__FilterObject, callback: *const fn (self: QtC.Konsole__FilterObject, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
+        qtc.Konsole__FilterObject_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3943,9 +3943,9 @@ pub const konsole__filterobject = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__FilterObject, slot: fn (self: QtC.Konsole__FilterObject, signal: QtC.QMetaMethod) callconv(.c) bool ```
-    pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.Konsole__FilterObject_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__FilterObject, callback: *const fn (self: QtC.Konsole__FilterObject, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.Konsole__FilterObject_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3954,9 +3954,9 @@ pub const konsole__filterobject = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.Konsole__FilterObject, slot: fn (self: QtC.Konsole__FilterObject, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__FilterObject, callback: *const fn (self: QtC.Konsole__FilterObject, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Delete this object from C++ memory.
@@ -4230,9 +4230,9 @@ pub const konsole__filter__hotspot = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.Konsole__Filter__HotSpot, slot: fn (self: QtC.Konsole__Filter__HotSpot, action: [*:0]const u8) callconv(.c) void ```
-    pub fn OnActivate(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.Konsole__Filter__HotSpot_OnActivate(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__Filter__HotSpot, callback: *const fn (self: QtC.Konsole__Filter__HotSpot, action: [*:0]const u8) callconv(.c) void ```
+    pub fn OnActivate(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.Konsole__Filter__HotSpot_OnActivate(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -4264,9 +4264,9 @@ pub const konsole__filter__hotspot = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.Konsole__Filter__HotSpot, slot: fn () callconv(.c) [*:null]QtC.QAction ```
-    pub fn OnActions(self: ?*anyopaque, slot: fn () callconv(.c) [*:null]QtC.QAction) void {
-        qtc.Konsole__Filter__HotSpot_OnActions(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__Filter__HotSpot, callback: *const fn () callconv(.c) [*:null]QtC.QAction ```
+    pub fn OnActions(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:null]QtC.QAction) void {
+        qtc.Konsole__Filter__HotSpot_OnActions(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -4294,9 +4294,9 @@ pub const konsole__filter__hotspot = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.Konsole__Filter__HotSpot, slot: fn (self: QtC.Konsole__Filter__HotSpot, typeVal: Filter_enums.Type) callconv(.c) void ```
-    pub fn OnSetType(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.Konsole__Filter__HotSpot_OnSetType(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__Filter__HotSpot, callback: *const fn (self: QtC.Konsole__Filter__HotSpot, typeVal: Filter_enums.Type) callconv(.c) void ```
+    pub fn OnSetType(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.Konsole__Filter__HotSpot_OnSetType(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -4347,9 +4347,9 @@ pub const konsole__regexpfilter__hotspot = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter__HotSpot, slot: fn (self: QtC.Konsole__RegExpFilter__HotSpot, action: [*:0]const u8) callconv(.c) void ```
-    pub fn OnActivate(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.Konsole__RegExpFilter__HotSpot_OnActivate(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__RegExpFilter__HotSpot, callback: *const fn (self: QtC.Konsole__RegExpFilter__HotSpot, action: [*:0]const u8) callconv(.c) void ```
+    pub fn OnActivate(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.Konsole__RegExpFilter__HotSpot_OnActivate(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -4491,9 +4491,9 @@ pub const konsole__regexpfilter__hotspot = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter__HotSpot, slot: fn () callconv(.c) [*:null]QtC.QAction ```
-    pub fn OnActions(self: ?*anyopaque, slot: fn () callconv(.c) [*:null]QtC.QAction) void {
-        qtc.Konsole__RegExpFilter__HotSpot_OnActions(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__RegExpFilter__HotSpot, callback: *const fn () callconv(.c) [*:null]QtC.QAction ```
+    pub fn OnActions(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:null]QtC.QAction) void {
+        qtc.Konsole__RegExpFilter__HotSpot_OnActions(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from Konsole::Filter::HotSpot
@@ -4524,9 +4524,9 @@ pub const konsole__regexpfilter__hotspot = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__RegExpFilter__HotSpot, slot: fn (self: QtC.Konsole__RegExpFilter__HotSpot, typeVal: Filter_enums.Type) callconv(.c) void ```
-    pub fn OnSetType(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.Konsole__RegExpFilter__HotSpot_OnSetType(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__RegExpFilter__HotSpot, callback: *const fn (self: QtC.Konsole__RegExpFilter__HotSpot, typeVal: Filter_enums.Type) callconv(.c) void ```
+    pub fn OnSetType(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.Konsole__RegExpFilter__HotSpot_OnSetType(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Delete this object from C++ memory.
@@ -4569,9 +4569,9 @@ pub const konsole__urlfilter__hotspot = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.Konsole__UrlFilter__HotSpot, slot: fn () callconv(.c) [*:null]QtC.QAction ```
-    pub fn OnActions(self: ?*anyopaque, slot: fn () callconv(.c) [*:null]QtC.QAction) void {
-        qtc.Konsole__UrlFilter__HotSpot_OnActions(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__UrlFilter__HotSpot, callback: *const fn () callconv(.c) [*:null]QtC.QAction ```
+    pub fn OnActions(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:null]QtC.QAction) void {
+        qtc.Konsole__UrlFilter__HotSpot_OnActions(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -4603,9 +4603,9 @@ pub const konsole__urlfilter__hotspot = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.Konsole__UrlFilter__HotSpot, slot: fn (self: QtC.Konsole__UrlFilter__HotSpot, action: [*:0]const u8) callconv(.c) void ```
-    pub fn OnActivate(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.Konsole__UrlFilter__HotSpot_OnActivate(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__UrlFilter__HotSpot, callback: *const fn (self: QtC.Konsole__UrlFilter__HotSpot, action: [*:0]const u8) callconv(.c) void ```
+    pub fn OnActivate(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.Konsole__UrlFilter__HotSpot_OnActivate(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -4741,9 +4741,9 @@ pub const konsole__urlfilter__hotspot = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Konsole__UrlFilter__HotSpot, slot: fn (self: QtC.Konsole__UrlFilter__HotSpot, typeVal: Filter_enums.Type) callconv(.c) void ```
-    pub fn OnSetType(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.Konsole__UrlFilter__HotSpot_OnSetType(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Konsole__UrlFilter__HotSpot, callback: *const fn (self: QtC.Konsole__UrlFilter__HotSpot, typeVal: Filter_enums.Type) callconv(.c) void ```
+    pub fn OnSetType(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.Konsole__UrlFilter__HotSpot_OnSetType(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Delete this object from C++ memory.

@@ -55,9 +55,9 @@ pub const kxmlguiwindow = struct {
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
-        qtc.KXmlGuiWindow_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+        qtc.KXmlGuiWindow_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -104,9 +104,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn () callconv(.c) QtC.KXMLGUIFactory ```
-    pub fn OnGuiFactory(self: ?*anyopaque, slot: fn () callconv(.c) QtC.KXMLGUIFactory) void {
-        qtc.KXmlGuiWindow_OnGuiFactory(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn () callconv(.c) QtC.KXMLGUIFactory ```
+    pub fn OnGuiFactory(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.KXMLGUIFactory) void {
+        qtc.KXmlGuiWindow_OnGuiFactory(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kxmlguiwindow.html#guiFactory)
@@ -214,9 +214,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, config: QtC.KConfigGroup) callconv(.c) void ```
-    pub fn OnApplyMainWindowSettings(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXmlGuiWindow_OnApplyMainWindowSettings(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, config: QtC.KConfigGroup) callconv(.c) void ```
+    pub fn OnApplyMainWindowSettings(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KXmlGuiWindow_OnApplyMainWindowSettings(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kxmlguiwindow.html#applyMainWindowSettings)
@@ -253,9 +253,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn () callconv(.c) void ```
-    pub fn OnConfigureToolbars(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KXmlGuiWindow_OnConfigureToolbars(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn () callconv(.c) void ```
+    pub fn OnConfigureToolbars(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KXmlGuiWindow_OnConfigureToolbars(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kxmlguiwindow.html#configureToolbars)
@@ -282,9 +282,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, newstate: [*:0]const u8) callconv(.c) void ```
-    pub fn OnSlotStateChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KXmlGuiWindow_OnSlotStateChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, newstate: [*:0]const u8) callconv(.c) void ```
+    pub fn OnSlotStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.KXmlGuiWindow_OnSlotStateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kxmlguiwindow.html#slotStateChanged)
@@ -344,9 +344,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KXmlGuiWindow_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KXmlGuiWindow_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kxmlguiwindow.html#event)
@@ -369,9 +369,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn () callconv(.c) void ```
-    pub fn OnCheckAmbiguousShortcuts(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KXmlGuiWindow_OnCheckAmbiguousShortcuts(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn () callconv(.c) void ```
+    pub fn OnCheckAmbiguousShortcuts(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KXmlGuiWindow_OnCheckAmbiguousShortcuts(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kxmlguiwindow.html#checkAmbiguousShortcuts)
@@ -394,9 +394,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn () callconv(.c) void ```
-    pub fn OnSaveNewToolbarConfig(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KXmlGuiWindow_OnSaveNewToolbarConfig(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn () callconv(.c) void ```
+    pub fn OnSaveNewToolbarConfig(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KXmlGuiWindow_OnSaveNewToolbarConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kxmlguiwindow.html#saveNewToolbarConfig)
@@ -686,9 +686,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, caption: [*:0]const u8, modified: bool) callconv(.c) void ```
-    pub fn OnSetCaption2(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, bool) callconv(.c) void) void {
-        qtc.KMainWindow_OnSetCaption2(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, caption: [*:0]const u8, modified: bool) callconv(.c) void ```
+    pub fn OnSetCaption2(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, bool) callconv(.c) void) void {
+        qtc.KMainWindow_OnSetCaption2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KMainWindow
@@ -1292,9 +1292,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qmainwindow.html#iconSizeChanged)
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, iconSize: QtC.QSize) callconv(.c) void ```
-    pub fn OnIconSizeChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QMainWindow_Connect_IconSizeChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, iconSize: QtC.QSize) callconv(.c) void ```
+    pub fn OnIconSizeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QMainWindow_Connect_IconSizeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QMainWindow
@@ -1310,9 +1310,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qmainwindow.html#toolButtonStyleChanged)
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, toolButtonStyle: qnamespace_enums.ToolButtonStyle) callconv(.c) void ```
-    pub fn OnToolButtonStyleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QMainWindow_Connect_ToolButtonStyleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, toolButtonStyle: qnamespace_enums.ToolButtonStyle) callconv(.c) void ```
+    pub fn OnToolButtonStyleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QMainWindow_Connect_ToolButtonStyleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QMainWindow
@@ -1328,9 +1328,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qmainwindow.html#tabifiedDockWidgetActivated)
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, dockWidget: QtC.QDockWidget) callconv(.c) void ```
-    pub fn OnTabifiedDockWidgetActivated(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QMainWindow_Connect_TabifiedDockWidgetActivated(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, dockWidget: QtC.QDockWidget) callconv(.c) void ```
+    pub fn OnTabifiedDockWidgetActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QMainWindow_Connect_TabifiedDockWidgetActivated(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QMainWindow
@@ -3743,9 +3743,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, title: [*:0]const u8) callconv(.c) void ```
-    pub fn OnWindowTitleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, title: [*:0]const u8) callconv(.c) void ```
+    pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -3761,9 +3761,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, icon: QtC.QIcon) callconv(.c) void ```
-    pub fn OnWindowIconChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, icon: QtC.QIcon) callconv(.c) void ```
+    pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -3783,9 +3783,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, iconText: [*:0]const u8) callconv(.c) void ```
-    pub fn OnWindowIconTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, iconText: [*:0]const u8) callconv(.c) void ```
+    pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -3801,9 +3801,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, pos: QtC.QPoint) callconv(.c) void ```
-    pub fn OnCustomContextMenuRequested(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, pos: QtC.QPoint) callconv(.c) void ```
+    pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4240,9 +4240,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4324,9 +4324,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -4810,9 +4810,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, caption: [*:0]const u8) callconv(.c) void ```
-    pub fn OnSetCaption(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KXmlGuiWindow_OnSetCaption(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, caption: [*:0]const u8) callconv(.c) void ```
+    pub fn OnSetCaption(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.KXmlGuiWindow_OnSetCaption(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KMainWindow
@@ -4851,9 +4851,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, caption: [*:0]const u8) callconv(.c) void ```
-    pub fn OnSetPlainCaption(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KXmlGuiWindow_OnSetPlainCaption(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, caption: [*:0]const u8) callconv(.c) void ```
+    pub fn OnSetPlainCaption(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.KXmlGuiWindow_OnSetPlainCaption(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KMainWindow
@@ -4884,9 +4884,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, keyEvent: QtC.QKeyEvent) callconv(.c) void ```
-    pub fn OnKeyPressEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXmlGuiWindow_OnKeyPressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, keyEvent: QtC.QKeyEvent) callconv(.c) void ```
+    pub fn OnKeyPressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KXmlGuiWindow_OnKeyPressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KMainWindow
@@ -4917,9 +4917,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, param1: QtC.QCloseEvent) callconv(.c) void ```
-    pub fn OnCloseEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXmlGuiWindow_OnCloseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, param1: QtC.QCloseEvent) callconv(.c) void ```
+    pub fn OnCloseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KXmlGuiWindow_OnCloseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KMainWindow
@@ -4950,9 +4950,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn () callconv(.c) bool ```
-    pub fn OnQueryClose(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.KXmlGuiWindow_OnQueryClose(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn () callconv(.c) bool ```
+    pub fn OnQueryClose(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.KXmlGuiWindow_OnQueryClose(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KMainWindow
@@ -4983,9 +4983,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, param1: QtC.KConfigGroup) callconv(.c) void ```
-    pub fn OnSaveProperties(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXmlGuiWindow_OnSaveProperties(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, param1: QtC.KConfigGroup) callconv(.c) void ```
+    pub fn OnSaveProperties(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KXmlGuiWindow_OnSaveProperties(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KMainWindow
@@ -5016,9 +5016,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, param1: QtC.KConfigGroup) callconv(.c) void ```
-    pub fn OnReadProperties(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXmlGuiWindow_OnReadProperties(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, param1: QtC.KConfigGroup) callconv(.c) void ```
+    pub fn OnReadProperties(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KXmlGuiWindow_OnReadProperties(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KMainWindow
@@ -5049,9 +5049,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, sessionConfig: QtC.KConfig) callconv(.c) void ```
-    pub fn OnSaveGlobalProperties(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXmlGuiWindow_OnSaveGlobalProperties(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, sessionConfig: QtC.KConfig) callconv(.c) void ```
+    pub fn OnSaveGlobalProperties(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KXmlGuiWindow_OnSaveGlobalProperties(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KMainWindow
@@ -5082,9 +5082,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, sessionConfig: QtC.KConfig) callconv(.c) void ```
-    pub fn OnReadGlobalProperties(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXmlGuiWindow_OnReadGlobalProperties(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, sessionConfig: QtC.KConfig) callconv(.c) void ```
+    pub fn OnReadGlobalProperties(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KXmlGuiWindow_OnReadGlobalProperties(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QMainWindow
@@ -5115,9 +5115,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn () callconv(.c) QtC.QMenu ```
-    pub fn OnCreatePopupMenu(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QMenu) void {
-        qtc.KXmlGuiWindow_OnCreatePopupMenu(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn () callconv(.c) QtC.QMenu ```
+    pub fn OnCreatePopupMenu(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMenu) void {
+        qtc.KXmlGuiWindow_OnCreatePopupMenu(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QMainWindow
@@ -5148,9 +5148,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, event: QtC.QContextMenuEvent) callconv(.c) void ```
-    pub fn OnContextMenuEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXmlGuiWindow_OnContextMenuEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, event: QtC.QContextMenuEvent) callconv(.c) void ```
+    pub fn OnContextMenuEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KXmlGuiWindow_OnContextMenuEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5181,9 +5181,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn () callconv(.c) i32 ```
-    pub fn OnDevType(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.KXmlGuiWindow_OnDevType(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnDevType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.KXmlGuiWindow_OnDevType(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5214,9 +5214,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, visible: bool) callconv(.c) void ```
-    pub fn OnSetVisible(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.KXmlGuiWindow_OnSetVisible(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, visible: bool) callconv(.c) void ```
+    pub fn OnSetVisible(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.KXmlGuiWindow_OnSetVisible(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5247,9 +5247,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn () callconv(.c) QtC.QSize ```
-    pub fn OnSizeHint(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QSize) void {
-        qtc.KXmlGuiWindow_OnSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn () callconv(.c) QtC.QSize ```
+    pub fn OnSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
+        qtc.KXmlGuiWindow_OnSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5280,9 +5280,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn () callconv(.c) QtC.QSize ```
-    pub fn OnMinimumSizeHint(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QSize) void {
-        qtc.KXmlGuiWindow_OnMinimumSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn () callconv(.c) QtC.QSize ```
+    pub fn OnMinimumSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
+        qtc.KXmlGuiWindow_OnMinimumSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5313,9 +5313,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, param1: i32) callconv(.c) i32 ```
-    pub fn OnHeightForWidth(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.KXmlGuiWindow_OnHeightForWidth(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, param1: i32) callconv(.c) i32 ```
+    pub fn OnHeightForWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
+        qtc.KXmlGuiWindow_OnHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5346,9 +5346,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn () callconv(.c) bool ```
-    pub fn OnHasHeightForWidth(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.KXmlGuiWindow_OnHasHeightForWidth(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn () callconv(.c) bool ```
+    pub fn OnHasHeightForWidth(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.KXmlGuiWindow_OnHasHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5379,9 +5379,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn () callconv(.c) QtC.QPaintEngine ```
-    pub fn OnPaintEngine(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QPaintEngine) void {
-        qtc.KXmlGuiWindow_OnPaintEngine(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn () callconv(.c) QtC.QPaintEngine ```
+    pub fn OnPaintEngine(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPaintEngine) void {
+        qtc.KXmlGuiWindow_OnPaintEngine(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5412,9 +5412,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, event: QtC.QMouseEvent) callconv(.c) void ```
-    pub fn OnMousePressEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXmlGuiWindow_OnMousePressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, event: QtC.QMouseEvent) callconv(.c) void ```
+    pub fn OnMousePressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KXmlGuiWindow_OnMousePressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5445,9 +5445,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, event: QtC.QMouseEvent) callconv(.c) void ```
-    pub fn OnMouseReleaseEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXmlGuiWindow_OnMouseReleaseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, event: QtC.QMouseEvent) callconv(.c) void ```
+    pub fn OnMouseReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KXmlGuiWindow_OnMouseReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5478,9 +5478,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, event: QtC.QMouseEvent) callconv(.c) void ```
-    pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXmlGuiWindow_OnMouseDoubleClickEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, event: QtC.QMouseEvent) callconv(.c) void ```
+    pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KXmlGuiWindow_OnMouseDoubleClickEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5511,9 +5511,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, event: QtC.QMouseEvent) callconv(.c) void ```
-    pub fn OnMouseMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXmlGuiWindow_OnMouseMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, event: QtC.QMouseEvent) callconv(.c) void ```
+    pub fn OnMouseMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KXmlGuiWindow_OnMouseMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5544,9 +5544,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, event: QtC.QWheelEvent) callconv(.c) void ```
-    pub fn OnWheelEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXmlGuiWindow_OnWheelEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, event: QtC.QWheelEvent) callconv(.c) void ```
+    pub fn OnWheelEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KXmlGuiWindow_OnWheelEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5577,9 +5577,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, event: QtC.QKeyEvent) callconv(.c) void ```
-    pub fn OnKeyReleaseEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXmlGuiWindow_OnKeyReleaseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, event: QtC.QKeyEvent) callconv(.c) void ```
+    pub fn OnKeyReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KXmlGuiWindow_OnKeyReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5610,9 +5610,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, event: QtC.QFocusEvent) callconv(.c) void ```
-    pub fn OnFocusInEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXmlGuiWindow_OnFocusInEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, event: QtC.QFocusEvent) callconv(.c) void ```
+    pub fn OnFocusInEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KXmlGuiWindow_OnFocusInEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5643,9 +5643,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, event: QtC.QFocusEvent) callconv(.c) void ```
-    pub fn OnFocusOutEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXmlGuiWindow_OnFocusOutEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, event: QtC.QFocusEvent) callconv(.c) void ```
+    pub fn OnFocusOutEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KXmlGuiWindow_OnFocusOutEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5676,9 +5676,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, event: QtC.QEnterEvent) callconv(.c) void ```
-    pub fn OnEnterEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXmlGuiWindow_OnEnterEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, event: QtC.QEnterEvent) callconv(.c) void ```
+    pub fn OnEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KXmlGuiWindow_OnEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5709,9 +5709,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnLeaveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXmlGuiWindow_OnLeaveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KXmlGuiWindow_OnLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5742,9 +5742,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, event: QtC.QPaintEvent) callconv(.c) void ```
-    pub fn OnPaintEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXmlGuiWindow_OnPaintEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, event: QtC.QPaintEvent) callconv(.c) void ```
+    pub fn OnPaintEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KXmlGuiWindow_OnPaintEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5775,9 +5775,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, event: QtC.QMoveEvent) callconv(.c) void ```
-    pub fn OnMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXmlGuiWindow_OnMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, event: QtC.QMoveEvent) callconv(.c) void ```
+    pub fn OnMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KXmlGuiWindow_OnMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5808,9 +5808,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, event: QtC.QResizeEvent) callconv(.c) void ```
-    pub fn OnResizeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXmlGuiWindow_OnResizeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, event: QtC.QResizeEvent) callconv(.c) void ```
+    pub fn OnResizeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KXmlGuiWindow_OnResizeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5841,9 +5841,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, event: QtC.QTabletEvent) callconv(.c) void ```
-    pub fn OnTabletEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXmlGuiWindow_OnTabletEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, event: QtC.QTabletEvent) callconv(.c) void ```
+    pub fn OnTabletEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KXmlGuiWindow_OnTabletEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5874,9 +5874,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, event: QtC.QActionEvent) callconv(.c) void ```
-    pub fn OnActionEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXmlGuiWindow_OnActionEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, event: QtC.QActionEvent) callconv(.c) void ```
+    pub fn OnActionEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KXmlGuiWindow_OnActionEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5907,9 +5907,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, event: QtC.QDragEnterEvent) callconv(.c) void ```
-    pub fn OnDragEnterEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXmlGuiWindow_OnDragEnterEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, event: QtC.QDragEnterEvent) callconv(.c) void ```
+    pub fn OnDragEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KXmlGuiWindow_OnDragEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5940,9 +5940,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, event: QtC.QDragMoveEvent) callconv(.c) void ```
-    pub fn OnDragMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXmlGuiWindow_OnDragMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, event: QtC.QDragMoveEvent) callconv(.c) void ```
+    pub fn OnDragMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KXmlGuiWindow_OnDragMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5973,9 +5973,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, event: QtC.QDragLeaveEvent) callconv(.c) void ```
-    pub fn OnDragLeaveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXmlGuiWindow_OnDragLeaveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, event: QtC.QDragLeaveEvent) callconv(.c) void ```
+    pub fn OnDragLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KXmlGuiWindow_OnDragLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6006,9 +6006,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, event: QtC.QDropEvent) callconv(.c) void ```
-    pub fn OnDropEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXmlGuiWindow_OnDropEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, event: QtC.QDropEvent) callconv(.c) void ```
+    pub fn OnDropEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KXmlGuiWindow_OnDropEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6039,9 +6039,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, event: QtC.QShowEvent) callconv(.c) void ```
-    pub fn OnShowEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXmlGuiWindow_OnShowEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, event: QtC.QShowEvent) callconv(.c) void ```
+    pub fn OnShowEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KXmlGuiWindow_OnShowEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6072,9 +6072,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, event: QtC.QHideEvent) callconv(.c) void ```
-    pub fn OnHideEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXmlGuiWindow_OnHideEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, event: QtC.QHideEvent) callconv(.c) void ```
+    pub fn OnHideEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KXmlGuiWindow_OnHideEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6113,9 +6113,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, eventType: [*:0]u8, message: ?*anyopaque, result: *isize) callconv(.c) bool ```
-    pub fn OnNativeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]u8, ?*anyopaque, *isize) callconv(.c) bool) void {
-        qtc.KXmlGuiWindow_OnNativeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, eventType: [*:0]u8, message: ?*anyopaque, result: *isize) callconv(.c) bool ```
+    pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]u8, ?*anyopaque, *isize) callconv(.c) bool) void {
+        qtc.KXmlGuiWindow_OnNativeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6146,9 +6146,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, param1: QtC.QEvent) callconv(.c) void ```
-    pub fn OnChangeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXmlGuiWindow_OnChangeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, param1: QtC.QEvent) callconv(.c) void ```
+    pub fn OnChangeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KXmlGuiWindow_OnChangeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6179,9 +6179,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 ```
-    pub fn OnMetric(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.KXmlGuiWindow_OnMetric(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 ```
+    pub fn OnMetric(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
+        qtc.KXmlGuiWindow_OnMetric(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6212,9 +6212,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, painter: QtC.QPainter) callconv(.c) void ```
-    pub fn OnInitPainter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXmlGuiWindow_OnInitPainter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, painter: QtC.QPainter) callconv(.c) void ```
+    pub fn OnInitPainter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KXmlGuiWindow_OnInitPainter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6245,9 +6245,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, offset: QtC.QPoint) callconv(.c) QtC.QPaintDevice ```
-    pub fn OnRedirected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPaintDevice) void {
-        qtc.KXmlGuiWindow_OnRedirected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, offset: QtC.QPoint) callconv(.c) QtC.QPaintDevice ```
+    pub fn OnRedirected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPaintDevice) void {
+        qtc.KXmlGuiWindow_OnRedirected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6278,9 +6278,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn () callconv(.c) QtC.QPainter ```
-    pub fn OnSharedPainter(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QPainter) void {
-        qtc.KXmlGuiWindow_OnSharedPainter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn () callconv(.c) QtC.QPainter ```
+    pub fn OnSharedPainter(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainter) void {
+        qtc.KXmlGuiWindow_OnSharedPainter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6311,9 +6311,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, param1: QtC.QInputMethodEvent) callconv(.c) void ```
-    pub fn OnInputMethodEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXmlGuiWindow_OnInputMethodEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, param1: QtC.QInputMethodEvent) callconv(.c) void ```
+    pub fn OnInputMethodEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KXmlGuiWindow_OnInputMethodEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6344,9 +6344,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant ```
-    pub fn OnInputMethodQuery(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) QtC.QVariant) void {
-        qtc.KXmlGuiWindow_OnInputMethodQuery(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant ```
+    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) QtC.QVariant) void {
+        qtc.KXmlGuiWindow_OnInputMethodQuery(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6377,9 +6377,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, next: bool) callconv(.c) bool ```
-    pub fn OnFocusNextPrevChild(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) bool) void {
-        qtc.KXmlGuiWindow_OnFocusNextPrevChild(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, next: bool) callconv(.c) bool ```
+    pub fn OnFocusNextPrevChild(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) bool) void {
+        qtc.KXmlGuiWindow_OnFocusNextPrevChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6410,9 +6410,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KXmlGuiWindow_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KXmlGuiWindow_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6443,9 +6443,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, event: QtC.QTimerEvent) callconv(.c) void ```
-    pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXmlGuiWindow_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, event: QtC.QTimerEvent) callconv(.c) void ```
+    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KXmlGuiWindow_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6476,9 +6476,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, event: QtC.QChildEvent) callconv(.c) void ```
-    pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXmlGuiWindow_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, event: QtC.QChildEvent) callconv(.c) void ```
+    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KXmlGuiWindow_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6509,9 +6509,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXmlGuiWindow_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KXmlGuiWindow_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6542,9 +6542,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXmlGuiWindow_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KXmlGuiWindow_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6575,9 +6575,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXmlGuiWindow_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KXmlGuiWindow_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIBuilder
@@ -6638,9 +6638,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn () callconv(.c) [*][*:0]const u8 ```
-    pub fn OnContainerTags(self: ?*anyopaque, slot: fn () callconv(.c) [*][*:0]const u8) void {
-        qtc.KXmlGuiWindow_OnContainerTags(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn () callconv(.c) [*][*:0]const u8 ```
+    pub fn OnContainerTags(self: ?*anyopaque, callback: *const fn () callconv(.c) [*][*:0]const u8) void {
+        qtc.KXmlGuiWindow_OnContainerTags(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIBuilder
@@ -6671,9 +6671,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, parent: QtC.QWidget, index: i32, element: QtC.QDomElement, containerAction: QtC.QAction) callconv(.c) QtC.QWidget ```
-    pub fn OnCreateContainer(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, ?*anyopaque, ?**anyopaque) callconv(.c) QtC.QWidget) void {
-        qtc.KXmlGuiWindow_OnCreateContainer(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, parent: QtC.QWidget, index: i32, element: QtC.QDomElement, containerAction: QtC.QAction) callconv(.c) QtC.QWidget ```
+    pub fn OnCreateContainer(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, ?*anyopaque, ?**anyopaque) callconv(.c) QtC.QWidget) void {
+        qtc.KXmlGuiWindow_OnCreateContainer(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIBuilder
@@ -6704,9 +6704,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, container: QtC.QWidget, parent: QtC.QWidget, element: QtC.QDomElement, containerAction: QtC.QAction) callconv(.c) void ```
-    pub fn OnRemoveContainer(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXmlGuiWindow_OnRemoveContainer(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, container: QtC.QWidget, parent: QtC.QWidget, element: QtC.QDomElement, containerAction: QtC.QAction) callconv(.c) void ```
+    pub fn OnRemoveContainer(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KXmlGuiWindow_OnRemoveContainer(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIBuilder
@@ -6767,9 +6767,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn () callconv(.c) [*][*:0]const u8 ```
-    pub fn OnCustomTags(self: ?*anyopaque, slot: fn () callconv(.c) [*][*:0]const u8) void {
-        qtc.KXmlGuiWindow_OnCustomTags(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn () callconv(.c) [*][*:0]const u8 ```
+    pub fn OnCustomTags(self: ?*anyopaque, callback: *const fn () callconv(.c) [*][*:0]const u8) void {
+        qtc.KXmlGuiWindow_OnCustomTags(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIBuilder
@@ -6800,9 +6800,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, parent: QtC.QWidget, index: i32, element: QtC.QDomElement) callconv(.c) QtC.QAction ```
-    pub fn OnCreateCustomElement(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QAction) void {
-        qtc.KXmlGuiWindow_OnCreateCustomElement(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, parent: QtC.QWidget, index: i32, element: QtC.QDomElement) callconv(.c) QtC.QAction ```
+    pub fn OnCreateCustomElement(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, ?*anyopaque) callconv(.c) QtC.QAction) void {
+        qtc.KXmlGuiWindow_OnCreateCustomElement(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIClient
@@ -6833,9 +6833,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, element: QtC.QDomElement) callconv(.c) QtC.QAction ```
-    pub fn OnAction2(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QAction) void {
-        qtc.KXmlGuiWindow_OnAction2(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, element: QtC.QDomElement) callconv(.c) QtC.QAction ```
+    pub fn OnAction2(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QAction) void {
+        qtc.KXmlGuiWindow_OnAction2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIClient
@@ -6866,9 +6866,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn () callconv(.c) QtC.KActionCollection ```
-    pub fn OnActionCollection(self: ?*anyopaque, slot: fn () callconv(.c) QtC.KActionCollection) void {
-        qtc.KXmlGuiWindow_OnActionCollection(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn () callconv(.c) QtC.KActionCollection ```
+    pub fn OnActionCollection(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.KActionCollection) void {
+        qtc.KXmlGuiWindow_OnActionCollection(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIClient
@@ -6907,9 +6907,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn () callconv(.c) [*:0]const u8 ```
-    pub fn OnComponentName(self: ?*anyopaque, slot: fn () callconv(.c) [*:0]const u8) void {
-        qtc.KXmlGuiWindow_OnComponentName(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn () callconv(.c) [*:0]const u8 ```
+    pub fn OnComponentName(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
+        qtc.KXmlGuiWindow_OnComponentName(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIClient
@@ -6940,9 +6940,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn () callconv(.c) QtC.QDomDocument ```
-    pub fn OnDomDocument(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QDomDocument) void {
-        qtc.KXmlGuiWindow_OnDomDocument(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn () callconv(.c) QtC.QDomDocument ```
+    pub fn OnDomDocument(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QDomDocument) void {
+        qtc.KXmlGuiWindow_OnDomDocument(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIClient
@@ -6981,9 +6981,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn () callconv(.c) [*:0]const u8 ```
-    pub fn OnXmlFile(self: ?*anyopaque, slot: fn () callconv(.c) [*:0]const u8) void {
-        qtc.KXmlGuiWindow_OnXmlFile(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn () callconv(.c) [*:0]const u8 ```
+    pub fn OnXmlFile(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
+        qtc.KXmlGuiWindow_OnXmlFile(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIClient
@@ -7022,9 +7022,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn () callconv(.c) [*:0]const u8 ```
-    pub fn OnLocalXMLFile(self: ?*anyopaque, slot: fn () callconv(.c) [*:0]const u8) void {
-        qtc.KXmlGuiWindow_OnLocalXMLFile(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn () callconv(.c) [*:0]const u8 ```
+    pub fn OnLocalXMLFile(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
+        qtc.KXmlGuiWindow_OnLocalXMLFile(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIClient
@@ -7071,9 +7071,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, componentName: [*:0]const u8, componentDisplayName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnSetComponentName(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
-        qtc.KXmlGuiWindow_OnSetComponentName(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, componentName: [*:0]const u8, componentDisplayName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnSetComponentName(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
+        qtc.KXmlGuiWindow_OnSetComponentName(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIClient
@@ -7112,9 +7112,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, file: [*:0]const u8, merge: bool, setXMLDoc: bool) callconv(.c) void ```
-    pub fn OnSetXMLFile(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, bool, bool) callconv(.c) void) void {
-        qtc.KXmlGuiWindow_OnSetXMLFile(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, file: [*:0]const u8, merge: bool, setXMLDoc: bool) callconv(.c) void ```
+    pub fn OnSetXMLFile(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, bool, bool) callconv(.c) void) void {
+        qtc.KXmlGuiWindow_OnSetXMLFile(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIClient
@@ -7153,9 +7153,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, file: [*:0]const u8) callconv(.c) void ```
-    pub fn OnSetLocalXMLFile(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KXmlGuiWindow_OnSetLocalXMLFile(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, file: [*:0]const u8) callconv(.c) void ```
+    pub fn OnSetLocalXMLFile(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.KXmlGuiWindow_OnSetLocalXMLFile(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIClient
@@ -7194,9 +7194,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, document: [*:0]const u8, merge: bool) callconv(.c) void ```
-    pub fn OnSetXML(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, bool) callconv(.c) void) void {
-        qtc.KXmlGuiWindow_OnSetXML(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, document: [*:0]const u8, merge: bool) callconv(.c) void ```
+    pub fn OnSetXML(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, bool) callconv(.c) void) void {
+        qtc.KXmlGuiWindow_OnSetXML(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIClient
@@ -7227,9 +7227,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, document: QtC.QDomDocument, merge: bool) callconv(.c) void ```
-    pub fn OnSetDOMDocument(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, bool) callconv(.c) void) void {
-        qtc.KXmlGuiWindow_OnSetDOMDocument(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, document: QtC.QDomDocument, merge: bool) callconv(.c) void ```
+    pub fn OnSetDOMDocument(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, bool) callconv(.c) void) void {
+        qtc.KXmlGuiWindow_OnSetDOMDocument(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIClient
@@ -7268,9 +7268,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, newstate: [*:0]const u8, reverse: kxmlguiclient_enums.ReverseStateChange) callconv(.c) void ```
-    pub fn OnStateChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, i32) callconv(.c) void) void {
-        qtc.KXmlGuiWindow_OnStateChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, newstate: [*:0]const u8, reverse: kxmlguiclient_enums.ReverseStateChange) callconv(.c) void ```
+    pub fn OnStateChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32) callconv(.c) void) void {
+        qtc.KXmlGuiWindow_OnStateChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KMainWindow
@@ -7301,9 +7301,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, param1: QtC.KConfig, param2: i32) callconv(.c) void ```
-    pub fn OnSavePropertiesInternal(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KXmlGuiWindow_OnSavePropertiesInternal(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, param1: QtC.KConfig, param2: i32) callconv(.c) void ```
+    pub fn OnSavePropertiesInternal(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
+        qtc.KXmlGuiWindow_OnSavePropertiesInternal(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KMainWindow
@@ -7334,9 +7334,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, param1: QtC.KConfig, param2: i32) callconv(.c) bool ```
-    pub fn OnReadPropertiesInternal(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.KXmlGuiWindow_OnReadPropertiesInternal(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, param1: QtC.KConfig, param2: i32) callconv(.c) bool ```
+    pub fn OnReadPropertiesInternal(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
+        qtc.KXmlGuiWindow_OnReadPropertiesInternal(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KMainWindow
@@ -7367,9 +7367,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn () callconv(.c) bool ```
-    pub fn OnSettingsDirty(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.KXmlGuiWindow_OnSettingsDirty(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn () callconv(.c) bool ```
+    pub fn OnSettingsDirty(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.KXmlGuiWindow_OnSettingsDirty(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KMainWindow
@@ -7400,9 +7400,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn () callconv(.c) void ```
-    pub fn OnSaveAutoSaveSettings(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KXmlGuiWindow_OnSaveAutoSaveSettings(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn () callconv(.c) void ```
+    pub fn OnSaveAutoSaveSettings(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KXmlGuiWindow_OnSaveAutoSaveSettings(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7433,9 +7433,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn () callconv(.c) void ```
-    pub fn OnUpdateMicroFocus(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KXmlGuiWindow_OnUpdateMicroFocus(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn () callconv(.c) void ```
+    pub fn OnUpdateMicroFocus(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KXmlGuiWindow_OnUpdateMicroFocus(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7466,9 +7466,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn () callconv(.c) void ```
-    pub fn OnCreate(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KXmlGuiWindow_OnCreate(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn () callconv(.c) void ```
+    pub fn OnCreate(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KXmlGuiWindow_OnCreate(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7499,9 +7499,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn () callconv(.c) void ```
-    pub fn OnDestroy(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KXmlGuiWindow_OnDestroy(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn () callconv(.c) void ```
+    pub fn OnDestroy(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KXmlGuiWindow_OnDestroy(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7532,9 +7532,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn () callconv(.c) bool ```
-    pub fn OnFocusNextChild(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.KXmlGuiWindow_OnFocusNextChild(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn () callconv(.c) bool ```
+    pub fn OnFocusNextChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.KXmlGuiWindow_OnFocusNextChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -7565,9 +7565,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn () callconv(.c) bool ```
-    pub fn OnFocusPreviousChild(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.KXmlGuiWindow_OnFocusPreviousChild(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn () callconv(.c) bool ```
+    pub fn OnFocusPreviousChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.KXmlGuiWindow_OnFocusPreviousChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7598,9 +7598,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn () callconv(.c) QtC.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
-        qtc.KXmlGuiWindow_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.KXmlGuiWindow_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7631,9 +7631,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn () callconv(.c) i32 ```
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.KXmlGuiWindow_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.KXmlGuiWindow_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7666,9 +7666,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, signal: [*:0]const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KXmlGuiWindow_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
+        qtc.KXmlGuiWindow_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7699,9 +7699,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, signal: QtC.QMetaMethod) callconv(.c) bool ```
-    pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KXmlGuiWindow_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KXmlGuiWindow_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -7732,9 +7732,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 ```
-    pub fn OnGetDecodedMetricF(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
-        qtc.KXmlGuiWindow_OnGetDecodedMetricF(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 ```
+    pub fn OnGetDecodedMetricF(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
+        qtc.KXmlGuiWindow_OnGetDecodedMetricF(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIClient
@@ -7773,9 +7773,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn () callconv(.c) [*:0]const u8 ```
-    pub fn OnStandardsXmlFileLocation(self: ?*anyopaque, slot: fn () callconv(.c) [*:0]const u8) void {
-        qtc.KXmlGuiWindow_OnStandardsXmlFileLocation(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn () callconv(.c) [*:0]const u8 ```
+    pub fn OnStandardsXmlFileLocation(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
+        qtc.KXmlGuiWindow_OnStandardsXmlFileLocation(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KXMLGUIClient
@@ -7806,9 +7806,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn () callconv(.c) void ```
-    pub fn OnLoadStandardsXmlFile(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KXmlGuiWindow_OnLoadStandardsXmlFile(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn () callconv(.c) void ```
+    pub fn OnLoadStandardsXmlFile(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KXmlGuiWindow_OnLoadStandardsXmlFile(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -7817,9 +7817,9 @@ pub const kxmlguiwindow = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KXmlGuiWindow, slot: fn (self: QtC.KXmlGuiWindow, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KXmlGuiWindow, callback: *const fn (self: QtC.KXmlGuiWindow, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kxmlguiwindow.html#dtor.KXmlGuiWindow)

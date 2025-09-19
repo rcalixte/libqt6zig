@@ -10,7 +10,7 @@
 #include "../qtlibc.h"
 
 // This class is a subclass of QDBusVirtualObject so that we can call protected methods
-class VirtualQDBusVirtualObject final : public QDBusVirtualObject {
+class VirtualQDBusVirtualObject : public QDBusVirtualObject {
 
   public:
     // Virtual class boolean flag

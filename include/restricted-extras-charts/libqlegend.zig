@@ -274,9 +274,9 @@ pub const qlegend = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlegend-qtcharts.html#backgroundVisibleChanged)
     ///
-    /// ``` self: QtC.QLegend, slot: fn (self: QtC.QLegend, visible: bool) callconv(.c) void ```
-    pub fn OnBackgroundVisibleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QLegend_Connect_BackgroundVisibleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QLegend, callback: *const fn (self: QtC.QLegend, visible: bool) callconv(.c) void ```
+    pub fn OnBackgroundVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QLegend_Connect_BackgroundVisibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlegend-qtcharts.html#colorChanged)
@@ -288,9 +288,9 @@ pub const qlegend = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlegend-qtcharts.html#colorChanged)
     ///
-    /// ``` self: QtC.QLegend, slot: fn (self: QtC.QLegend, color: QtC.QColor) callconv(.c) void ```
-    pub fn OnColorChanged(self: ?*anyopaque, slot: fn (?*anyopaque, QtC.QColor) callconv(.c) void) void {
-        qtc.QLegend_Connect_ColorChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QLegend, callback: *const fn (self: QtC.QLegend, color: QtC.QColor) callconv(.c) void ```
+    pub fn OnColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QColor) callconv(.c) void) void {
+        qtc.QLegend_Connect_ColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlegend-qtcharts.html#borderColorChanged)
@@ -302,9 +302,9 @@ pub const qlegend = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlegend-qtcharts.html#borderColorChanged)
     ///
-    /// ``` self: QtC.QLegend, slot: fn (self: QtC.QLegend, color: QtC.QColor) callconv(.c) void ```
-    pub fn OnBorderColorChanged(self: ?*anyopaque, slot: fn (?*anyopaque, QtC.QColor) callconv(.c) void) void {
-        qtc.QLegend_Connect_BorderColorChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QLegend, callback: *const fn (self: QtC.QLegend, color: QtC.QColor) callconv(.c) void ```
+    pub fn OnBorderColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QColor) callconv(.c) void) void {
+        qtc.QLegend_Connect_BorderColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlegend-qtcharts.html#fontChanged)
@@ -316,9 +316,9 @@ pub const qlegend = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlegend-qtcharts.html#fontChanged)
     ///
-    /// ``` self: QtC.QLegend, slot: fn (self: QtC.QLegend, font: QtC.QFont) callconv(.c) void ```
-    pub fn OnFontChanged(self: ?*anyopaque, slot: fn (?*anyopaque, QtC.QFont) callconv(.c) void) void {
-        qtc.QLegend_Connect_FontChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QLegend, callback: *const fn (self: QtC.QLegend, font: QtC.QFont) callconv(.c) void ```
+    pub fn OnFontChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QFont) callconv(.c) void) void {
+        qtc.QLegend_Connect_FontChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlegend-qtcharts.html#labelColorChanged)
@@ -330,9 +330,9 @@ pub const qlegend = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlegend-qtcharts.html#labelColorChanged)
     ///
-    /// ``` self: QtC.QLegend, slot: fn (self: QtC.QLegend, color: QtC.QColor) callconv(.c) void ```
-    pub fn OnLabelColorChanged(self: ?*anyopaque, slot: fn (?*anyopaque, QtC.QColor) callconv(.c) void) void {
-        qtc.QLegend_Connect_LabelColorChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QLegend, callback: *const fn (self: QtC.QLegend, color: QtC.QColor) callconv(.c) void ```
+    pub fn OnLabelColorChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QColor) callconv(.c) void) void {
+        qtc.QLegend_Connect_LabelColorChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlegend-qtcharts.html#reverseMarkersChanged)
@@ -344,9 +344,9 @@ pub const qlegend = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlegend-qtcharts.html#reverseMarkersChanged)
     ///
-    /// ``` self: QtC.QLegend, slot: fn (self: QtC.QLegend, reverseMarkers: bool) callconv(.c) void ```
-    pub fn OnReverseMarkersChanged(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QLegend_Connect_ReverseMarkersChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QLegend, callback: *const fn (self: QtC.QLegend, reverseMarkers: bool) callconv(.c) void ```
+    pub fn OnReverseMarkersChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QLegend_Connect_ReverseMarkersChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlegend-qtcharts.html#showToolTipsChanged)
@@ -358,9 +358,9 @@ pub const qlegend = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlegend-qtcharts.html#showToolTipsChanged)
     ///
-    /// ``` self: QtC.QLegend, slot: fn (self: QtC.QLegend, showToolTips: bool) callconv(.c) void ```
-    pub fn OnShowToolTipsChanged(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QLegend_Connect_ShowToolTipsChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QLegend, callback: *const fn (self: QtC.QLegend, showToolTips: bool) callconv(.c) void ```
+    pub fn OnShowToolTipsChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QLegend_Connect_ShowToolTipsChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlegend-qtcharts.html#markerShapeChanged)
@@ -372,9 +372,9 @@ pub const qlegend = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlegend-qtcharts.html#markerShapeChanged)
     ///
-    /// ``` self: QtC.QLegend, slot: fn (self: QtC.QLegend, shape: qlegend_enums.MarkerShape) callconv(.c) void ```
-    pub fn OnMarkerShapeChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QLegend_Connect_MarkerShapeChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QLegend, callback: *const fn (self: QtC.QLegend, shape: qlegend_enums.MarkerShape) callconv(.c) void ```
+    pub fn OnMarkerShapeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QLegend_Connect_MarkerShapeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlegend-qtcharts.html#attachedToChartChanged)
@@ -386,9 +386,9 @@ pub const qlegend = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlegend-qtcharts.html#attachedToChartChanged)
     ///
-    /// ``` self: QtC.QLegend, slot: fn (self: QtC.QLegend, attachedToChart: bool) callconv(.c) void ```
-    pub fn OnAttachedToChartChanged(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QLegend_Connect_AttachedToChartChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QLegend, callback: *const fn (self: QtC.QLegend, attachedToChart: bool) callconv(.c) void ```
+    pub fn OnAttachedToChartChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QLegend_Connect_AttachedToChartChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlegend-qtcharts.html#interactiveChanged)
@@ -400,9 +400,9 @@ pub const qlegend = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlegend-qtcharts.html#interactiveChanged)
     ///
-    /// ``` self: QtC.QLegend, slot: fn (self: QtC.QLegend, interactive: bool) callconv(.c) void ```
-    pub fn OnInteractiveChanged(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QLegend_Connect_InteractiveChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QLegend, callback: *const fn (self: QtC.QLegend, interactive: bool) callconv(.c) void ```
+    pub fn OnInteractiveChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QLegend_Connect_InteractiveChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -976,9 +976,9 @@ pub const qlegend = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#geometryChanged)
     ///
-    /// ``` self: QtC.QLegend, slot: fn (self: QtC.QLegend) callconv(.c) void ```
-    pub fn OnGeometryChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsWidget_Connect_GeometryChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QLegend, callback: *const fn (self: QtC.QLegend) callconv(.c) void ```
+    pub fn OnGeometryChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsWidget_Connect_GeometryChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsWidget
@@ -994,9 +994,9 @@ pub const qlegend = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicswidget.html#layoutChanged)
     ///
-    /// ``` self: QtC.QLegend, slot: fn (self: QtC.QLegend) callconv(.c) void ```
-    pub fn OnLayoutChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsWidget_Connect_LayoutChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QLegend, callback: *const fn (self: QtC.QLegend) callconv(.c) void ```
+    pub fn OnLayoutChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsWidget_Connect_LayoutChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsWidget
@@ -1075,9 +1075,9 @@ pub const qlegend = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#parentChanged)
     ///
-    /// ``` self: QtC.QLegend, slot: fn (self: QtC.QLegend) callconv(.c) void ```
-    pub fn OnParentChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_ParentChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QLegend, callback: *const fn (self: QtC.QLegend) callconv(.c) void ```
+    pub fn OnParentChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsObject_Connect_ParentChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -1093,9 +1093,9 @@ pub const qlegend = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#opacityChanged)
     ///
-    /// ``` self: QtC.QLegend, slot: fn (self: QtC.QLegend) callconv(.c) void ```
-    pub fn OnOpacityChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_OpacityChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QLegend, callback: *const fn (self: QtC.QLegend) callconv(.c) void ```
+    pub fn OnOpacityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsObject_Connect_OpacityChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -1111,9 +1111,9 @@ pub const qlegend = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#visibleChanged)
     ///
-    /// ``` self: QtC.QLegend, slot: fn (self: QtC.QLegend) callconv(.c) void ```
-    pub fn OnVisibleChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_VisibleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QLegend, callback: *const fn (self: QtC.QLegend) callconv(.c) void ```
+    pub fn OnVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsObject_Connect_VisibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -1129,9 +1129,9 @@ pub const qlegend = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#enabledChanged)
     ///
-    /// ``` self: QtC.QLegend, slot: fn (self: QtC.QLegend) callconv(.c) void ```
-    pub fn OnEnabledChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_EnabledChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QLegend, callback: *const fn (self: QtC.QLegend) callconv(.c) void ```
+    pub fn OnEnabledChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsObject_Connect_EnabledChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -1147,9 +1147,9 @@ pub const qlegend = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#xChanged)
     ///
-    /// ``` self: QtC.QLegend, slot: fn (self: QtC.QLegend) callconv(.c) void ```
-    pub fn OnXChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_XChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QLegend, callback: *const fn (self: QtC.QLegend) callconv(.c) void ```
+    pub fn OnXChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsObject_Connect_XChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -1165,9 +1165,9 @@ pub const qlegend = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#yChanged)
     ///
-    /// ``` self: QtC.QLegend, slot: fn (self: QtC.QLegend) callconv(.c) void ```
-    pub fn OnYChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_YChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QLegend, callback: *const fn (self: QtC.QLegend) callconv(.c) void ```
+    pub fn OnYChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsObject_Connect_YChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -1183,9 +1183,9 @@ pub const qlegend = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#zChanged)
     ///
-    /// ``` self: QtC.QLegend, slot: fn (self: QtC.QLegend) callconv(.c) void ```
-    pub fn OnZChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_ZChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QLegend, callback: *const fn (self: QtC.QLegend) callconv(.c) void ```
+    pub fn OnZChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsObject_Connect_ZChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -1201,9 +1201,9 @@ pub const qlegend = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#rotationChanged)
     ///
-    /// ``` self: QtC.QLegend, slot: fn (self: QtC.QLegend) callconv(.c) void ```
-    pub fn OnRotationChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_RotationChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QLegend, callback: *const fn (self: QtC.QLegend) callconv(.c) void ```
+    pub fn OnRotationChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsObject_Connect_RotationChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -1219,9 +1219,9 @@ pub const qlegend = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#scaleChanged)
     ///
-    /// ``` self: QtC.QLegend, slot: fn (self: QtC.QLegend) callconv(.c) void ```
-    pub fn OnScaleChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_ScaleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QLegend, callback: *const fn (self: QtC.QLegend) callconv(.c) void ```
+    pub fn OnScaleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsObject_Connect_ScaleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -1237,9 +1237,9 @@ pub const qlegend = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#childrenChanged)
     ///
-    /// ``` self: QtC.QLegend, slot: fn (self: QtC.QLegend) callconv(.c) void ```
-    pub fn OnChildrenChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_ChildrenChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QLegend, callback: *const fn (self: QtC.QLegend) callconv(.c) void ```
+    pub fn OnChildrenChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsObject_Connect_ChildrenChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -1255,9 +1255,9 @@ pub const qlegend = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#widthChanged)
     ///
-    /// ``` self: QtC.QLegend, slot: fn (self: QtC.QLegend) callconv(.c) void ```
-    pub fn OnWidthChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_WidthChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QLegend, callback: *const fn (self: QtC.QLegend) callconv(.c) void ```
+    pub fn OnWidthChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsObject_Connect_WidthChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -1273,9 +1273,9 @@ pub const qlegend = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qgraphicsobject.html#heightChanged)
     ///
-    /// ``` self: QtC.QLegend, slot: fn (self: QtC.QLegend) callconv(.c) void ```
-    pub fn OnHeightChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QGraphicsObject_Connect_HeightChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QLegend, callback: *const fn (self: QtC.QLegend) callconv(.c) void ```
+    pub fn OnHeightChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QGraphicsObject_Connect_HeightChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsObject
@@ -1584,9 +1584,9 @@ pub const qlegend = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QLegend, slot: fn (self: QtC.QLegend) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QLegend, callback: *const fn (self: QtC.QLegend) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1668,9 +1668,9 @@ pub const qlegend = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QLegend, slot: fn (self: QtC.QLegend, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QLegend, callback: *const fn (self: QtC.QLegend, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QGraphicsItem
@@ -3575,9 +3575,9 @@ pub const qlegend = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QLegend, slot: fn (self: QtC.QLegend, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QLegend, callback: *const fn (self: QtC.QLegend, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlegend-qtcharts.html#dtor.QLegend)

@@ -10,7 +10,7 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QAbstractItemView so that we can call protected methods
-class VirtualQAbstractItemView final : public QAbstractItemView {
+class VirtualQAbstractItemView : public QAbstractItemView {
 
   public:
     // Virtual class boolean flag

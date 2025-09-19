@@ -10,7 +10,7 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QGestureRecognizer so that we can call protected methods
-class VirtualQGestureRecognizer final : public QGestureRecognizer {
+class VirtualQGestureRecognizer : public QGestureRecognizer {
 
   public:
     // Virtual class boolean flag

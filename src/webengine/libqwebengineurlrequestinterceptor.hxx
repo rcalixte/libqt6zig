@@ -10,7 +10,7 @@
 #include "../qtlibc.h"
 
 // This class is a subclass of QWebEngineUrlRequestInterceptor so that we can call protected methods
-class VirtualQWebEngineUrlRequestInterceptor final : public QWebEngineUrlRequestInterceptor {
+class VirtualQWebEngineUrlRequestInterceptor : public QWebEngineUrlRequestInterceptor {
 
   public:
     // Virtual class boolean flag

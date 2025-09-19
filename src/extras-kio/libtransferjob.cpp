@@ -1,6 +1,6 @@
 #include <KCompositeJob>
-#define WORKAROUND_INNER_CLASS_DEFINITION_KIO__Job
-#define WORKAROUND_INNER_CLASS_DEFINITION_KIO__SimpleJob
+#include <KIO/Job>
+#include <KIO/SimpleJob>
 #define WORKAROUND_INNER_CLASS_DEFINITION_KIO__TransferJob
 #include <KJob>
 #include <QByteArray>

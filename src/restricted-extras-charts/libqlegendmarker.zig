@@ -171,9 +171,9 @@ pub const qlegendmarker = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlegendmarker-qtcharts.html#clicked)
     ///
-    /// ``` self: QtC.QLegendMarker, slot: fn (self: QtC.QLegendMarker) callconv(.c) void ```
-    pub fn OnClicked(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QLegendMarker_Connect_Clicked(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QLegendMarker, callback: *const fn (self: QtC.QLegendMarker) callconv(.c) void ```
+    pub fn OnClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QLegendMarker_Connect_Clicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlegendmarker-qtcharts.html#hovered)
@@ -185,9 +185,9 @@ pub const qlegendmarker = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlegendmarker-qtcharts.html#hovered)
     ///
-    /// ``` self: QtC.QLegendMarker, slot: fn (self: QtC.QLegendMarker, status: bool) callconv(.c) void ```
-    pub fn OnHovered(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QLegendMarker_Connect_Hovered(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QLegendMarker, callback: *const fn (self: QtC.QLegendMarker, status: bool) callconv(.c) void ```
+    pub fn OnHovered(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QLegendMarker_Connect_Hovered(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlegendmarker-qtcharts.html#labelChanged)
@@ -199,9 +199,9 @@ pub const qlegendmarker = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlegendmarker-qtcharts.html#labelChanged)
     ///
-    /// ``` self: QtC.QLegendMarker, slot: fn (self: QtC.QLegendMarker) callconv(.c) void ```
-    pub fn OnLabelChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QLegendMarker_Connect_LabelChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QLegendMarker, callback: *const fn (self: QtC.QLegendMarker) callconv(.c) void ```
+    pub fn OnLabelChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QLegendMarker_Connect_LabelChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlegendmarker-qtcharts.html#labelBrushChanged)
@@ -213,9 +213,9 @@ pub const qlegendmarker = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlegendmarker-qtcharts.html#labelBrushChanged)
     ///
-    /// ``` self: QtC.QLegendMarker, slot: fn (self: QtC.QLegendMarker) callconv(.c) void ```
-    pub fn OnLabelBrushChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QLegendMarker_Connect_LabelBrushChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QLegendMarker, callback: *const fn (self: QtC.QLegendMarker) callconv(.c) void ```
+    pub fn OnLabelBrushChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QLegendMarker_Connect_LabelBrushChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlegendmarker-qtcharts.html#fontChanged)
@@ -227,9 +227,9 @@ pub const qlegendmarker = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlegendmarker-qtcharts.html#fontChanged)
     ///
-    /// ``` self: QtC.QLegendMarker, slot: fn (self: QtC.QLegendMarker) callconv(.c) void ```
-    pub fn OnFontChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QLegendMarker_Connect_FontChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QLegendMarker, callback: *const fn (self: QtC.QLegendMarker) callconv(.c) void ```
+    pub fn OnFontChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QLegendMarker_Connect_FontChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlegendmarker-qtcharts.html#penChanged)
@@ -241,9 +241,9 @@ pub const qlegendmarker = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlegendmarker-qtcharts.html#penChanged)
     ///
-    /// ``` self: QtC.QLegendMarker, slot: fn (self: QtC.QLegendMarker) callconv(.c) void ```
-    pub fn OnPenChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QLegendMarker_Connect_PenChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QLegendMarker, callback: *const fn (self: QtC.QLegendMarker) callconv(.c) void ```
+    pub fn OnPenChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QLegendMarker_Connect_PenChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlegendmarker-qtcharts.html#brushChanged)
@@ -255,9 +255,9 @@ pub const qlegendmarker = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlegendmarker-qtcharts.html#brushChanged)
     ///
-    /// ``` self: QtC.QLegendMarker, slot: fn (self: QtC.QLegendMarker) callconv(.c) void ```
-    pub fn OnBrushChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QLegendMarker_Connect_BrushChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QLegendMarker, callback: *const fn (self: QtC.QLegendMarker) callconv(.c) void ```
+    pub fn OnBrushChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QLegendMarker_Connect_BrushChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlegendmarker-qtcharts.html#visibleChanged)
@@ -269,9 +269,9 @@ pub const qlegendmarker = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlegendmarker-qtcharts.html#visibleChanged)
     ///
-    /// ``` self: QtC.QLegendMarker, slot: fn (self: QtC.QLegendMarker) callconv(.c) void ```
-    pub fn OnVisibleChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QLegendMarker_Connect_VisibleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QLegendMarker, callback: *const fn (self: QtC.QLegendMarker) callconv(.c) void ```
+    pub fn OnVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QLegendMarker_Connect_VisibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlegendmarker-qtcharts.html#shapeChanged)
@@ -283,9 +283,9 @@ pub const qlegendmarker = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlegendmarker-qtcharts.html#shapeChanged)
     ///
-    /// ``` self: QtC.QLegendMarker, slot: fn (self: QtC.QLegendMarker) callconv(.c) void ```
-    pub fn OnShapeChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QLegendMarker_Connect_ShapeChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QLegendMarker, callback: *const fn (self: QtC.QLegendMarker) callconv(.c) void ```
+    pub fn OnShapeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QLegendMarker_Connect_ShapeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -620,9 +620,9 @@ pub const qlegendmarker = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QLegendMarker, slot: fn (self: QtC.QLegendMarker) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QLegendMarker, callback: *const fn (self: QtC.QLegendMarker) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -704,9 +704,9 @@ pub const qlegendmarker = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QLegendMarker, slot: fn (self: QtC.QLegendMarker, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QLegendMarker, callback: *const fn (self: QtC.QLegendMarker, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -715,9 +715,9 @@ pub const qlegendmarker = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QLegendMarker, slot: fn (self: QtC.QLegendMarker, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QLegendMarker, callback: *const fn (self: QtC.QLegendMarker, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlegendmarker-qtcharts.html#dtor.QLegendMarker)

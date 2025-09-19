@@ -10,7 +10,7 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QRunnable so that we can call protected methods
-class VirtualQRunnable final : public QRunnable {
+class VirtualQRunnable : public QRunnable {
 
   public:
     // Virtual class boolean flag

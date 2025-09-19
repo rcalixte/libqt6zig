@@ -17,9 +17,7 @@ extern "C" {
 #if defined(WORKAROUND_INNER_CLASS_DEFINITION_KIO__CopyJob)
 typedef KIO::CopyJob KIO__CopyJob;
 #endif
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_KIO__DeleteJob)
 typedef KIO::DeleteJob KIO__DeleteJob;
-#endif
 #else
 typedef struct KCompletion KCompletion;
 typedef struct KConfigGroup KConfigGroup;

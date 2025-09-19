@@ -123,9 +123,9 @@ pub const kconfig = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KConfig, slot: fn () callconv(.c) bool ```
-    pub fn OnSync(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.KConfig_OnSync(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KConfig, callback: *const fn () callconv(.c) bool ```
+    pub fn OnSync(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.KConfig_OnSync(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kconfig.html#sync)
@@ -155,9 +155,9 @@ pub const kconfig = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KConfig, slot: fn () callconv(.c) void ```
-    pub fn OnMarkAsClean(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KConfig_OnMarkAsClean(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KConfig, callback: *const fn () callconv(.c) void ```
+    pub fn OnMarkAsClean(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KConfig_OnMarkAsClean(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kconfig.html#markAsClean)
@@ -182,9 +182,9 @@ pub const kconfig = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KConfig, slot: fn () callconv(.c) i32 ```
-    pub fn OnAccessMode(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.KConfig_OnAccessMode(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KConfig, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnAccessMode(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.KConfig_OnAccessMode(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kconfig.html#accessMode)
@@ -326,9 +326,9 @@ pub const kconfig = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KConfig, slot: fn () callconv(.c) bool ```
-    pub fn OnIsImmutable(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.KConfig_OnIsImmutable(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KConfig, callback: *const fn () callconv(.c) bool ```
+    pub fn OnIsImmutable(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.KConfig_OnIsImmutable(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kconfig.html#isImmutable)
@@ -366,9 +366,9 @@ pub const kconfig = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KConfig, slot: fn () callconv(.c) [*][*:0]const u8 ```
-    pub fn OnGroupList(self: ?*anyopaque, slot: fn () callconv(.c) [*][*:0]const u8) void {
-        qtc.KConfig_OnGroupList(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KConfig, callback: *const fn () callconv(.c) [*][*:0]const u8 ```
+    pub fn OnGroupList(self: ?*anyopaque, callback: *const fn () callconv(.c) [*][*:0]const u8) void {
+        qtc.KConfig_OnGroupList(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kconfig.html#groupList)
@@ -458,9 +458,9 @@ pub const kconfig = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KConfig, slot: fn (self: QtC.KConfig, groupName: [*:0]const u8) callconv(.c) bool ```
-    pub fn OnHasGroupImpl(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) bool) void {
-        qtc.KConfig_OnHasGroupImpl(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KConfig, callback: *const fn (self: QtC.KConfig, groupName: [*:0]const u8) callconv(.c) bool ```
+    pub fn OnHasGroupImpl(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) bool) void {
+        qtc.KConfig_OnHasGroupImpl(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kconfig.html#hasGroupImpl)
@@ -491,9 +491,9 @@ pub const kconfig = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KConfig, slot: fn (self: QtC.KConfig, groupName: [*:0]const u8) callconv(.c) QtC.KConfigGroup ```
-    pub fn OnGroupImpl(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) QtC.KConfigGroup) void {
-        qtc.KConfig_OnGroupImpl(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KConfig, callback: *const fn (self: QtC.KConfig, groupName: [*:0]const u8) callconv(.c) QtC.KConfigGroup ```
+    pub fn OnGroupImpl(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) QtC.KConfigGroup) void {
+        qtc.KConfig_OnGroupImpl(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kconfig.html#groupImpl)
@@ -524,9 +524,9 @@ pub const kconfig = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KConfig, slot: fn (self: QtC.KConfig, groupName: [*:0]const u8) callconv(.c) QtC.KConfigGroup ```
-    pub fn OnGroupImpl2(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) QtC.KConfigGroup) void {
-        qtc.KConfig_OnGroupImpl2(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KConfig, callback: *const fn (self: QtC.KConfig, groupName: [*:0]const u8) callconv(.c) QtC.KConfigGroup ```
+    pub fn OnGroupImpl2(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) QtC.KConfigGroup) void {
+        qtc.KConfig_OnGroupImpl2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kconfig.html#groupImpl)
@@ -557,9 +557,9 @@ pub const kconfig = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KConfig, slot: fn (self: QtC.KConfig, groupName: [*:0]const u8, flags: flag of kconfigbase_enums.WriteConfigFlag) callconv(.c) void ```
-    pub fn OnDeleteGroupImpl(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, i32) callconv(.c) void) void {
-        qtc.KConfig_OnDeleteGroupImpl(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KConfig, callback: *const fn (self: QtC.KConfig, groupName: [*:0]const u8, flags: flag of kconfigbase_enums.WriteConfigFlag) callconv(.c) void ```
+    pub fn OnDeleteGroupImpl(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32) callconv(.c) void) void {
+        qtc.KConfig_OnDeleteGroupImpl(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kconfig.html#deleteGroupImpl)
@@ -590,9 +590,9 @@ pub const kconfig = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KConfig, slot: fn (self: QtC.KConfig, groupName: [*:0]const u8) callconv(.c) bool ```
-    pub fn OnIsGroupImmutableImpl(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) bool) void {
-        qtc.KConfig_OnIsGroupImmutableImpl(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KConfig, callback: *const fn (self: QtC.KConfig, groupName: [*:0]const u8) callconv(.c) bool ```
+    pub fn OnIsGroupImmutableImpl(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) bool) void {
+        qtc.KConfig_OnIsGroupImmutableImpl(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kconfig.html#isGroupImmutableImpl)
@@ -619,9 +619,9 @@ pub const kconfig = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KConfig, slot: fn (self: QtC.KConfig, id: i32, data: ?*anyopaque) callconv(.c) void ```
-    pub fn OnVirtualHook(self: ?*anyopaque, slot: fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.KConfig_OnVirtualHook(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KConfig, callback: *const fn (self: QtC.KConfig, id: i32, data: ?*anyopaque) callconv(.c) void ```
+    pub fn OnVirtualHook(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
+        qtc.KConfig_OnVirtualHook(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kconfig.html#virtual_hook)

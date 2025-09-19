@@ -1,6 +1,6 @@
 #include <KCoreDirLister>
 #include <KDirLister>
-#define WORKAROUND_INNER_CLASS_DEFINITION_KIO__ListJob
+#include <KIO/ListJob>
 #include <QChildEvent>
 #include <QEvent>
 #include <QMetaMethod>

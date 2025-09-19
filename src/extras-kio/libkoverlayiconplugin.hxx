@@ -10,7 +10,7 @@
 #include "../qtlibc.h"
 
 // This class is a subclass of KOverlayIconPlugin so that we can call protected methods
-class VirtualKOverlayIconPlugin final : public KOverlayIconPlugin {
+class VirtualKOverlayIconPlugin : public KOverlayIconPlugin {
 
   public:
     // Virtual class boolean flag

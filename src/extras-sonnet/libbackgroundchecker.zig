@@ -54,9 +54,9 @@ pub const sonnet__backgroundchecker = struct {
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.Sonnet__BackgroundChecker, slot: fn (self: QtC.Sonnet__BackgroundChecker, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
-        qtc.Sonnet__BackgroundChecker_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__BackgroundChecker, callback: *const fn (self: QtC.Sonnet__BackgroundChecker, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+        qtc.Sonnet__BackgroundChecker_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -209,9 +209,9 @@ pub const sonnet__backgroundchecker = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.Sonnet__BackgroundChecker, slot: fn () callconv(.c) void ```
-    pub fn OnStart(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.Sonnet__BackgroundChecker_OnStart(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__BackgroundChecker, callback: *const fn () callconv(.c) void ```
+    pub fn OnStart(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.Sonnet__BackgroundChecker_OnStart(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/sonnet-backgroundchecker.html#start)
@@ -234,9 +234,9 @@ pub const sonnet__backgroundchecker = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.Sonnet__BackgroundChecker, slot: fn () callconv(.c) void ```
-    pub fn OnStop(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.Sonnet__BackgroundChecker_OnStop(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__BackgroundChecker, callback: *const fn () callconv(.c) void ```
+    pub fn OnStop(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.Sonnet__BackgroundChecker_OnStop(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/sonnet-backgroundchecker.html#stop)
@@ -285,9 +285,9 @@ pub const sonnet__backgroundchecker = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.Sonnet__BackgroundChecker, slot: fn () callconv(.c) void ```
-    pub fn OnContinueChecking(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.Sonnet__BackgroundChecker_OnContinueChecking(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__BackgroundChecker, callback: *const fn () callconv(.c) void ```
+    pub fn OnContinueChecking(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.Sonnet__BackgroundChecker_OnContinueChecking(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/sonnet-backgroundchecker.html#continueChecking)
@@ -312,9 +312,9 @@ pub const sonnet__backgroundchecker = struct {
 
     /// [Qt documentation](https://api.kde.org/sonnet-backgroundchecker.html#misspelling)
     ///
-    /// ``` self: QtC.Sonnet__BackgroundChecker, slot: fn (self: QtC.Sonnet__BackgroundChecker, word: [*:0]const u8, start: i32) callconv(.c) void ```
-    pub fn OnMisspelling(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, i32) callconv(.c) void) void {
-        qtc.Sonnet__BackgroundChecker_Connect_Misspelling(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__BackgroundChecker, callback: *const fn (self: QtC.Sonnet__BackgroundChecker, word: [*:0]const u8, start: i32) callconv(.c) void ```
+    pub fn OnMisspelling(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32) callconv(.c) void) void {
+        qtc.Sonnet__BackgroundChecker_Connect_Misspelling(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/sonnet-backgroundchecker.html#done)
@@ -326,9 +326,9 @@ pub const sonnet__backgroundchecker = struct {
 
     /// [Qt documentation](https://api.kde.org/sonnet-backgroundchecker.html#done)
     ///
-    /// ``` self: QtC.Sonnet__BackgroundChecker, slot: fn (self: QtC.Sonnet__BackgroundChecker) callconv(.c) void ```
-    pub fn OnDone(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.Sonnet__BackgroundChecker_Connect_Done(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__BackgroundChecker, callback: *const fn (self: QtC.Sonnet__BackgroundChecker) callconv(.c) void ```
+    pub fn OnDone(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.Sonnet__BackgroundChecker_Connect_Done(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/sonnet-backgroundchecker.html#fetchMoreText)
@@ -346,9 +346,9 @@ pub const sonnet__backgroundchecker = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.Sonnet__BackgroundChecker, slot: fn () callconv(.c) [*:0]const u8 ```
-    pub fn OnFetchMoreText(self: ?*anyopaque, slot: fn () callconv(.c) [*:0]const u8) void {
-        qtc.Sonnet__BackgroundChecker_OnFetchMoreText(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__BackgroundChecker, callback: *const fn () callconv(.c) [*:0]const u8 ```
+    pub fn OnFetchMoreText(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
+        qtc.Sonnet__BackgroundChecker_OnFetchMoreText(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/sonnet-backgroundchecker.html#fetchMoreText)
@@ -375,9 +375,9 @@ pub const sonnet__backgroundchecker = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.Sonnet__BackgroundChecker, slot: fn () callconv(.c) void ```
-    pub fn OnFinishedCurrentFeed(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.Sonnet__BackgroundChecker_OnFinishedCurrentFeed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__BackgroundChecker, callback: *const fn () callconv(.c) void ```
+    pub fn OnFinishedCurrentFeed(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.Sonnet__BackgroundChecker_OnFinishedCurrentFeed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/sonnet-backgroundchecker.html#finishedCurrentFeed)
@@ -400,9 +400,9 @@ pub const sonnet__backgroundchecker = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.Sonnet__BackgroundChecker, slot: fn () callconv(.c) void ```
-    pub fn OnSlotEngineDone(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.Sonnet__BackgroundChecker_OnSlotEngineDone(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__BackgroundChecker, callback: *const fn () callconv(.c) void ```
+    pub fn OnSlotEngineDone(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.Sonnet__BackgroundChecker_OnSlotEngineDone(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/sonnet-backgroundchecker.html#slotEngineDone)
@@ -728,9 +728,9 @@ pub const sonnet__backgroundchecker = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.Sonnet__BackgroundChecker, slot: fn (self: QtC.Sonnet__BackgroundChecker) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__BackgroundChecker, callback: *const fn (self: QtC.Sonnet__BackgroundChecker) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -812,9 +812,9 @@ pub const sonnet__backgroundchecker = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.Sonnet__BackgroundChecker, slot: fn (self: QtC.Sonnet__BackgroundChecker, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__BackgroundChecker, callback: *const fn (self: QtC.Sonnet__BackgroundChecker, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -845,9 +845,9 @@ pub const sonnet__backgroundchecker = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Sonnet__BackgroundChecker, slot: fn (self: QtC.Sonnet__BackgroundChecker, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.Sonnet__BackgroundChecker_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__BackgroundChecker, callback: *const fn (self: QtC.Sonnet__BackgroundChecker, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.Sonnet__BackgroundChecker_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -878,9 +878,9 @@ pub const sonnet__backgroundchecker = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Sonnet__BackgroundChecker, slot: fn (self: QtC.Sonnet__BackgroundChecker, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.Sonnet__BackgroundChecker_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__BackgroundChecker, callback: *const fn (self: QtC.Sonnet__BackgroundChecker, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.Sonnet__BackgroundChecker_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -911,9 +911,9 @@ pub const sonnet__backgroundchecker = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Sonnet__BackgroundChecker, slot: fn (self: QtC.Sonnet__BackgroundChecker, event: QtC.QTimerEvent) callconv(.c) void ```
-    pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Sonnet__BackgroundChecker_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__BackgroundChecker, callback: *const fn (self: QtC.Sonnet__BackgroundChecker, event: QtC.QTimerEvent) callconv(.c) void ```
+    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.Sonnet__BackgroundChecker_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -944,9 +944,9 @@ pub const sonnet__backgroundchecker = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Sonnet__BackgroundChecker, slot: fn (self: QtC.Sonnet__BackgroundChecker, event: QtC.QChildEvent) callconv(.c) void ```
-    pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Sonnet__BackgroundChecker_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__BackgroundChecker, callback: *const fn (self: QtC.Sonnet__BackgroundChecker, event: QtC.QChildEvent) callconv(.c) void ```
+    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.Sonnet__BackgroundChecker_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -977,9 +977,9 @@ pub const sonnet__backgroundchecker = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Sonnet__BackgroundChecker, slot: fn (self: QtC.Sonnet__BackgroundChecker, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Sonnet__BackgroundChecker_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__BackgroundChecker, callback: *const fn (self: QtC.Sonnet__BackgroundChecker, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.Sonnet__BackgroundChecker_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1010,9 +1010,9 @@ pub const sonnet__backgroundchecker = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Sonnet__BackgroundChecker, slot: fn (self: QtC.Sonnet__BackgroundChecker, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Sonnet__BackgroundChecker_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__BackgroundChecker, callback: *const fn (self: QtC.Sonnet__BackgroundChecker, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.Sonnet__BackgroundChecker_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1043,9 +1043,9 @@ pub const sonnet__backgroundchecker = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Sonnet__BackgroundChecker, slot: fn (self: QtC.Sonnet__BackgroundChecker, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.Sonnet__BackgroundChecker_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__BackgroundChecker, callback: *const fn (self: QtC.Sonnet__BackgroundChecker, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.Sonnet__BackgroundChecker_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1076,9 +1076,9 @@ pub const sonnet__backgroundchecker = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Sonnet__BackgroundChecker, slot: fn () callconv(.c) QtC.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
-        qtc.Sonnet__BackgroundChecker_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__BackgroundChecker, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.Sonnet__BackgroundChecker_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1109,9 +1109,9 @@ pub const sonnet__backgroundchecker = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Sonnet__BackgroundChecker, slot: fn () callconv(.c) i32 ```
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.Sonnet__BackgroundChecker_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__BackgroundChecker, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.Sonnet__BackgroundChecker_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1144,9 +1144,9 @@ pub const sonnet__backgroundchecker = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Sonnet__BackgroundChecker, slot: fn (self: QtC.Sonnet__BackgroundChecker, signal: [*:0]const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.Sonnet__BackgroundChecker_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__BackgroundChecker, callback: *const fn (self: QtC.Sonnet__BackgroundChecker, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
+        qtc.Sonnet__BackgroundChecker_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1177,9 +1177,9 @@ pub const sonnet__backgroundchecker = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.Sonnet__BackgroundChecker, slot: fn (self: QtC.Sonnet__BackgroundChecker, signal: QtC.QMetaMethod) callconv(.c) bool ```
-    pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.Sonnet__BackgroundChecker_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__BackgroundChecker, callback: *const fn (self: QtC.Sonnet__BackgroundChecker, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.Sonnet__BackgroundChecker_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1188,9 +1188,9 @@ pub const sonnet__backgroundchecker = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.Sonnet__BackgroundChecker, slot: fn (self: QtC.Sonnet__BackgroundChecker, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.Sonnet__BackgroundChecker, callback: *const fn (self: QtC.Sonnet__BackgroundChecker, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Delete this object from C++ memory.

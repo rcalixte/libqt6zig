@@ -40,9 +40,9 @@ pub const qpdfpagenavigator = struct {
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QPdfPageNavigator, slot: fn (self: QtC.QPdfPageNavigator, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QPdfPageNavigator_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPdfPageNavigator, callback: *const fn (self: QtC.QPdfPageNavigator, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+        qtc.QPdfPageNavigator_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -150,9 +150,9 @@ pub const qpdfpagenavigator = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpdfpagenavigator.html#currentPageChanged)
     ///
-    /// ``` self: QtC.QPdfPageNavigator, slot: fn (self: QtC.QPdfPageNavigator, page: i32) callconv(.c) void ```
-    pub fn OnCurrentPageChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QPdfPageNavigator_Connect_CurrentPageChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPdfPageNavigator, callback: *const fn (self: QtC.QPdfPageNavigator, page: i32) callconv(.c) void ```
+    pub fn OnCurrentPageChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QPdfPageNavigator_Connect_CurrentPageChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpdfpagenavigator.html#currentLocationChanged)
@@ -164,9 +164,9 @@ pub const qpdfpagenavigator = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpdfpagenavigator.html#currentLocationChanged)
     ///
-    /// ``` self: QtC.QPdfPageNavigator, slot: fn (self: QtC.QPdfPageNavigator, location: QtC.QPointF) callconv(.c) void ```
-    pub fn OnCurrentLocationChanged(self: ?*anyopaque, slot: fn (?*anyopaque, QtC.QPointF) callconv(.c) void) void {
-        qtc.QPdfPageNavigator_Connect_CurrentLocationChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPdfPageNavigator, callback: *const fn (self: QtC.QPdfPageNavigator, location: QtC.QPointF) callconv(.c) void ```
+    pub fn OnCurrentLocationChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QPointF) callconv(.c) void) void {
+        qtc.QPdfPageNavigator_Connect_CurrentLocationChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpdfpagenavigator.html#currentZoomChanged)
@@ -178,9 +178,9 @@ pub const qpdfpagenavigator = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpdfpagenavigator.html#currentZoomChanged)
     ///
-    /// ``` self: QtC.QPdfPageNavigator, slot: fn (self: QtC.QPdfPageNavigator, zoom: f64) callconv(.c) void ```
-    pub fn OnCurrentZoomChanged(self: ?*anyopaque, slot: fn (?*anyopaque, f64) callconv(.c) void) void {
-        qtc.QPdfPageNavigator_Connect_CurrentZoomChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPdfPageNavigator, callback: *const fn (self: QtC.QPdfPageNavigator, zoom: f64) callconv(.c) void ```
+    pub fn OnCurrentZoomChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, f64) callconv(.c) void) void {
+        qtc.QPdfPageNavigator_Connect_CurrentZoomChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpdfpagenavigator.html#backAvailableChanged)
@@ -192,9 +192,9 @@ pub const qpdfpagenavigator = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpdfpagenavigator.html#backAvailableChanged)
     ///
-    /// ``` self: QtC.QPdfPageNavigator, slot: fn (self: QtC.QPdfPageNavigator, available: bool) callconv(.c) void ```
-    pub fn OnBackAvailableChanged(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QPdfPageNavigator_Connect_BackAvailableChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPdfPageNavigator, callback: *const fn (self: QtC.QPdfPageNavigator, available: bool) callconv(.c) void ```
+    pub fn OnBackAvailableChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QPdfPageNavigator_Connect_BackAvailableChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpdfpagenavigator.html#forwardAvailableChanged)
@@ -206,9 +206,9 @@ pub const qpdfpagenavigator = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpdfpagenavigator.html#forwardAvailableChanged)
     ///
-    /// ``` self: QtC.QPdfPageNavigator, slot: fn (self: QtC.QPdfPageNavigator, available: bool) callconv(.c) void ```
-    pub fn OnForwardAvailableChanged(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QPdfPageNavigator_Connect_ForwardAvailableChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPdfPageNavigator, callback: *const fn (self: QtC.QPdfPageNavigator, available: bool) callconv(.c) void ```
+    pub fn OnForwardAvailableChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QPdfPageNavigator_Connect_ForwardAvailableChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpdfpagenavigator.html#jumped)
@@ -220,9 +220,9 @@ pub const qpdfpagenavigator = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpdfpagenavigator.html#jumped)
     ///
-    /// ``` self: QtC.QPdfPageNavigator, slot: fn (self: QtC.QPdfPageNavigator, current: QtC.QPdfLink) callconv(.c) void ```
-    pub fn OnJumped(self: ?*anyopaque, slot: fn (?*anyopaque, QtC.QPdfLink) callconv(.c) void) void {
-        qtc.QPdfPageNavigator_Connect_Jumped(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPdfPageNavigator, callback: *const fn (self: QtC.QPdfPageNavigator, current: QtC.QPdfLink) callconv(.c) void ```
+    pub fn OnJumped(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QPdfLink) callconv(.c) void) void {
+        qtc.QPdfPageNavigator_Connect_Jumped(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpdfpagenavigator.html#currentLink)
@@ -236,9 +236,9 @@ pub const qpdfpagenavigator = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QPdfPageNavigator, slot: fn () callconv(.c) QtC.QPdfLink ```
-    pub fn OnCurrentLink(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QPdfLink) void {
-        qtc.QPdfPageNavigator_OnCurrentLink(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPdfPageNavigator, callback: *const fn () callconv(.c) QtC.QPdfLink ```
+    pub fn OnCurrentLink(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPdfLink) void {
+        qtc.QPdfPageNavigator_OnCurrentLink(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpdfpagenavigator.html#currentLink)
@@ -571,9 +571,9 @@ pub const qpdfpagenavigator = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QPdfPageNavigator, slot: fn (self: QtC.QPdfPageNavigator) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPdfPageNavigator, callback: *const fn (self: QtC.QPdfPageNavigator) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -655,9 +655,9 @@ pub const qpdfpagenavigator = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QPdfPageNavigator, slot: fn (self: QtC.QPdfPageNavigator, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPdfPageNavigator, callback: *const fn (self: QtC.QPdfPageNavigator, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -688,9 +688,9 @@ pub const qpdfpagenavigator = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPdfPageNavigator, slot: fn (self: QtC.QPdfPageNavigator, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QPdfPageNavigator_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPdfPageNavigator, callback: *const fn (self: QtC.QPdfPageNavigator, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QPdfPageNavigator_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -721,9 +721,9 @@ pub const qpdfpagenavigator = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPdfPageNavigator, slot: fn (self: QtC.QPdfPageNavigator, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QPdfPageNavigator_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPdfPageNavigator, callback: *const fn (self: QtC.QPdfPageNavigator, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QPdfPageNavigator_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -754,9 +754,9 @@ pub const qpdfpagenavigator = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPdfPageNavigator, slot: fn (self: QtC.QPdfPageNavigator, event: QtC.QTimerEvent) callconv(.c) void ```
-    pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPdfPageNavigator_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPdfPageNavigator, callback: *const fn (self: QtC.QPdfPageNavigator, event: QtC.QTimerEvent) callconv(.c) void ```
+    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QPdfPageNavigator_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -787,9 +787,9 @@ pub const qpdfpagenavigator = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPdfPageNavigator, slot: fn (self: QtC.QPdfPageNavigator, event: QtC.QChildEvent) callconv(.c) void ```
-    pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPdfPageNavigator_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPdfPageNavigator, callback: *const fn (self: QtC.QPdfPageNavigator, event: QtC.QChildEvent) callconv(.c) void ```
+    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QPdfPageNavigator_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -820,9 +820,9 @@ pub const qpdfpagenavigator = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPdfPageNavigator, slot: fn (self: QtC.QPdfPageNavigator, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPdfPageNavigator_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPdfPageNavigator, callback: *const fn (self: QtC.QPdfPageNavigator, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QPdfPageNavigator_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -853,9 +853,9 @@ pub const qpdfpagenavigator = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPdfPageNavigator, slot: fn (self: QtC.QPdfPageNavigator, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPdfPageNavigator_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPdfPageNavigator, callback: *const fn (self: QtC.QPdfPageNavigator, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QPdfPageNavigator_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -886,9 +886,9 @@ pub const qpdfpagenavigator = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPdfPageNavigator, slot: fn (self: QtC.QPdfPageNavigator, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPdfPageNavigator_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPdfPageNavigator, callback: *const fn (self: QtC.QPdfPageNavigator, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QPdfPageNavigator_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -919,9 +919,9 @@ pub const qpdfpagenavigator = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPdfPageNavigator, slot: fn () callconv(.c) QtC.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
-        qtc.QPdfPageNavigator_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPdfPageNavigator, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.QPdfPageNavigator_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -952,9 +952,9 @@ pub const qpdfpagenavigator = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPdfPageNavigator, slot: fn () callconv(.c) i32 ```
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QPdfPageNavigator_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPdfPageNavigator, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QPdfPageNavigator_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -987,9 +987,9 @@ pub const qpdfpagenavigator = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPdfPageNavigator, slot: fn (self: QtC.QPdfPageNavigator, signal: [*:0]const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QPdfPageNavigator_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPdfPageNavigator, callback: *const fn (self: QtC.QPdfPageNavigator, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QPdfPageNavigator_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1020,9 +1020,9 @@ pub const qpdfpagenavigator = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QPdfPageNavigator, slot: fn (self: QtC.QPdfPageNavigator, signal: QtC.QMetaMethod) callconv(.c) bool ```
-    pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QPdfPageNavigator_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPdfPageNavigator, callback: *const fn (self: QtC.QPdfPageNavigator, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QPdfPageNavigator_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1031,9 +1031,9 @@ pub const qpdfpagenavigator = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QPdfPageNavigator, slot: fn (self: QtC.QPdfPageNavigator, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPdfPageNavigator, callback: *const fn (self: QtC.QPdfPageNavigator, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpdfpagenavigator.html#dtor.QPdfPageNavigator)

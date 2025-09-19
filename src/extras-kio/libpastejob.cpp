@@ -1,6 +1,6 @@
 #include <KCompositeJob>
 #define WORKAROUND_INNER_CLASS_DEFINITION_KIO__CopyJob
-#define WORKAROUND_INNER_CLASS_DEFINITION_KIO__Job
+#include <KIO/Job>
 #define WORKAROUND_INNER_CLASS_DEFINITION_KIO__PasteJob
 #include <KJob>
 #include <QList>

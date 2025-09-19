@@ -73,9 +73,9 @@ pub const qimageiohandler = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QImageIOHandler, slot: fn () callconv(.c) bool ```
-    pub fn OnCanRead(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.QImageIOHandler_OnCanRead(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QImageIOHandler, callback: *const fn () callconv(.c) bool ```
+    pub fn OnCanRead(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.QImageIOHandler_OnCanRead(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimageiohandler.html#canRead)
@@ -98,9 +98,9 @@ pub const qimageiohandler = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QImageIOHandler, slot: fn (self: QtC.QImageIOHandler, image: QtC.QImage) callconv(.c) bool ```
-    pub fn OnRead(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QImageIOHandler_OnRead(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QImageIOHandler, callback: *const fn (self: QtC.QImageIOHandler, image: QtC.QImage) callconv(.c) bool ```
+    pub fn OnRead(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QImageIOHandler_OnRead(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimageiohandler.html#read)
@@ -123,9 +123,9 @@ pub const qimageiohandler = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QImageIOHandler, slot: fn (self: QtC.QImageIOHandler, image: QtC.QImage) callconv(.c) bool ```
-    pub fn OnWrite(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QImageIOHandler_OnWrite(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QImageIOHandler, callback: *const fn (self: QtC.QImageIOHandler, image: QtC.QImage) callconv(.c) bool ```
+    pub fn OnWrite(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QImageIOHandler_OnWrite(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimageiohandler.html#write)
@@ -148,9 +148,9 @@ pub const qimageiohandler = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QImageIOHandler, slot: fn (self: QtC.QImageIOHandler, option: qimageiohandler_enums.ImageOption) callconv(.c) QtC.QVariant ```
-    pub fn OnOption(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
-        qtc.QImageIOHandler_OnOption(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QImageIOHandler, callback: *const fn (self: QtC.QImageIOHandler, option: qimageiohandler_enums.ImageOption) callconv(.c) QtC.QVariant ```
+    pub fn OnOption(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QVariant) void {
+        qtc.QImageIOHandler_OnOption(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimageiohandler.html#option)
@@ -173,9 +173,9 @@ pub const qimageiohandler = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QImageIOHandler, slot: fn (self: QtC.QImageIOHandler, option: qimageiohandler_enums.ImageOption, value: QtC.QVariant) callconv(.c) void ```
-    pub fn OnSetOption(self: ?*anyopaque, slot: fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.QImageIOHandler_OnSetOption(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QImageIOHandler, callback: *const fn (self: QtC.QImageIOHandler, option: qimageiohandler_enums.ImageOption, value: QtC.QVariant) callconv(.c) void ```
+    pub fn OnSetOption(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
+        qtc.QImageIOHandler_OnSetOption(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimageiohandler.html#setOption)
@@ -198,9 +198,9 @@ pub const qimageiohandler = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QImageIOHandler, slot: fn (self: QtC.QImageIOHandler, option: qimageiohandler_enums.ImageOption) callconv(.c) bool ```
-    pub fn OnSupportsOption(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QImageIOHandler_OnSupportsOption(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QImageIOHandler, callback: *const fn (self: QtC.QImageIOHandler, option: qimageiohandler_enums.ImageOption) callconv(.c) bool ```
+    pub fn OnSupportsOption(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
+        qtc.QImageIOHandler_OnSupportsOption(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimageiohandler.html#supportsOption)
@@ -223,9 +223,9 @@ pub const qimageiohandler = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QImageIOHandler, slot: fn () callconv(.c) bool ```
-    pub fn OnJumpToNextImage(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.QImageIOHandler_OnJumpToNextImage(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QImageIOHandler, callback: *const fn () callconv(.c) bool ```
+    pub fn OnJumpToNextImage(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.QImageIOHandler_OnJumpToNextImage(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimageiohandler.html#jumpToNextImage)
@@ -248,9 +248,9 @@ pub const qimageiohandler = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QImageIOHandler, slot: fn (self: QtC.QImageIOHandler, imageNumber: i32) callconv(.c) bool ```
-    pub fn OnJumpToImage(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QImageIOHandler_OnJumpToImage(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QImageIOHandler, callback: *const fn (self: QtC.QImageIOHandler, imageNumber: i32) callconv(.c) bool ```
+    pub fn OnJumpToImage(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
+        qtc.QImageIOHandler_OnJumpToImage(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimageiohandler.html#jumpToImage)
@@ -273,9 +273,9 @@ pub const qimageiohandler = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QImageIOHandler, slot: fn () callconv(.c) i32 ```
-    pub fn OnLoopCount(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QImageIOHandler_OnLoopCount(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QImageIOHandler, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnLoopCount(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QImageIOHandler_OnLoopCount(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimageiohandler.html#loopCount)
@@ -298,9 +298,9 @@ pub const qimageiohandler = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QImageIOHandler, slot: fn () callconv(.c) i32 ```
-    pub fn OnImageCount(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QImageIOHandler_OnImageCount(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QImageIOHandler, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnImageCount(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QImageIOHandler_OnImageCount(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimageiohandler.html#imageCount)
@@ -323,9 +323,9 @@ pub const qimageiohandler = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QImageIOHandler, slot: fn () callconv(.c) i32 ```
-    pub fn OnNextImageDelay(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QImageIOHandler_OnNextImageDelay(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QImageIOHandler, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnNextImageDelay(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QImageIOHandler_OnNextImageDelay(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimageiohandler.html#nextImageDelay)
@@ -348,9 +348,9 @@ pub const qimageiohandler = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QImageIOHandler, slot: fn () callconv(.c) i32 ```
-    pub fn OnCurrentImageNumber(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QImageIOHandler_OnCurrentImageNumber(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QImageIOHandler, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnCurrentImageNumber(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QImageIOHandler_OnCurrentImageNumber(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimageiohandler.html#currentImageNumber)
@@ -373,9 +373,9 @@ pub const qimageiohandler = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QImageIOHandler, slot: fn () callconv(.c) QtC.QRect ```
-    pub fn OnCurrentImageRect(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QRect) void {
-        qtc.QImageIOHandler_OnCurrentImageRect(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QImageIOHandler, callback: *const fn () callconv(.c) QtC.QRect ```
+    pub fn OnCurrentImageRect(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QRect) void {
+        qtc.QImageIOHandler_OnCurrentImageRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimageiohandler.html#currentImageRect)
@@ -406,6 +406,20 @@ pub const qimageiohandler = struct {
 
 /// https://doc.qt.io/qt-6/qimageioplugin.html
 pub const qimageioplugin = struct {
+    /// New constructs a new QImageIOPlugin object.
+    ///
+    ///
+    pub fn New() QtC.QImageIOPlugin {
+        return qtc.QImageIOPlugin_new();
+    }
+
+    /// New2 constructs a new QImageIOPlugin object.
+    ///
+    /// ``` parent: QtC.QObject ```
+    pub fn New2(parent: ?*anyopaque) QtC.QImageIOPlugin {
+        return qtc.QImageIOPlugin_new2(@ptrCast(parent));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ``` self: QtC.QImageIOPlugin ```
@@ -422,6 +436,20 @@ pub const qimageioplugin = struct {
     /// ``` self: QtC.QImageIOPlugin, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
         return qtc.QImageIOPlugin_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+    }
+
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.QImageIOPlugin, callback: *const fn (self: QtC.QImageIOPlugin, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+        qtc.QImageIOPlugin_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.QImageIOPlugin, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
+    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
+        return qtc.QImageIOPlugin_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -449,6 +477,30 @@ pub const qimageioplugin = struct {
         return qtc.QImageIOPlugin_Capabilities(@ptrCast(self), @ptrCast(device), format_str);
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qimageioplugin.html#capabilities)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.QImageIOPlugin, callback: *const fn (self: QtC.QImageIOPlugin, device: QtC.QIODevice, format: [*:0]u8) callconv(.c) i32 ```
+    pub fn OnCapabilities(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]u8) callconv(.c) i32) void {
+        qtc.QImageIOPlugin_OnCapabilities(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qimageioplugin.html#capabilities)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.QImageIOPlugin, device: QtC.QIODevice, format: []u8 ```
+    ///
+    /// Returns: ``` flag of qimageiohandler_enums.Capability ```
+    pub fn QBaseCapabilities(self: ?*anyopaque, device: ?*anyopaque, format: []u8) i32 {
+        const format_str = qtc.libqt_string{
+            .len = format.len,
+            .data = format.ptr,
+        };
+        return qtc.QImageIOPlugin_QBaseCapabilities(@ptrCast(self), @ptrCast(device), format_str);
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qimageioplugin.html#create)
     ///
     /// ``` self: QtC.QImageIOPlugin, device: QtC.QIODevice, format: []u8 ```
@@ -458,6 +510,28 @@ pub const qimageioplugin = struct {
             .data = format.ptr,
         };
         return qtc.QImageIOPlugin_Create(@ptrCast(self), @ptrCast(device), format_str);
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qimageioplugin.html#create)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.QImageIOPlugin, callback: *const fn (self: QtC.QImageIOPlugin, device: QtC.QIODevice, format: [*:0]u8) callconv(.c) QtC.QImageIOHandler ```
+    pub fn OnCreate(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]u8) callconv(.c) QtC.QImageIOHandler) void {
+        qtc.QImageIOPlugin_OnCreate(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qimageioplugin.html#create)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.QImageIOPlugin, device: QtC.QIODevice, format: []u8 ```
+    pub fn QBaseCreate(self: ?*anyopaque, device: ?*anyopaque, format: []u8) QtC.QImageIOHandler {
+        const format_str = qtc.libqt_string{
+            .len = format.len,
+            .data = format.ptr,
+        };
+        return qtc.QImageIOPlugin_QBaseCreate(@ptrCast(self), @ptrCast(device), format_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -484,24 +558,6 @@ pub const qimageioplugin = struct {
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qimageioplugin.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
-    }
-
-    /// Inherited from QObject
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
-    ///
-    /// ``` self: QtC.QImageIOPlugin, event: QtC.QEvent ```
-    pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QObject_Event(@ptrCast(self), @ptrCast(event));
-    }
-
-    /// Inherited from QObject
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
-    ///
-    /// ``` self: QtC.QImageIOPlugin, watched: QtC.QObject, event: QtC.QEvent ```
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.QObject_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -792,9 +848,9 @@ pub const qimageioplugin = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QImageIOPlugin, slot: fn (self: QtC.QImageIOPlugin) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QImageIOPlugin, callback: *const fn (self: QtC.QImageIOPlugin) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -876,9 +932,374 @@ pub const qimageioplugin = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QImageIOPlugin, slot: fn (self: QtC.QImageIOPlugin, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QImageIOPlugin, callback: *const fn (self: QtC.QImageIOPlugin, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    ///
+    /// Wrapper to allow calling virtual or protected method
+    ///
+    /// ``` self: QtC.QImageIOPlugin, event: QtC.QEvent ```
+    pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QImageIOPlugin_Event(@ptrCast(self), @ptrCast(event));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    ///
+    /// Wrapper to allow calling base class virtual or protected method
+    ///
+    /// ``` self: QtC.QImageIOPlugin, event: QtC.QEvent ```
+    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QImageIOPlugin_QBaseEvent(@ptrCast(self), @ptrCast(event));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    ///
+    /// Wrapper to allow overriding base class virtual or protected method
+    ///
+    /// ``` self: QtC.QImageIOPlugin, callback: *const fn (self: QtC.QImageIOPlugin, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QImageIOPlugin_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    ///
+    /// Wrapper to allow calling virtual or protected method
+    ///
+    /// ``` self: QtC.QImageIOPlugin, watched: QtC.QObject, event: QtC.QEvent ```
+    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QImageIOPlugin_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    ///
+    /// Wrapper to allow calling base class virtual or protected method
+    ///
+    /// ``` self: QtC.QImageIOPlugin, watched: QtC.QObject, event: QtC.QEvent ```
+    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QImageIOPlugin_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    ///
+    /// Wrapper to allow overriding base class virtual or protected method
+    ///
+    /// ``` self: QtC.QImageIOPlugin, callback: *const fn (self: QtC.QImageIOPlugin, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QImageIOPlugin_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    ///
+    /// Wrapper to allow calling virtual or protected method
+    ///
+    /// ``` self: QtC.QImageIOPlugin, event: QtC.QTimerEvent ```
+    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QImageIOPlugin_TimerEvent(@ptrCast(self), @ptrCast(event));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    ///
+    /// Wrapper to allow calling base class virtual or protected method
+    ///
+    /// ``` self: QtC.QImageIOPlugin, event: QtC.QTimerEvent ```
+    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QImageIOPlugin_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    ///
+    /// Wrapper to allow overriding base class virtual or protected method
+    ///
+    /// ``` self: QtC.QImageIOPlugin, callback: *const fn (self: QtC.QImageIOPlugin, event: QtC.QTimerEvent) callconv(.c) void ```
+    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QImageIOPlugin_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    ///
+    /// Wrapper to allow calling virtual or protected method
+    ///
+    /// ``` self: QtC.QImageIOPlugin, event: QtC.QChildEvent ```
+    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QImageIOPlugin_ChildEvent(@ptrCast(self), @ptrCast(event));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    ///
+    /// Wrapper to allow calling base class virtual or protected method
+    ///
+    /// ``` self: QtC.QImageIOPlugin, event: QtC.QChildEvent ```
+    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QImageIOPlugin_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    ///
+    /// Wrapper to allow overriding base class virtual or protected method
+    ///
+    /// ``` self: QtC.QImageIOPlugin, callback: *const fn (self: QtC.QImageIOPlugin, event: QtC.QChildEvent) callconv(.c) void ```
+    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QImageIOPlugin_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    ///
+    /// Wrapper to allow calling virtual or protected method
+    ///
+    /// ``` self: QtC.QImageIOPlugin, event: QtC.QEvent ```
+    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QImageIOPlugin_CustomEvent(@ptrCast(self), @ptrCast(event));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    ///
+    /// Wrapper to allow calling base class virtual or protected method
+    ///
+    /// ``` self: QtC.QImageIOPlugin, event: QtC.QEvent ```
+    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
+        qtc.QImageIOPlugin_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    ///
+    /// Wrapper to allow overriding base class virtual or protected method
+    ///
+    /// ``` self: QtC.QImageIOPlugin, callback: *const fn (self: QtC.QImageIOPlugin, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QImageIOPlugin_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    ///
+    /// Wrapper to allow calling virtual or protected method
+    ///
+    /// ``` self: QtC.QImageIOPlugin, signal: QtC.QMetaMethod ```
+    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QImageIOPlugin_ConnectNotify(@ptrCast(self), @ptrCast(signal));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    ///
+    /// Wrapper to allow calling base class virtual or protected method
+    ///
+    /// ``` self: QtC.QImageIOPlugin, signal: QtC.QMetaMethod ```
+    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QImageIOPlugin_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    ///
+    /// Wrapper to allow overriding base class virtual or protected method
+    ///
+    /// ``` self: QtC.QImageIOPlugin, callback: *const fn (self: QtC.QImageIOPlugin, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QImageIOPlugin_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    ///
+    /// Wrapper to allow calling virtual or protected method
+    ///
+    /// ``` self: QtC.QImageIOPlugin, signal: QtC.QMetaMethod ```
+    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QImageIOPlugin_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    ///
+    /// Wrapper to allow calling base class virtual or protected method
+    ///
+    /// ``` self: QtC.QImageIOPlugin, signal: QtC.QMetaMethod ```
+    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
+        qtc.QImageIOPlugin_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    ///
+    /// Wrapper to allow overriding base class virtual or protected method
+    ///
+    /// ``` self: QtC.QImageIOPlugin, callback: *const fn (self: QtC.QImageIOPlugin, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QImageIOPlugin_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    ///
+    /// Wrapper to allow calling virtual or protected method
+    ///
+    /// ``` self: QtC.QImageIOPlugin ```
+    pub fn Sender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QImageIOPlugin_Sender(@ptrCast(self));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    ///
+    /// Wrapper to allow calling base class virtual or protected method
+    ///
+    /// ``` self: QtC.QImageIOPlugin ```
+    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
+        return qtc.QImageIOPlugin_QBaseSender(@ptrCast(self));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
+    ///
+    /// Wrapper to allow overriding base class virtual or protected method
+    ///
+    /// ``` self: QtC.QImageIOPlugin, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.QImageIOPlugin_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    ///
+    /// Wrapper to allow calling virtual or protected method
+    ///
+    /// ``` self: QtC.QImageIOPlugin ```
+    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.QImageIOPlugin_SenderSignalIndex(@ptrCast(self));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    ///
+    /// Wrapper to allow calling base class virtual or protected method
+    ///
+    /// ``` self: QtC.QImageIOPlugin ```
+    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
+        return qtc.QImageIOPlugin_QBaseSenderSignalIndex(@ptrCast(self));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    ///
+    /// Wrapper to allow overriding base class virtual or protected method
+    ///
+    /// ``` self: QtC.QImageIOPlugin, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QImageIOPlugin_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    ///
+    /// Wrapper to allow calling virtual or protected method
+    ///
+    /// ``` self: QtC.QImageIOPlugin, signal: []const u8 ```
+    pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
+        const signal_Cstring = signal.ptr;
+        return qtc.QImageIOPlugin_Receivers(@ptrCast(self), signal_Cstring);
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    ///
+    /// Wrapper to allow calling base class virtual or protected method
+    ///
+    /// ``` self: QtC.QImageIOPlugin, signal: []const u8 ```
+    pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
+        const signal_Cstring = signal.ptr;
+        return qtc.QImageIOPlugin_QBaseReceivers(@ptrCast(self), signal_Cstring);
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
+    ///
+    /// Wrapper to allow overriding base class virtual or protected method
+    ///
+    /// ``` self: QtC.QImageIOPlugin, callback: *const fn (self: QtC.QImageIOPlugin, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QImageIOPlugin_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    ///
+    /// Wrapper to allow calling virtual or protected method
+    ///
+    /// ``` self: QtC.QImageIOPlugin, signal: QtC.QMetaMethod ```
+    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.QImageIOPlugin_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    ///
+    /// Wrapper to allow calling base class virtual or protected method
+    ///
+    /// ``` self: QtC.QImageIOPlugin, signal: QtC.QMetaMethod ```
+    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
+        return qtc.QImageIOPlugin_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    ///
+    /// Wrapper to allow overriding base class virtual or protected method
+    ///
+    /// ``` self: QtC.QImageIOPlugin, callback: *const fn (self: QtC.QImageIOPlugin, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QImageIOPlugin_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -887,9 +1308,9 @@ pub const qimageioplugin = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QImageIOPlugin, slot: fn (self: QtC.QImageIOPlugin, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QImageIOPlugin, callback: *const fn (self: QtC.QImageIOPlugin, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimageioplugin.html#dtor.QImageIOPlugin)

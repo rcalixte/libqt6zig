@@ -41,9 +41,9 @@ pub const qitemdelegate = struct {
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QItemDelegate, slot: fn (self: QtC.QItemDelegate, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QItemDelegate_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QItemDelegate, callback: *const fn (self: QtC.QItemDelegate, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+        qtc.QItemDelegate_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -90,9 +90,9 @@ pub const qitemdelegate = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QItemDelegate, slot: fn (self: QtC.QItemDelegate, painter: QtC.QPainter, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex) callconv(.c) void ```
-    pub fn OnPaint(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QItemDelegate_OnPaint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QItemDelegate, callback: *const fn (self: QtC.QItemDelegate, painter: QtC.QPainter, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex) callconv(.c) void ```
+    pub fn OnPaint(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QItemDelegate_OnPaint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#paint)
@@ -115,9 +115,9 @@ pub const qitemdelegate = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QItemDelegate, slot: fn (self: QtC.QItemDelegate, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex) callconv(.c) QtC.QSize ```
-    pub fn OnSizeHint(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) QtC.QSize) void {
-        qtc.QItemDelegate_OnSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QItemDelegate, callback: *const fn (self: QtC.QItemDelegate, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex) callconv(.c) QtC.QSize ```
+    pub fn OnSizeHint(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) QtC.QSize) void {
+        qtc.QItemDelegate_OnSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#sizeHint)
@@ -140,9 +140,9 @@ pub const qitemdelegate = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QItemDelegate, slot: fn (self: QtC.QItemDelegate, parent: QtC.QWidget, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex) callconv(.c) QtC.QWidget ```
-    pub fn OnCreateEditor(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) QtC.QWidget) void {
-        qtc.QItemDelegate_OnCreateEditor(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QItemDelegate, callback: *const fn (self: QtC.QItemDelegate, parent: QtC.QWidget, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex) callconv(.c) QtC.QWidget ```
+    pub fn OnCreateEditor(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) QtC.QWidget) void {
+        qtc.QItemDelegate_OnCreateEditor(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#createEditor)
@@ -165,9 +165,9 @@ pub const qitemdelegate = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QItemDelegate, slot: fn (self: QtC.QItemDelegate, editor: QtC.QWidget, index: QtC.QModelIndex) callconv(.c) void ```
-    pub fn OnSetEditorData(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QItemDelegate_OnSetEditorData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QItemDelegate, callback: *const fn (self: QtC.QItemDelegate, editor: QtC.QWidget, index: QtC.QModelIndex) callconv(.c) void ```
+    pub fn OnSetEditorData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QItemDelegate_OnSetEditorData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#setEditorData)
@@ -190,9 +190,9 @@ pub const qitemdelegate = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QItemDelegate, slot: fn (self: QtC.QItemDelegate, editor: QtC.QWidget, model: QtC.QAbstractItemModel, index: QtC.QModelIndex) callconv(.c) void ```
-    pub fn OnSetModelData(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QItemDelegate_OnSetModelData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QItemDelegate, callback: *const fn (self: QtC.QItemDelegate, editor: QtC.QWidget, model: QtC.QAbstractItemModel, index: QtC.QModelIndex) callconv(.c) void ```
+    pub fn OnSetModelData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QItemDelegate_OnSetModelData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#setModelData)
@@ -215,9 +215,9 @@ pub const qitemdelegate = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QItemDelegate, slot: fn (self: QtC.QItemDelegate, editor: QtC.QWidget, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex) callconv(.c) void ```
-    pub fn OnUpdateEditorGeometry(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QItemDelegate_OnUpdateEditorGeometry(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QItemDelegate, callback: *const fn (self: QtC.QItemDelegate, editor: QtC.QWidget, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex) callconv(.c) void ```
+    pub fn OnUpdateEditorGeometry(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QItemDelegate_OnUpdateEditorGeometry(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#updateEditorGeometry)
@@ -258,9 +258,9 @@ pub const qitemdelegate = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QItemDelegate, slot: fn (self: QtC.QItemDelegate, painter: QtC.QPainter, option: QtC.QStyleOptionViewItem, rect: QtC.QRect, text: [*:0]const u8) callconv(.c) void ```
-    pub fn OnDrawDisplay(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QItemDelegate_OnDrawDisplay(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QItemDelegate, callback: *const fn (self: QtC.QItemDelegate, painter: QtC.QPainter, option: QtC.QStyleOptionViewItem, rect: QtC.QRect, text: [*:0]const u8) callconv(.c) void ```
+    pub fn OnDrawDisplay(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QItemDelegate_OnDrawDisplay(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#drawDisplay)
@@ -287,9 +287,9 @@ pub const qitemdelegate = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QItemDelegate, slot: fn (self: QtC.QItemDelegate, painter: QtC.QPainter, option: QtC.QStyleOptionViewItem, rect: QtC.QRect, pixmap: QtC.QPixmap) callconv(.c) void ```
-    pub fn OnDrawDecoration(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QItemDelegate_OnDrawDecoration(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QItemDelegate, callback: *const fn (self: QtC.QItemDelegate, painter: QtC.QPainter, option: QtC.QStyleOptionViewItem, rect: QtC.QRect, pixmap: QtC.QPixmap) callconv(.c) void ```
+    pub fn OnDrawDecoration(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QItemDelegate_OnDrawDecoration(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#drawDecoration)
@@ -312,9 +312,9 @@ pub const qitemdelegate = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QItemDelegate, slot: fn (self: QtC.QItemDelegate, painter: QtC.QPainter, option: QtC.QStyleOptionViewItem, rect: QtC.QRect) callconv(.c) void ```
-    pub fn OnDrawFocus(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QItemDelegate_OnDrawFocus(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QItemDelegate, callback: *const fn (self: QtC.QItemDelegate, painter: QtC.QPainter, option: QtC.QStyleOptionViewItem, rect: QtC.QRect) callconv(.c) void ```
+    pub fn OnDrawFocus(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QItemDelegate_OnDrawFocus(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#drawFocus)
@@ -337,9 +337,9 @@ pub const qitemdelegate = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QItemDelegate, slot: fn (self: QtC.QItemDelegate, painter: QtC.QPainter, option: QtC.QStyleOptionViewItem, rect: QtC.QRect, state: qnamespace_enums.CheckState) callconv(.c) void ```
-    pub fn OnDrawCheck(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QItemDelegate_OnDrawCheck(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QItemDelegate, callback: *const fn (self: QtC.QItemDelegate, painter: QtC.QPainter, option: QtC.QStyleOptionViewItem, rect: QtC.QRect, state: qnamespace_enums.CheckState) callconv(.c) void ```
+    pub fn OnDrawCheck(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QItemDelegate_OnDrawCheck(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#drawCheck)
@@ -362,9 +362,9 @@ pub const qitemdelegate = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QItemDelegate, slot: fn (self: QtC.QItemDelegate, painter: QtC.QPainter, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex) callconv(.c) void ```
-    pub fn OnDrawBackground(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QItemDelegate_OnDrawBackground(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QItemDelegate, callback: *const fn (self: QtC.QItemDelegate, painter: QtC.QPainter, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex) callconv(.c) void ```
+    pub fn OnDrawBackground(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QItemDelegate_OnDrawBackground(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#drawBackground)
@@ -387,9 +387,9 @@ pub const qitemdelegate = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QItemDelegate, slot: fn (self: QtC.QItemDelegate, option: QtC.QStyleOptionViewItem, checkRect: QtC.QRect, iconRect: QtC.QRect, textRect: QtC.QRect, hint: bool) callconv(.c) void ```
-    pub fn OnDoLayout(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QItemDelegate_OnDoLayout(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QItemDelegate, callback: *const fn (self: QtC.QItemDelegate, option: QtC.QStyleOptionViewItem, checkRect: QtC.QRect, iconRect: QtC.QRect, textRect: QtC.QRect, hint: bool) callconv(.c) void ```
+    pub fn OnDoLayout(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QItemDelegate_OnDoLayout(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#doLayout)
@@ -412,9 +412,9 @@ pub const qitemdelegate = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QItemDelegate, slot: fn (self: QtC.QItemDelegate, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex, role: i32) callconv(.c) QtC.QRect ```
-    pub fn OnRect(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i32) callconv(.c) QtC.QRect) void {
-        qtc.QItemDelegate_OnRect(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QItemDelegate, callback: *const fn (self: QtC.QItemDelegate, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex, role: i32) callconv(.c) QtC.QRect ```
+    pub fn OnRect(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i32) callconv(.c) QtC.QRect) void {
+        qtc.QItemDelegate_OnRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#rect)
@@ -437,9 +437,9 @@ pub const qitemdelegate = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QItemDelegate, slot: fn (self: QtC.QItemDelegate, object: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QItemDelegate_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QItemDelegate, callback: *const fn (self: QtC.QItemDelegate, object: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QItemDelegate_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#eventFilter)
@@ -462,9 +462,9 @@ pub const qitemdelegate = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QItemDelegate, slot: fn (self: QtC.QItemDelegate, event: QtC.QEvent, model: QtC.QAbstractItemModel, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex) callconv(.c) bool ```
-    pub fn OnEditorEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QItemDelegate_OnEditorEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QItemDelegate, callback: *const fn (self: QtC.QItemDelegate, event: QtC.QEvent, model: QtC.QAbstractItemModel, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex) callconv(.c) bool ```
+    pub fn OnEditorEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QItemDelegate_OnEditorEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#editorEvent)
@@ -487,9 +487,9 @@ pub const qitemdelegate = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QItemDelegate, slot: fn (self: QtC.QItemDelegate, index: QtC.QModelIndex, option: QtC.QStyleOptionViewItem) callconv(.c) QtC.QStyleOptionViewItem ```
-    pub fn OnSetOptions(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) QtC.QStyleOptionViewItem) void {
-        qtc.QItemDelegate_OnSetOptions(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QItemDelegate, callback: *const fn (self: QtC.QItemDelegate, index: QtC.QModelIndex, option: QtC.QStyleOptionViewItem) callconv(.c) QtC.QStyleOptionViewItem ```
+    pub fn OnSetOptions(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) QtC.QStyleOptionViewItem) void {
+        qtc.QItemDelegate_OnSetOptions(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#setOptions)
@@ -512,9 +512,9 @@ pub const qitemdelegate = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QItemDelegate, slot: fn (self: QtC.QItemDelegate, option: QtC.QStyleOptionViewItem, variant: QtC.QVariant) callconv(.c) QtC.QPixmap ```
-    pub fn OnDecoration(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPixmap) void {
-        qtc.QItemDelegate_OnDecoration(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QItemDelegate, callback: *const fn (self: QtC.QItemDelegate, option: QtC.QStyleOptionViewItem, variant: QtC.QVariant) callconv(.c) QtC.QPixmap ```
+    pub fn OnDecoration(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPixmap) void {
+        qtc.QItemDelegate_OnDecoration(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#decoration)
@@ -537,9 +537,9 @@ pub const qitemdelegate = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QItemDelegate, slot: fn (self: QtC.QItemDelegate, option: QtC.QStyleOptionViewItem, bounding: QtC.QRect, variant: QtC.QVariant) callconv(.c) QtC.QRect ```
-    pub fn OnDoCheck(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) QtC.QRect) void {
-        qtc.QItemDelegate_OnDoCheck(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QItemDelegate, callback: *const fn (self: QtC.QItemDelegate, option: QtC.QStyleOptionViewItem, bounding: QtC.QRect, variant: QtC.QVariant) callconv(.c) QtC.QRect ```
+    pub fn OnDoCheck(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) QtC.QRect) void {
+        qtc.QItemDelegate_OnDoCheck(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#doCheck)
@@ -566,9 +566,9 @@ pub const qitemdelegate = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QItemDelegate, slot: fn (self: QtC.QItemDelegate, painter: QtC.QPainter, rect: QtC.QRect, font: QtC.QFont, text: [*:0]const u8) callconv(.c) QtC.QRect ```
-    pub fn OnTextRectangle(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) QtC.QRect) void {
-        qtc.QItemDelegate_OnTextRectangle(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QItemDelegate, callback: *const fn (self: QtC.QItemDelegate, painter: QtC.QPainter, rect: QtC.QRect, font: QtC.QFont, text: [*:0]const u8) callconv(.c) QtC.QRect ```
+    pub fn OnTextRectangle(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) QtC.QRect) void {
+        qtc.QItemDelegate_OnTextRectangle(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#textRectangle)
@@ -623,9 +623,9 @@ pub const qitemdelegate = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemdelegate.html#commitData)
     ///
-    /// ``` self: QtC.QItemDelegate, slot: fn (self: QtC.QItemDelegate, editor: QtC.QWidget) callconv(.c) void ```
-    pub fn OnCommitData(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemDelegate_Connect_CommitData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QItemDelegate, callback: *const fn (self: QtC.QItemDelegate, editor: QtC.QWidget) callconv(.c) void ```
+    pub fn OnCommitData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractItemDelegate_Connect_CommitData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemDelegate
@@ -641,9 +641,9 @@ pub const qitemdelegate = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemdelegate.html#closeEditor)
     ///
-    /// ``` self: QtC.QItemDelegate, slot: fn (self: QtC.QItemDelegate, editor: QtC.QWidget) callconv(.c) void ```
-    pub fn OnCloseEditor(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemDelegate_Connect_CloseEditor(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QItemDelegate, callback: *const fn (self: QtC.QItemDelegate, editor: QtC.QWidget) callconv(.c) void ```
+    pub fn OnCloseEditor(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractItemDelegate_Connect_CloseEditor(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemDelegate
@@ -659,9 +659,9 @@ pub const qitemdelegate = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemdelegate.html#sizeHintChanged)
     ///
-    /// ``` self: QtC.QItemDelegate, slot: fn (self: QtC.QItemDelegate, param1: QtC.QModelIndex) callconv(.c) void ```
-    pub fn OnSizeHintChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemDelegate_Connect_SizeHintChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QItemDelegate, callback: *const fn (self: QtC.QItemDelegate, param1: QtC.QModelIndex) callconv(.c) void ```
+    pub fn OnSizeHintChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractItemDelegate_Connect_SizeHintChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemDelegate
@@ -677,9 +677,9 @@ pub const qitemdelegate = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemdelegate.html#closeEditor)
     ///
-    /// ``` self: QtC.QItemDelegate, slot: fn (self: QtC.QItemDelegate, editor: QtC.QWidget, hint: qabstractitemdelegate_enums.EndEditHint) callconv(.c) void ```
-    pub fn OnCloseEditor2(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractItemDelegate_Connect_CloseEditor2(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QItemDelegate, callback: *const fn (self: QtC.QItemDelegate, editor: QtC.QWidget, hint: qabstractitemdelegate_enums.EndEditHint) callconv(.c) void ```
+    pub fn OnCloseEditor2(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QAbstractItemDelegate_Connect_CloseEditor2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -970,9 +970,9 @@ pub const qitemdelegate = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QItemDelegate, slot: fn (self: QtC.QItemDelegate) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QItemDelegate, callback: *const fn (self: QtC.QItemDelegate) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1054,9 +1054,9 @@ pub const qitemdelegate = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QItemDelegate, slot: fn (self: QtC.QItemDelegate, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QItemDelegate, callback: *const fn (self: QtC.QItemDelegate, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemDelegate
@@ -1087,9 +1087,9 @@ pub const qitemdelegate = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QItemDelegate, slot: fn (self: QtC.QItemDelegate, editor: QtC.QWidget, index: QtC.QModelIndex) callconv(.c) void ```
-    pub fn OnDestroyEditor(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QItemDelegate_OnDestroyEditor(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QItemDelegate, callback: *const fn (self: QtC.QItemDelegate, editor: QtC.QWidget, index: QtC.QModelIndex) callconv(.c) void ```
+    pub fn OnDestroyEditor(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QItemDelegate_OnDestroyEditor(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemDelegate
@@ -1120,9 +1120,9 @@ pub const qitemdelegate = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QItemDelegate, slot: fn (self: QtC.QItemDelegate, event: QtC.QHelpEvent, view: QtC.QAbstractItemView, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex) callconv(.c) bool ```
-    pub fn OnHelpEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QItemDelegate_OnHelpEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QItemDelegate, callback: *const fn (self: QtC.QItemDelegate, event: QtC.QHelpEvent, view: QtC.QAbstractItemView, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex) callconv(.c) bool ```
+    pub fn OnHelpEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QItemDelegate_OnHelpEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemDelegate
@@ -1163,9 +1163,9 @@ pub const qitemdelegate = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QItemDelegate, slot: fn () callconv(.c) [*:-1]i32 ```
-    pub fn OnPaintingRoles(self: ?*anyopaque, slot: fn () callconv(.c) [*:-1]i32) void {
-        qtc.QItemDelegate_OnPaintingRoles(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QItemDelegate, callback: *const fn () callconv(.c) [*:-1]i32 ```
+    pub fn OnPaintingRoles(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:-1]i32) void {
+        qtc.QItemDelegate_OnPaintingRoles(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1196,9 +1196,9 @@ pub const qitemdelegate = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QItemDelegate, slot: fn (self: QtC.QItemDelegate, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QItemDelegate_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QItemDelegate, callback: *const fn (self: QtC.QItemDelegate, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QItemDelegate_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1229,9 +1229,9 @@ pub const qitemdelegate = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QItemDelegate, slot: fn (self: QtC.QItemDelegate, event: QtC.QTimerEvent) callconv(.c) void ```
-    pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QItemDelegate_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QItemDelegate, callback: *const fn (self: QtC.QItemDelegate, event: QtC.QTimerEvent) callconv(.c) void ```
+    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QItemDelegate_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1262,9 +1262,9 @@ pub const qitemdelegate = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QItemDelegate, slot: fn (self: QtC.QItemDelegate, event: QtC.QChildEvent) callconv(.c) void ```
-    pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QItemDelegate_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QItemDelegate, callback: *const fn (self: QtC.QItemDelegate, event: QtC.QChildEvent) callconv(.c) void ```
+    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QItemDelegate_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1295,9 +1295,9 @@ pub const qitemdelegate = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QItemDelegate, slot: fn (self: QtC.QItemDelegate, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QItemDelegate_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QItemDelegate, callback: *const fn (self: QtC.QItemDelegate, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QItemDelegate_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1328,9 +1328,9 @@ pub const qitemdelegate = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QItemDelegate, slot: fn (self: QtC.QItemDelegate, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QItemDelegate_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QItemDelegate, callback: *const fn (self: QtC.QItemDelegate, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QItemDelegate_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1361,9 +1361,9 @@ pub const qitemdelegate = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QItemDelegate, slot: fn (self: QtC.QItemDelegate, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QItemDelegate_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QItemDelegate, callback: *const fn (self: QtC.QItemDelegate, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QItemDelegate_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1394,9 +1394,9 @@ pub const qitemdelegate = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QItemDelegate, slot: fn () callconv(.c) QtC.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
-        qtc.QItemDelegate_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QItemDelegate, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.QItemDelegate_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1427,9 +1427,9 @@ pub const qitemdelegate = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QItemDelegate, slot: fn () callconv(.c) i32 ```
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QItemDelegate_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QItemDelegate, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QItemDelegate_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1462,9 +1462,9 @@ pub const qitemdelegate = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QItemDelegate, slot: fn (self: QtC.QItemDelegate, signal: [*:0]const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QItemDelegate_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QItemDelegate, callback: *const fn (self: QtC.QItemDelegate, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QItemDelegate_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1495,9 +1495,9 @@ pub const qitemdelegate = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QItemDelegate, slot: fn (self: QtC.QItemDelegate, signal: QtC.QMetaMethod) callconv(.c) bool ```
-    pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QItemDelegate_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QItemDelegate, callback: *const fn (self: QtC.QItemDelegate, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QItemDelegate_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1506,9 +1506,9 @@ pub const qitemdelegate = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QItemDelegate, slot: fn (self: QtC.QItemDelegate, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QItemDelegate, callback: *const fn (self: QtC.QItemDelegate, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qitemdelegate.html#dtor.QItemDelegate)

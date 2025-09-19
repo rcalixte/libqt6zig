@@ -52,9 +52,9 @@ pub const kio__forwardingworkerbase = struct {
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KIO__ForwardingWorkerBase, slot: fn (self: QtC.KIO__ForwardingWorkerBase, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
-        qtc.KIO__ForwardingWorkerBase_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__ForwardingWorkerBase, callback: *const fn (self: QtC.KIO__ForwardingWorkerBase, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+        qtc.KIO__ForwardingWorkerBase_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -87,9 +87,9 @@ pub const kio__forwardingworkerbase = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KIO__ForwardingWorkerBase, slot: fn (self: QtC.KIO__ForwardingWorkerBase, url: QtC.QUrl) callconv(.c) QtC.KIO__WorkerResult ```
-    pub fn OnGet(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.KIO__WorkerResult) void {
-        qtc.KIO__ForwardingWorkerBase_OnGet(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__ForwardingWorkerBase, callback: *const fn (self: QtC.KIO__ForwardingWorkerBase, url: QtC.QUrl) callconv(.c) QtC.KIO__WorkerResult ```
+    pub fn OnGet(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.KIO__WorkerResult) void {
+        qtc.KIO__ForwardingWorkerBase_OnGet(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kio-forwardingworkerbase.html#get)
@@ -112,9 +112,9 @@ pub const kio__forwardingworkerbase = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KIO__ForwardingWorkerBase, slot: fn (self: QtC.KIO__ForwardingWorkerBase, url: QtC.QUrl, permissions: i32, flags: flag of dropjob_enums.JobFlag) callconv(.c) QtC.KIO__WorkerResult ```
-    pub fn OnPut(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) QtC.KIO__WorkerResult) void {
-        qtc.KIO__ForwardingWorkerBase_OnPut(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__ForwardingWorkerBase, callback: *const fn (self: QtC.KIO__ForwardingWorkerBase, url: QtC.QUrl, permissions: i32, flags: flag of dropjob_enums.JobFlag) callconv(.c) QtC.KIO__WorkerResult ```
+    pub fn OnPut(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) QtC.KIO__WorkerResult) void {
+        qtc.KIO__ForwardingWorkerBase_OnPut(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kio-forwardingworkerbase.html#put)
@@ -137,9 +137,9 @@ pub const kio__forwardingworkerbase = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KIO__ForwardingWorkerBase, slot: fn (self: QtC.KIO__ForwardingWorkerBase, url: QtC.QUrl) callconv(.c) QtC.KIO__WorkerResult ```
-    pub fn OnStat(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.KIO__WorkerResult) void {
-        qtc.KIO__ForwardingWorkerBase_OnStat(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__ForwardingWorkerBase, callback: *const fn (self: QtC.KIO__ForwardingWorkerBase, url: QtC.QUrl) callconv(.c) QtC.KIO__WorkerResult ```
+    pub fn OnStat(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.KIO__WorkerResult) void {
+        qtc.KIO__ForwardingWorkerBase_OnStat(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kio-forwardingworkerbase.html#stat)
@@ -162,9 +162,9 @@ pub const kio__forwardingworkerbase = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KIO__ForwardingWorkerBase, slot: fn (self: QtC.KIO__ForwardingWorkerBase, url: QtC.QUrl) callconv(.c) QtC.KIO__WorkerResult ```
-    pub fn OnMimetype(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.KIO__WorkerResult) void {
-        qtc.KIO__ForwardingWorkerBase_OnMimetype(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__ForwardingWorkerBase, callback: *const fn (self: QtC.KIO__ForwardingWorkerBase, url: QtC.QUrl) callconv(.c) QtC.KIO__WorkerResult ```
+    pub fn OnMimetype(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.KIO__WorkerResult) void {
+        qtc.KIO__ForwardingWorkerBase_OnMimetype(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kio-forwardingworkerbase.html#mimetype)
@@ -187,9 +187,9 @@ pub const kio__forwardingworkerbase = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KIO__ForwardingWorkerBase, slot: fn (self: QtC.KIO__ForwardingWorkerBase, url: QtC.QUrl) callconv(.c) QtC.KIO__WorkerResult ```
-    pub fn OnListDir(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.KIO__WorkerResult) void {
-        qtc.KIO__ForwardingWorkerBase_OnListDir(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__ForwardingWorkerBase, callback: *const fn (self: QtC.KIO__ForwardingWorkerBase, url: QtC.QUrl) callconv(.c) QtC.KIO__WorkerResult ```
+    pub fn OnListDir(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.KIO__WorkerResult) void {
+        qtc.KIO__ForwardingWorkerBase_OnListDir(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kio-forwardingworkerbase.html#listDir)
@@ -212,9 +212,9 @@ pub const kio__forwardingworkerbase = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KIO__ForwardingWorkerBase, slot: fn (self: QtC.KIO__ForwardingWorkerBase, url: QtC.QUrl, permissions: i32) callconv(.c) QtC.KIO__WorkerResult ```
-    pub fn OnMkdir(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) QtC.KIO__WorkerResult) void {
-        qtc.KIO__ForwardingWorkerBase_OnMkdir(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__ForwardingWorkerBase, callback: *const fn (self: QtC.KIO__ForwardingWorkerBase, url: QtC.QUrl, permissions: i32) callconv(.c) QtC.KIO__WorkerResult ```
+    pub fn OnMkdir(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) QtC.KIO__WorkerResult) void {
+        qtc.KIO__ForwardingWorkerBase_OnMkdir(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kio-forwardingworkerbase.html#mkdir)
@@ -237,9 +237,9 @@ pub const kio__forwardingworkerbase = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KIO__ForwardingWorkerBase, slot: fn (self: QtC.KIO__ForwardingWorkerBase, src: QtC.QUrl, dest: QtC.QUrl, flags: flag of dropjob_enums.JobFlag) callconv(.c) QtC.KIO__WorkerResult ```
-    pub fn OnRename(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i32) callconv(.c) QtC.KIO__WorkerResult) void {
-        qtc.KIO__ForwardingWorkerBase_OnRename(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__ForwardingWorkerBase, callback: *const fn (self: QtC.KIO__ForwardingWorkerBase, src: QtC.QUrl, dest: QtC.QUrl, flags: flag of dropjob_enums.JobFlag) callconv(.c) QtC.KIO__WorkerResult ```
+    pub fn OnRename(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i32) callconv(.c) QtC.KIO__WorkerResult) void {
+        qtc.KIO__ForwardingWorkerBase_OnRename(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kio-forwardingworkerbase.html#rename)
@@ -266,9 +266,9 @@ pub const kio__forwardingworkerbase = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KIO__ForwardingWorkerBase, slot: fn (self: QtC.KIO__ForwardingWorkerBase, target: [*:0]const u8, dest: QtC.QUrl, flags: flag of dropjob_enums.JobFlag) callconv(.c) QtC.KIO__WorkerResult ```
-    pub fn OnSymlink(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, ?*anyopaque, i32) callconv(.c) QtC.KIO__WorkerResult) void {
-        qtc.KIO__ForwardingWorkerBase_OnSymlink(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__ForwardingWorkerBase, callback: *const fn (self: QtC.KIO__ForwardingWorkerBase, target: [*:0]const u8, dest: QtC.QUrl, flags: flag of dropjob_enums.JobFlag) callconv(.c) QtC.KIO__WorkerResult ```
+    pub fn OnSymlink(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, ?*anyopaque, i32) callconv(.c) QtC.KIO__WorkerResult) void {
+        qtc.KIO__ForwardingWorkerBase_OnSymlink(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kio-forwardingworkerbase.html#symlink)
@@ -295,9 +295,9 @@ pub const kio__forwardingworkerbase = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KIO__ForwardingWorkerBase, slot: fn (self: QtC.KIO__ForwardingWorkerBase, url: QtC.QUrl, permissions: i32) callconv(.c) QtC.KIO__WorkerResult ```
-    pub fn OnChmod(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) QtC.KIO__WorkerResult) void {
-        qtc.KIO__ForwardingWorkerBase_OnChmod(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__ForwardingWorkerBase, callback: *const fn (self: QtC.KIO__ForwardingWorkerBase, url: QtC.QUrl, permissions: i32) callconv(.c) QtC.KIO__WorkerResult ```
+    pub fn OnChmod(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) QtC.KIO__WorkerResult) void {
+        qtc.KIO__ForwardingWorkerBase_OnChmod(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kio-forwardingworkerbase.html#chmod)
@@ -320,9 +320,9 @@ pub const kio__forwardingworkerbase = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KIO__ForwardingWorkerBase, slot: fn (self: QtC.KIO__ForwardingWorkerBase, url: QtC.QUrl, mtime: QtC.QDateTime) callconv(.c) QtC.KIO__WorkerResult ```
-    pub fn OnSetModificationTime(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) QtC.KIO__WorkerResult) void {
-        qtc.KIO__ForwardingWorkerBase_OnSetModificationTime(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__ForwardingWorkerBase, callback: *const fn (self: QtC.KIO__ForwardingWorkerBase, url: QtC.QUrl, mtime: QtC.QDateTime) callconv(.c) QtC.KIO__WorkerResult ```
+    pub fn OnSetModificationTime(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) QtC.KIO__WorkerResult) void {
+        qtc.KIO__ForwardingWorkerBase_OnSetModificationTime(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kio-forwardingworkerbase.html#setModificationTime)
@@ -345,9 +345,9 @@ pub const kio__forwardingworkerbase = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KIO__ForwardingWorkerBase, slot: fn (self: QtC.KIO__ForwardingWorkerBase, src: QtC.QUrl, dest: QtC.QUrl, permissions: i32, flags: flag of dropjob_enums.JobFlag) callconv(.c) QtC.KIO__WorkerResult ```
-    pub fn OnCopy(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) QtC.KIO__WorkerResult) void {
-        qtc.KIO__ForwardingWorkerBase_OnCopy(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__ForwardingWorkerBase, callback: *const fn (self: QtC.KIO__ForwardingWorkerBase, src: QtC.QUrl, dest: QtC.QUrl, permissions: i32, flags: flag of dropjob_enums.JobFlag) callconv(.c) QtC.KIO__WorkerResult ```
+    pub fn OnCopy(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) QtC.KIO__WorkerResult) void {
+        qtc.KIO__ForwardingWorkerBase_OnCopy(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kio-forwardingworkerbase.html#copy)
@@ -370,9 +370,9 @@ pub const kio__forwardingworkerbase = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KIO__ForwardingWorkerBase, slot: fn (self: QtC.KIO__ForwardingWorkerBase, url: QtC.QUrl, isfile: bool) callconv(.c) QtC.KIO__WorkerResult ```
-    pub fn OnDel(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, bool) callconv(.c) QtC.KIO__WorkerResult) void {
-        qtc.KIO__ForwardingWorkerBase_OnDel(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__ForwardingWorkerBase, callback: *const fn (self: QtC.KIO__ForwardingWorkerBase, url: QtC.QUrl, isfile: bool) callconv(.c) QtC.KIO__WorkerResult ```
+    pub fn OnDel(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, bool) callconv(.c) QtC.KIO__WorkerResult) void {
+        qtc.KIO__ForwardingWorkerBase_OnDel(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kio-forwardingworkerbase.html#del)
@@ -395,9 +395,9 @@ pub const kio__forwardingworkerbase = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KIO__ForwardingWorkerBase, slot: fn (self: QtC.KIO__ForwardingWorkerBase, url: QtC.QUrl, newURL: QtC.QUrl) callconv(.c) bool ```
-    pub fn OnRewriteUrl(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KIO__ForwardingWorkerBase_OnRewriteUrl(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__ForwardingWorkerBase, callback: *const fn (self: QtC.KIO__ForwardingWorkerBase, url: QtC.QUrl, newURL: QtC.QUrl) callconv(.c) bool ```
+    pub fn OnRewriteUrl(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KIO__ForwardingWorkerBase_OnRewriteUrl(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kio-forwardingworkerbase.html#rewriteUrl)
@@ -420,9 +420,9 @@ pub const kio__forwardingworkerbase = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KIO__ForwardingWorkerBase, slot: fn (self: QtC.KIO__ForwardingWorkerBase, entry: QtC.KIO__UDSEntry, creationMode: forwardingworkerbase_enums.UDSEntryCreationMode) callconv(.c) void ```
-    pub fn OnAdjustUDSEntry(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KIO__ForwardingWorkerBase_OnAdjustUDSEntry(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__ForwardingWorkerBase, callback: *const fn (self: QtC.KIO__ForwardingWorkerBase, entry: QtC.KIO__UDSEntry, creationMode: forwardingworkerbase_enums.UDSEntryCreationMode) callconv(.c) void ```
+    pub fn OnAdjustUDSEntry(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
+        qtc.KIO__ForwardingWorkerBase_OnAdjustUDSEntry(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kio-forwardingworkerbase.html#adjustUDSEntry)
@@ -445,9 +445,9 @@ pub const kio__forwardingworkerbase = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KIO__ForwardingWorkerBase, slot: fn () callconv(.c) QtC.QUrl ```
-    pub fn OnProcessedUrl(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QUrl) void {
-        qtc.KIO__ForwardingWorkerBase_OnProcessedUrl(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__ForwardingWorkerBase, callback: *const fn () callconv(.c) QtC.QUrl ```
+    pub fn OnProcessedUrl(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QUrl) void {
+        qtc.KIO__ForwardingWorkerBase_OnProcessedUrl(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kio-forwardingworkerbase.html#processedUrl)
@@ -470,9 +470,9 @@ pub const kio__forwardingworkerbase = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KIO__ForwardingWorkerBase, slot: fn () callconv(.c) QtC.QUrl ```
-    pub fn OnRequestedUrl(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QUrl) void {
-        qtc.KIO__ForwardingWorkerBase_OnRequestedUrl(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__ForwardingWorkerBase, callback: *const fn () callconv(.c) QtC.QUrl ```
+    pub fn OnRequestedUrl(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QUrl) void {
+        qtc.KIO__ForwardingWorkerBase_OnRequestedUrl(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kio-forwardingworkerbase.html#requestedUrl)
@@ -798,9 +798,9 @@ pub const kio__forwardingworkerbase = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KIO__ForwardingWorkerBase, slot: fn (self: QtC.KIO__ForwardingWorkerBase) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__ForwardingWorkerBase, callback: *const fn (self: QtC.KIO__ForwardingWorkerBase) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -882,9 +882,9 @@ pub const kio__forwardingworkerbase = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KIO__ForwardingWorkerBase, slot: fn (self: QtC.KIO__ForwardingWorkerBase, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__ForwardingWorkerBase, callback: *const fn (self: QtC.KIO__ForwardingWorkerBase, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KIO::WorkerBase
@@ -1749,9 +1749,9 @@ pub const kio__forwardingworkerbase = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KIO__ForwardingWorkerBase, slot: fn (self: QtC.KIO__ForwardingWorkerBase, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KIO__ForwardingWorkerBase_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__ForwardingWorkerBase, callback: *const fn (self: QtC.KIO__ForwardingWorkerBase, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KIO__ForwardingWorkerBase_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1782,9 +1782,9 @@ pub const kio__forwardingworkerbase = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KIO__ForwardingWorkerBase, slot: fn (self: QtC.KIO__ForwardingWorkerBase, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KIO__ForwardingWorkerBase_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__ForwardingWorkerBase, callback: *const fn (self: QtC.KIO__ForwardingWorkerBase, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KIO__ForwardingWorkerBase_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1815,9 +1815,9 @@ pub const kio__forwardingworkerbase = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KIO__ForwardingWorkerBase, slot: fn (self: QtC.KIO__ForwardingWorkerBase, event: QtC.QTimerEvent) callconv(.c) void ```
-    pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIO__ForwardingWorkerBase_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__ForwardingWorkerBase, callback: *const fn (self: QtC.KIO__ForwardingWorkerBase, event: QtC.QTimerEvent) callconv(.c) void ```
+    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KIO__ForwardingWorkerBase_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1848,9 +1848,9 @@ pub const kio__forwardingworkerbase = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KIO__ForwardingWorkerBase, slot: fn (self: QtC.KIO__ForwardingWorkerBase, event: QtC.QChildEvent) callconv(.c) void ```
-    pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIO__ForwardingWorkerBase_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__ForwardingWorkerBase, callback: *const fn (self: QtC.KIO__ForwardingWorkerBase, event: QtC.QChildEvent) callconv(.c) void ```
+    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KIO__ForwardingWorkerBase_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1881,9 +1881,9 @@ pub const kio__forwardingworkerbase = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KIO__ForwardingWorkerBase, slot: fn (self: QtC.KIO__ForwardingWorkerBase, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIO__ForwardingWorkerBase_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__ForwardingWorkerBase, callback: *const fn (self: QtC.KIO__ForwardingWorkerBase, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KIO__ForwardingWorkerBase_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1914,9 +1914,9 @@ pub const kio__forwardingworkerbase = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KIO__ForwardingWorkerBase, slot: fn (self: QtC.KIO__ForwardingWorkerBase, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIO__ForwardingWorkerBase_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__ForwardingWorkerBase, callback: *const fn (self: QtC.KIO__ForwardingWorkerBase, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KIO__ForwardingWorkerBase_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1947,9 +1947,9 @@ pub const kio__forwardingworkerbase = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KIO__ForwardingWorkerBase, slot: fn (self: QtC.KIO__ForwardingWorkerBase, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIO__ForwardingWorkerBase_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__ForwardingWorkerBase, callback: *const fn (self: QtC.KIO__ForwardingWorkerBase, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KIO__ForwardingWorkerBase_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KIO::WorkerBase
@@ -1980,9 +1980,9 @@ pub const kio__forwardingworkerbase = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KIO__ForwardingWorkerBase, slot: fn () callconv(.c) void ```
-    pub fn OnAppConnectionMade(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KIO__ForwardingWorkerBase_OnAppConnectionMade(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__ForwardingWorkerBase, callback: *const fn () callconv(.c) void ```
+    pub fn OnAppConnectionMade(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KIO__ForwardingWorkerBase_OnAppConnectionMade(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KIO::WorkerBase
@@ -2037,9 +2037,9 @@ pub const kio__forwardingworkerbase = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KIO__ForwardingWorkerBase, slot: fn (self: QtC.KIO__ForwardingWorkerBase, host: [*:0]const u8, port: u16, user: [*:0]const u8, pass: [*:0]const u8) callconv(.c) void ```
-    pub fn OnSetHost(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, u16, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
-        qtc.KIO__ForwardingWorkerBase_OnSetHost(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__ForwardingWorkerBase, callback: *const fn (self: QtC.KIO__ForwardingWorkerBase, host: [*:0]const u8, port: u16, user: [*:0]const u8, pass: [*:0]const u8) callconv(.c) void ```
+    pub fn OnSetHost(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, u16, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
+        qtc.KIO__ForwardingWorkerBase_OnSetHost(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KIO::WorkerBase
@@ -2070,9 +2070,9 @@ pub const kio__forwardingworkerbase = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KIO__ForwardingWorkerBase, slot: fn () callconv(.c) QtC.KIO__WorkerResult ```
-    pub fn OnOpenConnection(self: ?*anyopaque, slot: fn () callconv(.c) QtC.KIO__WorkerResult) void {
-        qtc.KIO__ForwardingWorkerBase_OnOpenConnection(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__ForwardingWorkerBase, callback: *const fn () callconv(.c) QtC.KIO__WorkerResult ```
+    pub fn OnOpenConnection(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.KIO__WorkerResult) void {
+        qtc.KIO__ForwardingWorkerBase_OnOpenConnection(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KIO::WorkerBase
@@ -2103,9 +2103,9 @@ pub const kio__forwardingworkerbase = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KIO__ForwardingWorkerBase, slot: fn () callconv(.c) void ```
-    pub fn OnCloseConnection(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KIO__ForwardingWorkerBase_OnCloseConnection(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__ForwardingWorkerBase, callback: *const fn () callconv(.c) void ```
+    pub fn OnCloseConnection(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KIO__ForwardingWorkerBase_OnCloseConnection(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KIO::WorkerBase
@@ -2136,9 +2136,9 @@ pub const kio__forwardingworkerbase = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KIO__ForwardingWorkerBase, slot: fn (self: QtC.KIO__ForwardingWorkerBase, url: QtC.QUrl, mode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) QtC.KIO__WorkerResult ```
-    pub fn OnOpen(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) QtC.KIO__WorkerResult) void {
-        qtc.KIO__ForwardingWorkerBase_OnOpen(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__ForwardingWorkerBase, callback: *const fn (self: QtC.KIO__ForwardingWorkerBase, url: QtC.QUrl, mode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) QtC.KIO__WorkerResult ```
+    pub fn OnOpen(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) QtC.KIO__WorkerResult) void {
+        qtc.KIO__ForwardingWorkerBase_OnOpen(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KIO::WorkerBase
@@ -2169,9 +2169,9 @@ pub const kio__forwardingworkerbase = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KIO__ForwardingWorkerBase, slot: fn (self: QtC.KIO__ForwardingWorkerBase, size: u64) callconv(.c) QtC.KIO__WorkerResult ```
-    pub fn OnRead(self: ?*anyopaque, slot: fn (?*anyopaque, u64) callconv(.c) QtC.KIO__WorkerResult) void {
-        qtc.KIO__ForwardingWorkerBase_OnRead(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__ForwardingWorkerBase, callback: *const fn (self: QtC.KIO__ForwardingWorkerBase, size: u64) callconv(.c) QtC.KIO__WorkerResult ```
+    pub fn OnRead(self: ?*anyopaque, callback: *const fn (?*anyopaque, u64) callconv(.c) QtC.KIO__WorkerResult) void {
+        qtc.KIO__ForwardingWorkerBase_OnRead(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KIO::WorkerBase
@@ -2210,9 +2210,9 @@ pub const kio__forwardingworkerbase = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KIO__ForwardingWorkerBase, slot: fn (self: QtC.KIO__ForwardingWorkerBase, data: [*:0]u8) callconv(.c) QtC.KIO__WorkerResult ```
-    pub fn OnWrite(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]u8) callconv(.c) QtC.KIO__WorkerResult) void {
-        qtc.KIO__ForwardingWorkerBase_OnWrite(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__ForwardingWorkerBase, callback: *const fn (self: QtC.KIO__ForwardingWorkerBase, data: [*:0]u8) callconv(.c) QtC.KIO__WorkerResult ```
+    pub fn OnWrite(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]u8) callconv(.c) QtC.KIO__WorkerResult) void {
+        qtc.KIO__ForwardingWorkerBase_OnWrite(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KIO::WorkerBase
@@ -2243,9 +2243,9 @@ pub const kio__forwardingworkerbase = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KIO__ForwardingWorkerBase, slot: fn (self: QtC.KIO__ForwardingWorkerBase, offset: u64) callconv(.c) QtC.KIO__WorkerResult ```
-    pub fn OnSeek(self: ?*anyopaque, slot: fn (?*anyopaque, u64) callconv(.c) QtC.KIO__WorkerResult) void {
-        qtc.KIO__ForwardingWorkerBase_OnSeek(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__ForwardingWorkerBase, callback: *const fn (self: QtC.KIO__ForwardingWorkerBase, offset: u64) callconv(.c) QtC.KIO__WorkerResult ```
+    pub fn OnSeek(self: ?*anyopaque, callback: *const fn (?*anyopaque, u64) callconv(.c) QtC.KIO__WorkerResult) void {
+        qtc.KIO__ForwardingWorkerBase_OnSeek(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KIO::WorkerBase
@@ -2276,9 +2276,9 @@ pub const kio__forwardingworkerbase = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KIO__ForwardingWorkerBase, slot: fn (self: QtC.KIO__ForwardingWorkerBase, size: u64) callconv(.c) QtC.KIO__WorkerResult ```
-    pub fn OnTruncate(self: ?*anyopaque, slot: fn (?*anyopaque, u64) callconv(.c) QtC.KIO__WorkerResult) void {
-        qtc.KIO__ForwardingWorkerBase_OnTruncate(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__ForwardingWorkerBase, callback: *const fn (self: QtC.KIO__ForwardingWorkerBase, size: u64) callconv(.c) QtC.KIO__WorkerResult ```
+    pub fn OnTruncate(self: ?*anyopaque, callback: *const fn (?*anyopaque, u64) callconv(.c) QtC.KIO__WorkerResult) void {
+        qtc.KIO__ForwardingWorkerBase_OnTruncate(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KIO::WorkerBase
@@ -2309,9 +2309,9 @@ pub const kio__forwardingworkerbase = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KIO__ForwardingWorkerBase, slot: fn () callconv(.c) QtC.KIO__WorkerResult ```
-    pub fn OnClose(self: ?*anyopaque, slot: fn () callconv(.c) QtC.KIO__WorkerResult) void {
-        qtc.KIO__ForwardingWorkerBase_OnClose(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__ForwardingWorkerBase, callback: *const fn () callconv(.c) QtC.KIO__WorkerResult ```
+    pub fn OnClose(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.KIO__WorkerResult) void {
+        qtc.KIO__ForwardingWorkerBase_OnClose(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KIO::WorkerBase
@@ -2358,9 +2358,9 @@ pub const kio__forwardingworkerbase = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KIO__ForwardingWorkerBase, slot: fn (self: QtC.KIO__ForwardingWorkerBase, url: QtC.QUrl, owner: [*:0]const u8, group: [*:0]const u8) callconv(.c) QtC.KIO__WorkerResult ```
-    pub fn OnChown(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, [*:0]const u8, [*:0]const u8) callconv(.c) QtC.KIO__WorkerResult) void {
-        qtc.KIO__ForwardingWorkerBase_OnChown(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__ForwardingWorkerBase, callback: *const fn (self: QtC.KIO__ForwardingWorkerBase, url: QtC.QUrl, owner: [*:0]const u8, group: [*:0]const u8) callconv(.c) QtC.KIO__WorkerResult ```
+    pub fn OnChown(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8, [*:0]const u8) callconv(.c) QtC.KIO__WorkerResult) void {
+        qtc.KIO__ForwardingWorkerBase_OnChown(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KIO::WorkerBase
@@ -2399,9 +2399,9 @@ pub const kio__forwardingworkerbase = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KIO__ForwardingWorkerBase, slot: fn (self: QtC.KIO__ForwardingWorkerBase, data: [*:0]u8) callconv(.c) QtC.KIO__WorkerResult ```
-    pub fn OnSpecial(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]u8) callconv(.c) QtC.KIO__WorkerResult) void {
-        qtc.KIO__ForwardingWorkerBase_OnSpecial(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__ForwardingWorkerBase, callback: *const fn (self: QtC.KIO__ForwardingWorkerBase, data: [*:0]u8) callconv(.c) QtC.KIO__WorkerResult ```
+    pub fn OnSpecial(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]u8) callconv(.c) QtC.KIO__WorkerResult) void {
+        qtc.KIO__ForwardingWorkerBase_OnSpecial(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KIO::WorkerBase
@@ -2432,9 +2432,9 @@ pub const kio__forwardingworkerbase = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KIO__ForwardingWorkerBase, slot: fn (self: QtC.KIO__ForwardingWorkerBase, url: QtC.QUrl) callconv(.c) QtC.KIO__WorkerResult ```
-    pub fn OnFileSystemFreeSpace(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.KIO__WorkerResult) void {
-        qtc.KIO__ForwardingWorkerBase_OnFileSystemFreeSpace(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__ForwardingWorkerBase, callback: *const fn (self: QtC.KIO__ForwardingWorkerBase, url: QtC.QUrl) callconv(.c) QtC.KIO__WorkerResult ```
+    pub fn OnFileSystemFreeSpace(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.KIO__WorkerResult) void {
+        qtc.KIO__ForwardingWorkerBase_OnFileSystemFreeSpace(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KIO::WorkerBase
@@ -2465,9 +2465,9 @@ pub const kio__forwardingworkerbase = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KIO__ForwardingWorkerBase, slot: fn () callconv(.c) void ```
-    pub fn OnWorkerStatus2(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KIO__ForwardingWorkerBase_OnWorkerStatus2(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__ForwardingWorkerBase, callback: *const fn () callconv(.c) void ```
+    pub fn OnWorkerStatus2(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KIO__ForwardingWorkerBase_OnWorkerStatus2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KIO::WorkerBase
@@ -2498,9 +2498,9 @@ pub const kio__forwardingworkerbase = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KIO__ForwardingWorkerBase, slot: fn () callconv(.c) void ```
-    pub fn OnReparseConfiguration(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KIO__ForwardingWorkerBase_OnReparseConfiguration(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__ForwardingWorkerBase, callback: *const fn () callconv(.c) void ```
+    pub fn OnReparseConfiguration(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KIO__ForwardingWorkerBase_OnReparseConfiguration(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2531,9 +2531,9 @@ pub const kio__forwardingworkerbase = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KIO__ForwardingWorkerBase, slot: fn () callconv(.c) QtC.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
-        qtc.KIO__ForwardingWorkerBase_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__ForwardingWorkerBase, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.KIO__ForwardingWorkerBase_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2564,9 +2564,9 @@ pub const kio__forwardingworkerbase = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KIO__ForwardingWorkerBase, slot: fn () callconv(.c) i32 ```
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.KIO__ForwardingWorkerBase_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__ForwardingWorkerBase, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.KIO__ForwardingWorkerBase_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2599,9 +2599,9 @@ pub const kio__forwardingworkerbase = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KIO__ForwardingWorkerBase, slot: fn (self: QtC.KIO__ForwardingWorkerBase, signal: [*:0]const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KIO__ForwardingWorkerBase_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__ForwardingWorkerBase, callback: *const fn (self: QtC.KIO__ForwardingWorkerBase, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
+        qtc.KIO__ForwardingWorkerBase_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2632,9 +2632,9 @@ pub const kio__forwardingworkerbase = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KIO__ForwardingWorkerBase, slot: fn (self: QtC.KIO__ForwardingWorkerBase, signal: QtC.QMetaMethod) callconv(.c) bool ```
-    pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KIO__ForwardingWorkerBase_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__ForwardingWorkerBase, callback: *const fn (self: QtC.KIO__ForwardingWorkerBase, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KIO__ForwardingWorkerBase_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -2643,9 +2643,9 @@ pub const kio__forwardingworkerbase = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KIO__ForwardingWorkerBase, slot: fn (self: QtC.KIO__ForwardingWorkerBase, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__ForwardingWorkerBase, callback: *const fn (self: QtC.KIO__ForwardingWorkerBase, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Delete this object from C++ memory.

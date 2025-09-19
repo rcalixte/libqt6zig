@@ -1,7 +1,7 @@
 #include <KCompositeJob>
-#define WORKAROUND_INNER_CLASS_DEFINITION_KIO__Job
-#define WORKAROUND_INNER_CLASS_DEFINITION_KIO__MetaData
-#define WORKAROUND_INNER_CLASS_DEFINITION_KIO__SimpleJob
+#include <KIO/Job>
+#include <KIO/MetaData>
+#include <KIO/SimpleJob>
 #define WORKAROUND_INNER_CLASS_DEFINITION_KIO__SpecialJob
 #define WORKAROUND_INNER_CLASS_DEFINITION_KIO__TransferJob
 #include <KJob>

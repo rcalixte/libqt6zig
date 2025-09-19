@@ -45,9 +45,9 @@ pub const kbookmarkmenu = struct {
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KBookmarkMenu, slot: fn (self: QtC.KBookmarkMenu, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
-        qtc.KBookmarkMenu_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KBookmarkMenu, callback: *const fn (self: QtC.KBookmarkMenu, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+        qtc.KBookmarkMenu_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -140,9 +140,9 @@ pub const kbookmarkmenu = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KBookmarkMenu, slot: fn () callconv(.c) void ```
-    pub fn OnSlotAboutToShow(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KBookmarkMenu_OnSlotAboutToShow(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KBookmarkMenu, callback: *const fn () callconv(.c) void ```
+    pub fn OnSlotAboutToShow(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KBookmarkMenu_OnSlotAboutToShow(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#slotAboutToShow)
@@ -165,9 +165,9 @@ pub const kbookmarkmenu = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KBookmarkMenu, slot: fn () callconv(.c) void ```
-    pub fn OnSlotAddBookmarksList(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KBookmarkMenu_OnSlotAddBookmarksList(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KBookmarkMenu, callback: *const fn () callconv(.c) void ```
+    pub fn OnSlotAddBookmarksList(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KBookmarkMenu_OnSlotAddBookmarksList(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#slotAddBookmarksList)
@@ -190,9 +190,9 @@ pub const kbookmarkmenu = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KBookmarkMenu, slot: fn () callconv(.c) void ```
-    pub fn OnSlotAddBookmark(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KBookmarkMenu_OnSlotAddBookmark(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KBookmarkMenu, callback: *const fn () callconv(.c) void ```
+    pub fn OnSlotAddBookmark(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KBookmarkMenu_OnSlotAddBookmark(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#slotAddBookmark)
@@ -215,9 +215,9 @@ pub const kbookmarkmenu = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KBookmarkMenu, slot: fn () callconv(.c) void ```
-    pub fn OnSlotNewFolder(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KBookmarkMenu_OnSlotNewFolder(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KBookmarkMenu, callback: *const fn () callconv(.c) void ```
+    pub fn OnSlotNewFolder(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KBookmarkMenu_OnSlotNewFolder(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#slotNewFolder)
@@ -240,9 +240,9 @@ pub const kbookmarkmenu = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KBookmarkMenu, slot: fn () callconv(.c) void ```
-    pub fn OnSlotOpenFolderInTabs(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KBookmarkMenu_OnSlotOpenFolderInTabs(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KBookmarkMenu, callback: *const fn () callconv(.c) void ```
+    pub fn OnSlotOpenFolderInTabs(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KBookmarkMenu_OnSlotOpenFolderInTabs(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#slotOpenFolderInTabs)
@@ -265,9 +265,9 @@ pub const kbookmarkmenu = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KBookmarkMenu, slot: fn () callconv(.c) void ```
-    pub fn OnClear(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KBookmarkMenu_OnClear(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KBookmarkMenu, callback: *const fn () callconv(.c) void ```
+    pub fn OnClear(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KBookmarkMenu_OnClear(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#clear)
@@ -290,9 +290,9 @@ pub const kbookmarkmenu = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KBookmarkMenu, slot: fn () callconv(.c) void ```
-    pub fn OnRefill(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KBookmarkMenu_OnRefill(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KBookmarkMenu, callback: *const fn () callconv(.c) void ```
+    pub fn OnRefill(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KBookmarkMenu_OnRefill(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#refill)
@@ -315,9 +315,9 @@ pub const kbookmarkmenu = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KBookmarkMenu, slot: fn (self: QtC.KBookmarkMenu, bm: QtC.KBookmark) callconv(.c) QtC.QAction ```
-    pub fn OnActionForBookmark(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QAction) void {
-        qtc.KBookmarkMenu_OnActionForBookmark(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KBookmarkMenu, callback: *const fn (self: QtC.KBookmarkMenu, bm: QtC.KBookmark) callconv(.c) QtC.QAction ```
+    pub fn OnActionForBookmark(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QAction) void {
+        qtc.KBookmarkMenu_OnActionForBookmark(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#actionForBookmark)
@@ -340,9 +340,9 @@ pub const kbookmarkmenu = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KBookmarkMenu, slot: fn (self: QtC.KBookmarkMenu, action: QtC.QAction) callconv(.c) QtC.QMenu ```
-    pub fn OnContextMenu(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QMenu) void {
-        qtc.KBookmarkMenu_OnContextMenu(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KBookmarkMenu, callback: *const fn (self: QtC.KBookmarkMenu, action: QtC.QAction) callconv(.c) QtC.QMenu ```
+    pub fn OnContextMenu(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QMenu) void {
+        qtc.KBookmarkMenu_OnContextMenu(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#contextMenu)
@@ -365,9 +365,9 @@ pub const kbookmarkmenu = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KBookmarkMenu, slot: fn () callconv(.c) void ```
-    pub fn OnAddActions(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KBookmarkMenu_OnAddActions(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KBookmarkMenu, callback: *const fn () callconv(.c) void ```
+    pub fn OnAddActions(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KBookmarkMenu_OnAddActions(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#addActions)
@@ -390,9 +390,9 @@ pub const kbookmarkmenu = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KBookmarkMenu, slot: fn () callconv(.c) void ```
-    pub fn OnFillBookmarks(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KBookmarkMenu_OnFillBookmarks(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KBookmarkMenu, callback: *const fn () callconv(.c) void ```
+    pub fn OnFillBookmarks(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KBookmarkMenu_OnFillBookmarks(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#fillBookmarks)
@@ -415,9 +415,9 @@ pub const kbookmarkmenu = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KBookmarkMenu, slot: fn () callconv(.c) void ```
-    pub fn OnAddAddBookmark(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KBookmarkMenu_OnAddAddBookmark(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KBookmarkMenu, callback: *const fn () callconv(.c) void ```
+    pub fn OnAddAddBookmark(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KBookmarkMenu_OnAddAddBookmark(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#addAddBookmark)
@@ -440,9 +440,9 @@ pub const kbookmarkmenu = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KBookmarkMenu, slot: fn () callconv(.c) void ```
-    pub fn OnAddAddBookmarksList(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KBookmarkMenu_OnAddAddBookmarksList(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KBookmarkMenu, callback: *const fn () callconv(.c) void ```
+    pub fn OnAddAddBookmarksList(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KBookmarkMenu_OnAddAddBookmarksList(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#addAddBookmarksList)
@@ -465,9 +465,9 @@ pub const kbookmarkmenu = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KBookmarkMenu, slot: fn () callconv(.c) void ```
-    pub fn OnAddEditBookmarks(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KBookmarkMenu_OnAddEditBookmarks(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KBookmarkMenu, callback: *const fn () callconv(.c) void ```
+    pub fn OnAddEditBookmarks(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KBookmarkMenu_OnAddEditBookmarks(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#addEditBookmarks)
@@ -490,9 +490,9 @@ pub const kbookmarkmenu = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KBookmarkMenu, slot: fn () callconv(.c) void ```
-    pub fn OnAddNewFolder(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KBookmarkMenu_OnAddNewFolder(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KBookmarkMenu, callback: *const fn () callconv(.c) void ```
+    pub fn OnAddNewFolder(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KBookmarkMenu_OnAddNewFolder(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#addNewFolder)
@@ -515,9 +515,9 @@ pub const kbookmarkmenu = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KBookmarkMenu, slot: fn () callconv(.c) void ```
-    pub fn OnAddOpenInTabs(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KBookmarkMenu_OnAddOpenInTabs(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KBookmarkMenu, callback: *const fn () callconv(.c) void ```
+    pub fn OnAddOpenInTabs(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KBookmarkMenu_OnAddOpenInTabs(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#addOpenInTabs)
@@ -540,9 +540,9 @@ pub const kbookmarkmenu = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KBookmarkMenu, slot: fn () callconv(.c) bool ```
-    pub fn OnIsRoot(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.KBookmarkMenu_OnIsRoot(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KBookmarkMenu, callback: *const fn () callconv(.c) bool ```
+    pub fn OnIsRoot(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.KBookmarkMenu_OnIsRoot(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#isRoot)
@@ -565,9 +565,9 @@ pub const kbookmarkmenu = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KBookmarkMenu, slot: fn () callconv(.c) bool ```
-    pub fn OnIsDirty(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.KBookmarkMenu_OnIsDirty(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KBookmarkMenu, callback: *const fn () callconv(.c) bool ```
+    pub fn OnIsDirty(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.KBookmarkMenu_OnIsDirty(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#isDirty)
@@ -594,9 +594,9 @@ pub const kbookmarkmenu = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KBookmarkMenu, slot: fn () callconv(.c) [*:0]const u8 ```
-    pub fn OnParentAddress(self: ?*anyopaque, slot: fn () callconv(.c) [*:0]const u8) void {
-        qtc.KBookmarkMenu_OnParentAddress(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KBookmarkMenu, callback: *const fn () callconv(.c) [*:0]const u8 ```
+    pub fn OnParentAddress(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
+        qtc.KBookmarkMenu_OnParentAddress(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#parentAddress)
@@ -623,9 +623,9 @@ pub const kbookmarkmenu = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KBookmarkMenu, slot: fn () callconv(.c) QtC.KBookmarkManager ```
-    pub fn OnManager(self: ?*anyopaque, slot: fn () callconv(.c) QtC.KBookmarkManager) void {
-        qtc.KBookmarkMenu_OnManager(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KBookmarkMenu, callback: *const fn () callconv(.c) QtC.KBookmarkManager ```
+    pub fn OnManager(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.KBookmarkManager) void {
+        qtc.KBookmarkMenu_OnManager(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#manager)
@@ -648,9 +648,9 @@ pub const kbookmarkmenu = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KBookmarkMenu, slot: fn () callconv(.c) QtC.KBookmarkOwner ```
-    pub fn OnOwner(self: ?*anyopaque, slot: fn () callconv(.c) QtC.KBookmarkOwner) void {
-        qtc.KBookmarkMenu_OnOwner(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KBookmarkMenu, callback: *const fn () callconv(.c) QtC.KBookmarkOwner ```
+    pub fn OnOwner(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.KBookmarkOwner) void {
+        qtc.KBookmarkMenu_OnOwner(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#owner)
@@ -673,9 +673,9 @@ pub const kbookmarkmenu = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KBookmarkMenu, slot: fn () callconv(.c) QtC.QMenu ```
-    pub fn OnParentMenu(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QMenu) void {
-        qtc.KBookmarkMenu_OnParentMenu(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KBookmarkMenu, callback: *const fn () callconv(.c) QtC.QMenu ```
+    pub fn OnParentMenu(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QMenu) void {
+        qtc.KBookmarkMenu_OnParentMenu(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#parentMenu)
@@ -1001,9 +1001,9 @@ pub const kbookmarkmenu = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KBookmarkMenu, slot: fn (self: QtC.KBookmarkMenu) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KBookmarkMenu, callback: *const fn (self: QtC.KBookmarkMenu) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1085,9 +1085,9 @@ pub const kbookmarkmenu = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KBookmarkMenu, slot: fn (self: QtC.KBookmarkMenu, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KBookmarkMenu, callback: *const fn (self: QtC.KBookmarkMenu, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1118,9 +1118,9 @@ pub const kbookmarkmenu = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KBookmarkMenu, slot: fn (self: QtC.KBookmarkMenu, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KBookmarkMenu_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KBookmarkMenu, callback: *const fn (self: QtC.KBookmarkMenu, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KBookmarkMenu_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1151,9 +1151,9 @@ pub const kbookmarkmenu = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KBookmarkMenu, slot: fn (self: QtC.KBookmarkMenu, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KBookmarkMenu_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KBookmarkMenu, callback: *const fn (self: QtC.KBookmarkMenu, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KBookmarkMenu_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1184,9 +1184,9 @@ pub const kbookmarkmenu = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KBookmarkMenu, slot: fn (self: QtC.KBookmarkMenu, event: QtC.QTimerEvent) callconv(.c) void ```
-    pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KBookmarkMenu_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KBookmarkMenu, callback: *const fn (self: QtC.KBookmarkMenu, event: QtC.QTimerEvent) callconv(.c) void ```
+    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KBookmarkMenu_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1217,9 +1217,9 @@ pub const kbookmarkmenu = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KBookmarkMenu, slot: fn (self: QtC.KBookmarkMenu, event: QtC.QChildEvent) callconv(.c) void ```
-    pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KBookmarkMenu_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KBookmarkMenu, callback: *const fn (self: QtC.KBookmarkMenu, event: QtC.QChildEvent) callconv(.c) void ```
+    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KBookmarkMenu_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1250,9 +1250,9 @@ pub const kbookmarkmenu = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KBookmarkMenu, slot: fn (self: QtC.KBookmarkMenu, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KBookmarkMenu_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KBookmarkMenu, callback: *const fn (self: QtC.KBookmarkMenu, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KBookmarkMenu_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1283,9 +1283,9 @@ pub const kbookmarkmenu = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KBookmarkMenu, slot: fn (self: QtC.KBookmarkMenu, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KBookmarkMenu_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KBookmarkMenu, callback: *const fn (self: QtC.KBookmarkMenu, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KBookmarkMenu_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1316,9 +1316,9 @@ pub const kbookmarkmenu = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KBookmarkMenu, slot: fn (self: QtC.KBookmarkMenu, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KBookmarkMenu_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KBookmarkMenu, callback: *const fn (self: QtC.KBookmarkMenu, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KBookmarkMenu_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1349,9 +1349,9 @@ pub const kbookmarkmenu = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KBookmarkMenu, slot: fn () callconv(.c) QtC.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
-        qtc.KBookmarkMenu_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KBookmarkMenu, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.KBookmarkMenu_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1382,9 +1382,9 @@ pub const kbookmarkmenu = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KBookmarkMenu, slot: fn () callconv(.c) i32 ```
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.KBookmarkMenu_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KBookmarkMenu, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.KBookmarkMenu_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1417,9 +1417,9 @@ pub const kbookmarkmenu = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KBookmarkMenu, slot: fn (self: QtC.KBookmarkMenu, signal: [*:0]const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KBookmarkMenu_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KBookmarkMenu, callback: *const fn (self: QtC.KBookmarkMenu, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
+        qtc.KBookmarkMenu_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1450,9 +1450,9 @@ pub const kbookmarkmenu = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KBookmarkMenu, slot: fn (self: QtC.KBookmarkMenu, signal: QtC.QMetaMethod) callconv(.c) bool ```
-    pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KBookmarkMenu_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KBookmarkMenu, callback: *const fn (self: QtC.KBookmarkMenu, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KBookmarkMenu_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1461,9 +1461,9 @@ pub const kbookmarkmenu = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KBookmarkMenu, slot: fn (self: QtC.KBookmarkMenu, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KBookmarkMenu, callback: *const fn (self: QtC.KBookmarkMenu, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kbookmarkmenu.html#dtor.KBookmarkMenu)

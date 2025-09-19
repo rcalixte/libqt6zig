@@ -10,7 +10,7 @@
 #include "../qtlibc.h"
 
 // This class is a subclass of KAbstractWidgetJobTracker so that we can call protected methods
-class VirtualKAbstractWidgetJobTracker final : public KAbstractWidgetJobTracker {
+class VirtualKAbstractWidgetJobTracker : public KAbstractWidgetJobTracker {
 
   public:
     // Virtual class boolean flag

@@ -1,7 +1,7 @@
 #include <KACL>
 #include <KFileItem>
 #define WORKAROUND_INNER_CLASS_DEFINITION_KFileItem__MostLocalUrlResult
-#define WORKAROUND_INNER_CLASS_DEFINITION_KIO__UDSEntry
+#include <KIO/UDSEntry>
 #include <QDateTime>
 #include <QList>
 #include <QMimeType>

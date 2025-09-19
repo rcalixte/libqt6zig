@@ -88,9 +88,9 @@ pub const kwaylandextras = struct {
 
     /// [Qt documentation](https://api.kde.org/kwaylandextras.html#xdgActivationTokenArrived)
     ///
-    /// ``` self: QtC.KWaylandExtras, slot: fn (self: QtC.KWaylandExtras, serial: i32, token: [*:0]const u8) callconv(.c) void ```
-    pub fn OnXdgActivationTokenArrived(self: ?*anyopaque, slot: fn (?*anyopaque, i32, [*:0]const u8) callconv(.c) void) void {
-        qtc.KWaylandExtras_Connect_XdgActivationTokenArrived(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWaylandExtras, callback: *const fn (self: QtC.KWaylandExtras, serial: i32, token: [*:0]const u8) callconv(.c) void ```
+    pub fn OnXdgActivationTokenArrived(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, [*:0]const u8) callconv(.c) void) void {
+        qtc.KWaylandExtras_Connect_XdgActivationTokenArrived(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kwaylandextras.html#windowExported)
@@ -106,9 +106,9 @@ pub const kwaylandextras = struct {
 
     /// [Qt documentation](https://api.kde.org/kwaylandextras.html#windowExported)
     ///
-    /// ``` self: QtC.KWaylandExtras, slot: fn (self: QtC.KWaylandExtras, window: QtC.QWindow, handle: [*:0]const u8) callconv(.c) void ```
-    pub fn OnWindowExported(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KWaylandExtras_Connect_WindowExported(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWaylandExtras, callback: *const fn (self: QtC.KWaylandExtras, window: QtC.QWindow, handle: [*:0]const u8) callconv(.c) void ```
+    pub fn OnWindowExported(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.KWaylandExtras_Connect_WindowExported(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -443,9 +443,9 @@ pub const kwaylandextras = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KWaylandExtras, slot: fn (self: QtC.KWaylandExtras) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWaylandExtras, callback: *const fn (self: QtC.KWaylandExtras) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -527,9 +527,9 @@ pub const kwaylandextras = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KWaylandExtras, slot: fn (self: QtC.KWaylandExtras, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWaylandExtras, callback: *const fn (self: QtC.KWaylandExtras, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -538,8 +538,8 @@ pub const kwaylandextras = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KWaylandExtras, slot: fn (self: QtC.KWaylandExtras, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWaylandExtras, callback: *const fn (self: QtC.KWaylandExtras, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 };

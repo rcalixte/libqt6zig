@@ -96,9 +96,9 @@ pub const kmacroexpanderbase = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KMacroExpanderBase, slot: fn (self: QtC.KMacroExpanderBase, str: [*:0]const u8, pos: i32, retVal: [*][*:0]const u8) callconv(.c) i32 ```
-    pub fn OnExpandPlainMacro(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, i32, [*][*:0]const u8) callconv(.c) i32) void {
-        qtc.KMacroExpanderBase_OnExpandPlainMacro(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KMacroExpanderBase, callback: *const fn (self: QtC.KMacroExpanderBase, str: [*:0]const u8, pos: i32, retVal: [*][*:0]const u8) callconv(.c) i32 ```
+    pub fn OnExpandPlainMacro(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32, [*][*:0]const u8) callconv(.c) i32) void {
+        qtc.KMacroExpanderBase_OnExpandPlainMacro(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kmacroexpanderbase.html#expandPlainMacro)
@@ -153,9 +153,9 @@ pub const kmacroexpanderbase = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KMacroExpanderBase, slot: fn (self: QtC.KMacroExpanderBase, str: [*:0]const u8, pos: i32, retVal: [*][*:0]const u8) callconv(.c) i32 ```
-    pub fn OnExpandEscapedMacro(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, i32, [*][*:0]const u8) callconv(.c) i32) void {
-        qtc.KMacroExpanderBase_OnExpandEscapedMacro(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KMacroExpanderBase, callback: *const fn (self: QtC.KMacroExpanderBase, str: [*:0]const u8, pos: i32, retVal: [*][*:0]const u8) callconv(.c) i32 ```
+    pub fn OnExpandEscapedMacro(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32, [*][*:0]const u8) callconv(.c) i32) void {
+        qtc.KMacroExpanderBase_OnExpandEscapedMacro(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kmacroexpanderbase.html#expandEscapedMacro)
@@ -236,9 +236,9 @@ pub const kwordmacroexpander = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KWordMacroExpander, slot: fn (self: QtC.KWordMacroExpander, str: [*:0]const u8, pos: i32, retVal: [*][*:0]const u8) callconv(.c) i32 ```
-    pub fn OnExpandPlainMacro(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, i32, [*][*:0]const u8) callconv(.c) i32) void {
-        qtc.KWordMacroExpander_OnExpandPlainMacro(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWordMacroExpander, callback: *const fn (self: QtC.KWordMacroExpander, str: [*:0]const u8, pos: i32, retVal: [*][*:0]const u8) callconv(.c) i32 ```
+    pub fn OnExpandPlainMacro(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32, [*][*:0]const u8) callconv(.c) i32) void {
+        qtc.KWordMacroExpander_OnExpandPlainMacro(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kwordmacroexpander.html#expandPlainMacro)
@@ -293,9 +293,9 @@ pub const kwordmacroexpander = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KWordMacroExpander, slot: fn (self: QtC.KWordMacroExpander, str: [*:0]const u8, pos: i32, retVal: [*][*:0]const u8) callconv(.c) i32 ```
-    pub fn OnExpandEscapedMacro(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, i32, [*][*:0]const u8) callconv(.c) i32) void {
-        qtc.KWordMacroExpander_OnExpandEscapedMacro(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWordMacroExpander, callback: *const fn (self: QtC.KWordMacroExpander, str: [*:0]const u8, pos: i32, retVal: [*][*:0]const u8) callconv(.c) i32 ```
+    pub fn OnExpandEscapedMacro(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32, [*][*:0]const u8) callconv(.c) i32) void {
+        qtc.KWordMacroExpander_OnExpandEscapedMacro(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kwordmacroexpander.html#expandEscapedMacro)
@@ -350,9 +350,9 @@ pub const kwordmacroexpander = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KWordMacroExpander, slot: fn (self: QtC.KWordMacroExpander, str: [*:0]const u8, retVal: [*][*:0]const u8) callconv(.c) bool ```
-    pub fn OnExpandMacro(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, [*][*:0]const u8) callconv(.c) bool) void {
-        qtc.KWordMacroExpander_OnExpandMacro(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWordMacroExpander, callback: *const fn (self: QtC.KWordMacroExpander, str: [*:0]const u8, retVal: [*][*:0]const u8) callconv(.c) bool ```
+    pub fn OnExpandMacro(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, [*][*:0]const u8) callconv(.c) bool) void {
+        qtc.KWordMacroExpander_OnExpandMacro(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kwordmacroexpander.html#expandMacro)
@@ -490,9 +490,9 @@ pub const kcharmacroexpander = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KCharMacroExpander, slot: fn (self: QtC.KCharMacroExpander, str: [*:0]const u8, pos: i32, retVal: [*][*:0]const u8) callconv(.c) i32 ```
-    pub fn OnExpandPlainMacro(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, i32, [*][*:0]const u8) callconv(.c) i32) void {
-        qtc.KCharMacroExpander_OnExpandPlainMacro(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCharMacroExpander, callback: *const fn (self: QtC.KCharMacroExpander, str: [*:0]const u8, pos: i32, retVal: [*][*:0]const u8) callconv(.c) i32 ```
+    pub fn OnExpandPlainMacro(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32, [*][*:0]const u8) callconv(.c) i32) void {
+        qtc.KCharMacroExpander_OnExpandPlainMacro(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kcharmacroexpander.html#expandPlainMacro)
@@ -547,9 +547,9 @@ pub const kcharmacroexpander = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KCharMacroExpander, slot: fn (self: QtC.KCharMacroExpander, str: [*:0]const u8, pos: i32, retVal: [*][*:0]const u8) callconv(.c) i32 ```
-    pub fn OnExpandEscapedMacro(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, i32, [*][*:0]const u8) callconv(.c) i32) void {
-        qtc.KCharMacroExpander_OnExpandEscapedMacro(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCharMacroExpander, callback: *const fn (self: QtC.KCharMacroExpander, str: [*:0]const u8, pos: i32, retVal: [*][*:0]const u8) callconv(.c) i32 ```
+    pub fn OnExpandEscapedMacro(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i32, [*][*:0]const u8) callconv(.c) i32) void {
+        qtc.KCharMacroExpander_OnExpandEscapedMacro(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kcharmacroexpander.html#expandEscapedMacro)
@@ -600,9 +600,9 @@ pub const kcharmacroexpander = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KCharMacroExpander, slot: fn (self: QtC.KCharMacroExpander, chr: QtC.QChar, retVal: [*][*:0]const u8) callconv(.c) bool ```
-    pub fn OnExpandMacro(self: ?*anyopaque, slot: fn (?*anyopaque, QtC.QChar, [*][*:0]const u8) callconv(.c) bool) void {
-        qtc.KCharMacroExpander_OnExpandMacro(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KCharMacroExpander, callback: *const fn (self: QtC.KCharMacroExpander, chr: QtC.QChar, retVal: [*][*:0]const u8) callconv(.c) bool ```
+    pub fn OnExpandMacro(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QChar, [*][*:0]const u8) callconv(.c) bool) void {
+        qtc.KCharMacroExpander_OnExpandMacro(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kcharmacroexpander.html#expandMacro)

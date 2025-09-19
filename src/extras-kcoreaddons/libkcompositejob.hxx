@@ -10,7 +10,7 @@
 #include "../qtlibc.h"
 
 // This class is a subclass of KCompositeJob so that we can call protected methods
-class VirtualKCompositeJob final : public KCompositeJob {
+class VirtualKCompositeJob : public KCompositeJob {
 
   public:
     // Virtual class boolean flag

@@ -68,9 +68,9 @@ pub const kio__listjob = struct {
 
     /// [Qt documentation](https://api.kde.org/kio-listjob.html#entries)
     ///
-    /// ``` self: QtC.KIO__ListJob, slot: fn (self: QtC.KIO__ListJob, job: QtC.KIO__Job, list: [*]QtC.KIO__UDSEntry) callconv(.c) void ```
-    pub fn OnEntries(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, [*]QtC.KIO__UDSEntry) callconv(.c) void) void {
-        qtc.KIO__ListJob_Connect_Entries(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__ListJob, callback: *const fn (self: QtC.KIO__ListJob, job: QtC.KIO__Job, list: [*]QtC.KIO__UDSEntry) callconv(.c) void ```
+    pub fn OnEntries(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*]QtC.KIO__UDSEntry) callconv(.c) void) void {
+        qtc.KIO__ListJob_Connect_Entries(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kio-listjob.html#subError)
@@ -82,9 +82,9 @@ pub const kio__listjob = struct {
 
     /// [Qt documentation](https://api.kde.org/kio-listjob.html#subError)
     ///
-    /// ``` self: QtC.KIO__ListJob, slot: fn (self: QtC.KIO__ListJob, job: QtC.KIO__ListJob, subJob: QtC.KIO__ListJob) callconv(.c) void ```
-    pub fn OnSubError(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIO__ListJob_Connect_SubError(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__ListJob, callback: *const fn (self: QtC.KIO__ListJob, job: QtC.KIO__ListJob, subJob: QtC.KIO__ListJob) callconv(.c) void ```
+    pub fn OnSubError(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KIO__ListJob_Connect_SubError(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kio-listjob.html#redirection)
@@ -96,9 +96,9 @@ pub const kio__listjob = struct {
 
     /// [Qt documentation](https://api.kde.org/kio-listjob.html#redirection)
     ///
-    /// ``` self: QtC.KIO__ListJob, slot: fn (self: QtC.KIO__ListJob, job: QtC.KIO__Job, url: QtC.QUrl) callconv(.c) void ```
-    pub fn OnRedirection(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIO__ListJob_Connect_Redirection(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__ListJob, callback: *const fn (self: QtC.KIO__ListJob, job: QtC.KIO__Job, url: QtC.QUrl) callconv(.c) void ```
+    pub fn OnRedirection(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KIO__ListJob_Connect_Redirection(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kio-listjob.html#permanentRedirection)
@@ -110,9 +110,9 @@ pub const kio__listjob = struct {
 
     /// [Qt documentation](https://api.kde.org/kio-listjob.html#permanentRedirection)
     ///
-    /// ``` self: QtC.KIO__ListJob, slot: fn (self: QtC.KIO__ListJob, job: QtC.KIO__Job, fromUrl: QtC.QUrl, toUrl: QtC.QUrl) callconv(.c) void ```
-    pub fn OnPermanentRedirection(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIO__ListJob_Connect_PermanentRedirection(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__ListJob, callback: *const fn (self: QtC.KIO__ListJob, job: QtC.KIO__Job, fromUrl: QtC.QUrl, toUrl: QtC.QUrl) callconv(.c) void ```
+    pub fn OnPermanentRedirection(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KIO__ListJob_Connect_PermanentRedirection(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -413,9 +413,9 @@ pub const kio__listjob = struct {
     ///
     /// [Qt documentation](https://api.kde.org/kio-job.html#connected)
     ///
-    /// ``` self: QtC.KIO__ListJob, slot: fn (self: QtC.KIO__ListJob, job: QtC.KIO__Job) callconv(.c) void ```
-    pub fn OnConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIO__Job_Connect_Connected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__ListJob, callback: *const fn (self: QtC.KIO__ListJob, job: QtC.KIO__Job) callconv(.c) void ```
+    pub fn OnConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KIO__Job_Connect_Connected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KIO::Job
@@ -660,9 +660,9 @@ pub const kio__listjob = struct {
     ///
     /// [Qt documentation](https://api.kde.org/kjob.html#description)
     ///
-    /// ``` self: QtC.KIO__ListJob, slot: fn (self: QtC.KIO__ListJob, job: QtC.KJob, title: [*:0]const u8) callconv(.c) void ```
-    pub fn OnDescription(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KJob_Connect_Description(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__ListJob, callback: *const fn (self: QtC.KIO__ListJob, job: QtC.KJob, title: [*:0]const u8) callconv(.c) void ```
+    pub fn OnDescription(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.KJob_Connect_Description(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -682,9 +682,9 @@ pub const kio__listjob = struct {
     ///
     /// [Qt documentation](https://api.kde.org/kjob.html#infoMessage)
     ///
-    /// ``` self: QtC.KIO__ListJob, slot: fn (self: QtC.KIO__ListJob, job: QtC.KJob, message: [*:0]const u8) callconv(.c) void ```
-    pub fn OnInfoMessage(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KJob_Connect_InfoMessage(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__ListJob, callback: *const fn (self: QtC.KIO__ListJob, job: QtC.KJob, message: [*:0]const u8) callconv(.c) void ```
+    pub fn OnInfoMessage(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.KJob_Connect_InfoMessage(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -704,9 +704,9 @@ pub const kio__listjob = struct {
     ///
     /// [Qt documentation](https://api.kde.org/kjob.html#warning)
     ///
-    /// ``` self: QtC.KIO__ListJob, slot: fn (self: QtC.KIO__ListJob, job: QtC.KJob, message: [*:0]const u8) callconv(.c) void ```
-    pub fn OnWarning(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KJob_Connect_Warning(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__ListJob, callback: *const fn (self: QtC.KIO__ListJob, job: QtC.KJob, message: [*:0]const u8) callconv(.c) void ```
+    pub fn OnWarning(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.KJob_Connect_Warning(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -722,9 +722,9 @@ pub const kio__listjob = struct {
     ///
     /// [Qt documentation](https://api.kde.org/kjob.html#totalSize)
     ///
-    /// ``` self: QtC.KIO__ListJob, slot: fn (self: QtC.KIO__ListJob, job: QtC.KJob, size: u64) callconv(.c) void ```
-    pub fn OnTotalSize(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
-        qtc.KJob_Connect_TotalSize(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__ListJob, callback: *const fn (self: QtC.KIO__ListJob, job: QtC.KJob, size: u64) callconv(.c) void ```
+    pub fn OnTotalSize(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
+        qtc.KJob_Connect_TotalSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -740,9 +740,9 @@ pub const kio__listjob = struct {
     ///
     /// [Qt documentation](https://api.kde.org/kjob.html#processedSize)
     ///
-    /// ``` self: QtC.KIO__ListJob, slot: fn (self: QtC.KIO__ListJob, job: QtC.KJob, size: u64) callconv(.c) void ```
-    pub fn OnProcessedSize(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
-        qtc.KJob_Connect_ProcessedSize(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__ListJob, callback: *const fn (self: QtC.KIO__ListJob, job: QtC.KJob, size: u64) callconv(.c) void ```
+    pub fn OnProcessedSize(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
+        qtc.KJob_Connect_ProcessedSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -758,9 +758,9 @@ pub const kio__listjob = struct {
     ///
     /// [Qt documentation](https://api.kde.org/kjob.html#speed)
     ///
-    /// ``` self: QtC.KIO__ListJob, slot: fn (self: QtC.KIO__ListJob, job: QtC.KJob, speed: u64) callconv(.c) void ```
-    pub fn OnSpeed(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
-        qtc.KJob_Connect_Speed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__ListJob, callback: *const fn (self: QtC.KIO__ListJob, job: QtC.KJob, speed: u64) callconv(.c) void ```
+    pub fn OnSpeed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
+        qtc.KJob_Connect_Speed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -802,9 +802,9 @@ pub const kio__listjob = struct {
     ///
     /// [Qt documentation](https://api.kde.org/kjob.html#description)
     ///
-    /// ``` self: QtC.KIO__ListJob, slot: fn (self: QtC.KIO__ListJob, job: QtC.KJob, title: [*:0]const u8, field1: struct_constu8_constu8) callconv(.c) void ```
-    pub fn OnDescription3(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, [*:0]const u8, struct_constu8_constu8) callconv(.c) void) void {
-        qtc.KJob_Connect_Description3(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__ListJob, callback: *const fn (self: QtC.KIO__ListJob, job: QtC.KJob, title: [*:0]const u8, field1: struct_constu8_constu8) callconv(.c) void ```
+    pub fn OnDescription3(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8, struct_constu8_constu8) callconv(.c) void) void {
+        qtc.KJob_Connect_Description3(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -832,9 +832,9 @@ pub const kio__listjob = struct {
     ///
     /// [Qt documentation](https://api.kde.org/kjob.html#description)
     ///
-    /// ``` self: QtC.KIO__ListJob, slot: fn (self: QtC.KIO__ListJob, job: QtC.KJob, title: [*:0]const u8, field1: struct_constu8_constu8, field2: struct_constu8_constu8) callconv(.c) void ```
-    pub fn OnDescription4(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, [*:0]const u8, struct_constu8_constu8, struct_constu8_constu8) callconv(.c) void) void {
-        qtc.KJob_Connect_Description4(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__ListJob, callback: *const fn (self: QtC.KIO__ListJob, job: QtC.KJob, title: [*:0]const u8, field1: struct_constu8_constu8, field2: struct_constu8_constu8) callconv(.c) void ```
+    pub fn OnDescription4(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8, struct_constu8_constu8, struct_constu8_constu8) callconv(.c) void) void {
+        qtc.KJob_Connect_Description4(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1143,9 +1143,9 @@ pub const kio__listjob = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KIO__ListJob, slot: fn (self: QtC.KIO__ListJob) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__ListJob, callback: *const fn (self: QtC.KIO__ListJob) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1227,9 +1227,9 @@ pub const kio__listjob = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KIO__ListJob, slot: fn (self: QtC.KIO__ListJob, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__ListJob, callback: *const fn (self: QtC.KIO__ListJob, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -1238,9 +1238,9 @@ pub const kio__listjob = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KIO__ListJob, slot: fn (self: QtC.KIO__ListJob, job: QtC.KJob) callconv(.c) void ```
-    pub fn OnFinished(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KJob_Connect_Finished(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__ListJob, callback: *const fn (self: QtC.KIO__ListJob, job: QtC.KJob) callconv(.c) void ```
+    pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KJob_Connect_Finished(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -1249,9 +1249,9 @@ pub const kio__listjob = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KIO__ListJob, slot: fn (self: QtC.KIO__ListJob, job: QtC.KJob) callconv(.c) void ```
-    pub fn OnSuspended(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KJob_Connect_Suspended(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__ListJob, callback: *const fn (self: QtC.KIO__ListJob, job: QtC.KJob) callconv(.c) void ```
+    pub fn OnSuspended(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KJob_Connect_Suspended(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -1260,9 +1260,9 @@ pub const kio__listjob = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KIO__ListJob, slot: fn (self: QtC.KIO__ListJob, job: QtC.KJob) callconv(.c) void ```
-    pub fn OnResumed(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KJob_Connect_Resumed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__ListJob, callback: *const fn (self: QtC.KIO__ListJob, job: QtC.KJob) callconv(.c) void ```
+    pub fn OnResumed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KJob_Connect_Resumed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -1271,9 +1271,9 @@ pub const kio__listjob = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KIO__ListJob, slot: fn (self: QtC.KIO__ListJob, job: QtC.KJob) callconv(.c) void ```
-    pub fn OnResult(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KJob_Connect_Result(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__ListJob, callback: *const fn (self: QtC.KIO__ListJob, job: QtC.KJob) callconv(.c) void ```
+    pub fn OnResult(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KJob_Connect_Result(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -1282,9 +1282,9 @@ pub const kio__listjob = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KIO__ListJob, slot: fn (self: QtC.KIO__ListJob, job: QtC.KJob, unit: kjob_enums.Unit, amount: u64) callconv(.c) void ```
-    pub fn OnTotalAmountChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, u64) callconv(.c) void) void {
-        qtc.KJob_Connect_TotalAmountChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__ListJob, callback: *const fn (self: QtC.KIO__ListJob, job: QtC.KJob, unit: kjob_enums.Unit, amount: u64) callconv(.c) void ```
+    pub fn OnTotalAmountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, u64) callconv(.c) void) void {
+        qtc.KJob_Connect_TotalAmountChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -1293,9 +1293,9 @@ pub const kio__listjob = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KIO__ListJob, slot: fn (self: QtC.KIO__ListJob, job: QtC.KJob, unit: kjob_enums.Unit, amount: u64) callconv(.c) void ```
-    pub fn OnProcessedAmountChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, u64) callconv(.c) void) void {
-        qtc.KJob_Connect_ProcessedAmountChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__ListJob, callback: *const fn (self: QtC.KIO__ListJob, job: QtC.KJob, unit: kjob_enums.Unit, amount: u64) callconv(.c) void ```
+    pub fn OnProcessedAmountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, u64) callconv(.c) void) void {
+        qtc.KJob_Connect_ProcessedAmountChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KJob
@@ -1304,9 +1304,9 @@ pub const kio__listjob = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KIO__ListJob, slot: fn (self: QtC.KIO__ListJob, job: QtC.KJob, percent: u64) callconv(.c) void ```
-    pub fn OnPercentChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
-        qtc.KJob_Connect_PercentChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__ListJob, callback: *const fn (self: QtC.KIO__ListJob, job: QtC.KJob, percent: u64) callconv(.c) void ```
+    pub fn OnPercentChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, u64) callconv(.c) void) void {
+        qtc.KJob_Connect_PercentChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1315,9 +1315,9 @@ pub const kio__listjob = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KIO__ListJob, slot: fn (self: QtC.KIO__ListJob, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__ListJob, callback: *const fn (self: QtC.KIO__ListJob, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Delete this object from C++ memory.

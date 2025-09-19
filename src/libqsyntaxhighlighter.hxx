@@ -10,7 +10,7 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QSyntaxHighlighter so that we can call protected methods
-class VirtualQSyntaxHighlighter final : public QSyntaxHighlighter {
+class VirtualQSyntaxHighlighter : public QSyntaxHighlighter {
 
   public:
     // Virtual class boolean flag

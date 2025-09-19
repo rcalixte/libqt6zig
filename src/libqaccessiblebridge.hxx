@@ -10,7 +10,7 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QAccessibleBridgePlugin so that we can call protected methods
-class VirtualQAccessibleBridgePlugin final : public QAccessibleBridgePlugin {
+class VirtualQAccessibleBridgePlugin : public QAccessibleBridgePlugin {
 
   public:
     // Virtual class boolean flag

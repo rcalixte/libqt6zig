@@ -10,7 +10,7 @@
 #include "../qtlibc.h"
 
 // This class is a subclass of KViewStateSerializer so that we can call protected methods
-class VirtualKViewStateSerializer final : public KViewStateSerializer {
+class VirtualKViewStateSerializer : public KViewStateSerializer {
 
   public:
     // Virtual class boolean flag

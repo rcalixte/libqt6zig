@@ -40,9 +40,9 @@ pub const qvboxplotmodelmapper = struct {
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QVBoxPlotModelMapper, slot: fn (self: QtC.QVBoxPlotModelMapper, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QVBoxPlotModelMapper_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxPlotModelMapper, callback: *const fn (self: QtC.QVBoxPlotModelMapper, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+        qtc.QVBoxPlotModelMapper_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -157,9 +157,9 @@ pub const qvboxplotmodelmapper = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvboxplotmodelmapper-qtcharts.html#seriesReplaced)
     ///
-    /// ``` self: QtC.QVBoxPlotModelMapper, slot: fn (self: QtC.QVBoxPlotModelMapper) callconv(.c) void ```
-    pub fn OnSeriesReplaced(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QVBoxPlotModelMapper_Connect_SeriesReplaced(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxPlotModelMapper, callback: *const fn (self: QtC.QVBoxPlotModelMapper) callconv(.c) void ```
+    pub fn OnSeriesReplaced(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QVBoxPlotModelMapper_Connect_SeriesReplaced(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvboxplotmodelmapper-qtcharts.html#modelReplaced)
@@ -171,9 +171,9 @@ pub const qvboxplotmodelmapper = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvboxplotmodelmapper-qtcharts.html#modelReplaced)
     ///
-    /// ``` self: QtC.QVBoxPlotModelMapper, slot: fn (self: QtC.QVBoxPlotModelMapper) callconv(.c) void ```
-    pub fn OnModelReplaced(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QVBoxPlotModelMapper_Connect_ModelReplaced(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxPlotModelMapper, callback: *const fn (self: QtC.QVBoxPlotModelMapper) callconv(.c) void ```
+    pub fn OnModelReplaced(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QVBoxPlotModelMapper_Connect_ModelReplaced(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvboxplotmodelmapper-qtcharts.html#firstBoxSetColumnChanged)
@@ -185,9 +185,9 @@ pub const qvboxplotmodelmapper = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvboxplotmodelmapper-qtcharts.html#firstBoxSetColumnChanged)
     ///
-    /// ``` self: QtC.QVBoxPlotModelMapper, slot: fn (self: QtC.QVBoxPlotModelMapper) callconv(.c) void ```
-    pub fn OnFirstBoxSetColumnChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QVBoxPlotModelMapper_Connect_FirstBoxSetColumnChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxPlotModelMapper, callback: *const fn (self: QtC.QVBoxPlotModelMapper) callconv(.c) void ```
+    pub fn OnFirstBoxSetColumnChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QVBoxPlotModelMapper_Connect_FirstBoxSetColumnChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvboxplotmodelmapper-qtcharts.html#lastBoxSetColumnChanged)
@@ -199,9 +199,9 @@ pub const qvboxplotmodelmapper = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvboxplotmodelmapper-qtcharts.html#lastBoxSetColumnChanged)
     ///
-    /// ``` self: QtC.QVBoxPlotModelMapper, slot: fn (self: QtC.QVBoxPlotModelMapper) callconv(.c) void ```
-    pub fn OnLastBoxSetColumnChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QVBoxPlotModelMapper_Connect_LastBoxSetColumnChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxPlotModelMapper, callback: *const fn (self: QtC.QVBoxPlotModelMapper) callconv(.c) void ```
+    pub fn OnLastBoxSetColumnChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QVBoxPlotModelMapper_Connect_LastBoxSetColumnChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvboxplotmodelmapper-qtcharts.html#firstRowChanged)
@@ -213,9 +213,9 @@ pub const qvboxplotmodelmapper = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvboxplotmodelmapper-qtcharts.html#firstRowChanged)
     ///
-    /// ``` self: QtC.QVBoxPlotModelMapper, slot: fn (self: QtC.QVBoxPlotModelMapper) callconv(.c) void ```
-    pub fn OnFirstRowChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QVBoxPlotModelMapper_Connect_FirstRowChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxPlotModelMapper, callback: *const fn (self: QtC.QVBoxPlotModelMapper) callconv(.c) void ```
+    pub fn OnFirstRowChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QVBoxPlotModelMapper_Connect_FirstRowChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvboxplotmodelmapper-qtcharts.html#rowCountChanged)
@@ -227,9 +227,9 @@ pub const qvboxplotmodelmapper = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvboxplotmodelmapper-qtcharts.html#rowCountChanged)
     ///
-    /// ``` self: QtC.QVBoxPlotModelMapper, slot: fn (self: QtC.QVBoxPlotModelMapper) callconv(.c) void ```
-    pub fn OnRowCountChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QVBoxPlotModelMapper_Connect_RowCountChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxPlotModelMapper, callback: *const fn (self: QtC.QVBoxPlotModelMapper) callconv(.c) void ```
+    pub fn OnRowCountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QVBoxPlotModelMapper_Connect_RowCountChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -546,9 +546,9 @@ pub const qvboxplotmodelmapper = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QVBoxPlotModelMapper, slot: fn (self: QtC.QVBoxPlotModelMapper) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxPlotModelMapper, callback: *const fn (self: QtC.QVBoxPlotModelMapper) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -630,9 +630,9 @@ pub const qvboxplotmodelmapper = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QVBoxPlotModelMapper, slot: fn (self: QtC.QVBoxPlotModelMapper, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxPlotModelMapper, callback: *const fn (self: QtC.QVBoxPlotModelMapper, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -663,9 +663,9 @@ pub const qvboxplotmodelmapper = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVBoxPlotModelMapper, slot: fn (self: QtC.QVBoxPlotModelMapper, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QVBoxPlotModelMapper_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxPlotModelMapper, callback: *const fn (self: QtC.QVBoxPlotModelMapper, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QVBoxPlotModelMapper_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -696,9 +696,9 @@ pub const qvboxplotmodelmapper = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVBoxPlotModelMapper, slot: fn (self: QtC.QVBoxPlotModelMapper, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QVBoxPlotModelMapper_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxPlotModelMapper, callback: *const fn (self: QtC.QVBoxPlotModelMapper, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QVBoxPlotModelMapper_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -729,9 +729,9 @@ pub const qvboxplotmodelmapper = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVBoxPlotModelMapper, slot: fn (self: QtC.QVBoxPlotModelMapper, event: QtC.QTimerEvent) callconv(.c) void ```
-    pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QVBoxPlotModelMapper_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxPlotModelMapper, callback: *const fn (self: QtC.QVBoxPlotModelMapper, event: QtC.QTimerEvent) callconv(.c) void ```
+    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QVBoxPlotModelMapper_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -762,9 +762,9 @@ pub const qvboxplotmodelmapper = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVBoxPlotModelMapper, slot: fn (self: QtC.QVBoxPlotModelMapper, event: QtC.QChildEvent) callconv(.c) void ```
-    pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QVBoxPlotModelMapper_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxPlotModelMapper, callback: *const fn (self: QtC.QVBoxPlotModelMapper, event: QtC.QChildEvent) callconv(.c) void ```
+    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QVBoxPlotModelMapper_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -795,9 +795,9 @@ pub const qvboxplotmodelmapper = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVBoxPlotModelMapper, slot: fn (self: QtC.QVBoxPlotModelMapper, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QVBoxPlotModelMapper_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxPlotModelMapper, callback: *const fn (self: QtC.QVBoxPlotModelMapper, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QVBoxPlotModelMapper_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -828,9 +828,9 @@ pub const qvboxplotmodelmapper = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVBoxPlotModelMapper, slot: fn (self: QtC.QVBoxPlotModelMapper, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QVBoxPlotModelMapper_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxPlotModelMapper, callback: *const fn (self: QtC.QVBoxPlotModelMapper, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QVBoxPlotModelMapper_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -861,9 +861,9 @@ pub const qvboxplotmodelmapper = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVBoxPlotModelMapper, slot: fn (self: QtC.QVBoxPlotModelMapper, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QVBoxPlotModelMapper_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxPlotModelMapper, callback: *const fn (self: QtC.QVBoxPlotModelMapper, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QVBoxPlotModelMapper_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QBoxPlotModelMapper
@@ -894,9 +894,9 @@ pub const qvboxplotmodelmapper = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVBoxPlotModelMapper, slot: fn () callconv(.c) i32 ```
-    pub fn OnFirst(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QVBoxPlotModelMapper_OnFirst(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxPlotModelMapper, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnFirst(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QVBoxPlotModelMapper_OnFirst(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QBoxPlotModelMapper
@@ -927,9 +927,9 @@ pub const qvboxplotmodelmapper = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVBoxPlotModelMapper, slot: fn (self: QtC.QVBoxPlotModelMapper, first: i32) callconv(.c) void ```
-    pub fn OnSetFirst(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QVBoxPlotModelMapper_OnSetFirst(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxPlotModelMapper, callback: *const fn (self: QtC.QVBoxPlotModelMapper, first: i32) callconv(.c) void ```
+    pub fn OnSetFirst(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QVBoxPlotModelMapper_OnSetFirst(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QBoxPlotModelMapper
@@ -960,9 +960,9 @@ pub const qvboxplotmodelmapper = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVBoxPlotModelMapper, slot: fn () callconv(.c) i32 ```
-    pub fn OnCount(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QVBoxPlotModelMapper_OnCount(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxPlotModelMapper, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnCount(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QVBoxPlotModelMapper_OnCount(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QBoxPlotModelMapper
@@ -993,9 +993,9 @@ pub const qvboxplotmodelmapper = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVBoxPlotModelMapper, slot: fn (self: QtC.QVBoxPlotModelMapper, count: i32) callconv(.c) void ```
-    pub fn OnSetCount(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QVBoxPlotModelMapper_OnSetCount(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxPlotModelMapper, callback: *const fn (self: QtC.QVBoxPlotModelMapper, count: i32) callconv(.c) void ```
+    pub fn OnSetCount(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QVBoxPlotModelMapper_OnSetCount(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QBoxPlotModelMapper
@@ -1026,9 +1026,9 @@ pub const qvboxplotmodelmapper = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVBoxPlotModelMapper, slot: fn () callconv(.c) i32 ```
-    pub fn OnFirstBoxSetSection(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QVBoxPlotModelMapper_OnFirstBoxSetSection(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxPlotModelMapper, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnFirstBoxSetSection(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QVBoxPlotModelMapper_OnFirstBoxSetSection(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QBoxPlotModelMapper
@@ -1059,9 +1059,9 @@ pub const qvboxplotmodelmapper = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVBoxPlotModelMapper, slot: fn (self: QtC.QVBoxPlotModelMapper, firstBoxSetSection: i32) callconv(.c) void ```
-    pub fn OnSetFirstBoxSetSection(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QVBoxPlotModelMapper_OnSetFirstBoxSetSection(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxPlotModelMapper, callback: *const fn (self: QtC.QVBoxPlotModelMapper, firstBoxSetSection: i32) callconv(.c) void ```
+    pub fn OnSetFirstBoxSetSection(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QVBoxPlotModelMapper_OnSetFirstBoxSetSection(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QBoxPlotModelMapper
@@ -1092,9 +1092,9 @@ pub const qvboxplotmodelmapper = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVBoxPlotModelMapper, slot: fn () callconv(.c) i32 ```
-    pub fn OnLastBoxSetSection(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QVBoxPlotModelMapper_OnLastBoxSetSection(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxPlotModelMapper, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnLastBoxSetSection(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QVBoxPlotModelMapper_OnLastBoxSetSection(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QBoxPlotModelMapper
@@ -1125,9 +1125,9 @@ pub const qvboxplotmodelmapper = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVBoxPlotModelMapper, slot: fn (self: QtC.QVBoxPlotModelMapper, lastBoxSetSection: i32) callconv(.c) void ```
-    pub fn OnSetLastBoxSetSection(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QVBoxPlotModelMapper_OnSetLastBoxSetSection(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxPlotModelMapper, callback: *const fn (self: QtC.QVBoxPlotModelMapper, lastBoxSetSection: i32) callconv(.c) void ```
+    pub fn OnSetLastBoxSetSection(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QVBoxPlotModelMapper_OnSetLastBoxSetSection(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QBoxPlotModelMapper
@@ -1162,9 +1162,9 @@ pub const qvboxplotmodelmapper = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVBoxPlotModelMapper, slot: fn () callconv(.c) i32 ```
-    pub fn OnOrientation(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QVBoxPlotModelMapper_OnOrientation(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxPlotModelMapper, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnOrientation(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QVBoxPlotModelMapper_OnOrientation(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QBoxPlotModelMapper
@@ -1195,9 +1195,9 @@ pub const qvboxplotmodelmapper = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVBoxPlotModelMapper, slot: fn (self: QtC.QVBoxPlotModelMapper, orientation: qnamespace_enums.Orientation) callconv(.c) void ```
-    pub fn OnSetOrientation(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QVBoxPlotModelMapper_OnSetOrientation(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxPlotModelMapper, callback: *const fn (self: QtC.QVBoxPlotModelMapper, orientation: qnamespace_enums.Orientation) callconv(.c) void ```
+    pub fn OnSetOrientation(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QVBoxPlotModelMapper_OnSetOrientation(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1228,9 +1228,9 @@ pub const qvboxplotmodelmapper = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVBoxPlotModelMapper, slot: fn () callconv(.c) QtC.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
-        qtc.QVBoxPlotModelMapper_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxPlotModelMapper, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.QVBoxPlotModelMapper_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1261,9 +1261,9 @@ pub const qvboxplotmodelmapper = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVBoxPlotModelMapper, slot: fn () callconv(.c) i32 ```
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QVBoxPlotModelMapper_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxPlotModelMapper, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QVBoxPlotModelMapper_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1296,9 +1296,9 @@ pub const qvboxplotmodelmapper = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVBoxPlotModelMapper, slot: fn (self: QtC.QVBoxPlotModelMapper, signal: [*:0]const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QVBoxPlotModelMapper_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxPlotModelMapper, callback: *const fn (self: QtC.QVBoxPlotModelMapper, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QVBoxPlotModelMapper_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1329,9 +1329,9 @@ pub const qvboxplotmodelmapper = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QVBoxPlotModelMapper, slot: fn (self: QtC.QVBoxPlotModelMapper, signal: QtC.QMetaMethod) callconv(.c) bool ```
-    pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QVBoxPlotModelMapper_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxPlotModelMapper, callback: *const fn (self: QtC.QVBoxPlotModelMapper, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QVBoxPlotModelMapper_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1340,9 +1340,9 @@ pub const qvboxplotmodelmapper = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QVBoxPlotModelMapper, slot: fn (self: QtC.QVBoxPlotModelMapper, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QVBoxPlotModelMapper, callback: *const fn (self: QtC.QVBoxPlotModelMapper, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvboxplotmodelmapper-qtcharts.html#dtor.QVBoxPlotModelMapper)

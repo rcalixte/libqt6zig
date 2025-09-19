@@ -279,9 +279,9 @@ pub const qxmlstreamentityresolver = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QXmlStreamEntityResolver, slot: fn (self: QtC.QXmlStreamEntityResolver, publicId: [*:0]const u8, systemId: [*:0]const u8) callconv(.c) [*:0]const u8 ```
-    pub fn OnResolveEntity(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8, [*:0]const u8) callconv(.c) [*:0]const u8) void {
-        qtc.QXmlStreamEntityResolver_OnResolveEntity(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QXmlStreamEntityResolver, callback: *const fn (self: QtC.QXmlStreamEntityResolver, publicId: [*:0]const u8, systemId: [*:0]const u8) callconv(.c) [*:0]const u8 ```
+    pub fn OnResolveEntity(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, [*:0]const u8) callconv(.c) [*:0]const u8) void {
+        qtc.QXmlStreamEntityResolver_OnResolveEntity(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qxmlstreamentityresolver.html#resolveEntity)
@@ -324,9 +324,9 @@ pub const qxmlstreamentityresolver = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QXmlStreamEntityResolver, slot: fn (self: QtC.QXmlStreamEntityResolver, name: [*:0]const u8) callconv(.c) [*:0]const u8 ```
-    pub fn OnResolveUndeclaredEntity(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) [*:0]const u8) void {
-        qtc.QXmlStreamEntityResolver_OnResolveUndeclaredEntity(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QXmlStreamEntityResolver, callback: *const fn (self: QtC.QXmlStreamEntityResolver, name: [*:0]const u8) callconv(.c) [*:0]const u8 ```
+    pub fn OnResolveUndeclaredEntity(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) [*:0]const u8) void {
+        qtc.QXmlStreamEntityResolver_OnResolveUndeclaredEntity(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qxmlstreamentityresolver.html#resolveUndeclaredEntity)

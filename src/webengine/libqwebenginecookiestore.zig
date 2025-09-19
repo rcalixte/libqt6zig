@@ -80,9 +80,9 @@ pub const qwebenginecookiestore = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginecookiestore.html#cookieAdded)
     ///
-    /// ``` self: QtC.QWebEngineCookieStore, slot: fn (self: QtC.QWebEngineCookieStore, cookie: QtC.QNetworkCookie) callconv(.c) void ```
-    pub fn OnCookieAdded(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWebEngineCookieStore_Connect_CookieAdded(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWebEngineCookieStore, callback: *const fn (self: QtC.QWebEngineCookieStore, cookie: QtC.QNetworkCookie) callconv(.c) void ```
+    pub fn OnCookieAdded(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QWebEngineCookieStore_Connect_CookieAdded(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginecookiestore.html#cookieRemoved)
@@ -94,9 +94,9 @@ pub const qwebenginecookiestore = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginecookiestore.html#cookieRemoved)
     ///
-    /// ``` self: QtC.QWebEngineCookieStore, slot: fn (self: QtC.QWebEngineCookieStore, cookie: QtC.QNetworkCookie) callconv(.c) void ```
-    pub fn OnCookieRemoved(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWebEngineCookieStore_Connect_CookieRemoved(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWebEngineCookieStore, callback: *const fn (self: QtC.QWebEngineCookieStore, cookie: QtC.QNetworkCookie) callconv(.c) void ```
+    pub fn OnCookieRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QWebEngineCookieStore_Connect_CookieRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -445,9 +445,9 @@ pub const qwebenginecookiestore = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QWebEngineCookieStore, slot: fn (self: QtC.QWebEngineCookieStore) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWebEngineCookieStore, callback: *const fn (self: QtC.QWebEngineCookieStore) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -529,9 +529,9 @@ pub const qwebenginecookiestore = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QWebEngineCookieStore, slot: fn (self: QtC.QWebEngineCookieStore, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWebEngineCookieStore, callback: *const fn (self: QtC.QWebEngineCookieStore, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -540,9 +540,9 @@ pub const qwebenginecookiestore = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QWebEngineCookieStore, slot: fn (self: QtC.QWebEngineCookieStore, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QWebEngineCookieStore, callback: *const fn (self: QtC.QWebEngineCookieStore, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebenginecookiestore.html#dtor.QWebEngineCookieStore)

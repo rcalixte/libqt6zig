@@ -17,9 +17,7 @@ extern "C" {
 #if defined(WORKAROUND_INNER_CLASS_DEFINITION_KIO__ChmodJob)
 typedef KIO::ChmodJob KIO__ChmodJob;
 #endif
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_KIO__Job)
 typedef KIO::Job KIO__Job;
-#endif
 #else
 typedef struct KCompositeJob KCompositeJob;
 typedef struct KIO__ChmodJob KIO__ChmodJob;

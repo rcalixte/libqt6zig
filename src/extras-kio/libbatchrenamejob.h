@@ -17,9 +17,7 @@ extern "C" {
 #if defined(WORKAROUND_INNER_CLASS_DEFINITION_KIO__BatchRenameJob)
 typedef KIO::BatchRenameJob KIO__BatchRenameJob;
 #endif
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_KIO__Job)
 typedef KIO::Job KIO__Job;
-#endif
 #else
 typedef struct KCompositeJob KCompositeJob;
 typedef struct KIO KIO;

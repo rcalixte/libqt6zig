@@ -42,9 +42,9 @@ pub const kwidgetitemdelegate = struct {
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KWidgetItemDelegate, slot: fn (self: QtC.KWidgetItemDelegate, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
-        qtc.KWidgetItemDelegate_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWidgetItemDelegate, callback: *const fn (self: QtC.KWidgetItemDelegate, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+        qtc.KWidgetItemDelegate_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -103,9 +103,9 @@ pub const kwidgetitemdelegate = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KWidgetItemDelegate, slot: fn (self: QtC.KWidgetItemDelegate, index: QtC.QModelIndex) callconv(.c) [*:null]QtC.QWidget ```
-    pub fn OnCreateItemWidgets(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) [*:null]QtC.QWidget) void {
-        qtc.KWidgetItemDelegate_OnCreateItemWidgets(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWidgetItemDelegate, callback: *const fn (self: QtC.KWidgetItemDelegate, index: QtC.QModelIndex) callconv(.c) [*:null]QtC.QWidget ```
+    pub fn OnCreateItemWidgets(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) [*:null]QtC.QWidget) void {
+        qtc.KWidgetItemDelegate_OnCreateItemWidgets(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kwidgetitemdelegate.html#createItemWidgets)
@@ -137,9 +137,9 @@ pub const kwidgetitemdelegate = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KWidgetItemDelegate, slot: fn (self: QtC.KWidgetItemDelegate, widgets: [*]QtC.QWidget, option: QtC.QStyleOptionViewItem, index: QtC.QPersistentModelIndex) callconv(.c) void ```
-    pub fn OnUpdateItemWidgets(self: ?*anyopaque, slot: fn (?*anyopaque, [*]?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KWidgetItemDelegate_OnUpdateItemWidgets(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWidgetItemDelegate, callback: *const fn (self: QtC.KWidgetItemDelegate, widgets: [*]QtC.QWidget, option: QtC.QStyleOptionViewItem, index: QtC.QPersistentModelIndex) callconv(.c) void ```
+    pub fn OnUpdateItemWidgets(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KWidgetItemDelegate_OnUpdateItemWidgets(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kwidgetitemdelegate.html#updateItemWidgets)
@@ -170,9 +170,9 @@ pub const kwidgetitemdelegate = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KWidgetItemDelegate, slot: fn (self: QtC.KWidgetItemDelegate, widget: QtC.QWidget, types: []qcoreevent_enums.Type) callconv(.c) void ```
-    pub fn OnSetBlockedEventTypes(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, [*:-1]i32) callconv(.c) void) void {
-        qtc.KWidgetItemDelegate_OnSetBlockedEventTypes(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWidgetItemDelegate, callback: *const fn (self: QtC.KWidgetItemDelegate, widget: QtC.QWidget, types: []qcoreevent_enums.Type) callconv(.c) void ```
+    pub fn OnSetBlockedEventTypes(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:-1]i32) callconv(.c) void) void {
+        qtc.KWidgetItemDelegate_OnSetBlockedEventTypes(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kwidgetitemdelegate.html#setBlockedEventTypes)
@@ -206,9 +206,9 @@ pub const kwidgetitemdelegate = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KWidgetItemDelegate, slot: fn (self: QtC.KWidgetItemDelegate, widget: QtC.QWidget) callconv(.c) [*:-1]i32 ```
-    pub fn OnBlockedEventTypes(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) [*:-1]i32) void {
-        qtc.KWidgetItemDelegate_OnBlockedEventTypes(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWidgetItemDelegate, callback: *const fn (self: QtC.KWidgetItemDelegate, widget: QtC.QWidget) callconv(.c) [*:-1]i32 ```
+    pub fn OnBlockedEventTypes(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) [*:-1]i32) void {
+        qtc.KWidgetItemDelegate_OnBlockedEventTypes(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kwidgetitemdelegate.html#blockedEventTypes)
@@ -266,9 +266,9 @@ pub const kwidgetitemdelegate = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemdelegate.html#commitData)
     ///
-    /// ``` self: QtC.KWidgetItemDelegate, slot: fn (self: QtC.KWidgetItemDelegate, editor: QtC.QWidget) callconv(.c) void ```
-    pub fn OnCommitData(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemDelegate_Connect_CommitData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWidgetItemDelegate, callback: *const fn (self: QtC.KWidgetItemDelegate, editor: QtC.QWidget) callconv(.c) void ```
+    pub fn OnCommitData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractItemDelegate_Connect_CommitData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemDelegate
@@ -284,9 +284,9 @@ pub const kwidgetitemdelegate = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemdelegate.html#closeEditor)
     ///
-    /// ``` self: QtC.KWidgetItemDelegate, slot: fn (self: QtC.KWidgetItemDelegate, editor: QtC.QWidget) callconv(.c) void ```
-    pub fn OnCloseEditor(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemDelegate_Connect_CloseEditor(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWidgetItemDelegate, callback: *const fn (self: QtC.KWidgetItemDelegate, editor: QtC.QWidget) callconv(.c) void ```
+    pub fn OnCloseEditor(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractItemDelegate_Connect_CloseEditor(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemDelegate
@@ -302,9 +302,9 @@ pub const kwidgetitemdelegate = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemdelegate.html#sizeHintChanged)
     ///
-    /// ``` self: QtC.KWidgetItemDelegate, slot: fn (self: QtC.KWidgetItemDelegate, param1: QtC.QModelIndex) callconv(.c) void ```
-    pub fn OnSizeHintChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractItemDelegate_Connect_SizeHintChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWidgetItemDelegate, callback: *const fn (self: QtC.KWidgetItemDelegate, param1: QtC.QModelIndex) callconv(.c) void ```
+    pub fn OnSizeHintChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractItemDelegate_Connect_SizeHintChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemDelegate
@@ -320,9 +320,9 @@ pub const kwidgetitemdelegate = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemdelegate.html#closeEditor)
     ///
-    /// ``` self: QtC.KWidgetItemDelegate, slot: fn (self: QtC.KWidgetItemDelegate, editor: QtC.QWidget, hint: qabstractitemdelegate_enums.EndEditHint) callconv(.c) void ```
-    pub fn OnCloseEditor2(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractItemDelegate_Connect_CloseEditor2(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWidgetItemDelegate, callback: *const fn (self: QtC.KWidgetItemDelegate, editor: QtC.QWidget, hint: qabstractitemdelegate_enums.EndEditHint) callconv(.c) void ```
+    pub fn OnCloseEditor2(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QAbstractItemDelegate_Connect_CloseEditor2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -613,9 +613,9 @@ pub const kwidgetitemdelegate = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KWidgetItemDelegate, slot: fn (self: QtC.KWidgetItemDelegate) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWidgetItemDelegate, callback: *const fn (self: QtC.KWidgetItemDelegate) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -697,9 +697,9 @@ pub const kwidgetitemdelegate = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KWidgetItemDelegate, slot: fn (self: QtC.KWidgetItemDelegate, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWidgetItemDelegate, callback: *const fn (self: QtC.KWidgetItemDelegate, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemDelegate
@@ -730,9 +730,9 @@ pub const kwidgetitemdelegate = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KWidgetItemDelegate, slot: fn (self: QtC.KWidgetItemDelegate, painter: QtC.QPainter, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex) callconv(.c) void ```
-    pub fn OnPaint(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KWidgetItemDelegate_OnPaint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWidgetItemDelegate, callback: *const fn (self: QtC.KWidgetItemDelegate, painter: QtC.QPainter, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex) callconv(.c) void ```
+    pub fn OnPaint(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KWidgetItemDelegate_OnPaint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemDelegate
@@ -763,9 +763,9 @@ pub const kwidgetitemdelegate = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KWidgetItemDelegate, slot: fn (self: QtC.KWidgetItemDelegate, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex) callconv(.c) QtC.QSize ```
-    pub fn OnSizeHint(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) QtC.QSize) void {
-        qtc.KWidgetItemDelegate_OnSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWidgetItemDelegate, callback: *const fn (self: QtC.KWidgetItemDelegate, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex) callconv(.c) QtC.QSize ```
+    pub fn OnSizeHint(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) QtC.QSize) void {
+        qtc.KWidgetItemDelegate_OnSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemDelegate
@@ -796,9 +796,9 @@ pub const kwidgetitemdelegate = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KWidgetItemDelegate, slot: fn (self: QtC.KWidgetItemDelegate, parent: QtC.QWidget, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex) callconv(.c) QtC.QWidget ```
-    pub fn OnCreateEditor(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) QtC.QWidget) void {
-        qtc.KWidgetItemDelegate_OnCreateEditor(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWidgetItemDelegate, callback: *const fn (self: QtC.KWidgetItemDelegate, parent: QtC.QWidget, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex) callconv(.c) QtC.QWidget ```
+    pub fn OnCreateEditor(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) QtC.QWidget) void {
+        qtc.KWidgetItemDelegate_OnCreateEditor(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemDelegate
@@ -829,9 +829,9 @@ pub const kwidgetitemdelegate = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KWidgetItemDelegate, slot: fn (self: QtC.KWidgetItemDelegate, editor: QtC.QWidget, index: QtC.QModelIndex) callconv(.c) void ```
-    pub fn OnDestroyEditor(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KWidgetItemDelegate_OnDestroyEditor(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWidgetItemDelegate, callback: *const fn (self: QtC.KWidgetItemDelegate, editor: QtC.QWidget, index: QtC.QModelIndex) callconv(.c) void ```
+    pub fn OnDestroyEditor(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KWidgetItemDelegate_OnDestroyEditor(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemDelegate
@@ -862,9 +862,9 @@ pub const kwidgetitemdelegate = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KWidgetItemDelegate, slot: fn (self: QtC.KWidgetItemDelegate, editor: QtC.QWidget, index: QtC.QModelIndex) callconv(.c) void ```
-    pub fn OnSetEditorData(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KWidgetItemDelegate_OnSetEditorData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWidgetItemDelegate, callback: *const fn (self: QtC.KWidgetItemDelegate, editor: QtC.QWidget, index: QtC.QModelIndex) callconv(.c) void ```
+    pub fn OnSetEditorData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KWidgetItemDelegate_OnSetEditorData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemDelegate
@@ -895,9 +895,9 @@ pub const kwidgetitemdelegate = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KWidgetItemDelegate, slot: fn (self: QtC.KWidgetItemDelegate, editor: QtC.QWidget, model: QtC.QAbstractItemModel, index: QtC.QModelIndex) callconv(.c) void ```
-    pub fn OnSetModelData(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KWidgetItemDelegate_OnSetModelData(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWidgetItemDelegate, callback: *const fn (self: QtC.KWidgetItemDelegate, editor: QtC.QWidget, model: QtC.QAbstractItemModel, index: QtC.QModelIndex) callconv(.c) void ```
+    pub fn OnSetModelData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KWidgetItemDelegate_OnSetModelData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemDelegate
@@ -928,9 +928,9 @@ pub const kwidgetitemdelegate = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KWidgetItemDelegate, slot: fn (self: QtC.KWidgetItemDelegate, editor: QtC.QWidget, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex) callconv(.c) void ```
-    pub fn OnUpdateEditorGeometry(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KWidgetItemDelegate_OnUpdateEditorGeometry(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWidgetItemDelegate, callback: *const fn (self: QtC.KWidgetItemDelegate, editor: QtC.QWidget, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex) callconv(.c) void ```
+    pub fn OnUpdateEditorGeometry(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KWidgetItemDelegate_OnUpdateEditorGeometry(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemDelegate
@@ -961,9 +961,9 @@ pub const kwidgetitemdelegate = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KWidgetItemDelegate, slot: fn (self: QtC.KWidgetItemDelegate, event: QtC.QEvent, model: QtC.QAbstractItemModel, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex) callconv(.c) bool ```
-    pub fn OnEditorEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KWidgetItemDelegate_OnEditorEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWidgetItemDelegate, callback: *const fn (self: QtC.KWidgetItemDelegate, event: QtC.QEvent, model: QtC.QAbstractItemModel, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex) callconv(.c) bool ```
+    pub fn OnEditorEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KWidgetItemDelegate_OnEditorEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemDelegate
@@ -994,9 +994,9 @@ pub const kwidgetitemdelegate = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KWidgetItemDelegate, slot: fn (self: QtC.KWidgetItemDelegate, event: QtC.QHelpEvent, view: QtC.QAbstractItemView, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex) callconv(.c) bool ```
-    pub fn OnHelpEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KWidgetItemDelegate_OnHelpEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWidgetItemDelegate, callback: *const fn (self: QtC.KWidgetItemDelegate, event: QtC.QHelpEvent, view: QtC.QAbstractItemView, option: QtC.QStyleOptionViewItem, index: QtC.QModelIndex) callconv(.c) bool ```
+    pub fn OnHelpEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KWidgetItemDelegate_OnHelpEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemDelegate
@@ -1037,9 +1037,9 @@ pub const kwidgetitemdelegate = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KWidgetItemDelegate, slot: fn () callconv(.c) [*:-1]i32 ```
-    pub fn OnPaintingRoles(self: ?*anyopaque, slot: fn () callconv(.c) [*:-1]i32) void {
-        qtc.KWidgetItemDelegate_OnPaintingRoles(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWidgetItemDelegate, callback: *const fn () callconv(.c) [*:-1]i32 ```
+    pub fn OnPaintingRoles(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:-1]i32) void {
+        qtc.KWidgetItemDelegate_OnPaintingRoles(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1070,9 +1070,9 @@ pub const kwidgetitemdelegate = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KWidgetItemDelegate, slot: fn (self: QtC.KWidgetItemDelegate, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KWidgetItemDelegate_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWidgetItemDelegate, callback: *const fn (self: QtC.KWidgetItemDelegate, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KWidgetItemDelegate_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1103,9 +1103,9 @@ pub const kwidgetitemdelegate = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KWidgetItemDelegate, slot: fn (self: QtC.KWidgetItemDelegate, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KWidgetItemDelegate_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWidgetItemDelegate, callback: *const fn (self: QtC.KWidgetItemDelegate, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KWidgetItemDelegate_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1136,9 +1136,9 @@ pub const kwidgetitemdelegate = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KWidgetItemDelegate, slot: fn (self: QtC.KWidgetItemDelegate, event: QtC.QTimerEvent) callconv(.c) void ```
-    pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KWidgetItemDelegate_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWidgetItemDelegate, callback: *const fn (self: QtC.KWidgetItemDelegate, event: QtC.QTimerEvent) callconv(.c) void ```
+    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KWidgetItemDelegate_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1169,9 +1169,9 @@ pub const kwidgetitemdelegate = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KWidgetItemDelegate, slot: fn (self: QtC.KWidgetItemDelegate, event: QtC.QChildEvent) callconv(.c) void ```
-    pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KWidgetItemDelegate_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWidgetItemDelegate, callback: *const fn (self: QtC.KWidgetItemDelegate, event: QtC.QChildEvent) callconv(.c) void ```
+    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KWidgetItemDelegate_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1202,9 +1202,9 @@ pub const kwidgetitemdelegate = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KWidgetItemDelegate, slot: fn (self: QtC.KWidgetItemDelegate, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KWidgetItemDelegate_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWidgetItemDelegate, callback: *const fn (self: QtC.KWidgetItemDelegate, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KWidgetItemDelegate_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1235,9 +1235,9 @@ pub const kwidgetitemdelegate = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KWidgetItemDelegate, slot: fn (self: QtC.KWidgetItemDelegate, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KWidgetItemDelegate_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWidgetItemDelegate, callback: *const fn (self: QtC.KWidgetItemDelegate, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KWidgetItemDelegate_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1268,9 +1268,9 @@ pub const kwidgetitemdelegate = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KWidgetItemDelegate, slot: fn (self: QtC.KWidgetItemDelegate, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KWidgetItemDelegate_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWidgetItemDelegate, callback: *const fn (self: QtC.KWidgetItemDelegate, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KWidgetItemDelegate_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1301,9 +1301,9 @@ pub const kwidgetitemdelegate = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KWidgetItemDelegate, slot: fn () callconv(.c) QtC.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
-        qtc.KWidgetItemDelegate_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWidgetItemDelegate, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.KWidgetItemDelegate_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1334,9 +1334,9 @@ pub const kwidgetitemdelegate = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KWidgetItemDelegate, slot: fn () callconv(.c) i32 ```
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.KWidgetItemDelegate_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWidgetItemDelegate, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.KWidgetItemDelegate_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1369,9 +1369,9 @@ pub const kwidgetitemdelegate = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KWidgetItemDelegate, slot: fn (self: QtC.KWidgetItemDelegate, signal: [*:0]const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KWidgetItemDelegate_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWidgetItemDelegate, callback: *const fn (self: QtC.KWidgetItemDelegate, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
+        qtc.KWidgetItemDelegate_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1402,9 +1402,9 @@ pub const kwidgetitemdelegate = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KWidgetItemDelegate, slot: fn (self: QtC.KWidgetItemDelegate, signal: QtC.QMetaMethod) callconv(.c) bool ```
-    pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KWidgetItemDelegate_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWidgetItemDelegate, callback: *const fn (self: QtC.KWidgetItemDelegate, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KWidgetItemDelegate_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1413,9 +1413,9 @@ pub const kwidgetitemdelegate = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KWidgetItemDelegate, slot: fn (self: QtC.KWidgetItemDelegate, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWidgetItemDelegate, callback: *const fn (self: QtC.KWidgetItemDelegate, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kwidgetitemdelegate.html#dtor.KWidgetItemDelegate)

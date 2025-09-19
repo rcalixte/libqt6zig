@@ -40,9 +40,9 @@ pub const qbuttongroup = struct {
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QButtonGroup, slot: fn (self: QtC.QButtonGroup, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QButtonGroup_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QButtonGroup, callback: *const fn (self: QtC.QButtonGroup, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+        qtc.QButtonGroup_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -148,9 +148,9 @@ pub const qbuttongroup = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbuttongroup.html#buttonClicked)
     ///
-    /// ``` self: QtC.QButtonGroup, slot: fn (self: QtC.QButtonGroup, param1: QtC.QAbstractButton) callconv(.c) void ```
-    pub fn OnButtonClicked(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QButtonGroup_Connect_ButtonClicked(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QButtonGroup, callback: *const fn (self: QtC.QButtonGroup, param1: QtC.QAbstractButton) callconv(.c) void ```
+    pub fn OnButtonClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QButtonGroup_Connect_ButtonClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbuttongroup.html#buttonPressed)
@@ -162,9 +162,9 @@ pub const qbuttongroup = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbuttongroup.html#buttonPressed)
     ///
-    /// ``` self: QtC.QButtonGroup, slot: fn (self: QtC.QButtonGroup, param1: QtC.QAbstractButton) callconv(.c) void ```
-    pub fn OnButtonPressed(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QButtonGroup_Connect_ButtonPressed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QButtonGroup, callback: *const fn (self: QtC.QButtonGroup, param1: QtC.QAbstractButton) callconv(.c) void ```
+    pub fn OnButtonPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QButtonGroup_Connect_ButtonPressed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbuttongroup.html#buttonReleased)
@@ -176,9 +176,9 @@ pub const qbuttongroup = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbuttongroup.html#buttonReleased)
     ///
-    /// ``` self: QtC.QButtonGroup, slot: fn (self: QtC.QButtonGroup, param1: QtC.QAbstractButton) callconv(.c) void ```
-    pub fn OnButtonReleased(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QButtonGroup_Connect_ButtonReleased(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QButtonGroup, callback: *const fn (self: QtC.QButtonGroup, param1: QtC.QAbstractButton) callconv(.c) void ```
+    pub fn OnButtonReleased(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QButtonGroup_Connect_ButtonReleased(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbuttongroup.html#buttonToggled)
@@ -190,9 +190,9 @@ pub const qbuttongroup = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbuttongroup.html#buttonToggled)
     ///
-    /// ``` self: QtC.QButtonGroup, slot: fn (self: QtC.QButtonGroup, param1: QtC.QAbstractButton, param2: bool) callconv(.c) void ```
-    pub fn OnButtonToggled(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QButtonGroup_Connect_ButtonToggled(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QButtonGroup, callback: *const fn (self: QtC.QButtonGroup, param1: QtC.QAbstractButton, param2: bool) callconv(.c) void ```
+    pub fn OnButtonToggled(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QButtonGroup_Connect_ButtonToggled(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbuttongroup.html#idClicked)
@@ -204,9 +204,9 @@ pub const qbuttongroup = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbuttongroup.html#idClicked)
     ///
-    /// ``` self: QtC.QButtonGroup, slot: fn (self: QtC.QButtonGroup, param1: i32) callconv(.c) void ```
-    pub fn OnIdClicked(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QButtonGroup_Connect_IdClicked(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QButtonGroup, callback: *const fn (self: QtC.QButtonGroup, param1: i32) callconv(.c) void ```
+    pub fn OnIdClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QButtonGroup_Connect_IdClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbuttongroup.html#idPressed)
@@ -218,9 +218,9 @@ pub const qbuttongroup = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbuttongroup.html#idPressed)
     ///
-    /// ``` self: QtC.QButtonGroup, slot: fn (self: QtC.QButtonGroup, param1: i32) callconv(.c) void ```
-    pub fn OnIdPressed(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QButtonGroup_Connect_IdPressed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QButtonGroup, callback: *const fn (self: QtC.QButtonGroup, param1: i32) callconv(.c) void ```
+    pub fn OnIdPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QButtonGroup_Connect_IdPressed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbuttongroup.html#idReleased)
@@ -232,9 +232,9 @@ pub const qbuttongroup = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbuttongroup.html#idReleased)
     ///
-    /// ``` self: QtC.QButtonGroup, slot: fn (self: QtC.QButtonGroup, param1: i32) callconv(.c) void ```
-    pub fn OnIdReleased(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QButtonGroup_Connect_IdReleased(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QButtonGroup, callback: *const fn (self: QtC.QButtonGroup, param1: i32) callconv(.c) void ```
+    pub fn OnIdReleased(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QButtonGroup_Connect_IdReleased(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbuttongroup.html#idToggled)
@@ -246,9 +246,9 @@ pub const qbuttongroup = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbuttongroup.html#idToggled)
     ///
-    /// ``` self: QtC.QButtonGroup, slot: fn (self: QtC.QButtonGroup, param1: i32, param2: bool) callconv(.c) void ```
-    pub fn OnIdToggled(self: ?*anyopaque, slot: fn (?*anyopaque, i32, bool) callconv(.c) void) void {
-        qtc.QButtonGroup_Connect_IdToggled(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QButtonGroup, callback: *const fn (self: QtC.QButtonGroup, param1: i32, param2: bool) callconv(.c) void ```
+    pub fn OnIdToggled(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, bool) callconv(.c) void) void {
+        qtc.QButtonGroup_Connect_IdToggled(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -572,9 +572,9 @@ pub const qbuttongroup = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QButtonGroup, slot: fn (self: QtC.QButtonGroup) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QButtonGroup, callback: *const fn (self: QtC.QButtonGroup) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -656,9 +656,9 @@ pub const qbuttongroup = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QButtonGroup, slot: fn (self: QtC.QButtonGroup, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QButtonGroup, callback: *const fn (self: QtC.QButtonGroup, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -689,9 +689,9 @@ pub const qbuttongroup = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QButtonGroup, slot: fn (self: QtC.QButtonGroup, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QButtonGroup_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QButtonGroup, callback: *const fn (self: QtC.QButtonGroup, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QButtonGroup_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -722,9 +722,9 @@ pub const qbuttongroup = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QButtonGroup, slot: fn (self: QtC.QButtonGroup, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QButtonGroup_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QButtonGroup, callback: *const fn (self: QtC.QButtonGroup, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QButtonGroup_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -755,9 +755,9 @@ pub const qbuttongroup = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QButtonGroup, slot: fn (self: QtC.QButtonGroup, event: QtC.QTimerEvent) callconv(.c) void ```
-    pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QButtonGroup_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QButtonGroup, callback: *const fn (self: QtC.QButtonGroup, event: QtC.QTimerEvent) callconv(.c) void ```
+    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QButtonGroup_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -788,9 +788,9 @@ pub const qbuttongroup = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QButtonGroup, slot: fn (self: QtC.QButtonGroup, event: QtC.QChildEvent) callconv(.c) void ```
-    pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QButtonGroup_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QButtonGroup, callback: *const fn (self: QtC.QButtonGroup, event: QtC.QChildEvent) callconv(.c) void ```
+    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QButtonGroup_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -821,9 +821,9 @@ pub const qbuttongroup = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QButtonGroup, slot: fn (self: QtC.QButtonGroup, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QButtonGroup_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QButtonGroup, callback: *const fn (self: QtC.QButtonGroup, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QButtonGroup_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -854,9 +854,9 @@ pub const qbuttongroup = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QButtonGroup, slot: fn (self: QtC.QButtonGroup, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QButtonGroup_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QButtonGroup, callback: *const fn (self: QtC.QButtonGroup, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QButtonGroup_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -887,9 +887,9 @@ pub const qbuttongroup = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QButtonGroup, slot: fn (self: QtC.QButtonGroup, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QButtonGroup_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QButtonGroup, callback: *const fn (self: QtC.QButtonGroup, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QButtonGroup_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -920,9 +920,9 @@ pub const qbuttongroup = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QButtonGroup, slot: fn () callconv(.c) QtC.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
-        qtc.QButtonGroup_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QButtonGroup, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.QButtonGroup_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -953,9 +953,9 @@ pub const qbuttongroup = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QButtonGroup, slot: fn () callconv(.c) i32 ```
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QButtonGroup_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QButtonGroup, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QButtonGroup_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -988,9 +988,9 @@ pub const qbuttongroup = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QButtonGroup, slot: fn (self: QtC.QButtonGroup, signal: [*:0]const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QButtonGroup_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QButtonGroup, callback: *const fn (self: QtC.QButtonGroup, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QButtonGroup_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1021,9 +1021,9 @@ pub const qbuttongroup = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QButtonGroup, slot: fn (self: QtC.QButtonGroup, signal: QtC.QMetaMethod) callconv(.c) bool ```
-    pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QButtonGroup_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QButtonGroup, callback: *const fn (self: QtC.QButtonGroup, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QButtonGroup_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1032,9 +1032,9 @@ pub const qbuttongroup = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QButtonGroup, slot: fn (self: QtC.QButtonGroup, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QButtonGroup, callback: *const fn (self: QtC.QButtonGroup, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbuttongroup.html#dtor.QButtonGroup)

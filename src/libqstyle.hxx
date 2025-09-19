@@ -10,7 +10,7 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QStyle so that we can call protected methods
-class VirtualQStyle final : public QStyle {
+class VirtualQStyle : public QStyle {
 
   public:
     // Virtual class boolean flag

@@ -133,9 +133,9 @@ pub const kwindowsystem = struct {
 
     /// [Qt documentation](https://api.kde.org/kwindowsystem.html#showingDesktopChanged)
     ///
-    /// ``` self: QtC.KWindowSystem, slot: fn (self: QtC.KWindowSystem, showing: bool) callconv(.c) void ```
-    pub fn OnShowingDesktopChanged(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.KWindowSystem_Connect_ShowingDesktopChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWindowSystem, callback: *const fn (self: QtC.KWindowSystem, showing: bool) callconv(.c) void ```
+    pub fn OnShowingDesktopChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.KWindowSystem_Connect_ShowingDesktopChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -477,9 +477,9 @@ pub const kwindowsystem = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KWindowSystem, slot: fn (self: QtC.KWindowSystem) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWindowSystem, callback: *const fn (self: QtC.KWindowSystem) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -561,9 +561,9 @@ pub const kwindowsystem = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KWindowSystem, slot: fn (self: QtC.KWindowSystem, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWindowSystem, callback: *const fn (self: QtC.KWindowSystem, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -572,9 +572,9 @@ pub const kwindowsystem = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KWindowSystem, slot: fn (self: QtC.KWindowSystem, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KWindowSystem, callback: *const fn (self: QtC.KWindowSystem, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kwindowsystem.html#dtor.KWindowSystem)

@@ -10,7 +10,7 @@
 #include "qtlibc.h"
 
 // This class is a subclass of QValidator so that we can call protected methods
-class VirtualQValidator final : public QValidator {
+class VirtualQValidator : public QValidator {
 
   public:
     // Virtual class boolean flag

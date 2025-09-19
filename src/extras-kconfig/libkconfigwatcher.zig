@@ -57,9 +57,9 @@ pub const kconfigwatcher = struct {
 
     /// [Qt documentation](https://api.kde.org/kconfigwatcher.html#configChanged)
     ///
-    /// ``` self: QtC.KConfigWatcher, slot: fn (self: QtC.KConfigWatcher, group: QtC.KConfigGroup, names: [][*:0]u8) callconv(.c) void ```
-    pub fn OnConfigChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, [][*:0]u8) callconv(.c) void) void {
-        qtc.KConfigWatcher_Connect_ConfigChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KConfigWatcher, callback: *const fn (self: QtC.KConfigWatcher, group: QtC.KConfigGroup, names: [][*:0]u8) callconv(.c) void ```
+    pub fn OnConfigChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [][*:0]u8) callconv(.c) void) void {
+        qtc.KConfigWatcher_Connect_ConfigChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -394,9 +394,9 @@ pub const kconfigwatcher = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KConfigWatcher, slot: fn (self: QtC.KConfigWatcher) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KConfigWatcher, callback: *const fn (self: QtC.KConfigWatcher) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -478,9 +478,9 @@ pub const kconfigwatcher = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KConfigWatcher, slot: fn (self: QtC.KConfigWatcher, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KConfigWatcher, callback: *const fn (self: QtC.KConfigWatcher, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -489,9 +489,9 @@ pub const kconfigwatcher = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KConfigWatcher, slot: fn (self: QtC.KConfigWatcher, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KConfigWatcher, callback: *const fn (self: QtC.KConfigWatcher, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kconfigwatcher.html#dtor.KConfigWatcher)

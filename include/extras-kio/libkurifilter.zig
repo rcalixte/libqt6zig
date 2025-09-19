@@ -56,9 +56,9 @@ pub const kurifiltersearchprovider = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KUriFilterSearchProvider, slot: fn () callconv(.c) [*:0]const u8 ```
-    pub fn OnIconName(self: ?*anyopaque, slot: fn () callconv(.c) [*:0]const u8) void {
-        qtc.KUriFilterSearchProvider_OnIconName(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KUriFilterSearchProvider, callback: *const fn () callconv(.c) [*:0]const u8 ```
+    pub fn OnIconName(self: ?*anyopaque, callback: *const fn () callconv(.c) [*:0]const u8) void {
+        qtc.KUriFilterSearchProvider_OnIconName(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kurifiltersearchprovider.html#iconName)
@@ -129,9 +129,9 @@ pub const kurifiltersearchprovider = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KUriFilterSearchProvider, slot: fn (self: QtC.KUriFilterSearchProvider, desktopEntryName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnSetDesktopEntryName(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KUriFilterSearchProvider_OnSetDesktopEntryName(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KUriFilterSearchProvider, callback: *const fn (self: QtC.KUriFilterSearchProvider, desktopEntryName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnSetDesktopEntryName(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.KUriFilterSearchProvider_OnSetDesktopEntryName(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kurifiltersearchprovider.html#setDesktopEntryName)
@@ -162,9 +162,9 @@ pub const kurifiltersearchprovider = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KUriFilterSearchProvider, slot: fn (self: QtC.KUriFilterSearchProvider, iconName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnSetIconName(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KUriFilterSearchProvider_OnSetIconName(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KUriFilterSearchProvider, callback: *const fn (self: QtC.KUriFilterSearchProvider, iconName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnSetIconName(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.KUriFilterSearchProvider_OnSetIconName(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kurifiltersearchprovider.html#setIconName)
@@ -203,9 +203,9 @@ pub const kurifiltersearchprovider = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KUriFilterSearchProvider, slot: fn (self: QtC.KUriFilterSearchProvider, keys: [*][*:0]const u8) callconv(.c) void ```
-    pub fn OnSetKeys(self: ?*anyopaque, slot: fn (?*anyopaque, [*][*:0]const u8) callconv(.c) void) void {
-        qtc.KUriFilterSearchProvider_OnSetKeys(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KUriFilterSearchProvider, callback: *const fn (self: QtC.KUriFilterSearchProvider, keys: [*][*:0]const u8) callconv(.c) void ```
+    pub fn OnSetKeys(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*][*:0]const u8) callconv(.c) void) void {
+        qtc.KUriFilterSearchProvider_OnSetKeys(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kurifiltersearchprovider.html#setKeys)
@@ -244,9 +244,9 @@ pub const kurifiltersearchprovider = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KUriFilterSearchProvider, slot: fn (self: QtC.KUriFilterSearchProvider, name: [*:0]const u8) callconv(.c) void ```
-    pub fn OnSetName(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KUriFilterSearchProvider_OnSetName(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KUriFilterSearchProvider, callback: *const fn (self: QtC.KUriFilterSearchProvider, name: [*:0]const u8) callconv(.c) void ```
+    pub fn OnSetName(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.KUriFilterSearchProvider_OnSetName(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kurifiltersearchprovider.html#setName)

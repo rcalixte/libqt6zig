@@ -1,7 +1,7 @@
 #include <KCoreDirLister>
 #include <KFileItem>
-#define WORKAROUND_INNER_CLASS_DEFINITION_KIO__Job
-#define WORKAROUND_INNER_CLASS_DEFINITION_KIO__ListJob
+#include <KIO/Job>
+#include <KIO/ListJob>
 #include <QChildEvent>
 #include <QEvent>
 #include <QList>

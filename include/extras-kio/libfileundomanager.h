@@ -23,9 +23,7 @@ typedef KIO::FileUndoManager KIO__FileUndoManager;
 #if defined(WORKAROUND_INNER_CLASS_DEFINITION_KIO__FileUndoManager__UiInterface)
 typedef KIO::FileUndoManager::UiInterface KIO__FileUndoManager__UiInterface;
 #endif
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_KIO__Job)
 typedef KIO::Job KIO__Job;
-#endif
 #else
 typedef struct KIO__CopyJob KIO__CopyJob;
 typedef struct KIO__FileUndoManager KIO__FileUndoManager;

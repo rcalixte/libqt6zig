@@ -26,9 +26,9 @@ pub const kmessageboxnotifyinterface = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KMessageBoxNotifyInterface, slot: fn (self: QtC.KMessageBoxNotifyInterface, notificationType: qmessagebox_enums.Icon, message: [*:0]const u8, parent: QtC.QWidget) callconv(.c) void ```
-    pub fn OnSendNotification(self: ?*anyopaque, slot: fn (?*anyopaque, i32, [*:0]const u8, ?*anyopaque) callconv(.c) void) void {
-        qtc.KMessageBoxNotifyInterface_OnSendNotification(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KMessageBoxNotifyInterface, callback: *const fn (self: QtC.KMessageBoxNotifyInterface, notificationType: qmessagebox_enums.Icon, message: [*:0]const u8, parent: QtC.QWidget) callconv(.c) void ```
+    pub fn OnSendNotification(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, [*:0]const u8, ?*anyopaque) callconv(.c) void) void {
+        qtc.KMessageBoxNotifyInterface_OnSendNotification(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kmessageboxnotifyinterface.html#sendNotification)

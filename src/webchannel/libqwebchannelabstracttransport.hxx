@@ -10,7 +10,7 @@
 #include "../qtlibc.h"
 
 // This class is a subclass of QWebChannelAbstractTransport so that we can call protected methods
-class VirtualQWebChannelAbstractTransport final : public QWebChannelAbstractTransport {
+class VirtualQWebChannelAbstractTransport : public QWebChannelAbstractTransport {
 
   public:
     // Virtual class boolean flag

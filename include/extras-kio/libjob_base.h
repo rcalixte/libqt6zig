@@ -14,15 +14,11 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_KIO__Job)
 typedef KIO::Job KIO__Job;
-#endif
 #if defined(WORKAROUND_INNER_CLASS_DEFINITION_KIO__JobUiDelegateExtension)
 typedef KIO::JobUiDelegateExtension KIO__JobUiDelegateExtension;
 #endif
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_KIO__MetaData)
 typedef KIO::MetaData KIO__MetaData;
-#endif
 #else
 typedef struct KCompositeJob KCompositeJob;
 typedef struct KIO__Job KIO__Job;

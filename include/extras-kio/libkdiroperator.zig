@@ -55,9 +55,9 @@ pub const kdiroperator = struct {
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
-        qtc.KDirOperator_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+        qtc.KDirOperator_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -90,9 +90,9 @@ pub const kdiroperator = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, s: bool) callconv(.c) void ```
-    pub fn OnSetShowHiddenFiles(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.KDirOperator_OnSetShowHiddenFiles(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, s: bool) callconv(.c) void ```
+    pub fn OnSetShowHiddenFiles(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.KDirOperator_OnSetShowHiddenFiles(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kdiroperator.html#setShowHiddenFiles)
@@ -254,9 +254,9 @@ pub const kdiroperator = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, url: QtC.QUrl, clearforward: bool) callconv(.c) void ```
-    pub fn OnSetUrl(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, bool) callconv(.c) void) void {
-        qtc.KDirOperator_OnSetUrl(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, url: QtC.QUrl, clearforward: bool) callconv(.c) void ```
+    pub fn OnSetUrl(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, bool) callconv(.c) void) void {
+        qtc.KDirOperator_OnSetUrl(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kdiroperator.html#setUrl)
@@ -371,9 +371,9 @@ pub const kdiroperator = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, m: flag of kfile_enums.Mode) callconv(.c) void ```
-    pub fn OnSetMode(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KDirOperator_OnSetMode(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, m: flag of kfile_enums.Mode) callconv(.c) void ```
+    pub fn OnSetMode(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.KDirOperator_OnSetMode(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kdiroperator.html#setMode)
@@ -405,9 +405,9 @@ pub const kdiroperator = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, w: QtC.KPreviewWidgetBase) callconv(.c) void ```
-    pub fn OnSetPreviewWidget(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KDirOperator_OnSetPreviewWidget(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, w: QtC.KPreviewWidgetBase) callconv(.c) void ```
+    pub fn OnSetPreviewWidget(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KDirOperator_OnSetPreviewWidget(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kdiroperator.html#setPreviewWidget)
@@ -491,9 +491,9 @@ pub const kdiroperator = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, configGroup: QtC.KConfigGroup) callconv(.c) void ```
-    pub fn OnSetViewConfig(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KDirOperator_OnSetViewConfig(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, configGroup: QtC.KConfigGroup) callconv(.c) void ```
+    pub fn OnSetViewConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KDirOperator_OnSetViewConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kdiroperator.html#setViewConfig)
@@ -523,9 +523,9 @@ pub const kdiroperator = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, configGroup: QtC.KConfigGroup) callconv(.c) void ```
-    pub fn OnReadConfig(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KDirOperator_OnReadConfig(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, configGroup: QtC.KConfigGroup) callconv(.c) void ```
+    pub fn OnReadConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KDirOperator_OnReadConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kdiroperator.html#readConfig)
@@ -548,9 +548,9 @@ pub const kdiroperator = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, configGroup: QtC.KConfigGroup) callconv(.c) void ```
-    pub fn OnWriteConfig(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KDirOperator_OnWriteConfig(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, configGroup: QtC.KConfigGroup) callconv(.c) void ```
+    pub fn OnWriteConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KDirOperator_OnWriteConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kdiroperator.html#writeConfig)
@@ -615,9 +615,9 @@ pub const kdiroperator = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, items: QtC.KFileItemList, parent: QtC.QWidget, ask: bool, showProgress: bool) callconv(.c) QtC.KIO__DeleteJob ```
-    pub fn OnDel(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, bool, bool) callconv(.c) QtC.KIO__DeleteJob) void {
-        qtc.KDirOperator_OnDel(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, items: QtC.KFileItemList, parent: QtC.QWidget, ask: bool, showProgress: bool) callconv(.c) QtC.KIO__DeleteJob ```
+    pub fn OnDel(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, bool, bool) callconv(.c) QtC.KIO__DeleteJob) void {
+        qtc.KDirOperator_OnDel(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kdiroperator.html#del)
@@ -647,9 +647,9 @@ pub const kdiroperator = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, enable: bool) callconv(.c) void ```
-    pub fn OnSetEnableDirHighlighting(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.KDirOperator_OnSetEnableDirHighlighting(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, enable: bool) callconv(.c) void ```
+    pub fn OnSetEnableDirHighlighting(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.KDirOperator_OnSetEnableDirHighlighting(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kdiroperator.html#setEnableDirHighlighting)
@@ -700,9 +700,9 @@ pub const kdiroperator = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, b: bool) callconv(.c) void ```
-    pub fn OnSetAcceptDrops(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.KDirOperator_OnSetAcceptDrops(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, b: bool) callconv(.c) void ```
+    pub fn OnSetAcceptDrops(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.KDirOperator_OnSetAcceptDrops(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kdiroperator.html#setAcceptDrops)
@@ -725,9 +725,9 @@ pub const kdiroperator = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, options: i32) callconv(.c) void ```
-    pub fn OnSetDropOptions(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KDirOperator_OnSetDropOptions(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, options: i32) callconv(.c) void ```
+    pub fn OnSetDropOptions(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.KDirOperator_OnSetDropOptions(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kdiroperator.html#setDropOptions)
@@ -750,9 +750,9 @@ pub const kdiroperator = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, items: QtC.KFileItemList, parent: QtC.QWidget, ask: bool, showProgress: bool) callconv(.c) QtC.KIO__CopyJob ```
-    pub fn OnTrash(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, bool, bool) callconv(.c) QtC.KIO__CopyJob) void {
-        qtc.KDirOperator_OnTrash(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, items: QtC.KFileItemList, parent: QtC.QWidget, ask: bool, showProgress: bool) callconv(.c) QtC.KIO__CopyJob ```
+    pub fn OnTrash(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, bool, bool) callconv(.c) QtC.KIO__CopyJob) void {
+        qtc.KDirOperator_OnTrash(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kdiroperator.html#trash)
@@ -869,9 +869,9 @@ pub const kdiroperator = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, parent: QtC.QWidget, viewKind: kfile_enums.FileView) callconv(.c) QtC.QAbstractItemView ```
-    pub fn OnCreateView(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) QtC.QAbstractItemView) void {
-        qtc.KDirOperator_OnCreateView(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, parent: QtC.QWidget, viewKind: kfile_enums.FileView) callconv(.c) QtC.QAbstractItemView ```
+    pub fn OnCreateView(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) QtC.QAbstractItemView) void {
+        qtc.KDirOperator_OnCreateView(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kdiroperator.html#createView)
@@ -894,9 +894,9 @@ pub const kdiroperator = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, lister: QtC.KDirLister) callconv(.c) void ```
-    pub fn OnSetDirLister(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KDirOperator_OnSetDirLister(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, lister: QtC.KDirLister) callconv(.c) void ```
+    pub fn OnSetDirLister(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KDirOperator_OnSetDirLister(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kdiroperator.html#setDirLister)
@@ -919,9 +919,9 @@ pub const kdiroperator = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, event: QtC.QResizeEvent) callconv(.c) void ```
-    pub fn OnResizeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KDirOperator_OnResizeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, event: QtC.QResizeEvent) callconv(.c) void ```
+    pub fn OnResizeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KDirOperator_OnResizeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kdiroperator.html#resizeEvent)
@@ -944,9 +944,9 @@ pub const kdiroperator = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn () callconv(.c) void ```
-    pub fn OnSetupActions(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KDirOperator_OnSetupActions(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn () callconv(.c) void ```
+    pub fn OnSetupActions(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KDirOperator_OnSetupActions(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kdiroperator.html#setupActions)
@@ -969,9 +969,9 @@ pub const kdiroperator = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn () callconv(.c) void ```
-    pub fn OnUpdateSortActions(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KDirOperator_OnUpdateSortActions(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn () callconv(.c) void ```
+    pub fn OnUpdateSortActions(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KDirOperator_OnUpdateSortActions(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kdiroperator.html#updateSortActions)
@@ -994,9 +994,9 @@ pub const kdiroperator = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn () callconv(.c) void ```
-    pub fn OnUpdateViewActions(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KDirOperator_OnUpdateViewActions(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn () callconv(.c) void ```
+    pub fn OnUpdateViewActions(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KDirOperator_OnUpdateViewActions(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kdiroperator.html#updateViewActions)
@@ -1019,9 +1019,9 @@ pub const kdiroperator = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn () callconv(.c) void ```
-    pub fn OnSetupMenu2(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KDirOperator_OnSetupMenu2(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn () callconv(.c) void ```
+    pub fn OnSetupMenu2(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KDirOperator_OnSetupMenu2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kdiroperator.html#setupMenu)
@@ -1044,9 +1044,9 @@ pub const kdiroperator = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn () callconv(.c) void ```
-    pub fn OnPrepareCompletionObjects(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KDirOperator_OnPrepareCompletionObjects(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn () callconv(.c) void ```
+    pub fn OnPrepareCompletionObjects(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KDirOperator_OnPrepareCompletionObjects(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kdiroperator.html#prepareCompletionObjects)
@@ -1069,9 +1069,9 @@ pub const kdiroperator = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn () callconv(.c) bool ```
-    pub fn OnCheckPreviewSupport(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.KDirOperator_OnCheckPreviewSupport(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn () callconv(.c) bool ```
+    pub fn OnCheckPreviewSupport(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.KDirOperator_OnCheckPreviewSupport(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kdiroperator.html#checkPreviewSupport)
@@ -1094,9 +1094,9 @@ pub const kdiroperator = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, item: QtC.KFileItem, pos: QtC.QPoint) callconv(.c) void ```
-    pub fn OnActivatedMenu(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KDirOperator_OnActivatedMenu(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, item: QtC.KFileItem, pos: QtC.QPoint) callconv(.c) void ```
+    pub fn OnActivatedMenu(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KDirOperator_OnActivatedMenu(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kdiroperator.html#activatedMenu)
@@ -1119,9 +1119,9 @@ pub const kdiroperator = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnChangeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KDirOperator_OnChangeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnChangeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KDirOperator_OnChangeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kdiroperator.html#changeEvent)
@@ -1144,9 +1144,9 @@ pub const kdiroperator = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KDirOperator_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KDirOperator_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kdiroperator.html#eventFilter)
@@ -1169,9 +1169,9 @@ pub const kdiroperator = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn () callconv(.c) void ```
-    pub fn OnBack(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KDirOperator_OnBack(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn () callconv(.c) void ```
+    pub fn OnBack(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KDirOperator_OnBack(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kdiroperator.html#back)
@@ -1194,9 +1194,9 @@ pub const kdiroperator = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn () callconv(.c) void ```
-    pub fn OnForward(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KDirOperator_OnForward(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn () callconv(.c) void ```
+    pub fn OnForward(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KDirOperator_OnForward(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kdiroperator.html#forward)
@@ -1219,9 +1219,9 @@ pub const kdiroperator = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn () callconv(.c) void ```
-    pub fn OnHome(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KDirOperator_OnHome(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn () callconv(.c) void ```
+    pub fn OnHome(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KDirOperator_OnHome(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kdiroperator.html#home)
@@ -1244,9 +1244,9 @@ pub const kdiroperator = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn () callconv(.c) void ```
-    pub fn OnCdUp(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KDirOperator_OnCdUp(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn () callconv(.c) void ```
+    pub fn OnCdUp(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KDirOperator_OnCdUp(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kdiroperator.html#cdUp)
@@ -1276,9 +1276,9 @@ pub const kdiroperator = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn () callconv(.c) void ```
-    pub fn OnRereadDir(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KDirOperator_OnRereadDir(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn () callconv(.c) void ```
+    pub fn OnRereadDir(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KDirOperator_OnRereadDir(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kdiroperator.html#rereadDir)
@@ -1301,9 +1301,9 @@ pub const kdiroperator = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn () callconv(.c) void ```
-    pub fn OnMkdir(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KDirOperator_OnMkdir(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn () callconv(.c) void ```
+    pub fn OnMkdir(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KDirOperator_OnMkdir(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kdiroperator.html#mkdir)
@@ -1326,9 +1326,9 @@ pub const kdiroperator = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn () callconv(.c) void ```
-    pub fn OnDeleteSelected(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KDirOperator_OnDeleteSelected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn () callconv(.c) void ```
+    pub fn OnDeleteSelected(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KDirOperator_OnDeleteSelected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kdiroperator.html#deleteSelected)
@@ -1395,9 +1395,9 @@ pub const kdiroperator = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn () callconv(.c) void ```
-    pub fn OnTrashSelected(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KDirOperator_OnTrashSelected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn () callconv(.c) void ```
+    pub fn OnTrashSelected(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KDirOperator_OnTrashSelected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kdiroperator.html#trashSelected)
@@ -1446,9 +1446,9 @@ pub const kdiroperator = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn () callconv(.c) void ```
-    pub fn OnResetCursor(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KDirOperator_OnResetCursor(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn () callconv(.c) void ```
+    pub fn OnResetCursor(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KDirOperator_OnResetCursor(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kdiroperator.html#resetCursor)
@@ -1471,9 +1471,9 @@ pub const kdiroperator = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn () callconv(.c) void ```
-    pub fn OnPathChanged(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KDirOperator_OnPathChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn () callconv(.c) void ```
+    pub fn OnPathChanged(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KDirOperator_OnPathChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kdiroperator.html#pathChanged)
@@ -1496,9 +1496,9 @@ pub const kdiroperator = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, item: QtC.KFileItem) callconv(.c) void ```
-    pub fn OnSelectDir(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KDirOperator_OnSelectDir(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, item: QtC.KFileItem) callconv(.c) void ```
+    pub fn OnSelectDir(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KDirOperator_OnSelectDir(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kdiroperator.html#selectDir)
@@ -1521,9 +1521,9 @@ pub const kdiroperator = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, item: QtC.KFileItem) callconv(.c) void ```
-    pub fn OnSelectFile(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KDirOperator_OnSelectFile(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, item: QtC.KFileItem) callconv(.c) void ```
+    pub fn OnSelectFile(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KDirOperator_OnSelectFile(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kdiroperator.html#selectFile)
@@ -1546,9 +1546,9 @@ pub const kdiroperator = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, item: QtC.KFileItem) callconv(.c) void ```
-    pub fn OnHighlightFile(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KDirOperator_OnHighlightFile(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, item: QtC.KFileItem) callconv(.c) void ```
+    pub fn OnHighlightFile(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KDirOperator_OnHighlightFile(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kdiroperator.html#highlightFile)
@@ -1571,9 +1571,9 @@ pub const kdiroperator = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn () callconv(.c) void ```
-    pub fn OnSortByName(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KDirOperator_OnSortByName(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn () callconv(.c) void ```
+    pub fn OnSortByName(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KDirOperator_OnSortByName(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kdiroperator.html#sortByName)
@@ -1596,9 +1596,9 @@ pub const kdiroperator = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn () callconv(.c) void ```
-    pub fn OnSortBySize(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KDirOperator_OnSortBySize(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn () callconv(.c) void ```
+    pub fn OnSortBySize(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KDirOperator_OnSortBySize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kdiroperator.html#sortBySize)
@@ -1621,9 +1621,9 @@ pub const kdiroperator = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn () callconv(.c) void ```
-    pub fn OnSortByDate(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KDirOperator_OnSortByDate(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn () callconv(.c) void ```
+    pub fn OnSortByDate(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KDirOperator_OnSortByDate(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kdiroperator.html#sortByDate)
@@ -1646,9 +1646,9 @@ pub const kdiroperator = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn () callconv(.c) void ```
-    pub fn OnSortByType(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KDirOperator_OnSortByType(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn () callconv(.c) void ```
+    pub fn OnSortByType(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KDirOperator_OnSortByType(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kdiroperator.html#sortByType)
@@ -1671,9 +1671,9 @@ pub const kdiroperator = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn () callconv(.c) void ```
-    pub fn OnSortReversed(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KDirOperator_OnSortReversed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn () callconv(.c) void ```
+    pub fn OnSortReversed(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KDirOperator_OnSortReversed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kdiroperator.html#sortReversed)
@@ -1696,9 +1696,9 @@ pub const kdiroperator = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn () callconv(.c) void ```
-    pub fn OnToggleDirsFirst(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KDirOperator_OnToggleDirsFirst(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn () callconv(.c) void ```
+    pub fn OnToggleDirsFirst(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KDirOperator_OnToggleDirsFirst(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kdiroperator.html#toggleDirsFirst)
@@ -1721,9 +1721,9 @@ pub const kdiroperator = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn () callconv(.c) void ```
-    pub fn OnToggleIgnoreCase(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KDirOperator_OnToggleIgnoreCase(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn () callconv(.c) void ```
+    pub fn OnToggleIgnoreCase(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KDirOperator_OnToggleIgnoreCase(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kdiroperator.html#toggleIgnoreCase)
@@ -1750,9 +1750,9 @@ pub const kdiroperator = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, match: [*:0]const u8) callconv(.c) void ```
-    pub fn OnSlotCompletionMatch(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KDirOperator_OnSlotCompletionMatch(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, match: [*:0]const u8) callconv(.c) void ```
+    pub fn OnSlotCompletionMatch(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.KDirOperator_OnSlotCompletionMatch(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kdiroperator.html#slotCompletionMatch)
@@ -1777,9 +1777,9 @@ pub const kdiroperator = struct {
 
     /// [Qt documentation](https://api.kde.org/kdiroperator.html#urlEntered)
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, param1: QtC.QUrl) callconv(.c) void ```
-    pub fn OnUrlEntered(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KDirOperator_Connect_UrlEntered(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, param1: QtC.QUrl) callconv(.c) void ```
+    pub fn OnUrlEntered(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KDirOperator_Connect_UrlEntered(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kdiroperator.html#updateInformation)
@@ -1791,9 +1791,9 @@ pub const kdiroperator = struct {
 
     /// [Qt documentation](https://api.kde.org/kdiroperator.html#updateInformation)
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, files: i32, dirs: i32) callconv(.c) void ```
-    pub fn OnUpdateInformation(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.KDirOperator_Connect_UpdateInformation(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, files: i32, dirs: i32) callconv(.c) void ```
+    pub fn OnUpdateInformation(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) void) void {
+        qtc.KDirOperator_Connect_UpdateInformation(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kdiroperator.html#completion)
@@ -1809,9 +1809,9 @@ pub const kdiroperator = struct {
 
     /// [Qt documentation](https://api.kde.org/kdiroperator.html#completion)
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, param1: [*:0]const u8) callconv(.c) void ```
-    pub fn OnCompletion(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KDirOperator_Connect_Completion(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, param1: [*:0]const u8) callconv(.c) void ```
+    pub fn OnCompletion(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.KDirOperator_Connect_Completion(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kdiroperator.html#finishedLoading)
@@ -1823,9 +1823,9 @@ pub const kdiroperator = struct {
 
     /// [Qt documentation](https://api.kde.org/kdiroperator.html#finishedLoading)
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator) callconv(.c) void ```
-    pub fn OnFinishedLoading(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.KDirOperator_Connect_FinishedLoading(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator) callconv(.c) void ```
+    pub fn OnFinishedLoading(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.KDirOperator_Connect_FinishedLoading(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kdiroperator.html#viewChanged)
@@ -1837,9 +1837,9 @@ pub const kdiroperator = struct {
 
     /// [Qt documentation](https://api.kde.org/kdiroperator.html#viewChanged)
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, newView: QtC.QAbstractItemView) callconv(.c) void ```
-    pub fn OnViewChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KDirOperator_Connect_ViewChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, newView: QtC.QAbstractItemView) callconv(.c) void ```
+    pub fn OnViewChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KDirOperator_Connect_ViewChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kdiroperator.html#fileHighlighted)
@@ -1851,9 +1851,9 @@ pub const kdiroperator = struct {
 
     /// [Qt documentation](https://api.kde.org/kdiroperator.html#fileHighlighted)
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, item: QtC.KFileItem) callconv(.c) void ```
-    pub fn OnFileHighlighted(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KDirOperator_Connect_FileHighlighted(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, item: QtC.KFileItem) callconv(.c) void ```
+    pub fn OnFileHighlighted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KDirOperator_Connect_FileHighlighted(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kdiroperator.html#dirActivated)
@@ -1865,9 +1865,9 @@ pub const kdiroperator = struct {
 
     /// [Qt documentation](https://api.kde.org/kdiroperator.html#dirActivated)
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, item: QtC.KFileItem) callconv(.c) void ```
-    pub fn OnDirActivated(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KDirOperator_Connect_DirActivated(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, item: QtC.KFileItem) callconv(.c) void ```
+    pub fn OnDirActivated(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KDirOperator_Connect_DirActivated(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kdiroperator.html#fileSelected)
@@ -1879,9 +1879,9 @@ pub const kdiroperator = struct {
 
     /// [Qt documentation](https://api.kde.org/kdiroperator.html#fileSelected)
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, item: QtC.KFileItem) callconv(.c) void ```
-    pub fn OnFileSelected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KDirOperator_Connect_FileSelected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, item: QtC.KFileItem) callconv(.c) void ```
+    pub fn OnFileSelected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KDirOperator_Connect_FileSelected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kdiroperator.html#dropped)
@@ -1897,9 +1897,9 @@ pub const kdiroperator = struct {
 
     /// [Qt documentation](https://api.kde.org/kdiroperator.html#dropped)
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, item: QtC.KFileItem, event: QtC.QDropEvent, urls: [*]QtC.QUrl) callconv(.c) void ```
-    pub fn OnDropped(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, [*]QtC.QUrl) callconv(.c) void) void {
-        qtc.KDirOperator_Connect_Dropped(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, item: QtC.KFileItem, event: QtC.QDropEvent, urls: [*]QtC.QUrl) callconv(.c) void ```
+    pub fn OnDropped(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, [*]QtC.QUrl) callconv(.c) void) void {
+        qtc.KDirOperator_Connect_Dropped(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kdiroperator.html#contextMenuAboutToShow)
@@ -1911,9 +1911,9 @@ pub const kdiroperator = struct {
 
     /// [Qt documentation](https://api.kde.org/kdiroperator.html#contextMenuAboutToShow)
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, item: QtC.KFileItem, menu: QtC.QMenu) callconv(.c) void ```
-    pub fn OnContextMenuAboutToShow(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KDirOperator_Connect_ContextMenuAboutToShow(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, item: QtC.KFileItem, menu: QtC.QMenu) callconv(.c) void ```
+    pub fn OnContextMenuAboutToShow(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KDirOperator_Connect_ContextMenuAboutToShow(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kdiroperator.html#currentIconSizeChanged)
@@ -1925,9 +1925,9 @@ pub const kdiroperator = struct {
 
     /// [Qt documentation](https://api.kde.org/kdiroperator.html#currentIconSizeChanged)
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, size: i32) callconv(.c) void ```
-    pub fn OnCurrentIconSizeChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KDirOperator_Connect_CurrentIconSizeChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, size: i32) callconv(.c) void ```
+    pub fn OnCurrentIconSizeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.KDirOperator_Connect_CurrentIconSizeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kdiroperator.html#keyEnterReturnPressed)
@@ -1939,9 +1939,9 @@ pub const kdiroperator = struct {
 
     /// [Qt documentation](https://api.kde.org/kdiroperator.html#keyEnterReturnPressed)
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator) callconv(.c) void ```
-    pub fn OnKeyEnterReturnPressed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.KDirOperator_Connect_KeyEnterReturnPressed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator) callconv(.c) void ```
+    pub fn OnKeyEnterReturnPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.KDirOperator_Connect_KeyEnterReturnPressed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kdiroperator.html#renamingFinished)
@@ -1957,9 +1957,9 @@ pub const kdiroperator = struct {
 
     /// [Qt documentation](https://api.kde.org/kdiroperator.html#renamingFinished)
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, urls: [*]QtC.QUrl) callconv(.c) void ```
-    pub fn OnRenamingFinished(self: ?*anyopaque, slot: fn (?*anyopaque, [*]QtC.QUrl) callconv(.c) void) void {
-        qtc.KDirOperator_Connect_RenamingFinished(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, urls: [*]QtC.QUrl) callconv(.c) void ```
+    pub fn OnRenamingFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QUrl) callconv(.c) void) void {
+        qtc.KDirOperator_Connect_RenamingFinished(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -4345,9 +4345,9 @@ pub const kdiroperator = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, title: [*:0]const u8) callconv(.c) void ```
-    pub fn OnWindowTitleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, title: [*:0]const u8) callconv(.c) void ```
+    pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4363,9 +4363,9 @@ pub const kdiroperator = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, icon: QtC.QIcon) callconv(.c) void ```
-    pub fn OnWindowIconChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, icon: QtC.QIcon) callconv(.c) void ```
+    pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4385,9 +4385,9 @@ pub const kdiroperator = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, iconText: [*:0]const u8) callconv(.c) void ```
-    pub fn OnWindowIconTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, iconText: [*:0]const u8) callconv(.c) void ```
+    pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4403,9 +4403,9 @@ pub const kdiroperator = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, pos: QtC.QPoint) callconv(.c) void ```
-    pub fn OnCustomContextMenuRequested(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, pos: QtC.QPoint) callconv(.c) void ```
+    pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -4842,9 +4842,9 @@ pub const kdiroperator = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -4926,9 +4926,9 @@ pub const kdiroperator = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -5076,9 +5076,9 @@ pub const kdiroperator = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn () callconv(.c) i32 ```
-    pub fn OnDevType(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.KDirOperator_OnDevType(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnDevType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.KDirOperator_OnDevType(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5109,9 +5109,9 @@ pub const kdiroperator = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, visible: bool) callconv(.c) void ```
-    pub fn OnSetVisible(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.KDirOperator_OnSetVisible(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, visible: bool) callconv(.c) void ```
+    pub fn OnSetVisible(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.KDirOperator_OnSetVisible(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5142,9 +5142,9 @@ pub const kdiroperator = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn () callconv(.c) QtC.QSize ```
-    pub fn OnSizeHint(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QSize) void {
-        qtc.KDirOperator_OnSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn () callconv(.c) QtC.QSize ```
+    pub fn OnSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
+        qtc.KDirOperator_OnSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5175,9 +5175,9 @@ pub const kdiroperator = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn () callconv(.c) QtC.QSize ```
-    pub fn OnMinimumSizeHint(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QSize) void {
-        qtc.KDirOperator_OnMinimumSizeHint(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn () callconv(.c) QtC.QSize ```
+    pub fn OnMinimumSizeHint(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QSize) void {
+        qtc.KDirOperator_OnMinimumSizeHint(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5208,9 +5208,9 @@ pub const kdiroperator = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, param1: i32) callconv(.c) i32 ```
-    pub fn OnHeightForWidth(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.KDirOperator_OnHeightForWidth(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, param1: i32) callconv(.c) i32 ```
+    pub fn OnHeightForWidth(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
+        qtc.KDirOperator_OnHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5241,9 +5241,9 @@ pub const kdiroperator = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn () callconv(.c) bool ```
-    pub fn OnHasHeightForWidth(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.KDirOperator_OnHasHeightForWidth(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn () callconv(.c) bool ```
+    pub fn OnHasHeightForWidth(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.KDirOperator_OnHasHeightForWidth(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5274,9 +5274,9 @@ pub const kdiroperator = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn () callconv(.c) QtC.QPaintEngine ```
-    pub fn OnPaintEngine(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QPaintEngine) void {
-        qtc.KDirOperator_OnPaintEngine(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn () callconv(.c) QtC.QPaintEngine ```
+    pub fn OnPaintEngine(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPaintEngine) void {
+        qtc.KDirOperator_OnPaintEngine(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5307,9 +5307,9 @@ pub const kdiroperator = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KDirOperator_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KDirOperator_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5340,9 +5340,9 @@ pub const kdiroperator = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, event: QtC.QMouseEvent) callconv(.c) void ```
-    pub fn OnMousePressEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KDirOperator_OnMousePressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, event: QtC.QMouseEvent) callconv(.c) void ```
+    pub fn OnMousePressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KDirOperator_OnMousePressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5373,9 +5373,9 @@ pub const kdiroperator = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, event: QtC.QMouseEvent) callconv(.c) void ```
-    pub fn OnMouseReleaseEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KDirOperator_OnMouseReleaseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, event: QtC.QMouseEvent) callconv(.c) void ```
+    pub fn OnMouseReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KDirOperator_OnMouseReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5406,9 +5406,9 @@ pub const kdiroperator = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, event: QtC.QMouseEvent) callconv(.c) void ```
-    pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KDirOperator_OnMouseDoubleClickEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, event: QtC.QMouseEvent) callconv(.c) void ```
+    pub fn OnMouseDoubleClickEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KDirOperator_OnMouseDoubleClickEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5439,9 +5439,9 @@ pub const kdiroperator = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, event: QtC.QMouseEvent) callconv(.c) void ```
-    pub fn OnMouseMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KDirOperator_OnMouseMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, event: QtC.QMouseEvent) callconv(.c) void ```
+    pub fn OnMouseMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KDirOperator_OnMouseMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5472,9 +5472,9 @@ pub const kdiroperator = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, event: QtC.QWheelEvent) callconv(.c) void ```
-    pub fn OnWheelEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KDirOperator_OnWheelEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, event: QtC.QWheelEvent) callconv(.c) void ```
+    pub fn OnWheelEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KDirOperator_OnWheelEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5505,9 +5505,9 @@ pub const kdiroperator = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, event: QtC.QKeyEvent) callconv(.c) void ```
-    pub fn OnKeyPressEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KDirOperator_OnKeyPressEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, event: QtC.QKeyEvent) callconv(.c) void ```
+    pub fn OnKeyPressEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KDirOperator_OnKeyPressEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5538,9 +5538,9 @@ pub const kdiroperator = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, event: QtC.QKeyEvent) callconv(.c) void ```
-    pub fn OnKeyReleaseEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KDirOperator_OnKeyReleaseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, event: QtC.QKeyEvent) callconv(.c) void ```
+    pub fn OnKeyReleaseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KDirOperator_OnKeyReleaseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5571,9 +5571,9 @@ pub const kdiroperator = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, event: QtC.QFocusEvent) callconv(.c) void ```
-    pub fn OnFocusInEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KDirOperator_OnFocusInEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, event: QtC.QFocusEvent) callconv(.c) void ```
+    pub fn OnFocusInEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KDirOperator_OnFocusInEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5604,9 +5604,9 @@ pub const kdiroperator = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, event: QtC.QFocusEvent) callconv(.c) void ```
-    pub fn OnFocusOutEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KDirOperator_OnFocusOutEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, event: QtC.QFocusEvent) callconv(.c) void ```
+    pub fn OnFocusOutEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KDirOperator_OnFocusOutEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5637,9 +5637,9 @@ pub const kdiroperator = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, event: QtC.QEnterEvent) callconv(.c) void ```
-    pub fn OnEnterEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KDirOperator_OnEnterEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, event: QtC.QEnterEvent) callconv(.c) void ```
+    pub fn OnEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KDirOperator_OnEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5670,9 +5670,9 @@ pub const kdiroperator = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnLeaveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KDirOperator_OnLeaveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KDirOperator_OnLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5703,9 +5703,9 @@ pub const kdiroperator = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, event: QtC.QPaintEvent) callconv(.c) void ```
-    pub fn OnPaintEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KDirOperator_OnPaintEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, event: QtC.QPaintEvent) callconv(.c) void ```
+    pub fn OnPaintEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KDirOperator_OnPaintEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5736,9 +5736,9 @@ pub const kdiroperator = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, event: QtC.QMoveEvent) callconv(.c) void ```
-    pub fn OnMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KDirOperator_OnMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, event: QtC.QMoveEvent) callconv(.c) void ```
+    pub fn OnMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KDirOperator_OnMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5769,9 +5769,9 @@ pub const kdiroperator = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, event: QtC.QCloseEvent) callconv(.c) void ```
-    pub fn OnCloseEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KDirOperator_OnCloseEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, event: QtC.QCloseEvent) callconv(.c) void ```
+    pub fn OnCloseEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KDirOperator_OnCloseEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5802,9 +5802,9 @@ pub const kdiroperator = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, event: QtC.QContextMenuEvent) callconv(.c) void ```
-    pub fn OnContextMenuEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KDirOperator_OnContextMenuEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, event: QtC.QContextMenuEvent) callconv(.c) void ```
+    pub fn OnContextMenuEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KDirOperator_OnContextMenuEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5835,9 +5835,9 @@ pub const kdiroperator = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, event: QtC.QTabletEvent) callconv(.c) void ```
-    pub fn OnTabletEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KDirOperator_OnTabletEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, event: QtC.QTabletEvent) callconv(.c) void ```
+    pub fn OnTabletEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KDirOperator_OnTabletEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5868,9 +5868,9 @@ pub const kdiroperator = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, event: QtC.QActionEvent) callconv(.c) void ```
-    pub fn OnActionEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KDirOperator_OnActionEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, event: QtC.QActionEvent) callconv(.c) void ```
+    pub fn OnActionEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KDirOperator_OnActionEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5901,9 +5901,9 @@ pub const kdiroperator = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, event: QtC.QDragEnterEvent) callconv(.c) void ```
-    pub fn OnDragEnterEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KDirOperator_OnDragEnterEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, event: QtC.QDragEnterEvent) callconv(.c) void ```
+    pub fn OnDragEnterEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KDirOperator_OnDragEnterEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5934,9 +5934,9 @@ pub const kdiroperator = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, event: QtC.QDragMoveEvent) callconv(.c) void ```
-    pub fn OnDragMoveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KDirOperator_OnDragMoveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, event: QtC.QDragMoveEvent) callconv(.c) void ```
+    pub fn OnDragMoveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KDirOperator_OnDragMoveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -5967,9 +5967,9 @@ pub const kdiroperator = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, event: QtC.QDragLeaveEvent) callconv(.c) void ```
-    pub fn OnDragLeaveEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KDirOperator_OnDragLeaveEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, event: QtC.QDragLeaveEvent) callconv(.c) void ```
+    pub fn OnDragLeaveEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KDirOperator_OnDragLeaveEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6000,9 +6000,9 @@ pub const kdiroperator = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, event: QtC.QDropEvent) callconv(.c) void ```
-    pub fn OnDropEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KDirOperator_OnDropEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, event: QtC.QDropEvent) callconv(.c) void ```
+    pub fn OnDropEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KDirOperator_OnDropEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6033,9 +6033,9 @@ pub const kdiroperator = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, event: QtC.QShowEvent) callconv(.c) void ```
-    pub fn OnShowEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KDirOperator_OnShowEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, event: QtC.QShowEvent) callconv(.c) void ```
+    pub fn OnShowEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KDirOperator_OnShowEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6066,9 +6066,9 @@ pub const kdiroperator = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, event: QtC.QHideEvent) callconv(.c) void ```
-    pub fn OnHideEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KDirOperator_OnHideEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, event: QtC.QHideEvent) callconv(.c) void ```
+    pub fn OnHideEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KDirOperator_OnHideEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6107,9 +6107,9 @@ pub const kdiroperator = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, eventType: [*:0]u8, message: ?*anyopaque, result: *isize) callconv(.c) bool ```
-    pub fn OnNativeEvent(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]u8, ?*anyopaque, *isize) callconv(.c) bool) void {
-        qtc.KDirOperator_OnNativeEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, eventType: [*:0]u8, message: ?*anyopaque, result: *isize) callconv(.c) bool ```
+    pub fn OnNativeEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]u8, ?*anyopaque, *isize) callconv(.c) bool) void {
+        qtc.KDirOperator_OnNativeEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6140,9 +6140,9 @@ pub const kdiroperator = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 ```
-    pub fn OnMetric(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.KDirOperator_OnMetric(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 ```
+    pub fn OnMetric(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
+        qtc.KDirOperator_OnMetric(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6173,9 +6173,9 @@ pub const kdiroperator = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, painter: QtC.QPainter) callconv(.c) void ```
-    pub fn OnInitPainter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KDirOperator_OnInitPainter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, painter: QtC.QPainter) callconv(.c) void ```
+    pub fn OnInitPainter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KDirOperator_OnInitPainter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6206,9 +6206,9 @@ pub const kdiroperator = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, offset: QtC.QPoint) callconv(.c) QtC.QPaintDevice ```
-    pub fn OnRedirected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPaintDevice) void {
-        qtc.KDirOperator_OnRedirected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, offset: QtC.QPoint) callconv(.c) QtC.QPaintDevice ```
+    pub fn OnRedirected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPaintDevice) void {
+        qtc.KDirOperator_OnRedirected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6239,9 +6239,9 @@ pub const kdiroperator = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn () callconv(.c) QtC.QPainter ```
-    pub fn OnSharedPainter(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QPainter) void {
-        qtc.KDirOperator_OnSharedPainter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn () callconv(.c) QtC.QPainter ```
+    pub fn OnSharedPainter(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainter) void {
+        qtc.KDirOperator_OnSharedPainter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6272,9 +6272,9 @@ pub const kdiroperator = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, param1: QtC.QInputMethodEvent) callconv(.c) void ```
-    pub fn OnInputMethodEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KDirOperator_OnInputMethodEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, param1: QtC.QInputMethodEvent) callconv(.c) void ```
+    pub fn OnInputMethodEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KDirOperator_OnInputMethodEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6305,9 +6305,9 @@ pub const kdiroperator = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant ```
-    pub fn OnInputMethodQuery(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) QtC.QVariant) void {
-        qtc.KDirOperator_OnInputMethodQuery(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant ```
+    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) QtC.QVariant) void {
+        qtc.KDirOperator_OnInputMethodQuery(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6338,9 +6338,9 @@ pub const kdiroperator = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, next: bool) callconv(.c) bool ```
-    pub fn OnFocusNextPrevChild(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) bool) void {
-        qtc.KDirOperator_OnFocusNextPrevChild(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, next: bool) callconv(.c) bool ```
+    pub fn OnFocusNextPrevChild(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) bool) void {
+        qtc.KDirOperator_OnFocusNextPrevChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6371,9 +6371,9 @@ pub const kdiroperator = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, event: QtC.QTimerEvent) callconv(.c) void ```
-    pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KDirOperator_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, event: QtC.QTimerEvent) callconv(.c) void ```
+    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KDirOperator_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6404,9 +6404,9 @@ pub const kdiroperator = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, event: QtC.QChildEvent) callconv(.c) void ```
-    pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KDirOperator_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, event: QtC.QChildEvent) callconv(.c) void ```
+    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KDirOperator_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6437,9 +6437,9 @@ pub const kdiroperator = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KDirOperator_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KDirOperator_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6470,9 +6470,9 @@ pub const kdiroperator = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KDirOperator_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KDirOperator_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6503,9 +6503,9 @@ pub const kdiroperator = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KDirOperator_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KDirOperator_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6536,9 +6536,9 @@ pub const kdiroperator = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn () callconv(.c) void ```
-    pub fn OnUpdateMicroFocus(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KDirOperator_OnUpdateMicroFocus(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn () callconv(.c) void ```
+    pub fn OnUpdateMicroFocus(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KDirOperator_OnUpdateMicroFocus(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6569,9 +6569,9 @@ pub const kdiroperator = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn () callconv(.c) void ```
-    pub fn OnCreate(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KDirOperator_OnCreate(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn () callconv(.c) void ```
+    pub fn OnCreate(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KDirOperator_OnCreate(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6602,9 +6602,9 @@ pub const kdiroperator = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn () callconv(.c) void ```
-    pub fn OnDestroy(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.KDirOperator_OnDestroy(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn () callconv(.c) void ```
+    pub fn OnDestroy(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.KDirOperator_OnDestroy(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6635,9 +6635,9 @@ pub const kdiroperator = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn () callconv(.c) bool ```
-    pub fn OnFocusNextChild(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.KDirOperator_OnFocusNextChild(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn () callconv(.c) bool ```
+    pub fn OnFocusNextChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.KDirOperator_OnFocusNextChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -6668,9 +6668,9 @@ pub const kdiroperator = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn () callconv(.c) bool ```
-    pub fn OnFocusPreviousChild(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.KDirOperator_OnFocusPreviousChild(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn () callconv(.c) bool ```
+    pub fn OnFocusPreviousChild(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.KDirOperator_OnFocusPreviousChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6701,9 +6701,9 @@ pub const kdiroperator = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn () callconv(.c) QtC.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
-        qtc.KDirOperator_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.KDirOperator_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6734,9 +6734,9 @@ pub const kdiroperator = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn () callconv(.c) i32 ```
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.KDirOperator_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.KDirOperator_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6769,9 +6769,9 @@ pub const kdiroperator = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, signal: [*:0]const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KDirOperator_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
+        qtc.KDirOperator_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6802,9 +6802,9 @@ pub const kdiroperator = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, signal: QtC.QMetaMethod) callconv(.c) bool ```
-    pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KDirOperator_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KDirOperator_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -6835,9 +6835,9 @@ pub const kdiroperator = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 ```
-    pub fn OnGetDecodedMetricF(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
-        qtc.KDirOperator_OnGetDecodedMetricF(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 ```
+    pub fn OnGetDecodedMetricF(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
+        qtc.KDirOperator_OnGetDecodedMetricF(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -6846,9 +6846,9 @@ pub const kdiroperator = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KDirOperator, slot: fn (self: QtC.KDirOperator, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KDirOperator, callback: *const fn (self: QtC.KDirOperator, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kdiroperator.html#dtor.KDirOperator)

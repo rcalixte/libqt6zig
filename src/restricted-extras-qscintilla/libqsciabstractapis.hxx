@@ -10,7 +10,7 @@
 #include "../qtlibc.h"
 
 // This class is a subclass of QsciAbstractAPIs so that we can call protected methods
-class VirtualQsciAbstractAPIs final : public QsciAbstractAPIs {
+class VirtualQsciAbstractAPIs : public QsciAbstractAPIs {
 
   public:
     // Virtual class boolean flag

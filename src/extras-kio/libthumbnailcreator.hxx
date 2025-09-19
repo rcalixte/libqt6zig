@@ -10,7 +10,7 @@
 #include "../qtlibc.h"
 
 // This class is a subclass of KIO::ThumbnailCreator so that we can call protected methods
-class VirtualKIOThumbnailCreator final : public KIO::ThumbnailCreator {
+class VirtualKIOThumbnailCreator : public KIO::ThumbnailCreator {
 
   public:
     // Virtual class boolean flag

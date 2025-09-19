@@ -55,9 +55,9 @@ pub const qsoundeffect = struct {
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QSoundEffect, slot: fn (self: QtC.QSoundEffect, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QSoundEffect_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSoundEffect, callback: *const fn (self: QtC.QSoundEffect, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+        qtc.QSoundEffect_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -210,9 +210,9 @@ pub const qsoundeffect = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsoundeffect.html#sourceChanged)
     ///
-    /// ``` self: QtC.QSoundEffect, slot: fn (self: QtC.QSoundEffect) callconv(.c) void ```
-    pub fn OnSourceChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QSoundEffect_Connect_SourceChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSoundEffect, callback: *const fn (self: QtC.QSoundEffect) callconv(.c) void ```
+    pub fn OnSourceChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QSoundEffect_Connect_SourceChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsoundeffect.html#loopCountChanged)
@@ -224,9 +224,9 @@ pub const qsoundeffect = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsoundeffect.html#loopCountChanged)
     ///
-    /// ``` self: QtC.QSoundEffect, slot: fn (self: QtC.QSoundEffect) callconv(.c) void ```
-    pub fn OnLoopCountChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QSoundEffect_Connect_LoopCountChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSoundEffect, callback: *const fn (self: QtC.QSoundEffect) callconv(.c) void ```
+    pub fn OnLoopCountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QSoundEffect_Connect_LoopCountChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsoundeffect.html#loopsRemainingChanged)
@@ -238,9 +238,9 @@ pub const qsoundeffect = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsoundeffect.html#loopsRemainingChanged)
     ///
-    /// ``` self: QtC.QSoundEffect, slot: fn (self: QtC.QSoundEffect) callconv(.c) void ```
-    pub fn OnLoopsRemainingChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QSoundEffect_Connect_LoopsRemainingChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSoundEffect, callback: *const fn (self: QtC.QSoundEffect) callconv(.c) void ```
+    pub fn OnLoopsRemainingChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QSoundEffect_Connect_LoopsRemainingChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsoundeffect.html#volumeChanged)
@@ -252,9 +252,9 @@ pub const qsoundeffect = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsoundeffect.html#volumeChanged)
     ///
-    /// ``` self: QtC.QSoundEffect, slot: fn (self: QtC.QSoundEffect) callconv(.c) void ```
-    pub fn OnVolumeChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QSoundEffect_Connect_VolumeChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSoundEffect, callback: *const fn (self: QtC.QSoundEffect) callconv(.c) void ```
+    pub fn OnVolumeChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QSoundEffect_Connect_VolumeChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsoundeffect.html#mutedChanged)
@@ -266,9 +266,9 @@ pub const qsoundeffect = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsoundeffect.html#mutedChanged)
     ///
-    /// ``` self: QtC.QSoundEffect, slot: fn (self: QtC.QSoundEffect) callconv(.c) void ```
-    pub fn OnMutedChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QSoundEffect_Connect_MutedChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSoundEffect, callback: *const fn (self: QtC.QSoundEffect) callconv(.c) void ```
+    pub fn OnMutedChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QSoundEffect_Connect_MutedChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsoundeffect.html#loadedChanged)
@@ -280,9 +280,9 @@ pub const qsoundeffect = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsoundeffect.html#loadedChanged)
     ///
-    /// ``` self: QtC.QSoundEffect, slot: fn (self: QtC.QSoundEffect) callconv(.c) void ```
-    pub fn OnLoadedChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QSoundEffect_Connect_LoadedChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSoundEffect, callback: *const fn (self: QtC.QSoundEffect) callconv(.c) void ```
+    pub fn OnLoadedChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QSoundEffect_Connect_LoadedChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsoundeffect.html#playingChanged)
@@ -294,9 +294,9 @@ pub const qsoundeffect = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsoundeffect.html#playingChanged)
     ///
-    /// ``` self: QtC.QSoundEffect, slot: fn (self: QtC.QSoundEffect) callconv(.c) void ```
-    pub fn OnPlayingChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QSoundEffect_Connect_PlayingChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSoundEffect, callback: *const fn (self: QtC.QSoundEffect) callconv(.c) void ```
+    pub fn OnPlayingChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QSoundEffect_Connect_PlayingChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsoundeffect.html#statusChanged)
@@ -308,9 +308,9 @@ pub const qsoundeffect = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsoundeffect.html#statusChanged)
     ///
-    /// ``` self: QtC.QSoundEffect, slot: fn (self: QtC.QSoundEffect) callconv(.c) void ```
-    pub fn OnStatusChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QSoundEffect_Connect_StatusChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSoundEffect, callback: *const fn (self: QtC.QSoundEffect) callconv(.c) void ```
+    pub fn OnStatusChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QSoundEffect_Connect_StatusChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsoundeffect.html#audioDeviceChanged)
@@ -322,9 +322,9 @@ pub const qsoundeffect = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsoundeffect.html#audioDeviceChanged)
     ///
-    /// ``` self: QtC.QSoundEffect, slot: fn (self: QtC.QSoundEffect) callconv(.c) void ```
-    pub fn OnAudioDeviceChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QSoundEffect_Connect_AudioDeviceChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSoundEffect, callback: *const fn (self: QtC.QSoundEffect) callconv(.c) void ```
+    pub fn OnAudioDeviceChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QSoundEffect_Connect_AudioDeviceChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsoundeffect.html#play)
@@ -655,9 +655,9 @@ pub const qsoundeffect = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QSoundEffect, slot: fn (self: QtC.QSoundEffect) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSoundEffect, callback: *const fn (self: QtC.QSoundEffect) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -739,9 +739,9 @@ pub const qsoundeffect = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QSoundEffect, slot: fn (self: QtC.QSoundEffect, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSoundEffect, callback: *const fn (self: QtC.QSoundEffect, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -772,9 +772,9 @@ pub const qsoundeffect = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSoundEffect, slot: fn (self: QtC.QSoundEffect, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QSoundEffect_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSoundEffect, callback: *const fn (self: QtC.QSoundEffect, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QSoundEffect_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -805,9 +805,9 @@ pub const qsoundeffect = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSoundEffect, slot: fn (self: QtC.QSoundEffect, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QSoundEffect_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSoundEffect, callback: *const fn (self: QtC.QSoundEffect, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QSoundEffect_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -838,9 +838,9 @@ pub const qsoundeffect = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSoundEffect, slot: fn (self: QtC.QSoundEffect, event: QtC.QTimerEvent) callconv(.c) void ```
-    pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSoundEffect_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSoundEffect, callback: *const fn (self: QtC.QSoundEffect, event: QtC.QTimerEvent) callconv(.c) void ```
+    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QSoundEffect_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -871,9 +871,9 @@ pub const qsoundeffect = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSoundEffect, slot: fn (self: QtC.QSoundEffect, event: QtC.QChildEvent) callconv(.c) void ```
-    pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSoundEffect_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSoundEffect, callback: *const fn (self: QtC.QSoundEffect, event: QtC.QChildEvent) callconv(.c) void ```
+    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QSoundEffect_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -904,9 +904,9 @@ pub const qsoundeffect = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSoundEffect, slot: fn (self: QtC.QSoundEffect, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSoundEffect_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSoundEffect, callback: *const fn (self: QtC.QSoundEffect, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QSoundEffect_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -937,9 +937,9 @@ pub const qsoundeffect = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSoundEffect, slot: fn (self: QtC.QSoundEffect, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSoundEffect_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSoundEffect, callback: *const fn (self: QtC.QSoundEffect, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QSoundEffect_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -970,9 +970,9 @@ pub const qsoundeffect = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSoundEffect, slot: fn (self: QtC.QSoundEffect, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QSoundEffect_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSoundEffect, callback: *const fn (self: QtC.QSoundEffect, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QSoundEffect_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1003,9 +1003,9 @@ pub const qsoundeffect = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSoundEffect, slot: fn () callconv(.c) QtC.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
-        qtc.QSoundEffect_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSoundEffect, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.QSoundEffect_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1036,9 +1036,9 @@ pub const qsoundeffect = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSoundEffect, slot: fn () callconv(.c) i32 ```
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QSoundEffect_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSoundEffect, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QSoundEffect_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1071,9 +1071,9 @@ pub const qsoundeffect = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSoundEffect, slot: fn (self: QtC.QSoundEffect, signal: [*:0]const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QSoundEffect_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSoundEffect, callback: *const fn (self: QtC.QSoundEffect, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QSoundEffect_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1104,9 +1104,9 @@ pub const qsoundeffect = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QSoundEffect, slot: fn (self: QtC.QSoundEffect, signal: QtC.QMetaMethod) callconv(.c) bool ```
-    pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QSoundEffect_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSoundEffect, callback: *const fn (self: QtC.QSoundEffect, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QSoundEffect_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1115,9 +1115,9 @@ pub const qsoundeffect = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QSoundEffect, slot: fn (self: QtC.QSoundEffect, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QSoundEffect, callback: *const fn (self: QtC.QSoundEffect, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsoundeffect.html#dtor.QSoundEffect)

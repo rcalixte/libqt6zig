@@ -34,9 +34,9 @@ pub const qsciprinter = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QsciPrinter, slot: fn (self: QtC.QsciPrinter, painter: QtC.QPainter, drawing: bool, area: QtC.QRect, pagenr: i32) callconv(.c) void ```
-    pub fn OnFormatPage(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, bool, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QsciPrinter_OnFormatPage(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciPrinter, callback: *const fn (self: QtC.QsciPrinter, painter: QtC.QPainter, drawing: bool, area: QtC.QRect, pagenr: i32) callconv(.c) void ```
+    pub fn OnFormatPage(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, bool, ?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QsciPrinter_OnFormatPage(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciPrinter.html)
@@ -66,9 +66,9 @@ pub const qsciprinter = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QsciPrinter, slot: fn (self: QtC.QsciPrinter, magnification: i32) callconv(.c) void ```
-    pub fn OnSetMagnification(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QsciPrinter_OnSetMagnification(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciPrinter, callback: *const fn (self: QtC.QsciPrinter, magnification: i32) callconv(.c) void ```
+    pub fn OnSetMagnification(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QsciPrinter_OnSetMagnification(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciPrinter.html)
@@ -91,9 +91,9 @@ pub const qsciprinter = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QsciPrinter, slot: fn (self: QtC.QsciPrinter, qsb: QtC.QsciScintillaBase, painter: QtC.QPainter, from: i32, to: i32) callconv(.c) i32 ```
-    pub fn OnPrintRange(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) i32) void {
-        qtc.QsciPrinter_OnPrintRange(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciPrinter, callback: *const fn (self: QtC.QsciPrinter, qsb: QtC.QsciScintillaBase, painter: QtC.QPainter, from: i32, to: i32) callconv(.c) i32 ```
+    pub fn OnPrintRange(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) i32) void {
+        qtc.QsciPrinter_OnPrintRange(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciPrinter.html)
@@ -116,9 +116,9 @@ pub const qsciprinter = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QsciPrinter, slot: fn (self: QtC.QsciPrinter, qsb: QtC.QsciScintillaBase, from: i32, to: i32) callconv(.c) i32 ```
-    pub fn OnPrintRange2(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) i32) void {
-        qtc.QsciPrinter_OnPrintRange2(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciPrinter, callback: *const fn (self: QtC.QsciPrinter, qsb: QtC.QsciScintillaBase, from: i32, to: i32) callconv(.c) i32 ```
+    pub fn OnPrintRange2(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) i32) void {
+        qtc.QsciPrinter_OnPrintRange2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciPrinter.html)
@@ -150,9 +150,9 @@ pub const qsciprinter = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QsciPrinter, slot: fn (self: QtC.QsciPrinter, wmode: qsciscintilla_enums.WrapMode) callconv(.c) void ```
-    pub fn OnSetWrapMode(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QsciPrinter_OnSetWrapMode(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciPrinter, callback: *const fn (self: QtC.QsciPrinter, wmode: qsciscintilla_enums.WrapMode) callconv(.c) void ```
+    pub fn OnSetWrapMode(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QsciPrinter_OnSetWrapMode(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciPrinter.html)
@@ -826,9 +826,9 @@ pub const qsciprinter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciPrinter, slot: fn () callconv(.c) i32 ```
-    pub fn OnDevType(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QsciPrinter_OnDevType(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciPrinter, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnDevType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QsciPrinter_OnDevType(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPrinter
@@ -859,9 +859,9 @@ pub const qsciprinter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciPrinter, slot: fn () callconv(.c) bool ```
-    pub fn OnNewPage(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.QsciPrinter_OnNewPage(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciPrinter, callback: *const fn () callconv(.c) bool ```
+    pub fn OnNewPage(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.QsciPrinter_OnNewPage(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPrinter
@@ -892,9 +892,9 @@ pub const qsciprinter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciPrinter, slot: fn () callconv(.c) QtC.QPaintEngine ```
-    pub fn OnPaintEngine(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QPaintEngine) void {
-        qtc.QsciPrinter_OnPaintEngine(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciPrinter, callback: *const fn () callconv(.c) QtC.QPaintEngine ```
+    pub fn OnPaintEngine(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPaintEngine) void {
+        qtc.QsciPrinter_OnPaintEngine(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPrinter
@@ -925,9 +925,9 @@ pub const qsciprinter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciPrinter, slot: fn (self: QtC.QsciPrinter, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 ```
-    pub fn OnMetric(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) i32) void {
-        qtc.QsciPrinter_OnMetric(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciPrinter, callback: *const fn (self: QtC.QsciPrinter, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 ```
+    pub fn OnMetric(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) i32) void {
+        qtc.QsciPrinter_OnMetric(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPagedPaintDevice
@@ -958,9 +958,9 @@ pub const qsciprinter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciPrinter, slot: fn (self: QtC.QsciPrinter, pageLayout: QtC.QPageLayout) callconv(.c) bool ```
-    pub fn OnSetPageLayout(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QsciPrinter_OnSetPageLayout(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciPrinter, callback: *const fn (self: QtC.QsciPrinter, pageLayout: QtC.QPageLayout) callconv(.c) bool ```
+    pub fn OnSetPageLayout(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QsciPrinter_OnSetPageLayout(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPagedPaintDevice
@@ -991,9 +991,9 @@ pub const qsciprinter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciPrinter, slot: fn (self: QtC.QsciPrinter, pageSize: QtC.QPageSize) callconv(.c) bool ```
-    pub fn OnSetPageSize(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QsciPrinter_OnSetPageSize(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciPrinter, callback: *const fn (self: QtC.QsciPrinter, pageSize: QtC.QPageSize) callconv(.c) bool ```
+    pub fn OnSetPageSize(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QsciPrinter_OnSetPageSize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPagedPaintDevice
@@ -1024,9 +1024,9 @@ pub const qsciprinter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciPrinter, slot: fn (self: QtC.QsciPrinter, orientation: qpagelayout_enums.Orientation) callconv(.c) bool ```
-    pub fn OnSetPageOrientation(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QsciPrinter_OnSetPageOrientation(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciPrinter, callback: *const fn (self: QtC.QsciPrinter, orientation: qpagelayout_enums.Orientation) callconv(.c) bool ```
+    pub fn OnSetPageOrientation(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) bool) void {
+        qtc.QsciPrinter_OnSetPageOrientation(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPagedPaintDevice
@@ -1057,9 +1057,9 @@ pub const qsciprinter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciPrinter, slot: fn (self: QtC.QsciPrinter, margins: QtC.QMarginsF, units: qpagelayout_enums.Unit) callconv(.c) bool ```
-    pub fn OnSetPageMargins(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
-        qtc.QsciPrinter_OnSetPageMargins(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciPrinter, callback: *const fn (self: QtC.QsciPrinter, margins: QtC.QMarginsF, units: qpagelayout_enums.Unit) callconv(.c) bool ```
+    pub fn OnSetPageMargins(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) bool) void {
+        qtc.QsciPrinter_OnSetPageMargins(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPagedPaintDevice
@@ -1090,9 +1090,9 @@ pub const qsciprinter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciPrinter, slot: fn (self: QtC.QsciPrinter, ranges: QtC.QPageRanges) callconv(.c) void ```
-    pub fn OnSetPageRanges(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciPrinter_OnSetPageRanges(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciPrinter, callback: *const fn (self: QtC.QsciPrinter, ranges: QtC.QPageRanges) callconv(.c) void ```
+    pub fn OnSetPageRanges(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QsciPrinter_OnSetPageRanges(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -1123,9 +1123,9 @@ pub const qsciprinter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciPrinter, slot: fn (self: QtC.QsciPrinter, painter: QtC.QPainter) callconv(.c) void ```
-    pub fn OnInitPainter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciPrinter_OnInitPainter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciPrinter, callback: *const fn (self: QtC.QsciPrinter, painter: QtC.QPainter) callconv(.c) void ```
+    pub fn OnInitPainter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QsciPrinter_OnInitPainter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -1156,9 +1156,9 @@ pub const qsciprinter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciPrinter, slot: fn (self: QtC.QsciPrinter, offset: QtC.QPoint) callconv(.c) QtC.QPaintDevice ```
-    pub fn OnRedirected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPaintDevice) void {
-        qtc.QsciPrinter_OnRedirected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciPrinter, callback: *const fn (self: QtC.QsciPrinter, offset: QtC.QPoint) callconv(.c) QtC.QPaintDevice ```
+    pub fn OnRedirected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QPaintDevice) void {
+        qtc.QsciPrinter_OnRedirected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -1189,9 +1189,9 @@ pub const qsciprinter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciPrinter, slot: fn () callconv(.c) QtC.QPainter ```
-    pub fn OnSharedPainter(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QPainter) void {
-        qtc.QsciPrinter_OnSharedPainter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciPrinter, callback: *const fn () callconv(.c) QtC.QPainter ```
+    pub fn OnSharedPainter(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainter) void {
+        qtc.QsciPrinter_OnSharedPainter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPrinter
@@ -1222,9 +1222,9 @@ pub const qsciprinter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciPrinter, slot: fn (self: QtC.QsciPrinter, printEngine: QtC.QPrintEngine, paintEngine: QtC.QPaintEngine) callconv(.c) void ```
-    pub fn OnSetEngines(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QsciPrinter_OnSetEngines(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciPrinter, callback: *const fn (self: QtC.QsciPrinter, printEngine: QtC.QPrintEngine, paintEngine: QtC.QPaintEngine) callconv(.c) void ```
+    pub fn OnSetEngines(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QsciPrinter_OnSetEngines(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -1255,9 +1255,9 @@ pub const qsciprinter = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QsciPrinter, slot: fn (self: QtC.QsciPrinter, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 ```
-    pub fn OnGetDecodedMetricF(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
-        qtc.QsciPrinter_OnGetDecodedMetricF(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QsciPrinter, callback: *const fn (self: QtC.QsciPrinter, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 ```
+    pub fn OnGetDecodedMetricF(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) f64) void {
+        qtc.QsciPrinter_OnGetDecodedMetricF(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciPrinter.html)

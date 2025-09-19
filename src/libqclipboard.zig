@@ -167,9 +167,9 @@ pub const qclipboard = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qclipboard.html#changed)
     ///
-    /// ``` self: QtC.QClipboard, slot: fn (self: QtC.QClipboard, mode: qclipboard_enums.Mode) callconv(.c) void ```
-    pub fn OnChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QClipboard_Connect_Changed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QClipboard, callback: *const fn (self: QtC.QClipboard, mode: qclipboard_enums.Mode) callconv(.c) void ```
+    pub fn OnChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QClipboard_Connect_Changed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qclipboard.html#selectionChanged)
@@ -181,9 +181,9 @@ pub const qclipboard = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qclipboard.html#selectionChanged)
     ///
-    /// ``` self: QtC.QClipboard, slot: fn (self: QtC.QClipboard) callconv(.c) void ```
-    pub fn OnSelectionChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QClipboard_Connect_SelectionChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QClipboard, callback: *const fn (self: QtC.QClipboard) callconv(.c) void ```
+    pub fn OnSelectionChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QClipboard_Connect_SelectionChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qclipboard.html#findBufferChanged)
@@ -195,9 +195,9 @@ pub const qclipboard = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qclipboard.html#findBufferChanged)
     ///
-    /// ``` self: QtC.QClipboard, slot: fn (self: QtC.QClipboard) callconv(.c) void ```
-    pub fn OnFindBufferChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QClipboard_Connect_FindBufferChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QClipboard, callback: *const fn (self: QtC.QClipboard) callconv(.c) void ```
+    pub fn OnFindBufferChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QClipboard_Connect_FindBufferChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qclipboard.html#dataChanged)
@@ -209,9 +209,9 @@ pub const qclipboard = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qclipboard.html#dataChanged)
     ///
-    /// ``` self: QtC.QClipboard, slot: fn (self: QtC.QClipboard) callconv(.c) void ```
-    pub fn OnDataChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QClipboard_Connect_DataChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QClipboard, callback: *const fn (self: QtC.QClipboard) callconv(.c) void ```
+    pub fn OnDataChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QClipboard_Connect_DataChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -632,9 +632,9 @@ pub const qclipboard = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QClipboard, slot: fn (self: QtC.QClipboard) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QClipboard, callback: *const fn (self: QtC.QClipboard) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -716,9 +716,9 @@ pub const qclipboard = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QClipboard, slot: fn (self: QtC.QClipboard, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QClipboard, callback: *const fn (self: QtC.QClipboard, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -727,9 +727,9 @@ pub const qclipboard = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QClipboard, slot: fn (self: QtC.QClipboard, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QClipboard, callback: *const fn (self: QtC.QClipboard, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 };
 

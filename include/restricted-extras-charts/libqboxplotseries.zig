@@ -41,9 +41,9 @@ pub const qboxplotseries = struct {
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QBoxPlotSeries, slot: fn (self: QtC.QBoxPlotSeries, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QBoxPlotSeries_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxPlotSeries, callback: *const fn (self: QtC.QBoxPlotSeries, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+        qtc.QBoxPlotSeries_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -143,9 +143,9 @@ pub const qboxplotseries = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QBoxPlotSeries, slot: fn () callconv(.c) i32 ```
-    pub fn OnType(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QBoxPlotSeries_OnType(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxPlotSeries, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QBoxPlotSeries_OnType(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qboxplotseries-qtcharts.html#type)
@@ -224,9 +224,9 @@ pub const qboxplotseries = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qboxplotseries-qtcharts.html#clicked)
     ///
-    /// ``` self: QtC.QBoxPlotSeries, slot: fn (self: QtC.QBoxPlotSeries, boxset: QtC.QBoxSet) callconv(.c) void ```
-    pub fn OnClicked(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QBoxPlotSeries_Connect_Clicked(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxPlotSeries, callback: *const fn (self: QtC.QBoxPlotSeries, boxset: QtC.QBoxSet) callconv(.c) void ```
+    pub fn OnClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QBoxPlotSeries_Connect_Clicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qboxplotseries-qtcharts.html#hovered)
@@ -238,9 +238,9 @@ pub const qboxplotseries = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qboxplotseries-qtcharts.html#hovered)
     ///
-    /// ``` self: QtC.QBoxPlotSeries, slot: fn (self: QtC.QBoxPlotSeries, status: bool, boxset: QtC.QBoxSet) callconv(.c) void ```
-    pub fn OnHovered(self: ?*anyopaque, slot: fn (?*anyopaque, bool, ?*anyopaque) callconv(.c) void) void {
-        qtc.QBoxPlotSeries_Connect_Hovered(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxPlotSeries, callback: *const fn (self: QtC.QBoxPlotSeries, status: bool, boxset: QtC.QBoxSet) callconv(.c) void ```
+    pub fn OnHovered(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool, ?*anyopaque) callconv(.c) void) void {
+        qtc.QBoxPlotSeries_Connect_Hovered(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qboxplotseries-qtcharts.html#pressed)
@@ -252,9 +252,9 @@ pub const qboxplotseries = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qboxplotseries-qtcharts.html#pressed)
     ///
-    /// ``` self: QtC.QBoxPlotSeries, slot: fn (self: QtC.QBoxPlotSeries, boxset: QtC.QBoxSet) callconv(.c) void ```
-    pub fn OnPressed(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QBoxPlotSeries_Connect_Pressed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxPlotSeries, callback: *const fn (self: QtC.QBoxPlotSeries, boxset: QtC.QBoxSet) callconv(.c) void ```
+    pub fn OnPressed(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QBoxPlotSeries_Connect_Pressed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qboxplotseries-qtcharts.html#released)
@@ -266,9 +266,9 @@ pub const qboxplotseries = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qboxplotseries-qtcharts.html#released)
     ///
-    /// ``` self: QtC.QBoxPlotSeries, slot: fn (self: QtC.QBoxPlotSeries, boxset: QtC.QBoxSet) callconv(.c) void ```
-    pub fn OnReleased(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QBoxPlotSeries_Connect_Released(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxPlotSeries, callback: *const fn (self: QtC.QBoxPlotSeries, boxset: QtC.QBoxSet) callconv(.c) void ```
+    pub fn OnReleased(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QBoxPlotSeries_Connect_Released(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qboxplotseries-qtcharts.html#doubleClicked)
@@ -280,9 +280,9 @@ pub const qboxplotseries = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qboxplotseries-qtcharts.html#doubleClicked)
     ///
-    /// ``` self: QtC.QBoxPlotSeries, slot: fn (self: QtC.QBoxPlotSeries, boxset: QtC.QBoxSet) callconv(.c) void ```
-    pub fn OnDoubleClicked(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QBoxPlotSeries_Connect_DoubleClicked(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxPlotSeries, callback: *const fn (self: QtC.QBoxPlotSeries, boxset: QtC.QBoxSet) callconv(.c) void ```
+    pub fn OnDoubleClicked(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QBoxPlotSeries_Connect_DoubleClicked(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qboxplotseries-qtcharts.html#countChanged)
@@ -294,9 +294,9 @@ pub const qboxplotseries = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qboxplotseries-qtcharts.html#countChanged)
     ///
-    /// ``` self: QtC.QBoxPlotSeries, slot: fn (self: QtC.QBoxPlotSeries) callconv(.c) void ```
-    pub fn OnCountChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QBoxPlotSeries_Connect_CountChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxPlotSeries, callback: *const fn (self: QtC.QBoxPlotSeries) callconv(.c) void ```
+    pub fn OnCountChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QBoxPlotSeries_Connect_CountChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qboxplotseries-qtcharts.html#penChanged)
@@ -308,9 +308,9 @@ pub const qboxplotseries = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qboxplotseries-qtcharts.html#penChanged)
     ///
-    /// ``` self: QtC.QBoxPlotSeries, slot: fn (self: QtC.QBoxPlotSeries) callconv(.c) void ```
-    pub fn OnPenChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QBoxPlotSeries_Connect_PenChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxPlotSeries, callback: *const fn (self: QtC.QBoxPlotSeries) callconv(.c) void ```
+    pub fn OnPenChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QBoxPlotSeries_Connect_PenChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qboxplotseries-qtcharts.html#brushChanged)
@@ -322,9 +322,9 @@ pub const qboxplotseries = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qboxplotseries-qtcharts.html#brushChanged)
     ///
-    /// ``` self: QtC.QBoxPlotSeries, slot: fn (self: QtC.QBoxPlotSeries) callconv(.c) void ```
-    pub fn OnBrushChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QBoxPlotSeries_Connect_BrushChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxPlotSeries, callback: *const fn (self: QtC.QBoxPlotSeries) callconv(.c) void ```
+    pub fn OnBrushChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QBoxPlotSeries_Connect_BrushChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qboxplotseries-qtcharts.html#boxOutlineVisibilityChanged)
@@ -336,9 +336,9 @@ pub const qboxplotseries = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qboxplotseries-qtcharts.html#boxOutlineVisibilityChanged)
     ///
-    /// ``` self: QtC.QBoxPlotSeries, slot: fn (self: QtC.QBoxPlotSeries) callconv(.c) void ```
-    pub fn OnBoxOutlineVisibilityChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QBoxPlotSeries_Connect_BoxOutlineVisibilityChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxPlotSeries, callback: *const fn (self: QtC.QBoxPlotSeries) callconv(.c) void ```
+    pub fn OnBoxOutlineVisibilityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QBoxPlotSeries_Connect_BoxOutlineVisibilityChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qboxplotseries-qtcharts.html#boxWidthChanged)
@@ -350,9 +350,9 @@ pub const qboxplotseries = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qboxplotseries-qtcharts.html#boxWidthChanged)
     ///
-    /// ``` self: QtC.QBoxPlotSeries, slot: fn (self: QtC.QBoxPlotSeries) callconv(.c) void ```
-    pub fn OnBoxWidthChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QBoxPlotSeries_Connect_BoxWidthChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxPlotSeries, callback: *const fn (self: QtC.QBoxPlotSeries) callconv(.c) void ```
+    pub fn OnBoxWidthChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QBoxPlotSeries_Connect_BoxWidthChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qboxplotseries-qtcharts.html#boxsetsAdded)
@@ -368,9 +368,9 @@ pub const qboxplotseries = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qboxplotseries-qtcharts.html#boxsetsAdded)
     ///
-    /// ``` self: QtC.QBoxPlotSeries, slot: fn (self: QtC.QBoxPlotSeries, sets: [*]QtC.QBoxSet) callconv(.c) void ```
-    pub fn OnBoxsetsAdded(self: ?*anyopaque, slot: fn (?*anyopaque, [*]?*anyopaque) callconv(.c) void) void {
-        qtc.QBoxPlotSeries_Connect_BoxsetsAdded(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxPlotSeries, callback: *const fn (self: QtC.QBoxPlotSeries, sets: [*]QtC.QBoxSet) callconv(.c) void ```
+    pub fn OnBoxsetsAdded(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]?*anyopaque) callconv(.c) void) void {
+        qtc.QBoxPlotSeries_Connect_BoxsetsAdded(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qboxplotseries-qtcharts.html#boxsetsRemoved)
@@ -386,9 +386,9 @@ pub const qboxplotseries = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qboxplotseries-qtcharts.html#boxsetsRemoved)
     ///
-    /// ``` self: QtC.QBoxPlotSeries, slot: fn (self: QtC.QBoxPlotSeries, sets: [*]QtC.QBoxSet) callconv(.c) void ```
-    pub fn OnBoxsetsRemoved(self: ?*anyopaque, slot: fn (?*anyopaque, [*]?*anyopaque) callconv(.c) void) void {
-        qtc.QBoxPlotSeries_Connect_BoxsetsRemoved(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxPlotSeries, callback: *const fn (self: QtC.QBoxPlotSeries, sets: [*]QtC.QBoxSet) callconv(.c) void ```
+    pub fn OnBoxsetsRemoved(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]?*anyopaque) callconv(.c) void) void {
+        qtc.QBoxPlotSeries_Connect_BoxsetsRemoved(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -569,9 +569,9 @@ pub const qboxplotseries = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries.html#nameChanged)
     ///
-    /// ``` self: QtC.QBoxPlotSeries, slot: fn (self: QtC.QBoxPlotSeries) callconv(.c) void ```
-    pub fn OnNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSeries_Connect_NameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxPlotSeries, callback: *const fn (self: QtC.QBoxPlotSeries) callconv(.c) void ```
+    pub fn OnNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractSeries_Connect_NameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSeries
@@ -587,9 +587,9 @@ pub const qboxplotseries = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries.html#visibleChanged)
     ///
-    /// ``` self: QtC.QBoxPlotSeries, slot: fn (self: QtC.QBoxPlotSeries) callconv(.c) void ```
-    pub fn OnVisibleChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSeries_Connect_VisibleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxPlotSeries, callback: *const fn (self: QtC.QBoxPlotSeries) callconv(.c) void ```
+    pub fn OnVisibleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractSeries_Connect_VisibleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSeries
@@ -605,9 +605,9 @@ pub const qboxplotseries = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries.html#opacityChanged)
     ///
-    /// ``` self: QtC.QBoxPlotSeries, slot: fn (self: QtC.QBoxPlotSeries) callconv(.c) void ```
-    pub fn OnOpacityChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSeries_Connect_OpacityChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxPlotSeries, callback: *const fn (self: QtC.QBoxPlotSeries) callconv(.c) void ```
+    pub fn OnOpacityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractSeries_Connect_OpacityChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSeries
@@ -623,9 +623,9 @@ pub const qboxplotseries = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractseries.html#useOpenGLChanged)
     ///
-    /// ``` self: QtC.QBoxPlotSeries, slot: fn (self: QtC.QBoxPlotSeries) callconv(.c) void ```
-    pub fn OnUseOpenGLChanged(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QAbstractSeries_Connect_UseOpenGLChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxPlotSeries, callback: *const fn (self: QtC.QBoxPlotSeries) callconv(.c) void ```
+    pub fn OnUseOpenGLChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QAbstractSeries_Connect_UseOpenGLChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractSeries
@@ -934,9 +934,9 @@ pub const qboxplotseries = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QBoxPlotSeries, slot: fn (self: QtC.QBoxPlotSeries) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxPlotSeries, callback: *const fn (self: QtC.QBoxPlotSeries) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1018,9 +1018,9 @@ pub const qboxplotseries = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QBoxPlotSeries, slot: fn (self: QtC.QBoxPlotSeries, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxPlotSeries, callback: *const fn (self: QtC.QBoxPlotSeries, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1051,9 +1051,9 @@ pub const qboxplotseries = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBoxPlotSeries, slot: fn (self: QtC.QBoxPlotSeries, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QBoxPlotSeries_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxPlotSeries, callback: *const fn (self: QtC.QBoxPlotSeries, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QBoxPlotSeries_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1084,9 +1084,9 @@ pub const qboxplotseries = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBoxPlotSeries, slot: fn (self: QtC.QBoxPlotSeries, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QBoxPlotSeries_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxPlotSeries, callback: *const fn (self: QtC.QBoxPlotSeries, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QBoxPlotSeries_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1117,9 +1117,9 @@ pub const qboxplotseries = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBoxPlotSeries, slot: fn (self: QtC.QBoxPlotSeries, event: QtC.QTimerEvent) callconv(.c) void ```
-    pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QBoxPlotSeries_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxPlotSeries, callback: *const fn (self: QtC.QBoxPlotSeries, event: QtC.QTimerEvent) callconv(.c) void ```
+    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QBoxPlotSeries_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1150,9 +1150,9 @@ pub const qboxplotseries = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBoxPlotSeries, slot: fn (self: QtC.QBoxPlotSeries, event: QtC.QChildEvent) callconv(.c) void ```
-    pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QBoxPlotSeries_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxPlotSeries, callback: *const fn (self: QtC.QBoxPlotSeries, event: QtC.QChildEvent) callconv(.c) void ```
+    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QBoxPlotSeries_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1183,9 +1183,9 @@ pub const qboxplotseries = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBoxPlotSeries, slot: fn (self: QtC.QBoxPlotSeries, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QBoxPlotSeries_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxPlotSeries, callback: *const fn (self: QtC.QBoxPlotSeries, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QBoxPlotSeries_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1216,9 +1216,9 @@ pub const qboxplotseries = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBoxPlotSeries, slot: fn (self: QtC.QBoxPlotSeries, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QBoxPlotSeries_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxPlotSeries, callback: *const fn (self: QtC.QBoxPlotSeries, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QBoxPlotSeries_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1249,9 +1249,9 @@ pub const qboxplotseries = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBoxPlotSeries, slot: fn (self: QtC.QBoxPlotSeries, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QBoxPlotSeries_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxPlotSeries, callback: *const fn (self: QtC.QBoxPlotSeries, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QBoxPlotSeries_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1282,9 +1282,9 @@ pub const qboxplotseries = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBoxPlotSeries, slot: fn () callconv(.c) QtC.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
-        qtc.QBoxPlotSeries_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxPlotSeries, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.QBoxPlotSeries_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1315,9 +1315,9 @@ pub const qboxplotseries = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBoxPlotSeries, slot: fn () callconv(.c) i32 ```
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QBoxPlotSeries_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxPlotSeries, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QBoxPlotSeries_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1350,9 +1350,9 @@ pub const qboxplotseries = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBoxPlotSeries, slot: fn (self: QtC.QBoxPlotSeries, signal: [*:0]const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.QBoxPlotSeries_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxPlotSeries, callback: *const fn (self: QtC.QBoxPlotSeries, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
+        qtc.QBoxPlotSeries_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1383,9 +1383,9 @@ pub const qboxplotseries = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QBoxPlotSeries, slot: fn (self: QtC.QBoxPlotSeries, signal: QtC.QMetaMethod) callconv(.c) bool ```
-    pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QBoxPlotSeries_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxPlotSeries, callback: *const fn (self: QtC.QBoxPlotSeries, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QBoxPlotSeries_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1394,9 +1394,9 @@ pub const qboxplotseries = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QBoxPlotSeries, slot: fn (self: QtC.QBoxPlotSeries, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QBoxPlotSeries, callback: *const fn (self: QtC.QBoxPlotSeries, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qboxplotseries-qtcharts.html#dtor.QBoxPlotSeries)

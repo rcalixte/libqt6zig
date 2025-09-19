@@ -23,9 +23,9 @@ pub const qabstractfileiconprovider = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAbstractFileIconProvider, slot: fn (self: QtC.QAbstractFileIconProvider, param1: qabstractfileiconprovider_enums.IconType) callconv(.c) QtC.QIcon ```
-    pub fn OnIcon(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) QtC.QIcon) void {
-        qtc.QAbstractFileIconProvider_OnIcon(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAbstractFileIconProvider, callback: *const fn (self: QtC.QAbstractFileIconProvider, param1: qabstractfileiconprovider_enums.IconType) callconv(.c) QtC.QIcon ```
+    pub fn OnIcon(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QIcon) void {
+        qtc.QAbstractFileIconProvider_OnIcon(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#icon)
@@ -48,9 +48,9 @@ pub const qabstractfileiconprovider = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAbstractFileIconProvider, slot: fn (self: QtC.QAbstractFileIconProvider, param1: QtC.QFileInfo) callconv(.c) QtC.QIcon ```
-    pub fn OnIcon2(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QIcon) void {
-        qtc.QAbstractFileIconProvider_OnIcon2(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAbstractFileIconProvider, callback: *const fn (self: QtC.QAbstractFileIconProvider, param1: QtC.QFileInfo) callconv(.c) QtC.QIcon ```
+    pub fn OnIcon2(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QIcon) void {
+        qtc.QAbstractFileIconProvider_OnIcon2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#icon)
@@ -77,9 +77,9 @@ pub const qabstractfileiconprovider = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAbstractFileIconProvider, slot: fn (self: QtC.QAbstractFileIconProvider, param1: QtC.QFileInfo) callconv(.c) [*:0]const u8 ```
-    pub fn OnType(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) [*:0]const u8) void {
-        qtc.QAbstractFileIconProvider_OnType(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAbstractFileIconProvider, callback: *const fn (self: QtC.QAbstractFileIconProvider, param1: QtC.QFileInfo) callconv(.c) [*:0]const u8 ```
+    pub fn OnType(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) [*:0]const u8) void {
+        qtc.QAbstractFileIconProvider_OnType(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#type)
@@ -106,9 +106,9 @@ pub const qabstractfileiconprovider = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAbstractFileIconProvider, slot: fn (self: QtC.QAbstractFileIconProvider, options: flag of qabstractfileiconprovider_enums.Option) callconv(.c) void ```
-    pub fn OnSetOptions(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QAbstractFileIconProvider_OnSetOptions(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAbstractFileIconProvider, callback: *const fn (self: QtC.QAbstractFileIconProvider, options: flag of qabstractfileiconprovider_enums.Option) callconv(.c) void ```
+    pub fn OnSetOptions(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QAbstractFileIconProvider_OnSetOptions(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#setOptions)
@@ -133,9 +133,9 @@ pub const qabstractfileiconprovider = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAbstractFileIconProvider, slot: fn () callconv(.c) i32 ```
-    pub fn OnOptions(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QAbstractFileIconProvider_OnOptions(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAbstractFileIconProvider, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnOptions(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QAbstractFileIconProvider_OnOptions(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractfileiconprovider.html#options)

@@ -43,9 +43,9 @@ pub const qaccessiblewidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAccessibleWidget, slot: fn () callconv(.c) bool ```
-    pub fn OnIsValid(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.QAccessibleWidget_OnIsValid(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAccessibleWidget, callback: *const fn () callconv(.c) bool ```
+    pub fn OnIsValid(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.QAccessibleWidget_OnIsValid(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#isValid)
@@ -68,9 +68,9 @@ pub const qaccessiblewidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAccessibleWidget, slot: fn () callconv(.c) QtC.QWindow ```
-    pub fn OnWindow(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QWindow) void {
-        qtc.QAccessibleWidget_OnWindow(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAccessibleWidget, callback: *const fn () callconv(.c) QtC.QWindow ```
+    pub fn OnWindow(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QWindow) void {
+        qtc.QAccessibleWidget_OnWindow(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#window)
@@ -93,9 +93,9 @@ pub const qaccessiblewidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAccessibleWidget, slot: fn () callconv(.c) i32 ```
-    pub fn OnChildCount(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QAccessibleWidget_OnChildCount(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAccessibleWidget, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnChildCount(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QAccessibleWidget_OnChildCount(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#childCount)
@@ -118,9 +118,9 @@ pub const qaccessiblewidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAccessibleWidget, slot: fn (self: QtC.QAccessibleWidget, child: QtC.QAccessibleInterface) callconv(.c) i32 ```
-    pub fn OnIndexOfChild(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QAccessibleWidget_OnIndexOfChild(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAccessibleWidget, callback: *const fn (self: QtC.QAccessibleWidget, child: QtC.QAccessibleInterface) callconv(.c) i32 ```
+    pub fn OnIndexOfChild(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
+        qtc.QAccessibleWidget_OnIndexOfChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#indexOfChild)
@@ -155,9 +155,9 @@ pub const qaccessiblewidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAccessibleWidget, slot: fn (self: QtC.QAccessibleWidget, match: flag of qaccessible_base_enums.RelationFlag) callconv(.c) [*:null]struct_qtcqaccessibleinterface_i64 ```
-    pub fn OnRelations(self: ?*anyopaque, slot: fn (?*anyopaque, i64) callconv(.c) [*:null]struct_qtcqaccessibleinterface_i64) void {
-        qtc.QAccessibleWidget_OnRelations(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAccessibleWidget, callback: *const fn (self: QtC.QAccessibleWidget, match: flag of qaccessible_base_enums.RelationFlag) callconv(.c) [*:null]struct_qtcqaccessibleinterface_i64 ```
+    pub fn OnRelations(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) [*:null]struct_qtcqaccessibleinterface_i64) void {
+        qtc.QAccessibleWidget_OnRelations(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#relations)
@@ -192,9 +192,9 @@ pub const qaccessiblewidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAccessibleWidget, slot: fn () callconv(.c) QtC.QAccessibleInterface ```
-    pub fn OnFocusChild(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QAccessibleInterface) void {
-        qtc.QAccessibleWidget_OnFocusChild(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAccessibleWidget, callback: *const fn () callconv(.c) QtC.QAccessibleInterface ```
+    pub fn OnFocusChild(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QAccessibleInterface) void {
+        qtc.QAccessibleWidget_OnFocusChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#focusChild)
@@ -217,9 +217,9 @@ pub const qaccessiblewidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAccessibleWidget, slot: fn () callconv(.c) QtC.QRect ```
-    pub fn OnRect(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QRect) void {
-        qtc.QAccessibleWidget_OnRect(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAccessibleWidget, callback: *const fn () callconv(.c) QtC.QRect ```
+    pub fn OnRect(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QRect) void {
+        qtc.QAccessibleWidget_OnRect(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#rect)
@@ -242,9 +242,9 @@ pub const qaccessiblewidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAccessibleWidget, slot: fn () callconv(.c) QtC.QAccessibleInterface ```
-    pub fn OnParent(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QAccessibleInterface) void {
-        qtc.QAccessibleWidget_OnParent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAccessibleWidget, callback: *const fn () callconv(.c) QtC.QAccessibleInterface ```
+    pub fn OnParent(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QAccessibleInterface) void {
+        qtc.QAccessibleWidget_OnParent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#parent)
@@ -267,9 +267,9 @@ pub const qaccessiblewidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAccessibleWidget, slot: fn (self: QtC.QAccessibleWidget, index: i32) callconv(.c) QtC.QAccessibleInterface ```
-    pub fn OnChild(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) QtC.QAccessibleInterface) void {
-        qtc.QAccessibleWidget_OnChild(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAccessibleWidget, callback: *const fn (self: QtC.QAccessibleWidget, index: i32) callconv(.c) QtC.QAccessibleInterface ```
+    pub fn OnChild(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) QtC.QAccessibleInterface) void {
+        qtc.QAccessibleWidget_OnChild(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#child)
@@ -296,9 +296,9 @@ pub const qaccessiblewidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAccessibleWidget, slot: fn (self: QtC.QAccessibleWidget, t: qaccessible_base_enums.Text) callconv(.c) [*:0]const u8 ```
-    pub fn OnText(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) [*:0]const u8) void {
-        qtc.QAccessibleWidget_OnText(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAccessibleWidget, callback: *const fn (self: QtC.QAccessibleWidget, t: qaccessible_base_enums.Text) callconv(.c) [*:0]const u8 ```
+    pub fn OnText(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) [*:0]const u8) void {
+        qtc.QAccessibleWidget_OnText(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#text)
@@ -327,9 +327,9 @@ pub const qaccessiblewidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAccessibleWidget, slot: fn () callconv(.c) i32 ```
-    pub fn OnRole(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QAccessibleWidget_OnRole(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAccessibleWidget, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnRole(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QAccessibleWidget_OnRole(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#role)
@@ -354,9 +354,9 @@ pub const qaccessiblewidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAccessibleWidget, slot: fn () callconv(.c) QtC.QAccessible__State ```
-    pub fn OnState(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QAccessible__State) void {
-        qtc.QAccessibleWidget_OnState(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAccessibleWidget, callback: *const fn () callconv(.c) QtC.QAccessible__State ```
+    pub fn OnState(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QAccessible__State) void {
+        qtc.QAccessibleWidget_OnState(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#state)
@@ -379,9 +379,9 @@ pub const qaccessiblewidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAccessibleWidget, slot: fn () callconv(.c) QtC.QColor ```
-    pub fn OnForegroundColor(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QColor) void {
-        qtc.QAccessibleWidget_OnForegroundColor(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAccessibleWidget, callback: *const fn () callconv(.c) QtC.QColor ```
+    pub fn OnForegroundColor(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QColor) void {
+        qtc.QAccessibleWidget_OnForegroundColor(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#foregroundColor)
@@ -404,9 +404,9 @@ pub const qaccessiblewidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAccessibleWidget, slot: fn () callconv(.c) QtC.QColor ```
-    pub fn OnBackgroundColor(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QColor) void {
-        qtc.QAccessibleWidget_OnBackgroundColor(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAccessibleWidget, callback: *const fn () callconv(.c) QtC.QColor ```
+    pub fn OnBackgroundColor(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QColor) void {
+        qtc.QAccessibleWidget_OnBackgroundColor(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#backgroundColor)
@@ -429,9 +429,9 @@ pub const qaccessiblewidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAccessibleWidget, slot: fn (self: QtC.QAccessibleWidget, t: qaccessible_base_enums.InterfaceType) callconv(.c) ?*anyopaque ```
-    pub fn OnInterfaceCast(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) ?*anyopaque) void {
-        qtc.QAccessibleWidget_OnInterfaceCast(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAccessibleWidget, callback: *const fn (self: QtC.QAccessibleWidget, t: qaccessible_base_enums.InterfaceType) callconv(.c) ?*anyopaque ```
+    pub fn OnInterfaceCast(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) ?*anyopaque) void {
+        qtc.QAccessibleWidget_OnInterfaceCast(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#interface_cast)
@@ -469,9 +469,9 @@ pub const qaccessiblewidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAccessibleWidget, slot: fn () callconv(.c) [*][*:0]const u8 ```
-    pub fn OnActionNames(self: ?*anyopaque, slot: fn () callconv(.c) [*][*:0]const u8) void {
-        qtc.QAccessibleWidget_OnActionNames(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAccessibleWidget, callback: *const fn () callconv(.c) [*][*:0]const u8 ```
+    pub fn OnActionNames(self: ?*anyopaque, callback: *const fn () callconv(.c) [*][*:0]const u8) void {
+        qtc.QAccessibleWidget_OnActionNames(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#actionNames)
@@ -513,9 +513,9 @@ pub const qaccessiblewidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAccessibleWidget, slot: fn (self: QtC.QAccessibleWidget, actionName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnDoAction(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QAccessibleWidget_OnDoAction(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAccessibleWidget, callback: *const fn (self: QtC.QAccessibleWidget, actionName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnDoAction(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QAccessibleWidget_OnDoAction(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#doAction)
@@ -561,9 +561,9 @@ pub const qaccessiblewidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAccessibleWidget, slot: fn (self: QtC.QAccessibleWidget, actionName: [*:0]const u8) callconv(.c) [*][*:0]const u8 ```
-    pub fn OnKeyBindingsForAction(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) [*][*:0]const u8) void {
-        qtc.QAccessibleWidget_OnKeyBindingsForAction(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAccessibleWidget, callback: *const fn (self: QtC.QAccessibleWidget, actionName: [*:0]const u8) callconv(.c) [*][*:0]const u8 ```
+    pub fn OnKeyBindingsForAction(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) [*][*:0]const u8) void {
+        qtc.QAccessibleWidget_OnKeyBindingsForAction(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#keyBindingsForAction)
@@ -605,9 +605,9 @@ pub const qaccessiblewidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAccessibleWidget, slot: fn () callconv(.c) QtC.QWidget ```
-    pub fn OnWidget(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QWidget) void {
-        qtc.QAccessibleWidget_OnWidget(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAccessibleWidget, callback: *const fn () callconv(.c) QtC.QWidget ```
+    pub fn OnWidget(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QWidget) void {
+        qtc.QAccessibleWidget_OnWidget(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#widget)
@@ -630,9 +630,9 @@ pub const qaccessiblewidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAccessibleWidget, slot: fn () callconv(.c) QtC.QObject ```
-    pub fn OnParentObject(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
-        qtc.QAccessibleWidget_OnParentObject(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAccessibleWidget, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnParentObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.QAccessibleWidget_OnParentObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#parentObject)
@@ -659,9 +659,9 @@ pub const qaccessiblewidget = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QAccessibleWidget, slot: fn (self: QtC.QAccessibleWidget, signal: [*:0]const u8) callconv(.c) void ```
-    pub fn OnAddControllingSignal(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QAccessibleWidget_OnAddControllingSignal(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAccessibleWidget, callback: *const fn (self: QtC.QAccessibleWidget, signal: [*:0]const u8) callconv(.c) void ```
+    pub fn OnAddControllingSignal(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QAccessibleWidget_OnAddControllingSignal(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessiblewidget.html#addControllingSignal)
@@ -995,9 +995,9 @@ pub const qaccessiblewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleWidget, slot: fn () callconv(.c) QtC.QObject ```
-    pub fn OnObject(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
-        qtc.QAccessibleWidget_OnObject(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAccessibleWidget, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnObject(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.QAccessibleWidget_OnObject(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAccessibleObject
@@ -1036,9 +1036,9 @@ pub const qaccessiblewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleWidget, slot: fn (self: QtC.QAccessibleWidget, t: qaccessible_base_enums.Text, text: [*:0]const u8) callconv(.c) void ```
-    pub fn OnSetText(self: ?*anyopaque, slot: fn (?*anyopaque, i32, [*:0]const u8) callconv(.c) void) void {
-        qtc.QAccessibleWidget_OnSetText(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAccessibleWidget, callback: *const fn (self: QtC.QAccessibleWidget, t: qaccessible_base_enums.Text, text: [*:0]const u8) callconv(.c) void ```
+    pub fn OnSetText(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, [*:0]const u8) callconv(.c) void) void {
+        qtc.QAccessibleWidget_OnSetText(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAccessibleObject
@@ -1069,9 +1069,9 @@ pub const qaccessiblewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleWidget, slot: fn (self: QtC.QAccessibleWidget, x: i32, y: i32) callconv(.c) QtC.QAccessibleInterface ```
-    pub fn OnChildAt(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32) callconv(.c) QtC.QAccessibleInterface) void {
-        qtc.QAccessibleWidget_OnChildAt(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAccessibleWidget, callback: *const fn (self: QtC.QAccessibleWidget, x: i32, y: i32) callconv(.c) QtC.QAccessibleInterface ```
+    pub fn OnChildAt(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32) callconv(.c) QtC.QAccessibleInterface) void {
+        qtc.QAccessibleWidget_OnChildAt(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAccessibleInterface
@@ -1102,9 +1102,9 @@ pub const qaccessiblewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleWidget, slot: fn (self: QtC.QAccessibleWidget, id: i32, data: ?*anyopaque) callconv(.c) void ```
-    pub fn OnVirtualHook(self: ?*anyopaque, slot: fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.QAccessibleWidget_OnVirtualHook(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAccessibleWidget, callback: *const fn (self: QtC.QAccessibleWidget, id: i32, data: ?*anyopaque) callconv(.c) void ```
+    pub fn OnVirtualHook(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
+        qtc.QAccessibleWidget_OnVirtualHook(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAccessibleActionInterface
@@ -1151,9 +1151,9 @@ pub const qaccessiblewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleWidget, slot: fn (self: QtC.QAccessibleWidget, name: [*:0]const u8) callconv(.c) [*:0]const u8 ```
-    pub fn OnLocalizedActionName(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) [*:0]const u8) void {
-        qtc.QAccessibleWidget_OnLocalizedActionName(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAccessibleWidget, callback: *const fn (self: QtC.QAccessibleWidget, name: [*:0]const u8) callconv(.c) [*:0]const u8 ```
+    pub fn OnLocalizedActionName(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) [*:0]const u8) void {
+        qtc.QAccessibleWidget_OnLocalizedActionName(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAccessibleActionInterface
@@ -1200,8 +1200,8 @@ pub const qaccessiblewidget = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QAccessibleWidget, slot: fn (self: QtC.QAccessibleWidget, name: [*:0]const u8) callconv(.c) [*:0]const u8 ```
-    pub fn OnLocalizedActionDescription(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) [*:0]const u8) void {
-        qtc.QAccessibleWidget_OnLocalizedActionDescription(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QAccessibleWidget, callback: *const fn (self: QtC.QAccessibleWidget, name: [*:0]const u8) callconv(.c) [*:0]const u8 ```
+    pub fn OnLocalizedActionDescription(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) [*:0]const u8) void {
+        qtc.QAccessibleWidget_OnLocalizedActionDescription(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 };

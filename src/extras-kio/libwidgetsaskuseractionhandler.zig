@@ -43,9 +43,9 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, slot: fn (self: QtC.KIO__WidgetsAskUserActionHandler, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, slot: fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
-        qtc.KIO__WidgetsAskUserActionHandler_OnMetacall(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, callback: *const fn (self: QtC.KIO__WidgetsAskUserActionHandler, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
+    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
+        qtc.KIO__WidgetsAskUserActionHandler_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Base class method implementation
@@ -82,9 +82,9 @@ pub const kio__widgetsaskuseractionhandler = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, slot: fn (self: QtC.KIO__WidgetsAskUserActionHandler, job: QtC.KJob, title: [*:0]const u8, src: QtC.QUrl, dest: QtC.QUrl, options: flag of dropjob_enums.RenameDialog_Option, sizeSrc: u64, sizeDest: u64, ctimeSrc: QtC.QDateTime, ctimeDest: QtC.QDateTime, mtimeSrc: QtC.QDateTime, mtimeDest: QtC.QDateTime) callconv(.c) void ```
-    pub fn OnAskUserRename(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, [*:0]const u8, ?*anyopaque, ?*anyopaque, i32, u64, u64, ?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIO__WidgetsAskUserActionHandler_OnAskUserRename(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, callback: *const fn (self: QtC.KIO__WidgetsAskUserActionHandler, job: QtC.KJob, title: [*:0]const u8, src: QtC.QUrl, dest: QtC.QUrl, options: flag of dropjob_enums.RenameDialog_Option, sizeSrc: u64, sizeDest: u64, ctimeSrc: QtC.QDateTime, ctimeDest: QtC.QDateTime, mtimeSrc: QtC.QDateTime, mtimeDest: QtC.QDateTime) callconv(.c) void ```
+    pub fn OnAskUserRename(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8, ?*anyopaque, ?*anyopaque, i32, u64, u64, ?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KIO__WidgetsAskUserActionHandler_OnAskUserRename(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kio-widgetsaskuseractionhandler.html#askUserRename)
@@ -115,9 +115,9 @@ pub const kio__widgetsaskuseractionhandler = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, slot: fn (self: QtC.KIO__WidgetsAskUserActionHandler, job: QtC.KJob, options: flag of dropjob_enums.SkipDialog_Option, error_text: [*:0]const u8) callconv(.c) void ```
-    pub fn OnAskUserSkip(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, [*:0]const u8) callconv(.c) void) void {
-        qtc.KIO__WidgetsAskUserActionHandler_OnAskUserSkip(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, callback: *const fn (self: QtC.KIO__WidgetsAskUserActionHandler, job: QtC.KJob, options: flag of dropjob_enums.SkipDialog_Option, error_text: [*:0]const u8) callconv(.c) void ```
+    pub fn OnAskUserSkip(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, [*:0]const u8) callconv(.c) void) void {
+        qtc.KIO__WidgetsAskUserActionHandler_OnAskUserSkip(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kio-widgetsaskuseractionhandler.html#askUserSkip)
@@ -148,9 +148,9 @@ pub const kio__widgetsaskuseractionhandler = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, slot: fn (self: QtC.KIO__WidgetsAskUserActionHandler, urls: [*]QtC.QUrl, deletionType: askuseractioninterface_enums.DeletionType, confirmationType: askuseractioninterface_enums.ConfirmationType, parent: QtC.QWidget) callconv(.c) void ```
-    pub fn OnAskUserDelete(self: ?*anyopaque, slot: fn (?*anyopaque, [*]QtC.QUrl, i32, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIO__WidgetsAskUserActionHandler_OnAskUserDelete(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, callback: *const fn (self: QtC.KIO__WidgetsAskUserActionHandler, urls: [*]QtC.QUrl, deletionType: askuseractioninterface_enums.DeletionType, confirmationType: askuseractioninterface_enums.ConfirmationType, parent: QtC.QWidget) callconv(.c) void ```
+    pub fn OnAskUserDelete(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*]QtC.QUrl, i32, i32, ?*anyopaque) callconv(.c) void) void {
+        qtc.KIO__WidgetsAskUserActionHandler_OnAskUserDelete(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kio-widgetsaskuseractionhandler.html#askUserDelete)
@@ -209,9 +209,9 @@ pub const kio__widgetsaskuseractionhandler = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, slot: fn (self: QtC.KIO__WidgetsAskUserActionHandler, typeVal: askuseractioninterface_enums.MessageDialogType, text: [*:0]const u8, title: [*:0]const u8, primaryActionText: [*:0]const u8, secondaryActionText: [*:0]const u8, primaryActionIconName: [*:0]const u8, secondaryActionIconName: [*:0]const u8, dontAskAgainName: [*:0]const u8, details: [*:0]const u8, parent: QtC.QWidget) callconv(.c) void ```
-    pub fn OnRequestUserMessageBox(self: ?*anyopaque, slot: fn (?*anyopaque, i32, [*:0]const u8, [*:0]const u8, [*:0]const u8, [*:0]const u8, [*:0]const u8, [*:0]const u8, [*:0]const u8, [*:0]const u8, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIO__WidgetsAskUserActionHandler_OnRequestUserMessageBox(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, callback: *const fn (self: QtC.KIO__WidgetsAskUserActionHandler, typeVal: askuseractioninterface_enums.MessageDialogType, text: [*:0]const u8, title: [*:0]const u8, primaryActionText: [*:0]const u8, secondaryActionText: [*:0]const u8, primaryActionIconName: [*:0]const u8, secondaryActionIconName: [*:0]const u8, dontAskAgainName: [*:0]const u8, details: [*:0]const u8, parent: QtC.QWidget) callconv(.c) void ```
+    pub fn OnRequestUserMessageBox(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, [*:0]const u8, [*:0]const u8, [*:0]const u8, [*:0]const u8, [*:0]const u8, [*:0]const u8, [*:0]const u8, [*:0]const u8, ?*anyopaque) callconv(.c) void) void {
+        qtc.KIO__WidgetsAskUserActionHandler_OnRequestUserMessageBox(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kio-widgetsaskuseractionhandler.html#requestUserMessageBox)
@@ -286,9 +286,9 @@ pub const kio__widgetsaskuseractionhandler = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, slot: fn (self: QtC.KIO__WidgetsAskUserActionHandler, sslErrorData: map_constu8_qtcqvariant, parent: QtC.QWidget) callconv(.c) void ```
-    pub fn OnAskIgnoreSslErrors(self: ?*anyopaque, slot: fn (?*anyopaque, map_constu8_qtcqvariant, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIO__WidgetsAskUserActionHandler_OnAskIgnoreSslErrors(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, callback: *const fn (self: QtC.KIO__WidgetsAskUserActionHandler, sslErrorData: map_constu8_qtcqvariant, parent: QtC.QWidget) callconv(.c) void ```
+    pub fn OnAskIgnoreSslErrors(self: ?*anyopaque, callback: *const fn (?*anyopaque, map_constu8_qtcqvariant, ?*anyopaque) callconv(.c) void) void {
+        qtc.KIO__WidgetsAskUserActionHandler_OnAskIgnoreSslErrors(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kio-widgetsaskuseractionhandler.html#askIgnoreSslErrors)
@@ -366,9 +366,9 @@ pub const kio__widgetsaskuseractionhandler = struct {
     ///
     /// [Qt documentation](https://api.kde.org/kio-askuseractioninterface.html#askUserRenameResult)
     ///
-    /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, slot: fn (self: QtC.KIO__WidgetsAskUserActionHandler, result: dropjob_enums.RenameDialog_Result, newUrl: QtC.QUrl, parentJob: QtC.KJob) callconv(.c) void ```
-    pub fn OnAskUserRenameResult(self: ?*anyopaque, slot: fn (?*anyopaque, i32, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIO__AskUserActionInterface_Connect_AskUserRenameResult(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, callback: *const fn (self: QtC.KIO__WidgetsAskUserActionHandler, result: dropjob_enums.RenameDialog_Result, newUrl: QtC.QUrl, parentJob: QtC.KJob) callconv(.c) void ```
+    pub fn OnAskUserRenameResult(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KIO__AskUserActionInterface_Connect_AskUserRenameResult(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KIO::AskUserActionInterface
@@ -384,9 +384,9 @@ pub const kio__widgetsaskuseractionhandler = struct {
     ///
     /// [Qt documentation](https://api.kde.org/kio-askuseractioninterface.html#askUserSkipResult)
     ///
-    /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, slot: fn (self: QtC.KIO__WidgetsAskUserActionHandler, result: dropjob_enums.RenameDialog_Result, parentJob: QtC.KJob) callconv(.c) void ```
-    pub fn OnAskUserSkipResult(self: ?*anyopaque, slot: fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIO__AskUserActionInterface_Connect_AskUserSkipResult(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, callback: *const fn (self: QtC.KIO__WidgetsAskUserActionHandler, result: dropjob_enums.RenameDialog_Result, parentJob: QtC.KJob) callconv(.c) void ```
+    pub fn OnAskUserSkipResult(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
+        qtc.KIO__AskUserActionInterface_Connect_AskUserSkipResult(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KIO::AskUserActionInterface
@@ -406,9 +406,9 @@ pub const kio__widgetsaskuseractionhandler = struct {
     ///
     /// [Qt documentation](https://api.kde.org/kio-askuseractioninterface.html#askUserDeleteResult)
     ///
-    /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, slot: fn (self: QtC.KIO__WidgetsAskUserActionHandler, allowDelete: bool, urls: [*]QtC.QUrl, deletionType: askuseractioninterface_enums.DeletionType, parent: QtC.QWidget) callconv(.c) void ```
-    pub fn OnAskUserDeleteResult(self: ?*anyopaque, slot: fn (?*anyopaque, bool, [*]QtC.QUrl, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIO__AskUserActionInterface_Connect_AskUserDeleteResult(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, callback: *const fn (self: QtC.KIO__WidgetsAskUserActionHandler, allowDelete: bool, urls: [*]QtC.QUrl, deletionType: askuseractioninterface_enums.DeletionType, parent: QtC.QWidget) callconv(.c) void ```
+    pub fn OnAskUserDeleteResult(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool, [*]QtC.QUrl, i32, ?*anyopaque) callconv(.c) void) void {
+        qtc.KIO__AskUserActionInterface_Connect_AskUserDeleteResult(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KIO::AskUserActionInterface
@@ -424,9 +424,9 @@ pub const kio__widgetsaskuseractionhandler = struct {
     ///
     /// [Qt documentation](https://api.kde.org/kio-askuseractioninterface.html#messageBoxResult)
     ///
-    /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, slot: fn (self: QtC.KIO__WidgetsAskUserActionHandler, result: i32) callconv(.c) void ```
-    pub fn OnMessageBoxResult(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KIO__AskUserActionInterface_Connect_MessageBoxResult(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, callback: *const fn (self: QtC.KIO__WidgetsAskUserActionHandler, result: i32) callconv(.c) void ```
+    pub fn OnMessageBoxResult(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.KIO__AskUserActionInterface_Connect_MessageBoxResult(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KIO::AskUserActionInterface
@@ -442,9 +442,9 @@ pub const kio__widgetsaskuseractionhandler = struct {
     ///
     /// [Qt documentation](https://api.kde.org/kio-askuseractioninterface.html#askIgnoreSslErrorsResult)
     ///
-    /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, slot: fn (self: QtC.KIO__WidgetsAskUserActionHandler, result: i32) callconv(.c) void ```
-    pub fn OnAskIgnoreSslErrorsResult(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.KIO__AskUserActionInterface_Connect_AskIgnoreSslErrorsResult(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, callback: *const fn (self: QtC.KIO__WidgetsAskUserActionHandler, result: i32) callconv(.c) void ```
+    pub fn OnAskIgnoreSslErrorsResult(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.KIO__AskUserActionInterface_Connect_AskIgnoreSslErrorsResult(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -735,9 +735,9 @@ pub const kio__widgetsaskuseractionhandler = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, slot: fn (self: QtC.KIO__WidgetsAskUserActionHandler) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, callback: *const fn (self: QtC.KIO__WidgetsAskUserActionHandler) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -819,9 +819,9 @@ pub const kio__widgetsaskuseractionhandler = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, slot: fn (self: QtC.KIO__WidgetsAskUserActionHandler, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, callback: *const fn (self: QtC.KIO__WidgetsAskUserActionHandler, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -852,9 +852,9 @@ pub const kio__widgetsaskuseractionhandler = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, slot: fn (self: QtC.KIO__WidgetsAskUserActionHandler, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KIO__WidgetsAskUserActionHandler_OnEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, callback: *const fn (self: QtC.KIO__WidgetsAskUserActionHandler, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KIO__WidgetsAskUserActionHandler_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -885,9 +885,9 @@ pub const kio__widgetsaskuseractionhandler = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, slot: fn (self: QtC.KIO__WidgetsAskUserActionHandler, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEventFilter(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KIO__WidgetsAskUserActionHandler_OnEventFilter(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, callback: *const fn (self: QtC.KIO__WidgetsAskUserActionHandler, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
+    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KIO__WidgetsAskUserActionHandler_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -918,9 +918,9 @@ pub const kio__widgetsaskuseractionhandler = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, slot: fn (self: QtC.KIO__WidgetsAskUserActionHandler, event: QtC.QTimerEvent) callconv(.c) void ```
-    pub fn OnTimerEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIO__WidgetsAskUserActionHandler_OnTimerEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, callback: *const fn (self: QtC.KIO__WidgetsAskUserActionHandler, event: QtC.QTimerEvent) callconv(.c) void ```
+    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KIO__WidgetsAskUserActionHandler_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -951,9 +951,9 @@ pub const kio__widgetsaskuseractionhandler = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, slot: fn (self: QtC.KIO__WidgetsAskUserActionHandler, event: QtC.QChildEvent) callconv(.c) void ```
-    pub fn OnChildEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIO__WidgetsAskUserActionHandler_OnChildEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, callback: *const fn (self: QtC.KIO__WidgetsAskUserActionHandler, event: QtC.QChildEvent) callconv(.c) void ```
+    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KIO__WidgetsAskUserActionHandler_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -984,9 +984,9 @@ pub const kio__widgetsaskuseractionhandler = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, slot: fn (self: QtC.KIO__WidgetsAskUserActionHandler, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnCustomEvent(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIO__WidgetsAskUserActionHandler_OnCustomEvent(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, callback: *const fn (self: QtC.KIO__WidgetsAskUserActionHandler, event: QtC.QEvent) callconv(.c) void ```
+    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KIO__WidgetsAskUserActionHandler_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1017,9 +1017,9 @@ pub const kio__widgetsaskuseractionhandler = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, slot: fn (self: QtC.KIO__WidgetsAskUserActionHandler, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnConnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIO__WidgetsAskUserActionHandler_OnConnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, callback: *const fn (self: QtC.KIO__WidgetsAskUserActionHandler, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KIO__WidgetsAskUserActionHandler_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1050,9 +1050,9 @@ pub const kio__widgetsaskuseractionhandler = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, slot: fn (self: QtC.KIO__WidgetsAskUserActionHandler, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnDisconnectNotify(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIO__WidgetsAskUserActionHandler_OnDisconnectNotify(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, callback: *const fn (self: QtC.KIO__WidgetsAskUserActionHandler, signal: QtC.QMetaMethod) callconv(.c) void ```
+    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KIO__WidgetsAskUserActionHandler_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1083,9 +1083,9 @@ pub const kio__widgetsaskuseractionhandler = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, slot: fn () callconv(.c) QtC.QObject ```
-    pub fn OnSender(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QObject) void {
-        qtc.KIO__WidgetsAskUserActionHandler_OnSender(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, callback: *const fn () callconv(.c) QtC.QObject ```
+    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
+        qtc.KIO__WidgetsAskUserActionHandler_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1116,9 +1116,9 @@ pub const kio__widgetsaskuseractionhandler = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, slot: fn () callconv(.c) i32 ```
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.KIO__WidgetsAskUserActionHandler_OnSenderSignalIndex(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.KIO__WidgetsAskUserActionHandler_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1151,9 +1151,9 @@ pub const kio__widgetsaskuseractionhandler = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, slot: fn (self: QtC.KIO__WidgetsAskUserActionHandler, signal: [*:0]const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KIO__WidgetsAskUserActionHandler_OnReceivers(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, callback: *const fn (self: QtC.KIO__WidgetsAskUserActionHandler, signal: [*:0]const u8) callconv(.c) i32 ```
+    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
+        qtc.KIO__WidgetsAskUserActionHandler_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1184,9 +1184,9 @@ pub const kio__widgetsaskuseractionhandler = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, slot: fn (self: QtC.KIO__WidgetsAskUserActionHandler, signal: QtC.QMetaMethod) callconv(.c) bool ```
-    pub fn OnIsSignalConnected(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KIO__WidgetsAskUserActionHandler_OnIsSignalConnected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, callback: *const fn (self: QtC.KIO__WidgetsAskUserActionHandler, signal: QtC.QMetaMethod) callconv(.c) bool ```
+    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KIO__WidgetsAskUserActionHandler_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -1195,9 +1195,9 @@ pub const kio__widgetsaskuseractionhandler = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, slot: fn (self: QtC.KIO__WidgetsAskUserActionHandler, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, callback: *const fn (self: QtC.KIO__WidgetsAskUserActionHandler, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Delete this object from C++ memory.

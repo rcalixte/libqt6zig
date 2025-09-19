@@ -21,9 +21,9 @@ pub const qrunnable = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QRunnable, slot: fn () callconv(.c) void ```
-    pub fn OnRun(self: ?*anyopaque, slot: fn () callconv(.c) void) void {
-        qtc.QRunnable_OnRun(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QRunnable, callback: *const fn () callconv(.c) void ```
+    pub fn OnRun(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
+        qtc.QRunnable_OnRun(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qrunnable.html#run)

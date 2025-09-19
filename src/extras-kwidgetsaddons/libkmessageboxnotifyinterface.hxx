@@ -10,7 +10,7 @@
 #include "../qtlibc.h"
 
 // This class is a subclass of KMessageBoxNotifyInterface so that we can call protected methods
-class VirtualKMessageBoxNotifyInterface final : public KMessageBoxNotifyInterface {
+class VirtualKMessageBoxNotifyInterface : public KMessageBoxNotifyInterface {
 
   public:
     // Virtual class boolean flag

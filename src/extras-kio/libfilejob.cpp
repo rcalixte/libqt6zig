@@ -1,7 +1,7 @@
 #include <KCompositeJob>
 #define WORKAROUND_INNER_CLASS_DEFINITION_KIO__FileJob
-#define WORKAROUND_INNER_CLASS_DEFINITION_KIO__Job
-#define WORKAROUND_INNER_CLASS_DEFINITION_KIO__SimpleJob
+#include <KIO/Job>
+#include <KIO/SimpleJob>
 #include <KJob>
 #include <QByteArray>
 #include <QList>

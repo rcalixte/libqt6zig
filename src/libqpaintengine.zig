@@ -148,9 +148,9 @@ pub const qpaintengine = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QPaintEngine, slot: fn (self: QtC.QPaintEngine, pdev: QtC.QPaintDevice) callconv(.c) bool ```
-    pub fn OnBegin(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.QPaintEngine_OnBegin(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPaintEngine, callback: *const fn (self: QtC.QPaintEngine, pdev: QtC.QPaintDevice) callconv(.c) bool ```
+    pub fn OnBegin(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.QPaintEngine_OnBegin(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#begin)
@@ -173,9 +173,9 @@ pub const qpaintengine = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QPaintEngine, slot: fn () callconv(.c) bool ```
-    pub fn OnEnd(self: ?*anyopaque, slot: fn () callconv(.c) bool) void {
-        qtc.QPaintEngine_OnEnd(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPaintEngine, callback: *const fn () callconv(.c) bool ```
+    pub fn OnEnd(self: ?*anyopaque, callback: *const fn () callconv(.c) bool) void {
+        qtc.QPaintEngine_OnEnd(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#end)
@@ -198,9 +198,9 @@ pub const qpaintengine = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QPaintEngine, slot: fn (self: QtC.QPaintEngine, state: QtC.QPaintEngineState) callconv(.c) void ```
-    pub fn OnUpdateState(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPaintEngine_OnUpdateState(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPaintEngine, callback: *const fn (self: QtC.QPaintEngine, state: QtC.QPaintEngineState) callconv(.c) void ```
+    pub fn OnUpdateState(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QPaintEngine_OnUpdateState(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#updateState)
@@ -223,9 +223,9 @@ pub const qpaintengine = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QPaintEngine, slot: fn (self: QtC.QPaintEngine, rects: QtC.QRect, rectCount: i32) callconv(.c) void ```
-    pub fn OnDrawRects(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QPaintEngine_OnDrawRects(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPaintEngine, callback: *const fn (self: QtC.QPaintEngine, rects: QtC.QRect, rectCount: i32) callconv(.c) void ```
+    pub fn OnDrawRects(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QPaintEngine_OnDrawRects(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#drawRects)
@@ -248,9 +248,9 @@ pub const qpaintengine = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QPaintEngine, slot: fn (self: QtC.QPaintEngine, rects: QtC.QRectF, rectCount: i32) callconv(.c) void ```
-    pub fn OnDrawRects2(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QPaintEngine_OnDrawRects2(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPaintEngine, callback: *const fn (self: QtC.QPaintEngine, rects: QtC.QRectF, rectCount: i32) callconv(.c) void ```
+    pub fn OnDrawRects2(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QPaintEngine_OnDrawRects2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#drawRects)
@@ -273,9 +273,9 @@ pub const qpaintengine = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QPaintEngine, slot: fn (self: QtC.QPaintEngine, lines: QtC.QLine, lineCount: i32) callconv(.c) void ```
-    pub fn OnDrawLines(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QPaintEngine_OnDrawLines(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPaintEngine, callback: *const fn (self: QtC.QPaintEngine, lines: QtC.QLine, lineCount: i32) callconv(.c) void ```
+    pub fn OnDrawLines(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QPaintEngine_OnDrawLines(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#drawLines)
@@ -298,9 +298,9 @@ pub const qpaintengine = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QPaintEngine, slot: fn (self: QtC.QPaintEngine, lines: QtC.QLineF, lineCount: i32) callconv(.c) void ```
-    pub fn OnDrawLines2(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QPaintEngine_OnDrawLines2(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPaintEngine, callback: *const fn (self: QtC.QPaintEngine, lines: QtC.QLineF, lineCount: i32) callconv(.c) void ```
+    pub fn OnDrawLines2(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QPaintEngine_OnDrawLines2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#drawLines)
@@ -323,9 +323,9 @@ pub const qpaintengine = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QPaintEngine, slot: fn (self: QtC.QPaintEngine, r: QtC.QRectF) callconv(.c) void ```
-    pub fn OnDrawEllipse(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPaintEngine_OnDrawEllipse(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPaintEngine, callback: *const fn (self: QtC.QPaintEngine, r: QtC.QRectF) callconv(.c) void ```
+    pub fn OnDrawEllipse(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QPaintEngine_OnDrawEllipse(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#drawEllipse)
@@ -348,9 +348,9 @@ pub const qpaintengine = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QPaintEngine, slot: fn (self: QtC.QPaintEngine, r: QtC.QRect) callconv(.c) void ```
-    pub fn OnDrawEllipse2(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPaintEngine_OnDrawEllipse2(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPaintEngine, callback: *const fn (self: QtC.QPaintEngine, r: QtC.QRect) callconv(.c) void ```
+    pub fn OnDrawEllipse2(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QPaintEngine_OnDrawEllipse2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#drawEllipse)
@@ -373,9 +373,9 @@ pub const qpaintengine = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QPaintEngine, slot: fn (self: QtC.QPaintEngine, path: QtC.QPainterPath) callconv(.c) void ```
-    pub fn OnDrawPath(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPaintEngine_OnDrawPath(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPaintEngine, callback: *const fn (self: QtC.QPaintEngine, path: QtC.QPainterPath) callconv(.c) void ```
+    pub fn OnDrawPath(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QPaintEngine_OnDrawPath(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#drawPath)
@@ -398,9 +398,9 @@ pub const qpaintengine = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QPaintEngine, slot: fn (self: QtC.QPaintEngine, points: QtC.QPointF, pointCount: i32) callconv(.c) void ```
-    pub fn OnDrawPoints(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QPaintEngine_OnDrawPoints(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPaintEngine, callback: *const fn (self: QtC.QPaintEngine, points: QtC.QPointF, pointCount: i32) callconv(.c) void ```
+    pub fn OnDrawPoints(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QPaintEngine_OnDrawPoints(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#drawPoints)
@@ -423,9 +423,9 @@ pub const qpaintengine = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QPaintEngine, slot: fn (self: QtC.QPaintEngine, points: QtC.QPoint, pointCount: i32) callconv(.c) void ```
-    pub fn OnDrawPoints2(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QPaintEngine_OnDrawPoints2(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPaintEngine, callback: *const fn (self: QtC.QPaintEngine, points: QtC.QPoint, pointCount: i32) callconv(.c) void ```
+    pub fn OnDrawPoints2(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QPaintEngine_OnDrawPoints2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#drawPoints)
@@ -448,9 +448,9 @@ pub const qpaintengine = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QPaintEngine, slot: fn (self: QtC.QPaintEngine, points: QtC.QPointF, pointCount: i32, mode: qpaintengine_enums.PolygonDrawMode) callconv(.c) void ```
-    pub fn OnDrawPolygon(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QPaintEngine_OnDrawPolygon(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPaintEngine, callback: *const fn (self: QtC.QPaintEngine, points: QtC.QPointF, pointCount: i32, mode: qpaintengine_enums.PolygonDrawMode) callconv(.c) void ```
+    pub fn OnDrawPolygon(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
+        qtc.QPaintEngine_OnDrawPolygon(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#drawPolygon)
@@ -473,9 +473,9 @@ pub const qpaintengine = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QPaintEngine, slot: fn (self: QtC.QPaintEngine, points: QtC.QPoint, pointCount: i32, mode: qpaintengine_enums.PolygonDrawMode) callconv(.c) void ```
-    pub fn OnDrawPolygon2(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
-        qtc.QPaintEngine_OnDrawPolygon2(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPaintEngine, callback: *const fn (self: QtC.QPaintEngine, points: QtC.QPoint, pointCount: i32, mode: qpaintengine_enums.PolygonDrawMode) callconv(.c) void ```
+    pub fn OnDrawPolygon2(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) void) void {
+        qtc.QPaintEngine_OnDrawPolygon2(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#drawPolygon)
@@ -498,9 +498,9 @@ pub const qpaintengine = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QPaintEngine, slot: fn (self: QtC.QPaintEngine, r: QtC.QRectF, pm: QtC.QPixmap, sr: QtC.QRectF) callconv(.c) void ```
-    pub fn OnDrawPixmap(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPaintEngine_OnDrawPixmap(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPaintEngine, callback: *const fn (self: QtC.QPaintEngine, r: QtC.QRectF, pm: QtC.QPixmap, sr: QtC.QRectF) callconv(.c) void ```
+    pub fn OnDrawPixmap(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QPaintEngine_OnDrawPixmap(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#drawPixmap)
@@ -523,9 +523,9 @@ pub const qpaintengine = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QPaintEngine, slot: fn (self: QtC.QPaintEngine, p: QtC.QPointF, textItem: QtC.QTextItem) callconv(.c) void ```
-    pub fn OnDrawTextItem(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPaintEngine_OnDrawTextItem(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPaintEngine, callback: *const fn (self: QtC.QPaintEngine, p: QtC.QPointF, textItem: QtC.QTextItem) callconv(.c) void ```
+    pub fn OnDrawTextItem(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QPaintEngine_OnDrawTextItem(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#drawTextItem)
@@ -548,9 +548,9 @@ pub const qpaintengine = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QPaintEngine, slot: fn (self: QtC.QPaintEngine, r: QtC.QRectF, pixmap: QtC.QPixmap, s: QtC.QPointF) callconv(.c) void ```
-    pub fn OnDrawTiledPixmap(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QPaintEngine_OnDrawTiledPixmap(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPaintEngine, callback: *const fn (self: QtC.QPaintEngine, r: QtC.QRectF, pixmap: QtC.QPixmap, s: QtC.QPointF) callconv(.c) void ```
+    pub fn OnDrawTiledPixmap(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QPaintEngine_OnDrawTiledPixmap(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#drawTiledPixmap)
@@ -573,9 +573,9 @@ pub const qpaintengine = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QPaintEngine, slot: fn (self: QtC.QPaintEngine, r: QtC.QRectF, pm: QtC.QImage, sr: QtC.QRectF, flags: flag of qnamespace_enums.ImageConversionFlag) callconv(.c) void ```
-    pub fn OnDrawImage(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QPaintEngine_OnDrawImage(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPaintEngine, callback: *const fn (self: QtC.QPaintEngine, r: QtC.QRectF, pm: QtC.QImage, sr: QtC.QRectF, flags: flag of qnamespace_enums.ImageConversionFlag) callconv(.c) void ```
+    pub fn OnDrawImage(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QPaintEngine_OnDrawImage(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#drawImage)
@@ -640,9 +640,9 @@ pub const qpaintengine = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QPaintEngine, slot: fn () callconv(.c) QtC.QPoint ```
-    pub fn OnCoordinateOffset(self: ?*anyopaque, slot: fn () callconv(.c) QtC.QPoint) void {
-        qtc.QPaintEngine_OnCoordinateOffset(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPaintEngine, callback: *const fn () callconv(.c) QtC.QPoint ```
+    pub fn OnCoordinateOffset(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPoint) void {
+        qtc.QPaintEngine_OnCoordinateOffset(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#coordinateOffset)
@@ -667,9 +667,9 @@ pub const qpaintengine = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QPaintEngine, slot: fn () callconv(.c) i32 ```
-    pub fn OnType(self: ?*anyopaque, slot: fn () callconv(.c) i32) void {
-        qtc.QPaintEngine_OnType(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPaintEngine, callback: *const fn () callconv(.c) i32 ```
+    pub fn OnType(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
+        qtc.QPaintEngine_OnType(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#type)
@@ -750,9 +750,9 @@ pub const qpaintengine = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QPaintEngine, slot: fn (self: QtC.QPaintEngine, size: QtC.QSize) callconv(.c) QtC.QPixmap ```
-    pub fn OnCreatePixmap(self: ?*anyopaque, slot: fn (?*anyopaque, QtC.QSize) callconv(.c) QtC.QPixmap) void {
-        qtc.QPaintEngine_OnCreatePixmap(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPaintEngine, callback: *const fn (self: QtC.QPaintEngine, size: QtC.QSize) callconv(.c) QtC.QPixmap ```
+    pub fn OnCreatePixmap(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QSize) callconv(.c) QtC.QPixmap) void {
+        qtc.QPaintEngine_OnCreatePixmap(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#createPixmap)
@@ -775,9 +775,9 @@ pub const qpaintengine = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QPaintEngine, slot: fn (self: QtC.QPaintEngine, image: QtC.QImage, flags: flag of qnamespace_enums.ImageConversionFlag) callconv(.c) QtC.QPixmap ```
-    pub fn OnCreatePixmapFromImage(self: ?*anyopaque, slot: fn (?*anyopaque, QtC.QImage, i32) callconv(.c) QtC.QPixmap) void {
-        qtc.QPaintEngine_OnCreatePixmapFromImage(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QPaintEngine, callback: *const fn (self: QtC.QPaintEngine, image: QtC.QImage, flags: flag of qnamespace_enums.ImageConversionFlag) callconv(.c) QtC.QPixmap ```
+    pub fn OnCreatePixmapFromImage(self: ?*anyopaque, callback: *const fn (?*anyopaque, QtC.QImage, i32) callconv(.c) QtC.QPixmap) void {
+        qtc.QPaintEngine_OnCreatePixmapFromImage(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpaintengine.html#createPixmapFromImage)

@@ -155,9 +155,9 @@ pub const qnetworkinformation = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkinformation.html#reachabilityChanged)
     ///
-    /// ``` self: QtC.QNetworkInformation, slot: fn (self: QtC.QNetworkInformation, newReachability: qnetworkinformation_enums.Reachability) callconv(.c) void ```
-    pub fn OnReachabilityChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QNetworkInformation_Connect_ReachabilityChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QNetworkInformation, callback: *const fn (self: QtC.QNetworkInformation, newReachability: qnetworkinformation_enums.Reachability) callconv(.c) void ```
+    pub fn OnReachabilityChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QNetworkInformation_Connect_ReachabilityChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkinformation.html#isBehindCaptivePortalChanged)
@@ -169,9 +169,9 @@ pub const qnetworkinformation = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkinformation.html#isBehindCaptivePortalChanged)
     ///
-    /// ``` self: QtC.QNetworkInformation, slot: fn (self: QtC.QNetworkInformation, state: bool) callconv(.c) void ```
-    pub fn OnIsBehindCaptivePortalChanged(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QNetworkInformation_Connect_IsBehindCaptivePortalChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QNetworkInformation, callback: *const fn (self: QtC.QNetworkInformation, state: bool) callconv(.c) void ```
+    pub fn OnIsBehindCaptivePortalChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QNetworkInformation_Connect_IsBehindCaptivePortalChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkinformation.html#transportMediumChanged)
@@ -183,9 +183,9 @@ pub const qnetworkinformation = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkinformation.html#transportMediumChanged)
     ///
-    /// ``` self: QtC.QNetworkInformation, slot: fn (self: QtC.QNetworkInformation, current: qnetworkinformation_enums.TransportMedium) callconv(.c) void ```
-    pub fn OnTransportMediumChanged(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QNetworkInformation_Connect_TransportMediumChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QNetworkInformation, callback: *const fn (self: QtC.QNetworkInformation, current: qnetworkinformation_enums.TransportMedium) callconv(.c) void ```
+    pub fn OnTransportMediumChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QNetworkInformation_Connect_TransportMediumChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkinformation.html#isMeteredChanged)
@@ -197,9 +197,9 @@ pub const qnetworkinformation = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkinformation.html#isMeteredChanged)
     ///
-    /// ``` self: QtC.QNetworkInformation, slot: fn (self: QtC.QNetworkInformation, isMetered: bool) callconv(.c) void ```
-    pub fn OnIsMeteredChanged(self: ?*anyopaque, slot: fn (?*anyopaque, bool) callconv(.c) void) void {
-        qtc.QNetworkInformation_Connect_IsMeteredChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QNetworkInformation, callback: *const fn (self: QtC.QNetworkInformation, isMetered: bool) callconv(.c) void ```
+    pub fn OnIsMeteredChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, bool) callconv(.c) void) void {
+        qtc.QNetworkInformation_Connect_IsMeteredChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -534,9 +534,9 @@ pub const qnetworkinformation = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QNetworkInformation, slot: fn (self: QtC.QNetworkInformation) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QNetworkInformation, callback: *const fn (self: QtC.QNetworkInformation) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -618,9 +618,9 @@ pub const qnetworkinformation = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.QNetworkInformation, slot: fn (self: QtC.QNetworkInformation, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QNetworkInformation, callback: *const fn (self: QtC.QNetworkInformation, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -629,9 +629,9 @@ pub const qnetworkinformation = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.QNetworkInformation, slot: fn (self: QtC.QNetworkInformation, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QNetworkInformation, callback: *const fn (self: QtC.QNetworkInformation, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 };
 

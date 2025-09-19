@@ -1,7 +1,7 @@
 #include <KConfigGroup>
 #define WORKAROUND_INNER_CLASS_DEFINITION_KIO__AuthInfo
-#define WORKAROUND_INNER_CLASS_DEFINITION_KIO__MetaData
-#define WORKAROUND_INNER_CLASS_DEFINITION_KIO__UDSEntry
+#include <KIO/MetaData>
+#include <KIO/UDSEntry>
 #define WORKAROUND_INNER_CLASS_DEFINITION_KIO__WorkerBase
 #define WORKAROUND_INNER_CLASS_DEFINITION_KIO__WorkerResult
 #include <KRemoteEncoding>

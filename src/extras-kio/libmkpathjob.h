@@ -14,9 +14,7 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_KIO__Job)
 typedef KIO::Job KIO__Job;
-#endif
 #if defined(WORKAROUND_INNER_CLASS_DEFINITION_KIO__MkpathJob)
 typedef KIO::MkpathJob KIO__MkpathJob;
 #endif

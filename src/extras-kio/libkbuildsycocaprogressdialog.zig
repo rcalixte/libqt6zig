@@ -305,9 +305,9 @@ pub const kbuildsycocaprogressdialog = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qprogressdialog.html#canceled)
     ///
-    /// ``` self: QtC.KBuildSycocaProgressDialog, slot: fn (self: QtC.KBuildSycocaProgressDialog) callconv(.c) void ```
-    pub fn OnCanceled(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QProgressDialog_Connect_Canceled(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KBuildSycocaProgressDialog, callback: *const fn (self: QtC.KBuildSycocaProgressDialog) callconv(.c) void ```
+    pub fn OnCanceled(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QProgressDialog_Connect_Canceled(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -386,9 +386,9 @@ pub const kbuildsycocaprogressdialog = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qdialog.html#finished)
     ///
-    /// ``` self: QtC.KBuildSycocaProgressDialog, slot: fn (self: QtC.KBuildSycocaProgressDialog, result: i32) callconv(.c) void ```
-    pub fn OnFinished(self: ?*anyopaque, slot: fn (?*anyopaque, i32) callconv(.c) void) void {
-        qtc.QDialog_Connect_Finished(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KBuildSycocaProgressDialog, callback: *const fn (self: QtC.KBuildSycocaProgressDialog, result: i32) callconv(.c) void ```
+    pub fn OnFinished(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32) callconv(.c) void) void {
+        qtc.QDialog_Connect_Finished(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -404,9 +404,9 @@ pub const kbuildsycocaprogressdialog = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qdialog.html#accepted)
     ///
-    /// ``` self: QtC.KBuildSycocaProgressDialog, slot: fn (self: QtC.KBuildSycocaProgressDialog) callconv(.c) void ```
-    pub fn OnAccepted(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QDialog_Connect_Accepted(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KBuildSycocaProgressDialog, callback: *const fn (self: QtC.KBuildSycocaProgressDialog) callconv(.c) void ```
+    pub fn OnAccepted(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QDialog_Connect_Accepted(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -422,9 +422,9 @@ pub const kbuildsycocaprogressdialog = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qdialog.html#rejected)
     ///
-    /// ``` self: QtC.KBuildSycocaProgressDialog, slot: fn (self: QtC.KBuildSycocaProgressDialog) callconv(.c) void ```
-    pub fn OnRejected(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QDialog_Connect_Rejected(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KBuildSycocaProgressDialog, callback: *const fn (self: QtC.KBuildSycocaProgressDialog) callconv(.c) void ```
+    pub fn OnRejected(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QDialog_Connect_Rejected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QDialog
@@ -2883,9 +2883,9 @@ pub const kbuildsycocaprogressdialog = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowTitleChanged)
     ///
-    /// ``` self: QtC.KBuildSycocaProgressDialog, slot: fn (self: QtC.KBuildSycocaProgressDialog, title: [*:0]const u8) callconv(.c) void ```
-    pub fn OnWindowTitleChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KBuildSycocaProgressDialog, callback: *const fn (self: QtC.KBuildSycocaProgressDialog, title: [*:0]const u8) callconv(.c) void ```
+    pub fn OnWindowTitleChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -2901,9 +2901,9 @@ pub const kbuildsycocaprogressdialog = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconChanged)
     ///
-    /// ``` self: QtC.KBuildSycocaProgressDialog, slot: fn (self: QtC.KBuildSycocaProgressDialog, icon: QtC.QIcon) callconv(.c) void ```
-    pub fn OnWindowIconChanged(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KBuildSycocaProgressDialog, callback: *const fn (self: QtC.KBuildSycocaProgressDialog, icon: QtC.QIcon) callconv(.c) void ```
+    pub fn OnWindowIconChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -2923,9 +2923,9 @@ pub const kbuildsycocaprogressdialog = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#windowIconTextChanged)
     ///
-    /// ``` self: QtC.KBuildSycocaProgressDialog, slot: fn (self: QtC.KBuildSycocaProgressDialog, iconText: [*:0]const u8) callconv(.c) void ```
-    pub fn OnWindowIconTextChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KBuildSycocaProgressDialog, callback: *const fn (self: QtC.KBuildSycocaProgressDialog, iconText: [*:0]const u8) callconv(.c) void ```
+    pub fn OnWindowIconTextChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -2941,9 +2941,9 @@ pub const kbuildsycocaprogressdialog = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#customContextMenuRequested)
     ///
-    /// ``` self: QtC.KBuildSycocaProgressDialog, slot: fn (self: QtC.KBuildSycocaProgressDialog, pos: QtC.QPoint) callconv(.c) void ```
-    pub fn OnCustomContextMenuRequested(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KBuildSycocaProgressDialog, callback: *const fn (self: QtC.KBuildSycocaProgressDialog, pos: QtC.QPoint) callconv(.c) void ```
+    pub fn OnCustomContextMenuRequested(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QWidget
@@ -3389,9 +3389,9 @@ pub const kbuildsycocaprogressdialog = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KBuildSycocaProgressDialog, slot: fn (self: QtC.KBuildSycocaProgressDialog) callconv(.c) void ```
-    pub fn OnDestroyed(self: ?*anyopaque, slot: fn (?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KBuildSycocaProgressDialog, callback: *const fn (self: QtC.KBuildSycocaProgressDialog) callconv(.c) void ```
+    pub fn OnDestroyed(self: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject
@@ -3473,9 +3473,9 @@ pub const kbuildsycocaprogressdialog = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#destroyed)
     ///
-    /// ``` self: QtC.KBuildSycocaProgressDialog, slot: fn (self: QtC.KBuildSycocaProgressDialog, param1: QtC.QObject) callconv(.c) void ```
-    pub fn OnDestroyed1(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KBuildSycocaProgressDialog, callback: *const fn (self: QtC.KBuildSycocaProgressDialog, param1: QtC.QObject) callconv(.c) void ```
+    pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QPaintDevice
@@ -3601,8 +3601,8 @@ pub const kbuildsycocaprogressdialog = struct {
     ///
     /// Wrapper to allow calling private signal
     ///
-    /// ``` self: QtC.KBuildSycocaProgressDialog, slot: fn (self: QtC.KBuildSycocaProgressDialog, objectName: [*:0]const u8) callconv(.c) void ```
-    pub fn OnObjectNameChanged(self: ?*anyopaque, slot: fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.KBuildSycocaProgressDialog, callback: *const fn (self: QtC.KBuildSycocaProgressDialog, objectName: [*:0]const u8) callconv(.c) void ```
+    pub fn OnObjectNameChanged(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) void) void {
+        qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 };

@@ -138,7 +138,7 @@ class VirtualKMacroExpanderBase final : public KMacroExpanderBase {
 };
 
 // This class is a subclass of KWordMacroExpander so that we can call protected methods
-class VirtualKWordMacroExpander final : public KWordMacroExpander {
+class VirtualKWordMacroExpander : public KWordMacroExpander {
 
   public:
     // Virtual class boolean flag
@@ -312,7 +312,7 @@ class VirtualKWordMacroExpander final : public KWordMacroExpander {
 };
 
 // This class is a subclass of KCharMacroExpander so that we can call protected methods
-class VirtualKCharMacroExpander final : public KCharMacroExpander {
+class VirtualKCharMacroExpander : public KCharMacroExpander {
 
   public:
     // Virtual class boolean flag

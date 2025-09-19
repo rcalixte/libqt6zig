@@ -23,9 +23,9 @@ pub const qgesturerecognizer = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGestureRecognizer, slot: fn (self: QtC.QGestureRecognizer, target: QtC.QObject) callconv(.c) QtC.QGesture ```
-    pub fn OnCreate(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QGesture) void {
-        qtc.QGestureRecognizer_OnCreate(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGestureRecognizer, callback: *const fn (self: QtC.QGestureRecognizer, target: QtC.QObject) callconv(.c) QtC.QGesture ```
+    pub fn OnCreate(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) QtC.QGesture) void {
+        qtc.QGestureRecognizer_OnCreate(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesturerecognizer.html#create)
@@ -50,9 +50,9 @@ pub const qgesturerecognizer = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGestureRecognizer, slot: fn (self: QtC.QGestureRecognizer, state: QtC.QGesture, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) i32 ```
-    pub fn OnRecognize(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
-        qtc.QGestureRecognizer_OnRecognize(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGestureRecognizer, callback: *const fn (self: QtC.QGestureRecognizer, state: QtC.QGesture, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) i32 ```
+    pub fn OnRecognize(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) i32) void {
+        qtc.QGestureRecognizer_OnRecognize(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesturerecognizer.html#recognize)
@@ -77,9 +77,9 @@ pub const qgesturerecognizer = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.QGestureRecognizer, slot: fn (self: QtC.QGestureRecognizer, state: QtC.QGesture) callconv(.c) void ```
-    pub fn OnReset(self: ?*anyopaque, slot: fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.QGestureRecognizer_OnReset(@ptrCast(self), @as(isize, @bitCast(@intFromPtr(&slot))));
+    /// ``` self: QtC.QGestureRecognizer, callback: *const fn (self: QtC.QGestureRecognizer, state: QtC.QGesture) callconv(.c) void ```
+    pub fn OnReset(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.QGestureRecognizer_OnReset(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qgesturerecognizer.html#reset)
