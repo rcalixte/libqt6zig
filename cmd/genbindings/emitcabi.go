@@ -95,7 +95,7 @@ func (p CppParameter) RenderTypeCabi(isSlot bool) string {
 		ret = "uint64_t"
 	case "qfloat16":
 		ret = "_Float16" // No idea where this typedef comes from, but it exists
-	case "qreal":
+	case "const double", "qreal":
 		ret = "double"
 	case "qintptr", "QIntegerForSizeof<void *>::Signed": // long long int
 		ret = "intptr_t" // long int
@@ -997,8 +997,9 @@ func emitVirtualBindingHeader(src *CppParsedHeader, filename, packageName string
 			var publicTypes, privateCallbacks, callbackSetters, baseSetters, privateCallbackVars, privateBaseFlags, friendFuncs []string
 
 			className := cppClassName
+			maybeFinal := ifv(c.Abstract, "", " final")
 			ret.WriteString("// This class is a subclass of " + className + " so that we can call protected methods\n")
-			ret.WriteString("class " + overriddenClassName + " final : public " + className + " {\n\n")
+			ret.WriteString("class " + overriddenClassName + maybeFinal + " : public " + className + " {\n\n")
 
 			seenProtectedEnums := map[string]struct{}{}
 			allProtectedEnums := getAllProtectedEnums(&c, seenProtectedEnums)
@@ -1282,9 +1283,15 @@ extern "C" {
 			// Forward declarations of inner classes are not yet supported in C++
 			// @ref https://stackoverflow.com/q/1021793
 
-			ret.WriteString("#if defined(WORKAROUND_INNER_CLASS_DEFINITION_" + cabiClassName(ft) + ")\n")
-			ret.WriteString("typedef " + ft + " " + cabiClassName(ft) + ";\n")
-			ret.WriteString("#endif\n")
+			typeDefStr := "typedef " + ft + " " + cabiClassName(ft) + ";\n"
+
+			if AllowInnerClassDef(ft) {
+				ret.WriteString(typeDefStr)
+			} else {
+				ret.WriteString("#if defined(WORKAROUND_INNER_CLASS_DEFINITION_" + cabiClassName(ft) + ")\n")
+				ret.WriteString(typeDefStr)
+				ret.WriteString("#endif\n")
+			}
 		}
 	}
 
@@ -1325,7 +1332,7 @@ extern "C" {
 		virtualMethods := c.VirtualMethods()
 		protectedMethods := c.ProtectedMethods()
 		seenClassMethods := map[string]bool{}
-		virtualEligible := AllowVirtualForClass(c.ClassName)
+		virtualEligible := AllowVirtualForClass(c.ClassName) && len(virtualMethods) > 0
 
 		// Add protected methods first
 		if virtualEligible && len(virtualMethods) > 0 {
@@ -1504,7 +1511,11 @@ func emitBindingCpp(src *CppParsedHeader, filename string) (string, error) {
 		}
 
 		if strings.Contains(ref, "::") {
-			ret.WriteString("#define WORKAROUND_INNER_CLASS_DEFINITION_" + cabiClassName(ref) + "\n")
+			if AllowInnerClassDef(ref) {
+				ret.WriteString("#include <" + strings.ReplaceAll(ref, "::", "/") + ">\n")
+			} else {
+				ret.WriteString("#define WORKAROUND_INNER_CLASS_DEFINITION_" + cabiClassName(ref) + "\n")
+			}
 			continue
 		}
 
@@ -1531,7 +1542,7 @@ func emitBindingCpp(src *CppParsedHeader, filename string) (string, error) {
 		virtualMethods := c.VirtualMethods()
 		protectedMethods := c.ProtectedMethods()
 		cppClassName := strings.ReplaceAll(c.ClassName, "::", "")
-		virtualEligible := AllowVirtualForClass(c.ClassName)
+		virtualEligible := AllowVirtualForClass(c.ClassName) && len(virtualMethods) > 0
 
 		// Add protected methods first
 		if virtualEligible && len(virtualMethods) > 0 {
