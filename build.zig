@@ -41,11 +41,11 @@ pub fn build(b: *std.Build) !void {
     const allocator = arena.allocator();
 
     var cpp_sources: std.ArrayList([]const u8) = .empty;
-    var cpp_header_files: std.ArrayList([]const u8) = .empty;
     var prefix_options: std.StringHashMapUnmanaged(bool) = .empty;
 
-    const src_dir = b.build_root.path.?;
+    const src_dir = try std.fs.path.join(allocator, &.{ b.build_root.path.?, "src" });
     var dir = try std.fs.cwd().openDir(src_dir, .{ .iterate = true });
+    defer dir.close();
     var walker = try dir.walk(b.allocator);
     defer walker.deinit();
 
@@ -57,13 +57,13 @@ pub fn build(b: *std.Build) !void {
                 // conditional removals
                 if ((enable_workaround or is_bsd_family or is_macos) and (std.mem.eql(u8, basename, "qsctpsocket") or std.mem.eql(u8, basename, "qsctpserver")))
                     continue;
-                if (is_windows and (std.mem.startsWith(u8, entry.path, "src/foss-") or std.mem.startsWith(u8, entry.path, "src/posix-")))
+                if (is_windows and (std.mem.startsWith(u8, entry.path, "foss-") or std.mem.startsWith(u8, entry.path, "posix-")))
                     continue;
-                if (is_macos and std.mem.startsWith(u8, entry.path, "src/foss-"))
+                if (is_macos and std.mem.startsWith(u8, entry.path, "foss-"))
                     continue;
 
                 inline for (prefixes) |prefix| {
-                    if (std.mem.startsWith(u8, entry.path, "src/" ++ prefix)) {
+                    if (std.mem.startsWith(u8, entry.path, prefix)) {
                         var is_enabled = true;
                         if ((host_os == .macos or host_os == .windows) and std.mem.eql(u8, prefix, "extras-")) {
                             is_enabled = false;
@@ -77,14 +77,10 @@ pub fn build(b: *std.Build) !void {
                     }
                 }
 
-                try cpp_sources.append(allocator, b.dupe(entry.path));
-            } else if (entry.kind == .file and std.mem.endsWith(u8, entry.path, ".h")) {
-                const full_path = try std.fs.path.join(b.allocator, &.{entry.path});
-                if (!std.mem.endsWith(u8, full_path, "libqt6c.h"))
-                    try cpp_header_files.append(allocator, full_path);
+                try cpp_sources.append(allocator, try std.fs.path.join(allocator, &.{ "src", entry.path }));
             } else if (entry.kind == .directory) {
                 inline for (prefixes) |prefix| {
-                    if (std.mem.startsWith(u8, entry.path, "src/" ++ prefix)) {
+                    if (std.mem.startsWith(u8, entry.path, prefix)) {
                         const path = std.fs.path.stem(entry.path);
                         var library = std.mem.splitBackwardsScalar(u8, path, '-');
                         const name = library.first();
@@ -175,6 +171,10 @@ pub fn build(b: *std.Build) !void {
         "QtWebEngineWidgets",
         // Qt 6 XML
         "QtXml",
+        // Qt 6 Attica
+        "Attica",
+        "Attica/Attica",
+        "Attica/attica",
         // Qt 6 KCodecs
         "KCodecs",
         // Qt 6 KCompletion
