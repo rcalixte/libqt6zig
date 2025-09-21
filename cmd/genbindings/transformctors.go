@@ -1,8 +1,6 @@
 package main
 
-import (
-	"sort"
-)
+import "sort"
 
 // astTransformConstructorOrder creates a canonical ordering for constructors
 // where the 0th entry is any entry taking solely a QWidget* parameter.
