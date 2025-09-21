@@ -288,6 +288,19 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 			cflags:      "--std=c++17  -I/usr/include/KF6/KJobWidgets -I/usr/include/KF6/KCoreAddons " + pkgConfigCflags("Qt6Core"),
 		},
 
+		// KNewStuff
+		// Depends on Qt Core, GUI, Widgets, Attica
+		{
+			path: "extras-knewstuff",
+			dirs: []string{
+				"/usr/include/KF6/KNewStuff",
+				"/usr/include/KF6/KNewStuffCore/KNSCore",
+				"/usr/include/KF6/KNewStuffWidgets/KNSWidgets",
+			},
+			allowHeader: AllowAllHeaders,
+			cflags:      "--std=c++17 -I/usr/include/KF6/KNewStuff -I/usr/include/KF6/KNewStuffCore -I/usr/include/KF6/KNewStuffCore/KNSCore -I/usr/include/KF6/KNewStuffWidgets -I/usr/include/KF6/KNewStuffWidgets/KNSWidgets -I/usr/include/KF6/Attica -I/usr/include/KF6/Attica/Attica -I/usr/include/KF6/Attica/attica " + pkgConfigCflags("Qt6Widgets"),
+		},
+
 		// KPlotting
 		// Depends on Qt Core, GUI, Widgets
 		{
