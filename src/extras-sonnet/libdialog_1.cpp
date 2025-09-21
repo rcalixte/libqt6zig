@@ -35,11 +35,11 @@
 #include <QVariant>
 #include <QWheelEvent>
 #include <QWidget>
-#define WORKAROUND_INNER_CLASS_DEFINITION_Sonnet__BackgroundChecker
-#define WORKAROUND_INNER_CLASS_DEFINITION_Sonnet__Dialog
+#include <Sonnet/BackgroundChecker>
+#include <Sonnet/Dialog>
 #include <dialog.h>
-#include "libdialog.h"
-#include "libdialog.hxx"
+#include "libdialog_1.h"
+#include "libdialog_1.hxx"
 
 Sonnet__Dialog* Sonnet__Dialog_new(Sonnet__BackgroundChecker* checker, QWidget* parent) {
     return new VirtualSonnetDialog(checker, parent);

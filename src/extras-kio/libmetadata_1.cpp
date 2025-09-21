@@ -5,8 +5,8 @@
 #include <cstring>
 #include <QVariant>
 #include <metadata.h>
-#include "libmetadata.h"
-#include "libmetadata.hxx"
+#include "libmetadata_1.h"
+#include "libmetadata_1.hxx"
 
 KIO__MetaData* KIO__MetaData_new() {
     return new KIO::MetaData();

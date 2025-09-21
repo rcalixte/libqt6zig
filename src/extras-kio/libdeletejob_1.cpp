@@ -11,8 +11,8 @@
 #include <cstring>
 #include <QUrl>
 #include <deletejob.h>
-#include "libdeletejob.h"
-#include "libdeletejob.hxx"
+#include "libdeletejob_1.h"
+#include "libdeletejob_1.hxx"
 
 QMetaObject* KIO__DeleteJob_MetaObject(const KIO__DeleteJob* self) {
     return (QMetaObject*)self->metaObject();

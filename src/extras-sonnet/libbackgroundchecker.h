@@ -14,9 +14,7 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_Sonnet__BackgroundChecker)
 typedef Sonnet::BackgroundChecker Sonnet__BackgroundChecker;
-#endif
 #if defined(WORKAROUND_INNER_CLASS_DEFINITION_Sonnet__Speller)
 typedef Sonnet::Speller Sonnet__Speller;
 #endif

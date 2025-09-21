@@ -8,7 +8,7 @@
 #include <QByteArray>
 #include <cstring>
 #include <QTimerEvent>
-#define WORKAROUND_INNER_CLASS_DEFINITION_Sonnet__BackgroundChecker
+#include <Sonnet/BackgroundChecker>
 #define WORKAROUND_INNER_CLASS_DEFINITION_Sonnet__Speller
 #include <backgroundchecker.h>
 #include "libbackgroundchecker.h"
