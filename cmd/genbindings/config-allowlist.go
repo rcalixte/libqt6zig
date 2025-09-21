@@ -45,6 +45,13 @@ func InsertTypedefs() {
 	KnownTypedefs["ListJob::ListFlags"] = lookupResultTypedef{pp, CppTypedef{"KIO::ListJob::ListFlags", parseSingleTypeString("KIO::ListJob::ListFlags")}}
 	KnownTypedefs["KProtocolInfo::Type"] = lookupResultTypedef{pp, CppTypedef{"KProtocolInfo::ExtraField::Type", parseSingleTypeString("KProtocolInfo::ExtraField::Type")}}
 	KnownTypedefs["RulesStorage"] = lookupResultTypedef{pp, CppTypedef{"KIO::SslUi::RulesStorage", parseSingleTypeString("KIO::SslUi::RulesStorage")}}
+
+	// Qt 6 KNewStuff
+	KnownTypedefs["KNSCore::ErrorCode"] = lookupResultTypedef{pp, CppTypedef{"KNSCore::ErrorCode::ErrorCode", parseSingleTypeString("KNSCore::ErrorCode::ErrorCode")}}
+	KnownTypedefs["KNSCore::Provider::SearchRequest::Filter"] = lookupResultTypedef{pp, CppTypedef{"KNSCore::Provider::Filter", parseSingleTypeString("KNSCore::Provider::Filter")}}
+	KnownTypedefs["KNSCore::Provider::SearchRequest::SortMode"] = lookupResultTypedef{pp, CppTypedef{"KNSCore::Provider::SortMode", parseSingleTypeString("KNSCore::Provider::SortMode")}}
+	KnownTypedefs["KNSCore::SearchRequest::Filter"] = lookupResultTypedef{pp, CppTypedef{"KNSCore::Filter", parseSingleTypeString("KNSCore::Filter")}}
+	KnownTypedefs["KNSCore::SearchRequest::SortMode"] = lookupResultTypedef{pp, CppTypedef{"KNSCore::SortMode", parseSingleTypeString("KNSCore::SortMode")}}
 }
 
 func Widgets_AllowHeader(fullpath string) bool {
@@ -163,6 +170,7 @@ func ImportHeaderForClass(className string) bool {
 		"KUriFilterData",                 // Qt 6 kurifilter.h
 		"KUriFilterSearchProvider",       // Qt 6 kurifilter.h
 		"KUrlComboRequester",             // Qt 6 kurlrequester.h
+		"KNSCore",                        // Qt 6 searchrequest.h
 		"____last____":
 		return false
 	}
@@ -764,6 +772,7 @@ func AllowType(p CppParameter, isReturnType bool) error {
 		"DBusError",                       // Qt 6 qdbuserror.h, this is an external type forward declaration
 		"ClipboardUpdater",                // Qt 6 jobuidelegate.h
 		"KIO::SslUi",                      // Qt 6 sslui.h
+		"Installation",                    // Qt 6 KNewStuff, enginebase.h
 		"____last____":
 		return ErrTooComplex
 	}
@@ -792,7 +801,8 @@ func AllowFieldForClass(className string) bool {
 
 func AllowStructDef(className string) bool {
 	switch className {
-	case "KIO::SslUi":
+	case "KIO::SslUi",
+		"KNSCore::ErrorCode":
 		return false
 	default:
 		return true
@@ -802,12 +812,19 @@ func AllowStructDef(className string) bool {
 func AllowInnerClassDef(className string) bool {
 	switch className {
 	case
-		"KIO::DeleteJob", // Qt 6 KIO, deletejob.h
-		"KIO::Job",       // Qt 6 KIO, listjob.h
-		"KIO::ListJob",   // Qt 6 KIO, listjob.h
-		"KIO::MetaData",  // Qt 6 KIO, metadata.h
-		"KIO::SimpleJob", // Qt 6 KIO, listjob.h
-		"KIO::UDSEntry",  // Qt 6 KIO, listjob.h
+		"KIO::DeleteJob",            // Qt 6 KIO, deletejob.h
+		"KIO::Job",                  // Qt 6 KIO, listjob.h
+		"KIO::ListJob",              // Qt 6 KIO, listjob.h
+		"KIO::MetaData",             // Qt 6 KIO, metadata.h
+		"KIO::SimpleJob",            // Qt 6 KIO, listjob.h
+		"KIO::UDSEntry",             // Qt 6 KIO, listjob.h
+		"KNSCore::EngineBase",       // Qt 6 KNewStuff, enginebase.h
+		"KNSCore::Entry",            // Qt 6 KNewStuff, question.h
+		"KNSCore::ErrorCode",        // Qt 6 KNewStuff, errorcode.h
+		"KNSCore::Provider",         // Qt 6 KNewStuff, provider.h
+		"KNSCore::SearchRequest",    // Qt 6 KNewStuff, searchrequest.h
+		"Sonnet::BackgroundChecker", // Qt 6 Sonnet, dialog.h
+		"Sonnet::Dialog",            // Qt 6 Sonnet, dialog.h
 		"____last____":
 		return true
 	}
