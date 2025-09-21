@@ -195,6 +195,12 @@ pub fn build(b: *std.Build) !void {
         "KItemViews",
         // Qt 6 KJobWidgets
         "KJobWidgets",
+        // Qt 6 KNewStuff
+        "KNewStuff",
+        "KNewStuffCore",
+        "KNewStuffCore/KNSCore",
+        "KNewStuffWidgets",
+        "KNewStuffWidgets/KNSWidgets",
         // Qt 6 KPlotting
         "KPlotting",
         // Qt 6 KService
