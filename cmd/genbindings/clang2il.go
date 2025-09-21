@@ -248,6 +248,10 @@ func getPreferredType(node interface{}) string {
 	qualType = strings.ReplaceAll(qualType, "enum ", "")
 	qualType = strings.ReplaceAll(qualType, "::enum_type", "")
 
+	if strings.Contains(desugared, "::") && !strings.Contains(qualType, "::") {
+		return desugared
+	}
+
 	if qualType != "" && shouldPreferQualType(qualType) {
 		return qualType
 	}
