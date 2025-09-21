@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"path/filepath"
 	"slices"
 	"sort"
 	"strings"
@@ -150,9 +151,21 @@ func (p CppParameter) RenderTypeIntermediateCpp() string {
 		cppType += "&"
 	}
 
-	// hack a broken typedef for now
+	// hack some broken typedefs for now
 	if cppType == "ListJob::ListFlags" {
 		return "KIO::ListJob::ListFlags"
+	}
+	if cppType == "KNSCore::Provider::SearchRequest::Filter" {
+		return "KNSCore::Provider::Filter"
+	}
+	if cppType == "KNSCore::Provider::SearchRequest::SortMode" {
+		return "KNSCore::Provider::SortMode"
+	}
+	if cppType == "KNSCore::SearchRequest::Filter" {
+		return "KNSCore::Filter"
+	}
+	if cppType == "KNSCore::SearchRequest::SortMode" {
+		return "KNSCore::SortMode"
 	}
 
 	return cppType
@@ -908,6 +921,7 @@ func cabiPreventStructDeclaration(className string) bool {
 
 var (
 	noQtConnect = map[string]struct{}{
+		"KNSCore__EngineBase":   {},
 		"QAudioDecoder":         {},
 		"QBluetoothPermission":  {},
 		"QCalendarPermission":   {},
@@ -967,7 +981,8 @@ var (
 func emitVirtualBindingHeader(src *CppParsedHeader, filename, packageName string) (string, error) {
 	ret := strings.Builder{}
 
-	includeGuard := strings.ToUpper(strings.ReplaceAll(strings.ReplaceAll(packageName, "/", "_"), "-", "_")) + "C_LIBVIRTUAL" + strings.ToUpper(strings.ReplaceAll(strings.ReplaceAll(filename, ".", "_"), "-", "_"))
+	srcFilename := filepath.Base(src.Filename)
+	includeGuard := strings.ToUpper(strings.ReplaceAll(strings.ReplaceAll(packageName, "/", "_"), "-", "_")) + "C_LIBVIRTUAL" + strings.ToUpper(strings.ReplaceAll(strings.ReplaceAll(srcFilename, ".", "_"), "-", "_"))
 	bindingInclude := "qtlibc.h"
 
 	if strings.Contains(packageName, "/") {
@@ -1237,7 +1252,8 @@ func emitBindingHeader(src *CppParsedHeader, filename, packageName string) (stri
 	ret := strings.Builder{}
 	qtstructdefs := make(map[string]struct{})
 
-	includeGuard := strings.ToUpper(strings.ReplaceAll(strings.ReplaceAll(packageName, "/", "_"), "-", "_")) + "C_LIB" + strings.ToUpper(strings.ReplaceAll(strings.ReplaceAll(filename, ".", "_"), "-", "_"))
+	srcFilename := filepath.Base(src.Filename)
+	includeGuard := strings.ToUpper(strings.ReplaceAll(strings.ReplaceAll(packageName, "/", "_"), "-", "_")) + "C_LIB" + strings.ToUpper(strings.ReplaceAll(strings.ReplaceAll(srcFilename, ".", "_"), "-", "_"))
 	bindingInclude := "qtlibc.h"
 
 	if strings.Contains(packageName, "/") {
@@ -1261,7 +1277,7 @@ extern "C" {
 `)
 
 	// We need this macro for QObjectData::dynamicMetaObject for Qt 6.9
-	if filename == "qobject.h" {
+	if srcFilename == "qobject.h" {
 		ret.WriteString("// Based on the macro from Qt (LGPLv3), see https://www.qt.io/qt-licensing/\n" +
 			"// Macro is trivial and used here under fair use\n" +
 			"// Usage does not imply derivation\n" +
@@ -1498,6 +1514,8 @@ func emitBindingCpp(src *CppParsedHeader, filename string) (string, error) {
 	}
 
 	ret := strings.Builder{}
+
+	srcFilename := filepath.Base(src.Filename)
 	seenClassMethods := map[string]bool{}
 
 	seenRefs := map[string]struct{}{}
@@ -1533,9 +1551,9 @@ func emitBindingCpp(src *CppParsedHeader, filename string) (string, error) {
 		ret.WriteString("#include <" + ref + ">\n")
 	}
 
-	ret.WriteString("#include <" + filename + ">\n")
-	ret.WriteString(`#include "lib` + filename + `"` + "\n")
-	ret.WriteString(`#include "lib` + filename + `xx"` + "\n\n")
+	ret.WriteString("#include <" + srcFilename + ">\n")
+	ret.WriteString(`#include "` + filename + `"` + "\n")
+	ret.WriteString(`#include "` + filename + `xx"` + "\n\n")
 
 	for _, c := range src.Classes {
 		methodPrefixName := cabiClassName(c.ClassName)
