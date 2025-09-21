@@ -4,13 +4,13 @@ import (
 	"C"
 	"fmt"
 	"math"
+	"path/filepath"
 	"reflect"
 	"sort"
 	"strconv"
 	"strings"
 	"unicode"
 )
-import "path/filepath"
 
 // not language-reserved words, but binding-reserved words
 func zigReservedWord(s string) bool {
@@ -1264,6 +1264,8 @@ func emitZig(src *CppParsedHeader, headerName, packageName string) (string, map[
 	}
 
 	ret := strings.Builder{}
+
+	srcFilename := filepath.Base(src.Filename)
 	zigIncs := map[string]string{}
 	dirRoot := strings.TrimPrefix(packageName, "src/")
 	dirRoot = strings.TrimPrefix(dirRoot, "src")
@@ -1271,7 +1273,7 @@ func emitZig(src *CppParsedHeader, headerName, packageName string) (string, map[
 	zfs := zigFileState{
 		imports:            map[string]struct{}{},
 		currentPackageName: dirRoot,
-		currentHeaderName:  strings.TrimSuffix(headerName, ".h"),
+		currentHeaderName:  strings.TrimSuffix(headerName[3:], ".h"),
 	}
 
 	if dirRoot != "" {
@@ -1875,6 +1877,7 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 		maybeCharts := ifv(strings.Contains(src.Filename, "QtCharts"), "-qtcharts", "")
 		maybeUrlPrefix := ifv(strings.Contains(src.Filename, "KIO") && !strings.HasPrefix(getPageName(zfs.currentHeaderName), "k"), "kio-", "")
 		maybeUrlPrefix = ifv(strings.Contains(src.Filename, "Attica"), "attica-", maybeUrlPrefix)
+		maybeUrlPrefix = ifv(strings.Contains(src.Filename, "KNSCore"), "knscore-", maybeUrlPrefix)
 		maybeUrlPrefix = ifv(strings.Contains(src.Filename, "Solid"), "solid-", maybeUrlPrefix)
 		maybeUrlPrefix = ifv(strings.Contains(src.Filename, "Sonnet"), "sonnet-", maybeUrlPrefix)
 		pageName := maybeUrlPrefix + getPageName(zfs.currentHeaderName) + maybeCharts
@@ -1893,7 +1896,7 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 
 		// Use the fully qualified name if the class *is* the enum name
 		// or there are collisions
-		if zigEnumName == "" || headerName == "qoperatingsystemversion.h" || headerName == "qstyleoption.h" {
+		if zigEnumName == "" || srcFilename == "qoperatingsystemversion.h" || srcFilename == "qstyleoption.h" {
 			zigEnumName = cabiClassName(e.EnumName)
 		}
 		zigEnumName = strings.TrimSuffix(zigEnumName, "__")
@@ -1982,7 +1985,8 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 					continue
 				}
 				seenEnumClasses[enumClass] = struct{}{}
-				if enumClass == zfs.currentHeaderName {
+				// TODO Remove this suffix hack once we have a better way to automate it
+				if enumClass == zfs.currentHeaderName || enumClass == strings.TrimSuffix(zfs.currentHeaderName, "_1") {
 					allImports = append(allImports, "const "+enumClass+"_enums = enums;")
 				} else {
 					allImports = append(allImports, "const "+enumClass+`_enums = @import("`+enumPrefix+"lib"+enumClass+`.zig").enums;`)
