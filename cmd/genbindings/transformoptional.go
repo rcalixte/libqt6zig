@@ -1,8 +1,6 @@
 package main
 
-import (
-	"strconv"
-)
+import "strconv"
 
 // astTransformOptional expands all methods with optional parameters into
 // explicit additional versions.
