@@ -1981,21 +1981,6 @@ libqt_string KGradientSelector_Tr(const char* s) {
     return _str;
 }
 
-void KGradientSelector_SetStops(KGradientSelector* self, const libqt_list /* of libqt_pair  tuple of double and QColor*  */ stops) {
-    QList<QPair<double, QColor>> stops_QList;
-    stops_QList.reserve(stops.len);
-    libqt_pair /* tuple of double and QColor* */* stops_arr = static_cast<libqt_pair /* tuple of double and QColor* */*>(stops.data);
-    for (size_t i = 0; i < stops.len; ++i) {
-        QPair<double, QColor> stops_arr_i_QPair;
-        double* stops_arr_i_first = static_cast<double*>(stops_arr[i].first);
-        QColor** stops_arr_i_second = static_cast<QColor**>(stops_arr[i].second);
-        stops_arr_i_QPair.first = static_cast<double>(stops_arr_i_first[0]);
-        stops_arr_i_QPair.second = *(stops_arr_i_second[0]);
-        stops_QList.push_back(stops_arr_i_QPair);
-    }
-    self->setStops(stops_QList);
-}
-
 libqt_list /* of libqt_pair  tuple of double and QColor*  */ KGradientSelector_Stops(const KGradientSelector* self) {
     QList<QPair<double, QColor>> _ret = self->stops();
     // Convert QList<> from C++ memory to manually-managed C memory

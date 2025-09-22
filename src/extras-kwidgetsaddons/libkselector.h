@@ -267,7 +267,6 @@ QMetaObject* KGradientSelector_MetaObject(const KGradientSelector* self);
 void* KGradientSelector_Metacast(KGradientSelector* self, const char* param1);
 int KGradientSelector_Metacall(KGradientSelector* self, int param1, int param2, void** param3);
 libqt_string KGradientSelector_Tr(const char* s);
-void KGradientSelector_SetStops(KGradientSelector* self, const libqt_list /* of libqt_pair  tuple of double and QColor*  */ stops);
 libqt_list /* of libqt_pair  tuple of double and QColor*  */ KGradientSelector_Stops(const KGradientSelector* self);
 void KGradientSelector_SetColors(KGradientSelector* self, const QColor* col1, const QColor* col2);
 void KGradientSelector_SetText(KGradientSelector* self, const libqt_string t1, const libqt_string t2);
