@@ -352,7 +352,7 @@ func AllowMethod(className string, mm CppMethod) error {
 		return ErrTooComplex // Qt 6.8: qdbuspendingreply.h, templated method
 	}
 
-	if className == "QGradient" && mm.MethodName == "setStops" {
+	if (className == "KGradientSelector" || className == "QGradient") && mm.MethodName == "setStops" {
 		return ErrTooComplex // Qt 6.4: undefined symbol error during compilation
 	}
 
