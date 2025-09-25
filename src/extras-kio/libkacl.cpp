@@ -121,22 +121,6 @@ libqt_list /* of libqt_pair  tuple of libqt_string and uint16_t  */ KACL_AllUser
     return _out;
 }
 
-bool KACL_SetAllUserPermissions(KACL* self, const libqt_list /* of libqt_pair  tuple of libqt_string and uint16_t  */ list) {
-    QList<QPair<QString, unsigned short>> list_QList;
-    list_QList.reserve(list.len);
-    libqt_pair /* tuple of libqt_string and uint16_t */* list_arr = static_cast<libqt_pair /* tuple of libqt_string and uint16_t */*>(list.data);
-    for (size_t i = 0; i < list.len; ++i) {
-        QPair<QString, unsigned short> list_arr_i_QPair;
-        libqt_string* list_arr_i_first = static_cast<libqt_string*>(list_arr[i].first);
-        uint16_t* list_arr_i_second = static_cast<uint16_t*>(list_arr[i].second);
-        QString list_arr_i_first_0_QString = QString::fromUtf8(list_arr_i_first[0].data, list_arr_i_first[0].len);
-        list_arr_i_QPair.first = list_arr_i_first_0_QString;
-        list_arr_i_QPair.second = static_cast<unsigned short>(list_arr_i_second[0]);
-        list_QList.push_back(list_arr_i_QPair);
-    }
-    return self->setAllUserPermissions(list_QList);
-}
-
 uint16_t KACL_NamedGroupPermissions(const KACL* self, const libqt_string name, bool* exists) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
     return self->namedGroupPermissions(name_QString, exists);
@@ -175,22 +159,6 @@ libqt_list /* of libqt_pair  tuple of libqt_string and uint16_t  */ KACL_AllGrou
     _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
-}
-
-bool KACL_SetAllGroupPermissions(KACL* self, const libqt_list /* of libqt_pair  tuple of libqt_string and uint16_t  */ allGroupPermissions) {
-    QList<QPair<QString, unsigned short>> allGroupPermissions_QList;
-    allGroupPermissions_QList.reserve(allGroupPermissions.len);
-    libqt_pair /* tuple of libqt_string and uint16_t */* allGroupPermissions_arr = static_cast<libqt_pair /* tuple of libqt_string and uint16_t */*>(allGroupPermissions.data);
-    for (size_t i = 0; i < allGroupPermissions.len; ++i) {
-        QPair<QString, unsigned short> allGroupPermissions_arr_i_QPair;
-        libqt_string* allGroupPermissions_arr_i_first = static_cast<libqt_string*>(allGroupPermissions_arr[i].first);
-        uint16_t* allGroupPermissions_arr_i_second = static_cast<uint16_t*>(allGroupPermissions_arr[i].second);
-        QString allGroupPermissions_arr_i_first_0_QString = QString::fromUtf8(allGroupPermissions_arr_i_first[0].data, allGroupPermissions_arr_i_first[0].len);
-        allGroupPermissions_arr_i_QPair.first = allGroupPermissions_arr_i_first_0_QString;
-        allGroupPermissions_arr_i_QPair.second = static_cast<unsigned short>(allGroupPermissions_arr_i_second[0]);
-        allGroupPermissions_QList.push_back(allGroupPermissions_arr_i_QPair);
-    }
-    return self->setAllGroupPermissions(allGroupPermissions_QList);
 }
 
 bool KACL_SetACL(KACL* self, const libqt_string aclStr) {

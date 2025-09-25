@@ -88,23 +88,6 @@ QChar* QUrlQuery_QueryPairDelimiter(const QUrlQuery* self) {
     return new QChar(self->queryPairDelimiter());
 }
 
-void QUrlQuery_SetQueryItems(QUrlQuery* self, const libqt_list /* of libqt_pair  tuple of libqt_string and libqt_string  */ query) {
-    QList<QPair<QString, QString>> query_QList;
-    query_QList.reserve(query.len);
-    libqt_pair /* tuple of libqt_string and libqt_string */* query_arr = static_cast<libqt_pair /* tuple of libqt_string and libqt_string */*>(query.data);
-    for (size_t i = 0; i < query.len; ++i) {
-        QPair<QString, QString> query_arr_i_QPair;
-        libqt_string* query_arr_i_first = static_cast<libqt_string*>(query_arr[i].first);
-        libqt_string* query_arr_i_second = static_cast<libqt_string*>(query_arr[i].second);
-        QString query_arr_i_first_0_QString = QString::fromUtf8(query_arr_i_first[0].data, query_arr_i_first[0].len);
-        QString query_arr_i_second_0_QString = QString::fromUtf8(query_arr_i_second[0].data, query_arr_i_second[0].len);
-        query_arr_i_QPair.first = query_arr_i_first_0_QString;
-        query_arr_i_QPair.second = query_arr_i_second_0_QString;
-        query_QList.push_back(query_arr_i_QPair);
-    }
-    self->setQueryItems(query_QList);
-}
-
 libqt_list /* of libqt_pair  tuple of libqt_string and libqt_string  */ QUrlQuery_QueryItems(const QUrlQuery* self) {
     QList<QPair<QString, QString>> _ret = self->queryItems();
     // Convert QList<> from C++ memory to manually-managed C memory

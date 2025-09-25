@@ -138,23 +138,6 @@ libqt_list /* of libqt_pair  tuple of libqt_string and libqt_string  */ Attica__
     return _out;
 }
 
-void Attica__Metadata_SetHeaders(Attica__Metadata* self, const libqt_list /* of libqt_pair  tuple of libqt_string and libqt_string  */ headers) {
-    QList<QPair<QByteArray, QByteArray>> headers_QList;
-    headers_QList.reserve(headers.len);
-    libqt_pair /* tuple of libqt_string and libqt_string */* headers_arr = static_cast<libqt_pair /* tuple of libqt_string and libqt_string */*>(headers.data);
-    for (size_t i = 0; i < headers.len; ++i) {
-        QPair<QByteArray, QByteArray> headers_arr_i_QPair;
-        libqt_string* headers_arr_i_first = static_cast<libqt_string*>(headers_arr[i].first);
-        libqt_string* headers_arr_i_second = static_cast<libqt_string*>(headers_arr[i].second);
-        QByteArray headers_arr_i_first_0_QByteArray(headers_arr_i_first[0].data, headers_arr_i_first[0].len);
-        QByteArray headers_arr_i_second_0_QByteArray(headers_arr_i_second[0].data, headers_arr_i_second[0].len);
-        headers_arr_i_QPair.first = headers_arr_i_first_0_QByteArray;
-        headers_arr_i_QPair.second = headers_arr_i_second_0_QByteArray;
-        headers_QList.push_back(headers_arr_i_QPair);
-    }
-    self->setHeaders(headers_QList);
-}
-
 void Attica__Metadata_Delete(Attica__Metadata* self) {
     delete self;
 }

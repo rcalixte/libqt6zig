@@ -94,17 +94,6 @@ pub const qnetworkcachemetadata = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkcachemetadata.html#setRawHeaders)
-    ///
-    /// ``` self: QtC.QNetworkCacheMetaData, headers: []struct_u8_u8 ```
-    pub fn SetRawHeaders(self: ?*anyopaque, headers: []struct_u8_u8) void {
-        const headers_list = qtc.libqt_list{
-            .len = headers.len,
-            .data = headers.ptr,
-        };
-        qtc.QNetworkCacheMetaData_SetRawHeaders(@ptrCast(self), headers_list);
-    }
-
     /// [Qt documentation](https://doc.qt.io/qt-6/qnetworkcachemetadata.html#headers)
     ///
     /// ``` self: QtC.QNetworkCacheMetaData ```

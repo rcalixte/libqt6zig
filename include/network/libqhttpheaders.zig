@@ -331,17 +331,6 @@ pub const qhttpheaders = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qhttpheaders.html#fromListOfPairs)
-    ///
-    /// ``` headers: []struct_u8_u8 ```
-    pub fn FromListOfPairs(headers: []struct_u8_u8) QtC.QHttpHeaders {
-        const headers_list = qtc.libqt_list{
-            .len = headers.len,
-            .data = headers.ptr,
-        };
-        return qtc.QHttpHeaders_FromListOfPairs(headers_list);
-    }
-
     /// [Qt documentation](https://doc.qt.io/qt-6/qhttpheaders.html#toListOfPairs)
     ///
     /// ``` self: QtC.QHttpHeaders, allocator: std.mem.Allocator ```

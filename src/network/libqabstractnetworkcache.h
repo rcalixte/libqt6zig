@@ -37,7 +37,6 @@ bool QNetworkCacheMetaData_IsValid(const QNetworkCacheMetaData* self);
 QUrl* QNetworkCacheMetaData_Url(const QNetworkCacheMetaData* self);
 void QNetworkCacheMetaData_SetUrl(QNetworkCacheMetaData* self, const QUrl* url);
 libqt_list /* of libqt_pair  tuple of libqt_string and libqt_string  */ QNetworkCacheMetaData_RawHeaders(const QNetworkCacheMetaData* self);
-void QNetworkCacheMetaData_SetRawHeaders(QNetworkCacheMetaData* self, const libqt_list /* of libqt_pair  tuple of libqt_string and libqt_string  */ headers);
 QHttpHeaders* QNetworkCacheMetaData_Headers(const QNetworkCacheMetaData* self);
 void QNetworkCacheMetaData_SetHeaders(QNetworkCacheMetaData* self, const QHttpHeaders* headers);
 QDateTime* QNetworkCacheMetaData_LastModified(const QNetworkCacheMetaData* self);

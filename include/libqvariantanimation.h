@@ -40,7 +40,6 @@ void QVariantAnimation_SetEndValue(QVariantAnimation* self, const QVariant* valu
 QVariant* QVariantAnimation_KeyValueAt(const QVariantAnimation* self, double step);
 void QVariantAnimation_SetKeyValueAt(QVariantAnimation* self, double step, const QVariant* value);
 libqt_list /* of libqt_pair  tuple of double and QVariant*  */ QVariantAnimation_KeyValues(const QVariantAnimation* self);
-void QVariantAnimation_SetKeyValues(QVariantAnimation* self, const libqt_list /* of libqt_pair  tuple of double and QVariant*  */ values);
 QVariant* QVariantAnimation_CurrentValue(const QVariantAnimation* self);
 int QVariantAnimation_Duration(const QVariantAnimation* self);
 void QVariantAnimation_SetDuration(QVariantAnimation* self, int msecs);

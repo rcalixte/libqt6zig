@@ -127,17 +127,6 @@ pub const qvariantanimation = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qvariantanimation.html#setKeyValues)
-    ///
-    /// ``` self: QtC.QVariantAnimation, values: []struct_f64_qtcqvariant ```
-    pub fn SetKeyValues(self: ?*anyopaque, values: []struct_f64_qtcqvariant) void {
-        const values_list = qtc.libqt_list{
-            .len = values.len,
-            .data = values.ptr,
-        };
-        qtc.QVariantAnimation_SetKeyValues(@ptrCast(self), values_list);
-    }
-
     /// [Qt documentation](https://doc.qt.io/qt-6/qvariantanimation.html#currentValue)
     ///
     /// ``` self: QtC.QVariantAnimation ```

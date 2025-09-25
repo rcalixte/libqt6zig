@@ -177,17 +177,6 @@ pub const kacl = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kacl.html#setAllUserPermissions)
-    ///
-    /// ``` self: QtC.KACL, list: []struct_constu8_u16 ```
-    pub fn SetAllUserPermissions(self: ?*anyopaque, list: []struct_constu8_u16) bool {
-        const list_list = qtc.libqt_list{
-            .len = list.len,
-            .data = list.ptr,
-        };
-        return qtc.KACL_SetAllUserPermissions(@ptrCast(self), list_list);
-    }
-
     /// [Qt documentation](https://api.kde.org/kacl.html#namedGroupPermissions)
     ///
     /// ``` self: QtC.KACL, name: []const u8, exists: *bool ```
@@ -227,17 +216,6 @@ pub const kacl = struct {
         const _data: [*]struct_constu8_u16 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
-    }
-
-    /// [Qt documentation](https://api.kde.org/kacl.html#setAllGroupPermissions)
-    ///
-    /// ``` self: QtC.KACL, allGroupPermissions: []struct_constu8_u16 ```
-    pub fn SetAllGroupPermissions(self: ?*anyopaque, allGroupPermissions: []struct_constu8_u16) bool {
-        const allGroupPermissions_list = qtc.libqt_list{
-            .len = allGroupPermissions.len,
-            .data = allGroupPermissions.ptr,
-        };
-        return qtc.KACL_SetAllGroupPermissions(@ptrCast(self), allGroupPermissions_list);
     }
 
     /// [Qt documentation](https://api.kde.org/kacl.html#setACL)

@@ -4,7 +4,6 @@ const kcoredirlister_enums = enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
-pub const struct_qtckfileitem_qtckfileitem = extern struct { first: QtC.KFileItem, second: QtC.KFileItem };
 
 /// https://api.kde.org/kcoredirlister.html
 pub const kcoredirlister = struct {
@@ -519,17 +518,6 @@ pub const kcoredirlister = struct {
     /// ``` self: QtC.KCoreDirLister, callback: *const fn (self: QtC.KCoreDirLister, items: QtC.KFileItemList) callconv(.c) void ```
     pub fn OnItemsDeleted(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KCoreDirLister_Connect_ItemsDeleted(@ptrCast(self), @intCast(@intFromPtr(callback)));
-    }
-
-    /// [Qt documentation](https://api.kde.org/kcoredirlister.html#refreshItems)
-    ///
-    /// ``` self: QtC.KCoreDirLister, items: []struct_qtckfileitem_qtckfileitem ```
-    pub fn RefreshItems(self: ?*anyopaque, items: []struct_qtckfileitem_qtckfileitem) void {
-        const items_list = qtc.libqt_list{
-            .len = items.len,
-            .data = items.ptr,
-        };
-        qtc.KCoreDirLister_RefreshItems(@ptrCast(self), items_list);
     }
 
     /// [Qt documentation](https://api.kde.org/kcoredirlister.html#infoMessage)

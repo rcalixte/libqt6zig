@@ -8,7 +8,6 @@
 #include <QMetaMethod>
 #include <QMetaObject>
 #include <QObject>
-#include <QPair>
 #include <QString>
 #include <QByteArray>
 #include <cstring>
@@ -400,21 +399,6 @@ void KCoreDirLister_Connect_ItemsDeleted(KCoreDirLister* self, intptr_t slot) {
         KFileItemList* sigval1 = const_cast<KFileItemList*>(&items_ret);
         slotFunc(self, sigval1);
     });
-}
-
-void KCoreDirLister_RefreshItems(KCoreDirLister* self, const libqt_list /* of libqt_pair  tuple of KFileItem* and KFileItem*  */ items) {
-    QList<QPair<KFileItem, KFileItem>> items_QList;
-    items_QList.reserve(items.len);
-    libqt_pair /* tuple of KFileItem* and KFileItem* */* items_arr = static_cast<libqt_pair /* tuple of KFileItem* and KFileItem* */*>(items.data);
-    for (size_t i = 0; i < items.len; ++i) {
-        QPair<KFileItem, KFileItem> items_arr_i_QPair;
-        KFileItem** items_arr_i_first = static_cast<KFileItem**>(items_arr[i].first);
-        KFileItem** items_arr_i_second = static_cast<KFileItem**>(items_arr[i].second);
-        items_arr_i_QPair.first = *(items_arr_i_first[0]);
-        items_arr_i_QPair.second = *(items_arr_i_second[0]);
-        items_QList.push_back(items_arr_i_QPair);
-    }
-    self->refreshItems(items_QList);
 }
 
 void KCoreDirLister_InfoMessage(KCoreDirLister* self, const libqt_string msg) {

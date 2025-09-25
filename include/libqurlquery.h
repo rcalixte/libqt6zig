@@ -35,7 +35,6 @@ libqt_string QUrlQuery_ToString(const QUrlQuery* self);
 void QUrlQuery_SetQueryDelimiters(QUrlQuery* self, QChar* valueDelimiter, QChar* pairDelimiter);
 QChar* QUrlQuery_QueryValueDelimiter(const QUrlQuery* self);
 QChar* QUrlQuery_QueryPairDelimiter(const QUrlQuery* self);
-void QUrlQuery_SetQueryItems(QUrlQuery* self, const libqt_list /* of libqt_pair  tuple of libqt_string and libqt_string  */ query);
 libqt_list /* of libqt_pair  tuple of libqt_string and libqt_string  */ QUrlQuery_QueryItems(const QUrlQuery* self);
 bool QUrlQuery_HasQueryItem(const QUrlQuery* self, const libqt_string key);
 void QUrlQuery_AddQueryItem(QUrlQuery* self, const libqt_string key, const libqt_string value);

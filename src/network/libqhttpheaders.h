@@ -49,7 +49,6 @@ ptrdiff_t QHttpHeaders_Size(const QHttpHeaders* self);
 void QHttpHeaders_Reserve(QHttpHeaders* self, ptrdiff_t size);
 bool QHttpHeaders_IsEmpty(const QHttpHeaders* self);
 QByteArrayView* QHttpHeaders_WellKnownHeaderName(int name);
-QHttpHeaders* QHttpHeaders_FromListOfPairs(const libqt_list /* of libqt_pair  tuple of libqt_string and libqt_string  */ headers);
 libqt_list /* of libqt_pair  tuple of libqt_string and libqt_string  */ QHttpHeaders_ToListOfPairs(const QHttpHeaders* self);
 QByteArrayView* QHttpHeaders_Value22(const QHttpHeaders* self, libqt_string name, QByteArrayView* defaultValue);
 QByteArrayView* QHttpHeaders_Value23(const QHttpHeaders* self, int name, QByteArrayView* defaultValue);

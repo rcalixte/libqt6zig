@@ -94,7 +94,6 @@ void KCoreDirLister_ItemsFilteredByMime(KCoreDirLister* self, const KFileItemLis
 void KCoreDirLister_Connect_ItemsFilteredByMime(KCoreDirLister* self, intptr_t slot);
 void KCoreDirLister_ItemsDeleted(KCoreDirLister* self, const KFileItemList* items);
 void KCoreDirLister_Connect_ItemsDeleted(KCoreDirLister* self, intptr_t slot);
-void KCoreDirLister_RefreshItems(KCoreDirLister* self, const libqt_list /* of libqt_pair  tuple of KFileItem* and KFileItem*  */ items);
 void KCoreDirLister_InfoMessage(KCoreDirLister* self, const libqt_string msg);
 void KCoreDirLister_Connect_InfoMessage(KCoreDirLister* self, intptr_t slot);
 void KCoreDirLister_Percent(KCoreDirLister* self, int percent);

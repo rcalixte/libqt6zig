@@ -39,7 +39,6 @@ void Attica__Metadata_SetItemsPerPage(Attica__Metadata* self, int itemsPerPage);
 libqt_string Attica__Metadata_ResultingId(Attica__Metadata* self);
 void Attica__Metadata_SetResultingId(Attica__Metadata* self, const libqt_string id);
 libqt_list /* of libqt_pair  tuple of libqt_string and libqt_string  */ Attica__Metadata_Headers(const Attica__Metadata* self);
-void Attica__Metadata_SetHeaders(Attica__Metadata* self, const libqt_list /* of libqt_pair  tuple of libqt_string and libqt_string  */ headers);
 void Attica__Metadata_Delete(Attica__Metadata* self);
 
 #ifdef __cplusplus

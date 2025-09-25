@@ -128,17 +128,6 @@ pub const qurlquery = struct {
         return qtc.QUrlQuery_QueryPairDelimiter(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qurlquery.html#setQueryItems)
-    ///
-    /// ``` self: QtC.QUrlQuery, query: []struct_constu8_constu8 ```
-    pub fn SetQueryItems(self: ?*anyopaque, query: []struct_constu8_constu8) void {
-        const query_list = qtc.libqt_list{
-            .len = query.len,
-            .data = query.ptr,
-        };
-        qtc.QUrlQuery_SetQueryItems(@ptrCast(self), query_list);
-    }
-
     /// [Qt documentation](https://doc.qt.io/qt-6/qurlquery.html#queryItems)
     ///
     /// ``` self: QtC.QUrlQuery, allocator: std.mem.Allocator ```

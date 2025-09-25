@@ -100,21 +100,6 @@ libqt_list /* of libqt_pair  tuple of double and QVariant*  */ QVariantAnimation
     return _out;
 }
 
-void QVariantAnimation_SetKeyValues(QVariantAnimation* self, const libqt_list /* of libqt_pair  tuple of double and QVariant*  */ values) {
-    QList<QPair<double, QVariant>> values_QList;
-    values_QList.reserve(values.len);
-    libqt_pair /* tuple of double and QVariant* */* values_arr = static_cast<libqt_pair /* tuple of double and QVariant* */*>(values.data);
-    for (size_t i = 0; i < values.len; ++i) {
-        QPair<double, QVariant> values_arr_i_QPair;
-        double* values_arr_i_first = static_cast<double*>(values_arr[i].first);
-        QVariant** values_arr_i_second = static_cast<QVariant**>(values_arr[i].second);
-        values_arr_i_QPair.first = static_cast<double>(values_arr_i_first[0]);
-        values_arr_i_QPair.second = *(values_arr_i_second[0]);
-        values_QList.push_back(values_arr_i_QPair);
-    }
-    self->setKeyValues(values_QList);
-}
-
 QVariant* QVariantAnimation_CurrentValue(const QVariantAnimation* self) {
     return new QVariant(self->currentValue());
 }
