@@ -348,12 +348,26 @@ func AllowMethod(className string, mm CppMethod) error {
 		return ErrTooComplex
 	}
 
+	if className == "QNetworkCacheMetaData" && mm.MethodName == "setRawHeaders" {
+		// Qt 6: undefined symbol error during compilation
+		return ErrTooComplex
+	}
+
+	if className == "QHttpHeaders" && mm.MethodName == "fromListOfPairs" {
+		// Qt 6: undefined symbol error during compilation
+		return ErrTooComplex
+	}
+
 	if className == "QDBusPendingReplyTypes" && mm.MethodName == "metaTypeFor" {
 		return ErrTooComplex // Qt 6.8: qdbuspendingreply.h, templated method
 	}
 
 	if (className == "KGradientSelector" || className == "QGradient") && mm.MethodName == "setStops" {
-		return ErrTooComplex // Qt 6.4: undefined symbol error during compilation
+		return ErrTooComplex // Qt 6: undefined symbol error during compilation
+	}
+
+	if className == "QVariantAnimation" && mm.MethodName == "setKeyValues" {
+		return ErrTooComplex // Qt 6: undefined symbol error during compilation
 	}
 
 	if className == "QsciScintillaBase" && mm.MethodName == "inputMethodQuery" {
@@ -380,9 +394,20 @@ func AllowMethod(className string, mm CppMethod) error {
 		return ErrTooComplex
 	}
 
+	if className == "QUrlQuery" && mm.MethodName == "setQueryItems" {
+		// Qt 6: undefined symbol error during compilation
+		return ErrTooComplex
+	}
+
 	if className == "QWebEnginePage" && mm.MethodName == "setFeaturePermission" {
 		// Qt 6.8: Skip this method, a parameter type is not properly handled yet
 		// and the function does not appear in the Qt documentation
+		return ErrTooComplex
+	}
+
+	// Qt 6 Attica
+	if className == "Attica::Metadata" && mm.MethodName == "setHeaders" {
+		// Qt 6 metadata.h: undefined symbol error during compilation
 		return ErrTooComplex
 	}
 
@@ -427,6 +452,14 @@ func AllowMethod(className string, mm CppMethod) error {
 	}
 
 	// Qt 6 KIO
+	if className == "KACL" && (mm.MethodName == "setAllGroupPermissions" || mm.MethodName == "setAllUserPermissions") {
+		// Qt 6 kacl.h: undefined symbol error during compilation
+		return ErrTooComplex
+	}
+	if className == "KCoreDirLister" && mm.MethodName == "refreshItems" {
+		// Qt 6 kcoredirlister.h: undefined symbol error during compilation
+		return ErrTooComplex
+	}
 	if className == "KProtocolManager" && mm.MethodName == "fileNameUsedForCopying" {
 		// Qt 6 kprotocolmanager.h: this hits an unresolved bug
 		return ErrTooComplex
