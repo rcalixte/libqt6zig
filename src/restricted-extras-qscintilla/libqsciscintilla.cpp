@@ -4049,6 +4049,33 @@ void QsciScintilla_OnInputMethodEvent(QsciScintilla* self, intptr_t slot) {
 }
 
 // Derived class handler implementation
+QVariant* QsciScintilla_InputMethodQuery(const QsciScintilla* self, int query) {
+    auto* vqsciscintilla = const_cast<VirtualQsciScintilla*>(dynamic_cast<const VirtualQsciScintilla*>(self));
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+        return new QVariant(vqsciscintilla->inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
+    }
+    return {};
+}
+
+// Base class handler implementation
+QVariant* QsciScintilla_QBaseInputMethodQuery(const QsciScintilla* self, int query) {
+    auto* vqsciscintilla = const_cast<VirtualQsciScintilla*>(dynamic_cast<const VirtualQsciScintilla*>(self));
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+        vqsciscintilla->setQsciScintilla_InputMethodQuery_IsBase(true);
+        return new QVariant(vqsciscintilla->inputMethodQuery(static_cast<Qt::InputMethodQuery>(query)));
+    }
+    return {};
+}
+
+// Auxiliary method to allow providing re-implementation
+void QsciScintilla_OnInputMethodQuery(const QsciScintilla* self, intptr_t slot) {
+    auto* vqsciscintilla = const_cast<VirtualQsciScintilla*>(dynamic_cast<const VirtualQsciScintilla*>(self));
+    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
+        vqsciscintilla->setQsciScintilla_InputMethodQuery_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_InputMethodQuery_Callback>(slot));
+    }
+}
+
+// Derived class handler implementation
 void QsciScintilla_MouseDoubleClickEvent(QsciScintilla* self, QMouseEvent* e) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
@@ -5002,35 +5029,6 @@ void QsciScintilla_OnSharedPainter(const QsciScintilla* self, intptr_t slot) {
     auto* vqsciscintilla = const_cast<VirtualQsciScintilla*>(dynamic_cast<const VirtualQsciScintilla*>(self));
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_SharedPainter_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_SharedPainter_Callback>(slot));
-    }
-}
-
-// Derived class handler implementation
-QVariant* QsciScintilla_InputMethodQuery(const QsciScintilla* self, int param1) {
-    auto* vqsciscintilla = const_cast<VirtualQsciScintilla*>(dynamic_cast<const VirtualQsciScintilla*>(self));
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        return new QVariant(vqsciscintilla->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQsciScintilla*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
-}
-
-// Base class handler implementation
-QVariant* QsciScintilla_QBaseInputMethodQuery(const QsciScintilla* self, int param1) {
-    auto* vqsciscintilla = const_cast<VirtualQsciScintilla*>(dynamic_cast<const VirtualQsciScintilla*>(self));
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        vqsciscintilla->setQsciScintilla_InputMethodQuery_IsBase(true);
-        return new QVariant(vqsciscintilla->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    } else {
-        return new QVariant(((VirtualQsciScintilla*)self)->inputMethodQuery(static_cast<Qt::InputMethodQuery>(param1)));
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void QsciScintilla_OnInputMethodQuery(const QsciScintilla* self, intptr_t slot) {
-    auto* vqsciscintilla = const_cast<VirtualQsciScintilla*>(dynamic_cast<const VirtualQsciScintilla*>(self));
-    if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
-        vqsciscintilla->setQsciScintilla_InputMethodQuery_Callback(reinterpret_cast<VirtualQsciScintilla::QsciScintilla_InputMethodQuery_Callback>(slot));
     }
 }
 

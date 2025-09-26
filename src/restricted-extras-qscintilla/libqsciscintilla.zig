@@ -8304,6 +8304,39 @@ pub const qsciscintilla = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
+    /// ``` self: QtC.QsciScintilla, query: qnamespace_enums.InputMethodQuery ```
+    pub fn InputMethodQuery(self: ?*anyopaque, query: i64) QtC.QVariant {
+        return qtc.QsciScintilla_InputMethodQuery(@ptrCast(self), @intCast(query));
+    }
+
+    /// Inherited from QsciScintillaBase
+    ///
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    ///
+    /// Wrapper to allow calling base class virtual or protected method
+    ///
+    /// ``` self: QtC.QsciScintilla, query: qnamespace_enums.InputMethodQuery ```
+    pub fn QBaseInputMethodQuery(self: ?*anyopaque, query: i64) QtC.QVariant {
+        return qtc.QsciScintilla_QBaseInputMethodQuery(@ptrCast(self), @intCast(query));
+    }
+
+    /// Inherited from QsciScintillaBase
+    ///
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    ///
+    /// Wrapper to allow overriding base class virtual or protected method
+    ///
+    /// ``` self: QtC.QsciScintilla, callback: *const fn (self: QtC.QsciScintilla, query: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant ```
+    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) QtC.QVariant) void {
+        qtc.QsciScintilla_OnInputMethodQuery(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// Inherited from QsciScintillaBase
+    ///
+    /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
+    ///
+    /// Wrapper to allow calling virtual or protected method
+    ///
     /// ``` self: QtC.QsciScintilla, e: QtC.QMouseEvent ```
     pub fn MouseDoubleClickEvent(self: ?*anyopaque, e: ?*anyopaque) void {
         qtc.QsciScintilla_MouseDoubleClickEvent(@ptrCast(self), @ptrCast(e));
@@ -9393,39 +9426,6 @@ pub const qsciscintilla = struct {
     /// ``` self: QtC.QsciScintilla, callback: *const fn () callconv(.c) QtC.QPainter ```
     pub fn OnSharedPainter(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QPainter) void {
         qtc.QsciScintilla_OnSharedPainter(@ptrCast(self), @intCast(@intFromPtr(callback)));
-    }
-
-    /// Inherited from QWidget
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#inputMethodQuery)
-    ///
-    /// Wrapper to allow calling virtual or protected method
-    ///
-    /// ``` self: QtC.QsciScintilla, param1: qnamespace_enums.InputMethodQuery ```
-    pub fn InputMethodQuery(self: ?*anyopaque, param1: i64) QtC.QVariant {
-        return qtc.QsciScintilla_InputMethodQuery(@ptrCast(self), @intCast(param1));
-    }
-
-    /// Inherited from QWidget
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#inputMethodQuery)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ``` self: QtC.QsciScintilla, param1: qnamespace_enums.InputMethodQuery ```
-    pub fn QBaseInputMethodQuery(self: ?*anyopaque, param1: i64) QtC.QVariant {
-        return qtc.QsciScintilla_QBaseInputMethodQuery(@ptrCast(self), @intCast(param1));
-    }
-
-    /// Inherited from QWidget
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwidget.html#inputMethodQuery)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ``` self: QtC.QsciScintilla, callback: *const fn (self: QtC.QsciScintilla, param1: qnamespace_enums.InputMethodQuery) callconv(.c) QtC.QVariant ```
-    pub fn OnInputMethodQuery(self: ?*anyopaque, callback: *const fn (?*anyopaque, i64) callconv(.c) QtC.QVariant) void {
-        qtc.QsciScintilla_OnInputMethodQuery(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject

@@ -117,6 +117,7 @@ class VirtualQsciScintilla final : public QsciScintilla {
     using QsciScintilla_FocusNextPrevChild_Callback = bool (*)(QsciScintilla*, bool);
     using QsciScintilla_KeyPressEvent_Callback = void (*)(QsciScintilla*, QKeyEvent*);
     using QsciScintilla_InputMethodEvent_Callback = void (*)(QsciScintilla*, QInputMethodEvent*);
+    using QsciScintilla_InputMethodQuery_Callback = QVariant* (*)(const QsciScintilla*, int);
     using QsciScintilla_MouseDoubleClickEvent_Callback = void (*)(QsciScintilla*, QMouseEvent*);
     using QsciScintilla_MouseMoveEvent_Callback = void (*)(QsciScintilla*, QMouseEvent*);
     using QsciScintilla_MousePressEvent_Callback = void (*)(QsciScintilla*, QMouseEvent*);
@@ -150,7 +151,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
     using QsciScintilla_InitPainter_Callback = void (*)(const QsciScintilla*, QPainter*);
     using QsciScintilla_Redirected_Callback = QPaintDevice* (*)(const QsciScintilla*, QPoint*);
     using QsciScintilla_SharedPainter_Callback = QPainter* (*)();
-    using QsciScintilla_InputMethodQuery_Callback = QVariant* (*)(const QsciScintilla*, int);
     using QsciScintilla_TimerEvent_Callback = void (*)(QsciScintilla*, QTimerEvent*);
     using QsciScintilla_ChildEvent_Callback = void (*)(QsciScintilla*, QChildEvent*);
     using QsciScintilla_CustomEvent_Callback = void (*)(QsciScintilla*, QEvent*);
@@ -274,6 +274,7 @@ class VirtualQsciScintilla final : public QsciScintilla {
     QsciScintilla_FocusNextPrevChild_Callback qsciscintilla_focusnextprevchild_callback = nullptr;
     QsciScintilla_KeyPressEvent_Callback qsciscintilla_keypressevent_callback = nullptr;
     QsciScintilla_InputMethodEvent_Callback qsciscintilla_inputmethodevent_callback = nullptr;
+    QsciScintilla_InputMethodQuery_Callback qsciscintilla_inputmethodquery_callback = nullptr;
     QsciScintilla_MouseDoubleClickEvent_Callback qsciscintilla_mousedoubleclickevent_callback = nullptr;
     QsciScintilla_MouseMoveEvent_Callback qsciscintilla_mousemoveevent_callback = nullptr;
     QsciScintilla_MousePressEvent_Callback qsciscintilla_mousepressevent_callback = nullptr;
@@ -307,7 +308,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
     QsciScintilla_InitPainter_Callback qsciscintilla_initpainter_callback = nullptr;
     QsciScintilla_Redirected_Callback qsciscintilla_redirected_callback = nullptr;
     QsciScintilla_SharedPainter_Callback qsciscintilla_sharedpainter_callback = nullptr;
-    QsciScintilla_InputMethodQuery_Callback qsciscintilla_inputmethodquery_callback = nullptr;
     QsciScintilla_TimerEvent_Callback qsciscintilla_timerevent_callback = nullptr;
     QsciScintilla_ChildEvent_Callback qsciscintilla_childevent_callback = nullptr;
     QsciScintilla_CustomEvent_Callback qsciscintilla_customevent_callback = nullptr;
@@ -430,6 +430,7 @@ class VirtualQsciScintilla final : public QsciScintilla {
     mutable bool qsciscintilla_focusnextprevchild_isbase = false;
     mutable bool qsciscintilla_keypressevent_isbase = false;
     mutable bool qsciscintilla_inputmethodevent_isbase = false;
+    mutable bool qsciscintilla_inputmethodquery_isbase = false;
     mutable bool qsciscintilla_mousedoubleclickevent_isbase = false;
     mutable bool qsciscintilla_mousemoveevent_isbase = false;
     mutable bool qsciscintilla_mousepressevent_isbase = false;
@@ -463,7 +464,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
     mutable bool qsciscintilla_initpainter_isbase = false;
     mutable bool qsciscintilla_redirected_isbase = false;
     mutable bool qsciscintilla_sharedpainter_isbase = false;
-    mutable bool qsciscintilla_inputmethodquery_isbase = false;
     mutable bool qsciscintilla_timerevent_isbase = false;
     mutable bool qsciscintilla_childevent_isbase = false;
     mutable bool qsciscintilla_customevent_isbase = false;
@@ -590,6 +590,7 @@ class VirtualQsciScintilla final : public QsciScintilla {
         qsciscintilla_focusnextprevchild_callback = nullptr;
         qsciscintilla_keypressevent_callback = nullptr;
         qsciscintilla_inputmethodevent_callback = nullptr;
+        qsciscintilla_inputmethodquery_callback = nullptr;
         qsciscintilla_mousedoubleclickevent_callback = nullptr;
         qsciscintilla_mousemoveevent_callback = nullptr;
         qsciscintilla_mousepressevent_callback = nullptr;
@@ -623,7 +624,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
         qsciscintilla_initpainter_callback = nullptr;
         qsciscintilla_redirected_callback = nullptr;
         qsciscintilla_sharedpainter_callback = nullptr;
-        qsciscintilla_inputmethodquery_callback = nullptr;
         qsciscintilla_timerevent_callback = nullptr;
         qsciscintilla_childevent_callback = nullptr;
         qsciscintilla_customevent_callback = nullptr;
@@ -747,6 +747,7 @@ class VirtualQsciScintilla final : public QsciScintilla {
     inline void setQsciScintilla_FocusNextPrevChild_Callback(QsciScintilla_FocusNextPrevChild_Callback cb) { qsciscintilla_focusnextprevchild_callback = cb; }
     inline void setQsciScintilla_KeyPressEvent_Callback(QsciScintilla_KeyPressEvent_Callback cb) { qsciscintilla_keypressevent_callback = cb; }
     inline void setQsciScintilla_InputMethodEvent_Callback(QsciScintilla_InputMethodEvent_Callback cb) { qsciscintilla_inputmethodevent_callback = cb; }
+    inline void setQsciScintilla_InputMethodQuery_Callback(QsciScintilla_InputMethodQuery_Callback cb) { qsciscintilla_inputmethodquery_callback = cb; }
     inline void setQsciScintilla_MouseDoubleClickEvent_Callback(QsciScintilla_MouseDoubleClickEvent_Callback cb) { qsciscintilla_mousedoubleclickevent_callback = cb; }
     inline void setQsciScintilla_MouseMoveEvent_Callback(QsciScintilla_MouseMoveEvent_Callback cb) { qsciscintilla_mousemoveevent_callback = cb; }
     inline void setQsciScintilla_MousePressEvent_Callback(QsciScintilla_MousePressEvent_Callback cb) { qsciscintilla_mousepressevent_callback = cb; }
@@ -780,7 +781,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
     inline void setQsciScintilla_InitPainter_Callback(QsciScintilla_InitPainter_Callback cb) { qsciscintilla_initpainter_callback = cb; }
     inline void setQsciScintilla_Redirected_Callback(QsciScintilla_Redirected_Callback cb) { qsciscintilla_redirected_callback = cb; }
     inline void setQsciScintilla_SharedPainter_Callback(QsciScintilla_SharedPainter_Callback cb) { qsciscintilla_sharedpainter_callback = cb; }
-    inline void setQsciScintilla_InputMethodQuery_Callback(QsciScintilla_InputMethodQuery_Callback cb) { qsciscintilla_inputmethodquery_callback = cb; }
     inline void setQsciScintilla_TimerEvent_Callback(QsciScintilla_TimerEvent_Callback cb) { qsciscintilla_timerevent_callback = cb; }
     inline void setQsciScintilla_ChildEvent_Callback(QsciScintilla_ChildEvent_Callback cb) { qsciscintilla_childevent_callback = cb; }
     inline void setQsciScintilla_CustomEvent_Callback(QsciScintilla_CustomEvent_Callback cb) { qsciscintilla_customevent_callback = cb; }
@@ -903,6 +903,7 @@ class VirtualQsciScintilla final : public QsciScintilla {
     inline void setQsciScintilla_FocusNextPrevChild_IsBase(bool value) const { qsciscintilla_focusnextprevchild_isbase = value; }
     inline void setQsciScintilla_KeyPressEvent_IsBase(bool value) const { qsciscintilla_keypressevent_isbase = value; }
     inline void setQsciScintilla_InputMethodEvent_IsBase(bool value) const { qsciscintilla_inputmethodevent_isbase = value; }
+    inline void setQsciScintilla_InputMethodQuery_IsBase(bool value) const { qsciscintilla_inputmethodquery_isbase = value; }
     inline void setQsciScintilla_MouseDoubleClickEvent_IsBase(bool value) const { qsciscintilla_mousedoubleclickevent_isbase = value; }
     inline void setQsciScintilla_MouseMoveEvent_IsBase(bool value) const { qsciscintilla_mousemoveevent_isbase = value; }
     inline void setQsciScintilla_MousePressEvent_IsBase(bool value) const { qsciscintilla_mousepressevent_isbase = value; }
@@ -936,7 +937,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
     inline void setQsciScintilla_InitPainter_IsBase(bool value) const { qsciscintilla_initpainter_isbase = value; }
     inline void setQsciScintilla_Redirected_IsBase(bool value) const { qsciscintilla_redirected_isbase = value; }
     inline void setQsciScintilla_SharedPainter_IsBase(bool value) const { qsciscintilla_sharedpainter_isbase = value; }
-    inline void setQsciScintilla_InputMethodQuery_IsBase(bool value) const { qsciscintilla_inputmethodquery_isbase = value; }
     inline void setQsciScintilla_TimerEvent_IsBase(bool value) const { qsciscintilla_timerevent_isbase = value; }
     inline void setQsciScintilla_ChildEvent_IsBase(bool value) const { qsciscintilla_childevent_isbase = value; }
     inline void setQsciScintilla_CustomEvent_IsBase(bool value) const { qsciscintilla_customevent_isbase = value; }
@@ -2477,6 +2477,21 @@ class VirtualQsciScintilla final : public QsciScintilla {
     }
 
     // Virtual method for C ABI access and custom callback
+    virtual QVariant inputMethodQuery(Qt::InputMethodQuery query) const override {
+        if (qsciscintilla_inputmethodquery_isbase) {
+            qsciscintilla_inputmethodquery_isbase = false;
+            return QsciScintilla::inputMethodQuery(query);
+        } else if (qsciscintilla_inputmethodquery_callback != nullptr) {
+            int cbval1 = static_cast<int>(query);
+
+            QVariant* callback_ret = qsciscintilla_inputmethodquery_callback(this, cbval1);
+            return *callback_ret;
+        } else {
+            return QsciScintilla::inputMethodQuery(query);
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
     virtual void mouseDoubleClickEvent(QMouseEvent* e) override {
         if (qsciscintilla_mousedoubleclickevent_isbase) {
             qsciscintilla_mousedoubleclickevent_isbase = false;
@@ -2949,21 +2964,6 @@ class VirtualQsciScintilla final : public QsciScintilla {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual QVariant inputMethodQuery(Qt::InputMethodQuery param1) const override {
-        if (qsciscintilla_inputmethodquery_isbase) {
-            qsciscintilla_inputmethodquery_isbase = false;
-            return QsciScintilla::inputMethodQuery(param1);
-        } else if (qsciscintilla_inputmethodquery_callback != nullptr) {
-            int cbval1 = static_cast<int>(param1);
-
-            QVariant* callback_ret = qsciscintilla_inputmethodquery_callback(this, cbval1);
-            return *callback_ret;
-        } else {
-            return QsciScintilla::inputMethodQuery(param1);
-        }
-    }
-
-    // Virtual method for C ABI access and custom callback
     virtual void timerEvent(QTimerEvent* event) override {
         if (qsciscintilla_timerevent_isbase) {
             qsciscintilla_timerevent_isbase = false;
@@ -3278,6 +3278,8 @@ class VirtualQsciScintilla final : public QsciScintilla {
     friend void QsciScintilla_QBaseKeyPressEvent(QsciScintilla* self, QKeyEvent* e);
     friend void QsciScintilla_InputMethodEvent(QsciScintilla* self, QInputMethodEvent* event);
     friend void QsciScintilla_QBaseInputMethodEvent(QsciScintilla* self, QInputMethodEvent* event);
+    friend QVariant* QsciScintilla_InputMethodQuery(const QsciScintilla* self, int query);
+    friend QVariant* QsciScintilla_QBaseInputMethodQuery(const QsciScintilla* self, int query);
     friend void QsciScintilla_MouseDoubleClickEvent(QsciScintilla* self, QMouseEvent* e);
     friend void QsciScintilla_QBaseMouseDoubleClickEvent(QsciScintilla* self, QMouseEvent* e);
     friend void QsciScintilla_MouseMoveEvent(QsciScintilla* self, QMouseEvent* e);
