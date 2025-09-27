@@ -301,6 +301,21 @@ func AllowVirtualForClass(className string) bool {
 		return false
 	}
 
+	// Qt 6 KCoreAddons
+	// the vtable causes a linker error
+	if className == "KJobTrackerInterface" {
+		return false
+	}
+
+	// Qt 6 KJobWidgets
+	// these vtables cause linker errors
+	if className == "KAbstractWidgetJobTracker" || className == "KDialogJobUiDelegate" ||
+		className == "KNotificationJobUiDelegate" || className == "KStatusBarJobTracker" ||
+		className == "KUiServerJobTracker" || className == "KUiServerV2JobTracker" ||
+		className == "KWidgetJobTracker" {
+		return false
+	}
+
 	return true
 }
 
@@ -420,6 +435,12 @@ func AllowMethod(className string, mm CppMethod) error {
 	// Qt 6 KConfig
 	if className == "KCoreConfigSkeleton::ItemInt" && (mm.MethodName == "setMinValue" || mm.MethodName == "setMaxValue") {
 		// Qt 6 kcoreconfigskeleton.h: inherited method of a blocked class
+		return ErrTooComplex
+	}
+
+	// Qt 6 KCoreAddons
+	if className == "KJob" && mm.MethodName == "description" {
+		// Qt 6 kjob.h: undefined symbol error during compilation
 		return ErrTooComplex
 	}
 
