@@ -72,31 +72,37 @@ func (p CppParameter) RenderTypeCabi(isSlot bool) string {
 	ret := p.ParameterType
 
 	switch p.ParameterType {
-	case "uchar":
+	case "GLvoid":
+		ret = "void"
+	case "uchar", "GLboolean":
 		ret = "unsigned char"
+	case "GLbyte":
+		ret = "signed char"
 	case "uint":
 		ret = "unsigned int"
 	case "ulong":
 		ret = "unsigned long"
 	case "qint8":
 		ret = "int8_t"
-	case "quint8":
+	case "quint8", "GLubyte":
 		ret = "uint8_t"
-	case "qint16", "short":
+	case "qint16", "short", "GLshort":
 		ret = "int16_t"
-	case "quint16", "ushort", "unsigned short":
+	case "quint16", "ushort", "unsigned short", "GLushort":
 		ret = "uint16_t"
-	case "qint32":
+	case "qint32", "GLint", "GLsizei":
 		ret = "int32_t"
-	case "quint32":
+	case "quint32", "GLbitfield", "GLenum", "GLuint":
 		ret = "uint32_t"
-	case "qlonglong", "qint64":
+	case "qlonglong", "qint64", "GLint64", "GLintptr", "GLsizeiptr":
 		ret = "int64_t"
-	case "qulonglong", "quint64":
+	case "qulonglong", "quint64", "GLuint64":
 		ret = "uint64_t"
+	case "GLfloat":
+		ret = "float"
 	case "qfloat16":
 		ret = "_Float16" // No idea where this typedef comes from, but it exists
-	case "const double", "qreal":
+	case "const double", "qreal", "GLdouble":
 		ret = "double"
 	case "qintptr", "QIntegerForSizeof<void *>::Signed": // long long int
 		ret = "intptr_t" // long int
@@ -921,17 +927,18 @@ func cabiPreventStructDeclaration(className string) bool {
 
 var (
 	noQtConnect = map[string]struct{}{
-		"KNSCore__EngineBase":   {},
-		"QAudioDecoder":         {},
-		"QBluetoothPermission":  {},
-		"QCalendarPermission":   {},
-		"QCameraPermission":     {},
-		"QCompleter":            {},
-		"QContactsPermission":   {},
-		"QLocationPermission":   {},
-		"QMicrophonePermission": {},
-		"QPrintDialog":          {},
-		"QsciScintillaBase":     {},
+		"KNSCore__EngineBase":           {},
+		"QAudioDecoder":                 {},
+		"QBluetoothPermission":          {},
+		"QCalendarPermission":           {},
+		"QCameraPermission":             {},
+		"QCompleter":                    {},
+		"QContactsPermission":           {},
+		"QLocationPermission":           {},
+		"QMicrophonePermission":         {},
+		"QNativeInterface__QEGLContext": {},
+		"QPrintDialog":                  {},
+		"QsciScintillaBase":             {},
 	}
 
 	// temporary hack
@@ -1315,6 +1322,11 @@ extern "C" {
 
 	foundTypes := make([]string, 0, len(foundTypesList))
 	seenTypes := map[string]struct{}{}
+
+	if srcFilename == "qopenglextrafunctions.h" || strings.HasPrefix(srcFilename, "qopenglfunctions") {
+		foundTypes = append(foundTypes, "typedef char GLchar;")
+		foundTypes = append(foundTypes, "typedef float GLclampf;")
+	}
 
 	for _, ft := range foundTypesList {
 		if cabiPreventStructDeclaration(ft) {
