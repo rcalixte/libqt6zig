@@ -62,7 +62,7 @@ func Widgets_AllowHeader(fullpath string) bool {
 	}
 
 	fname_lc := strings.ToLower(fname)
-	if strings.Contains(fname_lc, "opengl") || strings.Contains(fname_lc, "vulkan") {
+	if strings.Contains(fname_lc, "vulkan") {
 		return false // Too hard
 	}
 
@@ -96,6 +96,7 @@ func Widgets_AllowHeader(fullpath string) bool {
 		"qatomic.h",                       // Qt 6 - broken inheritance QAtomicInt => QAtomicInteger
 		"qrhiwidget.h",                    // Qt 6 - broken QRhi* types, granular blocking might be fine
 		"qscreen_platform.h",              // Qt 6 - returns Wayland-specific wl_output type external to this library, a manual typedef does not work
+		"qopenglext.h",                    // Qt 6 - typedefs are not in the header
 		"____last____":
 		return false
 	}
@@ -113,6 +114,11 @@ func ImportHeaderForClass(className string) bool {
 	if strings.HasPrefix(className, "QPlatform") {
 		// e.g. QPlatformPixmap, QPlatformWindow, QPlatformScreen
 		// These classes don't have a <> version to include
+		return false
+	}
+
+	if strings.HasPrefix(className, "QOpenGLFunctions_") && strings.HasSuffix(className, "Backend") {
+		// e.g. QOpenGLFunctions_1_0_CoreBackend, QOpenGLFunctions_1_0_DeprecatedBackend
 		return false
 	}
 
@@ -141,6 +147,10 @@ func ImportHeaderForClass(className string) bool {
 		"QCameraPermission",              // Qt 6.8 qpermissions.h
 		"QMicrophonePermission",          // Qt 6.8 qpermissions.h
 		"QDBusPendingReplyTypes",         // Qt 6 qdbuspendingreply.h
+		"QAbstractOpenGLFunctions",       // Qt 6 qopenglfunctions.h
+		"QOpenGLVersionFunctionsBackend", // Qt 6 qopenglversionfunctions.h
+		"QOpenGLVersionFunctionsStorage", // Qt 6 qopenglversionfunctions.h
+		"QOpenGLVersionStatus",           // Qt 6 qopenglversionfunctions.h
 		"QtVideo",                        // Qt 6 qtvideo.h
 		"q20",                            // Qt 6 q20type_traits.h
 		"Kuit",                           // Qt 6 kuitsetup.h
@@ -493,6 +503,20 @@ func AllowCtor(className string) bool {
 		return false
 	}
 
+	if className == "QNativeInterface::QGLXContext" || className == "QNativeInterface::QEGLContext" {
+		return false
+	}
+
+	// Qt 6 OpenGL
+	if strings.HasPrefix(className, "QOpenGL") && strings.HasSuffix(className, "Backend") {
+		// e.g. QOpenGLFunctions_1_0_CoreBackend, QOpenGLFunctions_1_0_DeprecatedBackend, QOpenGLVersionFunctionsBackend
+		return false
+	}
+	if strings.HasPrefix(className, "QOpenGL") && strings.HasSuffix(className, "Storage") {
+		// e.g. QOpenGLVersionFunctionsStorage
+		return false
+	}
+
 	// Qt 6 Attica
 	if className == "Attica::PlatformDependentV2" || className == "Attica::PlatformDependentV3" {
 		return false
@@ -586,6 +610,9 @@ func AllowType(p CppParameter, isReturnType bool) error {
 	}
 	if strings.HasPrefix(p.ParameterType, "QUrlTwoFlags<") {
 		return ErrTooComplex // e.g. qurl.h
+	}
+	if strings.HasPrefix(p.ParameterType, "struct __") {
+		return ErrTooComplex // e.g. Qt 6 qopenglcontext_platform.h
 	}
 	if strings.HasPrefix(p.ParameterType, "FillResult<") {
 		return ErrTooComplex // Scintilla
@@ -690,6 +717,12 @@ func AllowType(p CppParameter, isReturnType bool) error {
 	}
 
 	if p.ParameterType == "QFormLayout::ItemRole" && p.Pointer && !isReturnType { // Out-parameters in QFormLayout
+		return ErrTooComplex
+	}
+
+	// Qt 6 OpenGL
+	if strings.HasPrefix(p.ParameterType, "QOpenGL") && strings.Contains(p.ParameterType, "Backend::") {
+		// e.g. QOpenGLFunctions_1_0_CoreBackend, QOpenGLFunctions_1_0_DeprecatedBackend, QOpenGLVersionFunctionsBackend
 		return ErrTooComplex
 	}
 
@@ -802,6 +835,10 @@ func AllowType(p CppParameter, isReturnType bool) error {
 		"ClipboardUpdater",                // Qt 6 jobuidelegate.h
 		"KIO::SslUi",                      // Qt 6 sslui.h
 		"Installation",                    // Qt 6 KNewStuff, enginebase.h
+		"GL",                              // Qt 6 qopengl.h
+		"GLsync",                          // Qt 6 qopengl.h
+		"GLDEBUGPROC",                     // Qt 6 qopenglfunctions.h
+		"QPlatformOpenGLContext",          // Qt 6 qopenglcontext.h
 		"____last____":
 		return ErrTooComplex
 	}
