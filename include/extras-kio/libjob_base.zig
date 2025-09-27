@@ -1158,7 +1158,7 @@ pub const kio__job = struct {
     }
 };
 
-/// https://api.kde.org/kio-job_base.html#types
+/// https://api.kde.org/kio-job-base.html#types
 pub const enums = struct {
     pub const JobFlag = enum {
         pub const DefaultFlags: i32 = 0;

@@ -1,7 +1,7 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 
-/// https://doc.qt.io/qt-6/partial_ordering.html
+/// https://doc.qt.io/qt-6/partial-ordering.html
 pub const partial_ordering = struct {
     /// New constructs a new Qt::partial_ordering object.
     ///
@@ -38,7 +38,7 @@ pub const partial_ordering = struct {
         qtc.partial_ordering_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/partial_ordering.html#dtor.partial_ordering)
+    /// [Qt documentation](https://doc.qt.io/qt-6/partial-ordering.html#dtor.partial_ordering)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -48,7 +48,7 @@ pub const partial_ordering = struct {
     }
 };
 
-/// https://doc.qt.io/qt-6/weak_ordering.html
+/// https://doc.qt.io/qt-6/weak-ordering.html
 pub const weak_ordering = struct {
     /// New constructs a new Qt::weak_ordering object.
     ///
@@ -85,14 +85,14 @@ pub const weak_ordering = struct {
         qtc.weak_ordering_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/weak_ordering.html#operator)
+    /// [Qt documentation](https://doc.qt.io/qt-6/weak-ordering.html#operator)
     ///
     /// ``` self: QtC.weak_ordering ```
     pub fn ToPartialOrdering(self: ?*anyopaque) QtC.partial_ordering {
         return qtc.weak_ordering_ToPartialOrdering(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/weak_ordering.html#dtor.weak_ordering)
+    /// [Qt documentation](https://doc.qt.io/qt-6/weak-ordering.html#dtor.weak_ordering)
     ///
     /// Delete this object from C++ memory.
     ///
@@ -102,7 +102,7 @@ pub const weak_ordering = struct {
     }
 };
 
-/// https://doc.qt.io/qt-6/strong_ordering.html
+/// https://doc.qt.io/qt-6/strong-ordering.html
 pub const strong_ordering = struct {
     /// New constructs a new Qt::strong_ordering object.
     ///
@@ -139,21 +139,21 @@ pub const strong_ordering = struct {
         qtc.strong_ordering_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/strong_ordering.html#operator)
+    /// [Qt documentation](https://doc.qt.io/qt-6/strong-ordering.html#operator)
     ///
     /// ``` self: QtC.strong_ordering ```
     pub fn ToPartialOrdering(self: ?*anyopaque) QtC.partial_ordering {
         return qtc.strong_ordering_ToPartialOrdering(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/strong_ordering.html#operator)
+    /// [Qt documentation](https://doc.qt.io/qt-6/strong-ordering.html#operator)
     ///
     /// ``` self: QtC.strong_ordering ```
     pub fn ToWeakOrdering(self: ?*anyopaque) QtC.weak_ordering {
         return qtc.strong_ordering_ToWeakOrdering(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/strong_ordering.html#dtor.strong_ordering)
+    /// [Qt documentation](https://doc.qt.io/qt-6/strong-ordering.html#dtor.strong_ordering)
     ///
     /// Delete this object from C++ memory.
     ///

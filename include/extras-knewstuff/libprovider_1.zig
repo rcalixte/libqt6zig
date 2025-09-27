@@ -2190,7 +2190,7 @@ pub const knscore__provider__searchpreset = struct {
     }
 };
 
-/// https://api.kde.org/knscore-provider_1.html#types
+/// https://api.kde.org/knscore-provider.html#types
 pub const enums = struct {
     pub const SortMode = enum {
         pub const Newest: i32 = 0;

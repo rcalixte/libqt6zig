@@ -1055,7 +1055,7 @@ pub const kmodifierkeyinfoprovider = struct {
     }
 };
 
-/// https://api.kde.org/kmodifierkeyinfoprovider_p.html#types
+/// https://api.kde.org/kmodifierkeyinfoprovider-p.html#types
 pub const enums = struct {
     pub const ModifierState = enum {
         pub const Nothing: i32 = 0;

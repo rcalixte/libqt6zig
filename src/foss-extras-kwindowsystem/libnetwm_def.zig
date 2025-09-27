@@ -839,7 +839,7 @@ pub const net = struct {
     }
 };
 
-/// https://api.kde.org/netwm_def.html#types
+/// https://api.kde.org/netwm-def.html#types
 pub const enums = struct {
     pub const Role = enum {
         pub const Client: i32 = 0;

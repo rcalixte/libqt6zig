@@ -725,7 +725,7 @@ pub const qaccessible__activationobserver = struct {
     }
 };
 
-/// https://doc.qt.io/qt-6/qaccessible_base.html#types
+/// https://doc.qt.io/qt-6/qaccessible-base.html#types
 pub const enums = struct {
     pub const Event = enum {
         pub const SoundPlayed: i32 = 1;

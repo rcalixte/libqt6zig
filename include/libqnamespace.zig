@@ -2,7 +2,7 @@ const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const qnamespace_enums = enums;
 
-/// https://doc.qt.io/qt-6/disambiguated_t.html
+/// https://doc.qt.io/qt-6/disambiguated-t.html
 pub const disambiguated_t = struct {
     /// New constructs a new Qt::Disambiguated_t object.
     ///
@@ -46,7 +46,7 @@ pub const disambiguated_t = struct {
         qtc.Disambiguated_t_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/disambiguated_t.html#dtor.Disambiguated_t)
+    /// [Qt documentation](https://doc.qt.io/qt-6/disambiguated-t.html#dtor.Disambiguated_t)
     ///
     /// Delete this object from C++ memory.
     ///

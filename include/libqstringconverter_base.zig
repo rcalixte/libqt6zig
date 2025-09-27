@@ -161,7 +161,7 @@ pub const qstringconverterbase__state = struct {
     }
 };
 
-/// https://doc.qt.io/qt-6/qstringconverter_base.html#types
+/// https://doc.qt.io/qt-6/qstringconverter-base.html#types
 pub const enums = struct {
     pub const Flag = enum {
         pub const Default: i32 = 0;

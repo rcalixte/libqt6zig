@@ -519,7 +519,7 @@ pub const qjsonobject__iterator = struct {
     }
 };
 
-/// https://doc.qt.io/qt-6/qjsonobject-const_iterator.html
+/// https://doc.qt.io/qt-6/qjsonobject-const-iterator.html
 pub const qjsonobject__const_iterator = struct {
     /// New constructs a new QJsonObject::const_iterator object.
     ///
@@ -556,14 +556,14 @@ pub const qjsonobject__const_iterator = struct {
         return qtc.QJsonObject__const_iterator_new5(@ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonobject-const_iterator.html#operator-eq)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonobject-const-iterator.html#operator-eq)
     ///
     /// ``` self: QtC.QJsonObject__const_iterator, other: QtC.QJsonObject__const_iterator ```
     pub fn OperatorAssign(self: ?*anyopaque, other: ?*anyopaque) void {
         qtc.QJsonObject__const_iterator_OperatorAssign(@ptrCast(self), @ptrCast(other));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonobject-const_iterator.html#key)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonobject-const-iterator.html#key)
     ///
     /// ``` self: QtC.QJsonObject__const_iterator, allocator: std.mem.Allocator ```
     pub fn Key(self: ?*anyopaque, allocator: std.mem.Allocator) []const u8 {
@@ -574,91 +574,91 @@ pub const qjsonobject__const_iterator = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonobject-const_iterator.html#value)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonobject-const-iterator.html#value)
     ///
     /// ``` self: QtC.QJsonObject__const_iterator ```
     pub fn Value(self: ?*anyopaque) QtC.QJsonValueConstRef {
         return qtc.QJsonObject__const_iterator_Value(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonobject-const_iterator.html#operator-2a)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonobject-const-iterator.html#operator-2a)
     ///
     /// ``` self: QtC.QJsonObject__const_iterator ```
     pub fn OperatorMultiply(self: ?*anyopaque) QtC.QJsonValueConstRef {
         return qtc.QJsonObject__const_iterator_OperatorMultiply(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonobject-const_iterator.html#operator--gt)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonobject-const-iterator.html#operator--gt)
     ///
     /// ``` self: QtC.QJsonObject__const_iterator ```
     pub fn OperatorMinusGreater(self: ?*anyopaque) QtC.QJsonValueConstRef {
         return qtc.QJsonObject__const_iterator_OperatorMinusGreater(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonobject-const_iterator.html#operator-5b-5d)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonobject-const-iterator.html#operator-5b-5d)
     ///
     /// ``` self: QtC.QJsonObject__const_iterator, j: i64 ```
     pub fn OperatorSubscript(self: ?*anyopaque, j: i64) QtC.QJsonValueConstRef {
         return qtc.QJsonObject__const_iterator_OperatorSubscript(@ptrCast(self), @intCast(j));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonobject-const_iterator.html#operator-2b-2b)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonobject-const-iterator.html#operator-2b-2b)
     ///
     /// ``` self: QtC.QJsonObject__const_iterator ```
     pub fn OperatorPlusPlus(self: ?*anyopaque) QtC.QJsonObject__const_iterator {
         return qtc.QJsonObject__const_iterator_OperatorPlusPlus(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonobject-const_iterator.html#operator-2b-2b)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonobject-const-iterator.html#operator-2b-2b)
     ///
     /// ``` self: QtC.QJsonObject__const_iterator, param1: i32 ```
     pub fn OperatorPlusPlus2(self: ?*anyopaque, param1: i32) QtC.QJsonObject__const_iterator {
         return qtc.QJsonObject__const_iterator_OperatorPlusPlus2(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonobject-const_iterator.html#operator--)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonobject-const-iterator.html#operator--)
     ///
     /// ``` self: QtC.QJsonObject__const_iterator ```
     pub fn OperatorMinusMinus(self: ?*anyopaque) QtC.QJsonObject__const_iterator {
         return qtc.QJsonObject__const_iterator_OperatorMinusMinus(@ptrCast(self));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonobject-const_iterator.html#operator--)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonobject-const-iterator.html#operator--)
     ///
     /// ``` self: QtC.QJsonObject__const_iterator, param1: i32 ```
     pub fn OperatorMinusMinus2(self: ?*anyopaque, param1: i32) QtC.QJsonObject__const_iterator {
         return qtc.QJsonObject__const_iterator_OperatorMinusMinus2(@ptrCast(self), @intCast(param1));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonobject-const_iterator.html#operator-2b)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonobject-const-iterator.html#operator-2b)
     ///
     /// ``` self: QtC.QJsonObject__const_iterator, j: i64 ```
     pub fn OperatorPlus(self: ?*anyopaque, j: i64) QtC.QJsonObject__const_iterator {
         return qtc.QJsonObject__const_iterator_OperatorPlus(@ptrCast(self), @intCast(j));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonobject-const_iterator.html#operator-)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonobject-const-iterator.html#operator-)
     ///
     /// ``` self: QtC.QJsonObject__const_iterator, j: i64 ```
     pub fn OperatorMinus(self: ?*anyopaque, j: i64) QtC.QJsonObject__const_iterator {
         return qtc.QJsonObject__const_iterator_OperatorMinus(@ptrCast(self), @intCast(j));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonobject-const_iterator.html#operator-2b-eq)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonobject-const-iterator.html#operator-2b-eq)
     ///
     /// ``` self: QtC.QJsonObject__const_iterator, j: i64 ```
     pub fn OperatorPlusAssign(self: ?*anyopaque, j: i64) QtC.QJsonObject__const_iterator {
         return qtc.QJsonObject__const_iterator_OperatorPlusAssign(@ptrCast(self), @intCast(j));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonobject-const_iterator.html#operator--eq)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonobject-const-iterator.html#operator--eq)
     ///
     /// ``` self: QtC.QJsonObject__const_iterator, j: i64 ```
     pub fn OperatorMinusAssign(self: ?*anyopaque, j: i64) QtC.QJsonObject__const_iterator {
         return qtc.QJsonObject__const_iterator_OperatorMinusAssign(@ptrCast(self), @intCast(j));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonobject-const_iterator.html#operator-)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qjsonobject-const-iterator.html#operator-)
     ///
     /// ``` self: QtC.QJsonObject__const_iterator, j: QtC.QJsonObject__const_iterator ```
     pub fn OperatorMinus2(self: ?*anyopaque, j: QtC.QJsonObject__const_iterator) i64 {
