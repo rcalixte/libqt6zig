@@ -151,6 +151,9 @@ pub fn build(b: *std.Build) !void {
         "QtMultimediaWidgets",
         // Qt 6 Network
         "QtNetwork",
+        // Qt 6 OpenGL
+        "QtOpenGL",
+        "QtOpenGLWidgets",
         // Qt 6 PDF
         "QtPdf",
         "QtPdfWidgets",
