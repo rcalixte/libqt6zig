@@ -39,20 +39,6 @@ pub const kdialogjobuidelegate = struct {
         return qtc.KDialogJobUiDelegate_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
-    /// Allows for overriding the related default method
-    ///
-    /// ``` self: QtC.KDialogJobUiDelegate, callback: *const fn (self: QtC.KDialogJobUiDelegate, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque) callconv(.c) i32 ```
-    pub fn OnMetacall(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, i32, ?*anyopaque) callconv(.c) i32) void {
-        qtc.KDialogJobUiDelegate_OnMetacall(@ptrCast(self), @intCast(@intFromPtr(callback)));
-    }
-
-    /// Base class method implementation
-    ///
-    /// ``` self: QtC.KDialogJobUiDelegate, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
-    pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.KDialogJobUiDelegate_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
-    }
-
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
@@ -72,47 +58,11 @@ pub const kdialogjobuidelegate = struct {
         return qtc.KDialogJobUiDelegate_SetJob(@ptrCast(self), @ptrCast(job));
     }
 
-    /// [Qt documentation](https://api.kde.org/kdialogjobuidelegate.html#setJob)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ``` self: QtC.KDialogJobUiDelegate, callback: *const fn (self: QtC.KDialogJobUiDelegate, job: QtC.KJob) callconv(.c) bool ```
-    pub fn OnSetJob(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KDialogJobUiDelegate_OnSetJob(@ptrCast(self), @intCast(@intFromPtr(callback)));
-    }
-
-    /// [Qt documentation](https://api.kde.org/kdialogjobuidelegate.html#setJob)
-    ///
-    /// Base class method implementation
-    ///
-    /// ``` self: QtC.KDialogJobUiDelegate, job: QtC.KJob ```
-    pub fn QBaseSetJob(self: ?*anyopaque, job: ?*anyopaque) bool {
-        return qtc.KDialogJobUiDelegate_QBaseSetJob(@ptrCast(self), @ptrCast(job));
-    }
-
     /// [Qt documentation](https://api.kde.org/kdialogjobuidelegate.html#setWindow)
     ///
     /// ``` self: QtC.KDialogJobUiDelegate, window: QtC.QWidget ```
     pub fn SetWindow(self: ?*anyopaque, window: ?*anyopaque) void {
         qtc.KDialogJobUiDelegate_SetWindow(@ptrCast(self), @ptrCast(window));
-    }
-
-    /// [Qt documentation](https://api.kde.org/kdialogjobuidelegate.html#setWindow)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ``` self: QtC.KDialogJobUiDelegate, callback: *const fn (self: QtC.KDialogJobUiDelegate, window: QtC.QWidget) callconv(.c) void ```
-    pub fn OnSetWindow(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KDialogJobUiDelegate_OnSetWindow(@ptrCast(self), @intCast(@intFromPtr(callback)));
-    }
-
-    /// [Qt documentation](https://api.kde.org/kdialogjobuidelegate.html#setWindow)
-    ///
-    /// Base class method implementation
-    ///
-    /// ``` self: QtC.KDialogJobUiDelegate, window: QtC.QWidget ```
-    pub fn QBaseSetWindow(self: ?*anyopaque, window: ?*anyopaque) void {
-        qtc.KDialogJobUiDelegate_QBaseSetWindow(@ptrCast(self), @ptrCast(window));
     }
 
     /// [Qt documentation](https://api.kde.org/kdialogjobuidelegate.html#window)
@@ -141,57 +91,6 @@ pub const kdialogjobuidelegate = struct {
     /// ``` self: QtC.KDialogJobUiDelegate ```
     pub fn ShowErrorMessage(self: ?*anyopaque) void {
         qtc.KDialogJobUiDelegate_ShowErrorMessage(@ptrCast(self));
-    }
-
-    /// [Qt documentation](https://api.kde.org/kdialogjobuidelegate.html#showErrorMessage)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ``` self: QtC.KDialogJobUiDelegate, callback: *const fn () callconv(.c) void ```
-    pub fn OnShowErrorMessage(self: ?*anyopaque, callback: *const fn () callconv(.c) void) void {
-        qtc.KDialogJobUiDelegate_OnShowErrorMessage(@ptrCast(self), @intCast(@intFromPtr(callback)));
-    }
-
-    /// [Qt documentation](https://api.kde.org/kdialogjobuidelegate.html#showErrorMessage)
-    ///
-    /// Base class method implementation
-    ///
-    /// ``` self: QtC.KDialogJobUiDelegate ```
-    pub fn QBaseShowErrorMessage(self: ?*anyopaque) void {
-        qtc.KDialogJobUiDelegate_QBaseShowErrorMessage(@ptrCast(self));
-    }
-
-    /// [Qt documentation](https://api.kde.org/kdialogjobuidelegate.html#slotWarning)
-    ///
-    /// ``` self: QtC.KDialogJobUiDelegate, job: QtC.KJob, message: []const u8 ```
-    pub fn SlotWarning(self: ?*anyopaque, job: ?*anyopaque, message: []const u8) void {
-        const message_str = qtc.libqt_string{
-            .len = message.len,
-            .data = message.ptr,
-        };
-        qtc.KDialogJobUiDelegate_SlotWarning(@ptrCast(self), @ptrCast(job), message_str);
-    }
-
-    /// [Qt documentation](https://api.kde.org/kdialogjobuidelegate.html#slotWarning)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ``` self: QtC.KDialogJobUiDelegate, callback: *const fn (self: QtC.KDialogJobUiDelegate, job: QtC.KJob, message: [*:0]const u8) callconv(.c) void ```
-    pub fn OnSlotWarning(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KDialogJobUiDelegate_OnSlotWarning(@ptrCast(self), @intCast(@intFromPtr(callback)));
-    }
-
-    /// [Qt documentation](https://api.kde.org/kdialogjobuidelegate.html#slotWarning)
-    ///
-    /// Base class method implementation
-    ///
-    /// ``` self: QtC.KDialogJobUiDelegate, job: QtC.KJob, message: []const u8 ```
-    pub fn QBaseSlotWarning(self: ?*anyopaque, job: ?*anyopaque, message: []const u8) void {
-        const message_str = qtc.libqt_string{
-            .len = message.len,
-            .data = message.ptr,
-        };
-        qtc.KDialogJobUiDelegate_QBaseSlotWarning(@ptrCast(self), @ptrCast(job), message_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -254,6 +153,24 @@ pub const kdialogjobuidelegate = struct {
     /// ``` self: QtC.KDialogJobUiDelegate ```
     pub fn IsAutoWarningHandlingEnabled(self: ?*anyopaque) bool {
         return qtc.KJobUiDelegate_IsAutoWarningHandlingEnabled(@ptrCast(self));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
+    ///
+    /// ``` self: QtC.KDialogJobUiDelegate, event: QtC.QEvent ```
+    pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QObject_Event(@ptrCast(self), @ptrCast(event));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    ///
+    /// ``` self: QtC.KDialogJobUiDelegate, watched: QtC.QObject, event: QtC.QEvent ```
+    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
+        return qtc.QObject_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
     }
 
     /// Inherited from QObject
@@ -631,404 +548,6 @@ pub const kdialogjobuidelegate = struct {
     /// ``` self: QtC.KDialogJobUiDelegate, callback: *const fn (self: QtC.KDialogJobUiDelegate, param1: QtC.QObject) callconv(.c) void ```
     pub fn OnDestroyed1(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self), @intCast(@intFromPtr(callback)));
-    }
-
-    /// Inherited from QObject
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
-    ///
-    /// Wrapper to allow calling virtual or protected method
-    ///
-    /// ``` self: QtC.KDialogJobUiDelegate, event: QtC.QEvent ```
-    pub fn Event(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KDialogJobUiDelegate_Event(@ptrCast(self), @ptrCast(event));
-    }
-
-    /// Inherited from QObject
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ``` self: QtC.KDialogJobUiDelegate, event: QtC.QEvent ```
-    pub fn QBaseEvent(self: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KDialogJobUiDelegate_QBaseEvent(@ptrCast(self), @ptrCast(event));
-    }
-
-    /// Inherited from QObject
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#event)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ``` self: QtC.KDialogJobUiDelegate, callback: *const fn (self: QtC.KDialogJobUiDelegate, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KDialogJobUiDelegate_OnEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
-    }
-
-    /// Inherited from QObject
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
-    ///
-    /// Wrapper to allow calling virtual or protected method
-    ///
-    /// ``` self: QtC.KDialogJobUiDelegate, watched: QtC.QObject, event: QtC.QEvent ```
-    pub fn EventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KDialogJobUiDelegate_EventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
-    }
-
-    /// Inherited from QObject
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ``` self: QtC.KDialogJobUiDelegate, watched: QtC.QObject, event: QtC.QEvent ```
-    pub fn QBaseEventFilter(self: ?*anyopaque, watched: ?*anyopaque, event: ?*anyopaque) bool {
-        return qtc.KDialogJobUiDelegate_QBaseEventFilter(@ptrCast(self), @ptrCast(watched), @ptrCast(event));
-    }
-
-    /// Inherited from QObject
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#eventFilter)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ``` self: QtC.KDialogJobUiDelegate, callback: *const fn (self: QtC.KDialogJobUiDelegate, watched: QtC.QObject, event: QtC.QEvent) callconv(.c) bool ```
-    pub fn OnEventFilter(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KDialogJobUiDelegate_OnEventFilter(@ptrCast(self), @intCast(@intFromPtr(callback)));
-    }
-
-    /// Inherited from QObject
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
-    ///
-    /// Wrapper to allow calling virtual or protected method
-    ///
-    /// ``` self: QtC.KDialogJobUiDelegate, event: QtC.QTimerEvent ```
-    pub fn TimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KDialogJobUiDelegate_TimerEvent(@ptrCast(self), @ptrCast(event));
-    }
-
-    /// Inherited from QObject
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ``` self: QtC.KDialogJobUiDelegate, event: QtC.QTimerEvent ```
-    pub fn QBaseTimerEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KDialogJobUiDelegate_QBaseTimerEvent(@ptrCast(self), @ptrCast(event));
-    }
-
-    /// Inherited from QObject
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#timerEvent)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ``` self: QtC.KDialogJobUiDelegate, callback: *const fn (self: QtC.KDialogJobUiDelegate, event: QtC.QTimerEvent) callconv(.c) void ```
-    pub fn OnTimerEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KDialogJobUiDelegate_OnTimerEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
-    }
-
-    /// Inherited from QObject
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
-    ///
-    /// Wrapper to allow calling virtual or protected method
-    ///
-    /// ``` self: QtC.KDialogJobUiDelegate, event: QtC.QChildEvent ```
-    pub fn ChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KDialogJobUiDelegate_ChildEvent(@ptrCast(self), @ptrCast(event));
-    }
-
-    /// Inherited from QObject
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ``` self: QtC.KDialogJobUiDelegate, event: QtC.QChildEvent ```
-    pub fn QBaseChildEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KDialogJobUiDelegate_QBaseChildEvent(@ptrCast(self), @ptrCast(event));
-    }
-
-    /// Inherited from QObject
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#childEvent)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ``` self: QtC.KDialogJobUiDelegate, callback: *const fn (self: QtC.KDialogJobUiDelegate, event: QtC.QChildEvent) callconv(.c) void ```
-    pub fn OnChildEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KDialogJobUiDelegate_OnChildEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
-    }
-
-    /// Inherited from QObject
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
-    ///
-    /// Wrapper to allow calling virtual or protected method
-    ///
-    /// ``` self: QtC.KDialogJobUiDelegate, event: QtC.QEvent ```
-    pub fn CustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KDialogJobUiDelegate_CustomEvent(@ptrCast(self), @ptrCast(event));
-    }
-
-    /// Inherited from QObject
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ``` self: QtC.KDialogJobUiDelegate, event: QtC.QEvent ```
-    pub fn QBaseCustomEvent(self: ?*anyopaque, event: ?*anyopaque) void {
-        qtc.KDialogJobUiDelegate_QBaseCustomEvent(@ptrCast(self), @ptrCast(event));
-    }
-
-    /// Inherited from QObject
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#customEvent)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ``` self: QtC.KDialogJobUiDelegate, callback: *const fn (self: QtC.KDialogJobUiDelegate, event: QtC.QEvent) callconv(.c) void ```
-    pub fn OnCustomEvent(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KDialogJobUiDelegate_OnCustomEvent(@ptrCast(self), @intCast(@intFromPtr(callback)));
-    }
-
-    /// Inherited from QObject
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
-    ///
-    /// Wrapper to allow calling virtual or protected method
-    ///
-    /// ``` self: QtC.KDialogJobUiDelegate, signal: QtC.QMetaMethod ```
-    pub fn ConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KDialogJobUiDelegate_ConnectNotify(@ptrCast(self), @ptrCast(signal));
-    }
-
-    /// Inherited from QObject
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ``` self: QtC.KDialogJobUiDelegate, signal: QtC.QMetaMethod ```
-    pub fn QBaseConnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KDialogJobUiDelegate_QBaseConnectNotify(@ptrCast(self), @ptrCast(signal));
-    }
-
-    /// Inherited from QObject
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#connectNotify)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ``` self: QtC.KDialogJobUiDelegate, callback: *const fn (self: QtC.KDialogJobUiDelegate, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnConnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KDialogJobUiDelegate_OnConnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
-    }
-
-    /// Inherited from QObject
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
-    ///
-    /// Wrapper to allow calling virtual or protected method
-    ///
-    /// ``` self: QtC.KDialogJobUiDelegate, signal: QtC.QMetaMethod ```
-    pub fn DisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KDialogJobUiDelegate_DisconnectNotify(@ptrCast(self), @ptrCast(signal));
-    }
-
-    /// Inherited from QObject
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ``` self: QtC.KDialogJobUiDelegate, signal: QtC.QMetaMethod ```
-    pub fn QBaseDisconnectNotify(self: ?*anyopaque, signal: ?*anyopaque) void {
-        qtc.KDialogJobUiDelegate_QBaseDisconnectNotify(@ptrCast(self), @ptrCast(signal));
-    }
-
-    /// Inherited from QObject
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ``` self: QtC.KDialogJobUiDelegate, callback: *const fn (self: QtC.KDialogJobUiDelegate, signal: QtC.QMetaMethod) callconv(.c) void ```
-    pub fn OnDisconnectNotify(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
-        qtc.KDialogJobUiDelegate_OnDisconnectNotify(@ptrCast(self), @intCast(@intFromPtr(callback)));
-    }
-
-    /// Inherited from KJobUiDelegate
-    ///
-    /// [Qt documentation](https://api.kde.org/kjobuidelegate.html#job)
-    ///
-    /// Wrapper to allow calling virtual or protected method
-    ///
-    /// ``` self: QtC.KDialogJobUiDelegate ```
-    pub fn Job(self: ?*anyopaque) QtC.KJob {
-        return qtc.KDialogJobUiDelegate_Job(@ptrCast(self));
-    }
-
-    /// Inherited from KJobUiDelegate
-    ///
-    /// [Qt documentation](https://api.kde.org/kjobuidelegate.html#job)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ``` self: QtC.KDialogJobUiDelegate ```
-    pub fn QBaseJob(self: ?*anyopaque) QtC.KJob {
-        return qtc.KDialogJobUiDelegate_QBaseJob(@ptrCast(self));
-    }
-
-    /// Inherited from KJobUiDelegate
-    ///
-    /// [Qt documentation](https://api.kde.org/kjobuidelegate.html#job)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ``` self: QtC.KDialogJobUiDelegate, callback: *const fn () callconv(.c) QtC.KJob ```
-    pub fn OnJob(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.KJob) void {
-        qtc.KDialogJobUiDelegate_OnJob(@ptrCast(self), @intCast(@intFromPtr(callback)));
-    }
-
-    /// Inherited from QObject
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling virtual or protected method
-    ///
-    /// ``` self: QtC.KDialogJobUiDelegate ```
-    pub fn Sender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KDialogJobUiDelegate_Sender(@ptrCast(self));
-    }
-
-    /// Inherited from QObject
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ``` self: QtC.KDialogJobUiDelegate ```
-    pub fn QBaseSender(self: ?*anyopaque) QtC.QObject {
-        return qtc.KDialogJobUiDelegate_QBaseSender(@ptrCast(self));
-    }
-
-    /// Inherited from QObject
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#sender)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ``` self: QtC.KDialogJobUiDelegate, callback: *const fn () callconv(.c) QtC.QObject ```
-    pub fn OnSender(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QObject) void {
-        qtc.KDialogJobUiDelegate_OnSender(@ptrCast(self), @intCast(@intFromPtr(callback)));
-    }
-
-    /// Inherited from QObject
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling virtual or protected method
-    ///
-    /// ``` self: QtC.KDialogJobUiDelegate ```
-    pub fn SenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KDialogJobUiDelegate_SenderSignalIndex(@ptrCast(self));
-    }
-
-    /// Inherited from QObject
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ``` self: QtC.KDialogJobUiDelegate ```
-    pub fn QBaseSenderSignalIndex(self: ?*anyopaque) i32 {
-        return qtc.KDialogJobUiDelegate_QBaseSenderSignalIndex(@ptrCast(self));
-    }
-
-    /// Inherited from QObject
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ``` self: QtC.KDialogJobUiDelegate, callback: *const fn () callconv(.c) i32 ```
-    pub fn OnSenderSignalIndex(self: ?*anyopaque, callback: *const fn () callconv(.c) i32) void {
-        qtc.KDialogJobUiDelegate_OnSenderSignalIndex(@ptrCast(self), @intCast(@intFromPtr(callback)));
-    }
-
-    /// Inherited from QObject
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling virtual or protected method
-    ///
-    /// ``` self: QtC.KDialogJobUiDelegate, signal: []const u8 ```
-    pub fn Receivers(self: ?*anyopaque, signal: []const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KDialogJobUiDelegate_Receivers(@ptrCast(self), signal_Cstring);
-    }
-
-    /// Inherited from QObject
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ``` self: QtC.KDialogJobUiDelegate, signal: []const u8 ```
-    pub fn QBaseReceivers(self: ?*anyopaque, signal: []const u8) i32 {
-        const signal_Cstring = signal.ptr;
-        return qtc.KDialogJobUiDelegate_QBaseReceivers(@ptrCast(self), signal_Cstring);
-    }
-
-    /// Inherited from QObject
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#receivers)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ``` self: QtC.KDialogJobUiDelegate, callback: *const fn (self: QtC.KDialogJobUiDelegate, signal: [*:0]const u8) callconv(.c) i32 ```
-    pub fn OnReceivers(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8) callconv(.c) i32) void {
-        qtc.KDialogJobUiDelegate_OnReceivers(@ptrCast(self), @intCast(@intFromPtr(callback)));
-    }
-
-    /// Inherited from QObject
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling virtual or protected method
-    ///
-    /// ``` self: QtC.KDialogJobUiDelegate, signal: QtC.QMetaMethod ```
-    pub fn IsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KDialogJobUiDelegate_IsSignalConnected(@ptrCast(self), @ptrCast(signal));
-    }
-
-    /// Inherited from QObject
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ``` self: QtC.KDialogJobUiDelegate, signal: QtC.QMetaMethod ```
-    pub fn QBaseIsSignalConnected(self: ?*anyopaque, signal: ?*anyopaque) bool {
-        return qtc.KDialogJobUiDelegate_QBaseIsSignalConnected(@ptrCast(self), @ptrCast(signal));
-    }
-
-    /// Inherited from QObject
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ``` self: QtC.KDialogJobUiDelegate, callback: *const fn (self: QtC.KDialogJobUiDelegate, signal: QtC.QMetaMethod) callconv(.c) bool ```
-    pub fn OnIsSignalConnected(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
-        qtc.KDialogJobUiDelegate_OnIsSignalConnected(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject

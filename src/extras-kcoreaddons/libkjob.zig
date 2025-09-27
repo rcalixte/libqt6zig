@@ -4,7 +4,6 @@ const kjob_enums = enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
-pub const struct_constu8_constu8 = extern struct { first: []const u8, second: []const u8 };
 
 /// https://api.kde.org/kjob.html
 pub const kjob = struct {
@@ -361,24 +360,6 @@ pub const kjob = struct {
     /// ``` self: QtC.KJob ```
     pub fn ElapsedTime(self: ?*anyopaque) i64 {
         return qtc.KJob_ElapsedTime(@ptrCast(self));
-    }
-
-    /// [Qt documentation](https://api.kde.org/kjob.html#description)
-    ///
-    /// ``` self: QtC.KJob, job: QtC.KJob, title: []const u8 ```
-    pub fn Description(self: ?*anyopaque, job: ?*anyopaque, title: []const u8) void {
-        const title_str = qtc.libqt_string{
-            .len = title.len,
-            .data = title.ptr,
-        };
-        qtc.KJob_Description(@ptrCast(self), @ptrCast(job), title_str);
-    }
-
-    /// [Qt documentation](https://api.kde.org/kjob.html#description)
-    ///
-    /// ``` self: QtC.KJob, callback: *const fn (self: QtC.KJob, job: QtC.KJob, title: [*:0]const u8) callconv(.c) void ```
-    pub fn OnDescription(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8) callconv(.c) void) void {
-        qtc.KJob_Connect_Description(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// [Qt documentation](https://api.kde.org/kjob.html#infoMessage)
@@ -780,54 +761,6 @@ pub const kjob = struct {
     /// ``` self: QtC.KJob, hide: bool ```
     pub fn SetFinishedNotificationHidden1(self: ?*anyopaque, hide: bool) void {
         qtc.KJob_SetFinishedNotificationHidden1(@ptrCast(self), hide);
-    }
-
-    /// [Qt documentation](https://api.kde.org/kjob.html#description)
-    ///
-    /// ``` self: QtC.KJob, job: QtC.KJob, title: []const u8, field1: struct_constu8_constu8 ```
-    pub fn Description3(self: ?*anyopaque, job: ?*anyopaque, title: []const u8, field1: struct_constu8_constu8) void {
-        const title_str = qtc.libqt_string{
-            .len = title.len,
-            .data = title.ptr,
-        };
-        const field1_pair = qtc.libqt_pair{
-            .first = @ptrCast(field1.first),
-            .second = @ptrCast(field1.second),
-        };
-        qtc.KJob_Description3(@ptrCast(self), @ptrCast(job), title_str, field1_pair);
-    }
-
-    /// [Qt documentation](https://api.kde.org/kjob.html#description)
-    ///
-    /// ``` self: QtC.KJob, callback: *const fn (self: QtC.KJob, job: QtC.KJob, title: [*:0]const u8, field1: struct_constu8_constu8) callconv(.c) void ```
-    pub fn OnDescription3(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8, struct_constu8_constu8) callconv(.c) void) void {
-        qtc.KJob_Connect_Description3(@ptrCast(self), @intCast(@intFromPtr(callback)));
-    }
-
-    /// [Qt documentation](https://api.kde.org/kjob.html#description)
-    ///
-    /// ``` self: QtC.KJob, job: QtC.KJob, title: []const u8, field1: struct_constu8_constu8, field2: struct_constu8_constu8 ```
-    pub fn Description4(self: ?*anyopaque, job: ?*anyopaque, title: []const u8, field1: struct_constu8_constu8, field2: struct_constu8_constu8) void {
-        const title_str = qtc.libqt_string{
-            .len = title.len,
-            .data = title.ptr,
-        };
-        const field1_pair = qtc.libqt_pair{
-            .first = @ptrCast(field1.first),
-            .second = @ptrCast(field1.second),
-        };
-        const field2_pair = qtc.libqt_pair{
-            .first = @ptrCast(field2.first),
-            .second = @ptrCast(field2.second),
-        };
-        qtc.KJob_Description4(@ptrCast(self), @ptrCast(job), title_str, field1_pair, field2_pair);
-    }
-
-    /// [Qt documentation](https://api.kde.org/kjob.html#description)
-    ///
-    /// ``` self: QtC.KJob, callback: *const fn (self: QtC.KJob, job: QtC.KJob, title: [*:0]const u8, field1: struct_constu8_constu8, field2: struct_constu8_constu8) callconv(.c) void ```
-    pub fn OnDescription4(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8, struct_constu8_constu8, struct_constu8_constu8) callconv(.c) void) void {
-        qtc.KJob_Connect_Description4(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject

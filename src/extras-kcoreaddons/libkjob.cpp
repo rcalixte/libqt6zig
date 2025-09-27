@@ -5,7 +5,6 @@
 #include <QMetaMethod>
 #include <QMetaObject>
 #include <QObject>
-#include <QPair>
 #include <QString>
 #include <QByteArray>
 #include <cstring>
@@ -193,27 +192,6 @@ long long KJob_ElapsedTime(const KJob* self) {
     return static_cast<long long>(self->elapsedTime());
 }
 
-void KJob_Description(KJob* self, KJob* job, const libqt_string title) {
-    QString title_QString = QString::fromUtf8(title.data, title.len);
-    self->description(job, title_QString);
-}
-
-void KJob_Connect_Description(KJob* self, intptr_t slot) {
-    void (*slotFunc)(KJob*, KJob*, const char*) = reinterpret_cast<void (*)(KJob*, KJob*, const char*)>(slot);
-    KJob::connect(self, &KJob::description, [self, slotFunc](KJob* job, const QString& title) {
-        KJob* sigval1 = job;
-        const QString title_ret = title;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray title_b = title_ret.toUtf8();
-        const char* title_str = static_cast<const char*>(malloc(title_b.length() + 1));
-        memcpy((void*)title_str, title_b.data(), title_b.length());
-        ((char*)title_str)[title_b.length()] = '\0';
-        const char* sigval2 = title_str;
-        slotFunc(self, sigval1, sigval2);
-        libqt_free(title_str);
-    });
-}
-
 void KJob_InfoMessage(KJob* self, KJob* job, const libqt_string message) {
     QString message_QString = QString::fromUtf8(message.data, message.len);
     self->infoMessage(job, message_QString);
@@ -325,147 +303,6 @@ bool KJob_Kill1(KJob* self, int verbosity) {
 
 void KJob_SetFinishedNotificationHidden1(KJob* self, bool hide) {
     self->setFinishedNotificationHidden(hide);
-}
-
-void KJob_Description3(KJob* self, KJob* job, const libqt_string title, const libqt_pair /* tuple of libqt_string and libqt_string */ field1) {
-    QString title_QString = QString::fromUtf8(title.data, title.len);
-    QPair<QString, QString> field1_QPair;
-    libqt_string* field1_first = static_cast<libqt_string*>(field1.first);
-    libqt_string* field1_second = static_cast<libqt_string*>(field1.second);
-    QString field1_first_0_QString = QString::fromUtf8(field1_first[0].data, field1_first[0].len);
-    QString field1_second_0_QString = QString::fromUtf8(field1_second[0].data, field1_second[0].len);
-    field1_QPair.first = field1_first_0_QString;
-    field1_QPair.second = field1_second_0_QString;
-    self->description(job, title_QString, field1_QPair);
-}
-
-void KJob_Connect_Description3(KJob* self, intptr_t slot) {
-    void (*slotFunc)(KJob*, KJob*, const char*, libqt_pair /* tuple of libqt_string and libqt_string */) = reinterpret_cast<void (*)(KJob*, KJob*, const char*, libqt_pair /* tuple of libqt_string and libqt_string */)>(slot);
-    KJob::connect(self, &KJob::description, [self, slotFunc](KJob* job, const QString& title, const QPair<QString, QString>& field1) {
-        KJob* sigval1 = job;
-        const QString title_ret = title;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray title_b = title_ret.toUtf8();
-        const char* title_str = static_cast<const char*>(malloc(title_b.length() + 1));
-        memcpy((void*)title_str, title_b.data(), title_b.length());
-        ((char*)title_str)[title_b.length()] = '\0';
-        const char* sigval2 = title_str;
-        const QPair<QString, QString>& field1_ret = field1;
-        // Convert QPair<> from C++ memory to manually-managed C memory
-        libqt_string* field1_first = static_cast<libqt_string*>(malloc(sizeof(libqt_string)));
-        libqt_string* field1_second = static_cast<libqt_string*>(malloc(sizeof(libqt_string)));
-        QString field1_first_ret = field1_ret.first;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray field1_first_b = field1_first_ret.toUtf8();
-        libqt_string field1_first_str;
-        field1_first_str.len = field1_first_b.length();
-        field1_first_str.data = static_cast<const char*>(malloc(field1_first_str.len + 1));
-        memcpy((void*)field1_first_str.data, field1_first_b.data(), field1_first_str.len);
-        ((char*)field1_first_str.data)[field1_first_str.len] = '\0';
-        *field1_first = field1_first_str;
-        QString field1_second_ret = field1_ret.second;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray field1_second_b = field1_second_ret.toUtf8();
-        libqt_string field1_second_str;
-        field1_second_str.len = field1_second_b.length();
-        field1_second_str.data = static_cast<const char*>(malloc(field1_second_str.len + 1));
-        memcpy((void*)field1_second_str.data, field1_second_b.data(), field1_second_str.len);
-        ((char*)field1_second_str.data)[field1_second_str.len] = '\0';
-        *field1_second = field1_second_str;
-        libqt_pair field1_out;
-        field1_out.first = static_cast<void*>(field1_first);
-        field1_out.second = static_cast<void*>(field1_second);
-        libqt_pair /* tuple of libqt_string and libqt_string */ sigval3 = field1_out;
-        slotFunc(self, sigval1, sigval2, sigval3);
-        libqt_free(title_str);
-    });
-}
-
-void KJob_Description4(KJob* self, KJob* job, const libqt_string title, const libqt_pair /* tuple of libqt_string and libqt_string */ field1, const libqt_pair /* tuple of libqt_string and libqt_string */ field2) {
-    QString title_QString = QString::fromUtf8(title.data, title.len);
-    QPair<QString, QString> field1_QPair;
-    libqt_string* field1_first = static_cast<libqt_string*>(field1.first);
-    libqt_string* field1_second = static_cast<libqt_string*>(field1.second);
-    QString field1_first_0_QString = QString::fromUtf8(field1_first[0].data, field1_first[0].len);
-    QString field1_second_0_QString = QString::fromUtf8(field1_second[0].data, field1_second[0].len);
-    field1_QPair.first = field1_first_0_QString;
-    field1_QPair.second = field1_second_0_QString;
-    QPair<QString, QString> field2_QPair;
-    libqt_string* field2_first = static_cast<libqt_string*>(field2.first);
-    libqt_string* field2_second = static_cast<libqt_string*>(field2.second);
-    QString field2_first_0_QString = QString::fromUtf8(field2_first[0].data, field2_first[0].len);
-    QString field2_second_0_QString = QString::fromUtf8(field2_second[0].data, field2_second[0].len);
-    field2_QPair.first = field2_first_0_QString;
-    field2_QPair.second = field2_second_0_QString;
-    self->description(job, title_QString, field1_QPair, field2_QPair);
-}
-
-void KJob_Connect_Description4(KJob* self, intptr_t slot) {
-    void (*slotFunc)(KJob*, KJob*, const char*, libqt_pair /* tuple of libqt_string and libqt_string */, libqt_pair /* tuple of libqt_string and libqt_string */) = reinterpret_cast<void (*)(KJob*, KJob*, const char*, libqt_pair /* tuple of libqt_string and libqt_string */, libqt_pair /* tuple of libqt_string and libqt_string */)>(slot);
-    KJob::connect(self, &KJob::description, [self, slotFunc](KJob* job, const QString& title, const QPair<QString, QString>& field1, const QPair<QString, QString>& field2) {
-        KJob* sigval1 = job;
-        const QString title_ret = title;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 chars in manually-managed C memory
-        QByteArray title_b = title_ret.toUtf8();
-        const char* title_str = static_cast<const char*>(malloc(title_b.length() + 1));
-        memcpy((void*)title_str, title_b.data(), title_b.length());
-        ((char*)title_str)[title_b.length()] = '\0';
-        const char* sigval2 = title_str;
-        const QPair<QString, QString>& field1_ret = field1;
-        // Convert QPair<> from C++ memory to manually-managed C memory
-        libqt_string* field1_first = static_cast<libqt_string*>(malloc(sizeof(libqt_string)));
-        libqt_string* field1_second = static_cast<libqt_string*>(malloc(sizeof(libqt_string)));
-        QString field1_first_ret = field1_ret.first;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray field1_first_b = field1_first_ret.toUtf8();
-        libqt_string field1_first_str;
-        field1_first_str.len = field1_first_b.length();
-        field1_first_str.data = static_cast<const char*>(malloc(field1_first_str.len + 1));
-        memcpy((void*)field1_first_str.data, field1_first_b.data(), field1_first_str.len);
-        ((char*)field1_first_str.data)[field1_first_str.len] = '\0';
-        *field1_first = field1_first_str;
-        QString field1_second_ret = field1_ret.second;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray field1_second_b = field1_second_ret.toUtf8();
-        libqt_string field1_second_str;
-        field1_second_str.len = field1_second_b.length();
-        field1_second_str.data = static_cast<const char*>(malloc(field1_second_str.len + 1));
-        memcpy((void*)field1_second_str.data, field1_second_b.data(), field1_second_str.len);
-        ((char*)field1_second_str.data)[field1_second_str.len] = '\0';
-        *field1_second = field1_second_str;
-        libqt_pair field1_out;
-        field1_out.first = static_cast<void*>(field1_first);
-        field1_out.second = static_cast<void*>(field1_second);
-        libqt_pair /* tuple of libqt_string and libqt_string */ sigval3 = field1_out;
-        const QPair<QString, QString>& field2_ret = field2;
-        // Convert QPair<> from C++ memory to manually-managed C memory
-        libqt_string* field2_first = static_cast<libqt_string*>(malloc(sizeof(libqt_string)));
-        libqt_string* field2_second = static_cast<libqt_string*>(malloc(sizeof(libqt_string)));
-        QString field2_first_ret = field2_ret.first;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray field2_first_b = field2_first_ret.toUtf8();
-        libqt_string field2_first_str;
-        field2_first_str.len = field2_first_b.length();
-        field2_first_str.data = static_cast<const char*>(malloc(field2_first_str.len + 1));
-        memcpy((void*)field2_first_str.data, field2_first_b.data(), field2_first_str.len);
-        ((char*)field2_first_str.data)[field2_first_str.len] = '\0';
-        *field2_first = field2_first_str;
-        QString field2_second_ret = field2_ret.second;
-        // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-        QByteArray field2_second_b = field2_second_ret.toUtf8();
-        libqt_string field2_second_str;
-        field2_second_str.len = field2_second_b.length();
-        field2_second_str.data = static_cast<const char*>(malloc(field2_second_str.len + 1));
-        memcpy((void*)field2_second_str.data, field2_second_b.data(), field2_second_str.len);
-        ((char*)field2_second_str.data)[field2_second_str.len] = '\0';
-        *field2_second = field2_second_str;
-        libqt_pair field2_out;
-        field2_out.first = static_cast<void*>(field2_first);
-        field2_out.second = static_cast<void*>(field2_second);
-        libqt_pair /* tuple of libqt_string and libqt_string */ sigval4 = field2_out;
-        slotFunc(self, sigval1, sigval2, sigval3, sigval4);
-        libqt_free(title_str);
-    });
 }
 
 // Base class handler implementation
