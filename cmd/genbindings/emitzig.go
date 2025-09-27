@@ -14,6 +14,14 @@ import (
 
 // not language-reserved words, but binding-reserved words
 func zigReservedWord(s string) bool {
+	// block some Zig arbitrary width integers
+	if len(s) < 3 && (s[0] == 'i' || s[0] == 'u') {
+		_, err := strconv.Atoi(s[1:])
+		if err == nil {
+			return true
+		}
+	}
+
 	switch s {
 	case "default", "const", "fn", "var", "type", "len", "new", "copy", "import",
 		"error", "string", "map", "int", "select", "pub", "ret", "suspend",
@@ -94,9 +102,11 @@ func getPageUrl(pageType PageType, pageName, cmdURL, className string) string {
 	if pageName[0] != 'q' && pageName != "disambiguated_t" &&
 		pageName != "partial_ordering" && pageName != "weak_ordering" && pageName != "strong_ordering" {
 		qtUrl = "https://api.kde.org/"
+		pageName = strings.TrimSuffix(pageName, "_1")
 	}
 
 	pageName = strings.ReplaceAll(pageName, "__", "-")
+	pageName = strings.ReplaceAll(pageName, "_", "-")
 
 	switch pageType {
 	case QtPage:
@@ -259,16 +269,18 @@ func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType, fullEnumNam
 	}
 
 	switch p.ParameterType {
+	case "GLvoid":
+		ret += ifv((p.Pointer || p.ByRef) && fullEnumName, "*", "") + "void"
 	case "bool":
 		ret += ifv((p.Pointer || p.ByRef) && fullEnumName, "*", "") + "bool"
-	case "unsigned char", "uchar", "quint8", "uint8_t":
+	case "unsigned char", "uchar", "quint8", "uint8_t", "GLboolean", "GLubyte":
 		// Zig byte is unsigned
 		ret += "u8"
-	case "char", "qint8", "signed char":
+	case "char", "qint8", "signed char", "GLbyte", "GLchar":
 		ret += "i8" // Signed
-	case "short", "qint16", "int16_t":
+	case "short", "qint16", "int16_t", "GLshort":
 		ret += "i16"
-	case "ushort", "quint16", "unsigned short", "uint16_t":
+	case "ushort", "quint16", "unsigned short", "uint16_t", "GLushort":
 		ret += "u16"
 	case "long":
 		// Windows ILP32 - 32-bits
@@ -285,17 +297,17 @@ func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType, fullEnumNam
 			ret += "u64"
 		}
 
-	case "unsigned int", "quint32", "uint32_t", "uint", "gid_t", "uid_t", "dev_t", "mode_t":
+	case "unsigned int", "quint32", "uint32_t", "uint", "gid_t", "uid_t", "dev_t", "mode_t", "GL", "GLbitfield", "GLenum", "GLuint":
 		ret += "u32"
-	case "qint32", "int", "pid_t":
+	case "qint32", "int", "pid_t", "GLint", "GLsizei":
 		ret += "i32"
-	case "qlonglong", "qint64", "long long":
+	case "qlonglong", "qint64", "long long", "GLint64", "GLintptr", "GLsizeiptr":
 		ret += "i64"
-	case "qulonglong", "quint64", "unsigned long long":
+	case "qulonglong", "quint64", "unsigned long long", "GLuint64":
 		ret += "u64"
-	case "float":
+	case "float", "GLclampf", "GLfloat":
 		ret += "f32"
-	case "const double", "double", "qreal":
+	case "const double", "double", "qreal", "GLdouble":
 		ret += "f64"
 	case "size_t": // size_t is unsigned
 		if C.sizeof_size_t == 4 {
@@ -427,8 +439,8 @@ func (p CppParameter) renderReturnTypeZig(zfs *zigFileState, isSlot bool) string
 		ret = maybeConst + e.EnumTypeZig
 	}
 
-	if ret == "void" {
-		ret = maybeConst + "void"
+	if ret == "void" || ret == "GLvoid" {
+		ret = maybeConst + ifv(p.Pointer || p.ByRef, "?*anyopaque", "void")
 	}
 
 	if ret == "int" {
@@ -499,7 +511,7 @@ func (p CppParameter) parameterTypeZig() string {
 	}
 
 	// Zig binds void* as ?*anyopaque
-	if p.ParameterType == "void" && p.Pointer {
+	if (p.ParameterType == "void" || p.ParameterType == "GLvoid") && p.Pointer {
 		return "?*anyopaque"
 	}
 
@@ -802,24 +814,26 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 		// QPair<K,V>
 		zfs.imports["struct_"+kType.RenderTypeZig(zfs, false, true)+"_"+vType.RenderTypeZig(zfs, false, true)] = struct{}{}
 
-		kCast := "@ptrCast("
-		kClose := ")"
+		kAddr := ""
+		kDesc := "."
 		if kType.parameterTypeZig() == "i32" {
-			kCast = "@intCast(@intFromPtr("
-			kClose = "))"
+			kAddr = "&"
+			kDesc = "_"
+			preamble += "var " + nameprefix + "_first = " + nameprefix + ".first;\n"
 		}
 
-		vCast := "@ptrCast("
-		vClose := ")"
+		vAddr := ""
+		vDesc := "."
 		if vType.parameterTypeZig() == "i32" {
-			vCast = "@intCast(@intFromPtr("
-			vClose = "))"
+			vAddr = "&"
+			vDesc = "_"
+			preamble += "var " + nameprefix + "_second = " + nameprefix + ".second;\n"
 		}
 
 		// Create the pair struct
 		preamble += "const " + nameprefix + "_pair = qtc.libqt_pair {\n"
-		preamble += "    .first = " + kCast + nameprefix + ".first" + kClose + ",\n"
-		preamble += "    .second = " + vCast + nameprefix + ".second" + vClose + ",\n"
+		preamble += "    .first = @ptrCast(" + kAddr + nameprefix + kDesc + "first),\n"
+		preamble += "    .second = @ptrCast(" + vAddr + nameprefix + vDesc + "second),\n"
 		preamble += "};\n"
 		rvalue = nameprefix + "_pair"
 
@@ -866,7 +880,7 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 
 	if rt.Void() {
 		return rvalue + ";"
-	} else if rt.ParameterType == "void" && rt.Pointer {
+	} else if (rt.ParameterType == "void" || rt.ParameterType == "GLvoid") && rt.Pointer {
 		return assignExpr + rvalue + ";"
 	} else if rt.ParameterType == "char" && rt.Pointer {
 		// Qt functions normally return QString - anything returning char*
@@ -930,7 +944,8 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 
 		arrType := t.RenderTypeZig(zfs, true, true)
 
-		if IsKnownClass(t.ParameterType) || IsKnownTypeDef(t.ParameterType) || t.IntType() || arrType == "i32" {
+		if IsKnownClass(t.ParameterType) || IsKnownTypeDef(t.ParameterType) || t.IntType() ||
+			arrType == "i32" || arrType == "u32" || arrType == "u64" {
 			if t.needsPointer(arrType) {
 				arrType = "QtC." + arrType
 			}
