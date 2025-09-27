@@ -262,6 +262,9 @@ func (p CppParameter) IntType() bool {
 		"longlong", "ulonglong", "qlonglong", "qulonglong", "qint64", "quint64", "int64_t", "uint64_t", "long long", "unsigned long long",
 		"qintptr", "quintptr", "uintptr_t", "intptr_t",
 		"qsizetype", "size_t",
+		"GLbitfield", "GLboolean", "GLbyte", "GLchar", "GLdouble", "GLenum", "GLfloat",
+		"GLint", "GLint64", "GLintptr", "GLshort", "GLsizei", "GLsizeiptr", "GLubyte",
+		"GLuint", "GLuint64", "GLushort",
 		"QIntegerForSizeof<void *>::Unsigned",
 		"QIntegerForSizeof<void *>::Signed",
 		"QIntegerForSizeof<std::size_t>::Signed",
@@ -281,7 +284,7 @@ func (p CppParameter) IntType() bool {
 }
 
 func (p CppParameter) Void() bool {
-	return p.ParameterType == "void" && !p.Pointer
+	return (p.ParameterType == "void" || p.ParameterType == "GLvoid") && !p.Pointer
 }
 
 type CppProperty struct {
