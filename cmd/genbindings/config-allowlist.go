@@ -497,6 +497,14 @@ func AllowMethod(className string, mm CppMethod) error {
 		// this can be implemented at some point
 		return ErrTooComplex
 	}
+	if className == "KIO::RestoreJob" && mm.MethodName == "trashUrls" {
+		// Qt 6 restorejob.h: linker error
+		return ErrTooComplex
+	}
+	if className == "KRecentDocument" && mm.MethodName == "clearEntriesOldestEntries" {
+		// Qt 6 krecentdocument.h: linker error
+		return ErrTooComplex
+	}
 	if className == "KFileItemListProperties" && mm.MethodName == "items" {
 		// Qt 6 kfileitemlistproperties.h: this has a legacy return type
 		return ErrTooComplex
