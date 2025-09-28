@@ -1365,7 +1365,14 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 			maybeCharts := ifv(strings.Contains(src.Filename, "QtCharts"), "-qtcharts", "")
 			pageName := getPageName(zigStructName) + maybeCharts
 			zigStruct := strings.ToLower(zigStructName)
-			zigIncs[zigStruct] = "pub const " + zigStruct + ` = @import("` + dirRoot + "lib" + zfs.currentHeaderName + `.zig").` + zigStruct + ";"
+			// TODO properly automate deduplication
+			eqStructHeader := zigStruct == zfs.currentHeaderName
+			maybeDedupe := ifv(zigStruct == "kio" && !eqStructHeader, "_"+zfs.currentHeaderName, "")
+			maybeDedupe = ifv(zigStruct == "knscore" && !eqStructHeader, "_"+zfs.currentHeaderName, maybeDedupe)
+			maybeDedupe = ifv(zigStruct == "kstandardactions" && !eqStructHeader, "_"+zfs.currentHeaderName, maybeDedupe)
+			maybeDedupe = ifv(zigStruct == "kstandardshortcut" && !eqStructHeader, "_"+zfs.currentHeaderName, maybeDedupe)
+			maybeDedupe = ifv(zigStruct == "ktimezone" && !eqStructHeader, "_"+zfs.currentHeaderName, maybeDedupe)
+			zigIncs[zigStruct+maybeDedupe] = "pub const " + zigStruct + maybeDedupe + ` = @import("` + dirRoot + "lib" + zfs.currentHeaderName + `.zig").` + zigStruct + ";"
 			ret.WriteString("\n/// " + getPageUrl(QtPage, pageName, "", zigStructName) +
 				"\npub const " + zigStruct + " = struct {")
 		}
