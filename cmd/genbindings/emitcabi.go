@@ -968,6 +968,9 @@ var (
 
 	skippedMethods = map[string]struct{}{
 		"QHostAddress_IsInSubnet2":  {}, // linker error
+		"KEncodingFileDialog_Tr":    {}, // linker error due to currently missing staticMetaObject
+		"KEncodingFileDialog_Tr2":   {}, // linker error due to currently missing staticMetaObject
+		"KEncodingFileDialog_Tr3":   {}, // linker error due to currently missing staticMetaObject
 		"KIO_FileCopy2":             {}, // this overload is intentionally not implemented upstream
 		"KIO_FileMove2":             {}, // this overload is intentionally not implemented upstream
 		"KXmlGuiWindow_VirtualHook": {}, // this method is found in multiple base classes of different types and undocumented
