@@ -386,7 +386,7 @@ zig build --release=safe
 
 ### Q5. Can I use Qt Creator/Designer and the Qt Resource system?
 
-There is a custom implementation of Qt's `uic` and `rcc` tools to allow using [Qt Creator](https://doc.qt.io/qtcreator/index.html) or [Qt Designer](https://doc.qt.io/qt-6/qtdesigner-manual.html) for form design and resource management with this library. The programs and their respective documentation are located at [`uic-zig`](https://github.com/rcalixte/libqt6zig/tree/master/cmd/uic-zig) and [`qrc-zig`](https://github.com/rcalixte/libqt6zig/tree/master/cmd/qrc-zig).
+There is a custom implementation of Qt's `uic` and `rcc` tools to allow using [Qt Creator](https://doc.qt.io/qtcreator/index.html) or [Qt Designer](https://doc.qt.io/qt-6/qtdesigner-manual.html) for form design and resource management with this library. There is full support for the additional widgets provided by the KDE Frameworks, enabled via command-line flags. The programs and their respective documentation are located at [`uic-zig`](https://github.com/rcalixte/libqt6zig/tree/master/cmd/uic-zig) and [`qrc-zig`](https://github.com/rcalixte/libqt6zig/tree/master/cmd/qrc-zig).
 
 > [!NOTE]
 > Only Qt Creator 16.0 (or higher) and Qt Designer 6.8.2 (or higher) are supported for use. Any existing `.ui` or `.qrc` files should be saved/exported from one of them for proper usage with these tools. Older versions can result in panics during execution and are not supported.
