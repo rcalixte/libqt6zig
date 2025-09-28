@@ -12,6 +12,7 @@ var (
 	SanitizeObjectCounter = 0
 	SanitizationFlag      = false
 	ExtendedFlag          = false
+	FlagWarnings          = []string{}
 	GlobalContext         = ""
 	DefaultGridMargin     = 11
 	DefaultChildrenMargin = -1
@@ -25,6 +26,9 @@ var (
 	VariantCounter        = 0
 	SizePolicyCounter     = 0
 	BrushCounter          = 0
+	DateCounter           = 0
+	TimeCounter           = 0
+	ColorCounter          = 0
 	SizePolicyMap         = map[string]string{}
 	BrushColorMap         = map[string]string{}
 	ButtonGroups          = map[string]*UiButtonGroup{}
@@ -177,13 +181,13 @@ func storeAction(action, wClass, name string) {
 
 func processPaletteGroup(ret *strings.Builder, targetName string, groupName string, colorRoles []UiColorRole) {
 	for _, role := range colorRoles {
-		mapKey := role.Brush.Style + " (" + strconv.Itoa(role.Brush.Color.Red) + "," + strconv.Itoa(role.Brush.Color.Green) + "," + strconv.Itoa(role.Brush.Color.Blue) + "," + strconv.Itoa(role.Brush.Color.Alpha) + ")"
+		mapKey := role.Brush.Style + " (" + strconv.Itoa(role.Brush.Color.Red) + "," + strconv.Itoa(role.Brush.Color.Green) + "," + strconv.Itoa(role.Brush.Color.Blue) + "," + strconv.Itoa(*role.Brush.Color.Alpha) + ")"
 
 		brushNum, ok := BrushColorMap[mapKey]
 		if !ok {
 			brushNum = strconv.Itoa(BrushCounter)
 			BrushColorMap[mapKey] = brushNum
-			ret.WriteString(getNewBrush(brushNum, role.Brush.Style, strconv.Itoa(role.Brush.Color.Red), strconv.Itoa(role.Brush.Color.Green), strconv.Itoa(role.Brush.Color.Blue), strconv.Itoa(role.Brush.Color.Alpha)))
+			ret.WriteString(getNewBrush(brushNum, role.Brush.Style, strconv.Itoa(role.Brush.Color.Red), strconv.Itoa(role.Brush.Color.Green), strconv.Itoa(role.Brush.Color.Blue), strconv.Itoa(*role.Brush.Color.Alpha)))
 			BrushCounter++
 		}
 		ret.WriteString(getSetPaletteBrush(targetName, groupName, role.Role, brushNum))
@@ -218,6 +222,12 @@ func newQSize(sizeName *string, isSizeSet *bool) string {
 	SizeCounter++
 
 	return newSize
+}
+
+func writeFlagWarning(ret *strings.Builder, name, class string) {
+	warning := "Warning: Use '-e' to enable extended class support for '" + name + "' property of type '" + class + "'"
+	ret.WriteString("// " + warning + "\n")
+	FlagWarnings = append(FlagWarnings, warning)
 }
 
 func renderIcon(iconVal *UiIcon, ret *strings.Builder) string {
@@ -305,12 +315,13 @@ func renderProperties(properties []UiProperty, ret *strings.Builder, targetName,
 	}
 	contentsMargins := [4]int{defaultMargin, defaultMargin, defaultMargin, defaultMargin} // left, top, right, bottom
 	customContentsMargins := false
-	zigQtStruct := "qt6." + zigStructName(targetClass)
+	zigQtStruct := "qt6." + zigStructName(strings.ReplaceAll(targetClass, "::", "__"))
 
 	strVariantName := targetName + "_variantStr"
 	numVariantName := targetName + "_variantNum"
 	boolVariantName := targetName + "_variantBool"
 	urlVariantName := targetName + "_variantUrl"
+	enumVariantName := targetName + "_variantEnum"
 
 	for _, prop := range properties {
 		setterFunc := ".Set" + strings.ToUpper(string(prop.Name[0])) + prop.Name[1:]
@@ -343,10 +354,10 @@ func renderProperties(properties []UiProperty, ret *strings.Builder, targetName,
 			contentsMargins = [4]int{customMargin, customMargin, customMargin, customMargin}
 			customContentsMargins = true
 
-		} else if prop.Name == "pixmap" {
+		} else if prop.PixmapVal != nil {
 			ret.WriteString("const pixmap" + strconv.Itoa(PixmapCounter) + ` = qt6.qpixmap.New4("` + *prop.PixmapVal + `");` + "\n")
 			ret.WriteString("defer qt6.qpixmap.QDelete(pixmap" + strconv.Itoa(PixmapCounter) + ");\n")
-			ret.WriteString(zigQtStruct + ".SetPixmap(ui." + targetName + ", pixmap" + strconv.Itoa(PixmapCounter) + ");\n")
+			ret.WriteString(zigQtStruct + setterFunc + "(ui." + targetName + ", pixmap" + strconv.Itoa(PixmapCounter) + ");\n")
 			PixmapCounter++
 
 		} else if prop.Name == "buddy" {
@@ -369,14 +380,14 @@ func renderProperties(properties []UiProperty, ret *strings.Builder, targetName,
 				ret.WriteString("defer qt6.qvariant.QDelete(" + strVariantName + strconv.Itoa(VariantCounter) + ");" + maybeComment + "\n")
 				ret.WriteString("_ = " + zigQtStruct + ".SetProperty(ui." + targetName + ", " + strconv.Quote(prop.Name) + ", " + strVariantName + strconv.Itoa(VariantCounter) + ");" + maybeComment + "\n")
 				VariantCounter++
-			} else if prop.Name == "shortcut" {
+			} else if prop.Name == "shortcut" || prop.Name == "keySequence" {
 				maybeComment := " // auxiliary to qt6.qcoreapplication.Translate"
 				if prop.StringVal.Notr {
 					maybeComment = ""
 				}
-				ret.WriteString(writtenString("\nconst "+targetName+"Shortcut = qt6.qkeysequence.New2(", generateString(prop.StringVal), ");\n", prop.StringVal.Notr, true))
-				ret.WriteString("defer qt6.qkeysequence.QDelete(" + targetName + "Shortcut);" + maybeComment + "\n")
-				ret.WriteString(zigQtStruct + ".SetShortcut(ui." + targetName + ", " + targetName + "Shortcut);" + maybeComment + "\n")
+				ret.WriteString(writtenString("\nconst "+targetName+"_keySequence = qt6.qkeysequence.New2(", generateString(prop.StringVal), ");\n", prop.StringVal.Notr, true))
+				ret.WriteString("defer qt6.qkeysequence.QDelete(" + targetName + "_keySequence);" + maybeComment + "\n")
+				ret.WriteString(zigQtStruct + setterFunc + "(ui." + targetName + ", " + targetName + "_keySequence);" + maybeComment + "\n")
 			} else {
 				ret.WriteString(writtenString(zigQtStruct+setterFunc+"(ui."+targetName+", ", generateString(prop.StringVal), ");\n", prop.StringVal.Notr, true))
 			}
@@ -402,14 +413,20 @@ func renderProperties(properties []UiProperty, ret *strings.Builder, targetName,
 			} else {
 				// "tristate"
 				var overrideNum string
-				if prop.Name == "tristate" {
+				if prop.Name == "tristate" || (targetClass == "KUrlLabel" && (prop.Name == "floatEnabled" || prop.Name == "glowEnabled" || prop.Name == "underline" || prop.Name == "useTips")) {
 					overrideNum = "1"
 				}
 				ret.WriteString(zigQtStruct + setterFunc + overrideNum + "(ui." + targetName + ", " + strconv.FormatBool(*prop.BoolVal) + ");\n")
 			}
 
 		} else if prop.EnumVal != nil {
-			if targetClass == "QFrame" && prop.Name == "orientation" {
+			// "tabStyle"
+			if prop.StdSetVal != nil && *prop.StdSetVal != "" {
+				ret.WriteString("const " + enumVariantName + strconv.Itoa(VariantCounter) + " = qt6.qvariant.New6(" + normalizeEnumName(prop.Name, *prop.EnumVal) + ");\n")
+				ret.WriteString("defer qt6.qvariant.QDelete(" + enumVariantName + strconv.Itoa(VariantCounter) + ");\n")
+				ret.WriteString("_ = " + zigQtStruct + ".SetProperty(ui." + targetName + ", " + strconv.Quote(prop.Name) + ", " + enumVariantName + strconv.Itoa(VariantCounter) + ");\n")
+				VariantCounter++
+			} else if targetClass == "QFrame" && prop.Name == "orientation" {
 				enumVal := "HLine"
 				if strings.Contains(*prop.EnumVal, "Vertical") {
 					enumVal = "VLine"
@@ -423,6 +440,12 @@ func renderProperties(properties []UiProperty, ret *strings.Builder, targetName,
 		} else if prop.SetVal != nil {
 			// QDialogButtonBox::StandardButton::*
 			// <set>QDialogButtonBox::StandardButton::Cancel|QDialogButtonBox::StandardButton::Save</set>
+
+			// block KRichTextWidget::setRichTextSupport due to poor implementation
+			if prop.Name == "richTextSupport" {
+				ret.WriteString("// UIC: Property `" + prop.Name + "` is not supported for type " + targetClass + "\n")
+				continue
+			}
 
 			parts := strings.Split(*prop.SetVal, "|")
 			for i, p := range parts {
@@ -510,7 +533,13 @@ func renderProperties(properties []UiProperty, ret *strings.Builder, targetName,
 				ret.WriteString("qt6.qfont.SetHintingPreference(" + fontVal + ", qt6.qfont_enums.HintingPreference." + *prop.FontVal.HintingPreference + ");\n")
 			}
 
-			ret.WriteString(zigQtStruct + ".SetFont(ui." + targetName + ", " + fontVal + ");\n")
+			var maybeOnlyFixed string
+			if ExtendedFlag && targetClass == "KFontRequester" {
+				maybeOnlyFixed = ", false"
+			} else if !ExtendedFlag && targetClass[0] == 'K' {
+				writeFlagWarning(ret, prop.Name, targetClass)
+			}
+			ret.WriteString(zigQtStruct + ".SetFont(ui." + targetName + ", " + fontVal + maybeOnlyFixed + ");\n")
 
 		} else if prop.Name == "iconSize" {
 			ret.WriteString("const " + targetName + "_size" + strconv.Itoa(SizeCounter) + " = qt6.qsize.New4(" + fmt.Sprintf("%d, %d", prop.SizeVal.Width, prop.SizeVal.Height) + ");\n")
@@ -549,13 +578,13 @@ func renderProperties(properties []UiProperty, ret *strings.Builder, targetName,
 			ret.WriteString(zigQtStruct + ".SetPalette(ui." + targetName + ", " + targetName + "_palette);\n")
 
 		} else if prop.Name == "backgroundBrush" {
-			mapKey := prop.BackgroundBrushVal.Style + " (" + strconv.Itoa(prop.BackgroundBrushVal.Color.Red) + "," + strconv.Itoa(prop.BackgroundBrushVal.Color.Green) + "," + strconv.Itoa(prop.BackgroundBrushVal.Color.Blue) + "," + strconv.Itoa(prop.BackgroundBrushVal.Color.Alpha) + ")"
+			mapKey := prop.BackgroundBrushVal.Style + " (" + strconv.Itoa(prop.BackgroundBrushVal.Color.Red) + "," + strconv.Itoa(prop.BackgroundBrushVal.Color.Green) + "," + strconv.Itoa(prop.BackgroundBrushVal.Color.Blue) + "," + strconv.Itoa(*prop.BackgroundBrushVal.Color.Alpha) + ")"
 
 			brushNum, ok := BrushColorMap[mapKey]
 			if !ok {
 				brushNum = strconv.Itoa(BrushCounter)
 				BrushColorMap[mapKey] = brushNum
-				ret.WriteString(getNewBrush(brushNum, prop.BackgroundBrushVal.Style, strconv.Itoa(prop.BackgroundBrushVal.Color.Red), strconv.Itoa(prop.BackgroundBrushVal.Color.Green), strconv.Itoa(prop.BackgroundBrushVal.Color.Blue), strconv.Itoa(prop.BackgroundBrushVal.Color.Alpha)))
+				ret.WriteString(getNewBrush(brushNum, prop.BackgroundBrushVal.Style, strconv.Itoa(prop.BackgroundBrushVal.Color.Red), strconv.Itoa(prop.BackgroundBrushVal.Color.Green), strconv.Itoa(prop.BackgroundBrushVal.Color.Blue), strconv.Itoa(*prop.BackgroundBrushVal.Color.Alpha)))
 				BrushCounter++
 			}
 			ret.WriteString(zigQtStruct + ".SetBackgroundBrush(ui." + targetName + ", brush" + brushNum + ");\n")
@@ -564,6 +593,82 @@ func renderProperties(properties []UiProperty, ret *strings.Builder, targetName,
 			ret.WriteString("const locale_" + targetName + " = qt6.qlocale.New3(qt6.qlocale_enums.Language." + prop.LocaleVal.Language + ", qt6.qlocale_enums.Country." + prop.LocaleVal.Country + ");\n")
 			ret.WriteString("defer qt6.qlocale.QDelete(locale_" + targetName + ");\n")
 			ret.WriteString(zigQtStruct + ".SetLocale(ui." + targetName + ", locale_" + targetName + ");\n")
+
+		} else if prop.UIntVal != nil {
+			if !ExtendedFlag {
+				writeFlagWarning(ret, prop.Name, targetClass)
+			} else {
+				ret.WriteString(zigQtStruct + setterFunc + "(ui." + targetName + ", " + *prop.UIntVal + ");\n")
+			}
+
+		} else if prop.CharVal != nil {
+			if !ExtendedFlag {
+				writeFlagWarning(ret, prop.Name, targetClass)
+			} else {
+				ret.WriteString("const " + targetName + "_qchar = qt6.qchar.New4(" + prop.CharVal.Unicode + ");\n")
+				ret.WriteString("defer qt6.qchar.QDelete(" + targetName + "_qchar);\n")
+				ret.WriteString(zigQtStruct + setterFunc + "(ui." + targetName + ", " + targetName + "_qchar);\n")
+			}
+
+		} else if prop.DateVal != nil {
+			if !ExtendedFlag && targetClass[0] == 'K' {
+				writeFlagWarning(ret, prop.Name, targetClass)
+			} else {
+				dateName := targetName + "_date" + strconv.Itoa(DateCounter)
+				var maybeDiscard string
+				if targetClass == "KDatePicker" {
+					maybeDiscard = "_ = "
+				}
+				ret.WriteString("const " + dateName + " = qt6.qdate.New4(" + strconv.Itoa(prop.DateVal.Year) + ", " + strconv.Itoa(prop.DateVal.Month) + ", " + strconv.Itoa(prop.DateVal.Day) + ");\n")
+				ret.WriteString("defer qt6.qdate.QDelete(" + dateName + ");\n")
+				ret.WriteString(maybeDiscard + zigQtStruct + setterFunc + "(ui." + targetName + ", " + dateName + ");\n")
+				DateCounter++
+			}
+
+		} else if prop.TimeVal != nil {
+			if !ExtendedFlag && targetClass[0] == 'K' {
+				writeFlagWarning(ret, prop.Name, targetClass)
+			} else {
+				timeName := targetName + "_time" + strconv.Itoa(TimeCounter)
+				ret.WriteString("const " + timeName + " = qt6.qtime.New6(" + strconv.Itoa(prop.TimeVal.Hour) + ", " + strconv.Itoa(prop.TimeVal.Minute) + ", " + strconv.Itoa(prop.TimeVal.Second) + ");\n")
+				ret.WriteString("defer qt6.qtime.QDelete(" + timeName + ");\n")
+				ret.WriteString(zigQtStruct + setterFunc + "(ui." + targetName + ", " + timeName + ");\n")
+				TimeCounter++
+			}
+
+		} else if prop.ColorVal != nil {
+			if !ExtendedFlag && targetClass[0] == 'K' {
+				writeFlagWarning(ret, prop.Name, targetClass)
+			} else {
+				colorOverload := "5"
+				var maybeAlpha string
+				if prop.ColorVal.Alpha != nil {
+					colorOverload = "13"
+					maybeAlpha = ", " + strconv.Itoa(*prop.ColorVal.Alpha)
+				}
+				colorName := targetName + "_color" + strconv.Itoa(ColorCounter)
+				ret.WriteString("const " + colorName + " = qt6.qcolor.New" + colorOverload + "(" + strconv.Itoa(prop.ColorVal.Red) + ", " + strconv.Itoa(prop.ColorVal.Green) + ", " + strconv.Itoa(prop.ColorVal.Blue) + maybeAlpha + ");\n")
+				ret.WriteString("defer qt6.qcolor.QDelete(" + colorName + ");\n")
+				ret.WriteString(zigQtStruct + setterFunc + "(ui." + targetName + ", " + colorName + ");\n")
+				ColorCounter++
+			}
+
+		} else if prop.StringListVal != nil {
+			if !ExtendedFlag && targetClass[0] == 'K' {
+				writeFlagWarning(ret, prop.Name, targetClass)
+			} else {
+				comment := " // auxiliary to qt6.qcoreapplication.Translate\n"
+				var items []string
+				for i, s := range prop.StringListVal.Strings {
+					itemName := targetName + "_" + prop.Name + strconv.Itoa(i)
+					items = append(items, itemName)
+					ret.WriteString("const " + itemName + " = " + generateString(&s) + ";\n")
+					ret.WriteString("defer allocator.free(" + itemName + ");" + comment)
+				}
+
+				ret.WriteString("var " + targetName + "_" + prop.Name + " = [_][]const u8{" + strings.Join(items, ", ") + "};" + comment)
+				ret.WriteString(zigQtStruct + setterFunc + "(ui." + targetName + ", &" + targetName + "_" + prop.Name + ", allocator);" + comment)
+			}
 
 		} else {
 			ret.WriteString("// UIC: no handler for " + targetName + " of type " + targetClass + " property '" + prop.Name + "'\n")
@@ -644,7 +749,7 @@ func writeLayoutAttributes(ret *strings.Builder, prop, method string) {
 		propVals := strings.Split(prop, ",")
 		for i, propVal := range propVals {
 			if propVal != "0" {
-				ret.WriteString(method + strconv.Itoa(i) + ", " + propVal + ");\n")
+				ret.WriteString(method + ", " + strconv.Itoa(i) + ", " + propVal + ");\n")
 			}
 		}
 	}
@@ -659,13 +764,11 @@ func generateLayout(l *UiLayout, parentName, parentClass string, isNestedLayout 
 	if isNestedLayout {
 		ctor = wClassZig + ".New2"
 
-		ret.WriteString(`
-    ui.` + l.Name + " = " + ctor + "();\n")
+		ret.WriteString("\nui." + l.Name + " = " + ctor + "();\n")
 	} else {
 		ctor = wClassZig + ".New"
 
-		ret.WriteString(`
-    ui.` + l.Name + " = " + ctor + "(" + parentName + ");\n")
+		ret.WriteString("\nui." + l.Name + " = " + ctor + "(" + parentName + ");\n")
 	}
 
 	ret.WriteString(wClassZig + ".SetObjectName(ui." + l.Name + ", " + strconv.Quote(l.Name) + ");\n")
@@ -781,11 +884,11 @@ func generateLayout(l *UiLayout, parentName, parentClass string, isNestedLayout 
 
 	// Layout attributes
 
-	writeLayoutAttributes(&ret, l.Stretch, wClassZig+".SetStretch(ui."+l.Name+", ")
-	writeLayoutAttributes(&ret, l.RowStretch, wClassZig+".SetRowStretch(ui."+l.Name+", ")
-	writeLayoutAttributes(&ret, l.ColStretch, wClassZig+".SetColumnStretch(ui."+l.Name+", ")
-	writeLayoutAttributes(&ret, l.RowMinimumHeight, wClassZig+".SetRowMinimumHeight(ui."+l.Name+", ")
-	writeLayoutAttributes(&ret, l.ColMinimumWidth, wClassZig+".SetColumnMinimumWidth(ui."+l.Name+", ")
+	writeLayoutAttributes(&ret, l.Stretch, wClassZig+".SetStretch(ui."+l.Name)
+	writeLayoutAttributes(&ret, l.RowStretch, wClassZig+".SetRowStretch(ui."+l.Name)
+	writeLayoutAttributes(&ret, l.ColStretch, wClassZig+".SetColumnStretch(ui."+l.Name)
+	writeLayoutAttributes(&ret, l.RowMinimumHeight, wClassZig+".SetRowMinimumHeight(ui."+l.Name)
+	writeLayoutAttributes(&ret, l.ColMinimumWidth, wClassZig+".SetColumnMinimumWidth(ui."+l.Name)
 
 	return ret.String(), nil
 }
@@ -797,15 +900,18 @@ func generateWidget(w UiWidget, parentName, parentClass string) (string, error) 
 	if cw, ok := CustomWidgets[w.Class]; ok && !(ExtendedFlag && isExtendedClass(w.Class)) {
 		wClass = cw
 	}
-	wClassZig := "qt6." + strings.ToLower(wClass)
+	wClassZig := "qt6." + strings.ToLower(strings.ReplaceAll(wClass, "::", "__"))
 	ctor := wClassZig + ".New"
 
 	if parentName == "" || parentClass == "QDockWidget" || parentClass == "QScrollArea" ||
 		parentClass == "QStackedWidget" || parentClass == "QTabWidget" ||
 		parentClass == "QToolBox" || parentClass == "QWizard" {
-		ret.WriteString("\n\t\tui." + w.Name + " = " + ctor + "2();\n")
+		ret.WriteString("\nui." + w.Name + " = " + ctor + "2();\n")
 	} else {
-		ret.WriteString("\n\t\tui." + w.Name + " = " + ctor + "(" + parentName + ");\n")
+		if ExtendedFlag && w.Class == "KMimeTypeChooser" {
+			parentName = ""
+		}
+		ret.WriteString("\nui." + w.Name + " = " + ctor + "(" + parentName + ");\n")
 	}
 
 	ret.WriteString(wClassZig + ".SetObjectName(ui." + w.Name + ", " + strconv.Quote(w.Name) + ");\n")
@@ -1473,7 +1579,14 @@ pub fn New` + uClass + "Ui(allocator: std.mem.Allocator) !*" + uClass + `Ui {
 		}
 	}
 
-	if SanitizeObjectCounter > 0 || SanitizationFlag || len(u.CustomWidgets.CustomWidgets) > 0 || len(u.Resources.Includes) > 0 {
+	if len(FlagWarnings) > 0 {
+		fmt.Println()
+		for _, warning := range FlagWarnings {
+			fmt.Println(warning)
+		}
+	}
+
+	if SanitizeObjectCounter > 0 || SanitizationFlag || len(u.CustomWidgets.CustomWidgets) > 0 || len(u.Resources.Includes) > 0 || len(FlagWarnings) > 0 {
 		fmt.Println()
 	}
 

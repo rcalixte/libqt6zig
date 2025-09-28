@@ -116,10 +116,10 @@ type UiFont struct {
 }
 
 type UiColor struct {
-	Alpha int `xml:"alpha,attr"`
-	Red   int `xml:"red"`
-	Green int `xml:"green"`
-	Blue  int `xml:"blue"`
+	Alpha *int `xml:"alpha,attr,omitempty"`
+	Red   int  `xml:"red"`
+	Green int  `xml:"green"`
+	Blue  int  `xml:"blue"`
 }
 
 type UiBrush struct {
@@ -147,12 +147,33 @@ type UiLocale struct {
 	Country  string `xml:"country,attr"`
 }
 
+type UiChar struct {
+	Unicode string `xml:"unicode"`
+}
+
+type UiDate struct {
+	Year  int `xml:"year"`
+	Month int `xml:"month"`
+	Day   int `xml:"day"`
+}
+
+type UiTime struct {
+	Hour   int `xml:"hour"`
+	Minute int `xml:"minute"`
+	Second int `xml:"second"`
+}
+
+type UiStringList struct {
+	Strings []UiString `xml:"string"`
+}
+
 type UiProperty struct {
 	Name               string        `xml:"name,attr"`
 	StdSetVal          *string       `xml:"stdset,attr,omitempty"`
 	StringVal          *UiString     `xml:"string,omitempty"`
 	NumberVal          *string       `xml:"number,omitempty"` // Preserve as string literal
 	DoubleVal          *string       `xml:"double,omitempty"` // Preserve as string literal
+	UIntVal            *string       `xml:"UInt,omitempty"`   // Preserve as string literal
 	BoolVal            *bool         `xml:"bool,omitempty"`   // "true" or "false"
 	EnumVal            *string       `xml:"enum,omitempty"`
 	RectVal            *UiRect       `xml:"rect,omitempty"`
@@ -168,6 +189,11 @@ type UiProperty struct {
 	PaletteVal         *UiPalette    `xml:"palette,omitempty"`
 	BackgroundBrushVal *UiBrush      `xml:"brush,omitempty"`
 	LocaleVal          *UiLocale     `xml:"locale,omitempty"`
+	CharVal            *UiChar       `xml:"char,omitempty"`
+	DateVal            *UiDate       `xml:"date,omitempty"`
+	TimeVal            *UiTime       `xml:"time,omitempty"`
+	ColorVal           *UiColor      `xml:"color,omitempty"`
+	StringListVal      *UiStringList `xml:"stringlist,omitempty"`
 }
 
 type UiActionReference struct {
