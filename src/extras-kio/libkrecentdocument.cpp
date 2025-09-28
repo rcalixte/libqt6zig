@@ -68,10 +68,6 @@ void KRecentDocument_Add4(const QUrl* url, const libqt_string desktopEntryName, 
     KRecentDocument::add(*url, desktopEntryName_QString, groups_QList);
 }
 
-bool KRecentDocument_ClearEntriesOldestEntries(int maxEntries) {
-    return KRecentDocument::clearEntriesOldestEntries(static_cast<int>(maxEntries));
-}
-
 void KRecentDocument_RemoveFile(const QUrl* url) {
     KRecentDocument::removeFile(*url);
 }

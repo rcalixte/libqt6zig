@@ -38,19 +38,6 @@ libqt_string KIO__RestoreJob_Tr(const char* s) {
     return _str;
 }
 
-libqt_list /* of QUrl* */ KIO__RestoreJob_TrashUrls(const KIO__RestoreJob* self) {
-    QList<QUrl> _ret = self->trashUrls();
-    // Convert QList<> from C++ memory to manually-managed C memory
-    QUrl** _arr = static_cast<QUrl**>(malloc(sizeof(QUrl*) * (_ret.size() + 1)));
-    for (qsizetype i = 0; i < _ret.size(); ++i) {
-        _arr[i] = new QUrl(_ret[i]);
-    }
-    libqt_list _out;
-    _out.len = _ret.size();
-    _out.data = static_cast<void*>(_arr);
-    return _out;
-}
-
 libqt_string KIO__RestoreJob_Tr2(const char* s, const char* c) {
     QString _ret = KIO::RestoreJob::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory

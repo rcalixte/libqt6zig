@@ -89,13 +89,6 @@ pub const krecentdocument = struct {
         qtc.KRecentDocument_Add4(@ptrCast(url), desktopEntryName_str, groups_list);
     }
 
-    /// [Qt documentation](https://api.kde.org/krecentdocument.html#clearEntriesOldestEntries)
-    ///
-    /// ``` maxEntries: i32 ```
-    pub fn ClearEntriesOldestEntries(maxEntries: i32) bool {
-        return qtc.KRecentDocument_ClearEntriesOldestEntries(@intCast(maxEntries));
-    }
-
     /// [Qt documentation](https://api.kde.org/krecentdocument.html#removeFile)
     ///
     /// ``` url: QtC.QUrl ```

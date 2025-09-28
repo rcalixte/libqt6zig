@@ -29,7 +29,6 @@ void KRecentDocument_Add(const QUrl* url);
 void KRecentDocument_Add2(const QUrl* url, libqt_list /* of int */ groups);
 void KRecentDocument_Add3(const QUrl* url, const libqt_string desktopEntryName);
 void KRecentDocument_Add4(const QUrl* url, const libqt_string desktopEntryName, libqt_list /* of int */ groups);
-bool KRecentDocument_ClearEntriesOldestEntries(int maxEntries);
 void KRecentDocument_RemoveFile(const QUrl* url);
 void KRecentDocument_RemoveApplication(const libqt_string desktopEntryName);
 void KRecentDocument_RemoveBookmarksModifiedSince(const QDateTime* since);

@@ -28,18 +28,6 @@ pub const kencodingfiledialog = struct {
         return qtc.KEncodingFileDialog_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
-    ///
-    /// ``` s: []const u8, allocator: std.mem.Allocator ```
-    pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = s.ptr;
-        const _str = qtc.KEncodingFileDialog_Tr(s_Cstring);
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kencodingfiledialog.Tr: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
-        return _ret;
-    }
-
     /// [Qt documentation](https://api.kde.org/kencodingfiledialog.html#getOpenFileNameAndEncoding)
     ///
     ///
@@ -87,32 +75,6 @@ pub const kencodingfiledialog = struct {
     /// ``` self: QtC.KEncodingFileDialog ```
     pub fn SizeHint(self: ?*anyopaque) QtC.QSize {
         return qtc.KEncodingFileDialog_SizeHint(@ptrCast(self));
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
-    ///
-    /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
-    pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = s.ptr;
-        const c_Cstring = c.ptr;
-        const _str = qtc.KEncodingFileDialog_Tr2(s_Cstring, c_Cstring);
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kencodingfiledialog.Tr2: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
-        return _ret;
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
-    ///
-    /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
-    pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
-        const s_Cstring = s.ptr;
-        const c_Cstring = c.ptr;
-        const _str = qtc.KEncodingFileDialog_Tr3(s_Cstring, c_Cstring, @intCast(n));
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kencodingfiledialog.Tr3: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
-        return _ret;
     }
 
     /// [Qt documentation](https://api.kde.org/kencodingfiledialog.html#getOpenFileNameAndEncoding)
