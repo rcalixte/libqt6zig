@@ -1,0 +1,138 @@
+#pragma once
+#ifndef SRC_EXTRAS_KSYNTAXHIGHLIGHTINGC_LIBSYNTAXHIGHLIGHTER_H
+#define SRC_EXTRAS_KSYNTAXHIGHLIGHTINGC_LIBSYNTAXHIGHLIGHTER_H
+
+#include <stdbool.h>
+#include <stddef.h>
+
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#include "../qtlibc.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#ifdef __cplusplus
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_KSyntaxHighlighting__AbstractHighlighter)
+typedef KSyntaxHighlighting::AbstractHighlighter KSyntaxHighlighting__AbstractHighlighter;
+#endif
+typedef KSyntaxHighlighting::Definition KSyntaxHighlighting__Definition;
+typedef KSyntaxHighlighting::FoldingRegion KSyntaxHighlighting__FoldingRegion;
+typedef KSyntaxHighlighting::Format KSyntaxHighlighting__Format;
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_KSyntaxHighlighting__SyntaxHighlighter)
+typedef KSyntaxHighlighting::SyntaxHighlighter KSyntaxHighlighting__SyntaxHighlighter;
+#endif
+typedef KSyntaxHighlighting::Theme KSyntaxHighlighting__Theme;
+#else
+typedef struct KSyntaxHighlighting__AbstractHighlighter KSyntaxHighlighting__AbstractHighlighter;
+typedef struct KSyntaxHighlighting__Definition KSyntaxHighlighting__Definition;
+typedef struct KSyntaxHighlighting__FoldingRegion KSyntaxHighlighting__FoldingRegion;
+typedef struct KSyntaxHighlighting__Format KSyntaxHighlighting__Format;
+typedef struct KSyntaxHighlighting__SyntaxHighlighter KSyntaxHighlighting__SyntaxHighlighter;
+typedef struct KSyntaxHighlighting__Theme KSyntaxHighlighting__Theme;
+typedef struct QChildEvent QChildEvent;
+typedef struct QEvent QEvent;
+typedef struct QMetaMethod QMetaMethod;
+typedef struct QMetaObject QMetaObject;
+typedef struct QObject QObject;
+typedef struct QSyntaxHighlighter QSyntaxHighlighter;
+typedef struct QTextBlock QTextBlock;
+typedef struct QTextBlockUserData QTextBlockUserData;
+typedef struct QTextCharFormat QTextCharFormat;
+typedef struct QTextDocument QTextDocument;
+typedef struct QTimerEvent QTimerEvent;
+#endif
+
+KSyntaxHighlighting__SyntaxHighlighter* KSyntaxHighlighting__SyntaxHighlighter_new();
+KSyntaxHighlighting__SyntaxHighlighter* KSyntaxHighlighting__SyntaxHighlighter_new2(QTextDocument* document);
+KSyntaxHighlighting__SyntaxHighlighter* KSyntaxHighlighting__SyntaxHighlighter_new3(QObject* parent);
+QMetaObject* KSyntaxHighlighting__SyntaxHighlighter_MetaObject(const KSyntaxHighlighting__SyntaxHighlighter* self);
+void* KSyntaxHighlighting__SyntaxHighlighter_Metacast(KSyntaxHighlighting__SyntaxHighlighter* self, const char* param1);
+int KSyntaxHighlighting__SyntaxHighlighter_Metacall(KSyntaxHighlighting__SyntaxHighlighter* self, int param1, int param2, void** param3);
+libqt_string KSyntaxHighlighting__SyntaxHighlighter_Tr(const char* s);
+void KSyntaxHighlighting__SyntaxHighlighter_SetDefinition(KSyntaxHighlighting__SyntaxHighlighter* self, const KSyntaxHighlighting__Definition* def);
+void KSyntaxHighlighting__SyntaxHighlighter_SetTheme(KSyntaxHighlighting__SyntaxHighlighter* self, const KSyntaxHighlighting__Theme* theme);
+bool KSyntaxHighlighting__SyntaxHighlighter_StartsFoldingRegion(const KSyntaxHighlighting__SyntaxHighlighter* self, const QTextBlock* startBlock);
+QTextBlock* KSyntaxHighlighting__SyntaxHighlighter_FindFoldingRegionEnd(const KSyntaxHighlighting__SyntaxHighlighter* self, const QTextBlock* startBlock);
+void KSyntaxHighlighting__SyntaxHighlighter_HighlightBlock(KSyntaxHighlighting__SyntaxHighlighter* self, const libqt_string text);
+void KSyntaxHighlighting__SyntaxHighlighter_ApplyFormat(KSyntaxHighlighting__SyntaxHighlighter* self, int offset, int length, const KSyntaxHighlighting__Format* format);
+void KSyntaxHighlighting__SyntaxHighlighter_ApplyFolding(KSyntaxHighlighting__SyntaxHighlighter* self, int offset, int length, KSyntaxHighlighting__FoldingRegion* region);
+libqt_string KSyntaxHighlighting__SyntaxHighlighter_Tr2(const char* s, const char* c);
+libqt_string KSyntaxHighlighting__SyntaxHighlighter_Tr3(const char* s, const char* c, int n);
+void KSyntaxHighlighting__SyntaxHighlighter_OnMetacall(KSyntaxHighlighting__SyntaxHighlighter* self, intptr_t slot);
+int KSyntaxHighlighting__SyntaxHighlighter_QBaseMetacall(KSyntaxHighlighting__SyntaxHighlighter* self, int param1, int param2, void** param3);
+void KSyntaxHighlighting__SyntaxHighlighter_OnSetDefinition(KSyntaxHighlighting__SyntaxHighlighter* self, intptr_t slot);
+void KSyntaxHighlighting__SyntaxHighlighter_QBaseSetDefinition(KSyntaxHighlighting__SyntaxHighlighter* self, const KSyntaxHighlighting__Definition* def);
+void KSyntaxHighlighting__SyntaxHighlighter_OnSetTheme(KSyntaxHighlighting__SyntaxHighlighter* self, intptr_t slot);
+void KSyntaxHighlighting__SyntaxHighlighter_QBaseSetTheme(KSyntaxHighlighting__SyntaxHighlighter* self, const KSyntaxHighlighting__Theme* theme);
+void KSyntaxHighlighting__SyntaxHighlighter_OnHighlightBlock(KSyntaxHighlighting__SyntaxHighlighter* self, intptr_t slot);
+void KSyntaxHighlighting__SyntaxHighlighter_QBaseHighlightBlock(KSyntaxHighlighting__SyntaxHighlighter* self, const libqt_string text);
+void KSyntaxHighlighting__SyntaxHighlighter_OnApplyFormat(KSyntaxHighlighting__SyntaxHighlighter* self, intptr_t slot);
+void KSyntaxHighlighting__SyntaxHighlighter_QBaseApplyFormat(KSyntaxHighlighting__SyntaxHighlighter* self, int offset, int length, const KSyntaxHighlighting__Format* format);
+void KSyntaxHighlighting__SyntaxHighlighter_OnApplyFolding(KSyntaxHighlighting__SyntaxHighlighter* self, intptr_t slot);
+void KSyntaxHighlighting__SyntaxHighlighter_QBaseApplyFolding(KSyntaxHighlighting__SyntaxHighlighter* self, int offset, int length, KSyntaxHighlighting__FoldingRegion* region);
+bool KSyntaxHighlighting__SyntaxHighlighter_Event(KSyntaxHighlighting__SyntaxHighlighter* self, QEvent* event);
+void KSyntaxHighlighting__SyntaxHighlighter_OnEvent(KSyntaxHighlighting__SyntaxHighlighter* self, intptr_t slot);
+bool KSyntaxHighlighting__SyntaxHighlighter_QBaseEvent(KSyntaxHighlighting__SyntaxHighlighter* self, QEvent* event);
+bool KSyntaxHighlighting__SyntaxHighlighter_EventFilter(KSyntaxHighlighting__SyntaxHighlighter* self, QObject* watched, QEvent* event);
+void KSyntaxHighlighting__SyntaxHighlighter_OnEventFilter(KSyntaxHighlighting__SyntaxHighlighter* self, intptr_t slot);
+bool KSyntaxHighlighting__SyntaxHighlighter_QBaseEventFilter(KSyntaxHighlighting__SyntaxHighlighter* self, QObject* watched, QEvent* event);
+void KSyntaxHighlighting__SyntaxHighlighter_TimerEvent(KSyntaxHighlighting__SyntaxHighlighter* self, QTimerEvent* event);
+void KSyntaxHighlighting__SyntaxHighlighter_OnTimerEvent(KSyntaxHighlighting__SyntaxHighlighter* self, intptr_t slot);
+void KSyntaxHighlighting__SyntaxHighlighter_QBaseTimerEvent(KSyntaxHighlighting__SyntaxHighlighter* self, QTimerEvent* event);
+void KSyntaxHighlighting__SyntaxHighlighter_ChildEvent(KSyntaxHighlighting__SyntaxHighlighter* self, QChildEvent* event);
+void KSyntaxHighlighting__SyntaxHighlighter_OnChildEvent(KSyntaxHighlighting__SyntaxHighlighter* self, intptr_t slot);
+void KSyntaxHighlighting__SyntaxHighlighter_QBaseChildEvent(KSyntaxHighlighting__SyntaxHighlighter* self, QChildEvent* event);
+void KSyntaxHighlighting__SyntaxHighlighter_CustomEvent(KSyntaxHighlighting__SyntaxHighlighter* self, QEvent* event);
+void KSyntaxHighlighting__SyntaxHighlighter_OnCustomEvent(KSyntaxHighlighting__SyntaxHighlighter* self, intptr_t slot);
+void KSyntaxHighlighting__SyntaxHighlighter_QBaseCustomEvent(KSyntaxHighlighting__SyntaxHighlighter* self, QEvent* event);
+void KSyntaxHighlighting__SyntaxHighlighter_ConnectNotify(KSyntaxHighlighting__SyntaxHighlighter* self, const QMetaMethod* signal);
+void KSyntaxHighlighting__SyntaxHighlighter_OnConnectNotify(KSyntaxHighlighting__SyntaxHighlighter* self, intptr_t slot);
+void KSyntaxHighlighting__SyntaxHighlighter_QBaseConnectNotify(KSyntaxHighlighting__SyntaxHighlighter* self, const QMetaMethod* signal);
+void KSyntaxHighlighting__SyntaxHighlighter_DisconnectNotify(KSyntaxHighlighting__SyntaxHighlighter* self, const QMetaMethod* signal);
+void KSyntaxHighlighting__SyntaxHighlighter_OnDisconnectNotify(KSyntaxHighlighting__SyntaxHighlighter* self, intptr_t slot);
+void KSyntaxHighlighting__SyntaxHighlighter_QBaseDisconnectNotify(KSyntaxHighlighting__SyntaxHighlighter* self, const QMetaMethod* signal);
+void KSyntaxHighlighting__SyntaxHighlighter_SetFormat(KSyntaxHighlighting__SyntaxHighlighter* self, int start, int count, const QTextCharFormat* format);
+void KSyntaxHighlighting__SyntaxHighlighter_OnSetFormat(KSyntaxHighlighting__SyntaxHighlighter* self, intptr_t slot);
+void KSyntaxHighlighting__SyntaxHighlighter_QBaseSetFormat(KSyntaxHighlighting__SyntaxHighlighter* self, int start, int count, const QTextCharFormat* format);
+QTextCharFormat* KSyntaxHighlighting__SyntaxHighlighter_Format(const KSyntaxHighlighting__SyntaxHighlighter* self, int pos);
+void KSyntaxHighlighting__SyntaxHighlighter_OnFormat(const KSyntaxHighlighting__SyntaxHighlighter* self, intptr_t slot);
+QTextCharFormat* KSyntaxHighlighting__SyntaxHighlighter_QBaseFormat(const KSyntaxHighlighting__SyntaxHighlighter* self, int pos);
+int KSyntaxHighlighting__SyntaxHighlighter_PreviousBlockState(const KSyntaxHighlighting__SyntaxHighlighter* self);
+void KSyntaxHighlighting__SyntaxHighlighter_OnPreviousBlockState(const KSyntaxHighlighting__SyntaxHighlighter* self, intptr_t slot);
+int KSyntaxHighlighting__SyntaxHighlighter_QBasePreviousBlockState(const KSyntaxHighlighting__SyntaxHighlighter* self);
+int KSyntaxHighlighting__SyntaxHighlighter_CurrentBlockState(const KSyntaxHighlighting__SyntaxHighlighter* self);
+void KSyntaxHighlighting__SyntaxHighlighter_OnCurrentBlockState(const KSyntaxHighlighting__SyntaxHighlighter* self, intptr_t slot);
+int KSyntaxHighlighting__SyntaxHighlighter_QBaseCurrentBlockState(const KSyntaxHighlighting__SyntaxHighlighter* self);
+void KSyntaxHighlighting__SyntaxHighlighter_SetCurrentBlockState(KSyntaxHighlighting__SyntaxHighlighter* self, int newState);
+void KSyntaxHighlighting__SyntaxHighlighter_OnSetCurrentBlockState(KSyntaxHighlighting__SyntaxHighlighter* self, intptr_t slot);
+void KSyntaxHighlighting__SyntaxHighlighter_QBaseSetCurrentBlockState(KSyntaxHighlighting__SyntaxHighlighter* self, int newState);
+void KSyntaxHighlighting__SyntaxHighlighter_SetCurrentBlockUserData(KSyntaxHighlighting__SyntaxHighlighter* self, QTextBlockUserData* data);
+void KSyntaxHighlighting__SyntaxHighlighter_OnSetCurrentBlockUserData(KSyntaxHighlighting__SyntaxHighlighter* self, intptr_t slot);
+void KSyntaxHighlighting__SyntaxHighlighter_QBaseSetCurrentBlockUserData(KSyntaxHighlighting__SyntaxHighlighter* self, QTextBlockUserData* data);
+QTextBlockUserData* KSyntaxHighlighting__SyntaxHighlighter_CurrentBlockUserData(const KSyntaxHighlighting__SyntaxHighlighter* self);
+void KSyntaxHighlighting__SyntaxHighlighter_OnCurrentBlockUserData(const KSyntaxHighlighting__SyntaxHighlighter* self, intptr_t slot);
+QTextBlockUserData* KSyntaxHighlighting__SyntaxHighlighter_QBaseCurrentBlockUserData(const KSyntaxHighlighting__SyntaxHighlighter* self);
+QTextBlock* KSyntaxHighlighting__SyntaxHighlighter_CurrentBlock(const KSyntaxHighlighting__SyntaxHighlighter* self);
+void KSyntaxHighlighting__SyntaxHighlighter_OnCurrentBlock(const KSyntaxHighlighting__SyntaxHighlighter* self, intptr_t slot);
+QTextBlock* KSyntaxHighlighting__SyntaxHighlighter_QBaseCurrentBlock(const KSyntaxHighlighting__SyntaxHighlighter* self);
+QObject* KSyntaxHighlighting__SyntaxHighlighter_Sender(const KSyntaxHighlighting__SyntaxHighlighter* self);
+void KSyntaxHighlighting__SyntaxHighlighter_OnSender(const KSyntaxHighlighting__SyntaxHighlighter* self, intptr_t slot);
+QObject* KSyntaxHighlighting__SyntaxHighlighter_QBaseSender(const KSyntaxHighlighting__SyntaxHighlighter* self);
+int KSyntaxHighlighting__SyntaxHighlighter_SenderSignalIndex(const KSyntaxHighlighting__SyntaxHighlighter* self);
+void KSyntaxHighlighting__SyntaxHighlighter_OnSenderSignalIndex(const KSyntaxHighlighting__SyntaxHighlighter* self, intptr_t slot);
+int KSyntaxHighlighting__SyntaxHighlighter_QBaseSenderSignalIndex(const KSyntaxHighlighting__SyntaxHighlighter* self);
+int KSyntaxHighlighting__SyntaxHighlighter_Receivers(const KSyntaxHighlighting__SyntaxHighlighter* self, const char* signal);
+void KSyntaxHighlighting__SyntaxHighlighter_OnReceivers(const KSyntaxHighlighting__SyntaxHighlighter* self, intptr_t slot);
+int KSyntaxHighlighting__SyntaxHighlighter_QBaseReceivers(const KSyntaxHighlighting__SyntaxHighlighter* self, const char* signal);
+bool KSyntaxHighlighting__SyntaxHighlighter_IsSignalConnected(const KSyntaxHighlighting__SyntaxHighlighter* self, const QMetaMethod* signal);
+void KSyntaxHighlighting__SyntaxHighlighter_OnIsSignalConnected(const KSyntaxHighlighting__SyntaxHighlighter* self, intptr_t slot);
+bool KSyntaxHighlighting__SyntaxHighlighter_QBaseIsSignalConnected(const KSyntaxHighlighting__SyntaxHighlighter* self, const QMetaMethod* signal);
+void KSyntaxHighlighting__SyntaxHighlighter_Delete(KSyntaxHighlighting__SyntaxHighlighter* self);
+
+#ifdef __cplusplus
+} /* extern C */
+#endif
+
+#endif
