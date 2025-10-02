@@ -52,6 +52,10 @@ func InsertTypedefs() {
 	KnownTypedefs["KNSCore::Provider::SearchRequest::SortMode"] = lookupResultTypedef{pp, CppTypedef{"KNSCore::Provider::SortMode", parseSingleTypeString("KNSCore::Provider::SortMode")}}
 	KnownTypedefs["KNSCore::SearchRequest::Filter"] = lookupResultTypedef{pp, CppTypedef{"KNSCore::Filter", parseSingleTypeString("KNSCore::Filter")}}
 	KnownTypedefs["KNSCore::SearchRequest::SortMode"] = lookupResultTypedef{pp, CppTypedef{"KNSCore::SortMode", parseSingleTypeString("KNSCore::SortMode")}}
+
+	// Qt 6 KSyntaxHighlighting
+	KnownTypedefs["CommentPosition"] = lookupResultTypedef{pp, CppTypedef{"KSyntaxHighlighting::CommentPosition", parseSingleTypeString("KSyntaxHighlighting::CommentPosition")}}
+	KnownTypedefs["Theme::TextStyle"] = lookupResultTypedef{pp, CppTypedef{"KSyntaxHighlighting::Theme::TextStyle", parseSingleTypeString("KSyntaxHighlighting::Theme::TextStyle")}}
 }
 
 func Widgets_AllowHeader(fullpath string) bool {
@@ -181,6 +185,7 @@ func ImportHeaderForClass(className string) bool {
 		"KUriFilterSearchProvider",       // Qt 6 kurifilter.h
 		"KUrlComboRequester",             // Qt 6 kurlrequester.h
 		"KNSCore",                        // Qt 6 searchrequest.h
+		"KSyntaxHighlighting",            // Qt 6 state.h
 		"____last____":
 		return false
 	}
@@ -897,7 +902,8 @@ func AllowFieldForClass(className string) bool {
 func AllowStructDef(className string) bool {
 	switch className {
 	case "KIO::SslUi",
-		"KNSCore::ErrorCode":
+		"KNSCore::ErrorCode",
+		"KSyntaxHighlighting::WildcardMatcher":
 		return false
 	default:
 		return true
@@ -907,19 +913,23 @@ func AllowStructDef(className string) bool {
 func AllowInnerClassDef(className string) bool {
 	switch className {
 	case
-		"KIO::DeleteJob",            // Qt 6 KIO, deletejob.h
-		"KIO::Job",                  // Qt 6 KIO, listjob.h
-		"KIO::ListJob",              // Qt 6 KIO, listjob.h
-		"KIO::MetaData",             // Qt 6 KIO, metadata.h
-		"KIO::SimpleJob",            // Qt 6 KIO, listjob.h
-		"KIO::UDSEntry",             // Qt 6 KIO, listjob.h
-		"KNSCore::EngineBase",       // Qt 6 KNewStuff, enginebase.h
-		"KNSCore::Entry",            // Qt 6 KNewStuff, question.h
-		"KNSCore::ErrorCode",        // Qt 6 KNewStuff, errorcode.h
-		"KNSCore::Provider",         // Qt 6 KNewStuff, provider.h
-		"KNSCore::SearchRequest",    // Qt 6 KNewStuff, searchrequest.h
-		"Sonnet::BackgroundChecker", // Qt 6 Sonnet, dialog.h
-		"Sonnet::Dialog",            // Qt 6 Sonnet, dialog.h
+		"KIO::DeleteJob",                     // Qt 6 KIO, deletejob.h
+		"KIO::Job",                           // Qt 6 KIO, listjob.h
+		"KIO::ListJob",                       // Qt 6 KIO, listjob.h
+		"KIO::MetaData",                      // Qt 6 KIO, metadata.h
+		"KIO::SimpleJob",                     // Qt 6 KIO, listjob.h
+		"KIO::UDSEntry",                      // Qt 6 KIO, listjob.h
+		"KNSCore::EngineBase",                // Qt 6 KNewStuff, enginebase.h
+		"KNSCore::Entry",                     // Qt 6 KNewStuff, question.h
+		"KNSCore::ErrorCode",                 // Qt 6 KNewStuff, errorcode.h
+		"KNSCore::Provider",                  // Qt 6 KNewStuff, provider.h
+		"KNSCore::SearchRequest",             // Qt 6 KNewStuff, searchrequest.h
+		"KSyntaxHighlighting::Definition",    // Qt 6 KSyntaxHighlighting, definition.h
+		"KSyntaxHighlighting::FoldingRegion", // Qt 6 KSyntaxHighlighting, foldingregion.h
+		"KSyntaxHighlighting::Format",        // Qt 6 KSyntaxHighlighting, format.h
+		"KSyntaxHighlighting::Theme",         // Qt 6 KSyntaxHighlighting, theme.h
+		"Sonnet::BackgroundChecker",          // Qt 6 Sonnet, dialog.h
+		"Sonnet::Dialog",                     // Qt 6 Sonnet, dialog.h
 		"____last____":
 		return true
 	}
