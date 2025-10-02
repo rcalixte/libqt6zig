@@ -218,6 +218,9 @@ pub fn build(b: *std.Build) !void {
         "SonnetCore/sonnet",
         "SonnetUi",
         "SonnetUi/sonnet",
+        // Qt 6 KSyntaxHighlighting
+        "KSyntaxHighlighting",
+        "KSyntaxHighlighting/KSyntaxHighlighting",
         // Qt 6 KTextWidgets
         "KTextWidgets",
         // Qt 6 KWidgetsAddons
