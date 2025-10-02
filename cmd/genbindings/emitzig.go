@@ -1900,6 +1900,7 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 		maybeUrlPrefix := ifv(strings.Contains(src.Filename, "KIO") && !strings.HasPrefix(getPageName(zfs.currentHeaderName), "k"), "kio-", "")
 		maybeUrlPrefix = ifv(strings.Contains(src.Filename, "Attica"), "attica-", maybeUrlPrefix)
 		maybeUrlPrefix = ifv(strings.Contains(src.Filename, "KNSCore"), "knscore-", maybeUrlPrefix)
+		maybeUrlPrefix = ifv(strings.Contains(src.Filename, "KSyntaxHighlighting"), "ksyntaxhighlighting-", maybeUrlPrefix)
 		maybeUrlPrefix = ifv(strings.Contains(src.Filename, "Solid"), "solid-", maybeUrlPrefix)
 		maybeUrlPrefix = ifv(strings.Contains(src.Filename, "Sonnet"), "sonnet-", maybeUrlPrefix)
 		pageName := maybeUrlPrefix + getPageName(zfs.currentHeaderName) + maybeCharts
