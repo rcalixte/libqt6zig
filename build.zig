@@ -252,6 +252,14 @@ pub fn build(b: *std.Build) !void {
         "KIOGui/kio",
         "KIOWidgets",
         "KIOWidgets/kio",
+        // Qt 6 KParts
+        "KParts",
+        "KParts/KParts",
+        "KParts/kparts",
+        // Qt 6 KTextEditor
+        "KTextEditor",
+        "KTextEditor/KTextEditor",
+        "KTextEditor/ktexteditor",
         // Qt 6 QScintilla
         "Qsci",
         // Qt 6 QTermWidget
