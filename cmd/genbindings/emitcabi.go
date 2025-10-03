@@ -173,6 +173,12 @@ func (p CppParameter) RenderTypeIntermediateCpp() string {
 	if cppType == "KNSCore::SearchRequest::SortMode" {
 		return "KNSCore::SortMode"
 	}
+	if cppType == "Konsole::KeyboardTranslator::Entry::Command" {
+		return "Konsole::KeyboardTranslator::Command"
+	}
+	if cppType == "MovingRange::InsertBehaviors" {
+		return "KTextEditor::MovingRange::InsertBehaviors"
+	}
 
 	return cppType
 }
@@ -467,8 +473,21 @@ func emitCABI2CppForwarding(p CppParameter, indent, currentClass string, isSlot 
 			return preamble, "static_cast<" + castType + ">(" + castSrc + ")"
 		}
 
-	} else if _, ok := p.QSetOf(); ok {
-		panic("QSet<> arguments are not yet implemented") // n.b. doesn't seem to exist in QtCore/QtGui/QtWidgets at all
+	} else if t, ok := p.QSetOf(); ok {
+		if t.ParameterType == "QString" || t.ParameterType == "QByteArray" {
+			preamble += "// Convert libqt_list to QSet<>\n"
+			preamble += "QSet<" + t.ParameterType + "> " + p.ParameterName + "_set;\n"
+			preamble += p.ParameterName + "_set.reserve(" + p.ParameterName + ".len);\n"
+			preamble += "const libqt_string* " + p.ParameterName + "_strarr = static_cast<const libqt_string*>(" + p.ParameterName + ".data);\n"
+			preamble += "for (size_t i = 0; i < " + p.ParameterName + ".len; ++i) {\n"
+			preamble += "    " + p.ParameterName + "_set.insert(QString::fromUtf8(" + p.ParameterName + "_strarr[i].data));\n"
+			preamble += "}\n"
+
+		} else {
+			panic("QSet<> argument for " + t.ParameterType + " is not yet implemented")
+		}
+
+		return preamble, p.ParameterName + "_set"
 
 	} else if p.ByRef {
 		if p.Pointer {
@@ -928,6 +947,7 @@ func cabiPreventStructDeclaration(className string) bool {
 var (
 	noQtConnect = map[string]struct{}{
 		"KNSCore__EngineBase":           {},
+		"KParts__NavigationExtension":   {},
 		"QAudioDecoder":                 {},
 		"QBluetoothPermission":          {},
 		"QCalendarPermission":           {},
@@ -967,13 +987,17 @@ var (
 	}
 
 	skippedMethods = map[string]struct{}{
-		"QHostAddress_IsInSubnet2":  {}, // linker error
-		"KEncodingFileDialog_Tr":    {}, // linker error due to currently missing staticMetaObject
-		"KEncodingFileDialog_Tr2":   {}, // linker error due to currently missing staticMetaObject
-		"KEncodingFileDialog_Tr3":   {}, // linker error due to currently missing staticMetaObject
-		"KIO_FileCopy2":             {}, // this overload is intentionally not implemented upstream
-		"KIO_FileMove2":             {}, // this overload is intentionally not implemented upstream
-		"KXmlGuiWindow_VirtualHook": {}, // this method is found in multiple base classes of different types and undocumented
+		"QHostAddress_IsInSubnet2":              {}, // linker error
+		"KEncodingFileDialog_Tr":                {}, // linker error due to currently missing staticMetaObject
+		"KEncodingFileDialog_Tr2":               {}, // linker error due to currently missing staticMetaObject
+		"KEncodingFileDialog_Tr3":               {}, // linker error due to currently missing staticMetaObject
+		"KIO_FileCopy2":                         {}, // this overload is intentionally not implemented upstream
+		"KIO_FileMove2":                         {}, // this overload is intentionally not implemented upstream
+		"KTextEditor::DocumentCursor_ToCursor2": {}, // broken overload
+		"KTextEditor::MovingCursor_ToCursor2":   {}, // broken overload
+		"KTextEditor::MovingRange_ToRange2":     {}, // broken overload
+		"KTextEditor_QHash":                     {}, // multiple conflicting overloads
+		"KXmlGuiWindow_VirtualHook":             {}, // this method is found in multiple base classes of different types and undocumented
 	}
 
 	cTypes = map[string]struct{}{
