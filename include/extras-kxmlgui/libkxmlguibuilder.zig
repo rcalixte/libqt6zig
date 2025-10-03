@@ -242,31 +242,6 @@ pub const kxmlguibuilder = struct {
         qtc.KXMLGUIBuilder_QBaseFinalizeGUI(@ptrCast(self), @ptrCast(client));
     }
 
-    /// [Qt documentation](https://api.kde.org/kxmlguibuilder.html#virtual_hook)
-    ///
-    /// ``` self: QtC.KXMLGUIBuilder, id: i32, data: ?*anyopaque ```
-    pub fn VirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.KXMLGUIBuilder_VirtualHook(@ptrCast(self), @intCast(id), data);
-    }
-
-    /// [Qt documentation](https://api.kde.org/kxmlguibuilder.html#virtual_hook)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ``` self: QtC.KXMLGUIBuilder, callback: *const fn (self: QtC.KXMLGUIBuilder, id: i32, data: ?*anyopaque) callconv(.c) void ```
-    pub fn OnVirtualHook(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
-        qtc.KXMLGUIBuilder_OnVirtualHook(@ptrCast(self), @intCast(@intFromPtr(callback)));
-    }
-
-    /// [Qt documentation](https://api.kde.org/kxmlguibuilder.html#virtual_hook)
-    ///
-    /// Base class method implementation
-    ///
-    /// ``` self: QtC.KXMLGUIBuilder, id: i32, data: ?*anyopaque ```
-    pub fn QBaseVirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.KXMLGUIBuilder_QBaseVirtualHook(@ptrCast(self), @intCast(id), data);
-    }
-
     /// [Qt documentation](https://api.kde.org/kxmlguibuilder.html#dtor.KXMLGUIBuilder)
     ///
     /// Delete this object from C++ memory.

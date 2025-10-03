@@ -1,0 +1,81 @@
+#pragma once
+#ifndef SRC_EXTRAS_KTEXTEDITORC_LIBABSTRACTANNOTATIONITEMDELEGATE_H
+#define SRC_EXTRAS_KTEXTEDITORC_LIBABSTRACTANNOTATIONITEMDELEGATE_H
+
+#include <stdbool.h>
+#include <stddef.h>
+
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#include "../qtlibc.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#ifdef __cplusplus
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_KTextEditor__AbstractAnnotationItemDelegate)
+typedef KTextEditor::AbstractAnnotationItemDelegate KTextEditor__AbstractAnnotationItemDelegate;
+#endif
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_KTextEditor__AnnotationModel)
+typedef KTextEditor::AnnotationModel KTextEditor__AnnotationModel;
+#endif
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_KTextEditor__StyleOptionAnnotationItem)
+typedef KTextEditor::StyleOptionAnnotationItem KTextEditor__StyleOptionAnnotationItem;
+#endif
+#if defined(WORKAROUND_INNER_CLASS_DEFINITION_KTextEditor__View)
+typedef KTextEditor::View KTextEditor__View;
+#endif
+#else
+typedef struct KTextEditor__AbstractAnnotationItemDelegate KTextEditor__AbstractAnnotationItemDelegate;
+typedef struct KTextEditor__AnnotationModel KTextEditor__AnnotationModel;
+typedef struct KTextEditor__StyleOptionAnnotationItem KTextEditor__StyleOptionAnnotationItem;
+typedef struct KTextEditor__View KTextEditor__View;
+typedef struct QFontMetricsF QFontMetricsF;
+typedef struct QHelpEvent QHelpEvent;
+typedef struct QMetaMethod QMetaMethod;
+typedef struct QMetaObject QMetaObject;
+typedef struct QObject QObject;
+typedef struct QPainter QPainter;
+typedef struct QSize QSize;
+typedef struct QStyleOption QStyleOption;
+#endif
+
+KTextEditor__StyleOptionAnnotationItem* KTextEditor__StyleOptionAnnotationItem_new();
+KTextEditor__StyleOptionAnnotationItem* KTextEditor__StyleOptionAnnotationItem_new2(const KTextEditor__StyleOptionAnnotationItem* other);
+int KTextEditor__StyleOptionAnnotationItem_WrappedLine(const KTextEditor__StyleOptionAnnotationItem* self);
+void KTextEditor__StyleOptionAnnotationItem_SetWrappedLine(KTextEditor__StyleOptionAnnotationItem* self, int wrappedLine);
+int KTextEditor__StyleOptionAnnotationItem_WrappedLineCount(const KTextEditor__StyleOptionAnnotationItem* self);
+void KTextEditor__StyleOptionAnnotationItem_SetWrappedLineCount(KTextEditor__StyleOptionAnnotationItem* self, int wrappedLineCount);
+int KTextEditor__StyleOptionAnnotationItem_VisibleWrappedLineInGroup(const KTextEditor__StyleOptionAnnotationItem* self);
+void KTextEditor__StyleOptionAnnotationItem_SetVisibleWrappedLineInGroup(KTextEditor__StyleOptionAnnotationItem* self, int visibleWrappedLineInGroup);
+KTextEditor__View* KTextEditor__StyleOptionAnnotationItem_View(const KTextEditor__StyleOptionAnnotationItem* self);
+void KTextEditor__StyleOptionAnnotationItem_SetView(KTextEditor__StyleOptionAnnotationItem* self, KTextEditor__View* view);
+QSize* KTextEditor__StyleOptionAnnotationItem_DecorationSize(const KTextEditor__StyleOptionAnnotationItem* self);
+void KTextEditor__StyleOptionAnnotationItem_SetDecorationSize(KTextEditor__StyleOptionAnnotationItem* self, QSize* decorationSize);
+QFontMetricsF* KTextEditor__StyleOptionAnnotationItem_ContentFontMetrics(const KTextEditor__StyleOptionAnnotationItem* self);
+void KTextEditor__StyleOptionAnnotationItem_SetContentFontMetrics(KTextEditor__StyleOptionAnnotationItem* self, QFontMetricsF* contentFontMetrics);
+int KTextEditor__StyleOptionAnnotationItem_AnnotationItemGroupingPosition(const KTextEditor__StyleOptionAnnotationItem* self);
+void KTextEditor__StyleOptionAnnotationItem_SetAnnotationItemGroupingPosition(KTextEditor__StyleOptionAnnotationItem* self, int annotationItemGroupingPosition);
+void KTextEditor__StyleOptionAnnotationItem_OperatorAssign(KTextEditor__StyleOptionAnnotationItem* self, const KTextEditor__StyleOptionAnnotationItem* param1);
+void KTextEditor__StyleOptionAnnotationItem_Delete(KTextEditor__StyleOptionAnnotationItem* self);
+
+QMetaObject* KTextEditor__AbstractAnnotationItemDelegate_MetaObject(const KTextEditor__AbstractAnnotationItemDelegate* self);
+void* KTextEditor__AbstractAnnotationItemDelegate_Metacast(KTextEditor__AbstractAnnotationItemDelegate* self, const char* param1);
+int KTextEditor__AbstractAnnotationItemDelegate_Metacall(KTextEditor__AbstractAnnotationItemDelegate* self, int param1, int param2, void** param3);
+libqt_string KTextEditor__AbstractAnnotationItemDelegate_Tr(const char* s);
+void KTextEditor__AbstractAnnotationItemDelegate_Paint(const KTextEditor__AbstractAnnotationItemDelegate* self, QPainter* painter, const KTextEditor__StyleOptionAnnotationItem* option, KTextEditor__AnnotationModel* model, int line);
+QSize* KTextEditor__AbstractAnnotationItemDelegate_SizeHint(const KTextEditor__AbstractAnnotationItemDelegate* self, const KTextEditor__StyleOptionAnnotationItem* option, KTextEditor__AnnotationModel* model, int line);
+bool KTextEditor__AbstractAnnotationItemDelegate_HelpEvent(KTextEditor__AbstractAnnotationItemDelegate* self, QHelpEvent* event, KTextEditor__View* view, const KTextEditor__StyleOptionAnnotationItem* option, KTextEditor__AnnotationModel* model, int line);
+void KTextEditor__AbstractAnnotationItemDelegate_HideTooltip(KTextEditor__AbstractAnnotationItemDelegate* self, KTextEditor__View* view);
+void KTextEditor__AbstractAnnotationItemDelegate_SizeHintChanged(KTextEditor__AbstractAnnotationItemDelegate* self, KTextEditor__AnnotationModel* model, int line);
+void KTextEditor__AbstractAnnotationItemDelegate_Connect_SizeHintChanged(KTextEditor__AbstractAnnotationItemDelegate* self, intptr_t slot);
+libqt_string KTextEditor__AbstractAnnotationItemDelegate_Tr2(const char* s, const char* c);
+libqt_string KTextEditor__AbstractAnnotationItemDelegate_Tr3(const char* s, const char* c, int n);
+void KTextEditor__AbstractAnnotationItemDelegate_Delete(KTextEditor__AbstractAnnotationItemDelegate* self);
+
+#ifdef __cplusplus
+} /* extern C */
+#endif
+
+#endif

@@ -23,7 +23,6 @@ class VirtualKXMLGUIBuilder final : public KXMLGUIBuilder {
     using KXMLGUIBuilder_CustomTags_Callback = const char** (*)();
     using KXMLGUIBuilder_CreateCustomElement_Callback = QAction* (*)(KXMLGUIBuilder*, QWidget*, int, QDomElement*);
     using KXMLGUIBuilder_FinalizeGUI_Callback = void (*)(KXMLGUIBuilder*, KXMLGUIClient*);
-    using KXMLGUIBuilder_VirtualHook_Callback = void (*)(KXMLGUIBuilder*, int, void*);
 
   protected:
     // Instance callback storage
@@ -33,7 +32,6 @@ class VirtualKXMLGUIBuilder final : public KXMLGUIBuilder {
     KXMLGUIBuilder_CustomTags_Callback kxmlguibuilder_customtags_callback = nullptr;
     KXMLGUIBuilder_CreateCustomElement_Callback kxmlguibuilder_createcustomelement_callback = nullptr;
     KXMLGUIBuilder_FinalizeGUI_Callback kxmlguibuilder_finalizegui_callback = nullptr;
-    KXMLGUIBuilder_VirtualHook_Callback kxmlguibuilder_virtualhook_callback = nullptr;
 
     // Instance base flags
     mutable bool kxmlguibuilder_containertags_isbase = false;
@@ -42,7 +40,6 @@ class VirtualKXMLGUIBuilder final : public KXMLGUIBuilder {
     mutable bool kxmlguibuilder_customtags_isbase = false;
     mutable bool kxmlguibuilder_createcustomelement_isbase = false;
     mutable bool kxmlguibuilder_finalizegui_isbase = false;
-    mutable bool kxmlguibuilder_virtualhook_isbase = false;
 
   public:
     VirtualKXMLGUIBuilder(QWidget* widget) : KXMLGUIBuilder(widget) {};
@@ -54,7 +51,6 @@ class VirtualKXMLGUIBuilder final : public KXMLGUIBuilder {
         kxmlguibuilder_customtags_callback = nullptr;
         kxmlguibuilder_createcustomelement_callback = nullptr;
         kxmlguibuilder_finalizegui_callback = nullptr;
-        kxmlguibuilder_virtualhook_callback = nullptr;
     }
 
     // Callback setters
@@ -64,7 +60,6 @@ class VirtualKXMLGUIBuilder final : public KXMLGUIBuilder {
     inline void setKXMLGUIBuilder_CustomTags_Callback(KXMLGUIBuilder_CustomTags_Callback cb) { kxmlguibuilder_customtags_callback = cb; }
     inline void setKXMLGUIBuilder_CreateCustomElement_Callback(KXMLGUIBuilder_CreateCustomElement_Callback cb) { kxmlguibuilder_createcustomelement_callback = cb; }
     inline void setKXMLGUIBuilder_FinalizeGUI_Callback(KXMLGUIBuilder_FinalizeGUI_Callback cb) { kxmlguibuilder_finalizegui_callback = cb; }
-    inline void setKXMLGUIBuilder_VirtualHook_Callback(KXMLGUIBuilder_VirtualHook_Callback cb) { kxmlguibuilder_virtualhook_callback = cb; }
 
     // Base flag setters
     inline void setKXMLGUIBuilder_ContainerTags_IsBase(bool value) const { kxmlguibuilder_containertags_isbase = value; }
@@ -73,7 +68,6 @@ class VirtualKXMLGUIBuilder final : public KXMLGUIBuilder {
     inline void setKXMLGUIBuilder_CustomTags_IsBase(bool value) const { kxmlguibuilder_customtags_isbase = value; }
     inline void setKXMLGUIBuilder_CreateCustomElement_IsBase(bool value) const { kxmlguibuilder_createcustomelement_isbase = value; }
     inline void setKXMLGUIBuilder_FinalizeGUI_IsBase(bool value) const { kxmlguibuilder_finalizegui_isbase = value; }
-    inline void setKXMLGUIBuilder_VirtualHook_IsBase(bool value) const { kxmlguibuilder_virtualhook_isbase = value; }
 
     // Virtual method for C ABI access and custom callback
     virtual QList<QString> containerTags() const override {
@@ -190,25 +184,6 @@ class VirtualKXMLGUIBuilder final : public KXMLGUIBuilder {
             KXMLGUIBuilder::finalizeGUI(client);
         }
     }
-
-    // Virtual method for C ABI access and custom callback
-    virtual void virtual_hook(int id, void* data) override {
-        if (kxmlguibuilder_virtualhook_isbase) {
-            kxmlguibuilder_virtualhook_isbase = false;
-            KXMLGUIBuilder::virtual_hook(id, data);
-        } else if (kxmlguibuilder_virtualhook_callback != nullptr) {
-            int cbval1 = id;
-            void* cbval2 = data;
-
-            kxmlguibuilder_virtualhook_callback(this, cbval1, cbval2);
-        } else {
-            KXMLGUIBuilder::virtual_hook(id, data);
-        }
-    }
-
-    // Friend functions
-    friend void KXMLGUIBuilder_VirtualHook(KXMLGUIBuilder* self, int id, void* data);
-    friend void KXMLGUIBuilder_QBaseVirtualHook(KXMLGUIBuilder* self, int id, void* data);
 };
 
 #endif

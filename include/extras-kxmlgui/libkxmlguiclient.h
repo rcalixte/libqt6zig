@@ -66,7 +66,6 @@ void KXMLGUIClient_SetLocalXMLFile(KXMLGUIClient* self, const libqt_string file)
 void KXMLGUIClient_SetXML(KXMLGUIClient* self, const libqt_string document, bool merge);
 void KXMLGUIClient_SetDOMDocument(KXMLGUIClient* self, const QDomDocument* document, bool merge);
 void KXMLGUIClient_StateChanged(KXMLGUIClient* self, const libqt_string newstate, int reverse);
-void KXMLGUIClient_VirtualHook(KXMLGUIClient* self, int id, void* data);
 void KXMLGUIClient_ReplaceXMLFile3(KXMLGUIClient* self, const libqt_string xmlfile, const libqt_string localxmlfile, bool merge);
 void KXMLGUIClient_OnAction2(const KXMLGUIClient* self, intptr_t slot);
 QAction* KXMLGUIClient_QBaseAction2(const KXMLGUIClient* self, const QDomElement* element);
@@ -92,8 +91,6 @@ void KXMLGUIClient_OnSetDOMDocument(KXMLGUIClient* self, intptr_t slot);
 void KXMLGUIClient_QBaseSetDOMDocument(KXMLGUIClient* self, const QDomDocument* document, bool merge);
 void KXMLGUIClient_OnStateChanged(KXMLGUIClient* self, intptr_t slot);
 void KXMLGUIClient_QBaseStateChanged(KXMLGUIClient* self, const libqt_string newstate, int reverse);
-void KXMLGUIClient_OnVirtualHook(KXMLGUIClient* self, intptr_t slot);
-void KXMLGUIClient_QBaseVirtualHook(KXMLGUIClient* self, int id, void* data);
 libqt_string KXMLGUIClient_StandardsXmlFileLocation(KXMLGUIClient* self);
 void KXMLGUIClient_OnStandardsXmlFileLocation(KXMLGUIClient* self, intptr_t slot);
 libqt_string KXMLGUIClient_QBaseStandardsXmlFileLocation(KXMLGUIClient* self);

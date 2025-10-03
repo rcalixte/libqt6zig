@@ -315,13 +315,6 @@ void KXMLGUIClient_StateChanged(KXMLGUIClient* self, const libqt_string newstate
     }
 }
 
-void KXMLGUIClient_VirtualHook(KXMLGUIClient* self, int id, void* data) {
-    auto* vkxmlguiclient = dynamic_cast<VirtualKXMLGUIClient*>(self);
-    if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient) {
-        vkxmlguiclient->virtual_hook(static_cast<int>(id), data);
-    }
-}
-
 void KXMLGUIClient_ReplaceXMLFile3(KXMLGUIClient* self, const libqt_string xmlfile, const libqt_string localxmlfile, bool merge) {
     QString xmlfile_QString = QString::fromUtf8(xmlfile.data, xmlfile.len);
     QString localxmlfile_QString = QString::fromUtf8(localxmlfile.data, localxmlfile.len);
@@ -607,25 +600,6 @@ void KXMLGUIClient_OnStateChanged(KXMLGUIClient* self, intptr_t slot) {
     auto* vkxmlguiclient = dynamic_cast<VirtualKXMLGUIClient*>(self);
     if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient) {
         vkxmlguiclient->setKXMLGUIClient_StateChanged_Callback(reinterpret_cast<VirtualKXMLGUIClient::KXMLGUIClient_StateChanged_Callback>(slot));
-    }
-}
-
-// Base class handler implementation
-void KXMLGUIClient_QBaseVirtualHook(KXMLGUIClient* self, int id, void* data) {
-    auto* vkxmlguiclient = dynamic_cast<VirtualKXMLGUIClient*>(self);
-    if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient) {
-        vkxmlguiclient->setKXMLGUIClient_VirtualHook_IsBase(true);
-        vkxmlguiclient->virtual_hook(static_cast<int>(id), data);
-    } else {
-        ((VirtualKXMLGUIClient*)self)->virtual_hook(static_cast<int>(id), data);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KXMLGUIClient_OnVirtualHook(KXMLGUIClient* self, intptr_t slot) {
-    auto* vkxmlguiclient = dynamic_cast<VirtualKXMLGUIClient*>(self);
-    if (vkxmlguiclient && vkxmlguiclient->isVirtualKXMLGUIClient) {
-        vkxmlguiclient->setKXMLGUIClient_VirtualHook_Callback(reinterpret_cast<VirtualKXMLGUIClient::KXMLGUIClient_VirtualHook_Callback>(slot));
     }
 }
 

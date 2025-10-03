@@ -29,7 +29,6 @@ class VirtualKXMLGUIClient final : public KXMLGUIClient {
     using KXMLGUIClient_SetXML_Callback = void (*)(KXMLGUIClient*, libqt_string, bool);
     using KXMLGUIClient_SetDOMDocument_Callback = void (*)(KXMLGUIClient*, QDomDocument*, bool);
     using KXMLGUIClient_StateChanged_Callback = void (*)(KXMLGUIClient*, libqt_string, int);
-    using KXMLGUIClient_VirtualHook_Callback = void (*)(KXMLGUIClient*, int, void*);
     using KXMLGUIClient_StandardsXmlFileLocation_Callback = const char* (*)();
     using KXMLGUIClient_LoadStandardsXmlFile_Callback = void (*)();
 
@@ -47,7 +46,6 @@ class VirtualKXMLGUIClient final : public KXMLGUIClient {
     KXMLGUIClient_SetXML_Callback kxmlguiclient_setxml_callback = nullptr;
     KXMLGUIClient_SetDOMDocument_Callback kxmlguiclient_setdomdocument_callback = nullptr;
     KXMLGUIClient_StateChanged_Callback kxmlguiclient_statechanged_callback = nullptr;
-    KXMLGUIClient_VirtualHook_Callback kxmlguiclient_virtualhook_callback = nullptr;
     KXMLGUIClient_StandardsXmlFileLocation_Callback kxmlguiclient_standardsxmlfilelocation_callback = nullptr;
     KXMLGUIClient_LoadStandardsXmlFile_Callback kxmlguiclient_loadstandardsxmlfile_callback = nullptr;
 
@@ -64,7 +62,6 @@ class VirtualKXMLGUIClient final : public KXMLGUIClient {
     mutable bool kxmlguiclient_setxml_isbase = false;
     mutable bool kxmlguiclient_setdomdocument_isbase = false;
     mutable bool kxmlguiclient_statechanged_isbase = false;
-    mutable bool kxmlguiclient_virtualhook_isbase = false;
     mutable bool kxmlguiclient_standardsxmlfilelocation_isbase = false;
     mutable bool kxmlguiclient_loadstandardsxmlfile_isbase = false;
 
@@ -85,7 +82,6 @@ class VirtualKXMLGUIClient final : public KXMLGUIClient {
         kxmlguiclient_setxml_callback = nullptr;
         kxmlguiclient_setdomdocument_callback = nullptr;
         kxmlguiclient_statechanged_callback = nullptr;
-        kxmlguiclient_virtualhook_callback = nullptr;
         kxmlguiclient_standardsxmlfilelocation_callback = nullptr;
         kxmlguiclient_loadstandardsxmlfile_callback = nullptr;
     }
@@ -103,7 +99,6 @@ class VirtualKXMLGUIClient final : public KXMLGUIClient {
     inline void setKXMLGUIClient_SetXML_Callback(KXMLGUIClient_SetXML_Callback cb) { kxmlguiclient_setxml_callback = cb; }
     inline void setKXMLGUIClient_SetDOMDocument_Callback(KXMLGUIClient_SetDOMDocument_Callback cb) { kxmlguiclient_setdomdocument_callback = cb; }
     inline void setKXMLGUIClient_StateChanged_Callback(KXMLGUIClient_StateChanged_Callback cb) { kxmlguiclient_statechanged_callback = cb; }
-    inline void setKXMLGUIClient_VirtualHook_Callback(KXMLGUIClient_VirtualHook_Callback cb) { kxmlguiclient_virtualhook_callback = cb; }
     inline void setKXMLGUIClient_StandardsXmlFileLocation_Callback(KXMLGUIClient_StandardsXmlFileLocation_Callback cb) { kxmlguiclient_standardsxmlfilelocation_callback = cb; }
     inline void setKXMLGUIClient_LoadStandardsXmlFile_Callback(KXMLGUIClient_LoadStandardsXmlFile_Callback cb) { kxmlguiclient_loadstandardsxmlfile_callback = cb; }
 
@@ -120,7 +115,6 @@ class VirtualKXMLGUIClient final : public KXMLGUIClient {
     inline void setKXMLGUIClient_SetXML_IsBase(bool value) const { kxmlguiclient_setxml_isbase = value; }
     inline void setKXMLGUIClient_SetDOMDocument_IsBase(bool value) const { kxmlguiclient_setdomdocument_isbase = value; }
     inline void setKXMLGUIClient_StateChanged_IsBase(bool value) const { kxmlguiclient_statechanged_isbase = value; }
-    inline void setKXMLGUIClient_VirtualHook_IsBase(bool value) const { kxmlguiclient_virtualhook_isbase = value; }
     inline void setKXMLGUIClient_StandardsXmlFileLocation_IsBase(bool value) const { kxmlguiclient_standardsxmlfilelocation_isbase = value; }
     inline void setKXMLGUIClient_LoadStandardsXmlFile_IsBase(bool value) const { kxmlguiclient_loadstandardsxmlfile_isbase = value; }
 
@@ -350,21 +344,6 @@ class VirtualKXMLGUIClient final : public KXMLGUIClient {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual void virtual_hook(int id, void* data) override {
-        if (kxmlguiclient_virtualhook_isbase) {
-            kxmlguiclient_virtualhook_isbase = false;
-            KXMLGUIClient::virtual_hook(id, data);
-        } else if (kxmlguiclient_virtualhook_callback != nullptr) {
-            int cbval1 = id;
-            void* cbval2 = data;
-
-            kxmlguiclient_virtualhook_callback(this, cbval1, cbval2);
-        } else {
-            KXMLGUIClient::virtual_hook(id, data);
-        }
-    }
-
-    // Virtual method for C ABI access and custom callback
     QString standardsXmlFileLocation() {
         if (kxmlguiclient_standardsxmlfilelocation_isbase) {
             kxmlguiclient_standardsxmlfilelocation_isbase = false;
@@ -403,8 +382,6 @@ class VirtualKXMLGUIClient final : public KXMLGUIClient {
     friend void KXMLGUIClient_QBaseSetDOMDocument(KXMLGUIClient* self, const QDomDocument* document, bool merge);
     friend void KXMLGUIClient_StateChanged(KXMLGUIClient* self, const libqt_string newstate, int reverse);
     friend void KXMLGUIClient_QBaseStateChanged(KXMLGUIClient* self, const libqt_string newstate, int reverse);
-    friend void KXMLGUIClient_VirtualHook(KXMLGUIClient* self, int id, void* data);
-    friend void KXMLGUIClient_QBaseVirtualHook(KXMLGUIClient* self, int id, void* data);
     friend libqt_string KXMLGUIClient_StandardsXmlFileLocation(KXMLGUIClient* self);
     friend libqt_string KXMLGUIClient_QBaseStandardsXmlFileLocation(KXMLGUIClient* self);
     friend void KXMLGUIClient_LoadStandardsXmlFile(KXMLGUIClient* self);

@@ -32,7 +32,6 @@ void KXMLGUIBuilder_RemoveContainer(KXMLGUIBuilder* self, QWidget* container, QW
 libqt_list /* of libqt_string */ KXMLGUIBuilder_CustomTags(const KXMLGUIBuilder* self);
 QAction* KXMLGUIBuilder_CreateCustomElement(KXMLGUIBuilder* self, QWidget* parent, int index, const QDomElement* element);
 void KXMLGUIBuilder_FinalizeGUI(KXMLGUIBuilder* self, KXMLGUIClient* client);
-void KXMLGUIBuilder_VirtualHook(KXMLGUIBuilder* self, int id, void* data);
 void KXMLGUIBuilder_OnContainerTags(const KXMLGUIBuilder* self, intptr_t slot);
 libqt_list /* of libqt_string */ KXMLGUIBuilder_QBaseContainerTags(const KXMLGUIBuilder* self);
 void KXMLGUIBuilder_OnCreateContainer(KXMLGUIBuilder* self, intptr_t slot);
@@ -45,8 +44,6 @@ void KXMLGUIBuilder_OnCreateCustomElement(KXMLGUIBuilder* self, intptr_t slot);
 QAction* KXMLGUIBuilder_QBaseCreateCustomElement(KXMLGUIBuilder* self, QWidget* parent, int index, const QDomElement* element);
 void KXMLGUIBuilder_OnFinalizeGUI(KXMLGUIBuilder* self, intptr_t slot);
 void KXMLGUIBuilder_QBaseFinalizeGUI(KXMLGUIBuilder* self, KXMLGUIClient* client);
-void KXMLGUIBuilder_OnVirtualHook(KXMLGUIBuilder* self, intptr_t slot);
-void KXMLGUIBuilder_QBaseVirtualHook(KXMLGUIBuilder* self, int id, void* data);
 void KXMLGUIBuilder_Delete(KXMLGUIBuilder* self);
 
 #ifdef __cplusplus

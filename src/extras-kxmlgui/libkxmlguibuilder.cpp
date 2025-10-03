@@ -149,13 +149,6 @@ void KXMLGUIBuilder_FinalizeGUI(KXMLGUIBuilder* self, KXMLGUIClient* client) {
     }
 }
 
-void KXMLGUIBuilder_VirtualHook(KXMLGUIBuilder* self, int id, void* data) {
-    auto* vkxmlguibuilder = dynamic_cast<VirtualKXMLGUIBuilder*>(self);
-    if (vkxmlguibuilder && vkxmlguibuilder->isVirtualKXMLGUIBuilder) {
-        vkxmlguibuilder->virtual_hook(static_cast<int>(id), data);
-    }
-}
-
 // Base class handler implementation
 libqt_list /* of libqt_string */ KXMLGUIBuilder_QBaseContainerTags(const KXMLGUIBuilder* self) {
     auto* vkxmlguibuilder = const_cast<VirtualKXMLGUIBuilder*>(dynamic_cast<const VirtualKXMLGUIBuilder*>(self));
@@ -335,25 +328,6 @@ void KXMLGUIBuilder_OnFinalizeGUI(KXMLGUIBuilder* self, intptr_t slot) {
     auto* vkxmlguibuilder = dynamic_cast<VirtualKXMLGUIBuilder*>(self);
     if (vkxmlguibuilder && vkxmlguibuilder->isVirtualKXMLGUIBuilder) {
         vkxmlguibuilder->setKXMLGUIBuilder_FinalizeGUI_Callback(reinterpret_cast<VirtualKXMLGUIBuilder::KXMLGUIBuilder_FinalizeGUI_Callback>(slot));
-    }
-}
-
-// Base class handler implementation
-void KXMLGUIBuilder_QBaseVirtualHook(KXMLGUIBuilder* self, int id, void* data) {
-    auto* vkxmlguibuilder = dynamic_cast<VirtualKXMLGUIBuilder*>(self);
-    if (vkxmlguibuilder && vkxmlguibuilder->isVirtualKXMLGUIBuilder) {
-        vkxmlguibuilder->setKXMLGUIBuilder_VirtualHook_IsBase(true);
-        vkxmlguibuilder->virtual_hook(static_cast<int>(id), data);
-    } else {
-        ((VirtualKXMLGUIBuilder*)self)->virtual_hook(static_cast<int>(id), data);
-    }
-}
-
-// Auxiliary method to allow providing re-implementation
-void KXMLGUIBuilder_OnVirtualHook(KXMLGUIBuilder* self, intptr_t slot) {
-    auto* vkxmlguibuilder = dynamic_cast<VirtualKXMLGUIBuilder*>(self);
-    if (vkxmlguibuilder && vkxmlguibuilder->isVirtualKXMLGUIBuilder) {
-        vkxmlguibuilder->setKXMLGUIBuilder_VirtualHook_Callback(reinterpret_cast<VirtualKXMLGUIBuilder::KXMLGUIBuilder_VirtualHook_Callback>(slot));
     }
 }
 
