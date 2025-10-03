@@ -749,8 +749,31 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 		preamble += "};\n"
 		rvalue = nameprefix + "_list"
 
-	} else if _, ok := p.QSetOf(); ok {
-		panic("QSet<> arguments are not yet implemented") // n.b. doesn't seem to exist in QtCore/QtGui/QtWidgets at all
+	} else if t, ok := p.QSetOf(); ok {
+		// QSet<T>
+		zfs.imports["std"] = struct{}{}
+
+		if t.ParameterType == "QString" || t.ParameterType == "QByteArray" {
+			preamble += "var " + nameprefix + "_arr = allocator.alloc(qtc.libqt_string, " + p.ParameterName + `.count()) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
+			preamble += "defer allocator.free(" + nameprefix + "_arr);\n"
+			preamble += "var " + nameprefix + "_it = " + nameprefix + ".keyIterator();\n"
+			preamble += "var " + nameprefix + "_i: usize = 0;\n"
+			preamble += "while (" + nameprefix + "_it.next()) |item| : (" + nameprefix + "_i += 1) {\n"
+			preamble += "    " + nameprefix + "_arr[" + nameprefix + "_i] = .{\n"
+			preamble += "        .len = item.*.len,\n"
+			preamble += "        .data = item.*.ptr,\n"
+			preamble += "    };\n"
+			preamble += "}\n"
+
+			preamble += "const " + nameprefix + "_set = qtc.libqt_list{\n"
+			preamble += "    .len = " + p.ParameterName + ".count(),\n"
+			preamble += "    .data = " + nameprefix + "_arr.ptr,\n"
+			preamble += "};\n"
+			rvalue = nameprefix + "_set"
+
+		} else {
+			panic("QSet<> arguments of type " + t.ParameterType + " are not yet implemented")
+		}
 
 	} else if kType, vType, _, ok := p.QMapOf(); ok {
 		// QMap<K,V>
@@ -1371,6 +1394,7 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 			maybeDedupe = ifv(zigStruct == "knscore" && !eqStructHeader, "_"+zfs.currentHeaderName, maybeDedupe)
 			maybeDedupe = ifv(zigStruct == "kstandardactions" && !eqStructHeader, "_"+zfs.currentHeaderName, maybeDedupe)
 			maybeDedupe = ifv(zigStruct == "kstandardshortcut" && !eqStructHeader, "_"+zfs.currentHeaderName, maybeDedupe)
+			maybeDedupe = ifv(zigStruct == "ktexteditor" && !eqStructHeader, "_"+zfs.currentHeaderName, maybeDedupe)
 			maybeDedupe = ifv(zigStruct == "ktimezone" && !eqStructHeader, "_"+zfs.currentHeaderName, maybeDedupe)
 			zigIncs[zigStruct+maybeDedupe] = "pub const " + zigStruct + maybeDedupe + ` = @import("` + dirRoot + "lib" + zfs.currentHeaderName + `.zig").` + zigStruct + ";"
 			ret.WriteString("\n/// " + getPageUrl(QtPage, pageName, "", zigStructName) +
@@ -1900,6 +1924,7 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 		maybeUrlPrefix := ifv(strings.Contains(src.Filename, "KIO") && !strings.HasPrefix(getPageName(zfs.currentHeaderName), "k"), "kio-", "")
 		maybeUrlPrefix = ifv(strings.Contains(src.Filename, "Attica"), "attica-", maybeUrlPrefix)
 		maybeUrlPrefix = ifv(strings.Contains(src.Filename, "KNSCore"), "knscore-", maybeUrlPrefix)
+		maybeUrlPrefix = ifv(strings.Contains(src.Filename, "KParts"), "kparts-", maybeUrlPrefix)
 		maybeUrlPrefix = ifv(strings.Contains(src.Filename, "KSyntaxHighlighting"), "ksyntaxhighlighting-", maybeUrlPrefix)
 		maybeUrlPrefix = ifv(strings.Contains(src.Filename, "Solid"), "solid-", maybeUrlPrefix)
 		maybeUrlPrefix = ifv(strings.Contains(src.Filename, "Sonnet"), "sonnet-", maybeUrlPrefix)
