@@ -21,7 +21,7 @@ func InsertTypedefs() {
 
 	// Qt 6 QTermWidget has a broken typedef for Command
 	KnownTypedefs["KeyboardTranslator::Command"] = lookupResultTypedef{pp, CppTypedef{"Konsole::KeyboardTranslator::Command", parseSingleTypeString("Konsole::KeyboardTranslator::Command")}}
-	KnownTypedefs["Command"] = lookupResultTypedef{pp, CppTypedef{"Konsole::KeyboardTranslator::Command", parseSingleTypeString("Konsole::KeyboardTranslator::Command")}}
+	KnownTypedefs["Konsole::KeyboardTranslator::Entry::Command"] = lookupResultTypedef{pp, CppTypedef{"Konsole::KeyboardTranslator::Command", parseSingleTypeString("Konsole::KeyboardTranslator::Command")}}
 	KnownImports["Command"] = lookupResultImport{"posix-restricted-qtermwidget", "KeyboardTranslator"}
 
 	// Qt 6 Attica has broken typedefs
@@ -56,6 +56,11 @@ func InsertTypedefs() {
 	// Qt 6 KSyntaxHighlighting
 	KnownTypedefs["CommentPosition"] = lookupResultTypedef{pp, CppTypedef{"KSyntaxHighlighting::CommentPosition", parseSingleTypeString("KSyntaxHighlighting::CommentPosition")}}
 	KnownTypedefs["Theme::TextStyle"] = lookupResultTypedef{pp, CppTypedef{"KSyntaxHighlighting::Theme::TextStyle", parseSingleTypeString("KSyntaxHighlighting::Theme::TextStyle")}}
+
+	// Qt 6 KTextEditor
+	KnownTypedefs["MovingCursor::InsertBehavior"] = lookupResultTypedef{pp, CppTypedef{"KTextEditor::MovingCursor::InsertBehavior", parseSingleTypeString("KTextEditor::MovingCursor::InsertBehavior")}}
+	KnownTypedefs["MovingRange::InsertBehaviors"] = lookupResultTypedef{pp, CppTypedef{"KTextEditor::MovingRange::InsertBehaviors", parseSingleTypeString("KTextEditor::MovingRange::InsertBehaviors")}}
+	KnownTypedefs["MovingRange::EmptyBehavior"] = lookupResultTypedef{pp, CppTypedef{"KTextEditor::MovingRange::EmptyBehavior", parseSingleTypeString("KTextEditor::MovingRange::EmptyBehavior")}}
 }
 
 func Widgets_AllowHeader(fullpath string) bool {
@@ -186,6 +191,9 @@ func ImportHeaderForClass(className string) bool {
 		"KUrlComboRequester",             // Qt 6 kurlrequester.h
 		"KNSCore",                        // Qt 6 searchrequest.h
 		"KSyntaxHighlighting",            // Qt 6 state.h
+		"KParts",                         // Qt 6 partloader.h
+		"TerminalInterface",              // Qt 6 kde_terminal_interface.h
+		"KTextEditor",                    // Qt 6 KTextEditor
 		"____last____":
 		return false
 	}
@@ -516,6 +524,12 @@ func AllowMethod(className string, mm CppMethod) error {
 	}
 	if className == "KIO" && mm.MethodName == "chmod" {
 		// Qt 6 chmodjob.h && simplejob.h: cross-header conflict for the same method name
+		return ErrTooComplex
+	}
+
+	// Qt 6 KParts
+	if (className == "KXMLGUIBuilder" || className == "KXMLGUIClient") && mm.MethodName == "virtual_hook" {
+		// Qt 6 mainwindow.h: found in multiple base classes of different types leading to ambiguous name lookup
 		return ErrTooComplex
 	}
 
@@ -873,6 +887,7 @@ func AllowType(p CppParameter, isReturnType bool) error {
 		"GLsync",                          // Qt 6 qopengl.h
 		"GLDEBUGPROC",                     // Qt 6 qopenglfunctions.h
 		"QPlatformOpenGLContext",          // Qt 6 qopenglcontext.h
+		"KateInlineNoteData",              // Qt 6 inlinenote.h
 		"____last____":
 		return ErrTooComplex
 	}
@@ -903,6 +918,7 @@ func AllowStructDef(className string) bool {
 	switch className {
 	case "KIO::SslUi",
 		"KNSCore::ErrorCode",
+		"KParts::PartLoader",
 		"KSyntaxHighlighting::WildcardMatcher":
 		return false
 	default:
@@ -924,10 +940,17 @@ func AllowInnerClassDef(className string) bool {
 		"KNSCore::ErrorCode",                 // Qt 6 KNewStuff, errorcode.h
 		"KNSCore::Provider",                  // Qt 6 KNewStuff, provider.h
 		"KNSCore::SearchRequest",             // Qt 6 KNewStuff, searchrequest.h
+		"KParts::MainWindow",                 // Qt 6 KParts, mainwindow.h
+		"KParts::OpenUrlArguments",           // Qt 6 KParts, readonlypart.h
 		"KSyntaxHighlighting::Definition",    // Qt 6 KSyntaxHighlighting, definition.h
 		"KSyntaxHighlighting::FoldingRegion", // Qt 6 KSyntaxHighlighting, foldingregion.h
 		"KSyntaxHighlighting::Format",        // Qt 6 KSyntaxHighlighting, format.h
 		"KSyntaxHighlighting::Theme",         // Qt 6 KSyntaxHighlighting, theme.h
+		"KTextEditor::Cursor",                // Qt 6 KTextEditor, cursor.h
+		"KTextEditor::Document",              // Qt 6 KTextEditor, document.h
+		"KTextEditor::Message",               // Qt 6 KTextEditor, message.h
+		"KTextEditor::MovingCursor",          // Qt 6 KTextEditor, document.h
+		"KTextEditor::MovingRange",           // Qt 6 KTextEditor, document.h
 		"Sonnet::BackgroundChecker",          // Qt 6 Sonnet, dialog.h
 		"Sonnet::Dialog",                     // Qt 6 Sonnet, dialog.h
 		"____last____":
