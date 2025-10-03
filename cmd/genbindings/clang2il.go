@@ -26,6 +26,7 @@ var (
 
 	noCopyAssign = map[string]struct{}{
 		"KStandardActions::RawStringData": {},
+		"KTextEditor::InlineNote":         {},
 		"QCborValueConstRef":              {},
 		"QDirListing::const_iterator":     {},
 		"QJsonValueConstRef":              {},
@@ -33,6 +34,7 @@ var (
 
 	noMoveAssign = map[string]struct{}{
 		"KStandardActions::RawStringData": {},
+		"KTextEditor::InlineNote":         {},
 	}
 )
 
