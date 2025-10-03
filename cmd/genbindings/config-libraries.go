@@ -522,6 +522,30 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 			cflags:      "--std=c++17 -I/usr/include/KF6/KIO -I/usr/include/KF6/KIOCore -I/usr/include/KF6/KIOCore/kio/KIO -I/usr/include/KF6/KIOGui -I/usr/include/KF6/KIOGui/KIO -I/usr/include/KF6/KIOWidgets -I/usr/include/KF6/KIOWidgets/KIO -I/usr/include/KF6/KIOFileWidgets -I/usr/include/KF6/KConfig -I/usr/include/KF6/KConfigCore -I/usr/include/KF6/KCoreAddons -I/usr/include/KF6/KWidgetsAddons -I/usr/include/KF6/KBookmarks -I/usr/include/KF6/KCompletion -I/usr/include/KF6/KIconThemes -I/usr/include/KF6/KItemViews -I/usr/include/KF6/KJobWidgets -I/usr/include/KF6/KService -I/usr/include/KF6/Solid " + pkgConfigCflags("Qt6Widgets") + pkgConfigCflags("Qt6Network") + pkgConfigCflags("Qt6DBus") + pkgConfigCflags("Qt6Xml"),
 		},
 
+		// KParts
+		// Depends on Qt Core, GUI, Widgets, KCoreAddons, KIO, KXmlGui
+		{
+			path: "extras-kparts",
+			dirs: []string{
+				"/usr/include/KF6/KParts",
+				"/usr/include/KF6/KParts/kparts",
+			},
+			allowHeader: AllowAllHeaders,
+			cflags:      "--std=c++17 -I/usr/include/KF6/KParts -I/usr/include/KF6/KParts/KParts -I/usr/include/KF6/KParts/kparts -I/usr/include/KF6/KCoreAddons -I/usr/include/KF6/KIO -I/usr/include/KF6/KIOCore -I/usr/include/KF6/KXmlGui " + pkgConfigCflags("Qt6Widgets"),
+		},
+
+		// KTextEditor
+		// Depends on Qt Core, GUI, Widgets, KCompletion, KCoreAddons, KParts, KSyntaxHighlighting, KXmlGui
+		{
+			path: "extras-ktexteditor",
+			dirs: []string{
+				"/usr/include/KF6/KTextEditor",
+				"/usr/include/KF6/KTextEditor/ktexteditor",
+			},
+			allowHeader: AllowAllHeaders,
+			cflags:      "--std=c++17 -I/usr/include/KF6/KTextEditor -I/usr/include/KF6/KTextEditor/KTextEditor -I/usr/include/KF6/KTextEditor/ktexteditor -I/usr/include/KF6/KCompletion -I/usr/include/KF6/KCoreAddons -I/usr/include/KF6/KParts -I/usr/include/KF6/KParts/KParts -I/usr/include/KF6/KParts/kparts -I/usr/include/KF6/KSyntaxHighlighting -I/usr/include/KF6/KSyntaxHighlighting/KSyntaxHighlighting -I/usr/include/KF6/KXmlGui " + pkgConfigCflags("Qt6Widgets"),
+		},
+
 		// posix-restricted
 
 		// QTermWidget
