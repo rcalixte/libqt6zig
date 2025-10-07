@@ -10,57 +10,23 @@ func InsertTypedefs() {
 	pp := "qt6"
 
 	// FIXME this isn't picked up automatically because QFile inherits QFileDevice and the name refers to its parent class
-	KnownTypedefs["QFile::FileTime"] = lookupResultTypedef{pp, CppTypedef{"QFile::FileTime", parseSingleTypeString("QFileDevice::FileTime")}}
+	KnownTypedefs["QFile::FileTime"] = lookupResultTypedef{pp, CppTypedef{"QFile::FileTime", parseSingleTypeString("QFileDevice::FileTime", "")}}
 
 	// QFile doesn't see QFileDevice parent class enum
-	KnownTypedefs["QFile::Permissions"] = lookupResultTypedef{pp, CppTypedef{"QFile::Permissions", parseSingleTypeString("QFileDevice::Permissions")}}
-	KnownTypedefs["QIODevice::OpenMode"] = lookupResultTypedef{pp, CppTypedef{"QIODevice::OpenMode", parseSingleTypeString("QIODeviceBase::OpenMode")}}
+	KnownTypedefs["QFile::Permissions"] = lookupResultTypedef{pp, CppTypedef{"QFile::Permissions", parseSingleTypeString("QFileDevice::Permissions", "")}}
+	KnownTypedefs["QIODevice::OpenMode"] = lookupResultTypedef{pp, CppTypedef{"QIODevice::OpenMode", parseSingleTypeString("QIODeviceBase::OpenMode", "")}}
 
 	// Qt 6 KConfig uses an inherited enum
-	KnownTypedefs["KConfigGroup::WriteConfigFlags"] = lookupResultTypedef{pp, CppTypedef{"KConfigGroup::WriteConfigFlags", parseSingleTypeString("KConfigBase::WriteConfigFlags")}}
+	KnownTypedefs["KConfigGroup::WriteConfigFlags"] = lookupResultTypedef{pp, CppTypedef{"KConfigGroup::WriteConfigFlags", parseSingleTypeString("KConfigBase::WriteConfigFlags", "")}}
 
-	// Qt 6 QTermWidget has a broken typedef for Command
-	KnownTypedefs["KeyboardTranslator::Command"] = lookupResultTypedef{pp, CppTypedef{"Konsole::KeyboardTranslator::Command", parseSingleTypeString("Konsole::KeyboardTranslator::Command")}}
-	KnownTypedefs["Konsole::KeyboardTranslator::Entry::Command"] = lookupResultTypedef{pp, CppTypedef{"Konsole::KeyboardTranslator::Command", parseSingleTypeString("Konsole::KeyboardTranslator::Command")}}
-	KnownImports["Command"] = lookupResultImport{"posix-restricted-qtermwidget", "KeyboardTranslator"}
+	// Qt 6 KCoreAddons: ksandbox.h uses an inherited enum
+	KnownTypedefs["QProcess::OpenMode"] = lookupResultTypedef{pp, CppTypedef{"QProcess::OpenMode", parseSingleTypeString("QIODeviceBase::OpenMode", "")}}
 
-	// Qt 6 Attica has broken typedefs
-	KnownTypedefs["Comment::Type"] = lookupResultTypedef{pp, CppTypedef{"Attica::Comment::Type", parseSingleTypeString("Attica::Comment::Type")}}
-	KnownTypedefs["Achievement::Type"] = lookupResultTypedef{pp, CppTypedef{"Attica::Achievement::Type", parseSingleTypeString("Attica::Achievement::Type")}}
-	KnownTypedefs["Achievement::Visibility"] = lookupResultTypedef{pp, CppTypedef{"Attica::Achievement::Visibility", parseSingleTypeString("Attica::Achievement::Visibility")}}
-
-	// Qt 6 ksandbox.h uses an inherited enum
-	KnownTypedefs["QProcess::OpenMode"] = lookupResultTypedef{pp, CppTypedef{"QProcess::OpenMode", parseSingleTypeString("QIODeviceBase::OpenMode")}}
-
-	// Qt 6 predicate.h has a broken typedef for DeviceInterface::Type
-	KnownTypedefs["DeviceInterface::Type"] = lookupResultTypedef{pp, CppTypedef{"Solid::DeviceInterface::Type", parseSingleTypeString("Solid::DeviceInterface::Type")}}
+	// Qt 6 Solid: predicate.h has a broken inner typedef for QSet<DeviceInterface::Type> - TODO?
+	KnownTypedefs["DeviceInterface::Type"] = lookupResultTypedef{pp, CppTypedef{"Solid::DeviceInterface::Type", parseSingleTypeString("Solid::DeviceInterface::Type", "")}}
 
 	// Qt 6 KIO
-	KnownImports["PrivilegeOperationStatus"] = lookupResultImport{"extras-kio", "global"}
-	KnownImports["RulesStorage"] = lookupResultImport{"extras-kio", "sslui"}
-	KnownTypedefs["AskUserActionInterface::ConfirmationType"] = lookupResultTypedef{pp, CppTypedef{"KIO::AskUserActionInterface::ConfirmationType", parseSingleTypeString("KIO::AskUserActionInterface::ConfirmationType")}}
-	KnownTypedefs["AskUserActionInterface::DeletionType"] = lookupResultTypedef{pp, CppTypedef{"KIO::AskUserActionInterface::DeletionType", parseSingleTypeString("KIO::AskUserActionInterface::DeletionType")}}
-	KnownTypedefs["AuthInfo::FieldFlags"] = lookupResultTypedef{pp, CppTypedef{"KIO::AuthInfo::FieldFlags", parseSingleTypeString("KIO::AuthInfo::FieldFlags")}}
-	KnownTypedefs["FileUndoManager::CommandType"] = lookupResultTypedef{pp, CppTypedef{"KIO::FileUndoManager::CommandType", parseSingleTypeString("KIO::FileUndoManager::CommandType")}}
-	KnownTypedefs["ListJob::ListFlags"] = lookupResultTypedef{pp, CppTypedef{"KIO::ListJob::ListFlags", parseSingleTypeString("KIO::ListJob::ListFlags")}}
-	KnownTypedefs["KProtocolInfo::Type"] = lookupResultTypedef{pp, CppTypedef{"KProtocolInfo::ExtraField::Type", parseSingleTypeString("KProtocolInfo::ExtraField::Type")}}
-	KnownTypedefs["RulesStorage"] = lookupResultTypedef{pp, CppTypedef{"KIO::SslUi::RulesStorage", parseSingleTypeString("KIO::SslUi::RulesStorage")}}
-
-	// Qt 6 KNewStuff
-	KnownTypedefs["KNSCore::ErrorCode"] = lookupResultTypedef{pp, CppTypedef{"KNSCore::ErrorCode::ErrorCode", parseSingleTypeString("KNSCore::ErrorCode::ErrorCode")}}
-	KnownTypedefs["KNSCore::Provider::SearchRequest::Filter"] = lookupResultTypedef{pp, CppTypedef{"KNSCore::Provider::Filter", parseSingleTypeString("KNSCore::Provider::Filter")}}
-	KnownTypedefs["KNSCore::Provider::SearchRequest::SortMode"] = lookupResultTypedef{pp, CppTypedef{"KNSCore::Provider::SortMode", parseSingleTypeString("KNSCore::Provider::SortMode")}}
-	KnownTypedefs["KNSCore::SearchRequest::Filter"] = lookupResultTypedef{pp, CppTypedef{"KNSCore::Filter", parseSingleTypeString("KNSCore::Filter")}}
-	KnownTypedefs["KNSCore::SearchRequest::SortMode"] = lookupResultTypedef{pp, CppTypedef{"KNSCore::SortMode", parseSingleTypeString("KNSCore::SortMode")}}
-
-	// Qt 6 KSyntaxHighlighting
-	KnownTypedefs["CommentPosition"] = lookupResultTypedef{pp, CppTypedef{"KSyntaxHighlighting::CommentPosition", parseSingleTypeString("KSyntaxHighlighting::CommentPosition")}}
-	KnownTypedefs["Theme::TextStyle"] = lookupResultTypedef{pp, CppTypedef{"KSyntaxHighlighting::Theme::TextStyle", parseSingleTypeString("KSyntaxHighlighting::Theme::TextStyle")}}
-
-	// Qt 6 KTextEditor
-	KnownTypedefs["MovingCursor::InsertBehavior"] = lookupResultTypedef{pp, CppTypedef{"KTextEditor::MovingCursor::InsertBehavior", parseSingleTypeString("KTextEditor::MovingCursor::InsertBehavior")}}
-	KnownTypedefs["MovingRange::InsertBehaviors"] = lookupResultTypedef{pp, CppTypedef{"KTextEditor::MovingRange::InsertBehaviors", parseSingleTypeString("KTextEditor::MovingRange::InsertBehaviors")}}
-	KnownTypedefs["MovingRange::EmptyBehavior"] = lookupResultTypedef{pp, CppTypedef{"KTextEditor::MovingRange::EmptyBehavior", parseSingleTypeString("KTextEditor::MovingRange::EmptyBehavior")}}
+	KnownTypedefs["KProtocolInfo::Type"] = lookupResultTypedef{pp, CppTypedef{"KProtocolInfo::ExtraField::Type", parseSingleTypeString("KProtocolInfo::ExtraField::Type", "")}}
 }
 
 func Widgets_AllowHeader(fullpath string) bool {
@@ -194,6 +160,7 @@ func ImportHeaderForClass(className string) bool {
 		"KParts",                         // Qt 6 partloader.h
 		"TerminalInterface",              // Qt 6 kde_terminal_interface.h
 		"KTextEditor",                    // Qt 6 KTextEditor
+		"QKeychain",                      // Qt 6 QKeychain
 		"____last____":
 		return false
 	}
@@ -948,9 +915,11 @@ func AllowInnerClassDef(className string) bool {
 		"KSyntaxHighlighting::Theme",         // Qt 6 KSyntaxHighlighting, theme.h
 		"KTextEditor::Cursor",                // Qt 6 KTextEditor, cursor.h
 		"KTextEditor::Document",              // Qt 6 KTextEditor, document.h
+		"KTextEditor::MainWindow",            // Qt 6 KTextEditor, mainwindow.h
 		"KTextEditor::Message",               // Qt 6 KTextEditor, message.h
 		"KTextEditor::MovingCursor",          // Qt 6 KTextEditor, document.h
 		"KTextEditor::MovingRange",           // Qt 6 KTextEditor, document.h
+		"KTextEditor::Plugin",                // Qt 6 KTextEditor, plugin.h
 		"Sonnet::BackgroundChecker",          // Qt 6 Sonnet, dialog.h
 		"Sonnet::Dialog",                     // Qt 6 Sonnet, dialog.h
 		"____last____":
