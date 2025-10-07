@@ -19,7 +19,9 @@ pub fn build(b: *std.Build) !void {
     const linkage = b.option(std.builtin.LinkMode, "linkage", "Link mode for libqt6zig") orelse .static;
     const enable_workaround = b.option(bool, "enable-workaround", "Enable workaround for missing Qt C++ headers") orelse false;
     const extra_paths = b.option([]const []const u8, "extra-paths", "Extra library header search paths") orelse &.{};
-    const optimize = standardOptimizeOption(b, .{});
+
+    var optimize = b.standardOptimizeOption(.{});
+    if (optimize == .Debug) optimize = .ReleaseFast;
 
     const is_macos = target.result.os.tag == .macos or host_os == .macos;
     const is_windows = target.result.os.tag == .windows or host_os == .windows;
@@ -188,12 +190,15 @@ pub fn build(b: *std.Build) !void {
         "KConfigGui",
         // Qt 6 KCoreAddons
         "KCoreAddons",
-        "KCrash", // build dependency
+        // Qt 6 KCrash
+        "KCrash",
         // Qt 6 KGuiAddons
         "KGuiAddons",
         // Qt 6 KI18n
         "KI18n",
         "KI18nLocaleData",
+        // Qt 6 KItemModels
+        "KItemModels",
         // Qt 6 KItemViews
         "KItemViews",
         // Qt 6 KJobWidgets
@@ -218,6 +223,10 @@ pub fn build(b: *std.Build) !void {
         "SonnetCore/sonnet",
         "SonnetUi",
         "SonnetUi/sonnet",
+        // Qt 6 KSvg
+        "KSvg",
+        "KSvg/KSvg",
+        "KSvg/ksvg",
         // Qt 6 KSyntaxHighlighting
         "KSyntaxHighlighting",
         "KSyntaxHighlighting/KSyntaxHighlighting",
@@ -239,6 +248,10 @@ pub fn build(b: *std.Build) !void {
         "KIconWidgets",
         // Qt 6 KXmlGui
         "KXmlGui",
+        // Qt 6 QtKeychain
+        "qt6keychain",
+        // Qt 6 LayerShellQt
+        "LayerShellQt",
         // Qt 6 KGlobalAccel
         "KGlobalAccel",
         // Qt 6 KWindowSystem
@@ -353,38 +366,4 @@ pub fn build(b: *std.Build) !void {
     libqt6zig.addImport("qtzig", qtzig_types);
 
     b.modules.put("libqt6zig", libqt6zig) catch {};
-}
-
-fn standardOptimizeOption(b: *std.Build, options: std.Build.StandardOptimizeOptionOptions) std.builtin.OptimizeMode {
-    if (options.preferred_optimize_mode) |mode| {
-        checkSupportedMode(mode);
-        if (b.option(bool, "release", "optimize for end users") orelse (b.release_mode != .off)) {
-            return mode;
-        } else {
-            return .ReleaseFast;
-        }
-    }
-
-    if (b.option(
-        std.builtin.OptimizeMode,
-        "optimize",
-        "Prioritize performance, safety, or binary size",
-    )) |mode| {
-        checkSupportedMode(mode);
-        return mode;
-    }
-
-    return switch (b.release_mode) {
-        .off, .any, .fast => .ReleaseFast,
-        .safe => .ReleaseSafe,
-        .small => .ReleaseSmall,
-    };
-}
-
-fn checkSupportedMode(mode: std.builtin.OptimizeMode) void {
-    if (mode == .Debug) {
-        stdout_writer.interface.writeAll("libqt6zig does not support Debug build mode.\n") catch @panic("Failed to write to stdout");
-        stdout_writer.interface.flush() catch @panic("Failed to flush stdout writer");
-        std.process.exit(1);
-    }
 }
