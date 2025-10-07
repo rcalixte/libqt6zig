@@ -255,6 +255,17 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 			cflags:      "--std=c++17 -I/usr/include/KF6/KCoreAddons " + pkgConfigCflags("Qt6Core"),
 		},
 
+		// KCrash
+		// Depends on Qt Core
+		{
+			path: "extras-kcrash",
+			dirs: []string{
+				"/usr/include/KF6/KCrash",
+			},
+			allowHeader: AllowAllHeaders,
+			cflags:      "--std=c++17 -I/usr/include/KF6/KCrash -I/usr/include/KF6/KCoreAddons " + pkgConfigCflags("Qt6Core"),
+		},
+
 		// KGuiAddons
 		// Depends on Qt Core, GUI, KCoreAddons
 		{
@@ -276,6 +287,17 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 			},
 			allowHeader: AllowAllHeaders,
 			cflags:      "--std=c++17 -I/usr/include/KF6/KI18n -I/usr/include/KF6/KI18nLocaleData " + pkgConfigCflags("Qt6Core"),
+		},
+
+		// KItemModels
+		// Depends on Qt Core
+		{
+			path: "extras-kitemmodels",
+			dirs: []string{
+				"/usr/include/KF6/KItemModels",
+			},
+			allowHeader: AllowAllHeaders,
+			cflags:      "--std=c++17 -I/usr/include/KF6/KItemModels " + pkgConfigCflags("Qt6Core"),
 		},
 
 		// KItemViews
@@ -358,6 +380,18 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 			},
 			allowHeader: AllowAllHeaders,
 			cflags:      "--std=c++17 -I/usr/include/KF6/Sonnet " + pkgConfigCflags("Qt6Widgets"),
+		},
+
+		// KSvg
+		// Depends on Qt Core, GUI, KConfig
+		{
+			path: "extras-ksvg",
+			dirs: []string{
+				"/usr/include/KF6/KSvg",
+				"/usr/include/KF6/KSvg/ksvg",
+			},
+			allowHeader: AllowAllHeaders,
+			cflags:      "--std=c++17 -I/usr/include/KF6/KSvg -I/usr/include/KF6/KSvg/ksvg -I/usr/include/KF6/KSvg/KSvg -I/usr/include/KF6/KConfig -I/usr/include/KF6/KConfigCore " + pkgConfigCflags("Qt6Gui"),
 		},
 
 		// KSyntaxHighlighting
@@ -462,7 +496,29 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 			cflags:      "--std=c++17 -I/usr/include/KF6/KXmlGui -I/usr/include/KF6/KConfig -I/usr/include/KF6/KConfigCore -I/usr/include/KF6/KConfigGui -I/usr/include/KF6/KConfigWidgets -I/usr/include/KF6/KGuiAddons -I/usr/include/KF6/KWidgetsAddons " + pkgConfigCflags("Qt6Widgets"),
 		},
 
+		// Qt 6 QtKeychain
+		// Depends on Qt Core
+		{
+			path: "extras-qtkeychain",
+			dirs: []string{
+				"/usr/include/qt6keychain",
+			},
+			allowHeader: AllowAllHeaders,
+			cflags:      "--std=c++17 -I/usr/include/qt6keychain " + pkgConfigCflags("Qt6Core"),
+		},
+
 		// foss-extras
+
+		// LayerShellQt
+		// Depends on Qt Core, Gui
+		{
+			path: "foss-extras-layershellqt",
+			dirs: []string{
+				"/usr/include/LayerShellQt",
+			},
+			allowHeader: AllowAllHeaders,
+			cflags:      "--std=c++17 -I/usr/include/LayerShellQt " + pkgConfigCflags("Qt6Gui"),
+		},
 
 		// KGlobalAccel
 		// Depends on Qt Core, Gui, D-Bus
