@@ -73,7 +73,7 @@ func (p *CppParameter) GetQtCppType() *CppParameter {
 
 func (p CppParameter) QFlagsOf() (QFlagsInfo, bool) {
 	if strings.HasPrefix(p.ParameterType, "QFlags<") {
-		ret := parseSingleTypeString(p.ParameterType[7 : len(p.ParameterType)-1])
+		ret := parseSingleTypeString(p.ParameterType[7:len(p.ParameterType)-1], "")
 		ret.ParameterName = p.ParameterName + "_qf"
 
 		if e, ok := KnownEnums[ret.ParameterType]; ok {
@@ -91,7 +91,7 @@ func (p CppParameter) QFlagsOf() (QFlagsInfo, bool) {
 
 	if under := p.QtCppOriginalType; under != nil {
 		if strings.HasPrefix(under.ParameterType, "QFlags<") {
-			ret := parseSingleTypeString(under.ParameterType[7 : len(under.ParameterType)-1])
+			ret := parseSingleTypeString(under.ParameterType[7:len(under.ParameterType)-1], "")
 			ret.ParameterName = under.ParameterName + "_qf"
 
 			if e, ok := KnownEnums[ret.ParameterType]; ok {
@@ -154,19 +154,19 @@ func IsKnownTypeDef(className string) bool {
 
 func (p CppParameter) QListOf() (CppParameter, string, bool) {
 	if strings.HasPrefix(p.ParameterType, "QList<") && strings.HasSuffix(p.ParameterType, ">") {
-		ret := parseSingleTypeString(p.ParameterType[6 : len(p.ParameterType)-1])
+		ret := parseSingleTypeString(p.ParameterType[6:len(p.ParameterType)-1], "")
 		ret.ParameterName = p.ParameterName + "_lv"
 		return ret, "QList", true
 	}
 
 	if strings.HasPrefix(p.ParameterType, "QVector<") && strings.HasSuffix(p.ParameterType, ">") {
-		ret := parseSingleTypeString(p.ParameterType[8 : len(p.ParameterType)-1])
+		ret := parseSingleTypeString(p.ParameterType[8:len(p.ParameterType)-1], "")
 		ret.ParameterName = p.ParameterName + "_vv"
 		return ret, "QVector", true
 	}
 
 	if strings.HasPrefix(p.ParameterType, "QSpan<") && strings.HasSuffix(p.ParameterType, ">") {
-		ret := parseSingleTypeString(p.ParameterType[6 : len(p.ParameterType)-1])
+		ret := parseSingleTypeString(p.ParameterType[6:len(p.ParameterType)-1], "")
 		ret.ParameterName = p.ParameterName + "_sv"
 		return ret, "QSpan", true
 	}
@@ -183,9 +183,9 @@ func (p CppParameter) QMapOf() (CppParameter, CppParameter, string, bool) {
 			panic("QMap<> has unexpected number of template arguments")
 		}
 
-		first := parseSingleTypeString(interior[0])
+		first := parseSingleTypeString(interior[0], "")
 		first.ParameterName = p.ParameterName + "_mapkey"
-		second := parseSingleTypeString(interior[1])
+		second := parseSingleTypeString(interior[1], "")
 		second.ParameterName = p.ParameterName + "_mapval"
 		return first, second, "QMap", true
 	}
@@ -196,9 +196,9 @@ func (p CppParameter) QMapOf() (CppParameter, CppParameter, string, bool) {
 			panic("QHash<> has unexpected number of template arguments")
 		}
 
-		first := parseSingleTypeString(interior[0])
+		first := parseSingleTypeString(interior[0], "")
 		first.ParameterName = p.ParameterName + "_hashkey"
-		second := parseSingleTypeString(interior[1])
+		second := parseSingleTypeString(interior[1], "")
 		second.ParameterName = p.ParameterName + "_hashval"
 		return first, second, "QHash", true
 	}
@@ -218,9 +218,9 @@ func (p CppParameter) QPairOf() (CppParameter, CppParameter, bool) {
 			panic("QPair<> has unexpected number of template arguments")
 		}
 
-		first := parseSingleTypeString(interior[0])
+		first := parseSingleTypeString(interior[0], "")
 		first.ParameterName = p.ParameterName + "_first"
-		second := parseSingleTypeString(interior[1])
+		second := parseSingleTypeString(interior[1], "")
 		second.ParameterName = p.ParameterName + "_second"
 		return first, second, true
 	}
@@ -230,7 +230,7 @@ func (p CppParameter) QPairOf() (CppParameter, CppParameter, bool) {
 
 func (p CppParameter) QSetOf() (CppParameter, bool) {
 	if strings.HasPrefix(p.ParameterType, "QSet<") {
-		ret := parseSingleTypeString(p.ParameterType[5 : len(p.ParameterType)-1])
+		ret := parseSingleTypeString(p.ParameterType[5:len(p.ParameterType)-1], "")
 		ret.ParameterName = p.ParameterName + "_sv"
 		return ret, true
 	}
