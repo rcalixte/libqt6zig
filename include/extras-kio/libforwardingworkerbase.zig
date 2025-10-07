@@ -1,8 +1,8 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
-const dropjob_enums = @import("libdropjob.zig").enums;
 const forwardingworkerbase_enums = enums;
 const global_enums = @import("libglobal.zig").enums;
+const job_base_enums = @import("libjob_base.zig").enums;
 const qiodevicebase_enums = @import("../libqiodevicebase.zig").enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
@@ -103,7 +103,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// [Qt documentation](https://api.kde.org/kio-forwardingworkerbase.html#put)
     ///
-    /// ``` self: QtC.KIO__ForwardingWorkerBase, url: QtC.QUrl, permissions: i32, flags: flag of dropjob_enums.JobFlag ```
+    /// ``` self: QtC.KIO__ForwardingWorkerBase, url: QtC.QUrl, permissions: i32, flags: flag of job_base_enums.JobFlag ```
     pub fn Put(self: ?*anyopaque, url: ?*anyopaque, permissions: i32, flags: i32) QtC.KIO__WorkerResult {
         return qtc.KIO__ForwardingWorkerBase_Put(@ptrCast(self), @ptrCast(url), @intCast(permissions), @intCast(flags));
     }
@@ -112,7 +112,7 @@ pub const kio__forwardingworkerbase = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KIO__ForwardingWorkerBase, callback: *const fn (self: QtC.KIO__ForwardingWorkerBase, url: QtC.QUrl, permissions: i32, flags: flag of dropjob_enums.JobFlag) callconv(.c) QtC.KIO__WorkerResult ```
+    /// ``` self: QtC.KIO__ForwardingWorkerBase, callback: *const fn (self: QtC.KIO__ForwardingWorkerBase, url: QtC.QUrl, permissions: i32, flags: flag of job_base_enums.JobFlag) callconv(.c) QtC.KIO__WorkerResult ```
     pub fn OnPut(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) QtC.KIO__WorkerResult) void {
         qtc.KIO__ForwardingWorkerBase_OnPut(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
@@ -121,7 +121,7 @@ pub const kio__forwardingworkerbase = struct {
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KIO__ForwardingWorkerBase, url: QtC.QUrl, permissions: i32, flags: flag of dropjob_enums.JobFlag ```
+    /// ``` self: QtC.KIO__ForwardingWorkerBase, url: QtC.QUrl, permissions: i32, flags: flag of job_base_enums.JobFlag ```
     pub fn QBasePut(self: ?*anyopaque, url: ?*anyopaque, permissions: i32, flags: i32) QtC.KIO__WorkerResult {
         return qtc.KIO__ForwardingWorkerBase_QBasePut(@ptrCast(self), @ptrCast(url), @intCast(permissions), @intCast(flags));
     }
@@ -228,7 +228,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// [Qt documentation](https://api.kde.org/kio-forwardingworkerbase.html#rename)
     ///
-    /// ``` self: QtC.KIO__ForwardingWorkerBase, src: QtC.QUrl, dest: QtC.QUrl, flags: flag of dropjob_enums.JobFlag ```
+    /// ``` self: QtC.KIO__ForwardingWorkerBase, src: QtC.QUrl, dest: QtC.QUrl, flags: flag of job_base_enums.JobFlag ```
     pub fn Rename(self: ?*anyopaque, src: ?*anyopaque, dest: ?*anyopaque, flags: i32) QtC.KIO__WorkerResult {
         return qtc.KIO__ForwardingWorkerBase_Rename(@ptrCast(self), @ptrCast(src), @ptrCast(dest), @intCast(flags));
     }
@@ -237,7 +237,7 @@ pub const kio__forwardingworkerbase = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KIO__ForwardingWorkerBase, callback: *const fn (self: QtC.KIO__ForwardingWorkerBase, src: QtC.QUrl, dest: QtC.QUrl, flags: flag of dropjob_enums.JobFlag) callconv(.c) QtC.KIO__WorkerResult ```
+    /// ``` self: QtC.KIO__ForwardingWorkerBase, callback: *const fn (self: QtC.KIO__ForwardingWorkerBase, src: QtC.QUrl, dest: QtC.QUrl, flags: flag of job_base_enums.JobFlag) callconv(.c) QtC.KIO__WorkerResult ```
     pub fn OnRename(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i32) callconv(.c) QtC.KIO__WorkerResult) void {
         qtc.KIO__ForwardingWorkerBase_OnRename(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
@@ -246,14 +246,14 @@ pub const kio__forwardingworkerbase = struct {
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KIO__ForwardingWorkerBase, src: QtC.QUrl, dest: QtC.QUrl, flags: flag of dropjob_enums.JobFlag ```
+    /// ``` self: QtC.KIO__ForwardingWorkerBase, src: QtC.QUrl, dest: QtC.QUrl, flags: flag of job_base_enums.JobFlag ```
     pub fn QBaseRename(self: ?*anyopaque, src: ?*anyopaque, dest: ?*anyopaque, flags: i32) QtC.KIO__WorkerResult {
         return qtc.KIO__ForwardingWorkerBase_QBaseRename(@ptrCast(self), @ptrCast(src), @ptrCast(dest), @intCast(flags));
     }
 
     /// [Qt documentation](https://api.kde.org/kio-forwardingworkerbase.html#symlink)
     ///
-    /// ``` self: QtC.KIO__ForwardingWorkerBase, target: []const u8, dest: QtC.QUrl, flags: flag of dropjob_enums.JobFlag ```
+    /// ``` self: QtC.KIO__ForwardingWorkerBase, target: []const u8, dest: QtC.QUrl, flags: flag of job_base_enums.JobFlag ```
     pub fn Symlink(self: ?*anyopaque, target: []const u8, dest: ?*anyopaque, flags: i32) QtC.KIO__WorkerResult {
         const target_str = qtc.libqt_string{
             .len = target.len,
@@ -266,7 +266,7 @@ pub const kio__forwardingworkerbase = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KIO__ForwardingWorkerBase, callback: *const fn (self: QtC.KIO__ForwardingWorkerBase, target: [*:0]const u8, dest: QtC.QUrl, flags: flag of dropjob_enums.JobFlag) callconv(.c) QtC.KIO__WorkerResult ```
+    /// ``` self: QtC.KIO__ForwardingWorkerBase, callback: *const fn (self: QtC.KIO__ForwardingWorkerBase, target: [*:0]const u8, dest: QtC.QUrl, flags: flag of job_base_enums.JobFlag) callconv(.c) QtC.KIO__WorkerResult ```
     pub fn OnSymlink(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, ?*anyopaque, i32) callconv(.c) QtC.KIO__WorkerResult) void {
         qtc.KIO__ForwardingWorkerBase_OnSymlink(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
@@ -275,7 +275,7 @@ pub const kio__forwardingworkerbase = struct {
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KIO__ForwardingWorkerBase, target: []const u8, dest: QtC.QUrl, flags: flag of dropjob_enums.JobFlag ```
+    /// ``` self: QtC.KIO__ForwardingWorkerBase, target: []const u8, dest: QtC.QUrl, flags: flag of job_base_enums.JobFlag ```
     pub fn QBaseSymlink(self: ?*anyopaque, target: []const u8, dest: ?*anyopaque, flags: i32) QtC.KIO__WorkerResult {
         const target_str = qtc.libqt_string{
             .len = target.len,
@@ -336,7 +336,7 @@ pub const kio__forwardingworkerbase = struct {
 
     /// [Qt documentation](https://api.kde.org/kio-forwardingworkerbase.html#copy)
     ///
-    /// ``` self: QtC.KIO__ForwardingWorkerBase, src: QtC.QUrl, dest: QtC.QUrl, permissions: i32, flags: flag of dropjob_enums.JobFlag ```
+    /// ``` self: QtC.KIO__ForwardingWorkerBase, src: QtC.QUrl, dest: QtC.QUrl, permissions: i32, flags: flag of job_base_enums.JobFlag ```
     pub fn Copy(self: ?*anyopaque, src: ?*anyopaque, dest: ?*anyopaque, permissions: i32, flags: i32) QtC.KIO__WorkerResult {
         return qtc.KIO__ForwardingWorkerBase_Copy(@ptrCast(self), @ptrCast(src), @ptrCast(dest), @intCast(permissions), @intCast(flags));
     }
@@ -345,7 +345,7 @@ pub const kio__forwardingworkerbase = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KIO__ForwardingWorkerBase, callback: *const fn (self: QtC.KIO__ForwardingWorkerBase, src: QtC.QUrl, dest: QtC.QUrl, permissions: i32, flags: flag of dropjob_enums.JobFlag) callconv(.c) QtC.KIO__WorkerResult ```
+    /// ``` self: QtC.KIO__ForwardingWorkerBase, callback: *const fn (self: QtC.KIO__ForwardingWorkerBase, src: QtC.QUrl, dest: QtC.QUrl, permissions: i32, flags: flag of job_base_enums.JobFlag) callconv(.c) QtC.KIO__WorkerResult ```
     pub fn OnCopy(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) QtC.KIO__WorkerResult) void {
         qtc.KIO__ForwardingWorkerBase_OnCopy(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
@@ -354,7 +354,7 @@ pub const kio__forwardingworkerbase = struct {
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KIO__ForwardingWorkerBase, src: QtC.QUrl, dest: QtC.QUrl, permissions: i32, flags: flag of dropjob_enums.JobFlag ```
+    /// ``` self: QtC.KIO__ForwardingWorkerBase, src: QtC.QUrl, dest: QtC.QUrl, permissions: i32, flags: flag of job_base_enums.JobFlag ```
     pub fn QBaseCopy(self: ?*anyopaque, src: ?*anyopaque, dest: ?*anyopaque, permissions: i32, flags: i32) QtC.KIO__WorkerResult {
         return qtc.KIO__ForwardingWorkerBase_QBaseCopy(@ptrCast(self), @ptrCast(src), @ptrCast(dest), @intCast(permissions), @intCast(flags));
     }

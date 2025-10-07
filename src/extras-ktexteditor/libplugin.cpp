@@ -1,6 +1,6 @@
 #define WORKAROUND_INNER_CLASS_DEFINITION_KTextEditor__ConfigPage
-#define WORKAROUND_INNER_CLASS_DEFINITION_KTextEditor__MainWindow
-#define WORKAROUND_INNER_CLASS_DEFINITION_KTextEditor__Plugin
+#include <KTextEditor/MainWindow>
+#include <KTextEditor/Plugin>
 #include <QChildEvent>
 #include <QEvent>
 #include <QMetaMethod>

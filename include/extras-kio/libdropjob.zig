@@ -1,6 +1,7 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const dropjob_enums = enums;
+const job_base_enums = @import("libjob_base.zig").enums;
 const kjob_enums = @import("../extras-kcoreaddons/libkjob.zig").enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
@@ -1187,14 +1188,14 @@ pub const kio__dropjob = struct {
 pub const kio = struct {
     /// [Qt documentation](https://api.kde.org/kio.html#drop)
     ///
-    /// ``` param1: QtC.QDropEvent, param2: QtC.QUrl, param3: flag of dropjob_enums.JobFlag ```
+    /// ``` param1: QtC.QDropEvent, param2: QtC.QUrl, param3: flag of job_base_enums.JobFlag ```
     pub fn Drop(param1: ?*anyopaque, param2: ?*anyopaque, param3: i32) QtC.KIO__DropJob {
         return qtc.KIO_Drop(@ptrCast(param1), @ptrCast(param2), @intCast(param3));
     }
 
     /// [Qt documentation](https://api.kde.org/kio.html#drop)
     ///
-    /// ``` param1: QtC.QDropEvent, param2: QtC.QUrl, param3: flag of dropjob_enums.DropJobFlag, param4: flag of dropjob_enums.JobFlag ```
+    /// ``` param1: QtC.QDropEvent, param2: QtC.QUrl, param3: flag of dropjob_enums.DropJobFlag, param4: flag of job_base_enums.JobFlag ```
     pub fn Drop2(param1: ?*anyopaque, param2: ?*anyopaque, param3: i32, param4: i32) QtC.KIO__DropJob {
         return qtc.KIO_Drop2(@ptrCast(param1), @ptrCast(param2), @intCast(param3), @intCast(param4));
     }

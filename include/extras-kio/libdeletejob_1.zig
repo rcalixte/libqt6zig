@@ -1,6 +1,6 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
-const dropjob_enums = @import("libdropjob.zig").enums;
+const job_base_enums = @import("libjob_base.zig").enums;
 const kjob_enums = @import("../extras-kcoreaddons/libkjob.zig").enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
@@ -1202,14 +1202,14 @@ pub const kio__deletejob = struct {
 pub const kio = struct {
     /// [Qt documentation](https://api.kde.org/kio.html#del)
     ///
-    /// ``` param1: QtC.QUrl, param2: flag of dropjob_enums.JobFlag ```
+    /// ``` param1: QtC.QUrl, param2: flag of job_base_enums.JobFlag ```
     pub fn Del(param1: ?*anyopaque, param2: i32) QtC.KIO__DeleteJob {
         return qtc.KIO_Del(@ptrCast(param1), @intCast(param2));
     }
 
     /// [Qt documentation](https://api.kde.org/kio.html#del)
     ///
-    /// ``` param1: []QtC.QUrl, param2: flag of dropjob_enums.JobFlag ```
+    /// ``` param1: []QtC.QUrl, param2: flag of job_base_enums.JobFlag ```
     pub fn Del2(param1: []QtC.QUrl, param2: i32) QtC.KIO__DeleteJob {
         const param1_list = qtc.libqt_list{
             .len = param1.len,

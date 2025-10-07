@@ -1,6 +1,6 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
-const dropjob_enums = @import("libdropjob.zig").enums;
+const jobuidelegateextension_enums = @import("libjobuidelegateextension.zig").enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const qpaintdevice_enums = @import("../libqpaintdevice.zig").enums;
@@ -13,7 +13,7 @@ const std = @import("std");
 pub const kio__skipdialog = struct {
     /// New constructs a new KIO::SkipDialog object.
     ///
-    /// ``` parent: QtC.QWidget, options: flag of dropjob_enums.SkipDialog_Option, _error_text: []const u8 ```
+    /// ``` parent: QtC.QWidget, options: flag of jobuidelegateextension_enums.SkipDialog_Option, _error_text: []const u8 ```
     pub fn New(parent: ?*anyopaque, options: i32, _error_text: []const u8) QtC.KIO__SkipDialog {
         const _error_text_str = qtc.libqt_string{
             .len = _error_text.len,

@@ -1,6 +1,6 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
-const dropjob_enums = @import("libdropjob.zig").enums;
+const job_base_enums = @import("libjob_base.zig").enums;
 const kjob_enums = @import("../extras-kcoreaddons/libkjob.zig").enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
@@ -1369,7 +1369,7 @@ pub const kio__mimetypejob = struct {
 pub const kio = struct {
     /// [Qt documentation](https://api.kde.org/kio.html#mimetype)
     ///
-    /// ``` param1: QtC.QUrl, param2: flag of dropjob_enums.JobFlag ```
+    /// ``` param1: QtC.QUrl, param2: flag of job_base_enums.JobFlag ```
     pub fn Mimetype(param1: ?*anyopaque, param2: i32) QtC.KIO__MimetypeJob {
         return qtc.KIO_Mimetype(@ptrCast(param1), @intCast(param2));
     }

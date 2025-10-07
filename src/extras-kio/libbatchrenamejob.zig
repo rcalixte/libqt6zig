@@ -1,6 +1,6 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
-const dropjob_enums = @import("libdropjob.zig").enums;
+const job_base_enums = @import("libjob_base.zig").enums;
 const kjob_enums = @import("../extras-kcoreaddons/libkjob.zig").enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
@@ -1134,7 +1134,7 @@ pub const kio__batchrenamejob = struct {
 pub const kio = struct {
     /// [Qt documentation](https://api.kde.org/kio.html#batchRename)
     ///
-    /// ``` param1: []QtC.QUrl, param2: []const u8, param3: i32, param4: QtC.QChar, param5: flag of dropjob_enums.JobFlag ```
+    /// ``` param1: []QtC.QUrl, param2: []const u8, param3: i32, param4: QtC.QChar, param5: flag of job_base_enums.JobFlag ```
     pub fn BatchRename(param1: []QtC.QUrl, param2: []const u8, param3: i32, param4: QtC.QChar, param5: i32) QtC.KIO__BatchRenameJob {
         const param1_list = qtc.libqt_list{
             .len = param1.len,

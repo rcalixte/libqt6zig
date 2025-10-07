@@ -15,12 +15,8 @@ extern "C" {
 
 #ifdef __cplusplus
 typedef KTextEditor::Document KTextEditor__Document;
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_KTextEditor__MainWindow)
 typedef KTextEditor::MainWindow KTextEditor__MainWindow;
-#endif
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_KTextEditor__Plugin)
 typedef KTextEditor::Plugin KTextEditor__Plugin;
-#endif
 #if defined(WORKAROUND_INNER_CLASS_DEFINITION_KTextEditor__View)
 typedef KTextEditor::View KTextEditor__View;
 #endif

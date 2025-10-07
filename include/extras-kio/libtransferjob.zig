@@ -1,6 +1,6 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
-const dropjob_enums = @import("libdropjob.zig").enums;
+const job_base_enums = @import("libjob_base.zig").enums;
 const kjob_enums = @import("../extras-kcoreaddons/libkjob.zig").enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
@@ -1331,21 +1331,21 @@ pub const kio__transferjob = struct {
 pub const kio = struct {
     /// [Qt documentation](https://api.kde.org/kio.html#get)
     ///
-    /// ``` param1: QtC.QUrl, param2: dropjob_enums.LoadType, param3: flag of dropjob_enums.JobFlag ```
+    /// ``` param1: QtC.QUrl, param2: job_base_enums.LoadType, param3: flag of job_base_enums.JobFlag ```
     pub fn Get(param1: ?*anyopaque, param2: i32, param3: i32) QtC.KIO__TransferJob {
         return qtc.KIO_Get(@ptrCast(param1), @intCast(param2), @intCast(param3));
     }
 
     /// [Qt documentation](https://api.kde.org/kio.html#put)
     ///
-    /// ``` param1: QtC.QUrl, param2: i32, param3: flag of dropjob_enums.JobFlag ```
+    /// ``` param1: QtC.QUrl, param2: i32, param3: flag of job_base_enums.JobFlag ```
     pub fn Put(param1: ?*anyopaque, param2: i32, param3: i32) QtC.KIO__TransferJob {
         return qtc.KIO_Put(@ptrCast(param1), @intCast(param2), @intCast(param3));
     }
 
     /// [Qt documentation](https://api.kde.org/kio.html#http_post)
     ///
-    /// ``` param1: QtC.QUrl, param2: []u8, param3: flag of dropjob_enums.JobFlag ```
+    /// ``` param1: QtC.QUrl, param2: []u8, param3: flag of job_base_enums.JobFlag ```
     pub fn HttpPost(param1: ?*anyopaque, param2: []u8, param3: i32) QtC.KIO__TransferJob {
         const param2_str = qtc.libqt_string{
             .len = param2.len,
@@ -1356,14 +1356,14 @@ pub const kio = struct {
 
     /// [Qt documentation](https://api.kde.org/kio.html#http_post)
     ///
-    /// ``` param1: QtC.QUrl, param2: QtC.QIODevice, param3: i64, param4: flag of dropjob_enums.JobFlag ```
+    /// ``` param1: QtC.QUrl, param2: QtC.QIODevice, param3: i64, param4: flag of job_base_enums.JobFlag ```
     pub fn HttpPost2(param1: ?*anyopaque, param2: ?*anyopaque, param3: i64, param4: i32) QtC.KIO__TransferJob {
         return qtc.KIO_HttpPost2(@ptrCast(param1), @ptrCast(param2), @intCast(param3), @intCast(param4));
     }
 
     /// [Qt documentation](https://api.kde.org/kio.html#http_delete)
     ///
-    /// ``` param1: QtC.QUrl, param2: flag of dropjob_enums.JobFlag ```
+    /// ``` param1: QtC.QUrl, param2: flag of job_base_enums.JobFlag ```
     pub fn HttpDelete(param1: ?*anyopaque, param2: i32) QtC.KIO__TransferJob {
         return qtc.KIO_HttpDelete(@ptrCast(param1), @intCast(param2));
     }

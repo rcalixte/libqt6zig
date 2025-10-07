@@ -1,7 +1,7 @@
 #define WORKAROUND_INNER_CLASS_DEFINITION_KTextEditor__Application
 #include <KTextEditor/Document>
-#define WORKAROUND_INNER_CLASS_DEFINITION_KTextEditor__MainWindow
-#define WORKAROUND_INNER_CLASS_DEFINITION_KTextEditor__Plugin
+#include <KTextEditor/MainWindow>
+#include <KTextEditor/Plugin>
 #include <QChildEvent>
 #include <QEvent>
 #include <QList>

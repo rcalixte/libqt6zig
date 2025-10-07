@@ -1,6 +1,6 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
-const dropjob_enums = @import("libdropjob.zig").enums;
+const job_base_enums = @import("libjob_base.zig").enums;
 const kjob_enums = @import("../extras-kcoreaddons/libkjob.zig").enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
@@ -1195,14 +1195,14 @@ pub const kio = struct {
 
     /// [Qt documentation](https://api.kde.org/kio.html#rename)
     ///
-    /// ``` param1: QtC.QUrl, param2: QtC.QUrl, param3: flag of dropjob_enums.JobFlag ```
+    /// ``` param1: QtC.QUrl, param2: QtC.QUrl, param3: flag of job_base_enums.JobFlag ```
     pub fn Rename(param1: ?*anyopaque, param2: ?*anyopaque, param3: i32) QtC.KIO__SimpleJob {
         return qtc.KIO_Rename(@ptrCast(param1), @ptrCast(param2), @intCast(param3));
     }
 
     /// [Qt documentation](https://api.kde.org/kio.html#symlink)
     ///
-    /// ``` param1: []const u8, param2: QtC.QUrl, param3: flag of dropjob_enums.JobFlag ```
+    /// ``` param1: []const u8, param2: QtC.QUrl, param3: flag of job_base_enums.JobFlag ```
     pub fn Symlink(param1: []const u8, param2: ?*anyopaque, param3: i32) QtC.KIO__SimpleJob {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
@@ -1213,7 +1213,7 @@ pub const kio = struct {
 
     /// [Qt documentation](https://api.kde.org/kio.html#special)
     ///
-    /// ``` param1: QtC.QUrl, param2: []u8, param3: flag of dropjob_enums.JobFlag ```
+    /// ``` param1: QtC.QUrl, param2: []u8, param3: flag of job_base_enums.JobFlag ```
     pub fn Special(param1: ?*anyopaque, param2: []u8, param3: i32) QtC.KIO__SimpleJob {
         const param2_str = qtc.libqt_string{
             .len = param2.len,
@@ -1224,7 +1224,7 @@ pub const kio = struct {
 
     /// [Qt documentation](https://api.kde.org/kio.html#mount)
     ///
-    /// ``` param1: bool, param2: []u8, param3: []const u8, param4: []const u8, param5: flag of dropjob_enums.JobFlag ```
+    /// ``` param1: bool, param2: []u8, param3: []const u8, param4: []const u8, param5: flag of job_base_enums.JobFlag ```
     pub fn Mount(param1: bool, param2: []u8, param3: []const u8, param4: []const u8, param5: i32) QtC.KIO__SimpleJob {
         const param2_str = qtc.libqt_string{
             .len = param2.len,
@@ -1243,7 +1243,7 @@ pub const kio = struct {
 
     /// [Qt documentation](https://api.kde.org/kio.html#unmount)
     ///
-    /// ``` param1: []const u8, param2: flag of dropjob_enums.JobFlag ```
+    /// ``` param1: []const u8, param2: flag of job_base_enums.JobFlag ```
     pub fn Unmount(param1: []const u8, param2: i32) QtC.KIO__SimpleJob {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
@@ -1261,7 +1261,7 @@ pub const kio = struct {
 
     /// [Qt documentation](https://api.kde.org/kio.html#file_delete)
     ///
-    /// ``` param1: QtC.QUrl, param2: flag of dropjob_enums.JobFlag ```
+    /// ``` param1: QtC.QUrl, param2: flag of job_base_enums.JobFlag ```
     pub fn FileDelete(param1: ?*anyopaque, param2: i32) QtC.KIO__SimpleJob {
         return qtc.KIO_FileDelete(@ptrCast(param1), @intCast(param2));
     }

@@ -32,9 +32,7 @@ typedef KTextEditor::Document KTextEditor__Document;
 #if defined(WORKAROUND_INNER_CLASS_DEFINITION_KTextEditor__InlineNoteProvider)
 typedef KTextEditor::InlineNoteProvider KTextEditor__InlineNoteProvider;
 #endif
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_KTextEditor__MainWindow)
 typedef KTextEditor::MainWindow KTextEditor__MainWindow;
-#endif
 #if defined(WORKAROUND_INNER_CLASS_DEFINITION_KTextEditor__Range)
 typedef KTextEditor::Range KTextEditor__Range;
 #endif

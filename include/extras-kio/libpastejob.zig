@@ -1,6 +1,6 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
-const dropjob_enums = @import("libdropjob.zig").enums;
+const job_base_enums = @import("libjob_base.zig").enums;
 const kjob_enums = @import("../extras-kcoreaddons/libkjob.zig").enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
@@ -1148,7 +1148,7 @@ pub const kio__pastejob = struct {
 pub const kio = struct {
     /// [Qt documentation](https://api.kde.org/kio.html#paste)
     ///
-    /// ``` param1: QtC.QMimeData, param2: QtC.QUrl, param3: flag of dropjob_enums.JobFlag ```
+    /// ``` param1: QtC.QMimeData, param2: QtC.QUrl, param3: flag of job_base_enums.JobFlag ```
     pub fn Paste(param1: ?*anyopaque, param2: ?*anyopaque, param3: i32) QtC.KIO__PasteJob {
         return qtc.KIO_Paste(@ptrCast(param1), @ptrCast(param2), @intCast(param3));
     }

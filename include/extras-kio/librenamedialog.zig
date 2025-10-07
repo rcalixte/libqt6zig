@@ -1,6 +1,6 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
-const dropjob_enums = @import("libdropjob.zig").enums;
+const jobuidelegateextension_enums = @import("libjobuidelegateextension.zig").enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const qpaintdevice_enums = @import("../libqpaintdevice.zig").enums;
@@ -13,7 +13,7 @@ const std = @import("std");
 pub const kio__renamedialog = struct {
     /// New constructs a new KIO::RenameDialog object.
     ///
-    /// ``` parent: QtC.QWidget, title: []const u8, src: QtC.QUrl, dest: QtC.QUrl, options: flag of dropjob_enums.RenameDialog_Option ```
+    /// ``` parent: QtC.QWidget, title: []const u8, src: QtC.QUrl, dest: QtC.QUrl, options: flag of jobuidelegateextension_enums.RenameDialog_Option ```
     pub fn New(parent: ?*anyopaque, title: []const u8, src: ?*anyopaque, dest: ?*anyopaque, options: i32) QtC.KIO__RenameDialog {
         const title_str = qtc.libqt_string{
             .len = title.len,
@@ -25,7 +25,7 @@ pub const kio__renamedialog = struct {
 
     /// New2 constructs a new KIO::RenameDialog object.
     ///
-    /// ``` parent: QtC.QWidget, title: []const u8, src: QtC.QUrl, dest: QtC.QUrl, options: flag of dropjob_enums.RenameDialog_Option, sizeSrc: u64 ```
+    /// ``` parent: QtC.QWidget, title: []const u8, src: QtC.QUrl, dest: QtC.QUrl, options: flag of jobuidelegateextension_enums.RenameDialog_Option, sizeSrc: u64 ```
     pub fn New2(parent: ?*anyopaque, title: []const u8, src: ?*anyopaque, dest: ?*anyopaque, options: i32, sizeSrc: u64) QtC.KIO__RenameDialog {
         const title_str = qtc.libqt_string{
             .len = title.len,
@@ -37,7 +37,7 @@ pub const kio__renamedialog = struct {
 
     /// New3 constructs a new KIO::RenameDialog object.
     ///
-    /// ``` parent: QtC.QWidget, title: []const u8, src: QtC.QUrl, dest: QtC.QUrl, options: flag of dropjob_enums.RenameDialog_Option, sizeSrc: u64, sizeDest: u64 ```
+    /// ``` parent: QtC.QWidget, title: []const u8, src: QtC.QUrl, dest: QtC.QUrl, options: flag of jobuidelegateextension_enums.RenameDialog_Option, sizeSrc: u64, sizeDest: u64 ```
     pub fn New3(parent: ?*anyopaque, title: []const u8, src: ?*anyopaque, dest: ?*anyopaque, options: i32, sizeSrc: u64, sizeDest: u64) QtC.KIO__RenameDialog {
         const title_str = qtc.libqt_string{
             .len = title.len,
@@ -49,7 +49,7 @@ pub const kio__renamedialog = struct {
 
     /// New4 constructs a new KIO::RenameDialog object.
     ///
-    /// ``` parent: QtC.QWidget, title: []const u8, src: QtC.QUrl, dest: QtC.QUrl, options: flag of dropjob_enums.RenameDialog_Option, sizeSrc: u64, sizeDest: u64, ctimeSrc: QtC.QDateTime ```
+    /// ``` parent: QtC.QWidget, title: []const u8, src: QtC.QUrl, dest: QtC.QUrl, options: flag of jobuidelegateextension_enums.RenameDialog_Option, sizeSrc: u64, sizeDest: u64, ctimeSrc: QtC.QDateTime ```
     pub fn New4(parent: ?*anyopaque, title: []const u8, src: ?*anyopaque, dest: ?*anyopaque, options: i32, sizeSrc: u64, sizeDest: u64, ctimeSrc: ?*anyopaque) QtC.KIO__RenameDialog {
         const title_str = qtc.libqt_string{
             .len = title.len,
@@ -61,7 +61,7 @@ pub const kio__renamedialog = struct {
 
     /// New5 constructs a new KIO::RenameDialog object.
     ///
-    /// ``` parent: QtC.QWidget, title: []const u8, src: QtC.QUrl, dest: QtC.QUrl, options: flag of dropjob_enums.RenameDialog_Option, sizeSrc: u64, sizeDest: u64, ctimeSrc: QtC.QDateTime, ctimeDest: QtC.QDateTime ```
+    /// ``` parent: QtC.QWidget, title: []const u8, src: QtC.QUrl, dest: QtC.QUrl, options: flag of jobuidelegateextension_enums.RenameDialog_Option, sizeSrc: u64, sizeDest: u64, ctimeSrc: QtC.QDateTime, ctimeDest: QtC.QDateTime ```
     pub fn New5(parent: ?*anyopaque, title: []const u8, src: ?*anyopaque, dest: ?*anyopaque, options: i32, sizeSrc: u64, sizeDest: u64, ctimeSrc: ?*anyopaque, ctimeDest: ?*anyopaque) QtC.KIO__RenameDialog {
         const title_str = qtc.libqt_string{
             .len = title.len,
@@ -73,7 +73,7 @@ pub const kio__renamedialog = struct {
 
     /// New6 constructs a new KIO::RenameDialog object.
     ///
-    /// ``` parent: QtC.QWidget, title: []const u8, src: QtC.QUrl, dest: QtC.QUrl, options: flag of dropjob_enums.RenameDialog_Option, sizeSrc: u64, sizeDest: u64, ctimeSrc: QtC.QDateTime, ctimeDest: QtC.QDateTime, mtimeSrc: QtC.QDateTime ```
+    /// ``` parent: QtC.QWidget, title: []const u8, src: QtC.QUrl, dest: QtC.QUrl, options: flag of jobuidelegateextension_enums.RenameDialog_Option, sizeSrc: u64, sizeDest: u64, ctimeSrc: QtC.QDateTime, ctimeDest: QtC.QDateTime, mtimeSrc: QtC.QDateTime ```
     pub fn New6(parent: ?*anyopaque, title: []const u8, src: ?*anyopaque, dest: ?*anyopaque, options: i32, sizeSrc: u64, sizeDest: u64, ctimeSrc: ?*anyopaque, ctimeDest: ?*anyopaque, mtimeSrc: ?*anyopaque) QtC.KIO__RenameDialog {
         const title_str = qtc.libqt_string{
             .len = title.len,
@@ -85,7 +85,7 @@ pub const kio__renamedialog = struct {
 
     /// New7 constructs a new KIO::RenameDialog object.
     ///
-    /// ``` parent: QtC.QWidget, title: []const u8, src: QtC.QUrl, dest: QtC.QUrl, options: flag of dropjob_enums.RenameDialog_Option, sizeSrc: u64, sizeDest: u64, ctimeSrc: QtC.QDateTime, ctimeDest: QtC.QDateTime, mtimeSrc: QtC.QDateTime, mtimeDest: QtC.QDateTime ```
+    /// ``` parent: QtC.QWidget, title: []const u8, src: QtC.QUrl, dest: QtC.QUrl, options: flag of jobuidelegateextension_enums.RenameDialog_Option, sizeSrc: u64, sizeDest: u64, ctimeSrc: QtC.QDateTime, ctimeDest: QtC.QDateTime, mtimeSrc: QtC.QDateTime, mtimeDest: QtC.QDateTime ```
     pub fn New7(parent: ?*anyopaque, title: []const u8, src: ?*anyopaque, dest: ?*anyopaque, options: i32, sizeSrc: u64, sizeDest: u64, ctimeSrc: ?*anyopaque, ctimeDest: ?*anyopaque, mtimeSrc: ?*anyopaque, mtimeDest: ?*anyopaque) QtC.KIO__RenameDialog {
         const title_str = qtc.libqt_string{
             .len = title.len,

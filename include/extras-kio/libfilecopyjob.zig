@@ -1,6 +1,6 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
-const dropjob_enums = @import("libdropjob.zig").enums;
+const job_base_enums = @import("libjob_base.zig").enums;
 const kjob_enums = @import("../extras-kcoreaddons/libkjob.zig").enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
@@ -1187,14 +1187,14 @@ pub const kio__filecopyjob = struct {
 pub const kio = struct {
     /// [Qt documentation](https://api.kde.org/kio.html#file_copy)
     ///
-    /// ``` param1: QtC.QUrl, param2: QtC.QUrl, param3: i32, param4: flag of dropjob_enums.JobFlag ```
+    /// ``` param1: QtC.QUrl, param2: QtC.QUrl, param3: i32, param4: flag of job_base_enums.JobFlag ```
     pub fn FileCopy(param1: ?*anyopaque, param2: ?*anyopaque, param3: i32, param4: i32) QtC.KIO__FileCopyJob {
         return qtc.KIO_FileCopy(@ptrCast(param1), @ptrCast(param2), @intCast(param3), @intCast(param4));
     }
 
     /// [Qt documentation](https://api.kde.org/kio.html#file_move)
     ///
-    /// ``` param1: QtC.QUrl, param2: QtC.QUrl, param3: i32, param4: flag of dropjob_enums.JobFlag ```
+    /// ``` param1: QtC.QUrl, param2: QtC.QUrl, param3: i32, param4: flag of job_base_enums.JobFlag ```
     pub fn FileMove(param1: ?*anyopaque, param2: ?*anyopaque, param3: i32, param4: i32) QtC.KIO__FileCopyJob {
         return qtc.KIO_FileMove(@ptrCast(param1), @ptrCast(param2), @intCast(param3), @intCast(param4));
     }

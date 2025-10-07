@@ -1,6 +1,6 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
-const dropjob_enums = @import("libdropjob.zig").enums;
+const job_base_enums = @import("libjob_base.zig").enums;
 const kjob_enums = @import("../extras-kcoreaddons/libkjob.zig").enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
@@ -17,14 +17,14 @@ pub const kio__faviconrequestjob = struct {
 
     /// New2 constructs a new KIO::FavIconRequestJob object.
     ///
-    /// ``` hostUrl: QtC.QUrl, reload: dropjob_enums.LoadType ```
+    /// ``` hostUrl: QtC.QUrl, reload: job_base_enums.LoadType ```
     pub fn New2(hostUrl: ?*anyopaque, reload: i32) QtC.KIO__FavIconRequestJob {
         return qtc.KIO__FavIconRequestJob_new2(@ptrCast(hostUrl), @intCast(reload));
     }
 
     /// New3 constructs a new KIO::FavIconRequestJob object.
     ///
-    /// ``` hostUrl: QtC.QUrl, reload: dropjob_enums.LoadType, parent: QtC.QObject ```
+    /// ``` hostUrl: QtC.QUrl, reload: job_base_enums.LoadType, parent: QtC.QObject ```
     pub fn New3(hostUrl: ?*anyopaque, reload: i32, parent: ?*anyopaque) QtC.KIO__FavIconRequestJob {
         return qtc.KIO__FavIconRequestJob_new3(@ptrCast(hostUrl), @intCast(reload), @ptrCast(parent));
     }

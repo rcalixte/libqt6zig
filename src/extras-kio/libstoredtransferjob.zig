@@ -1,6 +1,6 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
-const dropjob_enums = @import("libdropjob.zig").enums;
+const job_base_enums = @import("libjob_base.zig").enums;
 const kjob_enums = @import("../extras-kcoreaddons/libkjob.zig").enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
@@ -1369,21 +1369,21 @@ pub const kio__storedtransferjob = struct {
 pub const kio = struct {
     /// [Qt documentation](https://api.kde.org/kio.html#storedGet)
     ///
-    /// ``` param1: QtC.QUrl, param2: dropjob_enums.LoadType, param3: flag of dropjob_enums.JobFlag ```
+    /// ``` param1: QtC.QUrl, param2: job_base_enums.LoadType, param3: flag of job_base_enums.JobFlag ```
     pub fn StoredGet(param1: ?*anyopaque, param2: i32, param3: i32) QtC.KIO__StoredTransferJob {
         return qtc.KIO_StoredGet(@ptrCast(param1), @intCast(param2), @intCast(param3));
     }
 
     /// [Qt documentation](https://api.kde.org/kio.html#storedPut)
     ///
-    /// ``` param1: QtC.QIODevice, param2: QtC.QUrl, param3: i32, param4: flag of dropjob_enums.JobFlag ```
+    /// ``` param1: QtC.QIODevice, param2: QtC.QUrl, param3: i32, param4: flag of job_base_enums.JobFlag ```
     pub fn StoredPut(param1: ?*anyopaque, param2: ?*anyopaque, param3: i32, param4: i32) QtC.KIO__StoredTransferJob {
         return qtc.KIO_StoredPut(@ptrCast(param1), @ptrCast(param2), @intCast(param3), @intCast(param4));
     }
 
     /// [Qt documentation](https://api.kde.org/kio.html#storedPut)
     ///
-    /// ``` param1: []u8, param2: QtC.QUrl, param3: i32, param4: flag of dropjob_enums.JobFlag ```
+    /// ``` param1: []u8, param2: QtC.QUrl, param3: i32, param4: flag of job_base_enums.JobFlag ```
     pub fn StoredPut2(param1: []u8, param2: ?*anyopaque, param3: i32, param4: i32) QtC.KIO__StoredTransferJob {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
@@ -1394,7 +1394,7 @@ pub const kio = struct {
 
     /// [Qt documentation](https://api.kde.org/kio.html#storedHttpPost)
     ///
-    /// ``` param1: []u8, param2: QtC.QUrl, param3: flag of dropjob_enums.JobFlag ```
+    /// ``` param1: []u8, param2: QtC.QUrl, param3: flag of job_base_enums.JobFlag ```
     pub fn StoredHttpPost(param1: []u8, param2: ?*anyopaque, param3: i32) QtC.KIO__StoredTransferJob {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
@@ -1405,7 +1405,7 @@ pub const kio = struct {
 
     /// [Qt documentation](https://api.kde.org/kio.html#storedHttpPost)
     ///
-    /// ``` param1: QtC.QIODevice, param2: QtC.QUrl, param3: i64, param4: flag of dropjob_enums.JobFlag ```
+    /// ``` param1: QtC.QIODevice, param2: QtC.QUrl, param3: i64, param4: flag of job_base_enums.JobFlag ```
     pub fn StoredHttpPost2(param1: ?*anyopaque, param2: ?*anyopaque, param3: i64, param4: i32) QtC.KIO__StoredTransferJob {
         return qtc.KIO_StoredHttpPost2(@ptrCast(param1), @ptrCast(param2), @intCast(param3), @intCast(param4));
     }

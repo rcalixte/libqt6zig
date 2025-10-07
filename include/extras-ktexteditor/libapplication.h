@@ -18,12 +18,8 @@ extern "C" {
 typedef KTextEditor::Application KTextEditor__Application;
 #endif
 typedef KTextEditor::Document KTextEditor__Document;
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_KTextEditor__MainWindow)
 typedef KTextEditor::MainWindow KTextEditor__MainWindow;
-#endif
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_KTextEditor__Plugin)
 typedef KTextEditor::Plugin KTextEditor__Plugin;
-#endif
 #else
 typedef struct KTextEditor__Application KTextEditor__Application;
 typedef struct KTextEditor__Document KTextEditor__Document;

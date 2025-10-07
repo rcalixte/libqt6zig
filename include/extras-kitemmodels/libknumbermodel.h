@@ -1,0 +1,263 @@
+#pragma once
+#ifndef SRC_EXTRAS_KITEMMODELSC_LIBKNUMBERMODEL_H
+#define SRC_EXTRAS_KITEMMODELSC_LIBKNUMBERMODEL_H
+
+#include <stdbool.h>
+#include <stddef.h>
+
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#include "../qtlibc.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#ifdef __cplusplus
+#else
+typedef struct KNumberModel KNumberModel;
+typedef struct QAbstractItemModel QAbstractItemModel;
+typedef struct QAbstractListModel QAbstractListModel;
+typedef struct QChildEvent QChildEvent;
+typedef struct QDataStream QDataStream;
+typedef struct QEvent QEvent;
+typedef struct QMetaMethod QMetaMethod;
+typedef struct QMetaObject QMetaObject;
+typedef struct QMimeData QMimeData;
+typedef struct QModelIndex QModelIndex;
+typedef struct QModelRoleDataSpan QModelRoleDataSpan;
+typedef struct QObject QObject;
+typedef struct QSize QSize;
+typedef struct QTimerEvent QTimerEvent;
+typedef struct QVariant QVariant;
+#endif
+
+KNumberModel* KNumberModel_new();
+KNumberModel* KNumberModel_new2(QObject* parent);
+QMetaObject* KNumberModel_MetaObject(const KNumberModel* self);
+void* KNumberModel_Metacast(KNumberModel* self, const char* param1);
+int KNumberModel_Metacall(KNumberModel* self, int param1, int param2, void** param3);
+libqt_string KNumberModel_Tr(const char* s);
+void KNumberModel_SetMinimumValue(KNumberModel* self, double minimumValue);
+double KNumberModel_MinimumValue(const KNumberModel* self);
+void KNumberModel_SetMaximumValue(KNumberModel* self, double maximumValue);
+double KNumberModel_MaximumValue(const KNumberModel* self);
+void KNumberModel_SetStepSize(KNumberModel* self, double stepSize);
+double KNumberModel_StepSize(const KNumberModel* self);
+void KNumberModel_SetFormattingOptions(KNumberModel* self, int options);
+int KNumberModel_FormattingOptions(const KNumberModel* self);
+double KNumberModel_Value(const KNumberModel* self, const QModelIndex* index);
+int KNumberModel_RowCount(const KNumberModel* self, const QModelIndex* index);
+QVariant* KNumberModel_Data(const KNumberModel* self, const QModelIndex* index, int role);
+libqt_map /* of int to libqt_string */ KNumberModel_RoleNames(const KNumberModel* self);
+void KNumberModel_MinimumValueChanged(KNumberModel* self);
+void KNumberModel_Connect_MinimumValueChanged(KNumberModel* self, intptr_t slot);
+void KNumberModel_MaximumValueChanged(KNumberModel* self);
+void KNumberModel_Connect_MaximumValueChanged(KNumberModel* self, intptr_t slot);
+void KNumberModel_StepSizeChanged(KNumberModel* self);
+void KNumberModel_Connect_StepSizeChanged(KNumberModel* self, intptr_t slot);
+void KNumberModel_FormattingOptionsChanged(KNumberModel* self);
+void KNumberModel_Connect_FormattingOptionsChanged(KNumberModel* self, intptr_t slot);
+libqt_string KNumberModel_Tr2(const char* s, const char* c);
+libqt_string KNumberModel_Tr3(const char* s, const char* c, int n);
+void KNumberModel_OnMetacall(KNumberModel* self, intptr_t slot);
+int KNumberModel_QBaseMetacall(KNumberModel* self, int param1, int param2, void** param3);
+void KNumberModel_OnRowCount(const KNumberModel* self, intptr_t slot);
+int KNumberModel_QBaseRowCount(const KNumberModel* self, const QModelIndex* index);
+void KNumberModel_OnData(const KNumberModel* self, intptr_t slot);
+QVariant* KNumberModel_QBaseData(const KNumberModel* self, const QModelIndex* index, int role);
+void KNumberModel_OnRoleNames(const KNumberModel* self, intptr_t slot);
+libqt_map /* of int to libqt_string */ KNumberModel_QBaseRoleNames(const KNumberModel* self);
+QModelIndex* KNumberModel_Index(const KNumberModel* self, int row, int column, const QModelIndex* parent);
+void KNumberModel_OnIndex(const KNumberModel* self, intptr_t slot);
+QModelIndex* KNumberModel_QBaseIndex(const KNumberModel* self, int row, int column, const QModelIndex* parent);
+QModelIndex* KNumberModel_Sibling(const KNumberModel* self, int row, int column, const QModelIndex* idx);
+void KNumberModel_OnSibling(const KNumberModel* self, intptr_t slot);
+QModelIndex* KNumberModel_QBaseSibling(const KNumberModel* self, int row, int column, const QModelIndex* idx);
+bool KNumberModel_DropMimeData(KNumberModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent);
+void KNumberModel_OnDropMimeData(KNumberModel* self, intptr_t slot);
+bool KNumberModel_QBaseDropMimeData(KNumberModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent);
+int KNumberModel_Flags(const KNumberModel* self, const QModelIndex* index);
+void KNumberModel_OnFlags(const KNumberModel* self, intptr_t slot);
+int KNumberModel_QBaseFlags(const KNumberModel* self, const QModelIndex* index);
+bool KNumberModel_SetData(KNumberModel* self, const QModelIndex* index, const QVariant* value, int role);
+void KNumberModel_OnSetData(KNumberModel* self, intptr_t slot);
+bool KNumberModel_QBaseSetData(KNumberModel* self, const QModelIndex* index, const QVariant* value, int role);
+QVariant* KNumberModel_HeaderData(const KNumberModel* self, int section, int orientation, int role);
+void KNumberModel_OnHeaderData(const KNumberModel* self, intptr_t slot);
+QVariant* KNumberModel_QBaseHeaderData(const KNumberModel* self, int section, int orientation, int role);
+bool KNumberModel_SetHeaderData(KNumberModel* self, int section, int orientation, const QVariant* value, int role);
+void KNumberModel_OnSetHeaderData(KNumberModel* self, intptr_t slot);
+bool KNumberModel_QBaseSetHeaderData(KNumberModel* self, int section, int orientation, const QVariant* value, int role);
+libqt_map /* of int to QVariant* */ KNumberModel_ItemData(const KNumberModel* self, const QModelIndex* index);
+void KNumberModel_OnItemData(const KNumberModel* self, intptr_t slot);
+libqt_map /* of int to QVariant* */ KNumberModel_QBaseItemData(const KNumberModel* self, const QModelIndex* index);
+bool KNumberModel_SetItemData(KNumberModel* self, const QModelIndex* index, const libqt_map /* of int to QVariant* */ roles);
+void KNumberModel_OnSetItemData(KNumberModel* self, intptr_t slot);
+bool KNumberModel_QBaseSetItemData(KNumberModel* self, const QModelIndex* index, const libqt_map /* of int to QVariant* */ roles);
+bool KNumberModel_ClearItemData(KNumberModel* self, const QModelIndex* index);
+void KNumberModel_OnClearItemData(KNumberModel* self, intptr_t slot);
+bool KNumberModel_QBaseClearItemData(KNumberModel* self, const QModelIndex* index);
+libqt_list /* of libqt_string */ KNumberModel_MimeTypes(const KNumberModel* self);
+void KNumberModel_OnMimeTypes(const KNumberModel* self, intptr_t slot);
+libqt_list /* of libqt_string */ KNumberModel_QBaseMimeTypes(const KNumberModel* self);
+QMimeData* KNumberModel_MimeData(const KNumberModel* self, const libqt_list /* of QModelIndex* */ indexes);
+void KNumberModel_OnMimeData(const KNumberModel* self, intptr_t slot);
+QMimeData* KNumberModel_QBaseMimeData(const KNumberModel* self, const libqt_list /* of QModelIndex* */ indexes);
+bool KNumberModel_CanDropMimeData(const KNumberModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent);
+void KNumberModel_OnCanDropMimeData(const KNumberModel* self, intptr_t slot);
+bool KNumberModel_QBaseCanDropMimeData(const KNumberModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent);
+int KNumberModel_SupportedDropActions(const KNumberModel* self);
+void KNumberModel_OnSupportedDropActions(const KNumberModel* self, intptr_t slot);
+int KNumberModel_QBaseSupportedDropActions(const KNumberModel* self);
+int KNumberModel_SupportedDragActions(const KNumberModel* self);
+void KNumberModel_OnSupportedDragActions(const KNumberModel* self, intptr_t slot);
+int KNumberModel_QBaseSupportedDragActions(const KNumberModel* self);
+bool KNumberModel_InsertRows(KNumberModel* self, int row, int count, const QModelIndex* parent);
+void KNumberModel_OnInsertRows(KNumberModel* self, intptr_t slot);
+bool KNumberModel_QBaseInsertRows(KNumberModel* self, int row, int count, const QModelIndex* parent);
+bool KNumberModel_InsertColumns(KNumberModel* self, int column, int count, const QModelIndex* parent);
+void KNumberModel_OnInsertColumns(KNumberModel* self, intptr_t slot);
+bool KNumberModel_QBaseInsertColumns(KNumberModel* self, int column, int count, const QModelIndex* parent);
+bool KNumberModel_RemoveRows(KNumberModel* self, int row, int count, const QModelIndex* parent);
+void KNumberModel_OnRemoveRows(KNumberModel* self, intptr_t slot);
+bool KNumberModel_QBaseRemoveRows(KNumberModel* self, int row, int count, const QModelIndex* parent);
+bool KNumberModel_RemoveColumns(KNumberModel* self, int column, int count, const QModelIndex* parent);
+void KNumberModel_OnRemoveColumns(KNumberModel* self, intptr_t slot);
+bool KNumberModel_QBaseRemoveColumns(KNumberModel* self, int column, int count, const QModelIndex* parent);
+bool KNumberModel_MoveRows(KNumberModel* self, const QModelIndex* sourceParent, int sourceRow, int count, const QModelIndex* destinationParent, int destinationChild);
+void KNumberModel_OnMoveRows(KNumberModel* self, intptr_t slot);
+bool KNumberModel_QBaseMoveRows(KNumberModel* self, const QModelIndex* sourceParent, int sourceRow, int count, const QModelIndex* destinationParent, int destinationChild);
+bool KNumberModel_MoveColumns(KNumberModel* self, const QModelIndex* sourceParent, int sourceColumn, int count, const QModelIndex* destinationParent, int destinationChild);
+void KNumberModel_OnMoveColumns(KNumberModel* self, intptr_t slot);
+bool KNumberModel_QBaseMoveColumns(KNumberModel* self, const QModelIndex* sourceParent, int sourceColumn, int count, const QModelIndex* destinationParent, int destinationChild);
+void KNumberModel_FetchMore(KNumberModel* self, const QModelIndex* parent);
+void KNumberModel_OnFetchMore(KNumberModel* self, intptr_t slot);
+void KNumberModel_QBaseFetchMore(KNumberModel* self, const QModelIndex* parent);
+bool KNumberModel_CanFetchMore(const KNumberModel* self, const QModelIndex* parent);
+void KNumberModel_OnCanFetchMore(const KNumberModel* self, intptr_t slot);
+bool KNumberModel_QBaseCanFetchMore(const KNumberModel* self, const QModelIndex* parent);
+void KNumberModel_Sort(KNumberModel* self, int column, int order);
+void KNumberModel_OnSort(KNumberModel* self, intptr_t slot);
+void KNumberModel_QBaseSort(KNumberModel* self, int column, int order);
+QModelIndex* KNumberModel_Buddy(const KNumberModel* self, const QModelIndex* index);
+void KNumberModel_OnBuddy(const KNumberModel* self, intptr_t slot);
+QModelIndex* KNumberModel_QBaseBuddy(const KNumberModel* self, const QModelIndex* index);
+libqt_list /* of QModelIndex* */ KNumberModel_Match(const KNumberModel* self, const QModelIndex* start, int role, const QVariant* value, int hits, int flags);
+void KNumberModel_OnMatch(const KNumberModel* self, intptr_t slot);
+libqt_list /* of QModelIndex* */ KNumberModel_QBaseMatch(const KNumberModel* self, const QModelIndex* start, int role, const QVariant* value, int hits, int flags);
+QSize* KNumberModel_Span(const KNumberModel* self, const QModelIndex* index);
+void KNumberModel_OnSpan(const KNumberModel* self, intptr_t slot);
+QSize* KNumberModel_QBaseSpan(const KNumberModel* self, const QModelIndex* index);
+void KNumberModel_MultiData(const KNumberModel* self, const QModelIndex* index, QModelRoleDataSpan* roleDataSpan);
+void KNumberModel_OnMultiData(const KNumberModel* self, intptr_t slot);
+void KNumberModel_QBaseMultiData(const KNumberModel* self, const QModelIndex* index, QModelRoleDataSpan* roleDataSpan);
+bool KNumberModel_Submit(KNumberModel* self);
+void KNumberModel_OnSubmit(KNumberModel* self, intptr_t slot);
+bool KNumberModel_QBaseSubmit(KNumberModel* self);
+void KNumberModel_Revert(KNumberModel* self);
+void KNumberModel_OnRevert(KNumberModel* self, intptr_t slot);
+void KNumberModel_QBaseRevert(KNumberModel* self);
+void KNumberModel_ResetInternalData(KNumberModel* self);
+void KNumberModel_OnResetInternalData(KNumberModel* self, intptr_t slot);
+void KNumberModel_QBaseResetInternalData(KNumberModel* self);
+bool KNumberModel_Event(KNumberModel* self, QEvent* event);
+void KNumberModel_OnEvent(KNumberModel* self, intptr_t slot);
+bool KNumberModel_QBaseEvent(KNumberModel* self, QEvent* event);
+bool KNumberModel_EventFilter(KNumberModel* self, QObject* watched, QEvent* event);
+void KNumberModel_OnEventFilter(KNumberModel* self, intptr_t slot);
+bool KNumberModel_QBaseEventFilter(KNumberModel* self, QObject* watched, QEvent* event);
+void KNumberModel_TimerEvent(KNumberModel* self, QTimerEvent* event);
+void KNumberModel_OnTimerEvent(KNumberModel* self, intptr_t slot);
+void KNumberModel_QBaseTimerEvent(KNumberModel* self, QTimerEvent* event);
+void KNumberModel_ChildEvent(KNumberModel* self, QChildEvent* event);
+void KNumberModel_OnChildEvent(KNumberModel* self, intptr_t slot);
+void KNumberModel_QBaseChildEvent(KNumberModel* self, QChildEvent* event);
+void KNumberModel_CustomEvent(KNumberModel* self, QEvent* event);
+void KNumberModel_OnCustomEvent(KNumberModel* self, intptr_t slot);
+void KNumberModel_QBaseCustomEvent(KNumberModel* self, QEvent* event);
+void KNumberModel_ConnectNotify(KNumberModel* self, const QMetaMethod* signal);
+void KNumberModel_OnConnectNotify(KNumberModel* self, intptr_t slot);
+void KNumberModel_QBaseConnectNotify(KNumberModel* self, const QMetaMethod* signal);
+void KNumberModel_DisconnectNotify(KNumberModel* self, const QMetaMethod* signal);
+void KNumberModel_OnDisconnectNotify(KNumberModel* self, intptr_t slot);
+void KNumberModel_QBaseDisconnectNotify(KNumberModel* self, const QMetaMethod* signal);
+QModelIndex* KNumberModel_CreateIndex(const KNumberModel* self, int row, int column);
+void KNumberModel_OnCreateIndex(const KNumberModel* self, intptr_t slot);
+QModelIndex* KNumberModel_QBaseCreateIndex(const KNumberModel* self, int row, int column);
+void KNumberModel_EncodeData(const KNumberModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream);
+void KNumberModel_OnEncodeData(const KNumberModel* self, intptr_t slot);
+void KNumberModel_QBaseEncodeData(const KNumberModel* self, const libqt_list /* of QModelIndex* */ indexes, QDataStream* stream);
+bool KNumberModel_DecodeData(KNumberModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream);
+void KNumberModel_OnDecodeData(KNumberModel* self, intptr_t slot);
+bool KNumberModel_QBaseDecodeData(KNumberModel* self, int row, int column, const QModelIndex* parent, QDataStream* stream);
+void KNumberModel_BeginInsertRows(KNumberModel* self, const QModelIndex* parent, int first, int last);
+void KNumberModel_OnBeginInsertRows(KNumberModel* self, intptr_t slot);
+void KNumberModel_QBaseBeginInsertRows(KNumberModel* self, const QModelIndex* parent, int first, int last);
+void KNumberModel_EndInsertRows(KNumberModel* self);
+void KNumberModel_OnEndInsertRows(KNumberModel* self, intptr_t slot);
+void KNumberModel_QBaseEndInsertRows(KNumberModel* self);
+void KNumberModel_BeginRemoveRows(KNumberModel* self, const QModelIndex* parent, int first, int last);
+void KNumberModel_OnBeginRemoveRows(KNumberModel* self, intptr_t slot);
+void KNumberModel_QBaseBeginRemoveRows(KNumberModel* self, const QModelIndex* parent, int first, int last);
+void KNumberModel_EndRemoveRows(KNumberModel* self);
+void KNumberModel_OnEndRemoveRows(KNumberModel* self, intptr_t slot);
+void KNumberModel_QBaseEndRemoveRows(KNumberModel* self);
+bool KNumberModel_BeginMoveRows(KNumberModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow);
+void KNumberModel_OnBeginMoveRows(KNumberModel* self, intptr_t slot);
+bool KNumberModel_QBaseBeginMoveRows(KNumberModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationRow);
+void KNumberModel_EndMoveRows(KNumberModel* self);
+void KNumberModel_OnEndMoveRows(KNumberModel* self, intptr_t slot);
+void KNumberModel_QBaseEndMoveRows(KNumberModel* self);
+void KNumberModel_BeginInsertColumns(KNumberModel* self, const QModelIndex* parent, int first, int last);
+void KNumberModel_OnBeginInsertColumns(KNumberModel* self, intptr_t slot);
+void KNumberModel_QBaseBeginInsertColumns(KNumberModel* self, const QModelIndex* parent, int first, int last);
+void KNumberModel_EndInsertColumns(KNumberModel* self);
+void KNumberModel_OnEndInsertColumns(KNumberModel* self, intptr_t slot);
+void KNumberModel_QBaseEndInsertColumns(KNumberModel* self);
+void KNumberModel_BeginRemoveColumns(KNumberModel* self, const QModelIndex* parent, int first, int last);
+void KNumberModel_OnBeginRemoveColumns(KNumberModel* self, intptr_t slot);
+void KNumberModel_QBaseBeginRemoveColumns(KNumberModel* self, const QModelIndex* parent, int first, int last);
+void KNumberModel_EndRemoveColumns(KNumberModel* self);
+void KNumberModel_OnEndRemoveColumns(KNumberModel* self, intptr_t slot);
+void KNumberModel_QBaseEndRemoveColumns(KNumberModel* self);
+bool KNumberModel_BeginMoveColumns(KNumberModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn);
+void KNumberModel_OnBeginMoveColumns(KNumberModel* self, intptr_t slot);
+bool KNumberModel_QBaseBeginMoveColumns(KNumberModel* self, const QModelIndex* sourceParent, int sourceFirst, int sourceLast, const QModelIndex* destinationParent, int destinationColumn);
+void KNumberModel_EndMoveColumns(KNumberModel* self);
+void KNumberModel_OnEndMoveColumns(KNumberModel* self, intptr_t slot);
+void KNumberModel_QBaseEndMoveColumns(KNumberModel* self);
+void KNumberModel_BeginResetModel(KNumberModel* self);
+void KNumberModel_OnBeginResetModel(KNumberModel* self, intptr_t slot);
+void KNumberModel_QBaseBeginResetModel(KNumberModel* self);
+void KNumberModel_EndResetModel(KNumberModel* self);
+void KNumberModel_OnEndResetModel(KNumberModel* self, intptr_t slot);
+void KNumberModel_QBaseEndResetModel(KNumberModel* self);
+void KNumberModel_ChangePersistentIndex(KNumberModel* self, const QModelIndex* from, const QModelIndex* to);
+void KNumberModel_OnChangePersistentIndex(KNumberModel* self, intptr_t slot);
+void KNumberModel_QBaseChangePersistentIndex(KNumberModel* self, const QModelIndex* from, const QModelIndex* to);
+void KNumberModel_ChangePersistentIndexList(KNumberModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to);
+void KNumberModel_OnChangePersistentIndexList(KNumberModel* self, intptr_t slot);
+void KNumberModel_QBaseChangePersistentIndexList(KNumberModel* self, const libqt_list /* of QModelIndex* */ from, const libqt_list /* of QModelIndex* */ to);
+libqt_list /* of QModelIndex* */ KNumberModel_PersistentIndexList(const KNumberModel* self);
+void KNumberModel_OnPersistentIndexList(const KNumberModel* self, intptr_t slot);
+libqt_list /* of QModelIndex* */ KNumberModel_QBasePersistentIndexList(const KNumberModel* self);
+QObject* KNumberModel_Sender(const KNumberModel* self);
+void KNumberModel_OnSender(const KNumberModel* self, intptr_t slot);
+QObject* KNumberModel_QBaseSender(const KNumberModel* self);
+int KNumberModel_SenderSignalIndex(const KNumberModel* self);
+void KNumberModel_OnSenderSignalIndex(const KNumberModel* self, intptr_t slot);
+int KNumberModel_QBaseSenderSignalIndex(const KNumberModel* self);
+int KNumberModel_Receivers(const KNumberModel* self, const char* signal);
+void KNumberModel_OnReceivers(const KNumberModel* self, intptr_t slot);
+int KNumberModel_QBaseReceivers(const KNumberModel* self, const char* signal);
+bool KNumberModel_IsSignalConnected(const KNumberModel* self, const QMetaMethod* signal);
+void KNumberModel_OnIsSignalConnected(const KNumberModel* self, intptr_t slot);
+bool KNumberModel_QBaseIsSignalConnected(const KNumberModel* self, const QMetaMethod* signal);
+void KNumberModel_Delete(KNumberModel* self);
+
+#ifdef __cplusplus
+} /* extern C */
+#endif
+
+#endif

@@ -1,7 +1,7 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
-const dropjob_enums = @import("libdropjob.zig").enums;
 const global_enums = @import("libglobal.zig").enums;
+const job_base_enums = @import("libjob_base.zig").enums;
 const qiodevicebase_enums = @import("../libqiodevicebase.zig").enums;
 const std = @import("std");
 const workerbase_enums = enums;
@@ -757,7 +757,7 @@ pub const kio__workerbase = struct {
 
     /// [Qt documentation](https://api.kde.org/kio-workerbase.html#put)
     ///
-    /// ``` self: QtC.KIO__WorkerBase, url: QtC.QUrl, permissions: i32, flags: flag of dropjob_enums.JobFlag ```
+    /// ``` self: QtC.KIO__WorkerBase, url: QtC.QUrl, permissions: i32, flags: flag of job_base_enums.JobFlag ```
     pub fn Put(self: ?*anyopaque, url: ?*anyopaque, permissions: i32, flags: i32) QtC.KIO__WorkerResult {
         return qtc.KIO__WorkerBase_Put(@ptrCast(self), @ptrCast(url), @intCast(permissions), @intCast(flags));
     }
@@ -766,7 +766,7 @@ pub const kio__workerbase = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KIO__WorkerBase, callback: *const fn (self: QtC.KIO__WorkerBase, url: QtC.QUrl, permissions: i32, flags: flag of dropjob_enums.JobFlag) callconv(.c) QtC.KIO__WorkerResult ```
+    /// ``` self: QtC.KIO__WorkerBase, callback: *const fn (self: QtC.KIO__WorkerBase, url: QtC.QUrl, permissions: i32, flags: flag of job_base_enums.JobFlag) callconv(.c) QtC.KIO__WorkerResult ```
     pub fn OnPut(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) QtC.KIO__WorkerResult) void {
         qtc.KIO__WorkerBase_OnPut(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
@@ -775,7 +775,7 @@ pub const kio__workerbase = struct {
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KIO__WorkerBase, url: QtC.QUrl, permissions: i32, flags: flag of dropjob_enums.JobFlag ```
+    /// ``` self: QtC.KIO__WorkerBase, url: QtC.QUrl, permissions: i32, flags: flag of job_base_enums.JobFlag ```
     pub fn QBasePut(self: ?*anyopaque, url: ?*anyopaque, permissions: i32, flags: i32) QtC.KIO__WorkerResult {
         return qtc.KIO__WorkerBase_QBasePut(@ptrCast(self), @ptrCast(url), @intCast(permissions), @intCast(flags));
     }
@@ -882,7 +882,7 @@ pub const kio__workerbase = struct {
 
     /// [Qt documentation](https://api.kde.org/kio-workerbase.html#rename)
     ///
-    /// ``` self: QtC.KIO__WorkerBase, src: QtC.QUrl, dest: QtC.QUrl, flags: flag of dropjob_enums.JobFlag ```
+    /// ``` self: QtC.KIO__WorkerBase, src: QtC.QUrl, dest: QtC.QUrl, flags: flag of job_base_enums.JobFlag ```
     pub fn Rename(self: ?*anyopaque, src: ?*anyopaque, dest: ?*anyopaque, flags: i32) QtC.KIO__WorkerResult {
         return qtc.KIO__WorkerBase_Rename(@ptrCast(self), @ptrCast(src), @ptrCast(dest), @intCast(flags));
     }
@@ -891,7 +891,7 @@ pub const kio__workerbase = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KIO__WorkerBase, callback: *const fn (self: QtC.KIO__WorkerBase, src: QtC.QUrl, dest: QtC.QUrl, flags: flag of dropjob_enums.JobFlag) callconv(.c) QtC.KIO__WorkerResult ```
+    /// ``` self: QtC.KIO__WorkerBase, callback: *const fn (self: QtC.KIO__WorkerBase, src: QtC.QUrl, dest: QtC.QUrl, flags: flag of job_base_enums.JobFlag) callconv(.c) QtC.KIO__WorkerResult ```
     pub fn OnRename(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i32) callconv(.c) QtC.KIO__WorkerResult) void {
         qtc.KIO__WorkerBase_OnRename(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
@@ -900,14 +900,14 @@ pub const kio__workerbase = struct {
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KIO__WorkerBase, src: QtC.QUrl, dest: QtC.QUrl, flags: flag of dropjob_enums.JobFlag ```
+    /// ``` self: QtC.KIO__WorkerBase, src: QtC.QUrl, dest: QtC.QUrl, flags: flag of job_base_enums.JobFlag ```
     pub fn QBaseRename(self: ?*anyopaque, src: ?*anyopaque, dest: ?*anyopaque, flags: i32) QtC.KIO__WorkerResult {
         return qtc.KIO__WorkerBase_QBaseRename(@ptrCast(self), @ptrCast(src), @ptrCast(dest), @intCast(flags));
     }
 
     /// [Qt documentation](https://api.kde.org/kio-workerbase.html#symlink)
     ///
-    /// ``` self: QtC.KIO__WorkerBase, target: []const u8, dest: QtC.QUrl, flags: flag of dropjob_enums.JobFlag ```
+    /// ``` self: QtC.KIO__WorkerBase, target: []const u8, dest: QtC.QUrl, flags: flag of job_base_enums.JobFlag ```
     pub fn Symlink(self: ?*anyopaque, target: []const u8, dest: ?*anyopaque, flags: i32) QtC.KIO__WorkerResult {
         const target_str = qtc.libqt_string{
             .len = target.len,
@@ -920,7 +920,7 @@ pub const kio__workerbase = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KIO__WorkerBase, callback: *const fn (self: QtC.KIO__WorkerBase, target: [*:0]const u8, dest: QtC.QUrl, flags: flag of dropjob_enums.JobFlag) callconv(.c) QtC.KIO__WorkerResult ```
+    /// ``` self: QtC.KIO__WorkerBase, callback: *const fn (self: QtC.KIO__WorkerBase, target: [*:0]const u8, dest: QtC.QUrl, flags: flag of job_base_enums.JobFlag) callconv(.c) QtC.KIO__WorkerResult ```
     pub fn OnSymlink(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, ?*anyopaque, i32) callconv(.c) QtC.KIO__WorkerResult) void {
         qtc.KIO__WorkerBase_OnSymlink(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
@@ -929,7 +929,7 @@ pub const kio__workerbase = struct {
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KIO__WorkerBase, target: []const u8, dest: QtC.QUrl, flags: flag of dropjob_enums.JobFlag ```
+    /// ``` self: QtC.KIO__WorkerBase, target: []const u8, dest: QtC.QUrl, flags: flag of job_base_enums.JobFlag ```
     pub fn QBaseSymlink(self: ?*anyopaque, target: []const u8, dest: ?*anyopaque, flags: i32) QtC.KIO__WorkerResult {
         const target_str = qtc.libqt_string{
             .len = target.len,
@@ -1031,7 +1031,7 @@ pub const kio__workerbase = struct {
 
     /// [Qt documentation](https://api.kde.org/kio-workerbase.html#copy)
     ///
-    /// ``` self: QtC.KIO__WorkerBase, src: QtC.QUrl, dest: QtC.QUrl, permissions: i32, flags: flag of dropjob_enums.JobFlag ```
+    /// ``` self: QtC.KIO__WorkerBase, src: QtC.QUrl, dest: QtC.QUrl, permissions: i32, flags: flag of job_base_enums.JobFlag ```
     pub fn Copy(self: ?*anyopaque, src: ?*anyopaque, dest: ?*anyopaque, permissions: i32, flags: i32) QtC.KIO__WorkerResult {
         return qtc.KIO__WorkerBase_Copy(@ptrCast(self), @ptrCast(src), @ptrCast(dest), @intCast(permissions), @intCast(flags));
     }
@@ -1040,7 +1040,7 @@ pub const kio__workerbase = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KIO__WorkerBase, callback: *const fn (self: QtC.KIO__WorkerBase, src: QtC.QUrl, dest: QtC.QUrl, permissions: i32, flags: flag of dropjob_enums.JobFlag) callconv(.c) QtC.KIO__WorkerResult ```
+    /// ``` self: QtC.KIO__WorkerBase, callback: *const fn (self: QtC.KIO__WorkerBase, src: QtC.QUrl, dest: QtC.QUrl, permissions: i32, flags: flag of job_base_enums.JobFlag) callconv(.c) QtC.KIO__WorkerResult ```
     pub fn OnCopy(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, ?*anyopaque, i32, i32) callconv(.c) QtC.KIO__WorkerResult) void {
         qtc.KIO__WorkerBase_OnCopy(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
@@ -1049,7 +1049,7 @@ pub const kio__workerbase = struct {
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KIO__WorkerBase, src: QtC.QUrl, dest: QtC.QUrl, permissions: i32, flags: flag of dropjob_enums.JobFlag ```
+    /// ``` self: QtC.KIO__WorkerBase, src: QtC.QUrl, dest: QtC.QUrl, permissions: i32, flags: flag of job_base_enums.JobFlag ```
     pub fn QBaseCopy(self: ?*anyopaque, src: ?*anyopaque, dest: ?*anyopaque, permissions: i32, flags: i32) QtC.KIO__WorkerResult {
         return qtc.KIO__WorkerBase_QBaseCopy(@ptrCast(self), @ptrCast(src), @ptrCast(dest), @intCast(permissions), @intCast(flags));
     }

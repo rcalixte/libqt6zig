@@ -7,7 +7,7 @@
 #include <KTextEditor/Cursor>
 #include <KTextEditor/Document>
 #define WORKAROUND_INNER_CLASS_DEFINITION_KTextEditor__InlineNoteProvider
-#define WORKAROUND_INNER_CLASS_DEFINITION_KTextEditor__MainWindow
+#include <KTextEditor/MainWindow>
 #define WORKAROUND_INNER_CLASS_DEFINITION_KTextEditor__Range
 #define WORKAROUND_INNER_CLASS_DEFINITION_KTextEditor__TextHintProvider
 #define WORKAROUND_INNER_CLASS_DEFINITION_KTextEditor__View

@@ -1,7 +1,7 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const askuseractioninterface_enums = @import("libaskuseractioninterface.zig").enums;
-const dropjob_enums = @import("libdropjob.zig").enums;
+const jobuidelegateextension_enums = @import("libjobuidelegateextension.zig").enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
@@ -69,7 +69,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// [Qt documentation](https://api.kde.org/kio-widgetsaskuseractionhandler.html#askUserRename)
     ///
-    /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, job: QtC.KJob, title: []const u8, src: QtC.QUrl, dest: QtC.QUrl, options: flag of dropjob_enums.RenameDialog_Option, sizeSrc: u64, sizeDest: u64, ctimeSrc: QtC.QDateTime, ctimeDest: QtC.QDateTime, mtimeSrc: QtC.QDateTime, mtimeDest: QtC.QDateTime ```
+    /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, job: QtC.KJob, title: []const u8, src: QtC.QUrl, dest: QtC.QUrl, options: flag of jobuidelegateextension_enums.RenameDialog_Option, sizeSrc: u64, sizeDest: u64, ctimeSrc: QtC.QDateTime, ctimeDest: QtC.QDateTime, mtimeSrc: QtC.QDateTime, mtimeDest: QtC.QDateTime ```
     pub fn AskUserRename(self: ?*anyopaque, job: ?*anyopaque, title: []const u8, src: ?*anyopaque, dest: ?*anyopaque, options: i32, sizeSrc: u64, sizeDest: u64, ctimeSrc: ?*anyopaque, ctimeDest: ?*anyopaque, mtimeSrc: ?*anyopaque, mtimeDest: ?*anyopaque) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
@@ -82,7 +82,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, callback: *const fn (self: QtC.KIO__WidgetsAskUserActionHandler, job: QtC.KJob, title: [*:0]const u8, src: QtC.QUrl, dest: QtC.QUrl, options: flag of dropjob_enums.RenameDialog_Option, sizeSrc: u64, sizeDest: u64, ctimeSrc: QtC.QDateTime, ctimeDest: QtC.QDateTime, mtimeSrc: QtC.QDateTime, mtimeDest: QtC.QDateTime) callconv(.c) void ```
+    /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, callback: *const fn (self: QtC.KIO__WidgetsAskUserActionHandler, job: QtC.KJob, title: [*:0]const u8, src: QtC.QUrl, dest: QtC.QUrl, options: flag of jobuidelegateextension_enums.RenameDialog_Option, sizeSrc: u64, sizeDest: u64, ctimeSrc: QtC.QDateTime, ctimeDest: QtC.QDateTime, mtimeSrc: QtC.QDateTime, mtimeDest: QtC.QDateTime) callconv(.c) void ```
     pub fn OnAskUserRename(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, [*:0]const u8, ?*anyopaque, ?*anyopaque, i32, u64, u64, ?*anyopaque, ?*anyopaque, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KIO__WidgetsAskUserActionHandler_OnAskUserRename(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
@@ -91,7 +91,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, job: QtC.KJob, title: []const u8, src: QtC.QUrl, dest: QtC.QUrl, options: flag of dropjob_enums.RenameDialog_Option, sizeSrc: u64, sizeDest: u64, ctimeSrc: QtC.QDateTime, ctimeDest: QtC.QDateTime, mtimeSrc: QtC.QDateTime, mtimeDest: QtC.QDateTime ```
+    /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, job: QtC.KJob, title: []const u8, src: QtC.QUrl, dest: QtC.QUrl, options: flag of jobuidelegateextension_enums.RenameDialog_Option, sizeSrc: u64, sizeDest: u64, ctimeSrc: QtC.QDateTime, ctimeDest: QtC.QDateTime, mtimeSrc: QtC.QDateTime, mtimeDest: QtC.QDateTime ```
     pub fn QBaseAskUserRename(self: ?*anyopaque, job: ?*anyopaque, title: []const u8, src: ?*anyopaque, dest: ?*anyopaque, options: i32, sizeSrc: u64, sizeDest: u64, ctimeSrc: ?*anyopaque, ctimeDest: ?*anyopaque, mtimeSrc: ?*anyopaque, mtimeDest: ?*anyopaque) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
@@ -102,7 +102,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// [Qt documentation](https://api.kde.org/kio-widgetsaskuseractionhandler.html#askUserSkip)
     ///
-    /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, job: QtC.KJob, options: flag of dropjob_enums.SkipDialog_Option, error_text: []const u8 ```
+    /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, job: QtC.KJob, options: flag of jobuidelegateextension_enums.SkipDialog_Option, error_text: []const u8 ```
     pub fn AskUserSkip(self: ?*anyopaque, job: ?*anyopaque, options: i32, error_text: []const u8) void {
         const error_text_str = qtc.libqt_string{
             .len = error_text.len,
@@ -115,7 +115,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, callback: *const fn (self: QtC.KIO__WidgetsAskUserActionHandler, job: QtC.KJob, options: flag of dropjob_enums.SkipDialog_Option, error_text: [*:0]const u8) callconv(.c) void ```
+    /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, callback: *const fn (self: QtC.KIO__WidgetsAskUserActionHandler, job: QtC.KJob, options: flag of jobuidelegateextension_enums.SkipDialog_Option, error_text: [*:0]const u8) callconv(.c) void ```
     pub fn OnAskUserSkip(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, i32, [*:0]const u8) callconv(.c) void) void {
         qtc.KIO__WidgetsAskUserActionHandler_OnAskUserSkip(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
@@ -124,7 +124,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
     ///
     /// Base class method implementation
     ///
-    /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, job: QtC.KJob, options: flag of dropjob_enums.SkipDialog_Option, error_text: []const u8 ```
+    /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, job: QtC.KJob, options: flag of jobuidelegateextension_enums.SkipDialog_Option, error_text: []const u8 ```
     pub fn QBaseAskUserSkip(self: ?*anyopaque, job: ?*anyopaque, options: i32, error_text: []const u8) void {
         const error_text_str = qtc.libqt_string{
             .len = error_text.len,
@@ -357,7 +357,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
     ///
     /// [Qt documentation](https://api.kde.org/kio-askuseractioninterface.html#askUserRenameResult)
     ///
-    /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, result: dropjob_enums.RenameDialog_Result, newUrl: QtC.QUrl, parentJob: QtC.KJob ```
+    /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, result: jobuidelegateextension_enums.RenameDialog_Result, newUrl: QtC.QUrl, parentJob: QtC.KJob ```
     pub fn AskUserRenameResult(self: ?*anyopaque, result: i32, newUrl: ?*anyopaque, parentJob: ?*anyopaque) void {
         qtc.KIO__AskUserActionInterface_AskUserRenameResult(@ptrCast(self), @intCast(result), @ptrCast(newUrl), @ptrCast(parentJob));
     }
@@ -366,7 +366,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
     ///
     /// [Qt documentation](https://api.kde.org/kio-askuseractioninterface.html#askUserRenameResult)
     ///
-    /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, callback: *const fn (self: QtC.KIO__WidgetsAskUserActionHandler, result: dropjob_enums.RenameDialog_Result, newUrl: QtC.QUrl, parentJob: QtC.KJob) callconv(.c) void ```
+    /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, callback: *const fn (self: QtC.KIO__WidgetsAskUserActionHandler, result: jobuidelegateextension_enums.RenameDialog_Result, newUrl: QtC.QUrl, parentJob: QtC.KJob) callconv(.c) void ```
     pub fn OnAskUserRenameResult(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque, ?*anyopaque) callconv(.c) void) void {
         qtc.KIO__AskUserActionInterface_Connect_AskUserRenameResult(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
@@ -375,7 +375,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
     ///
     /// [Qt documentation](https://api.kde.org/kio-askuseractioninterface.html#askUserSkipResult)
     ///
-    /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, result: dropjob_enums.RenameDialog_Result, parentJob: QtC.KJob ```
+    /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, result: jobuidelegateextension_enums.RenameDialog_Result, parentJob: QtC.KJob ```
     pub fn AskUserSkipResult(self: ?*anyopaque, result: i32, parentJob: ?*anyopaque) void {
         qtc.KIO__AskUserActionInterface_AskUserSkipResult(@ptrCast(self), @intCast(result), @ptrCast(parentJob));
     }
@@ -384,7 +384,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
     ///
     /// [Qt documentation](https://api.kde.org/kio-askuseractioninterface.html#askUserSkipResult)
     ///
-    /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, callback: *const fn (self: QtC.KIO__WidgetsAskUserActionHandler, result: dropjob_enums.RenameDialog_Result, parentJob: QtC.KJob) callconv(.c) void ```
+    /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, callback: *const fn (self: QtC.KIO__WidgetsAskUserActionHandler, result: jobuidelegateextension_enums.RenameDialog_Result, parentJob: QtC.KJob) callconv(.c) void ```
     pub fn OnAskUserSkipResult(self: ?*anyopaque, callback: *const fn (?*anyopaque, i32, ?*anyopaque) callconv(.c) void) void {
         qtc.KIO__AskUserActionInterface_Connect_AskUserSkipResult(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }

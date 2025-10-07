@@ -1,6 +1,6 @@
 #include <KTextEditor/Document>
-#define WORKAROUND_INNER_CLASS_DEFINITION_KTextEditor__MainWindow
-#define WORKAROUND_INNER_CLASS_DEFINITION_KTextEditor__Plugin
+#include <KTextEditor/MainWindow>
+#include <KTextEditor/Plugin>
 #define WORKAROUND_INNER_CLASS_DEFINITION_KTextEditor__View
 #include <KXMLGUIFactory>
 #include <QChildEvent>

@@ -1,6 +1,6 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
-const dropjob_enums = @import("libdropjob.zig").enums;
+const global_enums = enums;
 const qfiledevice_enums = @import("../libqfiledevice.zig").enums;
 const std = @import("std");
 
@@ -102,7 +102,7 @@ pub const kio = struct {
     ///
     /// ``` param1: []const u8 ```
     ///
-    /// Returns: ``` dropjob_enums.CacheControl ```
+    /// Returns: ``` global_enums.CacheControl ```
     pub fn ParseCacheControl(param1: []const u8) i32 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
@@ -113,7 +113,7 @@ pub const kio = struct {
 
     /// [Qt documentation](https://api.kde.org/kio.html#getCacheControlString)
     ///
-    /// ``` param1: dropjob_enums.CacheControl, allocator: std.mem.Allocator ```
+    /// ``` param1: global_enums.CacheControl, allocator: std.mem.Allocator ```
     pub fn GetCacheControlString(param1: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.KIO_GetCacheControlString(@intCast(param1));
         defer qtc.libqt_string_free(&_str);

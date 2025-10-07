@@ -1,6 +1,6 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
-const dropjob_enums = @import("libdropjob.zig").enums;
+const job_base_enums = @import("libjob_base.zig").enums;
 const kjob_enums = @import("../extras-kcoreaddons/libkjob.zig").enums;
 const listjob_enums = enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
@@ -1253,14 +1253,14 @@ pub const kio__listjob = struct {
 pub const kio = struct {
     /// [Qt documentation](https://api.kde.org/kio.html#listDir)
     ///
-    /// ``` param1: QtC.QUrl, param2: flag of dropjob_enums.JobFlag, param3: flag of listjob_enums.ListFlag ```
+    /// ``` param1: QtC.QUrl, param2: flag of job_base_enums.JobFlag, param3: flag of listjob_enums.ListFlag ```
     pub fn ListDir(param1: ?*anyopaque, param2: i32, param3: i32) QtC.KIO__ListJob {
         return qtc.KIO_ListDir(@ptrCast(param1), @intCast(param2), @intCast(param3));
     }
 
     /// [Qt documentation](https://api.kde.org/kio.html#listRecursive)
     ///
-    /// ``` param1: QtC.QUrl, param2: flag of dropjob_enums.JobFlag, param3: flag of listjob_enums.ListFlag ```
+    /// ``` param1: QtC.QUrl, param2: flag of job_base_enums.JobFlag, param3: flag of listjob_enums.ListFlag ```
     pub fn ListRecursive(param1: ?*anyopaque, param2: i32, param3: i32) QtC.KIO__ListJob {
         return qtc.KIO_ListRecursive(@ptrCast(param1), @intCast(param2), @intCast(param3));
     }

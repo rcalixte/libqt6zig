@@ -17,12 +17,8 @@ extern "C" {
 #if defined(WORKAROUND_INNER_CLASS_DEFINITION_KTextEditor__ConfigPage)
 typedef KTextEditor::ConfigPage KTextEditor__ConfigPage;
 #endif
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_KTextEditor__MainWindow)
 typedef KTextEditor::MainWindow KTextEditor__MainWindow;
-#endif
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_KTextEditor__Plugin)
 typedef KTextEditor::Plugin KTextEditor__Plugin;
-#endif
 #else
 typedef struct KTextEditor__ConfigPage KTextEditor__ConfigPage;
 typedef struct KTextEditor__MainWindow KTextEditor__MainWindow;

@@ -7,7 +7,7 @@
 #include <KTextEditor/Cursor>
 #include <KTextEditor/Document>
 #define WORKAROUND_INNER_CLASS_DEFINITION_KTextEditor__Document__EditingTransaction
-#define WORKAROUND_INNER_CLASS_DEFINITION_KTextEditor__MainWindow
+#include <KTextEditor/MainWindow>
 #define WORKAROUND_INNER_CLASS_DEFINITION_KTextEditor__Mark
 #include <KTextEditor/Message>
 #include <KTextEditor/MovingCursor>

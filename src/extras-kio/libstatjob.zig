@@ -1,6 +1,7 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
-const dropjob_enums = @import("libdropjob.zig").enums;
+const global_enums = @import("libglobal.zig").enums;
+const job_base_enums = @import("libjob_base.zig").enums;
 const kjob_enums = @import("../extras-kcoreaddons/libkjob.zig").enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
@@ -49,7 +50,7 @@ pub const kio__statjob = struct {
 
     /// [Qt documentation](https://api.kde.org/kio-statjob.html#setDetails)
     ///
-    /// ``` self: QtC.KIO__StatJob, details: flag of dropjob_enums.StatDetail ```
+    /// ``` self: QtC.KIO__StatJob, details: flag of global_enums.StatDetail ```
     pub fn SetDetails(self: ?*anyopaque, details: i32) void {
         qtc.KIO__StatJob_SetDetails(@ptrCast(self), @intCast(details));
     }
@@ -1235,21 +1236,21 @@ pub const kio__statjob = struct {
 pub const kio = struct {
     /// [Qt documentation](https://api.kde.org/kio.html#stat)
     ///
-    /// ``` param1: QtC.QUrl, param2: flag of dropjob_enums.JobFlag ```
+    /// ``` param1: QtC.QUrl, param2: flag of job_base_enums.JobFlag ```
     pub fn Stat(param1: ?*anyopaque, param2: i32) QtC.KIO__StatJob {
         return qtc.KIO_Stat(@ptrCast(param1), @intCast(param2));
     }
 
     /// [Qt documentation](https://api.kde.org/kio.html#stat)
     ///
-    /// ``` param1: QtC.QUrl, param2: statjob_enums.StatSide, param3: flag of dropjob_enums.StatDetail, param4: flag of dropjob_enums.JobFlag ```
+    /// ``` param1: QtC.QUrl, param2: statjob_enums.StatSide, param3: flag of global_enums.StatDetail, param4: flag of job_base_enums.JobFlag ```
     pub fn Stat2(param1: ?*anyopaque, param2: i32, param3: i32, param4: i32) QtC.KIO__StatJob {
         return qtc.KIO_Stat2(@ptrCast(param1), @intCast(param2), @intCast(param3), @intCast(param4));
     }
 
     /// [Qt documentation](https://api.kde.org/kio.html#mostLocalUrl)
     ///
-    /// ``` param1: QtC.QUrl, param2: flag of dropjob_enums.JobFlag ```
+    /// ``` param1: QtC.QUrl, param2: flag of job_base_enums.JobFlag ```
     pub fn MostLocalUrl(param1: ?*anyopaque, param2: i32) QtC.KIO__StatJob {
         return qtc.KIO_MostLocalUrl(@ptrCast(param1), @intCast(param2));
     }

@@ -1,7 +1,7 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const copyjob_enums = enums;
-const dropjob_enums = @import("libdropjob.zig").enums;
+const job_base_enums = @import("libjob_base.zig").enums;
 const kjob_enums = @import("../extras-kcoreaddons/libkjob.zig").enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
@@ -1325,21 +1325,21 @@ pub const kio__copyjob = struct {
 pub const kio = struct {
     /// [Qt documentation](https://api.kde.org/kio.html#copy)
     ///
-    /// ``` param1: QtC.QUrl, param2: QtC.QUrl, param3: flag of dropjob_enums.JobFlag ```
+    /// ``` param1: QtC.QUrl, param2: QtC.QUrl, param3: flag of job_base_enums.JobFlag ```
     pub fn Copy(param1: ?*anyopaque, param2: ?*anyopaque, param3: i32) QtC.KIO__CopyJob {
         return qtc.KIO_Copy(@ptrCast(param1), @ptrCast(param2), @intCast(param3));
     }
 
     /// [Qt documentation](https://api.kde.org/kio.html#copyAs)
     ///
-    /// ``` param1: QtC.QUrl, param2: QtC.QUrl, param3: flag of dropjob_enums.JobFlag ```
+    /// ``` param1: QtC.QUrl, param2: QtC.QUrl, param3: flag of job_base_enums.JobFlag ```
     pub fn CopyAs(param1: ?*anyopaque, param2: ?*anyopaque, param3: i32) QtC.KIO__CopyJob {
         return qtc.KIO_CopyAs(@ptrCast(param1), @ptrCast(param2), @intCast(param3));
     }
 
     /// [Qt documentation](https://api.kde.org/kio.html#copy)
     ///
-    /// ``` param1: []QtC.QUrl, param2: QtC.QUrl, param3: flag of dropjob_enums.JobFlag ```
+    /// ``` param1: []QtC.QUrl, param2: QtC.QUrl, param3: flag of job_base_enums.JobFlag ```
     pub fn Copy2(param1: []QtC.QUrl, param2: ?*anyopaque, param3: i32) QtC.KIO__CopyJob {
         const param1_list = qtc.libqt_list{
             .len = param1.len,
@@ -1350,21 +1350,21 @@ pub const kio = struct {
 
     /// [Qt documentation](https://api.kde.org/kio.html#move)
     ///
-    /// ``` param1: QtC.QUrl, param2: QtC.QUrl, param3: flag of dropjob_enums.JobFlag ```
+    /// ``` param1: QtC.QUrl, param2: QtC.QUrl, param3: flag of job_base_enums.JobFlag ```
     pub fn Move(param1: ?*anyopaque, param2: ?*anyopaque, param3: i32) QtC.KIO__CopyJob {
         return qtc.KIO_Move(@ptrCast(param1), @ptrCast(param2), @intCast(param3));
     }
 
     /// [Qt documentation](https://api.kde.org/kio.html#moveAs)
     ///
-    /// ``` param1: QtC.QUrl, param2: QtC.QUrl, param3: flag of dropjob_enums.JobFlag ```
+    /// ``` param1: QtC.QUrl, param2: QtC.QUrl, param3: flag of job_base_enums.JobFlag ```
     pub fn MoveAs(param1: ?*anyopaque, param2: ?*anyopaque, param3: i32) QtC.KIO__CopyJob {
         return qtc.KIO_MoveAs(@ptrCast(param1), @ptrCast(param2), @intCast(param3));
     }
 
     /// [Qt documentation](https://api.kde.org/kio.html#move)
     ///
-    /// ``` param1: []QtC.QUrl, param2: QtC.QUrl, param3: flag of dropjob_enums.JobFlag ```
+    /// ``` param1: []QtC.QUrl, param2: QtC.QUrl, param3: flag of job_base_enums.JobFlag ```
     pub fn Move2(param1: []QtC.QUrl, param2: ?*anyopaque, param3: i32) QtC.KIO__CopyJob {
         const param1_list = qtc.libqt_list{
             .len = param1.len,
@@ -1375,14 +1375,14 @@ pub const kio = struct {
 
     /// [Qt documentation](https://api.kde.org/kio.html#link)
     ///
-    /// ``` param1: QtC.QUrl, param2: QtC.QUrl, param3: flag of dropjob_enums.JobFlag ```
+    /// ``` param1: QtC.QUrl, param2: QtC.QUrl, param3: flag of job_base_enums.JobFlag ```
     pub fn Link(param1: ?*anyopaque, param2: ?*anyopaque, param3: i32) QtC.KIO__CopyJob {
         return qtc.KIO_Link(@ptrCast(param1), @ptrCast(param2), @intCast(param3));
     }
 
     /// [Qt documentation](https://api.kde.org/kio.html#link)
     ///
-    /// ``` param1: []QtC.QUrl, param2: QtC.QUrl, param3: flag of dropjob_enums.JobFlag ```
+    /// ``` param1: []QtC.QUrl, param2: QtC.QUrl, param3: flag of job_base_enums.JobFlag ```
     pub fn Link2(param1: []QtC.QUrl, param2: ?*anyopaque, param3: i32) QtC.KIO__CopyJob {
         const param1_list = qtc.libqt_list{
             .len = param1.len,
@@ -1393,21 +1393,21 @@ pub const kio = struct {
 
     /// [Qt documentation](https://api.kde.org/kio.html#linkAs)
     ///
-    /// ``` param1: QtC.QUrl, param2: QtC.QUrl, param3: flag of dropjob_enums.JobFlag ```
+    /// ``` param1: QtC.QUrl, param2: QtC.QUrl, param3: flag of job_base_enums.JobFlag ```
     pub fn LinkAs(param1: ?*anyopaque, param2: ?*anyopaque, param3: i32) QtC.KIO__CopyJob {
         return qtc.KIO_LinkAs(@ptrCast(param1), @ptrCast(param2), @intCast(param3));
     }
 
     /// [Qt documentation](https://api.kde.org/kio.html#trash)
     ///
-    /// ``` param1: QtC.QUrl, param2: flag of dropjob_enums.JobFlag ```
+    /// ``` param1: QtC.QUrl, param2: flag of job_base_enums.JobFlag ```
     pub fn Trash(param1: ?*anyopaque, param2: i32) QtC.KIO__CopyJob {
         return qtc.KIO_Trash(@ptrCast(param1), @intCast(param2));
     }
 
     /// [Qt documentation](https://api.kde.org/kio.html#trash)
     ///
-    /// ``` param1: []QtC.QUrl, param2: flag of dropjob_enums.JobFlag ```
+    /// ``` param1: []QtC.QUrl, param2: flag of job_base_enums.JobFlag ```
     pub fn Trash2(param1: []QtC.QUrl, param2: i32) QtC.KIO__CopyJob {
         const param1_list = qtc.libqt_list{
             .len = param1.len,

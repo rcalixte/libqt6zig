@@ -34,9 +34,7 @@ typedef KTextEditor::Document KTextEditor__Document;
 #if defined(WORKAROUND_INNER_CLASS_DEFINITION_KTextEditor__Document__EditingTransaction)
 typedef KTextEditor::Document::EditingTransaction KTextEditor__Document__EditingTransaction;
 #endif
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_KTextEditor__MainWindow)
 typedef KTextEditor::MainWindow KTextEditor__MainWindow;
-#endif
 #if defined(WORKAROUND_INNER_CLASS_DEFINITION_KTextEditor__Mark)
 typedef KTextEditor::Mark KTextEditor__Mark;
 #endif
