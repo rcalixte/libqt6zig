@@ -157,24 +157,9 @@ func (p CppParameter) RenderTypeIntermediateCpp() string {
 		cppType += "&"
 	}
 
-	// hack some broken typedefs for now
+	// hack some difficult flag typedefs for now
 	if cppType == "ListJob::ListFlags" {
 		return "KIO::ListJob::ListFlags"
-	}
-	if cppType == "KNSCore::Provider::SearchRequest::Filter" {
-		return "KNSCore::Provider::Filter"
-	}
-	if cppType == "KNSCore::Provider::SearchRequest::SortMode" {
-		return "KNSCore::Provider::SortMode"
-	}
-	if cppType == "KNSCore::SearchRequest::Filter" {
-		return "KNSCore::Filter"
-	}
-	if cppType == "KNSCore::SearchRequest::SortMode" {
-		return "KNSCore::SortMode"
-	}
-	if cppType == "Konsole::KeyboardTranslator::Entry::Command" {
-		return "Konsole::KeyboardTranslator::Command"
 	}
 	if cppType == "MovingRange::InsertBehaviors" {
 		return "KTextEditor::MovingRange::InsertBehaviors"
