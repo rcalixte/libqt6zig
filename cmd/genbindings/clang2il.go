@@ -276,7 +276,7 @@ func processTypedef(node map[string]interface{}, addNamePrefix string) (CppTyped
 		if qualType != "" {
 			return CppTypedef{
 				Alias:          addNamePrefix + nodename,
-				UnderlyingType: parseSingleTypeString(qualType),
+				UnderlyingType: parseSingleTypeString(qualType, addNamePrefix),
 			}, nil
 		}
 	}
@@ -738,10 +738,12 @@ nextMethod:
 			}
 
 			var fieldType CppParameter
+			var skipSetter bool
+
 			if typobj, ok := node["type"].(map[string]interface{}); ok {
 				qualType := getPreferredType(typobj)
 				if qualType != "" {
-					fieldType = parseSingleTypeString(qualType)
+					fieldType = parseSingleTypeString(qualType, addNamePrefix)
 					fieldType.ParameterName = fieldName
 
 					if err := AllowType(fieldType, false); err != nil {
@@ -752,6 +754,11 @@ nextMethod:
 					if strings.Contains(fieldType.ParameterType, "unnamed") || strings.Contains(fieldType.ParameterType, "struct ") ||
 						strings.Contains(fieldType.ParameterType, "void") {
 						continue // Skip broken types for now
+					}
+
+					if strings.HasSuffix(qualType, "const") {
+						// Skip setters for const types
+						skipSetter = true
 					}
 
 					if _, ok := KnownEnums[fieldType.ParameterType]; ok {
@@ -769,15 +776,18 @@ nextMethod:
 				VariableFieldName: fieldName,
 			}
 
-			setter := CppMethod{
-				MethodName:        "set" + strings.ToUpper(fieldName[:1]) + fieldName[1:],
-				ReturnType:        CppParameter{ParameterType: "void"},
-				Parameters:        []CppParameter{fieldType},
-				IsVariable:        true,
-				VariableFieldName: fieldName,
-			}
+			ret.Methods = append(ret.Methods, getter)
 
-			ret.Methods = append(ret.Methods, getter, setter)
+			if !skipSetter {
+				setter := CppMethod{
+					MethodName:        "set" + strings.ToUpper(fieldName[:1]) + fieldName[1:],
+					ReturnType:        CppParameter{ParameterType: "void"},
+					Parameters:        []CppParameter{fieldType},
+					IsVariable:        true,
+					VariableFieldName: fieldName,
+				}
+				ret.Methods = append(ret.Methods, setter)
+			}
 
 		default:
 			log.Printf("==> NOT IMPLEMENTED %q\n", kind)
@@ -818,11 +828,11 @@ func processEnum(node map[string]interface{}, addNamePrefix string, visibility v
 	ret.IsProtected = (visibility == VsProtected)
 
 	// Underlying type
-	ret.UnderlyingType = parseSingleTypeString("int")
+	ret.UnderlyingType = parseSingleTypeString("int", addNamePrefix)
 	if nodefut, ok := node["fixedUnderlyingType"].(map[string]interface{}); ok {
 		qualType := getPreferredType(nodefut)
 		if qualType != "" {
-			ret.UnderlyingType = parseSingleTypeString(qualType)
+			ret.UnderlyingType = parseSingleTypeString(qualType, addNamePrefix)
 		}
 	}
 
@@ -941,7 +951,7 @@ nextEnumEntry:
 
 		var err error
 		if cee.EntryValue == "true" || cee.EntryValue == "false" {
-			ret.UnderlyingType = parseSingleTypeString("bool")
+			ret.UnderlyingType = parseSingleTypeString("bool", addNamePrefix)
 
 		} else {
 			lastImplicitValue, err = strconv.ParseInt(cee.EntryValue, 10, 64)
@@ -965,7 +975,7 @@ func parseMethod(node map[string]interface{}, mm *CppMethod, className string) e
 			// If anything here is too complicated, skip the whole method.
 			var err error
 
-			mm.ReturnType, mm.Parameters, mm.IsConst, err = parseTypeString(qualType)
+			mm.ReturnType, mm.Parameters, mm.IsConst, err = parseTypeString(qualType, className)
 			if err != nil {
 				return err
 			}
@@ -1130,7 +1140,7 @@ func parseMethod(node map[string]interface{}, mm *CppMethod, className string) e
 // into its (A) return type and (B) separate parameter types.
 // These clang strings never contain the parameter's name, so the names here are
 // not filled in.
-func parseTypeString(typeString string) (CppParameter, []CppParameter, bool, error) {
+func parseTypeString(typeString, className string) (CppParameter, []CppParameter, bool, error) {
 	if strings.Contains(typeString, "&&") { // TODO Rvalue references
 		return CppParameter{}, nil, false, ErrTooComplex
 	}
@@ -1145,7 +1155,7 @@ func parseTypeString(typeString string) (CppParameter, []CppParameter, bool, err
 
 	isConst := strings.Contains(typeString[epos:], "const")
 
-	returnType := parseSingleTypeString(strings.TrimSpace(typeString[0:opos]))
+	returnType := parseSingleTypeString(strings.TrimSpace(typeString[0:opos]), className)
 
 	inner := typeString[opos+1 : epos]
 
@@ -1160,7 +1170,7 @@ func parseTypeString(typeString string) (CppParameter, []CppParameter, bool, err
 	ret := make([]CppParameter, 0, len(params))
 	for _, p := range params {
 
-		insert := parseSingleTypeString(p)
+		insert := parseSingleTypeString(p, className)
 
 		if insert.ParameterType != "" {
 			ret = append(ret, insert)
@@ -1239,7 +1249,7 @@ func tokenizeSingleParameter(p string) []string {
 
 // parseSingleTypeString parses the Clang qualType for a single type into our
 // CppParameter intermediate format.
-func parseSingleTypeString(p string) CppParameter {
+func parseSingleTypeString(p, className string) CppParameter {
 
 	isSigned := false
 
@@ -1282,6 +1292,28 @@ func parseSingleTypeString(p string) CppParameter {
 	insert.ParameterType = strings.ReplaceAll(insert.ParameterType, "enum ", "")
 	insert.ParameterType = strings.ReplaceAll(insert.ParameterType, "::enum_type", "")
 
+	if className != "" && insert.ParameterType != "" {
+		if strings.Contains(className, "::") {
+			current := className
+			for strings.Contains(current, "::") {
+				if _, ok := KnownEnums[current+"::"+insert.ParameterType]; ok {
+					insert.ParameterType = current + "::" + insert.ParameterType
+					return insert
+				}
+				current = current[:strings.LastIndex(current, "::")]
+			}
+			if _, ok := KnownEnums[current+"::"+insert.ParameterType]; ok {
+				insert.ParameterType = current + "::" + insert.ParameterType
+				return insert
+			}
+		} else {
+			if _, ok := KnownEnums[className+"::"+insert.ParameterType]; ok {
+				insert.ParameterType = className + "::" + insert.ParameterType
+				return insert
+			}
+		}
+	}
+
 	return insert
 }
 
@@ -1323,7 +1355,7 @@ func parseFunctionDecl(node map[string]interface{}) (*functionInfo, error) {
 	qualType = strings.ReplaceAll(qualType, "enum ", "")
 	qualType = strings.ReplaceAll(qualType, "::enum_type", "")
 
-	returnType, params, isConst, err := parseTypeString(qualType)
+	returnType, params, isConst, err := parseTypeString(qualType, getClassFromMangledName(mangledName, name))
 	if err != nil {
 		return nil, nil
 	}
