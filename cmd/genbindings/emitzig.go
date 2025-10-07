@@ -89,6 +89,14 @@ func getPageUrl(pageType PageType, pageName, cmdURL, className string) string {
 		return "https://www.riverbankcomputing.com/static/Docs/QScintilla/class" + className + ".html"
 	}
 
+	if strings.HasPrefix(pageName, "layershellqt") {
+		return "https://invent.kde.org/plasma/layer-shell-qt"
+	}
+
+	if strings.HasPrefix(pageName, "qkeychain") {
+		return "https://github.com/frankosterfeld/qtkeychain"
+	}
+
 	if pageType == DtorPage && strings.Contains(className, "__") {
 		return ""
 	}
@@ -240,14 +248,7 @@ func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType, fullEnumNam
 
 	if p.IsKnownEnum() {
 		if strings.HasPrefix(p.ParameterType, "QFlags<") {
-			enumClass := strings.TrimPrefix(p.ParameterType, "QFlags<")
-			lastIndex := strings.LastIndex(enumClass, "::")
-			if lastIndex == -1 {
-				lastIndex = len(enumClass)
-			}
-			enumClass = enumClass[:lastIndex]
-
-			if zigImport, ok := KnownImports[enumClass]; ok {
+			if zigImport, ok := KnownImports[p.ParameterType[7:len(p.ParameterType)-1]]; ok {
 				if fullEnumName {
 					ret = "flag of " + zigImport.Filename + "_enums." + cabiEnumName(p.ParameterType[7:len(p.ParameterType)-1])
 					maybeDots := maybeDotsPath(zigImport.PackageName, zfs.currentPackageName)
@@ -299,7 +300,7 @@ func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType, fullEnumNam
 
 	case "unsigned int", "quint32", "uint32_t", "uint", "gid_t", "uid_t", "dev_t", "mode_t", "GL", "GLbitfield", "GLenum", "GLuint":
 		ret += "u32"
-	case "qint32", "int", "pid_t", "GLint", "GLsizei":
+	case "qint32", "int", "int32_t", "pid_t", "GLint", "GLsizei":
 		ret += "i32"
 	case "qlonglong", "qint64", "long long", "GLint64", "GLintptr", "GLsizeiptr":
 		ret += "i64"
@@ -352,13 +353,7 @@ func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType, fullEnumNam
 				enumName = cabiClassName(p.ParameterType)
 			}
 
-			lastIndex := strings.LastIndex(p.ParameterType, "::")
-			if lastIndex == -1 {
-				lastIndex = len(p.ParameterType)
-			}
-			enumClass := p.ParameterType[:lastIndex]
-
-			if zigImport, ok := KnownImports[enumClass]; ok {
+			if zigImport, ok := KnownImports[p.ParameterType]; ok {
 				if fullEnumName {
 					ret += zigImport.Filename + "_enums." + enumName
 				} else {
@@ -369,7 +364,7 @@ func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType, fullEnumNam
 				zfs.imports[maybeDots+zigImport.Filename+"_enums"] = struct{}{}
 
 			} else {
-				panic("UNKNOWN IMPORT: p.ParameterType: " + p.ParameterType + "\tenumClass: " + enumClass + "\tenumName: " + enumName)
+				panic("UNKNOWN IMPORT: p.ParameterType: " + p.ParameterType + "\tenumName: " + enumName)
 			}
 
 		} else if strings.Contains(p.ParameterType, "::") && !strings.HasPrefix(p.ParameterType, "QFlags<") {
@@ -629,14 +624,7 @@ func (zfs *zigFileState) emitReturnComment(rt CppParameter) string {
 
 	if rt.IsKnownEnum() {
 		if strings.HasPrefix(rt.ParameterType, "QFlags<") {
-			enumClass := strings.TrimPrefix(rt.ParameterType, "QFlags<")
-			lastIndex := strings.LastIndex(enumClass, "::")
-			if lastIndex == -1 {
-				lastIndex = len(enumClass)
-			}
-			enumClass = enumClass[:lastIndex]
-
-			if zigImport, ok := KnownImports[enumClass]; ok {
+			if zigImport, ok := KnownImports[rt.ParameterType[7:len(rt.ParameterType)-1]]; ok {
 				returnComment = "///\n/// Returns: ``` flag of " + zigImport.Filename + "_enums." + cabiEnumName(rt.ParameterType[7:len(rt.ParameterType)-1]) + " ```\n"
 				maybeDots := maybeDotsPath(zigImport.PackageName, zfs.currentPackageName)
 				zfs.imports[maybeDots+zigImport.Filename+"_enums"] = struct{}{}
@@ -644,16 +632,9 @@ func (zfs *zigFileState) emitReturnComment(rt CppParameter) string {
 		} else {
 			returnComment = "///\n/// Returns: ``` " + rt.RenderTypeZig(zfs, false, true) + " ```\n"
 		}
-	} else if t, containerType, ok := rt.QListOf(); ok {
+	} else if t, _, ok := rt.QListOf(); ok {
 		if _, ok := KnownEnums[t.ParameterType]; ok {
-			enumClass := strings.TrimPrefix(t.ParameterType, containerType+"<")
-			lastIndex := strings.LastIndex(enumClass, "::")
-			if lastIndex == -1 {
-				lastIndex = len(enumClass)
-			}
-			enumClass = enumClass[:lastIndex]
-
-			if zigImport, ok := KnownImports[enumClass]; ok {
+			if zigImport, ok := KnownImports[t.ParameterType]; ok {
 				returnComment = "///\n/// Returns: ``` []" + zigImport.Filename + "_enums." + cabiEnumName(t.ParameterType) + " ```\n"
 				maybeDots := maybeDotsPath(zigImport.PackageName, zfs.currentPackageName)
 				zfs.imports[maybeDots+zigImport.Filename+"_enums"] = struct{}{}
@@ -1390,7 +1371,8 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 			zigStruct := strings.ToLower(zigStructName)
 			// TODO properly automate deduplication
 			eqStructHeader := zigStruct == zfs.currentHeaderName
-			maybeDedupe := ifv(zigStruct == "kio" && !eqStructHeader, "_"+zfs.currentHeaderName, "")
+			maybeDedupe := ifv(zigStruct == "kcrash" && !eqStructHeader, "_"+zfs.currentHeaderName, "")
+			maybeDedupe = ifv(zigStruct == "kio" && !eqStructHeader, "_"+zfs.currentHeaderName, maybeDedupe)
 			maybeDedupe = ifv(zigStruct == "knscore" && !eqStructHeader, "_"+zfs.currentHeaderName, maybeDedupe)
 			maybeDedupe = ifv(zigStruct == "kstandardactions" && !eqStructHeader, "_"+zfs.currentHeaderName, maybeDedupe)
 			maybeDedupe = ifv(zigStruct == "kstandardshortcut" && !eqStructHeader, "_"+zfs.currentHeaderName, maybeDedupe)
@@ -1925,7 +1907,10 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 		maybeUrlPrefix = ifv(strings.Contains(src.Filename, "Attica"), "attica-", maybeUrlPrefix)
 		maybeUrlPrefix = ifv(strings.Contains(src.Filename, "KNSCore"), "knscore-", maybeUrlPrefix)
 		maybeUrlPrefix = ifv(strings.Contains(src.Filename, "KParts"), "kparts-", maybeUrlPrefix)
+		maybeUrlPrefix = ifv(strings.Contains(src.Filename, "KSvg"), "ksvg-", maybeUrlPrefix)
 		maybeUrlPrefix = ifv(strings.Contains(src.Filename, "KSyntaxHighlighting"), "ksyntaxhighlighting-", maybeUrlPrefix)
+		maybeUrlPrefix = ifv(strings.Contains(src.Filename, "LayerShellQt"), "layershellqt-", maybeUrlPrefix)
+		maybeUrlPrefix = ifv(strings.Contains(src.Filename, "qt6keychain"), "qkeychain-", maybeUrlPrefix)
 		maybeUrlPrefix = ifv(strings.Contains(src.Filename, "Solid"), "solid-", maybeUrlPrefix)
 		maybeUrlPrefix = ifv(strings.Contains(src.Filename, "Sonnet"), "sonnet-", maybeUrlPrefix)
 		pageName := maybeUrlPrefix + getPageName(zfs.currentHeaderName) + maybeCharts
