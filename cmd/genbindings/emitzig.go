@@ -107,10 +107,22 @@ func getPageUrl(pageType PageType, pageName, cmdURL, className string) string {
 	}
 
 	qtUrl := "https://doc.qt.io/qt-6/"
+	types := "types"
 	if pageName[0] != 'q' && pageName != "disambiguated_t" &&
 		pageName != "partial_ordering" && pageName != "weak_ordering" && pageName != "strong_ordering" {
 		qtUrl = "https://api.kde.org/"
 		pageName = strings.TrimSuffix(pageName, "_1")
+	}
+
+	if pageName == "qcustomplot" || strings.HasPrefix(pageName, "QCP") {
+		pageName = ifv(pageName == "qcustomplot", "QCustomPlot", pageName)
+		prefix := ifv(pageName == "QCP", "namespace", "class")
+		qtUrl = "https://www.qcustomplot.com/documentation/" + prefix
+		types = "pub-types"
+		cmdURL = ""
+		if pageType == DtorPage {
+			pageType = QtPage
+		}
 	}
 
 	pageName = strings.ReplaceAll(pageName, "__", "-")
@@ -124,7 +136,7 @@ func getPageUrl(pageType PageType, pageName, cmdURL, className string) string {
 
 		return qtUrl + pageName + ".html" + ifv(cmdURL != "", "#"+cmdURL, "")
 	case EnumPage:
-		return qtUrl + pageName + ".html#types"
+		return qtUrl + pageName + ".html#" + types
 	case DtorPage:
 		return qtUrl + pageName + ".html#dtor." + className
 	}
@@ -1367,7 +1379,7 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 			(len(c.DirectInherits) > 0 && len(collectInheritedMethodsForZig(c.DirectInherits[0], map[string]struct{}{c.ClassName: {}}, &zfs)) > 0) {
 			footerNeeded = true
 			maybeCharts := ifv(strings.Contains(src.Filename, "QtCharts"), "-qtcharts", "")
-			pageName := getPageName(zigStructName) + maybeCharts
+			pageName := ifv(zfs.currentHeaderName == "qcustomplot" && strings.HasPrefix(zigStructName, "QCP"), zigStructName, getPageName(zigStructName)) + maybeCharts
 			zigStruct := strings.ToLower(zigStructName)
 			// TODO properly automate deduplication
 			eqStructHeader := zigStruct == zfs.currentHeaderName
@@ -1554,7 +1566,7 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 
 			var docCommentUrl string
 			className := ifv(m.InheritedInClass == "", cmdStructName, cabiClassName(m.InheritedInClass))
-			subjectURL := strings.ToLower(className)
+			subjectURL := ifv(zfs.currentHeaderName == "qcustomplot" && strings.HasPrefix(className, "QCP"), className, strings.ToLower(className))
 			cmdURL := m.MethodName
 			if m.OverrideMethodName != "" {
 				cmdURL = m.OverrideMethodName
@@ -1767,7 +1779,7 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 			}
 
 			className := ifv(m.InheritedInClass == "", cmdStructName, cabiClassName(m.InheritedInClass))
-			subjectURL := strings.ToLower(className)
+			subjectURL := ifv(zfs.currentHeaderName == "qcustomplot" && strings.HasPrefix(className, "QCP"), className, strings.ToLower(className))
 			cmdURL := m.MethodName
 			if m.OverrideMethodName != "" {
 				cmdURL = m.OverrideMethodName
@@ -1858,7 +1870,7 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 
 			var docCommentUrl string
 			className := ifv(m.InheritedInClass == "", cmdStructName, cabiClassName(m.InheritedInClass))
-			subjectURL := strings.ToLower(className)
+			subjectURL := ifv(zfs.currentHeaderName == "qcustomplot" && strings.HasPrefix(className, "QCP"), className, strings.ToLower(className))
 			cmdURL := m.MethodName
 			if m.OverrideMethodName != "" {
 				cmdURL = m.OverrideMethodName
@@ -1887,7 +1899,7 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 
 		if c.CanDelete && (len(c.Methods) > 0 || len(c.VirtualMethods()) > 0 || len(c.Ctors) > 0) {
 			maybeCharts := ifv(strings.Contains(src.Filename, "QtCharts"), "-qtcharts", "")
-			pageUrl := getPageUrl(DtorPage, getPageName(zigStructName)+maybeCharts, "", zigStructName)
+			pageUrl := getPageUrl(DtorPage, ifv(zfs.currentHeaderName == "qcustomplot" && strings.HasPrefix(zigStructName, "QCP"), zigStructName, getPageName(zigStructName))+maybeCharts, "", zigStructName)
 			ret.WriteString(ifv(pageUrl != "", "\n/// [Qt documentation]("+pageUrl+")\n///\n", "\n") +
 				"    /// Delete this object from C++ memory.\n///\n" +
 				"    /// ``` self: QtC." + zigStructName + " ```\n" +
