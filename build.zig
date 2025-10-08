@@ -2,17 +2,13 @@ const std = @import("std");
 const host_os = @import("builtin").os.tag;
 const host_arch = @import("builtin").cpu.arch;
 
-var buffer: [64]u8 = undefined;
+var buffer: [512]u8 = undefined;
 var stdout_writer = std.fs.File.stdout().writer(&buffer);
 
-const prefixes: []const []const u8 = &.{
-    "extras-",
-    "foss-extras-",
-    "foss-restricted-",
-    "posix-extras-",
-    "posix-restricted-",
-    "restricted-extras-",
-};
+var cpp_sources: std.ArrayList([]const u8) = .empty;
+var prefix_options: std.StringHashMapUnmanaged(bool) = .empty;
+var qt_include_path: std.ArrayList([]const u8) = .empty;
+var cpp_flags: std.ArrayList([]const u8) = .empty;
 
 pub fn build(b: *std.Build) !void {
     const target = b.standardTargetOptions(.{});
@@ -26,11 +22,6 @@ pub fn build(b: *std.Build) !void {
     const is_macos = target.result.os.tag == .macos or host_os == .macos;
     const is_windows = target.result.os.tag == .windows or host_os == .windows;
 
-    const is_bsd_host = switch (host_os) {
-        .dragonfly, .freebsd, .netbsd, .openbsd => true,
-        else => false,
-    };
-
     const is_bsd_target = switch (target.result.os.tag) {
         .dragonfly, .freebsd, .netbsd, .openbsd => true,
         else => false,
@@ -41,9 +32,6 @@ pub fn build(b: *std.Build) !void {
     var arena = std.heap.ArenaAllocator.init(b.allocator);
     defer arena.deinit();
     const allocator = arena.allocator();
-
-    var cpp_sources: std.ArrayList([]const u8) = .empty;
-    var prefix_options: std.StringHashMapUnmanaged(bool) = .empty;
 
     const src_dir = try std.fs.path.join(allocator, &.{ b.build_root.path.?, "src" });
     var dir = try std.fs.cwd().openDir(src_dir, .{ .iterate = true });
@@ -101,201 +89,32 @@ pub fn build(b: *std.Build) !void {
         }
     }
 
-    if (cpp_sources.items.len == 0)
-        @panic("No .cpp files found.\n");
+    std.debug.assert(cpp_sources.items.len != 0);
 
-    const os_include_path: []const []const u8 = switch (host_os) {
-        .dragonfly, .freebsd, .netbsd, .openbsd => &.{
-            "/usr/local/include/qt6",
-            "/usr/local/include/KF6",
-            "/usr/local/include",
-            "/usr/include",
-            "/usr/local/lib/qt6/mkspecs/common/posix",
-        },
-        .linux => &.{
-            "/usr/include/" ++ @tagName(host_arch) ++ "-linux-gnu/qt6",
-            "/usr/include/qt6",
-            "/usr/include/KF6",
-            "/usr/include",
-            "/usr/lib/" ++ @tagName(host_arch) ++ "-linux-gnu/qt6/mkspecs/common/posix",
-        },
-        .macos => &.{
-            "/usr/local/opt/qt6/include",
-            "/opt/homebrew/include",
-        },
-        .windows => &.{
-            "C:/Qt/6.8.2/mingw_64/include",
-            "C:/Qt/6.8.2/msvc2022_64/include",
-        },
-        else => @panic("Unsupported OS"),
-    };
-
-    var qt_include_path: std.ArrayList([]const u8) = .empty;
     for (extra_paths) |extra_path| {
         if (std.mem.eql(u8, extra_path, "")) continue;
+        std.fs.cwd().access(extra_path, .{}) catch {
+            try stdout_writer.interface.print("WARNING: extra path {s} does not exist\n", .{extra_path});
+            try stdout_writer.interface.flush();
+            continue;
+        };
         try qt_include_path.append(b.allocator, b.dupe(extra_path));
     }
     for (os_include_path) |os_path| {
+        std.fs.cwd().access(os_path, .{}) catch {
+            continue;
+        };
         try qt_include_path.append(b.allocator, b.dupe(os_path));
     }
 
-    const qt_modules = &.{
-        // Qt 6 Core, GUI, Widgets
-        "QtCore",
-        "QtGui",
-        "QtWidgets",
-        // Qt 6 Charts
-        "QtCharts",
-        // Qt 6 D-Bus
-        "QtDBus",
-        // Qt 6 Multimedia
-        "QtMultimedia",
-        "QtMultimediaWidgets",
-        // Qt 6 Network
-        "QtNetwork",
-        // Qt 6 OpenGL
-        "QtOpenGL",
-        "QtOpenGLWidgets",
-        // Qt 6 PDF
-        "QtPdf",
-        "QtPdfWidgets",
-        // Qt 6 Print Support
-        "QtPrintSupport",
-        // Qt 6 Spatial Audio
-        "QtSpatialAudio",
-        // Qt 6 SQL
-        "QtSql",
-        // Qt 6 SVG
-        "QtSvg",
-        "QtSvgWidgets",
-        // Qt 6 WebChannel
-        "QtWebChannel",
-        "QtWebChannelQuick",
-        // Qt 6 WebEngine
-        "QtWebEngineCore",
-        "QtWebEngineWidgets",
-        // Qt 6 XML
-        "QtXml",
-        // Qt 6 Attica
-        "Attica",
-        "Attica/Attica",
-        "Attica/attica",
-        // Qt 6 KCodecs
-        "KCodecs",
-        // Qt 6 KCompletion
-        "KCompletion",
-        // Qt 6 KConfig
-        "KConfig",
-        "KConfigCore",
-        "KConfigGui",
-        // Qt 6 KCoreAddons
-        "KCoreAddons",
-        // Qt 6 KCrash
-        "KCrash",
-        // Qt 6 KGuiAddons
-        "KGuiAddons",
-        // Qt 6 KI18n
-        "KI18n",
-        "KI18nLocaleData",
-        // Qt 6 KItemModels
-        "KItemModels",
-        // Qt 6 KItemViews
-        "KItemViews",
-        // Qt 6 KJobWidgets
-        "KJobWidgets",
-        // Qt 6 KNewStuff
-        "KNewStuff",
-        "KNewStuffCore",
-        "KNewStuffCore/KNSCore",
-        "KNewStuffWidgets",
-        "KNewStuffWidgets/KNSWidgets",
-        // Qt 6 KPlotting
-        "KPlotting",
-        // Qt 6 KService
-        "KService",
-        // Qt 6 Solid
-        "Solid",
-        "Solid/Solid",
-        "Solid/solid",
-        // Qt 6 Sonnet
-        "Sonnet",
-        "SonnetCore",
-        "SonnetCore/sonnet",
-        "SonnetUi",
-        "SonnetUi/sonnet",
-        // Qt 6 KSvg
-        "KSvg",
-        "KSvg/KSvg",
-        "KSvg/ksvg",
-        // Qt 6 KSyntaxHighlighting
-        "KSyntaxHighlighting",
-        "KSyntaxHighlighting/KSyntaxHighlighting",
-        // Qt 6 KTextWidgets
-        "KTextWidgets",
-        // Qt 6 KWidgetsAddons
-        "KWidgetsAddons",
-        // Qt 6 KColorScheme
-        "KColorScheme",
-        // Qt 6 KConfigWidgets
-        "KConfigWidgets",
-        // Qt 6 KBookmarks
-        "KBookmarks",
-        "KBookmarksWidgets",
-        // Qt 6 KNotifications
-        "KNotifications",
-        // Qt 6 KIconThemes
-        "KIconThemes",
-        "KIconWidgets",
-        // Qt 6 KXmlGui
-        "KXmlGui",
-        // Qt 6 QtKeychain
-        "qt6keychain",
-        // Qt 6 LayerShellQt
-        "LayerShellQt",
-        // Qt 6 KGlobalAccel
-        "KGlobalAccel",
-        // Qt 6 KWindowSystem
-        "KWindowSystem",
-        // Qt 6 KIO
-        "KIO",
-        "KIOCore",
-        "KIOCore/kio",
-        "KIOFileWidgets",
-        "KIOGui",
-        "KIOGui/kio",
-        "KIOWidgets",
-        "KIOWidgets/kio",
-        // Qt 6 KParts
-        "KParts",
-        "KParts/KParts",
-        "KParts/kparts",
-        // Qt 6 KTextEditor
-        "KTextEditor",
-        "KTextEditor/KTextEditor",
-        "KTextEditor/ktexteditor",
-        // Qt 6 QScintilla
-        "Qsci",
-        // Qt 6 QTermWidget
-        "qtermwidget6",
-    };
-
-    const base_cpp_flags = &.{
-        "-O2",
-    };
-
-    var cpp_flags: [][]const u8 = try allocator.alloc([]const u8, base_cpp_flags.len + extra_paths.len + os_include_path.len + (qt_modules.len * (os_include_path.len + extra_paths.len)));
-
     // Add base flags
-    var flags_index: usize = 0;
     inline for (base_cpp_flags) |flag| {
-        cpp_flags[flags_index] = b.dupe(flag);
-        flags_index += 1;
+        try cpp_flags.append(allocator, b.dupe(flag));
     }
 
     // Add include paths
     for (qt_include_path.items) |qt_path| {
-        cpp_flags[flags_index] = b.fmt("-I{s}", .{qt_path});
-        flags_index += 1;
+        try cpp_flags.append(allocator, b.fmt("-I{s}", .{qt_path}));
     }
 
     const translate_c = b.addTranslateC(.{
@@ -311,10 +130,12 @@ pub fn build(b: *std.Build) !void {
     // Add Qt module include paths
     inline for (qt_modules) |module| {
         for (qt_include_path.items) |qt_path| {
-            cpp_flags[flags_index] = b.fmt("-I{s}/{s}", .{ qt_path, module });
-            const flagPath = b.fmt("{s}/{s}", .{ qt_path, module });
-            translate_c.addIncludePath(std.Build.LazyPath{ .cwd_relative = flagPath });
-            flags_index += 1;
+            const includePath = b.fmt("{s}/{s}", .{ qt_path, module });
+            std.fs.cwd().access(includePath, .{}) catch {
+                continue;
+            };
+            try cpp_flags.append(allocator, b.fmt("-I{s}", .{includePath}));
+            translate_c.addIncludePath(std.Build.LazyPath{ .cwd_relative = includePath });
         }
     }
 
@@ -335,7 +156,7 @@ pub fn build(b: *std.Build) !void {
         });
 
         lib.root_module.linkSystemLibrary("stdc++", .{});
-        lib.root_module.addCSourceFiles(.{ .files = &.{source}, .flags = cpp_flags });
+        lib.root_module.addCSourceFiles(.{ .files = &.{source}, .flags = cpp_flags.items });
 
         b.installArtifact(lib);
     }
@@ -365,5 +186,191 @@ pub fn build(b: *std.Build) !void {
     libqt6zig.addImport("qt6zig", qtzig_types);
     libqt6zig.addImport("qtzig", qtzig_types);
 
-    b.modules.put("libqt6zig", libqt6zig) catch {};
+    try b.modules.put("libqt6zig", libqt6zig);
 }
+
+const is_bsd_host = switch (host_os) {
+    .dragonfly, .freebsd, .netbsd, .openbsd => true,
+    else => false,
+};
+
+const prefixes: []const []const u8 = &.{
+    "extras-",
+    "foss-extras-",
+    "foss-restricted-",
+    "posix-extras-",
+    "posix-restricted-",
+    "restricted-extras-",
+};
+
+const os_include_path: []const []const u8 = switch (host_os) {
+    .dragonfly, .freebsd, .netbsd, .openbsd => &.{
+        "/usr/local/include/qt6",
+        "/usr/local/include/KF6",
+        "/usr/local/include",
+        "/usr/include",
+        "/usr/local/lib/qt6/mkspecs/common/posix",
+    },
+    .linux => &.{
+        "/usr/include/" ++ @tagName(host_arch) ++ "-linux-gnu/qt6",
+        "/usr/include/qt6",
+        "/usr/include/KF6",
+        "/usr/include",
+        "/usr/lib/" ++ @tagName(host_arch) ++ "-linux-gnu/qt6/mkspecs/common/posix",
+    },
+    .macos => &.{
+        "/usr/local/opt/qt6/include",
+        "/opt/homebrew/include",
+    },
+    .windows => &.{
+        "C:/Qt/6.8.2/mingw_64/include",
+        "C:/Qt/6.8.2/msvc2022_64/include",
+    },
+    else => @panic("Unsupported OS"),
+};
+
+const base_cpp_flags = &.{
+    "-O2",
+};
+
+const qt_modules = &.{
+    // Qt 6 Core, GUI, Widgets
+    "QtCore",
+    "QtGui",
+    "QtWidgets",
+    // Qt 6 Charts
+    "QtCharts",
+    // Qt 6 D-Bus
+    "QtDBus",
+    // Qt 6 Multimedia
+    "QtMultimedia",
+    "QtMultimediaWidgets",
+    // Qt 6 Network
+    "QtNetwork",
+    // Qt 6 OpenGL
+    "QtOpenGL",
+    "QtOpenGLWidgets",
+    // Qt 6 PDF
+    "QtPdf",
+    "QtPdfWidgets",
+    // Qt 6 Print Support
+    "QtPrintSupport",
+    // Qt 6 Spatial Audio
+    "QtSpatialAudio",
+    // Qt 6 SQL
+    "QtSql",
+    // Qt 6 SVG
+    "QtSvg",
+    "QtSvgWidgets",
+    // Qt 6 WebChannel
+    "QtWebChannel",
+    "QtWebChannelQuick",
+    // Qt 6 WebEngine
+    "QtWebEngineCore",
+    "QtWebEngineWidgets",
+    // Qt 6 XML
+    "QtXml",
+    // Qt 6 Attica
+    "Attica",
+    "Attica/Attica",
+    "Attica/attica",
+    // Qt 6 KCodecs
+    "KCodecs",
+    // Qt 6 KCompletion
+    "KCompletion",
+    // Qt 6 KConfig
+    "KConfig",
+    "KConfigCore",
+    "KConfigGui",
+    // Qt 6 KCoreAddons
+    "KCoreAddons",
+    // Qt 6 KCrash
+    "KCrash",
+    // Qt 6 KGuiAddons
+    "KGuiAddons",
+    // Qt 6 KI18n
+    "KI18n",
+    "KI18nLocaleData",
+    // Qt 6 KItemModels
+    "KItemModels",
+    // Qt 6 KItemViews
+    "KItemViews",
+    // Qt 6 KJobWidgets
+    "KJobWidgets",
+    // Qt 6 KNewStuff
+    "KNewStuff",
+    "KNewStuffCore",
+    "KNewStuffCore/KNSCore",
+    "KNewStuffWidgets",
+    "KNewStuffWidgets/KNSWidgets",
+    // Qt 6 KPlotting
+    "KPlotting",
+    // Qt 6 KService
+    "KService",
+    // Qt 6 Solid
+    "Solid",
+    "Solid/Solid",
+    "Solid/solid",
+    // Qt 6 Sonnet
+    "Sonnet",
+    "SonnetCore",
+    "SonnetCore/sonnet",
+    "SonnetUi",
+    "SonnetUi/sonnet",
+    // Qt 6 KSvg
+    "KSvg",
+    "KSvg/KSvg",
+    "KSvg/ksvg",
+    // Qt 6 KSyntaxHighlighting
+    "KSyntaxHighlighting",
+    "KSyntaxHighlighting/KSyntaxHighlighting",
+    // Qt 6 KTextWidgets
+    "KTextWidgets",
+    // Qt 6 KWidgetsAddons
+    "KWidgetsAddons",
+    // Qt 6 KColorScheme
+    "KColorScheme",
+    // Qt 6 KConfigWidgets
+    "KConfigWidgets",
+    // Qt 6 KBookmarks
+    "KBookmarks",
+    "KBookmarksWidgets",
+    // Qt 6 KNotifications
+    "KNotifications",
+    // Qt 6 KIconThemes
+    "KIconThemes",
+    "KIconWidgets",
+    // Qt 6 KXmlGui
+    "KXmlGui",
+    // Qt 6 QtKeychain
+    "qt6keychain",
+    // Qt 6 LayerShellQt
+    "LayerShellQt",
+    // Qt 6 KGlobalAccel
+    "KGlobalAccel",
+    // Qt 6 KWindowSystem
+    "KWindowSystem",
+    // Qt 6 KIO
+    "KIO",
+    "KIOCore",
+    "KIOCore/kio",
+    "KIOFileWidgets",
+    "KIOGui",
+    "KIOGui/kio",
+    "KIOWidgets",
+    "KIOWidgets/kio",
+    // Qt 6 KParts
+    "KParts",
+    "KParts/KParts",
+    "KParts/kparts",
+    // Qt 6 KTextEditor
+    "KTextEditor",
+    "KTextEditor/KTextEditor",
+    "KTextEditor/ktexteditor",
+    // Qt 6 QCustomPlot
+    "QCustomPlotQt6",
+    // Qt 6 QScintilla
+    "Qsci",
+    // Qt 6 QTermWidget
+    "qtermwidget6",
+};
