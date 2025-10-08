@@ -3,6 +3,7 @@ package main
 import (
 	"log"
 	"regexp"
+	"slices"
 	"strings"
 	"unicode"
 )
@@ -674,15 +675,28 @@ func (c *CppClass) AllInheritsClassInfo() []lookupResultClass {
 func (c *CppClass) DirectInheritClassInfo() []lookupResultClass {
 	var ret []lookupResultClass
 
-	for _, inh := range c.DirectInherits {
-		cinfo, ok := KnownClassnames[inh]
+	for _, inherit := range c.DirectInherits {
+		cinfo, ok := KnownClassnames[inherit]
 		if !ok && AllowClass(c.ClassName) {
-			if strings.HasPrefix(inh, "QList<") || strings.HasPrefix(inh, "QMap<") {
+			if strings.HasPrefix(inherit, "QList<") || strings.HasPrefix(inherit, "QMap<") {
 				// OK, allow these to slip through
 				// e.g. QItemSelection extends a QList<> and KIO::MetaData extends a QMap<>
 				continue
 			} else {
-				panic("Class " + c.ClassName + " inherits from unknown class " + inh)
+				if inheriteds, ok := AllowInheritedClass(c.ClassName); ok {
+					for _, className := range inheriteds {
+						if cppClass, ok := KnownClassnames[className]; ok {
+							ret = append(ret, cppClass)
+
+							if !slices.Contains(c.DirectInherits, className) {
+								c.DirectInherits = append(c.DirectInherits, className)
+							}
+						}
+					}
+					continue
+				} else {
+					panic("Class " + c.ClassName + " inherits from unknown class " + inherit)
+				}
 			}
 		}
 
