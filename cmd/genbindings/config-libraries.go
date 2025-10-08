@@ -628,6 +628,19 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 			cflags:      "--std=c++17 " + pkgConfigCflags("Qt6Charts"),
 		},
 
+		// QCustomPlot
+		// Depends on Qt Core, GUI, Widgets
+		{
+			path: "restricted-extras-qcustomplot",
+			dirs: []string{
+				"/usr/include/",
+			},
+			allowHeader: func(fullpath string) bool {
+				return filepath.Base(fullpath) == "qcustomplot.h"
+			},
+			cflags: "--std=c++17 " + pkgConfigCflags("Qt6Widgets"),
+		},
+
 		// Qt 6 QScintilla
 		// Depends on Qt Core, GUI, Widgets, Print Support
 		{
