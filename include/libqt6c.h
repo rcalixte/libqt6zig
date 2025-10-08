@@ -1194,6 +1194,7 @@
 #include "restricted-extras-charts/libqxylegendmarker.h"
 #include "restricted-extras-charts/libqxymodelmapper.h"
 #include "restricted-extras-charts/libqxyseries.h"
+#include "restricted-extras-qcustomplot/libqcustomplot.h"
 #include "restricted-extras-qscintilla/libqsciabstractapis.h"
 #include "restricted-extras-qscintilla/libqsciapis.h"
 #include "restricted-extras-qscintilla/libqscicommand.h"
