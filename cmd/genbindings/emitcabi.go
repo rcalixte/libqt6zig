@@ -935,6 +935,11 @@ var (
 		"KParts__NavigationExtension":   {},
 		"QAudioDecoder":                 {},
 		"QBluetoothPermission":          {},
+		"QCPAbstractPlottable":          {},
+		"QCPAxis":                       {},
+		"QCPPolarAxisAngular":           {},
+		"QCPPolarAxisRadial":            {},
+		"QCPPolarGraph":                 {},
 		"QCalendarPermission":           {},
 		"QCameraPermission":             {},
 		"QCompleter":                    {},
@@ -972,7 +977,6 @@ var (
 	}
 
 	skippedMethods = map[string]struct{}{
-		"QHostAddress_IsInSubnet2":              {}, // linker error
 		"KEncodingFileDialog_Tr":                {}, // linker error due to currently missing staticMetaObject
 		"KEncodingFileDialog_Tr2":               {}, // linker error due to currently missing staticMetaObject
 		"KEncodingFileDialog_Tr3":               {}, // linker error due to currently missing staticMetaObject
@@ -983,6 +987,7 @@ var (
 		"KTextEditor::MovingRange_ToRange2":     {}, // broken overload
 		"KTextEditor_QHash":                     {}, // multiple conflicting overloads
 		"KXmlGuiWindow_VirtualHook":             {}, // this method is found in multiple base classes of different types and undocumented
+		"QHostAddress_IsInSubnet2":              {}, // linker error
 	}
 
 	cTypes = map[string]struct{}{
@@ -1233,6 +1238,9 @@ func emitVirtualBindingHeader(src *CppParsedHeader, filename, packageName string
 						ret := "{}"
 						if c.ClassName == "KIO::ThumbnailCreator" && m.MethodName == "create" {
 							ret = "KIO::ThumbnailResult::fail()"
+						}
+						if strings.HasPrefix(c.ClassName, "QCP") && m.MethodName == "selectTestRect" {
+							ret = m.ReturnType.ParameterType + "()"
 						}
 						customCallback += indent + "} else {\n"
 						customCallback += indent + "\t" + maybeReturn + ret + ";\n"
