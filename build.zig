@@ -217,10 +217,12 @@ const os_include_path: []const []const u8 = switch (host_os) {
         "/usr/include/KF6",
         "/usr/include",
         "/usr/lib/" ++ @tagName(host_arch) ++ "-linux-gnu/qt6/mkspecs/common/posix",
+        "/usr/lib/qt6/mkspecs/common/posix",
     },
     .macos => &.{
         "/usr/local/opt/qt6/include",
         "/opt/homebrew/include",
+        "/opt/local/libexec/qt6/mkspecs/common/posix",
     },
     .windows => &.{
         "C:/Qt/6.8.2/mingw_64/include",
