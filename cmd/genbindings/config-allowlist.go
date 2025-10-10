@@ -188,54 +188,32 @@ func AllowClass(className string) bool {
 
 	switch className {
 	case
-		"QTextStreamManipulator",              // Only seems to contain garbage methods
-		"QException",                          // Extends std::exception, too hard
-		"QGenericRunnable",                    // Qt 6, Unavailable class header in Qt 6.8
-		"QUnhandledException",                 // As above (child class)
-		"QPolygon",                            // Extends a QVector<QPoint> template class, too hard
-		"QPolygonF",                           // Extends a QVector<QPoint> template class, too hard
-		"QAssociativeIterator",                // Qt 6. Extends a QIterator<>, too hard
-		"QAssociativeConstIterator",           // Qt 6. Extends a QIterator<>, too hard
-		"QAssociativeIterable",                // Qt 6. Extends a QIterator<>, too hard
-		"QSequentialIterator",                 // Qt 6. Extends a QIterator<>, too hard
-		"QSequentialConstIterator",            // Qt 6. Extends a QIterator<>, too hard
-		"QSequentialIterable",                 // Qt 6. Extends a QIterator<>, too hard
-		"QBrushDataPointerDeleter",            // Qt 6 qbrush.h. Appears in header but cannot be linked
-		"QPropertyBindingPrivatePtr",          // Qt 6 qpropertyprivate.h. Appears in header but cannot be linked
-		"QDeferredDeleteEvent",                // Qt 6. Hidden/undocumented class in Qt 6.4, moved to private header in Qt 6.7. Intended for test use only
-		"QVariantConstPointer",                // Qt 6, possible to bind but yields little value
-		"KCoreConfigSkeleton::ItemString",     // Qt 6 kcoreconfigskeleton.h, inherits from KConfigSkeletonGenericItem<QString>
-		"KCoreConfigSkeleton::ItemUrl",        // Qt 6 kcoreconfigskeleton.h, inherits from KConfigSkeletonGenericItem<QUrl>
-		"KCoreConfigSkeleton::ItemProperty",   // Qt 6 kcoreconfigskeleton.h, inherits from KConfigSkeletonGenericItem<QVariant>
-		"KCoreConfigSkeleton::ItemBool",       // Qt 6 kcoreconfigskeleton.h, inherits from KConfigSkeletonGenericItem<bool>
-		"KCoreConfigSkeleton::ItemInt",        // Qt 6 kcoreconfigskeleton.h, inherits from KConfigSkeletonGenericItem<qint32>
-		"KCoreConfigSkeleton::ItemLongLong",   // Qt 6 kcoreconfigskeleton.h, inherits from KConfigSkeletonGenericItem<qint64>
-		"KCoreConfigSkeleton::ItemUInt",       // Qt 6 kcoreconfigskeleton.h, inherits from KConfigSkeletonGenericItem<quint32>
-		"KCoreConfigSkeleton::ItemULongLong",  // Qt 6 kcoreconfigskeleton.h, inherits from KConfigSkeletonGenericItem<quint64>
-		"KCoreConfigSkeleton::ItemDouble",     // Qt 6 kcoreconfigskeleton.h, inherits from KConfigSkeletonGenericItem<double>
-		"KCoreConfigSkeleton::ItemRect",       // Qt 6 kcoreconfigskeleton.h, inherits from KConfigSkeletonGenericItem<QRect>
-		"KCoreConfigSkeleton::ItemRectF",      // Qt 6 kcoreconfigskeleton.h, inherits from KConfigSkeletonGenericItem<QRectF>
-		"KCoreConfigSkeleton::ItemPoint",      // Qt 6 kcoreconfigskeleton.h, inherits from KConfigSkeletonGenericItem<QPoint>
-		"KCoreConfigSkeleton::ItemPointF",     // Qt 6 kcoreconfigskeleton.h, inherits from KConfigSkeletonGenericItem<QPointF>
-		"KCoreConfigSkeleton::ItemSize",       // Qt 6 kcoreconfigskeleton.h, inherits from KConfigSkeletonGenericItem<QSize>
-		"KCoreConfigSkeleton::ItemSizeF",      // Qt 6 kcoreconfigskeleton.h, inherits from KConfigSkeletonGenericItem<QSizeF>
-		"KCoreConfigSkeleton::ItemDateTime",   // Qt 6 kcoreconfigskeleton.h, inherits from KConfigSkeletonGenericItem<QDateTime>
-		"KCoreConfigSkeleton::ItemStringList", // Qt 6 kcoreconfigskeleton.h, inherits from KConfigSkeletonGenericItem<QStringList>
-		"KCoreConfigSkeleton::ItemUrlList",    // Qt 6 kcoreconfigskeleton.h, inherits from KConfigSkeletonGenericItem<QList<QUrl>>
-		"KCoreConfigSkeleton::ItemIntList",    // Qt 6 kcoreconfigskeleton.h, inherits from KConfigSkeletonGenericItem<QList<int>>
-		"KConfigSkeleton::ItemColor",          // Qt 6 kconfigskeleton.h, inherits from KConfigSkeletonGenericItem<QColor>
-		"KConfigSkeleton::ItemFont",           // Qt 6 kconfigskeleton.h, inherits from KConfigSkeletonGenericItem<QFont>
-		"KGroupId",                            // Qt 6 kuser.h, inherits from KUserOrGroupId<unsigned int>
-		"KUserId",                             // Qt 6 kuser.h, inherits from KUserOrGroupId<unsigned int>
-		"KCompletionMatches",                  // Qt 6 kcompletionmatches.h, inherits from KSortableList<QString>
-		"KQuickIconProvider",                  // Qt 6 kquickiconprovider.h, inherits from QQuickImageProvider
-		"KBookmarkGroupTraverser",             // Qt 6 kbookmark.h, a legacy class
-		"KLocalization::Internal",             // Qt 6 klocalizedqmlcontext.h
-		"KSycocaFactory",                      // Qt 6 ksycoca.h, a legacy class
-		"KSycocaFactoryList",                  // Qt 6 ksycoca.h, a legacy class
-		"NETWinInfo",                          // Qt 6 kwindowsystem.h
-		"NETRootInfo",                         // Qt 6 kwindowsystem.h
-		"OrgKdeKDirNotifyInterface",           // Qt 6 kdirnotify.h
+		"QTextStreamManipulator",     // Only seems to contain garbage methods
+		"QException",                 // Extends std::exception, too hard
+		"QGenericRunnable",           // Qt 6, Unavailable class header in Qt 6.8
+		"QUnhandledException",        // As above (child class)
+		"QPolygon",                   // Extends a QVector<QPoint> template class, too hard
+		"QPolygonF",                  // Extends a QVector<QPoint> template class, too hard
+		"QAssociativeIterator",       // Qt 6. Extends a QIterator<>, too hard
+		"QAssociativeConstIterator",  // Qt 6. Extends a QIterator<>, too hard
+		"QAssociativeIterable",       // Qt 6. Extends a QIterator<>, too hard
+		"QSequentialIterator",        // Qt 6. Extends a QIterator<>, too hard
+		"QSequentialConstIterator",   // Qt 6. Extends a QIterator<>, too hard
+		"QSequentialIterable",        // Qt 6. Extends a QIterator<>, too hard
+		"QBrushDataPointerDeleter",   // Qt 6 qbrush.h. Appears in header but cannot be linked
+		"QPropertyBindingPrivatePtr", // Qt 6 qpropertyprivate.h. Appears in header but cannot be linked
+		"QVariantConstPointer",       // Qt 6, possible to bind but yields little value
+		"KCompletionMatchesWrapper",  // Qt 6 kcompletionmatches.h, incomplete forward declaration
+		"KGroupId",                   // Qt 6 kuser.h, inherits from KUserOrGroupId<unsigned int>
+		"KUserId",                    // Qt 6 kuser.h, inherits from KUserOrGroupId<unsigned int>
+		"KQuickIconProvider",         // Qt 6 kquickiconprovider.h, inherits from QQuickImageProvider
+		"KBookmarkGroupTraverser",    // Qt 6 kbookmark.h, a legacy class
+		"KLocalization::Internal",    // Qt 6 klocalizedqmlcontext.h
+		"KSycocaFactory",             // Qt 6 ksycoca.h, a legacy class
+		"KSycocaFactoryList",         // Qt 6 ksycoca.h, a legacy class
+		"NETWinInfo",                 // Qt 6 kwindowsystem.h
+		"NETRootInfo",                // Qt 6 kwindowsystem.h
+		"OrgKdeKDirNotifyInterface",  // Qt 6 kdirnotify.h
 		"____last____":
 		return false
 	}
@@ -952,6 +930,34 @@ func AllowInnerClassDef(className string) bool {
 // methods and/or inheritance.
 func AllowInheritedClass(className string) ([]string, bool) {
 	switch className {
+	case
+		"KCompletionMatches": // Qt 6 kcompletionmatches.h, inherits from KSortableList<QString>
+		return nil, true
+
+	case
+		"KConfigSkeleton::ItemColor",          // Qt 6 kconfigskeleton.h, inherits from KConfigSkeletonGenericItem<QColor>
+		"KConfigSkeleton::ItemFont",           // Qt 6 kconfigskeleton.h, inherits from KConfigSkeletonGenericItem<QFont>
+		"KCoreConfigSkeleton::ItemBool",       // Qt 6 kcoreconfigskeleton.h, inherits from KConfigSkeletonGenericItem<bool>
+		"KCoreConfigSkeleton::ItemDateTime",   // Qt 6 kcoreconfigskeleton.h, inherits from KConfigSkeletonGenericItem<QDateTime>
+		"KCoreConfigSkeleton::ItemDouble",     // Qt 6 kcoreconfigskeleton.h, inherits from KConfigSkeletonGenericItem<double>
+		"KCoreConfigSkeleton::ItemInt",        // Qt 6 kcoreconfigskeleton.h, inherits from KConfigSkeletonGenericItem<qint32>
+		"KCoreConfigSkeleton::ItemIntList",    // Qt 6 kcoreconfigskeleton.h, inherits from KConfigSkeletonGenericItem<QList<int>>
+		"KCoreConfigSkeleton::ItemLongLong",   // Qt 6 kcoreconfigskeleton.h, inherits from KConfigSkeletonGenericItem<qint64>
+		"KCoreConfigSkeleton::ItemPoint",      // Qt 6 kcoreconfigskeleton.h, inherits from KConfigSkeletonGenericItem<QPoint>
+		"KCoreConfigSkeleton::ItemPointF",     // Qt 6 kcoreconfigskeleton.h, inherits from KConfigSkeletonGenericItem<QPointF>
+		"KCoreConfigSkeleton::ItemProperty",   // Qt 6 kcoreconfigskeleton.h, inherits from KConfigSkeletonGenericItem<QVariant>
+		"KCoreConfigSkeleton::ItemRect",       // Qt 6 kcoreconfigskeleton.h, inherits from KConfigSkeletonGenericItem<QRect>
+		"KCoreConfigSkeleton::ItemRectF",      // Qt 6 kcoreconfigskeleton.h, inherits from KConfigSkeletonGenericItem<QRectF>
+		"KCoreConfigSkeleton::ItemSize",       // Qt 6 kcoreconfigskeleton.h, inherits from KConfigSkeletonGenericItem<QSize>
+		"KCoreConfigSkeleton::ItemSizeF",      // Qt 6 kcoreconfigskeleton.h, inherits from KConfigSkeletonGenericItem<QSizeF>
+		"KCoreConfigSkeleton::ItemString",     // Qt 6 kcoreconfigskeleton.h, inherits from KConfigSkeletonGenericItem<QString>
+		"KCoreConfigSkeleton::ItemStringList", // Qt 6 kcoreconfigskeleton.h, inherits from KConfigSkeletonGenericItem<QStringList>
+		"KCoreConfigSkeleton::ItemUInt",       // Qt 6 kcoreconfigskeleton.h, inherits from KConfigSkeletonGenericItem<quint32>
+		"KCoreConfigSkeleton::ItemULongLong",  // Qt 6 kcoreconfigskeleton.h, inherits from KConfigSkeletonGenericItem<quint64>
+		"KCoreConfigSkeleton::ItemUrl",        // Qt 6 kcoreconfigskeleton.h, inherits from KConfigSkeletonGenericItem<QUrl>
+		"KCoreConfigSkeleton::ItemUrlList":    // Qt 6 kcoreconfigskeleton.h, inherits from KConfigSkeletonGenericItem<QList<QUrl>>
+		return []string{"KConfigSkeletonGenericItem"}, true
+
 	case
 		"QCPBars",           // Qt 6 qcustomplot.h, inherits from QCPAbstractPlottable1D<QCPBarsData>
 		"QCPCurve",          // Qt 6 qcustomplot.h, inherits from QCPAbstractPlottable1D<QCPCurveData>
