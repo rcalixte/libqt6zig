@@ -27,6 +27,7 @@ class VirtualKCompletion final : public KCompletion {
     using KCompletion_SetItems_Callback = void (*)(KCompletion*, libqt_list /* of libqt_string */);
     using KCompletion_Clear_Callback = void (*)();
     using KCompletion_PostProcessMatches_Callback = void (*)(const KCompletion*, libqt_list /* of libqt_string */);
+    using KCompletion_PostProcessMatches2_Callback = void (*)(const KCompletion*, KCompletionMatches*);
     using KCompletion_Event_Callback = bool (*)(KCompletion*, QEvent*);
     using KCompletion_EventFilter_Callback = bool (*)(KCompletion*, QObject*, QEvent*);
     using KCompletion_TimerEvent_Callback = void (*)(KCompletion*, QTimerEvent*);
@@ -52,6 +53,7 @@ class VirtualKCompletion final : public KCompletion {
     KCompletion_SetItems_Callback kcompletion_setitems_callback = nullptr;
     KCompletion_Clear_Callback kcompletion_clear_callback = nullptr;
     KCompletion_PostProcessMatches_Callback kcompletion_postprocessmatches_callback = nullptr;
+    KCompletion_PostProcessMatches2_Callback kcompletion_postprocessmatches2_callback = nullptr;
     KCompletion_Event_Callback kcompletion_event_callback = nullptr;
     KCompletion_EventFilter_Callback kcompletion_eventfilter_callback = nullptr;
     KCompletion_TimerEvent_Callback kcompletion_timerevent_callback = nullptr;
@@ -76,6 +78,7 @@ class VirtualKCompletion final : public KCompletion {
     mutable bool kcompletion_setitems_isbase = false;
     mutable bool kcompletion_clear_isbase = false;
     mutable bool kcompletion_postprocessmatches_isbase = false;
+    mutable bool kcompletion_postprocessmatches2_isbase = false;
     mutable bool kcompletion_event_isbase = false;
     mutable bool kcompletion_eventfilter_isbase = false;
     mutable bool kcompletion_timerevent_isbase = false;
@@ -103,6 +106,7 @@ class VirtualKCompletion final : public KCompletion {
         kcompletion_setitems_callback = nullptr;
         kcompletion_clear_callback = nullptr;
         kcompletion_postprocessmatches_callback = nullptr;
+        kcompletion_postprocessmatches2_callback = nullptr;
         kcompletion_event_callback = nullptr;
         kcompletion_eventfilter_callback = nullptr;
         kcompletion_timerevent_callback = nullptr;
@@ -128,6 +132,7 @@ class VirtualKCompletion final : public KCompletion {
     inline void setKCompletion_SetItems_Callback(KCompletion_SetItems_Callback cb) { kcompletion_setitems_callback = cb; }
     inline void setKCompletion_Clear_Callback(KCompletion_Clear_Callback cb) { kcompletion_clear_callback = cb; }
     inline void setKCompletion_PostProcessMatches_Callback(KCompletion_PostProcessMatches_Callback cb) { kcompletion_postprocessmatches_callback = cb; }
+    inline void setKCompletion_PostProcessMatches2_Callback(KCompletion_PostProcessMatches2_Callback cb) { kcompletion_postprocessmatches2_callback = cb; }
     inline void setKCompletion_Event_Callback(KCompletion_Event_Callback cb) { kcompletion_event_callback = cb; }
     inline void setKCompletion_EventFilter_Callback(KCompletion_EventFilter_Callback cb) { kcompletion_eventfilter_callback = cb; }
     inline void setKCompletion_TimerEvent_Callback(KCompletion_TimerEvent_Callback cb) { kcompletion_timerevent_callback = cb; }
@@ -152,6 +157,7 @@ class VirtualKCompletion final : public KCompletion {
     inline void setKCompletion_SetItems_IsBase(bool value) const { kcompletion_setitems_isbase = value; }
     inline void setKCompletion_Clear_IsBase(bool value) const { kcompletion_clear_isbase = value; }
     inline void setKCompletion_PostProcessMatches_IsBase(bool value) const { kcompletion_postprocessmatches_isbase = value; }
+    inline void setKCompletion_PostProcessMatches2_IsBase(bool value) const { kcompletion_postprocessmatches2_isbase = value; }
     inline void setKCompletion_Event_IsBase(bool value) const { kcompletion_event_isbase = value; }
     inline void setKCompletion_EventFilter_IsBase(bool value) const { kcompletion_eventfilter_isbase = value; }
     inline void setKCompletion_TimerEvent_IsBase(bool value) const { kcompletion_timerevent_isbase = value; }
@@ -351,6 +357,20 @@ class VirtualKCompletion final : public KCompletion {
     }
 
     // Virtual method for C ABI access and custom callback
+    virtual void postProcessMatches(KCompletionMatches* matches) const override {
+        if (kcompletion_postprocessmatches2_isbase) {
+            kcompletion_postprocessmatches2_isbase = false;
+            KCompletion::postProcessMatches(matches);
+        } else if (kcompletion_postprocessmatches2_callback != nullptr) {
+            KCompletionMatches* cbval1 = matches;
+
+            kcompletion_postprocessmatches2_callback(this, cbval1);
+        } else {
+            KCompletion::postProcessMatches(matches);
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
     virtual bool event(QEvent* event) override {
         if (kcompletion_event_isbase) {
             kcompletion_event_isbase = false;
@@ -530,6 +550,8 @@ class VirtualKCompletion final : public KCompletion {
     // Friend functions
     friend void KCompletion_PostProcessMatches(const KCompletion* self, libqt_list /* of libqt_string */ matchList);
     friend void KCompletion_QBasePostProcessMatches(const KCompletion* self, libqt_list /* of libqt_string */ matchList);
+    friend void KCompletion_PostProcessMatches2(const KCompletion* self, KCompletionMatches* matches);
+    friend void KCompletion_QBasePostProcessMatches2(const KCompletion* self, KCompletionMatches* matches);
     friend void KCompletion_TimerEvent(KCompletion* self, QTimerEvent* event);
     friend void KCompletion_QBaseTimerEvent(KCompletion* self, QTimerEvent* event);
     friend void KCompletion_ChildEvent(KCompletion* self, QChildEvent* event);

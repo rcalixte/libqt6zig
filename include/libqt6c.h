@@ -615,6 +615,7 @@
 #include "extras-kcompletion/libkcompletion.h"
 #include "extras-kcompletion/libkcompletionbase.h"
 #include "extras-kcompletion/libkcompletionbox.h"
+#include "extras-kcompletion/libkcompletionmatches.h"
 #include "extras-kcompletion/libkemailvalidator.h"
 #include "extras-kcompletion/libkhistorycombobox.h"
 #include "extras-kcompletion/libklineedit.h"

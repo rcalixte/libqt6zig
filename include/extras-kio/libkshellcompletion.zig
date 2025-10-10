@@ -149,6 +149,31 @@ pub const kshellcompletion = struct {
         qtc.KShellCompletion_QBasePostProcessMatches(@ptrCast(self), matches_list);
     }
 
+    /// [Qt documentation](https://api.kde.org/kshellcompletion.html#postProcessMatches)
+    ///
+    /// ``` self: QtC.KShellCompletion, matches: QtC.KCompletionMatches ```
+    pub fn PostProcessMatches2(self: ?*anyopaque, matches: ?*anyopaque) void {
+        qtc.KShellCompletion_PostProcessMatches2(@ptrCast(self), @ptrCast(matches));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kshellcompletion.html#postProcessMatches)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KShellCompletion, callback: *const fn (self: QtC.KShellCompletion, matches: QtC.KCompletionMatches) callconv(.c) void ```
+    pub fn OnPostProcessMatches2(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KShellCompletion_OnPostProcessMatches2(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kshellcompletion.html#postProcessMatches)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KShellCompletion, matches: QtC.KCompletionMatches ```
+    pub fn QBasePostProcessMatches2(self: ?*anyopaque, matches: ?*anyopaque) void {
+        qtc.KShellCompletion_QBasePostProcessMatches2(@ptrCast(self), @ptrCast(matches));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
@@ -422,6 +447,28 @@ pub const kshellcompletion = struct {
             _ret[i] = _buf;
         }
         return _ret;
+    }
+
+    /// Inherited from KCompletion
+    ///
+    /// [Qt documentation](https://api.kde.org/kcompletion.html#allWeightedMatches)
+    ///
+    /// ``` self: QtC.KShellCompletion ```
+    pub fn AllWeightedMatches(self: ?*anyopaque) QtC.KCompletionMatches {
+        return qtc.KCompletion_AllWeightedMatches(@ptrCast(self));
+    }
+
+    /// Inherited from KCompletion
+    ///
+    /// [Qt documentation](https://api.kde.org/kcompletion.html#allWeightedMatches)
+    ///
+    /// ``` self: QtC.KShellCompletion, stringVal: []const u8 ```
+    pub fn AllWeightedMatches2(self: ?*anyopaque, stringVal: []const u8) QtC.KCompletionMatches {
+        const stringVal_str = qtc.libqt_string{
+            .len = stringVal.len,
+            .data = stringVal.ptr,
+        };
+        return qtc.KCompletion_AllWeightedMatches2(@ptrCast(self), stringVal_str);
     }
 
     /// Inherited from KCompletion

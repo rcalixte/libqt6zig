@@ -1,22 +1,49 @@
 #include <KConfig>
 #include <KConfigGroup>
 #include <KCoreConfigSkeleton>
+#define WORKAROUND_INNER_CLASS_DEFINITION_KCoreConfigSkeleton__ItemBool
+#define WORKAROUND_INNER_CLASS_DEFINITION_KCoreConfigSkeleton__ItemDateTime
+#define WORKAROUND_INNER_CLASS_DEFINITION_KCoreConfigSkeleton__ItemDouble
 #define WORKAROUND_INNER_CLASS_DEFINITION_KCoreConfigSkeleton__ItemEnum
 #define WORKAROUND_INNER_CLASS_DEFINITION_KCoreConfigSkeleton__ItemEnum__Choice
+#define WORKAROUND_INNER_CLASS_DEFINITION_KCoreConfigSkeleton__ItemInt
+#define WORKAROUND_INNER_CLASS_DEFINITION_KCoreConfigSkeleton__ItemIntList
+#define WORKAROUND_INNER_CLASS_DEFINITION_KCoreConfigSkeleton__ItemLongLong
 #define WORKAROUND_INNER_CLASS_DEFINITION_KCoreConfigSkeleton__ItemPassword
 #define WORKAROUND_INNER_CLASS_DEFINITION_KCoreConfigSkeleton__ItemPath
 #define WORKAROUND_INNER_CLASS_DEFINITION_KCoreConfigSkeleton__ItemPathList
+#define WORKAROUND_INNER_CLASS_DEFINITION_KCoreConfigSkeleton__ItemPoint
+#define WORKAROUND_INNER_CLASS_DEFINITION_KCoreConfigSkeleton__ItemPointF
+#define WORKAROUND_INNER_CLASS_DEFINITION_KCoreConfigSkeleton__ItemProperty
+#define WORKAROUND_INNER_CLASS_DEFINITION_KCoreConfigSkeleton__ItemRect
+#define WORKAROUND_INNER_CLASS_DEFINITION_KCoreConfigSkeleton__ItemRectF
+#define WORKAROUND_INNER_CLASS_DEFINITION_KCoreConfigSkeleton__ItemSize
+#define WORKAROUND_INNER_CLASS_DEFINITION_KCoreConfigSkeleton__ItemSizeF
+#define WORKAROUND_INNER_CLASS_DEFINITION_KCoreConfigSkeleton__ItemString
+#define WORKAROUND_INNER_CLASS_DEFINITION_KCoreConfigSkeleton__ItemStringList
+#define WORKAROUND_INNER_CLASS_DEFINITION_KCoreConfigSkeleton__ItemUInt
+#define WORKAROUND_INNER_CLASS_DEFINITION_KCoreConfigSkeleton__ItemULongLong
+#define WORKAROUND_INNER_CLASS_DEFINITION_KCoreConfigSkeleton__ItemUrl
+#define WORKAROUND_INNER_CLASS_DEFINITION_KCoreConfigSkeleton__ItemUrlList
 #include <QByteArray>
 #include <QChildEvent>
+#include <QDateTime>
 #include <QEvent>
 #include <QList>
 #include <QMetaMethod>
 #include <QMetaObject>
 #include <QObject>
+#include <QPoint>
+#include <QPointF>
+#include <QRect>
+#include <QRectF>
+#include <QSize>
+#include <QSizeF>
 #include <QString>
 #include <QByteArray>
 #include <cstring>
 #include <QTimerEvent>
+#include <QUrl>
 #include <QVariant>
 #include <kcoreconfigskeleton.h>
 #include "libkcoreconfigskeleton.h"
@@ -952,6 +979,12 @@ void KCoreConfigSkeleton_AddItem(KCoreConfigSkeleton* self, KConfigSkeletonItem*
     self->addItem(item);
 }
 
+KCoreConfigSkeleton__ItemString* KCoreConfigSkeleton_AddItemString(KCoreConfigSkeleton* self, const libqt_string name, libqt_string reference) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    QString reference_QString = QString::fromUtf8(reference.data, reference.len);
+    return self->addItemString(name_QString, reference_QString);
+}
+
 KCoreConfigSkeleton__ItemPassword* KCoreConfigSkeleton_AddItemPassword(KCoreConfigSkeleton* self, const libqt_string name, libqt_string reference) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
     QString reference_QString = QString::fromUtf8(reference.data, reference.len);
@@ -962,6 +995,99 @@ KCoreConfigSkeleton__ItemPath* KCoreConfigSkeleton_AddItemPath(KCoreConfigSkelet
     QString name_QString = QString::fromUtf8(name.data, name.len);
     QString reference_QString = QString::fromUtf8(reference.data, reference.len);
     return self->addItemPath(name_QString, reference_QString);
+}
+
+KCoreConfigSkeleton__ItemProperty* KCoreConfigSkeleton_AddItemProperty(KCoreConfigSkeleton* self, const libqt_string name, QVariant* reference) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    return self->addItemProperty(name_QString, *reference);
+}
+
+KCoreConfigSkeleton__ItemBool* KCoreConfigSkeleton_AddItemBool(KCoreConfigSkeleton* self, const libqt_string name, bool* reference) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    return self->addItemBool(name_QString, *reference);
+}
+
+KCoreConfigSkeleton__ItemInt* KCoreConfigSkeleton_AddItemInt(KCoreConfigSkeleton* self, const libqt_string name, int* reference) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    return self->addItemInt(name_QString, static_cast<qint32&>(*reference));
+}
+
+KCoreConfigSkeleton__ItemUInt* KCoreConfigSkeleton_AddItemUInt(KCoreConfigSkeleton* self, const libqt_string name, unsigned int* reference) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    return self->addItemUInt(name_QString, static_cast<quint32&>(*reference));
+}
+
+KCoreConfigSkeleton__ItemLongLong* KCoreConfigSkeleton_AddItemLongLong(KCoreConfigSkeleton* self, const libqt_string name, long long* reference) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    return self->addItemLongLong(name_QString, static_cast<qint64&>(*reference));
+}
+
+KCoreConfigSkeleton__ItemULongLong* KCoreConfigSkeleton_AddItemULongLong(KCoreConfigSkeleton* self, const libqt_string name, unsigned long long* reference) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    return self->addItemULongLong(name_QString, static_cast<quint64&>(*reference));
+}
+
+KCoreConfigSkeleton__ItemDouble* KCoreConfigSkeleton_AddItemDouble(KCoreConfigSkeleton* self, const libqt_string name, double* reference) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    return self->addItemDouble(name_QString, static_cast<double&>(*reference));
+}
+
+KCoreConfigSkeleton__ItemRect* KCoreConfigSkeleton_AddItemRect(KCoreConfigSkeleton* self, const libqt_string name, QRect* reference) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    return self->addItemRect(name_QString, *reference);
+}
+
+KCoreConfigSkeleton__ItemRectF* KCoreConfigSkeleton_AddItemRectF(KCoreConfigSkeleton* self, const libqt_string name, QRectF* reference) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    return self->addItemRectF(name_QString, *reference);
+}
+
+KCoreConfigSkeleton__ItemPoint* KCoreConfigSkeleton_AddItemPoint(KCoreConfigSkeleton* self, const libqt_string name, QPoint* reference) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    return self->addItemPoint(name_QString, *reference);
+}
+
+KCoreConfigSkeleton__ItemPointF* KCoreConfigSkeleton_AddItemPointF(KCoreConfigSkeleton* self, const libqt_string name, QPointF* reference) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    return self->addItemPointF(name_QString, *reference);
+}
+
+KCoreConfigSkeleton__ItemSize* KCoreConfigSkeleton_AddItemSize(KCoreConfigSkeleton* self, const libqt_string name, QSize* reference) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    return self->addItemSize(name_QString, *reference);
+}
+
+KCoreConfigSkeleton__ItemSizeF* KCoreConfigSkeleton_AddItemSizeF(KCoreConfigSkeleton* self, const libqt_string name, QSizeF* reference) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    return self->addItemSizeF(name_QString, *reference);
+}
+
+KCoreConfigSkeleton__ItemDateTime* KCoreConfigSkeleton_AddItemDateTime(KCoreConfigSkeleton* self, const libqt_string name, QDateTime* reference) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    return self->addItemDateTime(name_QString, *reference);
+}
+
+KCoreConfigSkeleton__ItemStringList* KCoreConfigSkeleton_AddItemStringList(KCoreConfigSkeleton* self, const libqt_string name, libqt_list /* of libqt_string */ reference) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    QList<QString> reference_QList;
+    reference_QList.reserve(reference.len);
+    libqt_string* reference_arr = static_cast<libqt_string*>(reference.data);
+    for (size_t i = 0; i < reference.len; ++i) {
+        QString reference_arr_i_QString = QString::fromUtf8(reference_arr[i].data, reference_arr[i].len);
+        reference_QList.push_back(reference_arr_i_QString);
+    }
+    return self->addItemStringList(name_QString, reference_QList);
+}
+
+KCoreConfigSkeleton__ItemIntList* KCoreConfigSkeleton_AddItemIntList(KCoreConfigSkeleton* self, const libqt_string name, libqt_list /* of int */ reference) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    QList<int> reference_QList;
+    reference_QList.reserve(reference.len);
+    int* reference_arr = static_cast<int*>(reference.data);
+    for (size_t i = 0; i < reference.len; ++i) {
+        reference_QList.push_back(static_cast<int>(reference_arr[i]));
+    }
+    return self->addItemIntList(name_QString, reference_QList);
 }
 
 KConfig* KCoreConfigSkeleton_Config(KCoreConfigSkeleton* self) {
@@ -1087,6 +1213,21 @@ void KCoreConfigSkeleton_AddItem2(KCoreConfigSkeleton* self, KConfigSkeletonItem
     self->addItem(item, name_QString);
 }
 
+KCoreConfigSkeleton__ItemString* KCoreConfigSkeleton_AddItemString3(KCoreConfigSkeleton* self, const libqt_string name, libqt_string reference, const libqt_string defaultValue) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    QString reference_QString = QString::fromUtf8(reference.data, reference.len);
+    QString defaultValue_QString = QString::fromUtf8(defaultValue.data, defaultValue.len);
+    return self->addItemString(name_QString, reference_QString, defaultValue_QString);
+}
+
+KCoreConfigSkeleton__ItemString* KCoreConfigSkeleton_AddItemString4(KCoreConfigSkeleton* self, const libqt_string name, libqt_string reference, const libqt_string defaultValue, const libqt_string key) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    QString reference_QString = QString::fromUtf8(reference.data, reference.len);
+    QString defaultValue_QString = QString::fromUtf8(defaultValue.data, defaultValue.len);
+    QString key_QString = QString::fromUtf8(key.data, key.len);
+    return self->addItemString(name_QString, reference_QString, defaultValue_QString, key_QString);
+}
+
 KCoreConfigSkeleton__ItemPassword* KCoreConfigSkeleton_AddItemPassword3(KCoreConfigSkeleton* self, const libqt_string name, libqt_string reference, const libqt_string defaultValue) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
     QString reference_QString = QString::fromUtf8(reference.data, reference.len);
@@ -1115,6 +1256,234 @@ KCoreConfigSkeleton__ItemPath* KCoreConfigSkeleton_AddItemPath4(KCoreConfigSkele
     QString defaultValue_QString = QString::fromUtf8(defaultValue.data, defaultValue.len);
     QString key_QString = QString::fromUtf8(key.data, key.len);
     return self->addItemPath(name_QString, reference_QString, defaultValue_QString, key_QString);
+}
+
+KCoreConfigSkeleton__ItemProperty* KCoreConfigSkeleton_AddItemProperty3(KCoreConfigSkeleton* self, const libqt_string name, QVariant* reference, const QVariant* defaultValue) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    return self->addItemProperty(name_QString, *reference, *defaultValue);
+}
+
+KCoreConfigSkeleton__ItemProperty* KCoreConfigSkeleton_AddItemProperty4(KCoreConfigSkeleton* self, const libqt_string name, QVariant* reference, const QVariant* defaultValue, const libqt_string key) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    QString key_QString = QString::fromUtf8(key.data, key.len);
+    return self->addItemProperty(name_QString, *reference, *defaultValue, key_QString);
+}
+
+KCoreConfigSkeleton__ItemBool* KCoreConfigSkeleton_AddItemBool3(KCoreConfigSkeleton* self, const libqt_string name, bool* reference, bool defaultValue) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    return self->addItemBool(name_QString, *reference, defaultValue);
+}
+
+KCoreConfigSkeleton__ItemBool* KCoreConfigSkeleton_AddItemBool4(KCoreConfigSkeleton* self, const libqt_string name, bool* reference, bool defaultValue, const libqt_string key) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    QString key_QString = QString::fromUtf8(key.data, key.len);
+    return self->addItemBool(name_QString, *reference, defaultValue, key_QString);
+}
+
+KCoreConfigSkeleton__ItemInt* KCoreConfigSkeleton_AddItemInt3(KCoreConfigSkeleton* self, const libqt_string name, int* reference, int defaultValue) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    return self->addItemInt(name_QString, static_cast<qint32&>(*reference), static_cast<qint32>(defaultValue));
+}
+
+KCoreConfigSkeleton__ItemInt* KCoreConfigSkeleton_AddItemInt4(KCoreConfigSkeleton* self, const libqt_string name, int* reference, int defaultValue, const libqt_string key) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    QString key_QString = QString::fromUtf8(key.data, key.len);
+    return self->addItemInt(name_QString, static_cast<qint32&>(*reference), static_cast<qint32>(defaultValue), key_QString);
+}
+
+KCoreConfigSkeleton__ItemUInt* KCoreConfigSkeleton_AddItemUInt3(KCoreConfigSkeleton* self, const libqt_string name, unsigned int* reference, unsigned int defaultValue) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    return self->addItemUInt(name_QString, static_cast<quint32&>(*reference), static_cast<quint32>(defaultValue));
+}
+
+KCoreConfigSkeleton__ItemUInt* KCoreConfigSkeleton_AddItemUInt4(KCoreConfigSkeleton* self, const libqt_string name, unsigned int* reference, unsigned int defaultValue, const libqt_string key) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    QString key_QString = QString::fromUtf8(key.data, key.len);
+    return self->addItemUInt(name_QString, static_cast<quint32&>(*reference), static_cast<quint32>(defaultValue), key_QString);
+}
+
+KCoreConfigSkeleton__ItemLongLong* KCoreConfigSkeleton_AddItemLongLong3(KCoreConfigSkeleton* self, const libqt_string name, long long* reference, long long defaultValue) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    return self->addItemLongLong(name_QString, static_cast<qint64&>(*reference), static_cast<qint64>(defaultValue));
+}
+
+KCoreConfigSkeleton__ItemLongLong* KCoreConfigSkeleton_AddItemLongLong4(KCoreConfigSkeleton* self, const libqt_string name, long long* reference, long long defaultValue, const libqt_string key) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    QString key_QString = QString::fromUtf8(key.data, key.len);
+    return self->addItemLongLong(name_QString, static_cast<qint64&>(*reference), static_cast<qint64>(defaultValue), key_QString);
+}
+
+KCoreConfigSkeleton__ItemULongLong* KCoreConfigSkeleton_AddItemULongLong3(KCoreConfigSkeleton* self, const libqt_string name, unsigned long long* reference, unsigned long long defaultValue) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    return self->addItemULongLong(name_QString, static_cast<quint64&>(*reference), static_cast<quint64>(defaultValue));
+}
+
+KCoreConfigSkeleton__ItemULongLong* KCoreConfigSkeleton_AddItemULongLong4(KCoreConfigSkeleton* self, const libqt_string name, unsigned long long* reference, unsigned long long defaultValue, const libqt_string key) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    QString key_QString = QString::fromUtf8(key.data, key.len);
+    return self->addItemULongLong(name_QString, static_cast<quint64&>(*reference), static_cast<quint64>(defaultValue), key_QString);
+}
+
+KCoreConfigSkeleton__ItemDouble* KCoreConfigSkeleton_AddItemDouble3(KCoreConfigSkeleton* self, const libqt_string name, double* reference, double defaultValue) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    return self->addItemDouble(name_QString, static_cast<double&>(*reference), static_cast<double>(defaultValue));
+}
+
+KCoreConfigSkeleton__ItemDouble* KCoreConfigSkeleton_AddItemDouble4(KCoreConfigSkeleton* self, const libqt_string name, double* reference, double defaultValue, const libqt_string key) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    QString key_QString = QString::fromUtf8(key.data, key.len);
+    return self->addItemDouble(name_QString, static_cast<double&>(*reference), static_cast<double>(defaultValue), key_QString);
+}
+
+KCoreConfigSkeleton__ItemRect* KCoreConfigSkeleton_AddItemRect3(KCoreConfigSkeleton* self, const libqt_string name, QRect* reference, const QRect* defaultValue) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    return self->addItemRect(name_QString, *reference, *defaultValue);
+}
+
+KCoreConfigSkeleton__ItemRect* KCoreConfigSkeleton_AddItemRect4(KCoreConfigSkeleton* self, const libqt_string name, QRect* reference, const QRect* defaultValue, const libqt_string key) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    QString key_QString = QString::fromUtf8(key.data, key.len);
+    return self->addItemRect(name_QString, *reference, *defaultValue, key_QString);
+}
+
+KCoreConfigSkeleton__ItemRectF* KCoreConfigSkeleton_AddItemRectF3(KCoreConfigSkeleton* self, const libqt_string name, QRectF* reference, const QRectF* defaultValue) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    return self->addItemRectF(name_QString, *reference, *defaultValue);
+}
+
+KCoreConfigSkeleton__ItemRectF* KCoreConfigSkeleton_AddItemRectF4(KCoreConfigSkeleton* self, const libqt_string name, QRectF* reference, const QRectF* defaultValue, const libqt_string key) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    QString key_QString = QString::fromUtf8(key.data, key.len);
+    return self->addItemRectF(name_QString, *reference, *defaultValue, key_QString);
+}
+
+KCoreConfigSkeleton__ItemPoint* KCoreConfigSkeleton_AddItemPoint3(KCoreConfigSkeleton* self, const libqt_string name, QPoint* reference, const QPoint* defaultValue) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    return self->addItemPoint(name_QString, *reference, *defaultValue);
+}
+
+KCoreConfigSkeleton__ItemPoint* KCoreConfigSkeleton_AddItemPoint4(KCoreConfigSkeleton* self, const libqt_string name, QPoint* reference, const QPoint* defaultValue, const libqt_string key) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    QString key_QString = QString::fromUtf8(key.data, key.len);
+    return self->addItemPoint(name_QString, *reference, *defaultValue, key_QString);
+}
+
+KCoreConfigSkeleton__ItemPointF* KCoreConfigSkeleton_AddItemPointF3(KCoreConfigSkeleton* self, const libqt_string name, QPointF* reference, const QPointF* defaultValue) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    return self->addItemPointF(name_QString, *reference, *defaultValue);
+}
+
+KCoreConfigSkeleton__ItemPointF* KCoreConfigSkeleton_AddItemPointF4(KCoreConfigSkeleton* self, const libqt_string name, QPointF* reference, const QPointF* defaultValue, const libqt_string key) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    QString key_QString = QString::fromUtf8(key.data, key.len);
+    return self->addItemPointF(name_QString, *reference, *defaultValue, key_QString);
+}
+
+KCoreConfigSkeleton__ItemSize* KCoreConfigSkeleton_AddItemSize3(KCoreConfigSkeleton* self, const libqt_string name, QSize* reference, const QSize* defaultValue) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    return self->addItemSize(name_QString, *reference, *defaultValue);
+}
+
+KCoreConfigSkeleton__ItemSize* KCoreConfigSkeleton_AddItemSize4(KCoreConfigSkeleton* self, const libqt_string name, QSize* reference, const QSize* defaultValue, const libqt_string key) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    QString key_QString = QString::fromUtf8(key.data, key.len);
+    return self->addItemSize(name_QString, *reference, *defaultValue, key_QString);
+}
+
+KCoreConfigSkeleton__ItemSizeF* KCoreConfigSkeleton_AddItemSizeF3(KCoreConfigSkeleton* self, const libqt_string name, QSizeF* reference, const QSizeF* defaultValue) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    return self->addItemSizeF(name_QString, *reference, *defaultValue);
+}
+
+KCoreConfigSkeleton__ItemSizeF* KCoreConfigSkeleton_AddItemSizeF4(KCoreConfigSkeleton* self, const libqt_string name, QSizeF* reference, const QSizeF* defaultValue, const libqt_string key) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    QString key_QString = QString::fromUtf8(key.data, key.len);
+    return self->addItemSizeF(name_QString, *reference, *defaultValue, key_QString);
+}
+
+KCoreConfigSkeleton__ItemDateTime* KCoreConfigSkeleton_AddItemDateTime3(KCoreConfigSkeleton* self, const libqt_string name, QDateTime* reference, const QDateTime* defaultValue) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    return self->addItemDateTime(name_QString, *reference, *defaultValue);
+}
+
+KCoreConfigSkeleton__ItemDateTime* KCoreConfigSkeleton_AddItemDateTime4(KCoreConfigSkeleton* self, const libqt_string name, QDateTime* reference, const QDateTime* defaultValue, const libqt_string key) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    QString key_QString = QString::fromUtf8(key.data, key.len);
+    return self->addItemDateTime(name_QString, *reference, *defaultValue, key_QString);
+}
+
+KCoreConfigSkeleton__ItemStringList* KCoreConfigSkeleton_AddItemStringList3(KCoreConfigSkeleton* self, const libqt_string name, libqt_list /* of libqt_string */ reference, const libqt_list /* of libqt_string */ defaultValue) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    QList<QString> reference_QList;
+    reference_QList.reserve(reference.len);
+    libqt_string* reference_arr = static_cast<libqt_string*>(reference.data);
+    for (size_t i = 0; i < reference.len; ++i) {
+        QString reference_arr_i_QString = QString::fromUtf8(reference_arr[i].data, reference_arr[i].len);
+        reference_QList.push_back(reference_arr_i_QString);
+    }
+    QList<QString> defaultValue_QList;
+    defaultValue_QList.reserve(defaultValue.len);
+    libqt_string* defaultValue_arr = static_cast<libqt_string*>(defaultValue.data);
+    for (size_t i = 0; i < defaultValue.len; ++i) {
+        QString defaultValue_arr_i_QString = QString::fromUtf8(defaultValue_arr[i].data, defaultValue_arr[i].len);
+        defaultValue_QList.push_back(defaultValue_arr_i_QString);
+    }
+    return self->addItemStringList(name_QString, reference_QList, defaultValue_QList);
+}
+
+KCoreConfigSkeleton__ItemStringList* KCoreConfigSkeleton_AddItemStringList4(KCoreConfigSkeleton* self, const libqt_string name, libqt_list /* of libqt_string */ reference, const libqt_list /* of libqt_string */ defaultValue, const libqt_string key) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    QList<QString> reference_QList;
+    reference_QList.reserve(reference.len);
+    libqt_string* reference_arr = static_cast<libqt_string*>(reference.data);
+    for (size_t i = 0; i < reference.len; ++i) {
+        QString reference_arr_i_QString = QString::fromUtf8(reference_arr[i].data, reference_arr[i].len);
+        reference_QList.push_back(reference_arr_i_QString);
+    }
+    QList<QString> defaultValue_QList;
+    defaultValue_QList.reserve(defaultValue.len);
+    libqt_string* defaultValue_arr = static_cast<libqt_string*>(defaultValue.data);
+    for (size_t i = 0; i < defaultValue.len; ++i) {
+        QString defaultValue_arr_i_QString = QString::fromUtf8(defaultValue_arr[i].data, defaultValue_arr[i].len);
+        defaultValue_QList.push_back(defaultValue_arr_i_QString);
+    }
+    QString key_QString = QString::fromUtf8(key.data, key.len);
+    return self->addItemStringList(name_QString, reference_QList, defaultValue_QList, key_QString);
+}
+
+KCoreConfigSkeleton__ItemIntList* KCoreConfigSkeleton_AddItemIntList3(KCoreConfigSkeleton* self, const libqt_string name, libqt_list /* of int */ reference, const libqt_list /* of int */ defaultValue) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    QList<int> reference_QList;
+    reference_QList.reserve(reference.len);
+    int* reference_arr = static_cast<int*>(reference.data);
+    for (size_t i = 0; i < reference.len; ++i) {
+        reference_QList.push_back(static_cast<int>(reference_arr[i]));
+    }
+    QList<int> defaultValue_QList;
+    defaultValue_QList.reserve(defaultValue.len);
+    int* defaultValue_arr = static_cast<int*>(defaultValue.data);
+    for (size_t i = 0; i < defaultValue.len; ++i) {
+        defaultValue_QList.push_back(static_cast<int>(defaultValue_arr[i]));
+    }
+    return self->addItemIntList(name_QString, reference_QList, defaultValue_QList);
+}
+
+KCoreConfigSkeleton__ItemIntList* KCoreConfigSkeleton_AddItemIntList4(KCoreConfigSkeleton* self, const libqt_string name, libqt_list /* of int */ reference, const libqt_list /* of int */ defaultValue, const libqt_string key) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    QList<int> reference_QList;
+    reference_QList.reserve(reference.len);
+    int* reference_arr = static_cast<int*>(reference.data);
+    for (size_t i = 0; i < reference.len; ++i) {
+        reference_QList.push_back(static_cast<int>(reference_arr[i]));
+    }
+    QList<int> defaultValue_QList;
+    defaultValue_QList.reserve(defaultValue.len);
+    int* defaultValue_arr = static_cast<int*>(defaultValue.data);
+    for (size_t i = 0; i < defaultValue.len; ++i) {
+        defaultValue_QList.push_back(static_cast<int>(defaultValue_arr[i]));
+    }
+    QString key_QString = QString::fromUtf8(key.data, key.len);
+    return self->addItemIntList(name_QString, reference_QList, defaultValue_QList, key_QString);
 }
 
 // Base class handler implementation
@@ -1573,6 +1942,173 @@ void KCoreConfigSkeleton_Delete(KCoreConfigSkeleton* self) {
     delete self;
 }
 
+KCoreConfigSkeleton__ItemString* KCoreConfigSkeleton__ItemString_new(const libqt_string _group, const libqt_string _key, libqt_string reference) {
+    QString _group_QString = QString::fromUtf8(_group.data, _group.len);
+    QString _key_QString = QString::fromUtf8(_key.data, _key.len);
+    QString reference_QString = QString::fromUtf8(reference.data, reference.len);
+    return new VirtualKCoreConfigSkeletonItemString(_group_QString, _key_QString, reference_QString);
+}
+
+KCoreConfigSkeleton__ItemString* KCoreConfigSkeleton__ItemString_new2(const libqt_string _group, const libqt_string _key, libqt_string reference, const libqt_string defaultValue) {
+    QString _group_QString = QString::fromUtf8(_group.data, _group.len);
+    QString _key_QString = QString::fromUtf8(_key.data, _key.len);
+    QString reference_QString = QString::fromUtf8(reference.data, reference.len);
+    QString defaultValue_QString = QString::fromUtf8(defaultValue.data, defaultValue.len);
+    return new VirtualKCoreConfigSkeletonItemString(_group_QString, _key_QString, reference_QString, defaultValue_QString);
+}
+
+KCoreConfigSkeleton__ItemString* KCoreConfigSkeleton__ItemString_new3(const libqt_string _group, const libqt_string _key, libqt_string reference, const libqt_string defaultValue, int typeVal) {
+    QString _group_QString = QString::fromUtf8(_group.data, _group.len);
+    QString _key_QString = QString::fromUtf8(_key.data, _key.len);
+    QString reference_QString = QString::fromUtf8(reference.data, reference.len);
+    QString defaultValue_QString = QString::fromUtf8(defaultValue.data, defaultValue.len);
+    return new VirtualKCoreConfigSkeletonItemString(_group_QString, _key_QString, reference_QString, defaultValue_QString, static_cast<KCoreConfigSkeleton::ItemString::Type>(typeVal));
+}
+
+void KCoreConfigSkeleton__ItemString_WriteConfig(KCoreConfigSkeleton__ItemString* self, KConfig* config) {
+    auto* vkcoreconfigskeleton__itemstring = dynamic_cast<VirtualKCoreConfigSkeletonItemString*>(self);
+    if (vkcoreconfigskeleton__itemstring && vkcoreconfigskeleton__itemstring->isVirtualKCoreConfigSkeletonItemString) {
+        self->writeConfig(config);
+    } else {
+        ((VirtualKCoreConfigSkeletonItemString*)self)->writeConfig(config);
+    }
+}
+
+void KCoreConfigSkeleton__ItemString_ReadConfig(KCoreConfigSkeleton__ItemString* self, KConfig* config) {
+    auto* vkcoreconfigskeleton__itemstring = dynamic_cast<VirtualKCoreConfigSkeletonItemString*>(self);
+    if (vkcoreconfigskeleton__itemstring && vkcoreconfigskeleton__itemstring->isVirtualKCoreConfigSkeletonItemString) {
+        self->readConfig(config);
+    } else {
+        ((VirtualKCoreConfigSkeletonItemString*)self)->readConfig(config);
+    }
+}
+
+void KCoreConfigSkeleton__ItemString_SetProperty(KCoreConfigSkeleton__ItemString* self, const QVariant* p) {
+    auto* vkcoreconfigskeleton__itemstring = dynamic_cast<VirtualKCoreConfigSkeletonItemString*>(self);
+    if (vkcoreconfigskeleton__itemstring && vkcoreconfigskeleton__itemstring->isVirtualKCoreConfigSkeletonItemString) {
+        self->setProperty(*p);
+    } else {
+        ((VirtualKCoreConfigSkeletonItemString*)self)->setProperty(*p);
+    }
+}
+
+bool KCoreConfigSkeleton__ItemString_IsEqual(const KCoreConfigSkeleton__ItemString* self, const QVariant* p) {
+    auto* vkcoreconfigskeleton__itemstring = dynamic_cast<const VirtualKCoreConfigSkeletonItemString*>(self);
+    if (vkcoreconfigskeleton__itemstring && vkcoreconfigskeleton__itemstring->isVirtualKCoreConfigSkeletonItemString) {
+        return self->isEqual(*p);
+    } else {
+        return ((VirtualKCoreConfigSkeletonItemString*)self)->isEqual(*p);
+    }
+}
+
+QVariant* KCoreConfigSkeleton__ItemString_Property(const KCoreConfigSkeleton__ItemString* self) {
+    auto* vkcoreconfigskeleton__itemstring = dynamic_cast<const VirtualKCoreConfigSkeletonItemString*>(self);
+    if (vkcoreconfigskeleton__itemstring && vkcoreconfigskeleton__itemstring->isVirtualKCoreConfigSkeletonItemString) {
+        return new QVariant(self->property());
+    } else {
+        return new QVariant(((VirtualKCoreConfigSkeletonItemString*)self)->property());
+    }
+}
+
+// Base class handler implementation
+void KCoreConfigSkeleton__ItemString_QBaseWriteConfig(KCoreConfigSkeleton__ItemString* self, KConfig* config) {
+    auto* vkcoreconfigskeletonitemstring = dynamic_cast<VirtualKCoreConfigSkeletonItemString*>(self);
+    if (vkcoreconfigskeletonitemstring && vkcoreconfigskeletonitemstring->isVirtualKCoreConfigSkeletonItemString) {
+        vkcoreconfigskeletonitemstring->setKCoreConfigSkeleton__ItemString_WriteConfig_IsBase(true);
+        vkcoreconfigskeletonitemstring->writeConfig(config);
+    } else {
+        self->KCoreConfigSkeleton::ItemString::writeConfig(config);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemString_OnWriteConfig(KCoreConfigSkeleton__ItemString* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemstring = dynamic_cast<VirtualKCoreConfigSkeletonItemString*>(self);
+    if (vkcoreconfigskeletonitemstring && vkcoreconfigskeletonitemstring->isVirtualKCoreConfigSkeletonItemString) {
+        vkcoreconfigskeletonitemstring->setKCoreConfigSkeleton__ItemString_WriteConfig_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemString::KCoreConfigSkeleton__ItemString_WriteConfig_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KCoreConfigSkeleton__ItemString_QBaseReadConfig(KCoreConfigSkeleton__ItemString* self, KConfig* config) {
+    auto* vkcoreconfigskeletonitemstring = dynamic_cast<VirtualKCoreConfigSkeletonItemString*>(self);
+    if (vkcoreconfigskeletonitemstring && vkcoreconfigskeletonitemstring->isVirtualKCoreConfigSkeletonItemString) {
+        vkcoreconfigskeletonitemstring->setKCoreConfigSkeleton__ItemString_ReadConfig_IsBase(true);
+        vkcoreconfigskeletonitemstring->readConfig(config);
+    } else {
+        self->KCoreConfigSkeleton::ItemString::readConfig(config);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemString_OnReadConfig(KCoreConfigSkeleton__ItemString* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemstring = dynamic_cast<VirtualKCoreConfigSkeletonItemString*>(self);
+    if (vkcoreconfigskeletonitemstring && vkcoreconfigskeletonitemstring->isVirtualKCoreConfigSkeletonItemString) {
+        vkcoreconfigskeletonitemstring->setKCoreConfigSkeleton__ItemString_ReadConfig_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemString::KCoreConfigSkeleton__ItemString_ReadConfig_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KCoreConfigSkeleton__ItemString_QBaseSetProperty(KCoreConfigSkeleton__ItemString* self, const QVariant* p) {
+    auto* vkcoreconfigskeletonitemstring = dynamic_cast<VirtualKCoreConfigSkeletonItemString*>(self);
+    if (vkcoreconfigskeletonitemstring && vkcoreconfigskeletonitemstring->isVirtualKCoreConfigSkeletonItemString) {
+        vkcoreconfigskeletonitemstring->setKCoreConfigSkeleton__ItemString_SetProperty_IsBase(true);
+        vkcoreconfigskeletonitemstring->setProperty(*p);
+    } else {
+        self->KCoreConfigSkeleton::ItemString::setProperty(*p);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemString_OnSetProperty(KCoreConfigSkeleton__ItemString* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemstring = dynamic_cast<VirtualKCoreConfigSkeletonItemString*>(self);
+    if (vkcoreconfigskeletonitemstring && vkcoreconfigskeletonitemstring->isVirtualKCoreConfigSkeletonItemString) {
+        vkcoreconfigskeletonitemstring->setKCoreConfigSkeleton__ItemString_SetProperty_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemString::KCoreConfigSkeleton__ItemString_SetProperty_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool KCoreConfigSkeleton__ItemString_QBaseIsEqual(const KCoreConfigSkeleton__ItemString* self, const QVariant* p) {
+    auto* vkcoreconfigskeletonitemstring = const_cast<VirtualKCoreConfigSkeletonItemString*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemString*>(self));
+    if (vkcoreconfigskeletonitemstring && vkcoreconfigskeletonitemstring->isVirtualKCoreConfigSkeletonItemString) {
+        vkcoreconfigskeletonitemstring->setKCoreConfigSkeleton__ItemString_IsEqual_IsBase(true);
+        return vkcoreconfigskeletonitemstring->isEqual(*p);
+    } else {
+        return self->KCoreConfigSkeleton::ItemString::isEqual(*p);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemString_OnIsEqual(const KCoreConfigSkeleton__ItemString* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemstring = const_cast<VirtualKCoreConfigSkeletonItemString*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemString*>(self));
+    if (vkcoreconfigskeletonitemstring && vkcoreconfigskeletonitemstring->isVirtualKCoreConfigSkeletonItemString) {
+        vkcoreconfigskeletonitemstring->setKCoreConfigSkeleton__ItemString_IsEqual_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemString::KCoreConfigSkeleton__ItemString_IsEqual_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QVariant* KCoreConfigSkeleton__ItemString_QBaseProperty(const KCoreConfigSkeleton__ItemString* self) {
+    auto* vkcoreconfigskeletonitemstring = const_cast<VirtualKCoreConfigSkeletonItemString*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemString*>(self));
+    if (vkcoreconfigskeletonitemstring && vkcoreconfigskeletonitemstring->isVirtualKCoreConfigSkeletonItemString) {
+        vkcoreconfigskeletonitemstring->setKCoreConfigSkeleton__ItemString_Property_IsBase(true);
+        return new QVariant(vkcoreconfigskeletonitemstring->property());
+    } else {
+        return new QVariant(((VirtualKCoreConfigSkeletonItemString*)self)->property());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemString_OnProperty(const KCoreConfigSkeleton__ItemString* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemstring = const_cast<VirtualKCoreConfigSkeletonItemString*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemString*>(self));
+    if (vkcoreconfigskeletonitemstring && vkcoreconfigskeletonitemstring->isVirtualKCoreConfigSkeletonItemString) {
+        vkcoreconfigskeletonitemstring->setKCoreConfigSkeleton__ItemString_Property_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemString::KCoreConfigSkeleton__ItemString_Property_Callback>(slot));
+    }
+}
+
+void KCoreConfigSkeleton__ItemString_Delete(KCoreConfigSkeleton__ItemString* self) {
+    delete self;
+}
+
 KCoreConfigSkeleton__ItemPassword* KCoreConfigSkeleton__ItemPassword_new(const libqt_string _group, const libqt_string _key, libqt_string reference) {
     QString _group_QString = QString::fromUtf8(_group.data, _group.len);
     QString _key_QString = QString::fromUtf8(_key.data, _key.len);
@@ -1898,6 +2434,794 @@ void KCoreConfigSkeleton__ItemPath_OnProperty(const KCoreConfigSkeleton__ItemPat
 }
 
 void KCoreConfigSkeleton__ItemPath_Delete(KCoreConfigSkeleton__ItemPath* self) {
+    delete self;
+}
+
+KCoreConfigSkeleton__ItemUrl* KCoreConfigSkeleton__ItemUrl_new(const libqt_string _group, const libqt_string _key, QUrl* reference) {
+    QString _group_QString = QString::fromUtf8(_group.data, _group.len);
+    QString _key_QString = QString::fromUtf8(_key.data, _key.len);
+    return new VirtualKCoreConfigSkeletonItemUrl(_group_QString, _key_QString, *reference);
+}
+
+KCoreConfigSkeleton__ItemUrl* KCoreConfigSkeleton__ItemUrl_new2(const libqt_string _group, const libqt_string _key, QUrl* reference, const QUrl* defaultValue) {
+    QString _group_QString = QString::fromUtf8(_group.data, _group.len);
+    QString _key_QString = QString::fromUtf8(_key.data, _key.len);
+    return new VirtualKCoreConfigSkeletonItemUrl(_group_QString, _key_QString, *reference, *defaultValue);
+}
+
+void KCoreConfigSkeleton__ItemUrl_WriteConfig(KCoreConfigSkeleton__ItemUrl* self, KConfig* config) {
+    auto* vkcoreconfigskeleton__itemurl = dynamic_cast<VirtualKCoreConfigSkeletonItemUrl*>(self);
+    if (vkcoreconfigskeleton__itemurl && vkcoreconfigskeleton__itemurl->isVirtualKCoreConfigSkeletonItemUrl) {
+        self->writeConfig(config);
+    } else {
+        ((VirtualKCoreConfigSkeletonItemUrl*)self)->writeConfig(config);
+    }
+}
+
+void KCoreConfigSkeleton__ItemUrl_ReadConfig(KCoreConfigSkeleton__ItemUrl* self, KConfig* config) {
+    auto* vkcoreconfigskeleton__itemurl = dynamic_cast<VirtualKCoreConfigSkeletonItemUrl*>(self);
+    if (vkcoreconfigskeleton__itemurl && vkcoreconfigskeleton__itemurl->isVirtualKCoreConfigSkeletonItemUrl) {
+        self->readConfig(config);
+    } else {
+        ((VirtualKCoreConfigSkeletonItemUrl*)self)->readConfig(config);
+    }
+}
+
+void KCoreConfigSkeleton__ItemUrl_SetProperty(KCoreConfigSkeleton__ItemUrl* self, const QVariant* p) {
+    auto* vkcoreconfigskeleton__itemurl = dynamic_cast<VirtualKCoreConfigSkeletonItemUrl*>(self);
+    if (vkcoreconfigskeleton__itemurl && vkcoreconfigskeleton__itemurl->isVirtualKCoreConfigSkeletonItemUrl) {
+        self->setProperty(*p);
+    } else {
+        ((VirtualKCoreConfigSkeletonItemUrl*)self)->setProperty(*p);
+    }
+}
+
+bool KCoreConfigSkeleton__ItemUrl_IsEqual(const KCoreConfigSkeleton__ItemUrl* self, const QVariant* p) {
+    auto* vkcoreconfigskeleton__itemurl = dynamic_cast<const VirtualKCoreConfigSkeletonItemUrl*>(self);
+    if (vkcoreconfigskeleton__itemurl && vkcoreconfigskeleton__itemurl->isVirtualKCoreConfigSkeletonItemUrl) {
+        return self->isEqual(*p);
+    } else {
+        return ((VirtualKCoreConfigSkeletonItemUrl*)self)->isEqual(*p);
+    }
+}
+
+QVariant* KCoreConfigSkeleton__ItemUrl_Property(const KCoreConfigSkeleton__ItemUrl* self) {
+    auto* vkcoreconfigskeleton__itemurl = dynamic_cast<const VirtualKCoreConfigSkeletonItemUrl*>(self);
+    if (vkcoreconfigskeleton__itemurl && vkcoreconfigskeleton__itemurl->isVirtualKCoreConfigSkeletonItemUrl) {
+        return new QVariant(self->property());
+    } else {
+        return new QVariant(((VirtualKCoreConfigSkeletonItemUrl*)self)->property());
+    }
+}
+
+// Base class handler implementation
+void KCoreConfigSkeleton__ItemUrl_QBaseWriteConfig(KCoreConfigSkeleton__ItemUrl* self, KConfig* config) {
+    auto* vkcoreconfigskeletonitemurl = dynamic_cast<VirtualKCoreConfigSkeletonItemUrl*>(self);
+    if (vkcoreconfigskeletonitemurl && vkcoreconfigskeletonitemurl->isVirtualKCoreConfigSkeletonItemUrl) {
+        vkcoreconfigskeletonitemurl->setKCoreConfigSkeleton__ItemUrl_WriteConfig_IsBase(true);
+        vkcoreconfigskeletonitemurl->writeConfig(config);
+    } else {
+        self->KCoreConfigSkeleton::ItemUrl::writeConfig(config);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemUrl_OnWriteConfig(KCoreConfigSkeleton__ItemUrl* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemurl = dynamic_cast<VirtualKCoreConfigSkeletonItemUrl*>(self);
+    if (vkcoreconfigskeletonitemurl && vkcoreconfigskeletonitemurl->isVirtualKCoreConfigSkeletonItemUrl) {
+        vkcoreconfigskeletonitemurl->setKCoreConfigSkeleton__ItemUrl_WriteConfig_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemUrl::KCoreConfigSkeleton__ItemUrl_WriteConfig_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KCoreConfigSkeleton__ItemUrl_QBaseReadConfig(KCoreConfigSkeleton__ItemUrl* self, KConfig* config) {
+    auto* vkcoreconfigskeletonitemurl = dynamic_cast<VirtualKCoreConfigSkeletonItemUrl*>(self);
+    if (vkcoreconfigskeletonitemurl && vkcoreconfigskeletonitemurl->isVirtualKCoreConfigSkeletonItemUrl) {
+        vkcoreconfigskeletonitemurl->setKCoreConfigSkeleton__ItemUrl_ReadConfig_IsBase(true);
+        vkcoreconfigskeletonitemurl->readConfig(config);
+    } else {
+        self->KCoreConfigSkeleton::ItemUrl::readConfig(config);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemUrl_OnReadConfig(KCoreConfigSkeleton__ItemUrl* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemurl = dynamic_cast<VirtualKCoreConfigSkeletonItemUrl*>(self);
+    if (vkcoreconfigskeletonitemurl && vkcoreconfigskeletonitemurl->isVirtualKCoreConfigSkeletonItemUrl) {
+        vkcoreconfigskeletonitemurl->setKCoreConfigSkeleton__ItemUrl_ReadConfig_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemUrl::KCoreConfigSkeleton__ItemUrl_ReadConfig_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KCoreConfigSkeleton__ItemUrl_QBaseSetProperty(KCoreConfigSkeleton__ItemUrl* self, const QVariant* p) {
+    auto* vkcoreconfigskeletonitemurl = dynamic_cast<VirtualKCoreConfigSkeletonItemUrl*>(self);
+    if (vkcoreconfigskeletonitemurl && vkcoreconfigskeletonitemurl->isVirtualKCoreConfigSkeletonItemUrl) {
+        vkcoreconfigskeletonitemurl->setKCoreConfigSkeleton__ItemUrl_SetProperty_IsBase(true);
+        vkcoreconfigskeletonitemurl->setProperty(*p);
+    } else {
+        self->KCoreConfigSkeleton::ItemUrl::setProperty(*p);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemUrl_OnSetProperty(KCoreConfigSkeleton__ItemUrl* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemurl = dynamic_cast<VirtualKCoreConfigSkeletonItemUrl*>(self);
+    if (vkcoreconfigskeletonitemurl && vkcoreconfigskeletonitemurl->isVirtualKCoreConfigSkeletonItemUrl) {
+        vkcoreconfigskeletonitemurl->setKCoreConfigSkeleton__ItemUrl_SetProperty_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemUrl::KCoreConfigSkeleton__ItemUrl_SetProperty_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool KCoreConfigSkeleton__ItemUrl_QBaseIsEqual(const KCoreConfigSkeleton__ItemUrl* self, const QVariant* p) {
+    auto* vkcoreconfigskeletonitemurl = const_cast<VirtualKCoreConfigSkeletonItemUrl*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemUrl*>(self));
+    if (vkcoreconfigskeletonitemurl && vkcoreconfigskeletonitemurl->isVirtualKCoreConfigSkeletonItemUrl) {
+        vkcoreconfigskeletonitemurl->setKCoreConfigSkeleton__ItemUrl_IsEqual_IsBase(true);
+        return vkcoreconfigskeletonitemurl->isEqual(*p);
+    } else {
+        return self->KCoreConfigSkeleton::ItemUrl::isEqual(*p);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemUrl_OnIsEqual(const KCoreConfigSkeleton__ItemUrl* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemurl = const_cast<VirtualKCoreConfigSkeletonItemUrl*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemUrl*>(self));
+    if (vkcoreconfigskeletonitemurl && vkcoreconfigskeletonitemurl->isVirtualKCoreConfigSkeletonItemUrl) {
+        vkcoreconfigskeletonitemurl->setKCoreConfigSkeleton__ItemUrl_IsEqual_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemUrl::KCoreConfigSkeleton__ItemUrl_IsEqual_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QVariant* KCoreConfigSkeleton__ItemUrl_QBaseProperty(const KCoreConfigSkeleton__ItemUrl* self) {
+    auto* vkcoreconfigskeletonitemurl = const_cast<VirtualKCoreConfigSkeletonItemUrl*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemUrl*>(self));
+    if (vkcoreconfigskeletonitemurl && vkcoreconfigskeletonitemurl->isVirtualKCoreConfigSkeletonItemUrl) {
+        vkcoreconfigskeletonitemurl->setKCoreConfigSkeleton__ItemUrl_Property_IsBase(true);
+        return new QVariant(vkcoreconfigskeletonitemurl->property());
+    } else {
+        return new QVariant(((VirtualKCoreConfigSkeletonItemUrl*)self)->property());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemUrl_OnProperty(const KCoreConfigSkeleton__ItemUrl* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemurl = const_cast<VirtualKCoreConfigSkeletonItemUrl*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemUrl*>(self));
+    if (vkcoreconfigskeletonitemurl && vkcoreconfigskeletonitemurl->isVirtualKCoreConfigSkeletonItemUrl) {
+        vkcoreconfigskeletonitemurl->setKCoreConfigSkeleton__ItemUrl_Property_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemUrl::KCoreConfigSkeleton__ItemUrl_Property_Callback>(slot));
+    }
+}
+
+void KCoreConfigSkeleton__ItemUrl_Delete(KCoreConfigSkeleton__ItemUrl* self) {
+    delete self;
+}
+
+KCoreConfigSkeleton__ItemProperty* KCoreConfigSkeleton__ItemProperty_new(const libqt_string _group, const libqt_string _key, QVariant* reference) {
+    QString _group_QString = QString::fromUtf8(_group.data, _group.len);
+    QString _key_QString = QString::fromUtf8(_key.data, _key.len);
+    return new VirtualKCoreConfigSkeletonItemProperty(_group_QString, _key_QString, *reference);
+}
+
+KCoreConfigSkeleton__ItemProperty* KCoreConfigSkeleton__ItemProperty_new2(const libqt_string _group, const libqt_string _key, QVariant* reference, const QVariant* defaultValue) {
+    QString _group_QString = QString::fromUtf8(_group.data, _group.len);
+    QString _key_QString = QString::fromUtf8(_key.data, _key.len);
+    return new VirtualKCoreConfigSkeletonItemProperty(_group_QString, _key_QString, *reference, *defaultValue);
+}
+
+void KCoreConfigSkeleton__ItemProperty_ReadConfig(KCoreConfigSkeleton__ItemProperty* self, KConfig* config) {
+    auto* vkcoreconfigskeleton__itemproperty = dynamic_cast<VirtualKCoreConfigSkeletonItemProperty*>(self);
+    if (vkcoreconfigskeleton__itemproperty && vkcoreconfigskeleton__itemproperty->isVirtualKCoreConfigSkeletonItemProperty) {
+        self->readConfig(config);
+    } else {
+        ((VirtualKCoreConfigSkeletonItemProperty*)self)->readConfig(config);
+    }
+}
+
+void KCoreConfigSkeleton__ItemProperty_SetProperty(KCoreConfigSkeleton__ItemProperty* self, const QVariant* p) {
+    auto* vkcoreconfigskeleton__itemproperty = dynamic_cast<VirtualKCoreConfigSkeletonItemProperty*>(self);
+    if (vkcoreconfigskeleton__itemproperty && vkcoreconfigskeleton__itemproperty->isVirtualKCoreConfigSkeletonItemProperty) {
+        self->setProperty(*p);
+    } else {
+        ((VirtualKCoreConfigSkeletonItemProperty*)self)->setProperty(*p);
+    }
+}
+
+bool KCoreConfigSkeleton__ItemProperty_IsEqual(const KCoreConfigSkeleton__ItemProperty* self, const QVariant* p) {
+    auto* vkcoreconfigskeleton__itemproperty = dynamic_cast<const VirtualKCoreConfigSkeletonItemProperty*>(self);
+    if (vkcoreconfigskeleton__itemproperty && vkcoreconfigskeleton__itemproperty->isVirtualKCoreConfigSkeletonItemProperty) {
+        return self->isEqual(*p);
+    } else {
+        return ((VirtualKCoreConfigSkeletonItemProperty*)self)->isEqual(*p);
+    }
+}
+
+QVariant* KCoreConfigSkeleton__ItemProperty_Property(const KCoreConfigSkeleton__ItemProperty* self) {
+    auto* vkcoreconfigskeleton__itemproperty = dynamic_cast<const VirtualKCoreConfigSkeletonItemProperty*>(self);
+    if (vkcoreconfigskeleton__itemproperty && vkcoreconfigskeleton__itemproperty->isVirtualKCoreConfigSkeletonItemProperty) {
+        return new QVariant(self->property());
+    } else {
+        return new QVariant(((VirtualKCoreConfigSkeletonItemProperty*)self)->property());
+    }
+}
+
+// Base class handler implementation
+void KCoreConfigSkeleton__ItemProperty_QBaseReadConfig(KCoreConfigSkeleton__ItemProperty* self, KConfig* config) {
+    auto* vkcoreconfigskeletonitemproperty = dynamic_cast<VirtualKCoreConfigSkeletonItemProperty*>(self);
+    if (vkcoreconfigskeletonitemproperty && vkcoreconfigskeletonitemproperty->isVirtualKCoreConfigSkeletonItemProperty) {
+        vkcoreconfigskeletonitemproperty->setKCoreConfigSkeleton__ItemProperty_ReadConfig_IsBase(true);
+        vkcoreconfigskeletonitemproperty->readConfig(config);
+    } else {
+        self->KCoreConfigSkeleton::ItemProperty::readConfig(config);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemProperty_OnReadConfig(KCoreConfigSkeleton__ItemProperty* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemproperty = dynamic_cast<VirtualKCoreConfigSkeletonItemProperty*>(self);
+    if (vkcoreconfigskeletonitemproperty && vkcoreconfigskeletonitemproperty->isVirtualKCoreConfigSkeletonItemProperty) {
+        vkcoreconfigskeletonitemproperty->setKCoreConfigSkeleton__ItemProperty_ReadConfig_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemProperty::KCoreConfigSkeleton__ItemProperty_ReadConfig_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KCoreConfigSkeleton__ItemProperty_QBaseSetProperty(KCoreConfigSkeleton__ItemProperty* self, const QVariant* p) {
+    auto* vkcoreconfigskeletonitemproperty = dynamic_cast<VirtualKCoreConfigSkeletonItemProperty*>(self);
+    if (vkcoreconfigskeletonitemproperty && vkcoreconfigskeletonitemproperty->isVirtualKCoreConfigSkeletonItemProperty) {
+        vkcoreconfigskeletonitemproperty->setKCoreConfigSkeleton__ItemProperty_SetProperty_IsBase(true);
+        vkcoreconfigskeletonitemproperty->setProperty(*p);
+    } else {
+        self->KCoreConfigSkeleton::ItemProperty::setProperty(*p);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemProperty_OnSetProperty(KCoreConfigSkeleton__ItemProperty* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemproperty = dynamic_cast<VirtualKCoreConfigSkeletonItemProperty*>(self);
+    if (vkcoreconfigskeletonitemproperty && vkcoreconfigskeletonitemproperty->isVirtualKCoreConfigSkeletonItemProperty) {
+        vkcoreconfigskeletonitemproperty->setKCoreConfigSkeleton__ItemProperty_SetProperty_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemProperty::KCoreConfigSkeleton__ItemProperty_SetProperty_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool KCoreConfigSkeleton__ItemProperty_QBaseIsEqual(const KCoreConfigSkeleton__ItemProperty* self, const QVariant* p) {
+    auto* vkcoreconfigskeletonitemproperty = const_cast<VirtualKCoreConfigSkeletonItemProperty*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemProperty*>(self));
+    if (vkcoreconfigskeletonitemproperty && vkcoreconfigskeletonitemproperty->isVirtualKCoreConfigSkeletonItemProperty) {
+        vkcoreconfigskeletonitemproperty->setKCoreConfigSkeleton__ItemProperty_IsEqual_IsBase(true);
+        return vkcoreconfigskeletonitemproperty->isEqual(*p);
+    } else {
+        return self->KCoreConfigSkeleton::ItemProperty::isEqual(*p);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemProperty_OnIsEqual(const KCoreConfigSkeleton__ItemProperty* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemproperty = const_cast<VirtualKCoreConfigSkeletonItemProperty*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemProperty*>(self));
+    if (vkcoreconfigskeletonitemproperty && vkcoreconfigskeletonitemproperty->isVirtualKCoreConfigSkeletonItemProperty) {
+        vkcoreconfigskeletonitemproperty->setKCoreConfigSkeleton__ItemProperty_IsEqual_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemProperty::KCoreConfigSkeleton__ItemProperty_IsEqual_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QVariant* KCoreConfigSkeleton__ItemProperty_QBaseProperty(const KCoreConfigSkeleton__ItemProperty* self) {
+    auto* vkcoreconfigskeletonitemproperty = const_cast<VirtualKCoreConfigSkeletonItemProperty*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemProperty*>(self));
+    if (vkcoreconfigskeletonitemproperty && vkcoreconfigskeletonitemproperty->isVirtualKCoreConfigSkeletonItemProperty) {
+        vkcoreconfigskeletonitemproperty->setKCoreConfigSkeleton__ItemProperty_Property_IsBase(true);
+        return new QVariant(vkcoreconfigskeletonitemproperty->property());
+    } else {
+        return new QVariant(((VirtualKCoreConfigSkeletonItemProperty*)self)->property());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemProperty_OnProperty(const KCoreConfigSkeleton__ItemProperty* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemproperty = const_cast<VirtualKCoreConfigSkeletonItemProperty*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemProperty*>(self));
+    if (vkcoreconfigskeletonitemproperty && vkcoreconfigskeletonitemproperty->isVirtualKCoreConfigSkeletonItemProperty) {
+        vkcoreconfigskeletonitemproperty->setKCoreConfigSkeleton__ItemProperty_Property_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemProperty::KCoreConfigSkeleton__ItemProperty_Property_Callback>(slot));
+    }
+}
+
+void KCoreConfigSkeleton__ItemProperty_Delete(KCoreConfigSkeleton__ItemProperty* self) {
+    delete self;
+}
+
+KCoreConfigSkeleton__ItemBool* KCoreConfigSkeleton__ItemBool_new(const libqt_string _group, const libqt_string _key, bool* reference) {
+    QString _group_QString = QString::fromUtf8(_group.data, _group.len);
+    QString _key_QString = QString::fromUtf8(_key.data, _key.len);
+    return new VirtualKCoreConfigSkeletonItemBool(_group_QString, _key_QString, *reference);
+}
+
+KCoreConfigSkeleton__ItemBool* KCoreConfigSkeleton__ItemBool_new2(const libqt_string _group, const libqt_string _key, bool* reference, bool defaultValue) {
+    QString _group_QString = QString::fromUtf8(_group.data, _group.len);
+    QString _key_QString = QString::fromUtf8(_key.data, _key.len);
+    return new VirtualKCoreConfigSkeletonItemBool(_group_QString, _key_QString, *reference, defaultValue);
+}
+
+void KCoreConfigSkeleton__ItemBool_ReadConfig(KCoreConfigSkeleton__ItemBool* self, KConfig* config) {
+    auto* vkcoreconfigskeleton__itembool = dynamic_cast<VirtualKCoreConfigSkeletonItemBool*>(self);
+    if (vkcoreconfigskeleton__itembool && vkcoreconfigskeleton__itembool->isVirtualKCoreConfigSkeletonItemBool) {
+        self->readConfig(config);
+    } else {
+        ((VirtualKCoreConfigSkeletonItemBool*)self)->readConfig(config);
+    }
+}
+
+void KCoreConfigSkeleton__ItemBool_SetProperty(KCoreConfigSkeleton__ItemBool* self, const QVariant* p) {
+    auto* vkcoreconfigskeleton__itembool = dynamic_cast<VirtualKCoreConfigSkeletonItemBool*>(self);
+    if (vkcoreconfigskeleton__itembool && vkcoreconfigskeleton__itembool->isVirtualKCoreConfigSkeletonItemBool) {
+        self->setProperty(*p);
+    } else {
+        ((VirtualKCoreConfigSkeletonItemBool*)self)->setProperty(*p);
+    }
+}
+
+bool KCoreConfigSkeleton__ItemBool_IsEqual(const KCoreConfigSkeleton__ItemBool* self, const QVariant* p) {
+    auto* vkcoreconfigskeleton__itembool = dynamic_cast<const VirtualKCoreConfigSkeletonItemBool*>(self);
+    if (vkcoreconfigskeleton__itembool && vkcoreconfigskeleton__itembool->isVirtualKCoreConfigSkeletonItemBool) {
+        return self->isEqual(*p);
+    } else {
+        return ((VirtualKCoreConfigSkeletonItemBool*)self)->isEqual(*p);
+    }
+}
+
+QVariant* KCoreConfigSkeleton__ItemBool_Property(const KCoreConfigSkeleton__ItemBool* self) {
+    auto* vkcoreconfigskeleton__itembool = dynamic_cast<const VirtualKCoreConfigSkeletonItemBool*>(self);
+    if (vkcoreconfigskeleton__itembool && vkcoreconfigskeleton__itembool->isVirtualKCoreConfigSkeletonItemBool) {
+        return new QVariant(self->property());
+    } else {
+        return new QVariant(((VirtualKCoreConfigSkeletonItemBool*)self)->property());
+    }
+}
+
+// Base class handler implementation
+void KCoreConfigSkeleton__ItemBool_QBaseReadConfig(KCoreConfigSkeleton__ItemBool* self, KConfig* config) {
+    auto* vkcoreconfigskeletonitembool = dynamic_cast<VirtualKCoreConfigSkeletonItemBool*>(self);
+    if (vkcoreconfigskeletonitembool && vkcoreconfigskeletonitembool->isVirtualKCoreConfigSkeletonItemBool) {
+        vkcoreconfigskeletonitembool->setKCoreConfigSkeleton__ItemBool_ReadConfig_IsBase(true);
+        vkcoreconfigskeletonitembool->readConfig(config);
+    } else {
+        self->KCoreConfigSkeleton::ItemBool::readConfig(config);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemBool_OnReadConfig(KCoreConfigSkeleton__ItemBool* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitembool = dynamic_cast<VirtualKCoreConfigSkeletonItemBool*>(self);
+    if (vkcoreconfigskeletonitembool && vkcoreconfigskeletonitembool->isVirtualKCoreConfigSkeletonItemBool) {
+        vkcoreconfigskeletonitembool->setKCoreConfigSkeleton__ItemBool_ReadConfig_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemBool::KCoreConfigSkeleton__ItemBool_ReadConfig_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KCoreConfigSkeleton__ItemBool_QBaseSetProperty(KCoreConfigSkeleton__ItemBool* self, const QVariant* p) {
+    auto* vkcoreconfigskeletonitembool = dynamic_cast<VirtualKCoreConfigSkeletonItemBool*>(self);
+    if (vkcoreconfigskeletonitembool && vkcoreconfigskeletonitembool->isVirtualKCoreConfigSkeletonItemBool) {
+        vkcoreconfigskeletonitembool->setKCoreConfigSkeleton__ItemBool_SetProperty_IsBase(true);
+        vkcoreconfigskeletonitembool->setProperty(*p);
+    } else {
+        self->KCoreConfigSkeleton::ItemBool::setProperty(*p);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemBool_OnSetProperty(KCoreConfigSkeleton__ItemBool* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitembool = dynamic_cast<VirtualKCoreConfigSkeletonItemBool*>(self);
+    if (vkcoreconfigskeletonitembool && vkcoreconfigskeletonitembool->isVirtualKCoreConfigSkeletonItemBool) {
+        vkcoreconfigskeletonitembool->setKCoreConfigSkeleton__ItemBool_SetProperty_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemBool::KCoreConfigSkeleton__ItemBool_SetProperty_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool KCoreConfigSkeleton__ItemBool_QBaseIsEqual(const KCoreConfigSkeleton__ItemBool* self, const QVariant* p) {
+    auto* vkcoreconfigskeletonitembool = const_cast<VirtualKCoreConfigSkeletonItemBool*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemBool*>(self));
+    if (vkcoreconfigskeletonitembool && vkcoreconfigskeletonitembool->isVirtualKCoreConfigSkeletonItemBool) {
+        vkcoreconfigskeletonitembool->setKCoreConfigSkeleton__ItemBool_IsEqual_IsBase(true);
+        return vkcoreconfigskeletonitembool->isEqual(*p);
+    } else {
+        return self->KCoreConfigSkeleton::ItemBool::isEqual(*p);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemBool_OnIsEqual(const KCoreConfigSkeleton__ItemBool* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitembool = const_cast<VirtualKCoreConfigSkeletonItemBool*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemBool*>(self));
+    if (vkcoreconfigskeletonitembool && vkcoreconfigskeletonitembool->isVirtualKCoreConfigSkeletonItemBool) {
+        vkcoreconfigskeletonitembool->setKCoreConfigSkeleton__ItemBool_IsEqual_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemBool::KCoreConfigSkeleton__ItemBool_IsEqual_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QVariant* KCoreConfigSkeleton__ItemBool_QBaseProperty(const KCoreConfigSkeleton__ItemBool* self) {
+    auto* vkcoreconfigskeletonitembool = const_cast<VirtualKCoreConfigSkeletonItemBool*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemBool*>(self));
+    if (vkcoreconfigskeletonitembool && vkcoreconfigskeletonitembool->isVirtualKCoreConfigSkeletonItemBool) {
+        vkcoreconfigskeletonitembool->setKCoreConfigSkeleton__ItemBool_Property_IsBase(true);
+        return new QVariant(vkcoreconfigskeletonitembool->property());
+    } else {
+        return new QVariant(((VirtualKCoreConfigSkeletonItemBool*)self)->property());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemBool_OnProperty(const KCoreConfigSkeleton__ItemBool* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitembool = const_cast<VirtualKCoreConfigSkeletonItemBool*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemBool*>(self));
+    if (vkcoreconfigskeletonitembool && vkcoreconfigskeletonitembool->isVirtualKCoreConfigSkeletonItemBool) {
+        vkcoreconfigskeletonitembool->setKCoreConfigSkeleton__ItemBool_Property_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemBool::KCoreConfigSkeleton__ItemBool_Property_Callback>(slot));
+    }
+}
+
+void KCoreConfigSkeleton__ItemBool_Delete(KCoreConfigSkeleton__ItemBool* self) {
+    delete self;
+}
+
+KCoreConfigSkeleton__ItemInt* KCoreConfigSkeleton__ItemInt_new(const libqt_string _group, const libqt_string _key, int* reference) {
+    QString _group_QString = QString::fromUtf8(_group.data, _group.len);
+    QString _key_QString = QString::fromUtf8(_key.data, _key.len);
+    return new VirtualKCoreConfigSkeletonItemInt(_group_QString, _key_QString, static_cast<qint32&>(*reference));
+}
+
+KCoreConfigSkeleton__ItemInt* KCoreConfigSkeleton__ItemInt_new2(const libqt_string _group, const libqt_string _key, int* reference, int defaultValue) {
+    QString _group_QString = QString::fromUtf8(_group.data, _group.len);
+    QString _key_QString = QString::fromUtf8(_key.data, _key.len);
+    return new VirtualKCoreConfigSkeletonItemInt(_group_QString, _key_QString, static_cast<qint32&>(*reference), static_cast<qint32>(defaultValue));
+}
+
+void KCoreConfigSkeleton__ItemInt_ReadConfig(KCoreConfigSkeleton__ItemInt* self, KConfig* config) {
+    auto* vkcoreconfigskeleton__itemint = dynamic_cast<VirtualKCoreConfigSkeletonItemInt*>(self);
+    if (vkcoreconfigskeleton__itemint && vkcoreconfigskeleton__itemint->isVirtualKCoreConfigSkeletonItemInt) {
+        self->readConfig(config);
+    } else {
+        ((VirtualKCoreConfigSkeletonItemInt*)self)->readConfig(config);
+    }
+}
+
+void KCoreConfigSkeleton__ItemInt_SetProperty(KCoreConfigSkeleton__ItemInt* self, const QVariant* p) {
+    auto* vkcoreconfigskeleton__itemint = dynamic_cast<VirtualKCoreConfigSkeletonItemInt*>(self);
+    if (vkcoreconfigskeleton__itemint && vkcoreconfigskeleton__itemint->isVirtualKCoreConfigSkeletonItemInt) {
+        self->setProperty(*p);
+    } else {
+        ((VirtualKCoreConfigSkeletonItemInt*)self)->setProperty(*p);
+    }
+}
+
+bool KCoreConfigSkeleton__ItemInt_IsEqual(const KCoreConfigSkeleton__ItemInt* self, const QVariant* p) {
+    auto* vkcoreconfigskeleton__itemint = dynamic_cast<const VirtualKCoreConfigSkeletonItemInt*>(self);
+    if (vkcoreconfigskeleton__itemint && vkcoreconfigskeleton__itemint->isVirtualKCoreConfigSkeletonItemInt) {
+        return self->isEqual(*p);
+    } else {
+        return ((VirtualKCoreConfigSkeletonItemInt*)self)->isEqual(*p);
+    }
+}
+
+QVariant* KCoreConfigSkeleton__ItemInt_Property(const KCoreConfigSkeleton__ItemInt* self) {
+    auto* vkcoreconfigskeleton__itemint = dynamic_cast<const VirtualKCoreConfigSkeletonItemInt*>(self);
+    if (vkcoreconfigskeleton__itemint && vkcoreconfigskeleton__itemint->isVirtualKCoreConfigSkeletonItemInt) {
+        return new QVariant(self->property());
+    } else {
+        return new QVariant(((VirtualKCoreConfigSkeletonItemInt*)self)->property());
+    }
+}
+
+QVariant* KCoreConfigSkeleton__ItemInt_MinValue(const KCoreConfigSkeleton__ItemInt* self) {
+    auto* vkcoreconfigskeleton__itemint = dynamic_cast<const VirtualKCoreConfigSkeletonItemInt*>(self);
+    if (vkcoreconfigskeleton__itemint && vkcoreconfigskeleton__itemint->isVirtualKCoreConfigSkeletonItemInt) {
+        return new QVariant(self->minValue());
+    } else {
+        return new QVariant(((VirtualKCoreConfigSkeletonItemInt*)self)->minValue());
+    }
+}
+
+QVariant* KCoreConfigSkeleton__ItemInt_MaxValue(const KCoreConfigSkeleton__ItemInt* self) {
+    auto* vkcoreconfigskeleton__itemint = dynamic_cast<const VirtualKCoreConfigSkeletonItemInt*>(self);
+    if (vkcoreconfigskeleton__itemint && vkcoreconfigskeleton__itemint->isVirtualKCoreConfigSkeletonItemInt) {
+        return new QVariant(self->maxValue());
+    } else {
+        return new QVariant(((VirtualKCoreConfigSkeletonItemInt*)self)->maxValue());
+    }
+}
+
+// Base class handler implementation
+void KCoreConfigSkeleton__ItemInt_QBaseReadConfig(KCoreConfigSkeleton__ItemInt* self, KConfig* config) {
+    auto* vkcoreconfigskeletonitemint = dynamic_cast<VirtualKCoreConfigSkeletonItemInt*>(self);
+    if (vkcoreconfigskeletonitemint && vkcoreconfigskeletonitemint->isVirtualKCoreConfigSkeletonItemInt) {
+        vkcoreconfigskeletonitemint->setKCoreConfigSkeleton__ItemInt_ReadConfig_IsBase(true);
+        vkcoreconfigskeletonitemint->readConfig(config);
+    } else {
+        self->KCoreConfigSkeleton::ItemInt::readConfig(config);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemInt_OnReadConfig(KCoreConfigSkeleton__ItemInt* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemint = dynamic_cast<VirtualKCoreConfigSkeletonItemInt*>(self);
+    if (vkcoreconfigskeletonitemint && vkcoreconfigskeletonitemint->isVirtualKCoreConfigSkeletonItemInt) {
+        vkcoreconfigskeletonitemint->setKCoreConfigSkeleton__ItemInt_ReadConfig_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemInt::KCoreConfigSkeleton__ItemInt_ReadConfig_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KCoreConfigSkeleton__ItemInt_QBaseSetProperty(KCoreConfigSkeleton__ItemInt* self, const QVariant* p) {
+    auto* vkcoreconfigskeletonitemint = dynamic_cast<VirtualKCoreConfigSkeletonItemInt*>(self);
+    if (vkcoreconfigskeletonitemint && vkcoreconfigskeletonitemint->isVirtualKCoreConfigSkeletonItemInt) {
+        vkcoreconfigskeletonitemint->setKCoreConfigSkeleton__ItemInt_SetProperty_IsBase(true);
+        vkcoreconfigskeletonitemint->setProperty(*p);
+    } else {
+        self->KCoreConfigSkeleton::ItemInt::setProperty(*p);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemInt_OnSetProperty(KCoreConfigSkeleton__ItemInt* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemint = dynamic_cast<VirtualKCoreConfigSkeletonItemInt*>(self);
+    if (vkcoreconfigskeletonitemint && vkcoreconfigskeletonitemint->isVirtualKCoreConfigSkeletonItemInt) {
+        vkcoreconfigskeletonitemint->setKCoreConfigSkeleton__ItemInt_SetProperty_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemInt::KCoreConfigSkeleton__ItemInt_SetProperty_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool KCoreConfigSkeleton__ItemInt_QBaseIsEqual(const KCoreConfigSkeleton__ItemInt* self, const QVariant* p) {
+    auto* vkcoreconfigskeletonitemint = const_cast<VirtualKCoreConfigSkeletonItemInt*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemInt*>(self));
+    if (vkcoreconfigskeletonitemint && vkcoreconfigskeletonitemint->isVirtualKCoreConfigSkeletonItemInt) {
+        vkcoreconfigskeletonitemint->setKCoreConfigSkeleton__ItemInt_IsEqual_IsBase(true);
+        return vkcoreconfigskeletonitemint->isEqual(*p);
+    } else {
+        return self->KCoreConfigSkeleton::ItemInt::isEqual(*p);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemInt_OnIsEqual(const KCoreConfigSkeleton__ItemInt* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemint = const_cast<VirtualKCoreConfigSkeletonItemInt*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemInt*>(self));
+    if (vkcoreconfigskeletonitemint && vkcoreconfigskeletonitemint->isVirtualKCoreConfigSkeletonItemInt) {
+        vkcoreconfigskeletonitemint->setKCoreConfigSkeleton__ItemInt_IsEqual_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemInt::KCoreConfigSkeleton__ItemInt_IsEqual_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QVariant* KCoreConfigSkeleton__ItemInt_QBaseProperty(const KCoreConfigSkeleton__ItemInt* self) {
+    auto* vkcoreconfigskeletonitemint = const_cast<VirtualKCoreConfigSkeletonItemInt*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemInt*>(self));
+    if (vkcoreconfigskeletonitemint && vkcoreconfigskeletonitemint->isVirtualKCoreConfigSkeletonItemInt) {
+        vkcoreconfigskeletonitemint->setKCoreConfigSkeleton__ItemInt_Property_IsBase(true);
+        return new QVariant(vkcoreconfigskeletonitemint->property());
+    } else {
+        return new QVariant(((VirtualKCoreConfigSkeletonItemInt*)self)->property());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemInt_OnProperty(const KCoreConfigSkeleton__ItemInt* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemint = const_cast<VirtualKCoreConfigSkeletonItemInt*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemInt*>(self));
+    if (vkcoreconfigskeletonitemint && vkcoreconfigskeletonitemint->isVirtualKCoreConfigSkeletonItemInt) {
+        vkcoreconfigskeletonitemint->setKCoreConfigSkeleton__ItemInt_Property_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemInt::KCoreConfigSkeleton__ItemInt_Property_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QVariant* KCoreConfigSkeleton__ItemInt_QBaseMinValue(const KCoreConfigSkeleton__ItemInt* self) {
+    auto* vkcoreconfigskeletonitemint = const_cast<VirtualKCoreConfigSkeletonItemInt*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemInt*>(self));
+    if (vkcoreconfigskeletonitemint && vkcoreconfigskeletonitemint->isVirtualKCoreConfigSkeletonItemInt) {
+        vkcoreconfigskeletonitemint->setKCoreConfigSkeleton__ItemInt_MinValue_IsBase(true);
+        return new QVariant(vkcoreconfigskeletonitemint->minValue());
+    } else {
+        return new QVariant(((VirtualKCoreConfigSkeletonItemInt*)self)->minValue());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemInt_OnMinValue(const KCoreConfigSkeleton__ItemInt* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemint = const_cast<VirtualKCoreConfigSkeletonItemInt*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemInt*>(self));
+    if (vkcoreconfigskeletonitemint && vkcoreconfigskeletonitemint->isVirtualKCoreConfigSkeletonItemInt) {
+        vkcoreconfigskeletonitemint->setKCoreConfigSkeleton__ItemInt_MinValue_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemInt::KCoreConfigSkeleton__ItemInt_MinValue_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QVariant* KCoreConfigSkeleton__ItemInt_QBaseMaxValue(const KCoreConfigSkeleton__ItemInt* self) {
+    auto* vkcoreconfigskeletonitemint = const_cast<VirtualKCoreConfigSkeletonItemInt*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemInt*>(self));
+    if (vkcoreconfigskeletonitemint && vkcoreconfigskeletonitemint->isVirtualKCoreConfigSkeletonItemInt) {
+        vkcoreconfigskeletonitemint->setKCoreConfigSkeleton__ItemInt_MaxValue_IsBase(true);
+        return new QVariant(vkcoreconfigskeletonitemint->maxValue());
+    } else {
+        return new QVariant(((VirtualKCoreConfigSkeletonItemInt*)self)->maxValue());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemInt_OnMaxValue(const KCoreConfigSkeleton__ItemInt* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemint = const_cast<VirtualKCoreConfigSkeletonItemInt*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemInt*>(self));
+    if (vkcoreconfigskeletonitemint && vkcoreconfigskeletonitemint->isVirtualKCoreConfigSkeletonItemInt) {
+        vkcoreconfigskeletonitemint->setKCoreConfigSkeleton__ItemInt_MaxValue_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemInt::KCoreConfigSkeleton__ItemInt_MaxValue_Callback>(slot));
+    }
+}
+
+void KCoreConfigSkeleton__ItemInt_Delete(KCoreConfigSkeleton__ItemInt* self) {
+    delete self;
+}
+
+KCoreConfigSkeleton__ItemLongLong* KCoreConfigSkeleton__ItemLongLong_new(const libqt_string _group, const libqt_string _key, long long* reference) {
+    QString _group_QString = QString::fromUtf8(_group.data, _group.len);
+    QString _key_QString = QString::fromUtf8(_key.data, _key.len);
+    return new VirtualKCoreConfigSkeletonItemLongLong(_group_QString, _key_QString, static_cast<qint64&>(*reference));
+}
+
+KCoreConfigSkeleton__ItemLongLong* KCoreConfigSkeleton__ItemLongLong_new2(const libqt_string _group, const libqt_string _key, long long* reference, long long defaultValue) {
+    QString _group_QString = QString::fromUtf8(_group.data, _group.len);
+    QString _key_QString = QString::fromUtf8(_key.data, _key.len);
+    return new VirtualKCoreConfigSkeletonItemLongLong(_group_QString, _key_QString, static_cast<qint64&>(*reference), static_cast<qint64>(defaultValue));
+}
+
+void KCoreConfigSkeleton__ItemLongLong_ReadConfig(KCoreConfigSkeleton__ItemLongLong* self, KConfig* config) {
+    auto* vkcoreconfigskeleton__itemlonglong = dynamic_cast<VirtualKCoreConfigSkeletonItemLongLong*>(self);
+    if (vkcoreconfigskeleton__itemlonglong && vkcoreconfigskeleton__itemlonglong->isVirtualKCoreConfigSkeletonItemLongLong) {
+        self->readConfig(config);
+    } else {
+        ((VirtualKCoreConfigSkeletonItemLongLong*)self)->readConfig(config);
+    }
+}
+
+void KCoreConfigSkeleton__ItemLongLong_SetProperty(KCoreConfigSkeleton__ItemLongLong* self, const QVariant* p) {
+    auto* vkcoreconfigskeleton__itemlonglong = dynamic_cast<VirtualKCoreConfigSkeletonItemLongLong*>(self);
+    if (vkcoreconfigskeleton__itemlonglong && vkcoreconfigskeleton__itemlonglong->isVirtualKCoreConfigSkeletonItemLongLong) {
+        self->setProperty(*p);
+    } else {
+        ((VirtualKCoreConfigSkeletonItemLongLong*)self)->setProperty(*p);
+    }
+}
+
+bool KCoreConfigSkeleton__ItemLongLong_IsEqual(const KCoreConfigSkeleton__ItemLongLong* self, const QVariant* p) {
+    auto* vkcoreconfigskeleton__itemlonglong = dynamic_cast<const VirtualKCoreConfigSkeletonItemLongLong*>(self);
+    if (vkcoreconfigskeleton__itemlonglong && vkcoreconfigskeleton__itemlonglong->isVirtualKCoreConfigSkeletonItemLongLong) {
+        return self->isEqual(*p);
+    } else {
+        return ((VirtualKCoreConfigSkeletonItemLongLong*)self)->isEqual(*p);
+    }
+}
+
+QVariant* KCoreConfigSkeleton__ItemLongLong_Property(const KCoreConfigSkeleton__ItemLongLong* self) {
+    auto* vkcoreconfigskeleton__itemlonglong = dynamic_cast<const VirtualKCoreConfigSkeletonItemLongLong*>(self);
+    if (vkcoreconfigskeleton__itemlonglong && vkcoreconfigskeleton__itemlonglong->isVirtualKCoreConfigSkeletonItemLongLong) {
+        return new QVariant(self->property());
+    } else {
+        return new QVariant(((VirtualKCoreConfigSkeletonItemLongLong*)self)->property());
+    }
+}
+
+QVariant* KCoreConfigSkeleton__ItemLongLong_MinValue(const KCoreConfigSkeleton__ItemLongLong* self) {
+    auto* vkcoreconfigskeleton__itemlonglong = dynamic_cast<const VirtualKCoreConfigSkeletonItemLongLong*>(self);
+    if (vkcoreconfigskeleton__itemlonglong && vkcoreconfigskeleton__itemlonglong->isVirtualKCoreConfigSkeletonItemLongLong) {
+        return new QVariant(self->minValue());
+    } else {
+        return new QVariant(((VirtualKCoreConfigSkeletonItemLongLong*)self)->minValue());
+    }
+}
+
+QVariant* KCoreConfigSkeleton__ItemLongLong_MaxValue(const KCoreConfigSkeleton__ItemLongLong* self) {
+    auto* vkcoreconfigskeleton__itemlonglong = dynamic_cast<const VirtualKCoreConfigSkeletonItemLongLong*>(self);
+    if (vkcoreconfigskeleton__itemlonglong && vkcoreconfigskeleton__itemlonglong->isVirtualKCoreConfigSkeletonItemLongLong) {
+        return new QVariant(self->maxValue());
+    } else {
+        return new QVariant(((VirtualKCoreConfigSkeletonItemLongLong*)self)->maxValue());
+    }
+}
+
+void KCoreConfigSkeleton__ItemLongLong_SetMinValue(KCoreConfigSkeleton__ItemLongLong* self, long long minValue) {
+    self->setMinValue(static_cast<long long>(minValue));
+}
+
+void KCoreConfigSkeleton__ItemLongLong_SetMaxValue(KCoreConfigSkeleton__ItemLongLong* self, long long maxValue) {
+    self->setMaxValue(static_cast<long long>(maxValue));
+}
+
+// Base class handler implementation
+void KCoreConfigSkeleton__ItemLongLong_QBaseReadConfig(KCoreConfigSkeleton__ItemLongLong* self, KConfig* config) {
+    auto* vkcoreconfigskeletonitemlonglong = dynamic_cast<VirtualKCoreConfigSkeletonItemLongLong*>(self);
+    if (vkcoreconfigskeletonitemlonglong && vkcoreconfigskeletonitemlonglong->isVirtualKCoreConfigSkeletonItemLongLong) {
+        vkcoreconfigskeletonitemlonglong->setKCoreConfigSkeleton__ItemLongLong_ReadConfig_IsBase(true);
+        vkcoreconfigskeletonitemlonglong->readConfig(config);
+    } else {
+        self->KCoreConfigSkeleton::ItemLongLong::readConfig(config);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemLongLong_OnReadConfig(KCoreConfigSkeleton__ItemLongLong* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemlonglong = dynamic_cast<VirtualKCoreConfigSkeletonItemLongLong*>(self);
+    if (vkcoreconfigskeletonitemlonglong && vkcoreconfigskeletonitemlonglong->isVirtualKCoreConfigSkeletonItemLongLong) {
+        vkcoreconfigskeletonitemlonglong->setKCoreConfigSkeleton__ItemLongLong_ReadConfig_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemLongLong::KCoreConfigSkeleton__ItemLongLong_ReadConfig_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KCoreConfigSkeleton__ItemLongLong_QBaseSetProperty(KCoreConfigSkeleton__ItemLongLong* self, const QVariant* p) {
+    auto* vkcoreconfigskeletonitemlonglong = dynamic_cast<VirtualKCoreConfigSkeletonItemLongLong*>(self);
+    if (vkcoreconfigskeletonitemlonglong && vkcoreconfigskeletonitemlonglong->isVirtualKCoreConfigSkeletonItemLongLong) {
+        vkcoreconfigskeletonitemlonglong->setKCoreConfigSkeleton__ItemLongLong_SetProperty_IsBase(true);
+        vkcoreconfigskeletonitemlonglong->setProperty(*p);
+    } else {
+        self->KCoreConfigSkeleton::ItemLongLong::setProperty(*p);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemLongLong_OnSetProperty(KCoreConfigSkeleton__ItemLongLong* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemlonglong = dynamic_cast<VirtualKCoreConfigSkeletonItemLongLong*>(self);
+    if (vkcoreconfigskeletonitemlonglong && vkcoreconfigskeletonitemlonglong->isVirtualKCoreConfigSkeletonItemLongLong) {
+        vkcoreconfigskeletonitemlonglong->setKCoreConfigSkeleton__ItemLongLong_SetProperty_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemLongLong::KCoreConfigSkeleton__ItemLongLong_SetProperty_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool KCoreConfigSkeleton__ItemLongLong_QBaseIsEqual(const KCoreConfigSkeleton__ItemLongLong* self, const QVariant* p) {
+    auto* vkcoreconfigskeletonitemlonglong = const_cast<VirtualKCoreConfigSkeletonItemLongLong*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemLongLong*>(self));
+    if (vkcoreconfigskeletonitemlonglong && vkcoreconfigskeletonitemlonglong->isVirtualKCoreConfigSkeletonItemLongLong) {
+        vkcoreconfigskeletonitemlonglong->setKCoreConfigSkeleton__ItemLongLong_IsEqual_IsBase(true);
+        return vkcoreconfigskeletonitemlonglong->isEqual(*p);
+    } else {
+        return self->KCoreConfigSkeleton::ItemLongLong::isEqual(*p);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemLongLong_OnIsEqual(const KCoreConfigSkeleton__ItemLongLong* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemlonglong = const_cast<VirtualKCoreConfigSkeletonItemLongLong*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemLongLong*>(self));
+    if (vkcoreconfigskeletonitemlonglong && vkcoreconfigskeletonitemlonglong->isVirtualKCoreConfigSkeletonItemLongLong) {
+        vkcoreconfigskeletonitemlonglong->setKCoreConfigSkeleton__ItemLongLong_IsEqual_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemLongLong::KCoreConfigSkeleton__ItemLongLong_IsEqual_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QVariant* KCoreConfigSkeleton__ItemLongLong_QBaseProperty(const KCoreConfigSkeleton__ItemLongLong* self) {
+    auto* vkcoreconfigskeletonitemlonglong = const_cast<VirtualKCoreConfigSkeletonItemLongLong*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemLongLong*>(self));
+    if (vkcoreconfigskeletonitemlonglong && vkcoreconfigskeletonitemlonglong->isVirtualKCoreConfigSkeletonItemLongLong) {
+        vkcoreconfigskeletonitemlonglong->setKCoreConfigSkeleton__ItemLongLong_Property_IsBase(true);
+        return new QVariant(vkcoreconfigskeletonitemlonglong->property());
+    } else {
+        return new QVariant(((VirtualKCoreConfigSkeletonItemLongLong*)self)->property());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemLongLong_OnProperty(const KCoreConfigSkeleton__ItemLongLong* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemlonglong = const_cast<VirtualKCoreConfigSkeletonItemLongLong*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemLongLong*>(self));
+    if (vkcoreconfigskeletonitemlonglong && vkcoreconfigskeletonitemlonglong->isVirtualKCoreConfigSkeletonItemLongLong) {
+        vkcoreconfigskeletonitemlonglong->setKCoreConfigSkeleton__ItemLongLong_Property_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemLongLong::KCoreConfigSkeleton__ItemLongLong_Property_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QVariant* KCoreConfigSkeleton__ItemLongLong_QBaseMinValue(const KCoreConfigSkeleton__ItemLongLong* self) {
+    auto* vkcoreconfigskeletonitemlonglong = const_cast<VirtualKCoreConfigSkeletonItemLongLong*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemLongLong*>(self));
+    if (vkcoreconfigskeletonitemlonglong && vkcoreconfigskeletonitemlonglong->isVirtualKCoreConfigSkeletonItemLongLong) {
+        vkcoreconfigskeletonitemlonglong->setKCoreConfigSkeleton__ItemLongLong_MinValue_IsBase(true);
+        return new QVariant(vkcoreconfigskeletonitemlonglong->minValue());
+    } else {
+        return new QVariant(((VirtualKCoreConfigSkeletonItemLongLong*)self)->minValue());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemLongLong_OnMinValue(const KCoreConfigSkeleton__ItemLongLong* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemlonglong = const_cast<VirtualKCoreConfigSkeletonItemLongLong*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemLongLong*>(self));
+    if (vkcoreconfigskeletonitemlonglong && vkcoreconfigskeletonitemlonglong->isVirtualKCoreConfigSkeletonItemLongLong) {
+        vkcoreconfigskeletonitemlonglong->setKCoreConfigSkeleton__ItemLongLong_MinValue_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemLongLong::KCoreConfigSkeleton__ItemLongLong_MinValue_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QVariant* KCoreConfigSkeleton__ItemLongLong_QBaseMaxValue(const KCoreConfigSkeleton__ItemLongLong* self) {
+    auto* vkcoreconfigskeletonitemlonglong = const_cast<VirtualKCoreConfigSkeletonItemLongLong*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemLongLong*>(self));
+    if (vkcoreconfigskeletonitemlonglong && vkcoreconfigskeletonitemlonglong->isVirtualKCoreConfigSkeletonItemLongLong) {
+        vkcoreconfigskeletonitemlonglong->setKCoreConfigSkeleton__ItemLongLong_MaxValue_IsBase(true);
+        return new QVariant(vkcoreconfigskeletonitemlonglong->maxValue());
+    } else {
+        return new QVariant(((VirtualKCoreConfigSkeletonItemLongLong*)self)->maxValue());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemLongLong_OnMaxValue(const KCoreConfigSkeleton__ItemLongLong* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemlonglong = const_cast<VirtualKCoreConfigSkeletonItemLongLong*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemLongLong*>(self));
+    if (vkcoreconfigskeletonitemlonglong && vkcoreconfigskeletonitemlonglong->isVirtualKCoreConfigSkeletonItemLongLong) {
+        vkcoreconfigskeletonitemlonglong->setKCoreConfigSkeleton__ItemLongLong_MaxValue_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemLongLong::KCoreConfigSkeleton__ItemLongLong_MaxValue_Callback>(slot));
+    }
+}
+
+void KCoreConfigSkeleton__ItemLongLong_Delete(KCoreConfigSkeleton__ItemLongLong* self) {
     delete self;
 }
 
@@ -2263,6 +3587,1627 @@ void KCoreConfigSkeleton__ItemEnum_Delete(KCoreConfigSkeleton__ItemEnum* self) {
     delete self;
 }
 
+KCoreConfigSkeleton__ItemUInt* KCoreConfigSkeleton__ItemUInt_new(const libqt_string _group, const libqt_string _key, unsigned int* reference) {
+    QString _group_QString = QString::fromUtf8(_group.data, _group.len);
+    QString _key_QString = QString::fromUtf8(_key.data, _key.len);
+    return new VirtualKCoreConfigSkeletonItemUInt(_group_QString, _key_QString, static_cast<quint32&>(*reference));
+}
+
+KCoreConfigSkeleton__ItemUInt* KCoreConfigSkeleton__ItemUInt_new2(const libqt_string _group, const libqt_string _key, unsigned int* reference, unsigned int defaultValue) {
+    QString _group_QString = QString::fromUtf8(_group.data, _group.len);
+    QString _key_QString = QString::fromUtf8(_key.data, _key.len);
+    return new VirtualKCoreConfigSkeletonItemUInt(_group_QString, _key_QString, static_cast<quint32&>(*reference), static_cast<quint32>(defaultValue));
+}
+
+void KCoreConfigSkeleton__ItemUInt_ReadConfig(KCoreConfigSkeleton__ItemUInt* self, KConfig* config) {
+    auto* vkcoreconfigskeleton__itemuint = dynamic_cast<VirtualKCoreConfigSkeletonItemUInt*>(self);
+    if (vkcoreconfigskeleton__itemuint && vkcoreconfigskeleton__itemuint->isVirtualKCoreConfigSkeletonItemUInt) {
+        self->readConfig(config);
+    } else {
+        ((VirtualKCoreConfigSkeletonItemUInt*)self)->readConfig(config);
+    }
+}
+
+void KCoreConfigSkeleton__ItemUInt_SetProperty(KCoreConfigSkeleton__ItemUInt* self, const QVariant* p) {
+    auto* vkcoreconfigskeleton__itemuint = dynamic_cast<VirtualKCoreConfigSkeletonItemUInt*>(self);
+    if (vkcoreconfigskeleton__itemuint && vkcoreconfigskeleton__itemuint->isVirtualKCoreConfigSkeletonItemUInt) {
+        self->setProperty(*p);
+    } else {
+        ((VirtualKCoreConfigSkeletonItemUInt*)self)->setProperty(*p);
+    }
+}
+
+bool KCoreConfigSkeleton__ItemUInt_IsEqual(const KCoreConfigSkeleton__ItemUInt* self, const QVariant* p) {
+    auto* vkcoreconfigskeleton__itemuint = dynamic_cast<const VirtualKCoreConfigSkeletonItemUInt*>(self);
+    if (vkcoreconfigskeleton__itemuint && vkcoreconfigskeleton__itemuint->isVirtualKCoreConfigSkeletonItemUInt) {
+        return self->isEqual(*p);
+    } else {
+        return ((VirtualKCoreConfigSkeletonItemUInt*)self)->isEqual(*p);
+    }
+}
+
+QVariant* KCoreConfigSkeleton__ItemUInt_Property(const KCoreConfigSkeleton__ItemUInt* self) {
+    auto* vkcoreconfigskeleton__itemuint = dynamic_cast<const VirtualKCoreConfigSkeletonItemUInt*>(self);
+    if (vkcoreconfigskeleton__itemuint && vkcoreconfigskeleton__itemuint->isVirtualKCoreConfigSkeletonItemUInt) {
+        return new QVariant(self->property());
+    } else {
+        return new QVariant(((VirtualKCoreConfigSkeletonItemUInt*)self)->property());
+    }
+}
+
+QVariant* KCoreConfigSkeleton__ItemUInt_MinValue(const KCoreConfigSkeleton__ItemUInt* self) {
+    auto* vkcoreconfigskeleton__itemuint = dynamic_cast<const VirtualKCoreConfigSkeletonItemUInt*>(self);
+    if (vkcoreconfigskeleton__itemuint && vkcoreconfigskeleton__itemuint->isVirtualKCoreConfigSkeletonItemUInt) {
+        return new QVariant(self->minValue());
+    } else {
+        return new QVariant(((VirtualKCoreConfigSkeletonItemUInt*)self)->minValue());
+    }
+}
+
+QVariant* KCoreConfigSkeleton__ItemUInt_MaxValue(const KCoreConfigSkeleton__ItemUInt* self) {
+    auto* vkcoreconfigskeleton__itemuint = dynamic_cast<const VirtualKCoreConfigSkeletonItemUInt*>(self);
+    if (vkcoreconfigskeleton__itemuint && vkcoreconfigskeleton__itemuint->isVirtualKCoreConfigSkeletonItemUInt) {
+        return new QVariant(self->maxValue());
+    } else {
+        return new QVariant(((VirtualKCoreConfigSkeletonItemUInt*)self)->maxValue());
+    }
+}
+
+void KCoreConfigSkeleton__ItemUInt_SetMinValue(KCoreConfigSkeleton__ItemUInt* self, unsigned int minValue) {
+    self->setMinValue(static_cast<unsigned int>(minValue));
+}
+
+void KCoreConfigSkeleton__ItemUInt_SetMaxValue(KCoreConfigSkeleton__ItemUInt* self, unsigned int maxValue) {
+    self->setMaxValue(static_cast<unsigned int>(maxValue));
+}
+
+// Base class handler implementation
+void KCoreConfigSkeleton__ItemUInt_QBaseReadConfig(KCoreConfigSkeleton__ItemUInt* self, KConfig* config) {
+    auto* vkcoreconfigskeletonitemuint = dynamic_cast<VirtualKCoreConfigSkeletonItemUInt*>(self);
+    if (vkcoreconfigskeletonitemuint && vkcoreconfigskeletonitemuint->isVirtualKCoreConfigSkeletonItemUInt) {
+        vkcoreconfigskeletonitemuint->setKCoreConfigSkeleton__ItemUInt_ReadConfig_IsBase(true);
+        vkcoreconfigskeletonitemuint->readConfig(config);
+    } else {
+        self->KCoreConfigSkeleton::ItemUInt::readConfig(config);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemUInt_OnReadConfig(KCoreConfigSkeleton__ItemUInt* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemuint = dynamic_cast<VirtualKCoreConfigSkeletonItemUInt*>(self);
+    if (vkcoreconfigskeletonitemuint && vkcoreconfigskeletonitemuint->isVirtualKCoreConfigSkeletonItemUInt) {
+        vkcoreconfigskeletonitemuint->setKCoreConfigSkeleton__ItemUInt_ReadConfig_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemUInt::KCoreConfigSkeleton__ItemUInt_ReadConfig_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KCoreConfigSkeleton__ItemUInt_QBaseSetProperty(KCoreConfigSkeleton__ItemUInt* self, const QVariant* p) {
+    auto* vkcoreconfigskeletonitemuint = dynamic_cast<VirtualKCoreConfigSkeletonItemUInt*>(self);
+    if (vkcoreconfigskeletonitemuint && vkcoreconfigskeletonitemuint->isVirtualKCoreConfigSkeletonItemUInt) {
+        vkcoreconfigskeletonitemuint->setKCoreConfigSkeleton__ItemUInt_SetProperty_IsBase(true);
+        vkcoreconfigskeletonitemuint->setProperty(*p);
+    } else {
+        self->KCoreConfigSkeleton::ItemUInt::setProperty(*p);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemUInt_OnSetProperty(KCoreConfigSkeleton__ItemUInt* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemuint = dynamic_cast<VirtualKCoreConfigSkeletonItemUInt*>(self);
+    if (vkcoreconfigskeletonitemuint && vkcoreconfigskeletonitemuint->isVirtualKCoreConfigSkeletonItemUInt) {
+        vkcoreconfigskeletonitemuint->setKCoreConfigSkeleton__ItemUInt_SetProperty_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemUInt::KCoreConfigSkeleton__ItemUInt_SetProperty_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool KCoreConfigSkeleton__ItemUInt_QBaseIsEqual(const KCoreConfigSkeleton__ItemUInt* self, const QVariant* p) {
+    auto* vkcoreconfigskeletonitemuint = const_cast<VirtualKCoreConfigSkeletonItemUInt*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemUInt*>(self));
+    if (vkcoreconfigskeletonitemuint && vkcoreconfigskeletonitemuint->isVirtualKCoreConfigSkeletonItemUInt) {
+        vkcoreconfigskeletonitemuint->setKCoreConfigSkeleton__ItemUInt_IsEqual_IsBase(true);
+        return vkcoreconfigskeletonitemuint->isEqual(*p);
+    } else {
+        return self->KCoreConfigSkeleton::ItemUInt::isEqual(*p);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemUInt_OnIsEqual(const KCoreConfigSkeleton__ItemUInt* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemuint = const_cast<VirtualKCoreConfigSkeletonItemUInt*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemUInt*>(self));
+    if (vkcoreconfigskeletonitemuint && vkcoreconfigskeletonitemuint->isVirtualKCoreConfigSkeletonItemUInt) {
+        vkcoreconfigskeletonitemuint->setKCoreConfigSkeleton__ItemUInt_IsEqual_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemUInt::KCoreConfigSkeleton__ItemUInt_IsEqual_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QVariant* KCoreConfigSkeleton__ItemUInt_QBaseProperty(const KCoreConfigSkeleton__ItemUInt* self) {
+    auto* vkcoreconfigskeletonitemuint = const_cast<VirtualKCoreConfigSkeletonItemUInt*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemUInt*>(self));
+    if (vkcoreconfigskeletonitemuint && vkcoreconfigskeletonitemuint->isVirtualKCoreConfigSkeletonItemUInt) {
+        vkcoreconfigskeletonitemuint->setKCoreConfigSkeleton__ItemUInt_Property_IsBase(true);
+        return new QVariant(vkcoreconfigskeletonitemuint->property());
+    } else {
+        return new QVariant(((VirtualKCoreConfigSkeletonItemUInt*)self)->property());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemUInt_OnProperty(const KCoreConfigSkeleton__ItemUInt* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemuint = const_cast<VirtualKCoreConfigSkeletonItemUInt*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemUInt*>(self));
+    if (vkcoreconfigskeletonitemuint && vkcoreconfigskeletonitemuint->isVirtualKCoreConfigSkeletonItemUInt) {
+        vkcoreconfigskeletonitemuint->setKCoreConfigSkeleton__ItemUInt_Property_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemUInt::KCoreConfigSkeleton__ItemUInt_Property_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QVariant* KCoreConfigSkeleton__ItemUInt_QBaseMinValue(const KCoreConfigSkeleton__ItemUInt* self) {
+    auto* vkcoreconfigskeletonitemuint = const_cast<VirtualKCoreConfigSkeletonItemUInt*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemUInt*>(self));
+    if (vkcoreconfigskeletonitemuint && vkcoreconfigskeletonitemuint->isVirtualKCoreConfigSkeletonItemUInt) {
+        vkcoreconfigskeletonitemuint->setKCoreConfigSkeleton__ItemUInt_MinValue_IsBase(true);
+        return new QVariant(vkcoreconfigskeletonitemuint->minValue());
+    } else {
+        return new QVariant(((VirtualKCoreConfigSkeletonItemUInt*)self)->minValue());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemUInt_OnMinValue(const KCoreConfigSkeleton__ItemUInt* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemuint = const_cast<VirtualKCoreConfigSkeletonItemUInt*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemUInt*>(self));
+    if (vkcoreconfigskeletonitemuint && vkcoreconfigskeletonitemuint->isVirtualKCoreConfigSkeletonItemUInt) {
+        vkcoreconfigskeletonitemuint->setKCoreConfigSkeleton__ItemUInt_MinValue_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemUInt::KCoreConfigSkeleton__ItemUInt_MinValue_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QVariant* KCoreConfigSkeleton__ItemUInt_QBaseMaxValue(const KCoreConfigSkeleton__ItemUInt* self) {
+    auto* vkcoreconfigskeletonitemuint = const_cast<VirtualKCoreConfigSkeletonItemUInt*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemUInt*>(self));
+    if (vkcoreconfigskeletonitemuint && vkcoreconfigskeletonitemuint->isVirtualKCoreConfigSkeletonItemUInt) {
+        vkcoreconfigskeletonitemuint->setKCoreConfigSkeleton__ItemUInt_MaxValue_IsBase(true);
+        return new QVariant(vkcoreconfigskeletonitemuint->maxValue());
+    } else {
+        return new QVariant(((VirtualKCoreConfigSkeletonItemUInt*)self)->maxValue());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemUInt_OnMaxValue(const KCoreConfigSkeleton__ItemUInt* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemuint = const_cast<VirtualKCoreConfigSkeletonItemUInt*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemUInt*>(self));
+    if (vkcoreconfigskeletonitemuint && vkcoreconfigskeletonitemuint->isVirtualKCoreConfigSkeletonItemUInt) {
+        vkcoreconfigskeletonitemuint->setKCoreConfigSkeleton__ItemUInt_MaxValue_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemUInt::KCoreConfigSkeleton__ItemUInt_MaxValue_Callback>(slot));
+    }
+}
+
+void KCoreConfigSkeleton__ItemUInt_Delete(KCoreConfigSkeleton__ItemUInt* self) {
+    delete self;
+}
+
+KCoreConfigSkeleton__ItemULongLong* KCoreConfigSkeleton__ItemULongLong_new(const libqt_string _group, const libqt_string _key, unsigned long long* reference) {
+    QString _group_QString = QString::fromUtf8(_group.data, _group.len);
+    QString _key_QString = QString::fromUtf8(_key.data, _key.len);
+    return new VirtualKCoreConfigSkeletonItemULongLong(_group_QString, _key_QString, static_cast<quint64&>(*reference));
+}
+
+KCoreConfigSkeleton__ItemULongLong* KCoreConfigSkeleton__ItemULongLong_new2(const libqt_string _group, const libqt_string _key, unsigned long long* reference, unsigned long long defaultValue) {
+    QString _group_QString = QString::fromUtf8(_group.data, _group.len);
+    QString _key_QString = QString::fromUtf8(_key.data, _key.len);
+    return new VirtualKCoreConfigSkeletonItemULongLong(_group_QString, _key_QString, static_cast<quint64&>(*reference), static_cast<quint64>(defaultValue));
+}
+
+void KCoreConfigSkeleton__ItemULongLong_ReadConfig(KCoreConfigSkeleton__ItemULongLong* self, KConfig* config) {
+    auto* vkcoreconfigskeleton__itemulonglong = dynamic_cast<VirtualKCoreConfigSkeletonItemULongLong*>(self);
+    if (vkcoreconfigskeleton__itemulonglong && vkcoreconfigskeleton__itemulonglong->isVirtualKCoreConfigSkeletonItemULongLong) {
+        self->readConfig(config);
+    } else {
+        ((VirtualKCoreConfigSkeletonItemULongLong*)self)->readConfig(config);
+    }
+}
+
+void KCoreConfigSkeleton__ItemULongLong_SetProperty(KCoreConfigSkeleton__ItemULongLong* self, const QVariant* p) {
+    auto* vkcoreconfigskeleton__itemulonglong = dynamic_cast<VirtualKCoreConfigSkeletonItemULongLong*>(self);
+    if (vkcoreconfigskeleton__itemulonglong && vkcoreconfigskeleton__itemulonglong->isVirtualKCoreConfigSkeletonItemULongLong) {
+        self->setProperty(*p);
+    } else {
+        ((VirtualKCoreConfigSkeletonItemULongLong*)self)->setProperty(*p);
+    }
+}
+
+bool KCoreConfigSkeleton__ItemULongLong_IsEqual(const KCoreConfigSkeleton__ItemULongLong* self, const QVariant* p) {
+    auto* vkcoreconfigskeleton__itemulonglong = dynamic_cast<const VirtualKCoreConfigSkeletonItemULongLong*>(self);
+    if (vkcoreconfigskeleton__itemulonglong && vkcoreconfigskeleton__itemulonglong->isVirtualKCoreConfigSkeletonItemULongLong) {
+        return self->isEqual(*p);
+    } else {
+        return ((VirtualKCoreConfigSkeletonItemULongLong*)self)->isEqual(*p);
+    }
+}
+
+QVariant* KCoreConfigSkeleton__ItemULongLong_Property(const KCoreConfigSkeleton__ItemULongLong* self) {
+    auto* vkcoreconfigskeleton__itemulonglong = dynamic_cast<const VirtualKCoreConfigSkeletonItemULongLong*>(self);
+    if (vkcoreconfigskeleton__itemulonglong && vkcoreconfigskeleton__itemulonglong->isVirtualKCoreConfigSkeletonItemULongLong) {
+        return new QVariant(self->property());
+    } else {
+        return new QVariant(((VirtualKCoreConfigSkeletonItemULongLong*)self)->property());
+    }
+}
+
+QVariant* KCoreConfigSkeleton__ItemULongLong_MinValue(const KCoreConfigSkeleton__ItemULongLong* self) {
+    auto* vkcoreconfigskeleton__itemulonglong = dynamic_cast<const VirtualKCoreConfigSkeletonItemULongLong*>(self);
+    if (vkcoreconfigskeleton__itemulonglong && vkcoreconfigskeleton__itemulonglong->isVirtualKCoreConfigSkeletonItemULongLong) {
+        return new QVariant(self->minValue());
+    } else {
+        return new QVariant(((VirtualKCoreConfigSkeletonItemULongLong*)self)->minValue());
+    }
+}
+
+QVariant* KCoreConfigSkeleton__ItemULongLong_MaxValue(const KCoreConfigSkeleton__ItemULongLong* self) {
+    auto* vkcoreconfigskeleton__itemulonglong = dynamic_cast<const VirtualKCoreConfigSkeletonItemULongLong*>(self);
+    if (vkcoreconfigskeleton__itemulonglong && vkcoreconfigskeleton__itemulonglong->isVirtualKCoreConfigSkeletonItemULongLong) {
+        return new QVariant(self->maxValue());
+    } else {
+        return new QVariant(((VirtualKCoreConfigSkeletonItemULongLong*)self)->maxValue());
+    }
+}
+
+void KCoreConfigSkeleton__ItemULongLong_SetMinValue(KCoreConfigSkeleton__ItemULongLong* self, unsigned long long minValue) {
+    self->setMinValue(static_cast<unsigned long long>(minValue));
+}
+
+void KCoreConfigSkeleton__ItemULongLong_SetMaxValue(KCoreConfigSkeleton__ItemULongLong* self, unsigned long long maxValue) {
+    self->setMaxValue(static_cast<unsigned long long>(maxValue));
+}
+
+// Base class handler implementation
+void KCoreConfigSkeleton__ItemULongLong_QBaseReadConfig(KCoreConfigSkeleton__ItemULongLong* self, KConfig* config) {
+    auto* vkcoreconfigskeletonitemulonglong = dynamic_cast<VirtualKCoreConfigSkeletonItemULongLong*>(self);
+    if (vkcoreconfigskeletonitemulonglong && vkcoreconfigskeletonitemulonglong->isVirtualKCoreConfigSkeletonItemULongLong) {
+        vkcoreconfigskeletonitemulonglong->setKCoreConfigSkeleton__ItemULongLong_ReadConfig_IsBase(true);
+        vkcoreconfigskeletonitemulonglong->readConfig(config);
+    } else {
+        self->KCoreConfigSkeleton::ItemULongLong::readConfig(config);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemULongLong_OnReadConfig(KCoreConfigSkeleton__ItemULongLong* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemulonglong = dynamic_cast<VirtualKCoreConfigSkeletonItemULongLong*>(self);
+    if (vkcoreconfigskeletonitemulonglong && vkcoreconfigskeletonitemulonglong->isVirtualKCoreConfigSkeletonItemULongLong) {
+        vkcoreconfigskeletonitemulonglong->setKCoreConfigSkeleton__ItemULongLong_ReadConfig_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemULongLong::KCoreConfigSkeleton__ItemULongLong_ReadConfig_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KCoreConfigSkeleton__ItemULongLong_QBaseSetProperty(KCoreConfigSkeleton__ItemULongLong* self, const QVariant* p) {
+    auto* vkcoreconfigskeletonitemulonglong = dynamic_cast<VirtualKCoreConfigSkeletonItemULongLong*>(self);
+    if (vkcoreconfigskeletonitemulonglong && vkcoreconfigskeletonitemulonglong->isVirtualKCoreConfigSkeletonItemULongLong) {
+        vkcoreconfigskeletonitemulonglong->setKCoreConfigSkeleton__ItemULongLong_SetProperty_IsBase(true);
+        vkcoreconfigskeletonitemulonglong->setProperty(*p);
+    } else {
+        self->KCoreConfigSkeleton::ItemULongLong::setProperty(*p);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemULongLong_OnSetProperty(KCoreConfigSkeleton__ItemULongLong* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemulonglong = dynamic_cast<VirtualKCoreConfigSkeletonItemULongLong*>(self);
+    if (vkcoreconfigskeletonitemulonglong && vkcoreconfigskeletonitemulonglong->isVirtualKCoreConfigSkeletonItemULongLong) {
+        vkcoreconfigskeletonitemulonglong->setKCoreConfigSkeleton__ItemULongLong_SetProperty_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemULongLong::KCoreConfigSkeleton__ItemULongLong_SetProperty_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool KCoreConfigSkeleton__ItemULongLong_QBaseIsEqual(const KCoreConfigSkeleton__ItemULongLong* self, const QVariant* p) {
+    auto* vkcoreconfigskeletonitemulonglong = const_cast<VirtualKCoreConfigSkeletonItemULongLong*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemULongLong*>(self));
+    if (vkcoreconfigskeletonitemulonglong && vkcoreconfigskeletonitemulonglong->isVirtualKCoreConfigSkeletonItemULongLong) {
+        vkcoreconfigskeletonitemulonglong->setKCoreConfigSkeleton__ItemULongLong_IsEqual_IsBase(true);
+        return vkcoreconfigskeletonitemulonglong->isEqual(*p);
+    } else {
+        return self->KCoreConfigSkeleton::ItemULongLong::isEqual(*p);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemULongLong_OnIsEqual(const KCoreConfigSkeleton__ItemULongLong* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemulonglong = const_cast<VirtualKCoreConfigSkeletonItemULongLong*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemULongLong*>(self));
+    if (vkcoreconfigskeletonitemulonglong && vkcoreconfigskeletonitemulonglong->isVirtualKCoreConfigSkeletonItemULongLong) {
+        vkcoreconfigskeletonitemulonglong->setKCoreConfigSkeleton__ItemULongLong_IsEqual_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemULongLong::KCoreConfigSkeleton__ItemULongLong_IsEqual_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QVariant* KCoreConfigSkeleton__ItemULongLong_QBaseProperty(const KCoreConfigSkeleton__ItemULongLong* self) {
+    auto* vkcoreconfigskeletonitemulonglong = const_cast<VirtualKCoreConfigSkeletonItemULongLong*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemULongLong*>(self));
+    if (vkcoreconfigskeletonitemulonglong && vkcoreconfigskeletonitemulonglong->isVirtualKCoreConfigSkeletonItemULongLong) {
+        vkcoreconfigskeletonitemulonglong->setKCoreConfigSkeleton__ItemULongLong_Property_IsBase(true);
+        return new QVariant(vkcoreconfigskeletonitemulonglong->property());
+    } else {
+        return new QVariant(((VirtualKCoreConfigSkeletonItemULongLong*)self)->property());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemULongLong_OnProperty(const KCoreConfigSkeleton__ItemULongLong* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemulonglong = const_cast<VirtualKCoreConfigSkeletonItemULongLong*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemULongLong*>(self));
+    if (vkcoreconfigskeletonitemulonglong && vkcoreconfigskeletonitemulonglong->isVirtualKCoreConfigSkeletonItemULongLong) {
+        vkcoreconfigskeletonitemulonglong->setKCoreConfigSkeleton__ItemULongLong_Property_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemULongLong::KCoreConfigSkeleton__ItemULongLong_Property_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QVariant* KCoreConfigSkeleton__ItemULongLong_QBaseMinValue(const KCoreConfigSkeleton__ItemULongLong* self) {
+    auto* vkcoreconfigskeletonitemulonglong = const_cast<VirtualKCoreConfigSkeletonItemULongLong*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemULongLong*>(self));
+    if (vkcoreconfigskeletonitemulonglong && vkcoreconfigskeletonitemulonglong->isVirtualKCoreConfigSkeletonItemULongLong) {
+        vkcoreconfigskeletonitemulonglong->setKCoreConfigSkeleton__ItemULongLong_MinValue_IsBase(true);
+        return new QVariant(vkcoreconfigskeletonitemulonglong->minValue());
+    } else {
+        return new QVariant(((VirtualKCoreConfigSkeletonItemULongLong*)self)->minValue());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemULongLong_OnMinValue(const KCoreConfigSkeleton__ItemULongLong* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemulonglong = const_cast<VirtualKCoreConfigSkeletonItemULongLong*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemULongLong*>(self));
+    if (vkcoreconfigskeletonitemulonglong && vkcoreconfigskeletonitemulonglong->isVirtualKCoreConfigSkeletonItemULongLong) {
+        vkcoreconfigskeletonitemulonglong->setKCoreConfigSkeleton__ItemULongLong_MinValue_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemULongLong::KCoreConfigSkeleton__ItemULongLong_MinValue_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QVariant* KCoreConfigSkeleton__ItemULongLong_QBaseMaxValue(const KCoreConfigSkeleton__ItemULongLong* self) {
+    auto* vkcoreconfigskeletonitemulonglong = const_cast<VirtualKCoreConfigSkeletonItemULongLong*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemULongLong*>(self));
+    if (vkcoreconfigskeletonitemulonglong && vkcoreconfigskeletonitemulonglong->isVirtualKCoreConfigSkeletonItemULongLong) {
+        vkcoreconfigskeletonitemulonglong->setKCoreConfigSkeleton__ItemULongLong_MaxValue_IsBase(true);
+        return new QVariant(vkcoreconfigskeletonitemulonglong->maxValue());
+    } else {
+        return new QVariant(((VirtualKCoreConfigSkeletonItemULongLong*)self)->maxValue());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemULongLong_OnMaxValue(const KCoreConfigSkeleton__ItemULongLong* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemulonglong = const_cast<VirtualKCoreConfigSkeletonItemULongLong*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemULongLong*>(self));
+    if (vkcoreconfigskeletonitemulonglong && vkcoreconfigskeletonitemulonglong->isVirtualKCoreConfigSkeletonItemULongLong) {
+        vkcoreconfigskeletonitemulonglong->setKCoreConfigSkeleton__ItemULongLong_MaxValue_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemULongLong::KCoreConfigSkeleton__ItemULongLong_MaxValue_Callback>(slot));
+    }
+}
+
+void KCoreConfigSkeleton__ItemULongLong_Delete(KCoreConfigSkeleton__ItemULongLong* self) {
+    delete self;
+}
+
+KCoreConfigSkeleton__ItemDouble* KCoreConfigSkeleton__ItemDouble_new(const libqt_string _group, const libqt_string _key, double* reference) {
+    QString _group_QString = QString::fromUtf8(_group.data, _group.len);
+    QString _key_QString = QString::fromUtf8(_key.data, _key.len);
+    return new VirtualKCoreConfigSkeletonItemDouble(_group_QString, _key_QString, static_cast<double&>(*reference));
+}
+
+KCoreConfigSkeleton__ItemDouble* KCoreConfigSkeleton__ItemDouble_new2(const libqt_string _group, const libqt_string _key, double* reference, double defaultValue) {
+    QString _group_QString = QString::fromUtf8(_group.data, _group.len);
+    QString _key_QString = QString::fromUtf8(_key.data, _key.len);
+    return new VirtualKCoreConfigSkeletonItemDouble(_group_QString, _key_QString, static_cast<double&>(*reference), static_cast<double>(defaultValue));
+}
+
+void KCoreConfigSkeleton__ItemDouble_ReadConfig(KCoreConfigSkeleton__ItemDouble* self, KConfig* config) {
+    auto* vkcoreconfigskeleton__itemdouble = dynamic_cast<VirtualKCoreConfigSkeletonItemDouble*>(self);
+    if (vkcoreconfigskeleton__itemdouble && vkcoreconfigskeleton__itemdouble->isVirtualKCoreConfigSkeletonItemDouble) {
+        self->readConfig(config);
+    } else {
+        ((VirtualKCoreConfigSkeletonItemDouble*)self)->readConfig(config);
+    }
+}
+
+void KCoreConfigSkeleton__ItemDouble_SetProperty(KCoreConfigSkeleton__ItemDouble* self, const QVariant* p) {
+    auto* vkcoreconfigskeleton__itemdouble = dynamic_cast<VirtualKCoreConfigSkeletonItemDouble*>(self);
+    if (vkcoreconfigskeleton__itemdouble && vkcoreconfigskeleton__itemdouble->isVirtualKCoreConfigSkeletonItemDouble) {
+        self->setProperty(*p);
+    } else {
+        ((VirtualKCoreConfigSkeletonItemDouble*)self)->setProperty(*p);
+    }
+}
+
+bool KCoreConfigSkeleton__ItemDouble_IsEqual(const KCoreConfigSkeleton__ItemDouble* self, const QVariant* p) {
+    auto* vkcoreconfigskeleton__itemdouble = dynamic_cast<const VirtualKCoreConfigSkeletonItemDouble*>(self);
+    if (vkcoreconfigskeleton__itemdouble && vkcoreconfigskeleton__itemdouble->isVirtualKCoreConfigSkeletonItemDouble) {
+        return self->isEqual(*p);
+    } else {
+        return ((VirtualKCoreConfigSkeletonItemDouble*)self)->isEqual(*p);
+    }
+}
+
+QVariant* KCoreConfigSkeleton__ItemDouble_Property(const KCoreConfigSkeleton__ItemDouble* self) {
+    auto* vkcoreconfigskeleton__itemdouble = dynamic_cast<const VirtualKCoreConfigSkeletonItemDouble*>(self);
+    if (vkcoreconfigskeleton__itemdouble && vkcoreconfigskeleton__itemdouble->isVirtualKCoreConfigSkeletonItemDouble) {
+        return new QVariant(self->property());
+    } else {
+        return new QVariant(((VirtualKCoreConfigSkeletonItemDouble*)self)->property());
+    }
+}
+
+QVariant* KCoreConfigSkeleton__ItemDouble_MinValue(const KCoreConfigSkeleton__ItemDouble* self) {
+    auto* vkcoreconfigskeleton__itemdouble = dynamic_cast<const VirtualKCoreConfigSkeletonItemDouble*>(self);
+    if (vkcoreconfigskeleton__itemdouble && vkcoreconfigskeleton__itemdouble->isVirtualKCoreConfigSkeletonItemDouble) {
+        return new QVariant(self->minValue());
+    } else {
+        return new QVariant(((VirtualKCoreConfigSkeletonItemDouble*)self)->minValue());
+    }
+}
+
+QVariant* KCoreConfigSkeleton__ItemDouble_MaxValue(const KCoreConfigSkeleton__ItemDouble* self) {
+    auto* vkcoreconfigskeleton__itemdouble = dynamic_cast<const VirtualKCoreConfigSkeletonItemDouble*>(self);
+    if (vkcoreconfigskeleton__itemdouble && vkcoreconfigskeleton__itemdouble->isVirtualKCoreConfigSkeletonItemDouble) {
+        return new QVariant(self->maxValue());
+    } else {
+        return new QVariant(((VirtualKCoreConfigSkeletonItemDouble*)self)->maxValue());
+    }
+}
+
+void KCoreConfigSkeleton__ItemDouble_SetMinValue(KCoreConfigSkeleton__ItemDouble* self, double minValue) {
+    self->setMinValue(static_cast<double>(minValue));
+}
+
+void KCoreConfigSkeleton__ItemDouble_SetMaxValue(KCoreConfigSkeleton__ItemDouble* self, double maxValue) {
+    self->setMaxValue(static_cast<double>(maxValue));
+}
+
+// Base class handler implementation
+void KCoreConfigSkeleton__ItemDouble_QBaseReadConfig(KCoreConfigSkeleton__ItemDouble* self, KConfig* config) {
+    auto* vkcoreconfigskeletonitemdouble = dynamic_cast<VirtualKCoreConfigSkeletonItemDouble*>(self);
+    if (vkcoreconfigskeletonitemdouble && vkcoreconfigskeletonitemdouble->isVirtualKCoreConfigSkeletonItemDouble) {
+        vkcoreconfigskeletonitemdouble->setKCoreConfigSkeleton__ItemDouble_ReadConfig_IsBase(true);
+        vkcoreconfigskeletonitemdouble->readConfig(config);
+    } else {
+        self->KCoreConfigSkeleton::ItemDouble::readConfig(config);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemDouble_OnReadConfig(KCoreConfigSkeleton__ItemDouble* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemdouble = dynamic_cast<VirtualKCoreConfigSkeletonItemDouble*>(self);
+    if (vkcoreconfigskeletonitemdouble && vkcoreconfigskeletonitemdouble->isVirtualKCoreConfigSkeletonItemDouble) {
+        vkcoreconfigskeletonitemdouble->setKCoreConfigSkeleton__ItemDouble_ReadConfig_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemDouble::KCoreConfigSkeleton__ItemDouble_ReadConfig_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KCoreConfigSkeleton__ItemDouble_QBaseSetProperty(KCoreConfigSkeleton__ItemDouble* self, const QVariant* p) {
+    auto* vkcoreconfigskeletonitemdouble = dynamic_cast<VirtualKCoreConfigSkeletonItemDouble*>(self);
+    if (vkcoreconfigskeletonitemdouble && vkcoreconfigskeletonitemdouble->isVirtualKCoreConfigSkeletonItemDouble) {
+        vkcoreconfigskeletonitemdouble->setKCoreConfigSkeleton__ItemDouble_SetProperty_IsBase(true);
+        vkcoreconfigskeletonitemdouble->setProperty(*p);
+    } else {
+        self->KCoreConfigSkeleton::ItemDouble::setProperty(*p);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemDouble_OnSetProperty(KCoreConfigSkeleton__ItemDouble* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemdouble = dynamic_cast<VirtualKCoreConfigSkeletonItemDouble*>(self);
+    if (vkcoreconfigskeletonitemdouble && vkcoreconfigskeletonitemdouble->isVirtualKCoreConfigSkeletonItemDouble) {
+        vkcoreconfigskeletonitemdouble->setKCoreConfigSkeleton__ItemDouble_SetProperty_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemDouble::KCoreConfigSkeleton__ItemDouble_SetProperty_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool KCoreConfigSkeleton__ItemDouble_QBaseIsEqual(const KCoreConfigSkeleton__ItemDouble* self, const QVariant* p) {
+    auto* vkcoreconfigskeletonitemdouble = const_cast<VirtualKCoreConfigSkeletonItemDouble*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemDouble*>(self));
+    if (vkcoreconfigskeletonitemdouble && vkcoreconfigskeletonitemdouble->isVirtualKCoreConfigSkeletonItemDouble) {
+        vkcoreconfigskeletonitemdouble->setKCoreConfigSkeleton__ItemDouble_IsEqual_IsBase(true);
+        return vkcoreconfigskeletonitemdouble->isEqual(*p);
+    } else {
+        return self->KCoreConfigSkeleton::ItemDouble::isEqual(*p);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemDouble_OnIsEqual(const KCoreConfigSkeleton__ItemDouble* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemdouble = const_cast<VirtualKCoreConfigSkeletonItemDouble*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemDouble*>(self));
+    if (vkcoreconfigskeletonitemdouble && vkcoreconfigskeletonitemdouble->isVirtualKCoreConfigSkeletonItemDouble) {
+        vkcoreconfigskeletonitemdouble->setKCoreConfigSkeleton__ItemDouble_IsEqual_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemDouble::KCoreConfigSkeleton__ItemDouble_IsEqual_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QVariant* KCoreConfigSkeleton__ItemDouble_QBaseProperty(const KCoreConfigSkeleton__ItemDouble* self) {
+    auto* vkcoreconfigskeletonitemdouble = const_cast<VirtualKCoreConfigSkeletonItemDouble*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemDouble*>(self));
+    if (vkcoreconfigskeletonitemdouble && vkcoreconfigskeletonitemdouble->isVirtualKCoreConfigSkeletonItemDouble) {
+        vkcoreconfigskeletonitemdouble->setKCoreConfigSkeleton__ItemDouble_Property_IsBase(true);
+        return new QVariant(vkcoreconfigskeletonitemdouble->property());
+    } else {
+        return new QVariant(((VirtualKCoreConfigSkeletonItemDouble*)self)->property());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemDouble_OnProperty(const KCoreConfigSkeleton__ItemDouble* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemdouble = const_cast<VirtualKCoreConfigSkeletonItemDouble*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemDouble*>(self));
+    if (vkcoreconfigskeletonitemdouble && vkcoreconfigskeletonitemdouble->isVirtualKCoreConfigSkeletonItemDouble) {
+        vkcoreconfigskeletonitemdouble->setKCoreConfigSkeleton__ItemDouble_Property_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemDouble::KCoreConfigSkeleton__ItemDouble_Property_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QVariant* KCoreConfigSkeleton__ItemDouble_QBaseMinValue(const KCoreConfigSkeleton__ItemDouble* self) {
+    auto* vkcoreconfigskeletonitemdouble = const_cast<VirtualKCoreConfigSkeletonItemDouble*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemDouble*>(self));
+    if (vkcoreconfigskeletonitemdouble && vkcoreconfigskeletonitemdouble->isVirtualKCoreConfigSkeletonItemDouble) {
+        vkcoreconfigskeletonitemdouble->setKCoreConfigSkeleton__ItemDouble_MinValue_IsBase(true);
+        return new QVariant(vkcoreconfigskeletonitemdouble->minValue());
+    } else {
+        return new QVariant(((VirtualKCoreConfigSkeletonItemDouble*)self)->minValue());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemDouble_OnMinValue(const KCoreConfigSkeleton__ItemDouble* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemdouble = const_cast<VirtualKCoreConfigSkeletonItemDouble*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemDouble*>(self));
+    if (vkcoreconfigskeletonitemdouble && vkcoreconfigskeletonitemdouble->isVirtualKCoreConfigSkeletonItemDouble) {
+        vkcoreconfigskeletonitemdouble->setKCoreConfigSkeleton__ItemDouble_MinValue_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemDouble::KCoreConfigSkeleton__ItemDouble_MinValue_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QVariant* KCoreConfigSkeleton__ItemDouble_QBaseMaxValue(const KCoreConfigSkeleton__ItemDouble* self) {
+    auto* vkcoreconfigskeletonitemdouble = const_cast<VirtualKCoreConfigSkeletonItemDouble*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemDouble*>(self));
+    if (vkcoreconfigskeletonitemdouble && vkcoreconfigskeletonitemdouble->isVirtualKCoreConfigSkeletonItemDouble) {
+        vkcoreconfigskeletonitemdouble->setKCoreConfigSkeleton__ItemDouble_MaxValue_IsBase(true);
+        return new QVariant(vkcoreconfigskeletonitemdouble->maxValue());
+    } else {
+        return new QVariant(((VirtualKCoreConfigSkeletonItemDouble*)self)->maxValue());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemDouble_OnMaxValue(const KCoreConfigSkeleton__ItemDouble* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemdouble = const_cast<VirtualKCoreConfigSkeletonItemDouble*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemDouble*>(self));
+    if (vkcoreconfigskeletonitemdouble && vkcoreconfigskeletonitemdouble->isVirtualKCoreConfigSkeletonItemDouble) {
+        vkcoreconfigskeletonitemdouble->setKCoreConfigSkeleton__ItemDouble_MaxValue_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemDouble::KCoreConfigSkeleton__ItemDouble_MaxValue_Callback>(slot));
+    }
+}
+
+void KCoreConfigSkeleton__ItemDouble_Delete(KCoreConfigSkeleton__ItemDouble* self) {
+    delete self;
+}
+
+KCoreConfigSkeleton__ItemRect* KCoreConfigSkeleton__ItemRect_new(const libqt_string _group, const libqt_string _key, QRect* reference) {
+    QString _group_QString = QString::fromUtf8(_group.data, _group.len);
+    QString _key_QString = QString::fromUtf8(_key.data, _key.len);
+    return new VirtualKCoreConfigSkeletonItemRect(_group_QString, _key_QString, *reference);
+}
+
+KCoreConfigSkeleton__ItemRect* KCoreConfigSkeleton__ItemRect_new2(const libqt_string _group, const libqt_string _key, QRect* reference, const QRect* defaultValue) {
+    QString _group_QString = QString::fromUtf8(_group.data, _group.len);
+    QString _key_QString = QString::fromUtf8(_key.data, _key.len);
+    return new VirtualKCoreConfigSkeletonItemRect(_group_QString, _key_QString, *reference, *defaultValue);
+}
+
+void KCoreConfigSkeleton__ItemRect_ReadConfig(KCoreConfigSkeleton__ItemRect* self, KConfig* config) {
+    auto* vkcoreconfigskeleton__itemrect = dynamic_cast<VirtualKCoreConfigSkeletonItemRect*>(self);
+    if (vkcoreconfigskeleton__itemrect && vkcoreconfigskeleton__itemrect->isVirtualKCoreConfigSkeletonItemRect) {
+        self->readConfig(config);
+    } else {
+        ((VirtualKCoreConfigSkeletonItemRect*)self)->readConfig(config);
+    }
+}
+
+void KCoreConfigSkeleton__ItemRect_SetProperty(KCoreConfigSkeleton__ItemRect* self, const QVariant* p) {
+    auto* vkcoreconfigskeleton__itemrect = dynamic_cast<VirtualKCoreConfigSkeletonItemRect*>(self);
+    if (vkcoreconfigskeleton__itemrect && vkcoreconfigskeleton__itemrect->isVirtualKCoreConfigSkeletonItemRect) {
+        self->setProperty(*p);
+    } else {
+        ((VirtualKCoreConfigSkeletonItemRect*)self)->setProperty(*p);
+    }
+}
+
+bool KCoreConfigSkeleton__ItemRect_IsEqual(const KCoreConfigSkeleton__ItemRect* self, const QVariant* p) {
+    auto* vkcoreconfigskeleton__itemrect = dynamic_cast<const VirtualKCoreConfigSkeletonItemRect*>(self);
+    if (vkcoreconfigskeleton__itemrect && vkcoreconfigskeleton__itemrect->isVirtualKCoreConfigSkeletonItemRect) {
+        return self->isEqual(*p);
+    } else {
+        return ((VirtualKCoreConfigSkeletonItemRect*)self)->isEqual(*p);
+    }
+}
+
+QVariant* KCoreConfigSkeleton__ItemRect_Property(const KCoreConfigSkeleton__ItemRect* self) {
+    auto* vkcoreconfigskeleton__itemrect = dynamic_cast<const VirtualKCoreConfigSkeletonItemRect*>(self);
+    if (vkcoreconfigskeleton__itemrect && vkcoreconfigskeleton__itemrect->isVirtualKCoreConfigSkeletonItemRect) {
+        return new QVariant(self->property());
+    } else {
+        return new QVariant(((VirtualKCoreConfigSkeletonItemRect*)self)->property());
+    }
+}
+
+// Base class handler implementation
+void KCoreConfigSkeleton__ItemRect_QBaseReadConfig(KCoreConfigSkeleton__ItemRect* self, KConfig* config) {
+    auto* vkcoreconfigskeletonitemrect = dynamic_cast<VirtualKCoreConfigSkeletonItemRect*>(self);
+    if (vkcoreconfigskeletonitemrect && vkcoreconfigskeletonitemrect->isVirtualKCoreConfigSkeletonItemRect) {
+        vkcoreconfigskeletonitemrect->setKCoreConfigSkeleton__ItemRect_ReadConfig_IsBase(true);
+        vkcoreconfigskeletonitemrect->readConfig(config);
+    } else {
+        self->KCoreConfigSkeleton::ItemRect::readConfig(config);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemRect_OnReadConfig(KCoreConfigSkeleton__ItemRect* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemrect = dynamic_cast<VirtualKCoreConfigSkeletonItemRect*>(self);
+    if (vkcoreconfigskeletonitemrect && vkcoreconfigskeletonitemrect->isVirtualKCoreConfigSkeletonItemRect) {
+        vkcoreconfigskeletonitemrect->setKCoreConfigSkeleton__ItemRect_ReadConfig_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemRect::KCoreConfigSkeleton__ItemRect_ReadConfig_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KCoreConfigSkeleton__ItemRect_QBaseSetProperty(KCoreConfigSkeleton__ItemRect* self, const QVariant* p) {
+    auto* vkcoreconfigskeletonitemrect = dynamic_cast<VirtualKCoreConfigSkeletonItemRect*>(self);
+    if (vkcoreconfigskeletonitemrect && vkcoreconfigskeletonitemrect->isVirtualKCoreConfigSkeletonItemRect) {
+        vkcoreconfigskeletonitemrect->setKCoreConfigSkeleton__ItemRect_SetProperty_IsBase(true);
+        vkcoreconfigskeletonitemrect->setProperty(*p);
+    } else {
+        self->KCoreConfigSkeleton::ItemRect::setProperty(*p);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemRect_OnSetProperty(KCoreConfigSkeleton__ItemRect* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemrect = dynamic_cast<VirtualKCoreConfigSkeletonItemRect*>(self);
+    if (vkcoreconfigskeletonitemrect && vkcoreconfigskeletonitemrect->isVirtualKCoreConfigSkeletonItemRect) {
+        vkcoreconfigskeletonitemrect->setKCoreConfigSkeleton__ItemRect_SetProperty_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemRect::KCoreConfigSkeleton__ItemRect_SetProperty_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool KCoreConfigSkeleton__ItemRect_QBaseIsEqual(const KCoreConfigSkeleton__ItemRect* self, const QVariant* p) {
+    auto* vkcoreconfigskeletonitemrect = const_cast<VirtualKCoreConfigSkeletonItemRect*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemRect*>(self));
+    if (vkcoreconfigskeletonitemrect && vkcoreconfigskeletonitemrect->isVirtualKCoreConfigSkeletonItemRect) {
+        vkcoreconfigskeletonitemrect->setKCoreConfigSkeleton__ItemRect_IsEqual_IsBase(true);
+        return vkcoreconfigskeletonitemrect->isEqual(*p);
+    } else {
+        return self->KCoreConfigSkeleton::ItemRect::isEqual(*p);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemRect_OnIsEqual(const KCoreConfigSkeleton__ItemRect* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemrect = const_cast<VirtualKCoreConfigSkeletonItemRect*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemRect*>(self));
+    if (vkcoreconfigskeletonitemrect && vkcoreconfigskeletonitemrect->isVirtualKCoreConfigSkeletonItemRect) {
+        vkcoreconfigskeletonitemrect->setKCoreConfigSkeleton__ItemRect_IsEqual_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemRect::KCoreConfigSkeleton__ItemRect_IsEqual_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QVariant* KCoreConfigSkeleton__ItemRect_QBaseProperty(const KCoreConfigSkeleton__ItemRect* self) {
+    auto* vkcoreconfigskeletonitemrect = const_cast<VirtualKCoreConfigSkeletonItemRect*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemRect*>(self));
+    if (vkcoreconfigskeletonitemrect && vkcoreconfigskeletonitemrect->isVirtualKCoreConfigSkeletonItemRect) {
+        vkcoreconfigskeletonitemrect->setKCoreConfigSkeleton__ItemRect_Property_IsBase(true);
+        return new QVariant(vkcoreconfigskeletonitemrect->property());
+    } else {
+        return new QVariant(((VirtualKCoreConfigSkeletonItemRect*)self)->property());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemRect_OnProperty(const KCoreConfigSkeleton__ItemRect* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemrect = const_cast<VirtualKCoreConfigSkeletonItemRect*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemRect*>(self));
+    if (vkcoreconfigskeletonitemrect && vkcoreconfigskeletonitemrect->isVirtualKCoreConfigSkeletonItemRect) {
+        vkcoreconfigskeletonitemrect->setKCoreConfigSkeleton__ItemRect_Property_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemRect::KCoreConfigSkeleton__ItemRect_Property_Callback>(slot));
+    }
+}
+
+void KCoreConfigSkeleton__ItemRect_Delete(KCoreConfigSkeleton__ItemRect* self) {
+    delete self;
+}
+
+KCoreConfigSkeleton__ItemRectF* KCoreConfigSkeleton__ItemRectF_new(const libqt_string _group, const libqt_string _key, QRectF* reference) {
+    QString _group_QString = QString::fromUtf8(_group.data, _group.len);
+    QString _key_QString = QString::fromUtf8(_key.data, _key.len);
+    return new VirtualKCoreConfigSkeletonItemRectF(_group_QString, _key_QString, *reference);
+}
+
+KCoreConfigSkeleton__ItemRectF* KCoreConfigSkeleton__ItemRectF_new2(const libqt_string _group, const libqt_string _key, QRectF* reference, const QRectF* defaultValue) {
+    QString _group_QString = QString::fromUtf8(_group.data, _group.len);
+    QString _key_QString = QString::fromUtf8(_key.data, _key.len);
+    return new VirtualKCoreConfigSkeletonItemRectF(_group_QString, _key_QString, *reference, *defaultValue);
+}
+
+void KCoreConfigSkeleton__ItemRectF_ReadConfig(KCoreConfigSkeleton__ItemRectF* self, KConfig* config) {
+    auto* vkcoreconfigskeleton__itemrectf = dynamic_cast<VirtualKCoreConfigSkeletonItemRectF*>(self);
+    if (vkcoreconfigskeleton__itemrectf && vkcoreconfigskeleton__itemrectf->isVirtualKCoreConfigSkeletonItemRectF) {
+        self->readConfig(config);
+    } else {
+        ((VirtualKCoreConfigSkeletonItemRectF*)self)->readConfig(config);
+    }
+}
+
+void KCoreConfigSkeleton__ItemRectF_SetProperty(KCoreConfigSkeleton__ItemRectF* self, const QVariant* p) {
+    auto* vkcoreconfigskeleton__itemrectf = dynamic_cast<VirtualKCoreConfigSkeletonItemRectF*>(self);
+    if (vkcoreconfigskeleton__itemrectf && vkcoreconfigskeleton__itemrectf->isVirtualKCoreConfigSkeletonItemRectF) {
+        self->setProperty(*p);
+    } else {
+        ((VirtualKCoreConfigSkeletonItemRectF*)self)->setProperty(*p);
+    }
+}
+
+bool KCoreConfigSkeleton__ItemRectF_IsEqual(const KCoreConfigSkeleton__ItemRectF* self, const QVariant* p) {
+    auto* vkcoreconfigskeleton__itemrectf = dynamic_cast<const VirtualKCoreConfigSkeletonItemRectF*>(self);
+    if (vkcoreconfigskeleton__itemrectf && vkcoreconfigskeleton__itemrectf->isVirtualKCoreConfigSkeletonItemRectF) {
+        return self->isEqual(*p);
+    } else {
+        return ((VirtualKCoreConfigSkeletonItemRectF*)self)->isEqual(*p);
+    }
+}
+
+QVariant* KCoreConfigSkeleton__ItemRectF_Property(const KCoreConfigSkeleton__ItemRectF* self) {
+    auto* vkcoreconfigskeleton__itemrectf = dynamic_cast<const VirtualKCoreConfigSkeletonItemRectF*>(self);
+    if (vkcoreconfigskeleton__itemrectf && vkcoreconfigskeleton__itemrectf->isVirtualKCoreConfigSkeletonItemRectF) {
+        return new QVariant(self->property());
+    } else {
+        return new QVariant(((VirtualKCoreConfigSkeletonItemRectF*)self)->property());
+    }
+}
+
+// Base class handler implementation
+void KCoreConfigSkeleton__ItemRectF_QBaseReadConfig(KCoreConfigSkeleton__ItemRectF* self, KConfig* config) {
+    auto* vkcoreconfigskeletonitemrectf = dynamic_cast<VirtualKCoreConfigSkeletonItemRectF*>(self);
+    if (vkcoreconfigskeletonitemrectf && vkcoreconfigskeletonitemrectf->isVirtualKCoreConfigSkeletonItemRectF) {
+        vkcoreconfigskeletonitemrectf->setKCoreConfigSkeleton__ItemRectF_ReadConfig_IsBase(true);
+        vkcoreconfigskeletonitemrectf->readConfig(config);
+    } else {
+        self->KCoreConfigSkeleton::ItemRectF::readConfig(config);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemRectF_OnReadConfig(KCoreConfigSkeleton__ItemRectF* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemrectf = dynamic_cast<VirtualKCoreConfigSkeletonItemRectF*>(self);
+    if (vkcoreconfigskeletonitemrectf && vkcoreconfigskeletonitemrectf->isVirtualKCoreConfigSkeletonItemRectF) {
+        vkcoreconfigskeletonitemrectf->setKCoreConfigSkeleton__ItemRectF_ReadConfig_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemRectF::KCoreConfigSkeleton__ItemRectF_ReadConfig_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KCoreConfigSkeleton__ItemRectF_QBaseSetProperty(KCoreConfigSkeleton__ItemRectF* self, const QVariant* p) {
+    auto* vkcoreconfigskeletonitemrectf = dynamic_cast<VirtualKCoreConfigSkeletonItemRectF*>(self);
+    if (vkcoreconfigskeletonitemrectf && vkcoreconfigskeletonitemrectf->isVirtualKCoreConfigSkeletonItemRectF) {
+        vkcoreconfigskeletonitemrectf->setKCoreConfigSkeleton__ItemRectF_SetProperty_IsBase(true);
+        vkcoreconfigskeletonitemrectf->setProperty(*p);
+    } else {
+        self->KCoreConfigSkeleton::ItemRectF::setProperty(*p);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemRectF_OnSetProperty(KCoreConfigSkeleton__ItemRectF* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemrectf = dynamic_cast<VirtualKCoreConfigSkeletonItemRectF*>(self);
+    if (vkcoreconfigskeletonitemrectf && vkcoreconfigskeletonitemrectf->isVirtualKCoreConfigSkeletonItemRectF) {
+        vkcoreconfigskeletonitemrectf->setKCoreConfigSkeleton__ItemRectF_SetProperty_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemRectF::KCoreConfigSkeleton__ItemRectF_SetProperty_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool KCoreConfigSkeleton__ItemRectF_QBaseIsEqual(const KCoreConfigSkeleton__ItemRectF* self, const QVariant* p) {
+    auto* vkcoreconfigskeletonitemrectf = const_cast<VirtualKCoreConfigSkeletonItemRectF*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemRectF*>(self));
+    if (vkcoreconfigskeletonitemrectf && vkcoreconfigskeletonitemrectf->isVirtualKCoreConfigSkeletonItemRectF) {
+        vkcoreconfigskeletonitemrectf->setKCoreConfigSkeleton__ItemRectF_IsEqual_IsBase(true);
+        return vkcoreconfigskeletonitemrectf->isEqual(*p);
+    } else {
+        return self->KCoreConfigSkeleton::ItemRectF::isEqual(*p);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemRectF_OnIsEqual(const KCoreConfigSkeleton__ItemRectF* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemrectf = const_cast<VirtualKCoreConfigSkeletonItemRectF*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemRectF*>(self));
+    if (vkcoreconfigskeletonitemrectf && vkcoreconfigskeletonitemrectf->isVirtualKCoreConfigSkeletonItemRectF) {
+        vkcoreconfigskeletonitemrectf->setKCoreConfigSkeleton__ItemRectF_IsEqual_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemRectF::KCoreConfigSkeleton__ItemRectF_IsEqual_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QVariant* KCoreConfigSkeleton__ItemRectF_QBaseProperty(const KCoreConfigSkeleton__ItemRectF* self) {
+    auto* vkcoreconfigskeletonitemrectf = const_cast<VirtualKCoreConfigSkeletonItemRectF*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemRectF*>(self));
+    if (vkcoreconfigskeletonitemrectf && vkcoreconfigskeletonitemrectf->isVirtualKCoreConfigSkeletonItemRectF) {
+        vkcoreconfigskeletonitemrectf->setKCoreConfigSkeleton__ItemRectF_Property_IsBase(true);
+        return new QVariant(vkcoreconfigskeletonitemrectf->property());
+    } else {
+        return new QVariant(((VirtualKCoreConfigSkeletonItemRectF*)self)->property());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemRectF_OnProperty(const KCoreConfigSkeleton__ItemRectF* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemrectf = const_cast<VirtualKCoreConfigSkeletonItemRectF*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemRectF*>(self));
+    if (vkcoreconfigskeletonitemrectf && vkcoreconfigskeletonitemrectf->isVirtualKCoreConfigSkeletonItemRectF) {
+        vkcoreconfigskeletonitemrectf->setKCoreConfigSkeleton__ItemRectF_Property_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemRectF::KCoreConfigSkeleton__ItemRectF_Property_Callback>(slot));
+    }
+}
+
+void KCoreConfigSkeleton__ItemRectF_Delete(KCoreConfigSkeleton__ItemRectF* self) {
+    delete self;
+}
+
+KCoreConfigSkeleton__ItemPoint* KCoreConfigSkeleton__ItemPoint_new(const libqt_string _group, const libqt_string _key, QPoint* reference) {
+    QString _group_QString = QString::fromUtf8(_group.data, _group.len);
+    QString _key_QString = QString::fromUtf8(_key.data, _key.len);
+    return new VirtualKCoreConfigSkeletonItemPoint(_group_QString, _key_QString, *reference);
+}
+
+KCoreConfigSkeleton__ItemPoint* KCoreConfigSkeleton__ItemPoint_new2(const libqt_string _group, const libqt_string _key, QPoint* reference, const QPoint* defaultValue) {
+    QString _group_QString = QString::fromUtf8(_group.data, _group.len);
+    QString _key_QString = QString::fromUtf8(_key.data, _key.len);
+    return new VirtualKCoreConfigSkeletonItemPoint(_group_QString, _key_QString, *reference, *defaultValue);
+}
+
+void KCoreConfigSkeleton__ItemPoint_ReadConfig(KCoreConfigSkeleton__ItemPoint* self, KConfig* config) {
+    auto* vkcoreconfigskeleton__itempoint = dynamic_cast<VirtualKCoreConfigSkeletonItemPoint*>(self);
+    if (vkcoreconfigskeleton__itempoint && vkcoreconfigskeleton__itempoint->isVirtualKCoreConfigSkeletonItemPoint) {
+        self->readConfig(config);
+    } else {
+        ((VirtualKCoreConfigSkeletonItemPoint*)self)->readConfig(config);
+    }
+}
+
+void KCoreConfigSkeleton__ItemPoint_SetProperty(KCoreConfigSkeleton__ItemPoint* self, const QVariant* p) {
+    auto* vkcoreconfigskeleton__itempoint = dynamic_cast<VirtualKCoreConfigSkeletonItemPoint*>(self);
+    if (vkcoreconfigskeleton__itempoint && vkcoreconfigskeleton__itempoint->isVirtualKCoreConfigSkeletonItemPoint) {
+        self->setProperty(*p);
+    } else {
+        ((VirtualKCoreConfigSkeletonItemPoint*)self)->setProperty(*p);
+    }
+}
+
+bool KCoreConfigSkeleton__ItemPoint_IsEqual(const KCoreConfigSkeleton__ItemPoint* self, const QVariant* p) {
+    auto* vkcoreconfigskeleton__itempoint = dynamic_cast<const VirtualKCoreConfigSkeletonItemPoint*>(self);
+    if (vkcoreconfigskeleton__itempoint && vkcoreconfigskeleton__itempoint->isVirtualKCoreConfigSkeletonItemPoint) {
+        return self->isEqual(*p);
+    } else {
+        return ((VirtualKCoreConfigSkeletonItemPoint*)self)->isEqual(*p);
+    }
+}
+
+QVariant* KCoreConfigSkeleton__ItemPoint_Property(const KCoreConfigSkeleton__ItemPoint* self) {
+    auto* vkcoreconfigskeleton__itempoint = dynamic_cast<const VirtualKCoreConfigSkeletonItemPoint*>(self);
+    if (vkcoreconfigskeleton__itempoint && vkcoreconfigskeleton__itempoint->isVirtualKCoreConfigSkeletonItemPoint) {
+        return new QVariant(self->property());
+    } else {
+        return new QVariant(((VirtualKCoreConfigSkeletonItemPoint*)self)->property());
+    }
+}
+
+// Base class handler implementation
+void KCoreConfigSkeleton__ItemPoint_QBaseReadConfig(KCoreConfigSkeleton__ItemPoint* self, KConfig* config) {
+    auto* vkcoreconfigskeletonitempoint = dynamic_cast<VirtualKCoreConfigSkeletonItemPoint*>(self);
+    if (vkcoreconfigskeletonitempoint && vkcoreconfigskeletonitempoint->isVirtualKCoreConfigSkeletonItemPoint) {
+        vkcoreconfigskeletonitempoint->setKCoreConfigSkeleton__ItemPoint_ReadConfig_IsBase(true);
+        vkcoreconfigskeletonitempoint->readConfig(config);
+    } else {
+        self->KCoreConfigSkeleton::ItemPoint::readConfig(config);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemPoint_OnReadConfig(KCoreConfigSkeleton__ItemPoint* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitempoint = dynamic_cast<VirtualKCoreConfigSkeletonItemPoint*>(self);
+    if (vkcoreconfigskeletonitempoint && vkcoreconfigskeletonitempoint->isVirtualKCoreConfigSkeletonItemPoint) {
+        vkcoreconfigskeletonitempoint->setKCoreConfigSkeleton__ItemPoint_ReadConfig_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemPoint::KCoreConfigSkeleton__ItemPoint_ReadConfig_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KCoreConfigSkeleton__ItemPoint_QBaseSetProperty(KCoreConfigSkeleton__ItemPoint* self, const QVariant* p) {
+    auto* vkcoreconfigskeletonitempoint = dynamic_cast<VirtualKCoreConfigSkeletonItemPoint*>(self);
+    if (vkcoreconfigskeletonitempoint && vkcoreconfigskeletonitempoint->isVirtualKCoreConfigSkeletonItemPoint) {
+        vkcoreconfigskeletonitempoint->setKCoreConfigSkeleton__ItemPoint_SetProperty_IsBase(true);
+        vkcoreconfigskeletonitempoint->setProperty(*p);
+    } else {
+        self->KCoreConfigSkeleton::ItemPoint::setProperty(*p);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemPoint_OnSetProperty(KCoreConfigSkeleton__ItemPoint* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitempoint = dynamic_cast<VirtualKCoreConfigSkeletonItemPoint*>(self);
+    if (vkcoreconfigskeletonitempoint && vkcoreconfigskeletonitempoint->isVirtualKCoreConfigSkeletonItemPoint) {
+        vkcoreconfigskeletonitempoint->setKCoreConfigSkeleton__ItemPoint_SetProperty_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemPoint::KCoreConfigSkeleton__ItemPoint_SetProperty_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool KCoreConfigSkeleton__ItemPoint_QBaseIsEqual(const KCoreConfigSkeleton__ItemPoint* self, const QVariant* p) {
+    auto* vkcoreconfigskeletonitempoint = const_cast<VirtualKCoreConfigSkeletonItemPoint*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemPoint*>(self));
+    if (vkcoreconfigskeletonitempoint && vkcoreconfigskeletonitempoint->isVirtualKCoreConfigSkeletonItemPoint) {
+        vkcoreconfigskeletonitempoint->setKCoreConfigSkeleton__ItemPoint_IsEqual_IsBase(true);
+        return vkcoreconfigskeletonitempoint->isEqual(*p);
+    } else {
+        return self->KCoreConfigSkeleton::ItemPoint::isEqual(*p);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemPoint_OnIsEqual(const KCoreConfigSkeleton__ItemPoint* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitempoint = const_cast<VirtualKCoreConfigSkeletonItemPoint*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemPoint*>(self));
+    if (vkcoreconfigskeletonitempoint && vkcoreconfigskeletonitempoint->isVirtualKCoreConfigSkeletonItemPoint) {
+        vkcoreconfigskeletonitempoint->setKCoreConfigSkeleton__ItemPoint_IsEqual_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemPoint::KCoreConfigSkeleton__ItemPoint_IsEqual_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QVariant* KCoreConfigSkeleton__ItemPoint_QBaseProperty(const KCoreConfigSkeleton__ItemPoint* self) {
+    auto* vkcoreconfigskeletonitempoint = const_cast<VirtualKCoreConfigSkeletonItemPoint*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemPoint*>(self));
+    if (vkcoreconfigskeletonitempoint && vkcoreconfigskeletonitempoint->isVirtualKCoreConfigSkeletonItemPoint) {
+        vkcoreconfigskeletonitempoint->setKCoreConfigSkeleton__ItemPoint_Property_IsBase(true);
+        return new QVariant(vkcoreconfigskeletonitempoint->property());
+    } else {
+        return new QVariant(((VirtualKCoreConfigSkeletonItemPoint*)self)->property());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemPoint_OnProperty(const KCoreConfigSkeleton__ItemPoint* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitempoint = const_cast<VirtualKCoreConfigSkeletonItemPoint*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemPoint*>(self));
+    if (vkcoreconfigskeletonitempoint && vkcoreconfigskeletonitempoint->isVirtualKCoreConfigSkeletonItemPoint) {
+        vkcoreconfigskeletonitempoint->setKCoreConfigSkeleton__ItemPoint_Property_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemPoint::KCoreConfigSkeleton__ItemPoint_Property_Callback>(slot));
+    }
+}
+
+void KCoreConfigSkeleton__ItemPoint_Delete(KCoreConfigSkeleton__ItemPoint* self) {
+    delete self;
+}
+
+KCoreConfigSkeleton__ItemPointF* KCoreConfigSkeleton__ItemPointF_new(const libqt_string _group, const libqt_string _key, QPointF* reference) {
+    QString _group_QString = QString::fromUtf8(_group.data, _group.len);
+    QString _key_QString = QString::fromUtf8(_key.data, _key.len);
+    return new VirtualKCoreConfigSkeletonItemPointF(_group_QString, _key_QString, *reference);
+}
+
+KCoreConfigSkeleton__ItemPointF* KCoreConfigSkeleton__ItemPointF_new2(const libqt_string _group, const libqt_string _key, QPointF* reference, const QPointF* defaultValue) {
+    QString _group_QString = QString::fromUtf8(_group.data, _group.len);
+    QString _key_QString = QString::fromUtf8(_key.data, _key.len);
+    return new VirtualKCoreConfigSkeletonItemPointF(_group_QString, _key_QString, *reference, *defaultValue);
+}
+
+void KCoreConfigSkeleton__ItemPointF_ReadConfig(KCoreConfigSkeleton__ItemPointF* self, KConfig* config) {
+    auto* vkcoreconfigskeleton__itempointf = dynamic_cast<VirtualKCoreConfigSkeletonItemPointF*>(self);
+    if (vkcoreconfigskeleton__itempointf && vkcoreconfigskeleton__itempointf->isVirtualKCoreConfigSkeletonItemPointF) {
+        self->readConfig(config);
+    } else {
+        ((VirtualKCoreConfigSkeletonItemPointF*)self)->readConfig(config);
+    }
+}
+
+void KCoreConfigSkeleton__ItemPointF_SetProperty(KCoreConfigSkeleton__ItemPointF* self, const QVariant* p) {
+    auto* vkcoreconfigskeleton__itempointf = dynamic_cast<VirtualKCoreConfigSkeletonItemPointF*>(self);
+    if (vkcoreconfigskeleton__itempointf && vkcoreconfigskeleton__itempointf->isVirtualKCoreConfigSkeletonItemPointF) {
+        self->setProperty(*p);
+    } else {
+        ((VirtualKCoreConfigSkeletonItemPointF*)self)->setProperty(*p);
+    }
+}
+
+bool KCoreConfigSkeleton__ItemPointF_IsEqual(const KCoreConfigSkeleton__ItemPointF* self, const QVariant* p) {
+    auto* vkcoreconfigskeleton__itempointf = dynamic_cast<const VirtualKCoreConfigSkeletonItemPointF*>(self);
+    if (vkcoreconfigskeleton__itempointf && vkcoreconfigskeleton__itempointf->isVirtualKCoreConfigSkeletonItemPointF) {
+        return self->isEqual(*p);
+    } else {
+        return ((VirtualKCoreConfigSkeletonItemPointF*)self)->isEqual(*p);
+    }
+}
+
+QVariant* KCoreConfigSkeleton__ItemPointF_Property(const KCoreConfigSkeleton__ItemPointF* self) {
+    auto* vkcoreconfigskeleton__itempointf = dynamic_cast<const VirtualKCoreConfigSkeletonItemPointF*>(self);
+    if (vkcoreconfigskeleton__itempointf && vkcoreconfigskeleton__itempointf->isVirtualKCoreConfigSkeletonItemPointF) {
+        return new QVariant(self->property());
+    } else {
+        return new QVariant(((VirtualKCoreConfigSkeletonItemPointF*)self)->property());
+    }
+}
+
+// Base class handler implementation
+void KCoreConfigSkeleton__ItemPointF_QBaseReadConfig(KCoreConfigSkeleton__ItemPointF* self, KConfig* config) {
+    auto* vkcoreconfigskeletonitempointf = dynamic_cast<VirtualKCoreConfigSkeletonItemPointF*>(self);
+    if (vkcoreconfigskeletonitempointf && vkcoreconfigskeletonitempointf->isVirtualKCoreConfigSkeletonItemPointF) {
+        vkcoreconfigskeletonitempointf->setKCoreConfigSkeleton__ItemPointF_ReadConfig_IsBase(true);
+        vkcoreconfigskeletonitempointf->readConfig(config);
+    } else {
+        self->KCoreConfigSkeleton::ItemPointF::readConfig(config);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemPointF_OnReadConfig(KCoreConfigSkeleton__ItemPointF* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitempointf = dynamic_cast<VirtualKCoreConfigSkeletonItemPointF*>(self);
+    if (vkcoreconfigskeletonitempointf && vkcoreconfigskeletonitempointf->isVirtualKCoreConfigSkeletonItemPointF) {
+        vkcoreconfigskeletonitempointf->setKCoreConfigSkeleton__ItemPointF_ReadConfig_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemPointF::KCoreConfigSkeleton__ItemPointF_ReadConfig_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KCoreConfigSkeleton__ItemPointF_QBaseSetProperty(KCoreConfigSkeleton__ItemPointF* self, const QVariant* p) {
+    auto* vkcoreconfigskeletonitempointf = dynamic_cast<VirtualKCoreConfigSkeletonItemPointF*>(self);
+    if (vkcoreconfigskeletonitempointf && vkcoreconfigskeletonitempointf->isVirtualKCoreConfigSkeletonItemPointF) {
+        vkcoreconfigskeletonitempointf->setKCoreConfigSkeleton__ItemPointF_SetProperty_IsBase(true);
+        vkcoreconfigskeletonitempointf->setProperty(*p);
+    } else {
+        self->KCoreConfigSkeleton::ItemPointF::setProperty(*p);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemPointF_OnSetProperty(KCoreConfigSkeleton__ItemPointF* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitempointf = dynamic_cast<VirtualKCoreConfigSkeletonItemPointF*>(self);
+    if (vkcoreconfigskeletonitempointf && vkcoreconfigskeletonitempointf->isVirtualKCoreConfigSkeletonItemPointF) {
+        vkcoreconfigskeletonitempointf->setKCoreConfigSkeleton__ItemPointF_SetProperty_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemPointF::KCoreConfigSkeleton__ItemPointF_SetProperty_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool KCoreConfigSkeleton__ItemPointF_QBaseIsEqual(const KCoreConfigSkeleton__ItemPointF* self, const QVariant* p) {
+    auto* vkcoreconfigskeletonitempointf = const_cast<VirtualKCoreConfigSkeletonItemPointF*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemPointF*>(self));
+    if (vkcoreconfigskeletonitempointf && vkcoreconfigskeletonitempointf->isVirtualKCoreConfigSkeletonItemPointF) {
+        vkcoreconfigskeletonitempointf->setKCoreConfigSkeleton__ItemPointF_IsEqual_IsBase(true);
+        return vkcoreconfigskeletonitempointf->isEqual(*p);
+    } else {
+        return self->KCoreConfigSkeleton::ItemPointF::isEqual(*p);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemPointF_OnIsEqual(const KCoreConfigSkeleton__ItemPointF* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitempointf = const_cast<VirtualKCoreConfigSkeletonItemPointF*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemPointF*>(self));
+    if (vkcoreconfigskeletonitempointf && vkcoreconfigskeletonitempointf->isVirtualKCoreConfigSkeletonItemPointF) {
+        vkcoreconfigskeletonitempointf->setKCoreConfigSkeleton__ItemPointF_IsEqual_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemPointF::KCoreConfigSkeleton__ItemPointF_IsEqual_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QVariant* KCoreConfigSkeleton__ItemPointF_QBaseProperty(const KCoreConfigSkeleton__ItemPointF* self) {
+    auto* vkcoreconfigskeletonitempointf = const_cast<VirtualKCoreConfigSkeletonItemPointF*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemPointF*>(self));
+    if (vkcoreconfigskeletonitempointf && vkcoreconfigskeletonitempointf->isVirtualKCoreConfigSkeletonItemPointF) {
+        vkcoreconfigskeletonitempointf->setKCoreConfigSkeleton__ItemPointF_Property_IsBase(true);
+        return new QVariant(vkcoreconfigskeletonitempointf->property());
+    } else {
+        return new QVariant(((VirtualKCoreConfigSkeletonItemPointF*)self)->property());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemPointF_OnProperty(const KCoreConfigSkeleton__ItemPointF* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitempointf = const_cast<VirtualKCoreConfigSkeletonItemPointF*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemPointF*>(self));
+    if (vkcoreconfigskeletonitempointf && vkcoreconfigskeletonitempointf->isVirtualKCoreConfigSkeletonItemPointF) {
+        vkcoreconfigskeletonitempointf->setKCoreConfigSkeleton__ItemPointF_Property_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemPointF::KCoreConfigSkeleton__ItemPointF_Property_Callback>(slot));
+    }
+}
+
+void KCoreConfigSkeleton__ItemPointF_Delete(KCoreConfigSkeleton__ItemPointF* self) {
+    delete self;
+}
+
+KCoreConfigSkeleton__ItemSize* KCoreConfigSkeleton__ItemSize_new(const libqt_string _group, const libqt_string _key, QSize* reference) {
+    QString _group_QString = QString::fromUtf8(_group.data, _group.len);
+    QString _key_QString = QString::fromUtf8(_key.data, _key.len);
+    return new VirtualKCoreConfigSkeletonItemSize(_group_QString, _key_QString, *reference);
+}
+
+KCoreConfigSkeleton__ItemSize* KCoreConfigSkeleton__ItemSize_new2(const libqt_string _group, const libqt_string _key, QSize* reference, const QSize* defaultValue) {
+    QString _group_QString = QString::fromUtf8(_group.data, _group.len);
+    QString _key_QString = QString::fromUtf8(_key.data, _key.len);
+    return new VirtualKCoreConfigSkeletonItemSize(_group_QString, _key_QString, *reference, *defaultValue);
+}
+
+void KCoreConfigSkeleton__ItemSize_ReadConfig(KCoreConfigSkeleton__ItemSize* self, KConfig* config) {
+    auto* vkcoreconfigskeleton__itemsize = dynamic_cast<VirtualKCoreConfigSkeletonItemSize*>(self);
+    if (vkcoreconfigskeleton__itemsize && vkcoreconfigskeleton__itemsize->isVirtualKCoreConfigSkeletonItemSize) {
+        self->readConfig(config);
+    } else {
+        ((VirtualKCoreConfigSkeletonItemSize*)self)->readConfig(config);
+    }
+}
+
+void KCoreConfigSkeleton__ItemSize_SetProperty(KCoreConfigSkeleton__ItemSize* self, const QVariant* p) {
+    auto* vkcoreconfigskeleton__itemsize = dynamic_cast<VirtualKCoreConfigSkeletonItemSize*>(self);
+    if (vkcoreconfigskeleton__itemsize && vkcoreconfigskeleton__itemsize->isVirtualKCoreConfigSkeletonItemSize) {
+        self->setProperty(*p);
+    } else {
+        ((VirtualKCoreConfigSkeletonItemSize*)self)->setProperty(*p);
+    }
+}
+
+bool KCoreConfigSkeleton__ItemSize_IsEqual(const KCoreConfigSkeleton__ItemSize* self, const QVariant* p) {
+    auto* vkcoreconfigskeleton__itemsize = dynamic_cast<const VirtualKCoreConfigSkeletonItemSize*>(self);
+    if (vkcoreconfigskeleton__itemsize && vkcoreconfigskeleton__itemsize->isVirtualKCoreConfigSkeletonItemSize) {
+        return self->isEqual(*p);
+    } else {
+        return ((VirtualKCoreConfigSkeletonItemSize*)self)->isEqual(*p);
+    }
+}
+
+QVariant* KCoreConfigSkeleton__ItemSize_Property(const KCoreConfigSkeleton__ItemSize* self) {
+    auto* vkcoreconfigskeleton__itemsize = dynamic_cast<const VirtualKCoreConfigSkeletonItemSize*>(self);
+    if (vkcoreconfigskeleton__itemsize && vkcoreconfigskeleton__itemsize->isVirtualKCoreConfigSkeletonItemSize) {
+        return new QVariant(self->property());
+    } else {
+        return new QVariant(((VirtualKCoreConfigSkeletonItemSize*)self)->property());
+    }
+}
+
+// Base class handler implementation
+void KCoreConfigSkeleton__ItemSize_QBaseReadConfig(KCoreConfigSkeleton__ItemSize* self, KConfig* config) {
+    auto* vkcoreconfigskeletonitemsize = dynamic_cast<VirtualKCoreConfigSkeletonItemSize*>(self);
+    if (vkcoreconfigskeletonitemsize && vkcoreconfigskeletonitemsize->isVirtualKCoreConfigSkeletonItemSize) {
+        vkcoreconfigskeletonitemsize->setKCoreConfigSkeleton__ItemSize_ReadConfig_IsBase(true);
+        vkcoreconfigskeletonitemsize->readConfig(config);
+    } else {
+        self->KCoreConfigSkeleton::ItemSize::readConfig(config);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemSize_OnReadConfig(KCoreConfigSkeleton__ItemSize* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemsize = dynamic_cast<VirtualKCoreConfigSkeletonItemSize*>(self);
+    if (vkcoreconfigskeletonitemsize && vkcoreconfigskeletonitemsize->isVirtualKCoreConfigSkeletonItemSize) {
+        vkcoreconfigskeletonitemsize->setKCoreConfigSkeleton__ItemSize_ReadConfig_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemSize::KCoreConfigSkeleton__ItemSize_ReadConfig_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KCoreConfigSkeleton__ItemSize_QBaseSetProperty(KCoreConfigSkeleton__ItemSize* self, const QVariant* p) {
+    auto* vkcoreconfigskeletonitemsize = dynamic_cast<VirtualKCoreConfigSkeletonItemSize*>(self);
+    if (vkcoreconfigskeletonitemsize && vkcoreconfigskeletonitemsize->isVirtualKCoreConfigSkeletonItemSize) {
+        vkcoreconfigskeletonitemsize->setKCoreConfigSkeleton__ItemSize_SetProperty_IsBase(true);
+        vkcoreconfigskeletonitemsize->setProperty(*p);
+    } else {
+        self->KCoreConfigSkeleton::ItemSize::setProperty(*p);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemSize_OnSetProperty(KCoreConfigSkeleton__ItemSize* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemsize = dynamic_cast<VirtualKCoreConfigSkeletonItemSize*>(self);
+    if (vkcoreconfigskeletonitemsize && vkcoreconfigskeletonitemsize->isVirtualKCoreConfigSkeletonItemSize) {
+        vkcoreconfigskeletonitemsize->setKCoreConfigSkeleton__ItemSize_SetProperty_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemSize::KCoreConfigSkeleton__ItemSize_SetProperty_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool KCoreConfigSkeleton__ItemSize_QBaseIsEqual(const KCoreConfigSkeleton__ItemSize* self, const QVariant* p) {
+    auto* vkcoreconfigskeletonitemsize = const_cast<VirtualKCoreConfigSkeletonItemSize*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemSize*>(self));
+    if (vkcoreconfigskeletonitemsize && vkcoreconfigskeletonitemsize->isVirtualKCoreConfigSkeletonItemSize) {
+        vkcoreconfigskeletonitemsize->setKCoreConfigSkeleton__ItemSize_IsEqual_IsBase(true);
+        return vkcoreconfigskeletonitemsize->isEqual(*p);
+    } else {
+        return self->KCoreConfigSkeleton::ItemSize::isEqual(*p);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemSize_OnIsEqual(const KCoreConfigSkeleton__ItemSize* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemsize = const_cast<VirtualKCoreConfigSkeletonItemSize*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemSize*>(self));
+    if (vkcoreconfigskeletonitemsize && vkcoreconfigskeletonitemsize->isVirtualKCoreConfigSkeletonItemSize) {
+        vkcoreconfigskeletonitemsize->setKCoreConfigSkeleton__ItemSize_IsEqual_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemSize::KCoreConfigSkeleton__ItemSize_IsEqual_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QVariant* KCoreConfigSkeleton__ItemSize_QBaseProperty(const KCoreConfigSkeleton__ItemSize* self) {
+    auto* vkcoreconfigskeletonitemsize = const_cast<VirtualKCoreConfigSkeletonItemSize*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemSize*>(self));
+    if (vkcoreconfigskeletonitemsize && vkcoreconfigskeletonitemsize->isVirtualKCoreConfigSkeletonItemSize) {
+        vkcoreconfigskeletonitemsize->setKCoreConfigSkeleton__ItemSize_Property_IsBase(true);
+        return new QVariant(vkcoreconfigskeletonitemsize->property());
+    } else {
+        return new QVariant(((VirtualKCoreConfigSkeletonItemSize*)self)->property());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemSize_OnProperty(const KCoreConfigSkeleton__ItemSize* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemsize = const_cast<VirtualKCoreConfigSkeletonItemSize*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemSize*>(self));
+    if (vkcoreconfigskeletonitemsize && vkcoreconfigskeletonitemsize->isVirtualKCoreConfigSkeletonItemSize) {
+        vkcoreconfigskeletonitemsize->setKCoreConfigSkeleton__ItemSize_Property_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemSize::KCoreConfigSkeleton__ItemSize_Property_Callback>(slot));
+    }
+}
+
+void KCoreConfigSkeleton__ItemSize_Delete(KCoreConfigSkeleton__ItemSize* self) {
+    delete self;
+}
+
+KCoreConfigSkeleton__ItemSizeF* KCoreConfigSkeleton__ItemSizeF_new(const libqt_string _group, const libqt_string _key, QSizeF* reference) {
+    QString _group_QString = QString::fromUtf8(_group.data, _group.len);
+    QString _key_QString = QString::fromUtf8(_key.data, _key.len);
+    return new VirtualKCoreConfigSkeletonItemSizeF(_group_QString, _key_QString, *reference);
+}
+
+KCoreConfigSkeleton__ItemSizeF* KCoreConfigSkeleton__ItemSizeF_new2(const libqt_string _group, const libqt_string _key, QSizeF* reference, const QSizeF* defaultValue) {
+    QString _group_QString = QString::fromUtf8(_group.data, _group.len);
+    QString _key_QString = QString::fromUtf8(_key.data, _key.len);
+    return new VirtualKCoreConfigSkeletonItemSizeF(_group_QString, _key_QString, *reference, *defaultValue);
+}
+
+void KCoreConfigSkeleton__ItemSizeF_ReadConfig(KCoreConfigSkeleton__ItemSizeF* self, KConfig* config) {
+    auto* vkcoreconfigskeleton__itemsizef = dynamic_cast<VirtualKCoreConfigSkeletonItemSizeF*>(self);
+    if (vkcoreconfigskeleton__itemsizef && vkcoreconfigskeleton__itemsizef->isVirtualKCoreConfigSkeletonItemSizeF) {
+        self->readConfig(config);
+    } else {
+        ((VirtualKCoreConfigSkeletonItemSizeF*)self)->readConfig(config);
+    }
+}
+
+void KCoreConfigSkeleton__ItemSizeF_SetProperty(KCoreConfigSkeleton__ItemSizeF* self, const QVariant* p) {
+    auto* vkcoreconfigskeleton__itemsizef = dynamic_cast<VirtualKCoreConfigSkeletonItemSizeF*>(self);
+    if (vkcoreconfigskeleton__itemsizef && vkcoreconfigskeleton__itemsizef->isVirtualKCoreConfigSkeletonItemSizeF) {
+        self->setProperty(*p);
+    } else {
+        ((VirtualKCoreConfigSkeletonItemSizeF*)self)->setProperty(*p);
+    }
+}
+
+bool KCoreConfigSkeleton__ItemSizeF_IsEqual(const KCoreConfigSkeleton__ItemSizeF* self, const QVariant* p) {
+    auto* vkcoreconfigskeleton__itemsizef = dynamic_cast<const VirtualKCoreConfigSkeletonItemSizeF*>(self);
+    if (vkcoreconfigskeleton__itemsizef && vkcoreconfigskeleton__itemsizef->isVirtualKCoreConfigSkeletonItemSizeF) {
+        return self->isEqual(*p);
+    } else {
+        return ((VirtualKCoreConfigSkeletonItemSizeF*)self)->isEqual(*p);
+    }
+}
+
+QVariant* KCoreConfigSkeleton__ItemSizeF_Property(const KCoreConfigSkeleton__ItemSizeF* self) {
+    auto* vkcoreconfigskeleton__itemsizef = dynamic_cast<const VirtualKCoreConfigSkeletonItemSizeF*>(self);
+    if (vkcoreconfigskeleton__itemsizef && vkcoreconfigskeleton__itemsizef->isVirtualKCoreConfigSkeletonItemSizeF) {
+        return new QVariant(self->property());
+    } else {
+        return new QVariant(((VirtualKCoreConfigSkeletonItemSizeF*)self)->property());
+    }
+}
+
+// Base class handler implementation
+void KCoreConfigSkeleton__ItemSizeF_QBaseReadConfig(KCoreConfigSkeleton__ItemSizeF* self, KConfig* config) {
+    auto* vkcoreconfigskeletonitemsizef = dynamic_cast<VirtualKCoreConfigSkeletonItemSizeF*>(self);
+    if (vkcoreconfigskeletonitemsizef && vkcoreconfigskeletonitemsizef->isVirtualKCoreConfigSkeletonItemSizeF) {
+        vkcoreconfigskeletonitemsizef->setKCoreConfigSkeleton__ItemSizeF_ReadConfig_IsBase(true);
+        vkcoreconfigskeletonitemsizef->readConfig(config);
+    } else {
+        self->KCoreConfigSkeleton::ItemSizeF::readConfig(config);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemSizeF_OnReadConfig(KCoreConfigSkeleton__ItemSizeF* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemsizef = dynamic_cast<VirtualKCoreConfigSkeletonItemSizeF*>(self);
+    if (vkcoreconfigskeletonitemsizef && vkcoreconfigskeletonitemsizef->isVirtualKCoreConfigSkeletonItemSizeF) {
+        vkcoreconfigskeletonitemsizef->setKCoreConfigSkeleton__ItemSizeF_ReadConfig_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemSizeF::KCoreConfigSkeleton__ItemSizeF_ReadConfig_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KCoreConfigSkeleton__ItemSizeF_QBaseSetProperty(KCoreConfigSkeleton__ItemSizeF* self, const QVariant* p) {
+    auto* vkcoreconfigskeletonitemsizef = dynamic_cast<VirtualKCoreConfigSkeletonItemSizeF*>(self);
+    if (vkcoreconfigskeletonitemsizef && vkcoreconfigskeletonitemsizef->isVirtualKCoreConfigSkeletonItemSizeF) {
+        vkcoreconfigskeletonitemsizef->setKCoreConfigSkeleton__ItemSizeF_SetProperty_IsBase(true);
+        vkcoreconfigskeletonitemsizef->setProperty(*p);
+    } else {
+        self->KCoreConfigSkeleton::ItemSizeF::setProperty(*p);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemSizeF_OnSetProperty(KCoreConfigSkeleton__ItemSizeF* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemsizef = dynamic_cast<VirtualKCoreConfigSkeletonItemSizeF*>(self);
+    if (vkcoreconfigskeletonitemsizef && vkcoreconfigskeletonitemsizef->isVirtualKCoreConfigSkeletonItemSizeF) {
+        vkcoreconfigskeletonitemsizef->setKCoreConfigSkeleton__ItemSizeF_SetProperty_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemSizeF::KCoreConfigSkeleton__ItemSizeF_SetProperty_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool KCoreConfigSkeleton__ItemSizeF_QBaseIsEqual(const KCoreConfigSkeleton__ItemSizeF* self, const QVariant* p) {
+    auto* vkcoreconfigskeletonitemsizef = const_cast<VirtualKCoreConfigSkeletonItemSizeF*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemSizeF*>(self));
+    if (vkcoreconfigskeletonitemsizef && vkcoreconfigskeletonitemsizef->isVirtualKCoreConfigSkeletonItemSizeF) {
+        vkcoreconfigskeletonitemsizef->setKCoreConfigSkeleton__ItemSizeF_IsEqual_IsBase(true);
+        return vkcoreconfigskeletonitemsizef->isEqual(*p);
+    } else {
+        return self->KCoreConfigSkeleton::ItemSizeF::isEqual(*p);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemSizeF_OnIsEqual(const KCoreConfigSkeleton__ItemSizeF* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemsizef = const_cast<VirtualKCoreConfigSkeletonItemSizeF*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemSizeF*>(self));
+    if (vkcoreconfigskeletonitemsizef && vkcoreconfigskeletonitemsizef->isVirtualKCoreConfigSkeletonItemSizeF) {
+        vkcoreconfigskeletonitemsizef->setKCoreConfigSkeleton__ItemSizeF_IsEqual_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemSizeF::KCoreConfigSkeleton__ItemSizeF_IsEqual_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QVariant* KCoreConfigSkeleton__ItemSizeF_QBaseProperty(const KCoreConfigSkeleton__ItemSizeF* self) {
+    auto* vkcoreconfigskeletonitemsizef = const_cast<VirtualKCoreConfigSkeletonItemSizeF*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemSizeF*>(self));
+    if (vkcoreconfigskeletonitemsizef && vkcoreconfigskeletonitemsizef->isVirtualKCoreConfigSkeletonItemSizeF) {
+        vkcoreconfigskeletonitemsizef->setKCoreConfigSkeleton__ItemSizeF_Property_IsBase(true);
+        return new QVariant(vkcoreconfigskeletonitemsizef->property());
+    } else {
+        return new QVariant(((VirtualKCoreConfigSkeletonItemSizeF*)self)->property());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemSizeF_OnProperty(const KCoreConfigSkeleton__ItemSizeF* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemsizef = const_cast<VirtualKCoreConfigSkeletonItemSizeF*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemSizeF*>(self));
+    if (vkcoreconfigskeletonitemsizef && vkcoreconfigskeletonitemsizef->isVirtualKCoreConfigSkeletonItemSizeF) {
+        vkcoreconfigskeletonitemsizef->setKCoreConfigSkeleton__ItemSizeF_Property_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemSizeF::KCoreConfigSkeleton__ItemSizeF_Property_Callback>(slot));
+    }
+}
+
+void KCoreConfigSkeleton__ItemSizeF_Delete(KCoreConfigSkeleton__ItemSizeF* self) {
+    delete self;
+}
+
+KCoreConfigSkeleton__ItemDateTime* KCoreConfigSkeleton__ItemDateTime_new(const libqt_string _group, const libqt_string _key, QDateTime* reference) {
+    QString _group_QString = QString::fromUtf8(_group.data, _group.len);
+    QString _key_QString = QString::fromUtf8(_key.data, _key.len);
+    return new VirtualKCoreConfigSkeletonItemDateTime(_group_QString, _key_QString, *reference);
+}
+
+KCoreConfigSkeleton__ItemDateTime* KCoreConfigSkeleton__ItemDateTime_new2(const libqt_string _group, const libqt_string _key, QDateTime* reference, const QDateTime* defaultValue) {
+    QString _group_QString = QString::fromUtf8(_group.data, _group.len);
+    QString _key_QString = QString::fromUtf8(_key.data, _key.len);
+    return new VirtualKCoreConfigSkeletonItemDateTime(_group_QString, _key_QString, *reference, *defaultValue);
+}
+
+void KCoreConfigSkeleton__ItemDateTime_ReadConfig(KCoreConfigSkeleton__ItemDateTime* self, KConfig* config) {
+    auto* vkcoreconfigskeleton__itemdatetime = dynamic_cast<VirtualKCoreConfigSkeletonItemDateTime*>(self);
+    if (vkcoreconfigskeleton__itemdatetime && vkcoreconfigskeleton__itemdatetime->isVirtualKCoreConfigSkeletonItemDateTime) {
+        self->readConfig(config);
+    } else {
+        ((VirtualKCoreConfigSkeletonItemDateTime*)self)->readConfig(config);
+    }
+}
+
+void KCoreConfigSkeleton__ItemDateTime_SetProperty(KCoreConfigSkeleton__ItemDateTime* self, const QVariant* p) {
+    auto* vkcoreconfigskeleton__itemdatetime = dynamic_cast<VirtualKCoreConfigSkeletonItemDateTime*>(self);
+    if (vkcoreconfigskeleton__itemdatetime && vkcoreconfigskeleton__itemdatetime->isVirtualKCoreConfigSkeletonItemDateTime) {
+        self->setProperty(*p);
+    } else {
+        ((VirtualKCoreConfigSkeletonItemDateTime*)self)->setProperty(*p);
+    }
+}
+
+bool KCoreConfigSkeleton__ItemDateTime_IsEqual(const KCoreConfigSkeleton__ItemDateTime* self, const QVariant* p) {
+    auto* vkcoreconfigskeleton__itemdatetime = dynamic_cast<const VirtualKCoreConfigSkeletonItemDateTime*>(self);
+    if (vkcoreconfigskeleton__itemdatetime && vkcoreconfigskeleton__itemdatetime->isVirtualKCoreConfigSkeletonItemDateTime) {
+        return self->isEqual(*p);
+    } else {
+        return ((VirtualKCoreConfigSkeletonItemDateTime*)self)->isEqual(*p);
+    }
+}
+
+QVariant* KCoreConfigSkeleton__ItemDateTime_Property(const KCoreConfigSkeleton__ItemDateTime* self) {
+    auto* vkcoreconfigskeleton__itemdatetime = dynamic_cast<const VirtualKCoreConfigSkeletonItemDateTime*>(self);
+    if (vkcoreconfigskeleton__itemdatetime && vkcoreconfigskeleton__itemdatetime->isVirtualKCoreConfigSkeletonItemDateTime) {
+        return new QVariant(self->property());
+    } else {
+        return new QVariant(((VirtualKCoreConfigSkeletonItemDateTime*)self)->property());
+    }
+}
+
+// Base class handler implementation
+void KCoreConfigSkeleton__ItemDateTime_QBaseReadConfig(KCoreConfigSkeleton__ItemDateTime* self, KConfig* config) {
+    auto* vkcoreconfigskeletonitemdatetime = dynamic_cast<VirtualKCoreConfigSkeletonItemDateTime*>(self);
+    if (vkcoreconfigskeletonitemdatetime && vkcoreconfigskeletonitemdatetime->isVirtualKCoreConfigSkeletonItemDateTime) {
+        vkcoreconfigskeletonitemdatetime->setKCoreConfigSkeleton__ItemDateTime_ReadConfig_IsBase(true);
+        vkcoreconfigskeletonitemdatetime->readConfig(config);
+    } else {
+        self->KCoreConfigSkeleton::ItemDateTime::readConfig(config);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemDateTime_OnReadConfig(KCoreConfigSkeleton__ItemDateTime* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemdatetime = dynamic_cast<VirtualKCoreConfigSkeletonItemDateTime*>(self);
+    if (vkcoreconfigskeletonitemdatetime && vkcoreconfigskeletonitemdatetime->isVirtualKCoreConfigSkeletonItemDateTime) {
+        vkcoreconfigskeletonitemdatetime->setKCoreConfigSkeleton__ItemDateTime_ReadConfig_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemDateTime::KCoreConfigSkeleton__ItemDateTime_ReadConfig_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KCoreConfigSkeleton__ItemDateTime_QBaseSetProperty(KCoreConfigSkeleton__ItemDateTime* self, const QVariant* p) {
+    auto* vkcoreconfigskeletonitemdatetime = dynamic_cast<VirtualKCoreConfigSkeletonItemDateTime*>(self);
+    if (vkcoreconfigskeletonitemdatetime && vkcoreconfigskeletonitemdatetime->isVirtualKCoreConfigSkeletonItemDateTime) {
+        vkcoreconfigskeletonitemdatetime->setKCoreConfigSkeleton__ItemDateTime_SetProperty_IsBase(true);
+        vkcoreconfigskeletonitemdatetime->setProperty(*p);
+    } else {
+        self->KCoreConfigSkeleton::ItemDateTime::setProperty(*p);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemDateTime_OnSetProperty(KCoreConfigSkeleton__ItemDateTime* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemdatetime = dynamic_cast<VirtualKCoreConfigSkeletonItemDateTime*>(self);
+    if (vkcoreconfigskeletonitemdatetime && vkcoreconfigskeletonitemdatetime->isVirtualKCoreConfigSkeletonItemDateTime) {
+        vkcoreconfigskeletonitemdatetime->setKCoreConfigSkeleton__ItemDateTime_SetProperty_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemDateTime::KCoreConfigSkeleton__ItemDateTime_SetProperty_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool KCoreConfigSkeleton__ItemDateTime_QBaseIsEqual(const KCoreConfigSkeleton__ItemDateTime* self, const QVariant* p) {
+    auto* vkcoreconfigskeletonitemdatetime = const_cast<VirtualKCoreConfigSkeletonItemDateTime*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemDateTime*>(self));
+    if (vkcoreconfigskeletonitemdatetime && vkcoreconfigskeletonitemdatetime->isVirtualKCoreConfigSkeletonItemDateTime) {
+        vkcoreconfigskeletonitemdatetime->setKCoreConfigSkeleton__ItemDateTime_IsEqual_IsBase(true);
+        return vkcoreconfigskeletonitemdatetime->isEqual(*p);
+    } else {
+        return self->KCoreConfigSkeleton::ItemDateTime::isEqual(*p);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemDateTime_OnIsEqual(const KCoreConfigSkeleton__ItemDateTime* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemdatetime = const_cast<VirtualKCoreConfigSkeletonItemDateTime*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemDateTime*>(self));
+    if (vkcoreconfigskeletonitemdatetime && vkcoreconfigskeletonitemdatetime->isVirtualKCoreConfigSkeletonItemDateTime) {
+        vkcoreconfigskeletonitemdatetime->setKCoreConfigSkeleton__ItemDateTime_IsEqual_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemDateTime::KCoreConfigSkeleton__ItemDateTime_IsEqual_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QVariant* KCoreConfigSkeleton__ItemDateTime_QBaseProperty(const KCoreConfigSkeleton__ItemDateTime* self) {
+    auto* vkcoreconfigskeletonitemdatetime = const_cast<VirtualKCoreConfigSkeletonItemDateTime*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemDateTime*>(self));
+    if (vkcoreconfigskeletonitemdatetime && vkcoreconfigskeletonitemdatetime->isVirtualKCoreConfigSkeletonItemDateTime) {
+        vkcoreconfigskeletonitemdatetime->setKCoreConfigSkeleton__ItemDateTime_Property_IsBase(true);
+        return new QVariant(vkcoreconfigskeletonitemdatetime->property());
+    } else {
+        return new QVariant(((VirtualKCoreConfigSkeletonItemDateTime*)self)->property());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemDateTime_OnProperty(const KCoreConfigSkeleton__ItemDateTime* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemdatetime = const_cast<VirtualKCoreConfigSkeletonItemDateTime*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemDateTime*>(self));
+    if (vkcoreconfigskeletonitemdatetime && vkcoreconfigskeletonitemdatetime->isVirtualKCoreConfigSkeletonItemDateTime) {
+        vkcoreconfigskeletonitemdatetime->setKCoreConfigSkeleton__ItemDateTime_Property_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemDateTime::KCoreConfigSkeleton__ItemDateTime_Property_Callback>(slot));
+    }
+}
+
+void KCoreConfigSkeleton__ItemDateTime_Delete(KCoreConfigSkeleton__ItemDateTime* self) {
+    delete self;
+}
+
+KCoreConfigSkeleton__ItemStringList* KCoreConfigSkeleton__ItemStringList_new(const libqt_string _group, const libqt_string _key, libqt_list /* of libqt_string */ reference) {
+    QString _group_QString = QString::fromUtf8(_group.data, _group.len);
+    QString _key_QString = QString::fromUtf8(_key.data, _key.len);
+    QList<QString> reference_QList;
+    reference_QList.reserve(reference.len);
+    libqt_string* reference_arr = static_cast<libqt_string*>(reference.data);
+    for (size_t i = 0; i < reference.len; ++i) {
+        QString reference_arr_i_QString = QString::fromUtf8(reference_arr[i].data, reference_arr[i].len);
+        reference_QList.push_back(reference_arr_i_QString);
+    }
+    return new VirtualKCoreConfigSkeletonItemStringList(_group_QString, _key_QString, reference_QList);
+}
+
+KCoreConfigSkeleton__ItemStringList* KCoreConfigSkeleton__ItemStringList_new2(const libqt_string _group, const libqt_string _key, libqt_list /* of libqt_string */ reference, const libqt_list /* of libqt_string */ defaultValue) {
+    QString _group_QString = QString::fromUtf8(_group.data, _group.len);
+    QString _key_QString = QString::fromUtf8(_key.data, _key.len);
+    QList<QString> reference_QList;
+    reference_QList.reserve(reference.len);
+    libqt_string* reference_arr = static_cast<libqt_string*>(reference.data);
+    for (size_t i = 0; i < reference.len; ++i) {
+        QString reference_arr_i_QString = QString::fromUtf8(reference_arr[i].data, reference_arr[i].len);
+        reference_QList.push_back(reference_arr_i_QString);
+    }
+    QList<QString> defaultValue_QList;
+    defaultValue_QList.reserve(defaultValue.len);
+    libqt_string* defaultValue_arr = static_cast<libqt_string*>(defaultValue.data);
+    for (size_t i = 0; i < defaultValue.len; ++i) {
+        QString defaultValue_arr_i_QString = QString::fromUtf8(defaultValue_arr[i].data, defaultValue_arr[i].len);
+        defaultValue_QList.push_back(defaultValue_arr_i_QString);
+    }
+    return new VirtualKCoreConfigSkeletonItemStringList(_group_QString, _key_QString, reference_QList, defaultValue_QList);
+}
+
+void KCoreConfigSkeleton__ItemStringList_ReadConfig(KCoreConfigSkeleton__ItemStringList* self, KConfig* config) {
+    auto* vkcoreconfigskeleton__itemstringlist = dynamic_cast<VirtualKCoreConfigSkeletonItemStringList*>(self);
+    if (vkcoreconfigskeleton__itemstringlist && vkcoreconfigskeleton__itemstringlist->isVirtualKCoreConfigSkeletonItemStringList) {
+        self->readConfig(config);
+    } else {
+        ((VirtualKCoreConfigSkeletonItemStringList*)self)->readConfig(config);
+    }
+}
+
+void KCoreConfigSkeleton__ItemStringList_SetProperty(KCoreConfigSkeleton__ItemStringList* self, const QVariant* p) {
+    auto* vkcoreconfigskeleton__itemstringlist = dynamic_cast<VirtualKCoreConfigSkeletonItemStringList*>(self);
+    if (vkcoreconfigskeleton__itemstringlist && vkcoreconfigskeleton__itemstringlist->isVirtualKCoreConfigSkeletonItemStringList) {
+        self->setProperty(*p);
+    } else {
+        ((VirtualKCoreConfigSkeletonItemStringList*)self)->setProperty(*p);
+    }
+}
+
+bool KCoreConfigSkeleton__ItemStringList_IsEqual(const KCoreConfigSkeleton__ItemStringList* self, const QVariant* p) {
+    auto* vkcoreconfigskeleton__itemstringlist = dynamic_cast<const VirtualKCoreConfigSkeletonItemStringList*>(self);
+    if (vkcoreconfigskeleton__itemstringlist && vkcoreconfigskeleton__itemstringlist->isVirtualKCoreConfigSkeletonItemStringList) {
+        return self->isEqual(*p);
+    } else {
+        return ((VirtualKCoreConfigSkeletonItemStringList*)self)->isEqual(*p);
+    }
+}
+
+QVariant* KCoreConfigSkeleton__ItemStringList_Property(const KCoreConfigSkeleton__ItemStringList* self) {
+    auto* vkcoreconfigskeleton__itemstringlist = dynamic_cast<const VirtualKCoreConfigSkeletonItemStringList*>(self);
+    if (vkcoreconfigskeleton__itemstringlist && vkcoreconfigskeleton__itemstringlist->isVirtualKCoreConfigSkeletonItemStringList) {
+        return new QVariant(self->property());
+    } else {
+        return new QVariant(((VirtualKCoreConfigSkeletonItemStringList*)self)->property());
+    }
+}
+
+// Base class handler implementation
+void KCoreConfigSkeleton__ItemStringList_QBaseReadConfig(KCoreConfigSkeleton__ItemStringList* self, KConfig* config) {
+    auto* vkcoreconfigskeletonitemstringlist = dynamic_cast<VirtualKCoreConfigSkeletonItemStringList*>(self);
+    if (vkcoreconfigskeletonitemstringlist && vkcoreconfigskeletonitemstringlist->isVirtualKCoreConfigSkeletonItemStringList) {
+        vkcoreconfigskeletonitemstringlist->setKCoreConfigSkeleton__ItemStringList_ReadConfig_IsBase(true);
+        vkcoreconfigskeletonitemstringlist->readConfig(config);
+    } else {
+        self->KCoreConfigSkeleton::ItemStringList::readConfig(config);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemStringList_OnReadConfig(KCoreConfigSkeleton__ItemStringList* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemstringlist = dynamic_cast<VirtualKCoreConfigSkeletonItemStringList*>(self);
+    if (vkcoreconfigskeletonitemstringlist && vkcoreconfigskeletonitemstringlist->isVirtualKCoreConfigSkeletonItemStringList) {
+        vkcoreconfigskeletonitemstringlist->setKCoreConfigSkeleton__ItemStringList_ReadConfig_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemStringList::KCoreConfigSkeleton__ItemStringList_ReadConfig_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KCoreConfigSkeleton__ItemStringList_QBaseSetProperty(KCoreConfigSkeleton__ItemStringList* self, const QVariant* p) {
+    auto* vkcoreconfigskeletonitemstringlist = dynamic_cast<VirtualKCoreConfigSkeletonItemStringList*>(self);
+    if (vkcoreconfigskeletonitemstringlist && vkcoreconfigskeletonitemstringlist->isVirtualKCoreConfigSkeletonItemStringList) {
+        vkcoreconfigskeletonitemstringlist->setKCoreConfigSkeleton__ItemStringList_SetProperty_IsBase(true);
+        vkcoreconfigskeletonitemstringlist->setProperty(*p);
+    } else {
+        self->KCoreConfigSkeleton::ItemStringList::setProperty(*p);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemStringList_OnSetProperty(KCoreConfigSkeleton__ItemStringList* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemstringlist = dynamic_cast<VirtualKCoreConfigSkeletonItemStringList*>(self);
+    if (vkcoreconfigskeletonitemstringlist && vkcoreconfigskeletonitemstringlist->isVirtualKCoreConfigSkeletonItemStringList) {
+        vkcoreconfigskeletonitemstringlist->setKCoreConfigSkeleton__ItemStringList_SetProperty_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemStringList::KCoreConfigSkeleton__ItemStringList_SetProperty_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool KCoreConfigSkeleton__ItemStringList_QBaseIsEqual(const KCoreConfigSkeleton__ItemStringList* self, const QVariant* p) {
+    auto* vkcoreconfigskeletonitemstringlist = const_cast<VirtualKCoreConfigSkeletonItemStringList*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemStringList*>(self));
+    if (vkcoreconfigskeletonitemstringlist && vkcoreconfigskeletonitemstringlist->isVirtualKCoreConfigSkeletonItemStringList) {
+        vkcoreconfigskeletonitemstringlist->setKCoreConfigSkeleton__ItemStringList_IsEqual_IsBase(true);
+        return vkcoreconfigskeletonitemstringlist->isEqual(*p);
+    } else {
+        return self->KCoreConfigSkeleton::ItemStringList::isEqual(*p);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemStringList_OnIsEqual(const KCoreConfigSkeleton__ItemStringList* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemstringlist = const_cast<VirtualKCoreConfigSkeletonItemStringList*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemStringList*>(self));
+    if (vkcoreconfigskeletonitemstringlist && vkcoreconfigskeletonitemstringlist->isVirtualKCoreConfigSkeletonItemStringList) {
+        vkcoreconfigskeletonitemstringlist->setKCoreConfigSkeleton__ItemStringList_IsEqual_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemStringList::KCoreConfigSkeleton__ItemStringList_IsEqual_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QVariant* KCoreConfigSkeleton__ItemStringList_QBaseProperty(const KCoreConfigSkeleton__ItemStringList* self) {
+    auto* vkcoreconfigskeletonitemstringlist = const_cast<VirtualKCoreConfigSkeletonItemStringList*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemStringList*>(self));
+    if (vkcoreconfigskeletonitemstringlist && vkcoreconfigskeletonitemstringlist->isVirtualKCoreConfigSkeletonItemStringList) {
+        vkcoreconfigskeletonitemstringlist->setKCoreConfigSkeleton__ItemStringList_Property_IsBase(true);
+        return new QVariant(vkcoreconfigskeletonitemstringlist->property());
+    } else {
+        return new QVariant(((VirtualKCoreConfigSkeletonItemStringList*)self)->property());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemStringList_OnProperty(const KCoreConfigSkeleton__ItemStringList* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemstringlist = const_cast<VirtualKCoreConfigSkeletonItemStringList*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemStringList*>(self));
+    if (vkcoreconfigskeletonitemstringlist && vkcoreconfigskeletonitemstringlist->isVirtualKCoreConfigSkeletonItemStringList) {
+        vkcoreconfigskeletonitemstringlist->setKCoreConfigSkeleton__ItemStringList_Property_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemStringList::KCoreConfigSkeleton__ItemStringList_Property_Callback>(slot));
+    }
+}
+
+void KCoreConfigSkeleton__ItemStringList_Delete(KCoreConfigSkeleton__ItemStringList* self) {
+    delete self;
+}
+
 KCoreConfigSkeleton__ItemPathList* KCoreConfigSkeleton__ItemPathList_new(const libqt_string _group, const libqt_string _key, libqt_list /* of libqt_string */ reference) {
     QString _group_QString = QString::fromUtf8(_group.data, _group.len);
     QString _key_QString = QString::fromUtf8(_key.data, _key.len);
@@ -2440,5 +5385,325 @@ void KCoreConfigSkeleton__ItemPathList_OnProperty(const KCoreConfigSkeleton__Ite
 }
 
 void KCoreConfigSkeleton__ItemPathList_Delete(KCoreConfigSkeleton__ItemPathList* self) {
+    delete self;
+}
+
+KCoreConfigSkeleton__ItemUrlList* KCoreConfigSkeleton__ItemUrlList_new(const libqt_string _group, const libqt_string _key, libqt_list /* of QUrl* */ reference) {
+    QString _group_QString = QString::fromUtf8(_group.data, _group.len);
+    QString _key_QString = QString::fromUtf8(_key.data, _key.len);
+    QList<QUrl> reference_QList;
+    reference_QList.reserve(reference.len);
+    QUrl** reference_arr = static_cast<QUrl**>(reference.data);
+    for (size_t i = 0; i < reference.len; ++i) {
+        reference_QList.push_back(*(reference_arr[i]));
+    }
+    return new VirtualKCoreConfigSkeletonItemUrlList(_group_QString, _key_QString, reference_QList);
+}
+
+KCoreConfigSkeleton__ItemUrlList* KCoreConfigSkeleton__ItemUrlList_new2(const libqt_string _group, const libqt_string _key, libqt_list /* of QUrl* */ reference, const libqt_list /* of QUrl* */ defaultValue) {
+    QString _group_QString = QString::fromUtf8(_group.data, _group.len);
+    QString _key_QString = QString::fromUtf8(_key.data, _key.len);
+    QList<QUrl> reference_QList;
+    reference_QList.reserve(reference.len);
+    QUrl** reference_arr = static_cast<QUrl**>(reference.data);
+    for (size_t i = 0; i < reference.len; ++i) {
+        reference_QList.push_back(*(reference_arr[i]));
+    }
+    QList<QUrl> defaultValue_QList;
+    defaultValue_QList.reserve(defaultValue.len);
+    QUrl** defaultValue_arr = static_cast<QUrl**>(defaultValue.data);
+    for (size_t i = 0; i < defaultValue.len; ++i) {
+        defaultValue_QList.push_back(*(defaultValue_arr[i]));
+    }
+    return new VirtualKCoreConfigSkeletonItemUrlList(_group_QString, _key_QString, reference_QList, defaultValue_QList);
+}
+
+void KCoreConfigSkeleton__ItemUrlList_ReadConfig(KCoreConfigSkeleton__ItemUrlList* self, KConfig* config) {
+    auto* vkcoreconfigskeleton__itemurllist = dynamic_cast<VirtualKCoreConfigSkeletonItemUrlList*>(self);
+    if (vkcoreconfigskeleton__itemurllist && vkcoreconfigskeleton__itemurllist->isVirtualKCoreConfigSkeletonItemUrlList) {
+        self->readConfig(config);
+    } else {
+        ((VirtualKCoreConfigSkeletonItemUrlList*)self)->readConfig(config);
+    }
+}
+
+void KCoreConfigSkeleton__ItemUrlList_WriteConfig(KCoreConfigSkeleton__ItemUrlList* self, KConfig* config) {
+    auto* vkcoreconfigskeleton__itemurllist = dynamic_cast<VirtualKCoreConfigSkeletonItemUrlList*>(self);
+    if (vkcoreconfigskeleton__itemurllist && vkcoreconfigskeleton__itemurllist->isVirtualKCoreConfigSkeletonItemUrlList) {
+        self->writeConfig(config);
+    } else {
+        ((VirtualKCoreConfigSkeletonItemUrlList*)self)->writeConfig(config);
+    }
+}
+
+void KCoreConfigSkeleton__ItemUrlList_SetProperty(KCoreConfigSkeleton__ItemUrlList* self, const QVariant* p) {
+    auto* vkcoreconfigskeleton__itemurllist = dynamic_cast<VirtualKCoreConfigSkeletonItemUrlList*>(self);
+    if (vkcoreconfigskeleton__itemurllist && vkcoreconfigskeleton__itemurllist->isVirtualKCoreConfigSkeletonItemUrlList) {
+        self->setProperty(*p);
+    } else {
+        ((VirtualKCoreConfigSkeletonItemUrlList*)self)->setProperty(*p);
+    }
+}
+
+bool KCoreConfigSkeleton__ItemUrlList_IsEqual(const KCoreConfigSkeleton__ItemUrlList* self, const QVariant* p) {
+    auto* vkcoreconfigskeleton__itemurllist = dynamic_cast<const VirtualKCoreConfigSkeletonItemUrlList*>(self);
+    if (vkcoreconfigskeleton__itemurllist && vkcoreconfigskeleton__itemurllist->isVirtualKCoreConfigSkeletonItemUrlList) {
+        return self->isEqual(*p);
+    } else {
+        return ((VirtualKCoreConfigSkeletonItemUrlList*)self)->isEqual(*p);
+    }
+}
+
+QVariant* KCoreConfigSkeleton__ItemUrlList_Property(const KCoreConfigSkeleton__ItemUrlList* self) {
+    auto* vkcoreconfigskeleton__itemurllist = dynamic_cast<const VirtualKCoreConfigSkeletonItemUrlList*>(self);
+    if (vkcoreconfigskeleton__itemurllist && vkcoreconfigskeleton__itemurllist->isVirtualKCoreConfigSkeletonItemUrlList) {
+        return new QVariant(self->property());
+    } else {
+        return new QVariant(((VirtualKCoreConfigSkeletonItemUrlList*)self)->property());
+    }
+}
+
+// Base class handler implementation
+void KCoreConfigSkeleton__ItemUrlList_QBaseReadConfig(KCoreConfigSkeleton__ItemUrlList* self, KConfig* config) {
+    auto* vkcoreconfigskeletonitemurllist = dynamic_cast<VirtualKCoreConfigSkeletonItemUrlList*>(self);
+    if (vkcoreconfigskeletonitemurllist && vkcoreconfigskeletonitemurllist->isVirtualKCoreConfigSkeletonItemUrlList) {
+        vkcoreconfigskeletonitemurllist->setKCoreConfigSkeleton__ItemUrlList_ReadConfig_IsBase(true);
+        vkcoreconfigskeletonitemurllist->readConfig(config);
+    } else {
+        self->KCoreConfigSkeleton::ItemUrlList::readConfig(config);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemUrlList_OnReadConfig(KCoreConfigSkeleton__ItemUrlList* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemurllist = dynamic_cast<VirtualKCoreConfigSkeletonItemUrlList*>(self);
+    if (vkcoreconfigskeletonitemurllist && vkcoreconfigskeletonitemurllist->isVirtualKCoreConfigSkeletonItemUrlList) {
+        vkcoreconfigskeletonitemurllist->setKCoreConfigSkeleton__ItemUrlList_ReadConfig_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemUrlList::KCoreConfigSkeleton__ItemUrlList_ReadConfig_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KCoreConfigSkeleton__ItemUrlList_QBaseWriteConfig(KCoreConfigSkeleton__ItemUrlList* self, KConfig* config) {
+    auto* vkcoreconfigskeletonitemurllist = dynamic_cast<VirtualKCoreConfigSkeletonItemUrlList*>(self);
+    if (vkcoreconfigskeletonitemurllist && vkcoreconfigskeletonitemurllist->isVirtualKCoreConfigSkeletonItemUrlList) {
+        vkcoreconfigskeletonitemurllist->setKCoreConfigSkeleton__ItemUrlList_WriteConfig_IsBase(true);
+        vkcoreconfigskeletonitemurllist->writeConfig(config);
+    } else {
+        self->KCoreConfigSkeleton::ItemUrlList::writeConfig(config);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemUrlList_OnWriteConfig(KCoreConfigSkeleton__ItemUrlList* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemurllist = dynamic_cast<VirtualKCoreConfigSkeletonItemUrlList*>(self);
+    if (vkcoreconfigskeletonitemurllist && vkcoreconfigskeletonitemurllist->isVirtualKCoreConfigSkeletonItemUrlList) {
+        vkcoreconfigskeletonitemurllist->setKCoreConfigSkeleton__ItemUrlList_WriteConfig_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemUrlList::KCoreConfigSkeleton__ItemUrlList_WriteConfig_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KCoreConfigSkeleton__ItemUrlList_QBaseSetProperty(KCoreConfigSkeleton__ItemUrlList* self, const QVariant* p) {
+    auto* vkcoreconfigskeletonitemurllist = dynamic_cast<VirtualKCoreConfigSkeletonItemUrlList*>(self);
+    if (vkcoreconfigskeletonitemurllist && vkcoreconfigskeletonitemurllist->isVirtualKCoreConfigSkeletonItemUrlList) {
+        vkcoreconfigskeletonitemurllist->setKCoreConfigSkeleton__ItemUrlList_SetProperty_IsBase(true);
+        vkcoreconfigskeletonitemurllist->setProperty(*p);
+    } else {
+        self->KCoreConfigSkeleton::ItemUrlList::setProperty(*p);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemUrlList_OnSetProperty(KCoreConfigSkeleton__ItemUrlList* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemurllist = dynamic_cast<VirtualKCoreConfigSkeletonItemUrlList*>(self);
+    if (vkcoreconfigskeletonitemurllist && vkcoreconfigskeletonitemurllist->isVirtualKCoreConfigSkeletonItemUrlList) {
+        vkcoreconfigskeletonitemurllist->setKCoreConfigSkeleton__ItemUrlList_SetProperty_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemUrlList::KCoreConfigSkeleton__ItemUrlList_SetProperty_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool KCoreConfigSkeleton__ItemUrlList_QBaseIsEqual(const KCoreConfigSkeleton__ItemUrlList* self, const QVariant* p) {
+    auto* vkcoreconfigskeletonitemurllist = const_cast<VirtualKCoreConfigSkeletonItemUrlList*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemUrlList*>(self));
+    if (vkcoreconfigskeletonitemurllist && vkcoreconfigskeletonitemurllist->isVirtualKCoreConfigSkeletonItemUrlList) {
+        vkcoreconfigskeletonitemurllist->setKCoreConfigSkeleton__ItemUrlList_IsEqual_IsBase(true);
+        return vkcoreconfigskeletonitemurllist->isEqual(*p);
+    } else {
+        return self->KCoreConfigSkeleton::ItemUrlList::isEqual(*p);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemUrlList_OnIsEqual(const KCoreConfigSkeleton__ItemUrlList* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemurllist = const_cast<VirtualKCoreConfigSkeletonItemUrlList*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemUrlList*>(self));
+    if (vkcoreconfigskeletonitemurllist && vkcoreconfigskeletonitemurllist->isVirtualKCoreConfigSkeletonItemUrlList) {
+        vkcoreconfigskeletonitemurllist->setKCoreConfigSkeleton__ItemUrlList_IsEqual_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemUrlList::KCoreConfigSkeleton__ItemUrlList_IsEqual_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QVariant* KCoreConfigSkeleton__ItemUrlList_QBaseProperty(const KCoreConfigSkeleton__ItemUrlList* self) {
+    auto* vkcoreconfigskeletonitemurllist = const_cast<VirtualKCoreConfigSkeletonItemUrlList*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemUrlList*>(self));
+    if (vkcoreconfigskeletonitemurllist && vkcoreconfigskeletonitemurllist->isVirtualKCoreConfigSkeletonItemUrlList) {
+        vkcoreconfigskeletonitemurllist->setKCoreConfigSkeleton__ItemUrlList_Property_IsBase(true);
+        return new QVariant(vkcoreconfigskeletonitemurllist->property());
+    } else {
+        return new QVariant(((VirtualKCoreConfigSkeletonItemUrlList*)self)->property());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemUrlList_OnProperty(const KCoreConfigSkeleton__ItemUrlList* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemurllist = const_cast<VirtualKCoreConfigSkeletonItemUrlList*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemUrlList*>(self));
+    if (vkcoreconfigskeletonitemurllist && vkcoreconfigskeletonitemurllist->isVirtualKCoreConfigSkeletonItemUrlList) {
+        vkcoreconfigskeletonitemurllist->setKCoreConfigSkeleton__ItemUrlList_Property_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemUrlList::KCoreConfigSkeleton__ItemUrlList_Property_Callback>(slot));
+    }
+}
+
+void KCoreConfigSkeleton__ItemUrlList_Delete(KCoreConfigSkeleton__ItemUrlList* self) {
+    delete self;
+}
+
+KCoreConfigSkeleton__ItemIntList* KCoreConfigSkeleton__ItemIntList_new(const libqt_string _group, const libqt_string _key, libqt_list /* of int */ reference) {
+    QString _group_QString = QString::fromUtf8(_group.data, _group.len);
+    QString _key_QString = QString::fromUtf8(_key.data, _key.len);
+    QList<int> reference_QList;
+    reference_QList.reserve(reference.len);
+    int* reference_arr = static_cast<int*>(reference.data);
+    for (size_t i = 0; i < reference.len; ++i) {
+        reference_QList.push_back(static_cast<int>(reference_arr[i]));
+    }
+    return new VirtualKCoreConfigSkeletonItemIntList(_group_QString, _key_QString, reference_QList);
+}
+
+KCoreConfigSkeleton__ItemIntList* KCoreConfigSkeleton__ItemIntList_new2(const libqt_string _group, const libqt_string _key, libqt_list /* of int */ reference, const libqt_list /* of int */ defaultValue) {
+    QString _group_QString = QString::fromUtf8(_group.data, _group.len);
+    QString _key_QString = QString::fromUtf8(_key.data, _key.len);
+    QList<int> reference_QList;
+    reference_QList.reserve(reference.len);
+    int* reference_arr = static_cast<int*>(reference.data);
+    for (size_t i = 0; i < reference.len; ++i) {
+        reference_QList.push_back(static_cast<int>(reference_arr[i]));
+    }
+    QList<int> defaultValue_QList;
+    defaultValue_QList.reserve(defaultValue.len);
+    int* defaultValue_arr = static_cast<int*>(defaultValue.data);
+    for (size_t i = 0; i < defaultValue.len; ++i) {
+        defaultValue_QList.push_back(static_cast<int>(defaultValue_arr[i]));
+    }
+    return new VirtualKCoreConfigSkeletonItemIntList(_group_QString, _key_QString, reference_QList, defaultValue_QList);
+}
+
+void KCoreConfigSkeleton__ItemIntList_ReadConfig(KCoreConfigSkeleton__ItemIntList* self, KConfig* config) {
+    auto* vkcoreconfigskeleton__itemintlist = dynamic_cast<VirtualKCoreConfigSkeletonItemIntList*>(self);
+    if (vkcoreconfigskeleton__itemintlist && vkcoreconfigskeleton__itemintlist->isVirtualKCoreConfigSkeletonItemIntList) {
+        self->readConfig(config);
+    } else {
+        ((VirtualKCoreConfigSkeletonItemIntList*)self)->readConfig(config);
+    }
+}
+
+void KCoreConfigSkeleton__ItemIntList_SetProperty(KCoreConfigSkeleton__ItemIntList* self, const QVariant* p) {
+    auto* vkcoreconfigskeleton__itemintlist = dynamic_cast<VirtualKCoreConfigSkeletonItemIntList*>(self);
+    if (vkcoreconfigskeleton__itemintlist && vkcoreconfigskeleton__itemintlist->isVirtualKCoreConfigSkeletonItemIntList) {
+        self->setProperty(*p);
+    } else {
+        ((VirtualKCoreConfigSkeletonItemIntList*)self)->setProperty(*p);
+    }
+}
+
+bool KCoreConfigSkeleton__ItemIntList_IsEqual(const KCoreConfigSkeleton__ItemIntList* self, const QVariant* p) {
+    auto* vkcoreconfigskeleton__itemintlist = dynamic_cast<const VirtualKCoreConfigSkeletonItemIntList*>(self);
+    if (vkcoreconfigskeleton__itemintlist && vkcoreconfigskeleton__itemintlist->isVirtualKCoreConfigSkeletonItemIntList) {
+        return self->isEqual(*p);
+    } else {
+        return ((VirtualKCoreConfigSkeletonItemIntList*)self)->isEqual(*p);
+    }
+}
+
+QVariant* KCoreConfigSkeleton__ItemIntList_Property(const KCoreConfigSkeleton__ItemIntList* self) {
+    auto* vkcoreconfigskeleton__itemintlist = dynamic_cast<const VirtualKCoreConfigSkeletonItemIntList*>(self);
+    if (vkcoreconfigskeleton__itemintlist && vkcoreconfigskeleton__itemintlist->isVirtualKCoreConfigSkeletonItemIntList) {
+        return new QVariant(self->property());
+    } else {
+        return new QVariant(((VirtualKCoreConfigSkeletonItemIntList*)self)->property());
+    }
+}
+
+// Base class handler implementation
+void KCoreConfigSkeleton__ItemIntList_QBaseReadConfig(KCoreConfigSkeleton__ItemIntList* self, KConfig* config) {
+    auto* vkcoreconfigskeletonitemintlist = dynamic_cast<VirtualKCoreConfigSkeletonItemIntList*>(self);
+    if (vkcoreconfigskeletonitemintlist && vkcoreconfigskeletonitemintlist->isVirtualKCoreConfigSkeletonItemIntList) {
+        vkcoreconfigskeletonitemintlist->setKCoreConfigSkeleton__ItemIntList_ReadConfig_IsBase(true);
+        vkcoreconfigskeletonitemintlist->readConfig(config);
+    } else {
+        self->KCoreConfigSkeleton::ItemIntList::readConfig(config);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemIntList_OnReadConfig(KCoreConfigSkeleton__ItemIntList* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemintlist = dynamic_cast<VirtualKCoreConfigSkeletonItemIntList*>(self);
+    if (vkcoreconfigskeletonitemintlist && vkcoreconfigskeletonitemintlist->isVirtualKCoreConfigSkeletonItemIntList) {
+        vkcoreconfigskeletonitemintlist->setKCoreConfigSkeleton__ItemIntList_ReadConfig_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemIntList::KCoreConfigSkeleton__ItemIntList_ReadConfig_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KCoreConfigSkeleton__ItemIntList_QBaseSetProperty(KCoreConfigSkeleton__ItemIntList* self, const QVariant* p) {
+    auto* vkcoreconfigskeletonitemintlist = dynamic_cast<VirtualKCoreConfigSkeletonItemIntList*>(self);
+    if (vkcoreconfigskeletonitemintlist && vkcoreconfigskeletonitemintlist->isVirtualKCoreConfigSkeletonItemIntList) {
+        vkcoreconfigskeletonitemintlist->setKCoreConfigSkeleton__ItemIntList_SetProperty_IsBase(true);
+        vkcoreconfigskeletonitemintlist->setProperty(*p);
+    } else {
+        self->KCoreConfigSkeleton::ItemIntList::setProperty(*p);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemIntList_OnSetProperty(KCoreConfigSkeleton__ItemIntList* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemintlist = dynamic_cast<VirtualKCoreConfigSkeletonItemIntList*>(self);
+    if (vkcoreconfigskeletonitemintlist && vkcoreconfigskeletonitemintlist->isVirtualKCoreConfigSkeletonItemIntList) {
+        vkcoreconfigskeletonitemintlist->setKCoreConfigSkeleton__ItemIntList_SetProperty_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemIntList::KCoreConfigSkeleton__ItemIntList_SetProperty_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool KCoreConfigSkeleton__ItemIntList_QBaseIsEqual(const KCoreConfigSkeleton__ItemIntList* self, const QVariant* p) {
+    auto* vkcoreconfigskeletonitemintlist = const_cast<VirtualKCoreConfigSkeletonItemIntList*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemIntList*>(self));
+    if (vkcoreconfigskeletonitemintlist && vkcoreconfigskeletonitemintlist->isVirtualKCoreConfigSkeletonItemIntList) {
+        vkcoreconfigskeletonitemintlist->setKCoreConfigSkeleton__ItemIntList_IsEqual_IsBase(true);
+        return vkcoreconfigskeletonitemintlist->isEqual(*p);
+    } else {
+        return self->KCoreConfigSkeleton::ItemIntList::isEqual(*p);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemIntList_OnIsEqual(const KCoreConfigSkeleton__ItemIntList* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemintlist = const_cast<VirtualKCoreConfigSkeletonItemIntList*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemIntList*>(self));
+    if (vkcoreconfigskeletonitemintlist && vkcoreconfigskeletonitemintlist->isVirtualKCoreConfigSkeletonItemIntList) {
+        vkcoreconfigskeletonitemintlist->setKCoreConfigSkeleton__ItemIntList_IsEqual_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemIntList::KCoreConfigSkeleton__ItemIntList_IsEqual_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QVariant* KCoreConfigSkeleton__ItemIntList_QBaseProperty(const KCoreConfigSkeleton__ItemIntList* self) {
+    auto* vkcoreconfigskeletonitemintlist = const_cast<VirtualKCoreConfigSkeletonItemIntList*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemIntList*>(self));
+    if (vkcoreconfigskeletonitemintlist && vkcoreconfigskeletonitemintlist->isVirtualKCoreConfigSkeletonItemIntList) {
+        vkcoreconfigskeletonitemintlist->setKCoreConfigSkeleton__ItemIntList_Property_IsBase(true);
+        return new QVariant(vkcoreconfigskeletonitemintlist->property());
+    } else {
+        return new QVariant(((VirtualKCoreConfigSkeletonItemIntList*)self)->property());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCoreConfigSkeleton__ItemIntList_OnProperty(const KCoreConfigSkeleton__ItemIntList* self, intptr_t slot) {
+    auto* vkcoreconfigskeletonitemintlist = const_cast<VirtualKCoreConfigSkeletonItemIntList*>(dynamic_cast<const VirtualKCoreConfigSkeletonItemIntList*>(self));
+    if (vkcoreconfigskeletonitemintlist && vkcoreconfigskeletonitemintlist->isVirtualKCoreConfigSkeletonItemIntList) {
+        vkcoreconfigskeletonitemintlist->setKCoreConfigSkeleton__ItemIntList_Property_Callback(reinterpret_cast<VirtualKCoreConfigSkeletonItemIntList::KCoreConfigSkeleton__ItemIntList_Property_Callback>(slot));
+    }
+}
+
+void KCoreConfigSkeleton__ItemIntList_Delete(KCoreConfigSkeleton__ItemIntList* self) {
     delete self;
 }

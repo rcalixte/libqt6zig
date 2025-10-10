@@ -1,4 +1,5 @@
 #include <KCompletion>
+#include <KCompletionMatches>
 #include <KUrlCompletion>
 #include <QChildEvent>
 #include <QEvent>
@@ -237,6 +238,13 @@ void KUrlCompletion_PostProcessMatches(const KUrlCompletion* self, libqt_list /*
     auto* vkurlcompletion = dynamic_cast<const VirtualKUrlCompletion*>(self);
     if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
         vkurlcompletion->postProcessMatches(&matches_QList);
+    }
+}
+
+void KUrlCompletion_PostProcessMatches2(const KUrlCompletion* self, KCompletionMatches* matches) {
+    auto* vkurlcompletion = dynamic_cast<const VirtualKUrlCompletion*>(self);
+    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
+        vkurlcompletion->postProcessMatches(matches);
     }
 }
 
@@ -545,6 +553,25 @@ void KUrlCompletion_OnPostProcessMatches(const KUrlCompletion* self, intptr_t sl
     auto* vkurlcompletion = const_cast<VirtualKUrlCompletion*>(dynamic_cast<const VirtualKUrlCompletion*>(self));
     if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
         vkurlcompletion->setKUrlCompletion_PostProcessMatches_Callback(reinterpret_cast<VirtualKUrlCompletion::KUrlCompletion_PostProcessMatches_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KUrlCompletion_QBasePostProcessMatches2(const KUrlCompletion* self, KCompletionMatches* matches) {
+    auto* vkurlcompletion = const_cast<VirtualKUrlCompletion*>(dynamic_cast<const VirtualKUrlCompletion*>(self));
+    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
+        vkurlcompletion->setKUrlCompletion_PostProcessMatches2_IsBase(true);
+        vkurlcompletion->postProcessMatches(matches);
+    } else {
+        ((VirtualKUrlCompletion*)self)->postProcessMatches(matches);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KUrlCompletion_OnPostProcessMatches2(const KUrlCompletion* self, intptr_t slot) {
+    auto* vkurlcompletion = const_cast<VirtualKUrlCompletion*>(dynamic_cast<const VirtualKUrlCompletion*>(self));
+    if (vkurlcompletion && vkurlcompletion->isVirtualKUrlCompletion) {
+        vkurlcompletion->setKUrlCompletion_PostProcessMatches2_Callback(reinterpret_cast<VirtualKUrlCompletion::KUrlCompletion_PostProcessMatches2_Callback>(slot));
     }
 }
 

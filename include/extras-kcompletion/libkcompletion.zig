@@ -301,6 +301,24 @@ pub const kcompletion = struct {
         return _ret;
     }
 
+    /// [Qt documentation](https://api.kde.org/kcompletion.html#allWeightedMatches)
+    ///
+    /// ``` self: QtC.KCompletion ```
+    pub fn AllWeightedMatches(self: ?*anyopaque) QtC.KCompletionMatches {
+        return qtc.KCompletion_AllWeightedMatches(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcompletion.html#allWeightedMatches)
+    ///
+    /// ``` self: QtC.KCompletion, stringVal: []const u8 ```
+    pub fn AllWeightedMatches2(self: ?*anyopaque, stringVal: []const u8) QtC.KCompletionMatches {
+        const stringVal_str = qtc.libqt_string{
+            .len = stringVal.len,
+            .data = stringVal.ptr,
+        };
+        return qtc.KCompletion_AllWeightedMatches2(@ptrCast(self), stringVal_str);
+    }
+
     /// [Qt documentation](https://api.kde.org/kcompletion.html#setSoundsEnabled)
     ///
     /// ``` self: QtC.KCompletion, enable: bool ```
@@ -634,6 +652,31 @@ pub const kcompletion = struct {
             .data = matchList_arr.ptr,
         };
         qtc.KCompletion_QBasePostProcessMatches(@ptrCast(self), matchList_list);
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcompletion.html#postProcessMatches)
+    ///
+    /// ``` self: QtC.KCompletion, matches: QtC.KCompletionMatches ```
+    pub fn PostProcessMatches2(self: ?*anyopaque, matches: ?*anyopaque) void {
+        qtc.KCompletion_PostProcessMatches2(@ptrCast(self), @ptrCast(matches));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcompletion.html#postProcessMatches)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCompletion, callback: *const fn (self: QtC.KCompletion, matches: QtC.KCompletionMatches) callconv(.c) void ```
+    pub fn OnPostProcessMatches2(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCompletion_OnPostProcessMatches2(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcompletion.html#postProcessMatches)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCompletion, matches: QtC.KCompletionMatches ```
+    pub fn QBasePostProcessMatches2(self: ?*anyopaque, matches: ?*anyopaque) void {
+        qtc.KCompletion_QBasePostProcessMatches2(@ptrCast(self), @ptrCast(matches));
     }
 
     /// [Qt documentation](https://api.kde.org/kcompletion.html#setShouldAutoSuggest)

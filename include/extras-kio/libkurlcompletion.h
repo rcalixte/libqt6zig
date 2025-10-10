@@ -16,6 +16,7 @@ extern "C" {
 #ifdef __cplusplus
 #else
 typedef struct KCompletion KCompletion;
+typedef struct KCompletionMatches KCompletionMatches;
 typedef struct KUrlCompletion KUrlCompletion;
 typedef struct QChildEvent QChildEvent;
 typedef struct QEvent QEvent;
@@ -48,6 +49,7 @@ libqt_string KUrlCompletion_ReplacedPath2(const libqt_string text, bool replaceH
 void KUrlCompletion_SetMimeTypeFilters(KUrlCompletion* self, const libqt_list /* of libqt_string */ mimeTypes);
 libqt_list /* of libqt_string */ KUrlCompletion_MimeTypeFilters(const KUrlCompletion* self);
 void KUrlCompletion_PostProcessMatches(const KUrlCompletion* self, libqt_list /* of libqt_string */ matches);
+void KUrlCompletion_PostProcessMatches2(const KUrlCompletion* self, KCompletionMatches* matches);
 libqt_string KUrlCompletion_Tr2(const char* s, const char* c);
 libqt_string KUrlCompletion_Tr3(const char* s, const char* c, int n);
 libqt_string KUrlCompletion_ReplacedPath3(const libqt_string text, bool replaceHome, bool replaceEnv);
@@ -77,6 +79,8 @@ void KUrlCompletion_OnSetReplaceHome(KUrlCompletion* self, intptr_t slot);
 void KUrlCompletion_QBaseSetReplaceHome(KUrlCompletion* self, bool replace);
 void KUrlCompletion_OnPostProcessMatches(const KUrlCompletion* self, intptr_t slot);
 void KUrlCompletion_QBasePostProcessMatches(const KUrlCompletion* self, libqt_list /* of libqt_string */ matches);
+void KUrlCompletion_OnPostProcessMatches2(const KUrlCompletion* self, intptr_t slot);
+void KUrlCompletion_QBasePostProcessMatches2(const KUrlCompletion* self, KCompletionMatches* matches);
 libqt_string KUrlCompletion_LastMatch(const KUrlCompletion* self);
 void KUrlCompletion_OnLastMatch(const KUrlCompletion* self, intptr_t slot);
 libqt_string KUrlCompletion_QBaseLastMatch(const KUrlCompletion* self);

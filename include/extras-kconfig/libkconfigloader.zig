@@ -172,6 +172,32 @@ pub const kconfigloader = struct {
 
     /// Inherited from KConfigSkeleton
     ///
+    /// [Qt documentation](https://api.kde.org/kconfigskeleton.html#addItemColor)
+    ///
+    /// ``` self: QtC.KConfigLoader, name: []const u8, reference: QtC.QColor ```
+    pub fn AddItemColor(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque) QtC.KConfigSkeleton__ItemColor {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return qtc.KConfigSkeleton_AddItemColor(@ptrCast(self), name_str, @ptrCast(reference));
+    }
+
+    /// Inherited from KConfigSkeleton
+    ///
+    /// [Qt documentation](https://api.kde.org/kconfigskeleton.html#addItemFont)
+    ///
+    /// ``` self: QtC.KConfigLoader, name: []const u8, reference: QtC.QFont ```
+    pub fn AddItemFont(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque) QtC.KConfigSkeleton__ItemFont {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return qtc.KConfigSkeleton_AddItemFont(@ptrCast(self), name_str, @ptrCast(reference));
+    }
+
+    /// Inherited from KConfigSkeleton
+    ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
@@ -198,6 +224,66 @@ pub const kconfigloader = struct {
         const _ret = allocator.alloc(u8, _str.len) catch @panic("kconfigloader.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
+    }
+
+    /// Inherited from KConfigSkeleton
+    ///
+    /// [Qt documentation](https://api.kde.org/kconfigskeleton.html#addItemColor)
+    ///
+    /// ``` self: QtC.KConfigLoader, name: []const u8, reference: QtC.QColor, defaultValue: QtC.QColor ```
+    pub fn AddItemColor3(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque, defaultValue: ?*anyopaque) QtC.KConfigSkeleton__ItemColor {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return qtc.KConfigSkeleton_AddItemColor3(@ptrCast(self), name_str, @ptrCast(reference), @ptrCast(defaultValue));
+    }
+
+    /// Inherited from KConfigSkeleton
+    ///
+    /// [Qt documentation](https://api.kde.org/kconfigskeleton.html#addItemColor)
+    ///
+    /// ``` self: QtC.KConfigLoader, name: []const u8, reference: QtC.QColor, defaultValue: QtC.QColor, key: []const u8 ```
+    pub fn AddItemColor4(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque, defaultValue: ?*anyopaque, key: []const u8) QtC.KConfigSkeleton__ItemColor {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return qtc.KConfigSkeleton_AddItemColor4(@ptrCast(self), name_str, @ptrCast(reference), @ptrCast(defaultValue), key_str);
+    }
+
+    /// Inherited from KConfigSkeleton
+    ///
+    /// [Qt documentation](https://api.kde.org/kconfigskeleton.html#addItemFont)
+    ///
+    /// ``` self: QtC.KConfigLoader, name: []const u8, reference: QtC.QFont, defaultValue: QtC.QFont ```
+    pub fn AddItemFont3(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque, defaultValue: ?*anyopaque) QtC.KConfigSkeleton__ItemFont {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return qtc.KConfigSkeleton_AddItemFont3(@ptrCast(self), name_str, @ptrCast(reference), @ptrCast(defaultValue));
+    }
+
+    /// Inherited from KConfigSkeleton
+    ///
+    /// [Qt documentation](https://api.kde.org/kconfigskeleton.html#addItemFont)
+    ///
+    /// ``` self: QtC.KConfigLoader, name: []const u8, reference: QtC.QFont, defaultValue: QtC.QFont, key: []const u8 ```
+    pub fn AddItemFont4(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque, defaultValue: ?*anyopaque, key: []const u8) QtC.KConfigSkeleton__ItemFont {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return qtc.KConfigSkeleton_AddItemFont4(@ptrCast(self), name_str, @ptrCast(reference), @ptrCast(defaultValue), key_str);
     }
 
     /// Inherited from KCoreConfigSkeleton
@@ -273,6 +359,23 @@ pub const kconfigloader = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemString)
+    ///
+    /// ``` self: QtC.KConfigLoader, name: []const u8, reference: []const u8 ```
+    pub fn AddItemString(self: ?*anyopaque, name: []const u8, reference: []const u8) QtC.KCoreConfigSkeleton__ItemString {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        const reference_str = qtc.libqt_string{
+            .len = reference.len,
+            .data = reference.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemString(@ptrCast(self), name_str, reference_str);
+    }
+
+    /// Inherited from KCoreConfigSkeleton
+    ///
     /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemPassword)
     ///
     /// ``` self: QtC.KConfigLoader, name: []const u8, reference: []const u8 ```
@@ -303,6 +406,230 @@ pub const kconfigloader = struct {
             .data = reference.ptr,
         };
         return qtc.KCoreConfigSkeleton_AddItemPath(@ptrCast(self), name_str, reference_str);
+    }
+
+    /// Inherited from KCoreConfigSkeleton
+    ///
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemProperty)
+    ///
+    /// ``` self: QtC.KConfigLoader, name: []const u8, reference: QtC.QVariant ```
+    pub fn AddItemProperty(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque) QtC.KCoreConfigSkeleton__ItemProperty {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemProperty(@ptrCast(self), name_str, @ptrCast(reference));
+    }
+
+    /// Inherited from KCoreConfigSkeleton
+    ///
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemBool)
+    ///
+    /// ``` self: QtC.KConfigLoader, name: []const u8, reference: *bool ```
+    pub fn AddItemBool(self: ?*anyopaque, name: []const u8, reference: *bool) QtC.KCoreConfigSkeleton__ItemBool {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemBool(@ptrCast(self), name_str, @ptrCast(reference));
+    }
+
+    /// Inherited from KCoreConfigSkeleton
+    ///
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemInt)
+    ///
+    /// ``` self: QtC.KConfigLoader, name: []const u8, reference: *i32 ```
+    pub fn AddItemInt(self: ?*anyopaque, name: []const u8, reference: *i32) QtC.KCoreConfigSkeleton__ItemInt {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemInt(@ptrCast(self), name_str, @ptrCast(reference));
+    }
+
+    /// Inherited from KCoreConfigSkeleton
+    ///
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemUInt)
+    ///
+    /// ``` self: QtC.KConfigLoader, name: []const u8, reference: *u32 ```
+    pub fn AddItemUInt(self: ?*anyopaque, name: []const u8, reference: *u32) QtC.KCoreConfigSkeleton__ItemUInt {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemUInt(@ptrCast(self), name_str, @ptrCast(reference));
+    }
+
+    /// Inherited from KCoreConfigSkeleton
+    ///
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemLongLong)
+    ///
+    /// ``` self: QtC.KConfigLoader, name: []const u8, reference: *i64 ```
+    pub fn AddItemLongLong(self: ?*anyopaque, name: []const u8, reference: *i64) QtC.KCoreConfigSkeleton__ItemLongLong {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemLongLong(@ptrCast(self), name_str, @ptrCast(reference));
+    }
+
+    /// Inherited from KCoreConfigSkeleton
+    ///
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemULongLong)
+    ///
+    /// ``` self: QtC.KConfigLoader, name: []const u8, reference: *u64 ```
+    pub fn AddItemULongLong(self: ?*anyopaque, name: []const u8, reference: *u64) QtC.KCoreConfigSkeleton__ItemULongLong {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemULongLong(@ptrCast(self), name_str, @ptrCast(reference));
+    }
+
+    /// Inherited from KCoreConfigSkeleton
+    ///
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemDouble)
+    ///
+    /// ``` self: QtC.KConfigLoader, name: []const u8, reference: *f64 ```
+    pub fn AddItemDouble(self: ?*anyopaque, name: []const u8, reference: *f64) QtC.KCoreConfigSkeleton__ItemDouble {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemDouble(@ptrCast(self), name_str, @ptrCast(reference));
+    }
+
+    /// Inherited from KCoreConfigSkeleton
+    ///
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemRect)
+    ///
+    /// ``` self: QtC.KConfigLoader, name: []const u8, reference: QtC.QRect ```
+    pub fn AddItemRect(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque) QtC.KCoreConfigSkeleton__ItemRect {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemRect(@ptrCast(self), name_str, @ptrCast(reference));
+    }
+
+    /// Inherited from KCoreConfigSkeleton
+    ///
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemRectF)
+    ///
+    /// ``` self: QtC.KConfigLoader, name: []const u8, reference: QtC.QRectF ```
+    pub fn AddItemRectF(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque) QtC.KCoreConfigSkeleton__ItemRectF {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemRectF(@ptrCast(self), name_str, @ptrCast(reference));
+    }
+
+    /// Inherited from KCoreConfigSkeleton
+    ///
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemPoint)
+    ///
+    /// ``` self: QtC.KConfigLoader, name: []const u8, reference: QtC.QPoint ```
+    pub fn AddItemPoint(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque) QtC.KCoreConfigSkeleton__ItemPoint {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemPoint(@ptrCast(self), name_str, @ptrCast(reference));
+    }
+
+    /// Inherited from KCoreConfigSkeleton
+    ///
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemPointF)
+    ///
+    /// ``` self: QtC.KConfigLoader, name: []const u8, reference: QtC.QPointF ```
+    pub fn AddItemPointF(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque) QtC.KCoreConfigSkeleton__ItemPointF {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemPointF(@ptrCast(self), name_str, @ptrCast(reference));
+    }
+
+    /// Inherited from KCoreConfigSkeleton
+    ///
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemSize)
+    ///
+    /// ``` self: QtC.KConfigLoader, name: []const u8, reference: QtC.QSize ```
+    pub fn AddItemSize(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque) QtC.KCoreConfigSkeleton__ItemSize {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemSize(@ptrCast(self), name_str, @ptrCast(reference));
+    }
+
+    /// Inherited from KCoreConfigSkeleton
+    ///
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemSizeF)
+    ///
+    /// ``` self: QtC.KConfigLoader, name: []const u8, reference: QtC.QSizeF ```
+    pub fn AddItemSizeF(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque) QtC.KCoreConfigSkeleton__ItemSizeF {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemSizeF(@ptrCast(self), name_str, @ptrCast(reference));
+    }
+
+    /// Inherited from KCoreConfigSkeleton
+    ///
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemDateTime)
+    ///
+    /// ``` self: QtC.KConfigLoader, name: []const u8, reference: QtC.QDateTime ```
+    pub fn AddItemDateTime(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque) QtC.KCoreConfigSkeleton__ItemDateTime {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemDateTime(@ptrCast(self), name_str, @ptrCast(reference));
+    }
+
+    /// Inherited from KCoreConfigSkeleton
+    ///
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemStringList)
+    ///
+    /// ``` self: QtC.KConfigLoader, name: []const u8, reference: [][]const u8, allocator: std.mem.Allocator ```
+    pub fn AddItemStringList(self: ?*anyopaque, name: []const u8, reference: [][]const u8, allocator: std.mem.Allocator) QtC.KCoreConfigSkeleton__ItemStringList {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        var reference_arr = allocator.alloc(qtc.libqt_string, reference.len) catch @panic("kconfigloader.AddItemStringList: Memory allocation failed");
+        defer allocator.free(reference_arr);
+        for (reference, 0..reference.len) |item, i| {
+            reference_arr[i] = .{
+                .len = item.len,
+                .data = item.ptr,
+            };
+        }
+        const reference_list = qtc.libqt_list{
+            .len = reference.len,
+            .data = reference_arr.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemStringList(@ptrCast(self), name_str, reference_list);
+    }
+
+    /// Inherited from KCoreConfigSkeleton
+    ///
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemIntList)
+    ///
+    /// ``` self: QtC.KConfigLoader, name: []const u8, reference: []i32 ```
+    pub fn AddItemIntList(self: ?*anyopaque, name: []const u8, reference: []i32) QtC.KCoreConfigSkeleton__ItemIntList {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        const reference_list = qtc.libqt_list{
+            .len = reference.len,
+            .data = reference.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemIntList(@ptrCast(self), name_str, reference_list);
     }
 
     /// Inherited from KCoreConfigSkeleton
@@ -414,6 +741,52 @@ pub const kconfigloader = struct {
 
     /// Inherited from KCoreConfigSkeleton
     ///
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemString)
+    ///
+    /// ``` self: QtC.KConfigLoader, name: []const u8, reference: []const u8, defaultValue: []const u8 ```
+    pub fn AddItemString3(self: ?*anyopaque, name: []const u8, reference: []const u8, defaultValue: []const u8) QtC.KCoreConfigSkeleton__ItemString {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        const reference_str = qtc.libqt_string{
+            .len = reference.len,
+            .data = reference.ptr,
+        };
+        const defaultValue_str = qtc.libqt_string{
+            .len = defaultValue.len,
+            .data = defaultValue.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemString3(@ptrCast(self), name_str, reference_str, defaultValue_str);
+    }
+
+    /// Inherited from KCoreConfigSkeleton
+    ///
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemString)
+    ///
+    /// ``` self: QtC.KConfigLoader, name: []const u8, reference: []const u8, defaultValue: []const u8, key: []const u8 ```
+    pub fn AddItemString4(self: ?*anyopaque, name: []const u8, reference: []const u8, defaultValue: []const u8, key: []const u8) QtC.KCoreConfigSkeleton__ItemString {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        const reference_str = qtc.libqt_string{
+            .len = reference.len,
+            .data = reference.ptr,
+        };
+        const defaultValue_str = qtc.libqt_string{
+            .len = defaultValue.len,
+            .data = defaultValue.ptr,
+        };
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemString4(@ptrCast(self), name_str, reference_str, defaultValue_str, key_str);
+    }
+
+    /// Inherited from KCoreConfigSkeleton
+    ///
     /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemPassword)
     ///
     /// ``` self: QtC.KConfigLoader, name: []const u8, reference: []const u8, defaultValue: []const u8 ```
@@ -502,6 +875,550 @@ pub const kconfigloader = struct {
             .data = key.ptr,
         };
         return qtc.KCoreConfigSkeleton_AddItemPath4(@ptrCast(self), name_str, reference_str, defaultValue_str, key_str);
+    }
+
+    /// Inherited from KCoreConfigSkeleton
+    ///
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemProperty)
+    ///
+    /// ``` self: QtC.KConfigLoader, name: []const u8, reference: QtC.QVariant, defaultValue: QtC.QVariant ```
+    pub fn AddItemProperty3(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque, defaultValue: ?*anyopaque) QtC.KCoreConfigSkeleton__ItemProperty {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemProperty3(@ptrCast(self), name_str, @ptrCast(reference), @ptrCast(defaultValue));
+    }
+
+    /// Inherited from KCoreConfigSkeleton
+    ///
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemProperty)
+    ///
+    /// ``` self: QtC.KConfigLoader, name: []const u8, reference: QtC.QVariant, defaultValue: QtC.QVariant, key: []const u8 ```
+    pub fn AddItemProperty4(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque, defaultValue: ?*anyopaque, key: []const u8) QtC.KCoreConfigSkeleton__ItemProperty {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemProperty4(@ptrCast(self), name_str, @ptrCast(reference), @ptrCast(defaultValue), key_str);
+    }
+
+    /// Inherited from KCoreConfigSkeleton
+    ///
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemBool)
+    ///
+    /// ``` self: QtC.KConfigLoader, name: []const u8, reference: *bool, defaultValue: bool ```
+    pub fn AddItemBool3(self: ?*anyopaque, name: []const u8, reference: *bool, defaultValue: bool) QtC.KCoreConfigSkeleton__ItemBool {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemBool3(@ptrCast(self), name_str, @ptrCast(reference), defaultValue);
+    }
+
+    /// Inherited from KCoreConfigSkeleton
+    ///
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemBool)
+    ///
+    /// ``` self: QtC.KConfigLoader, name: []const u8, reference: *bool, defaultValue: bool, key: []const u8 ```
+    pub fn AddItemBool4(self: ?*anyopaque, name: []const u8, reference: *bool, defaultValue: bool, key: []const u8) QtC.KCoreConfigSkeleton__ItemBool {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemBool4(@ptrCast(self), name_str, @ptrCast(reference), defaultValue, key_str);
+    }
+
+    /// Inherited from KCoreConfigSkeleton
+    ///
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemInt)
+    ///
+    /// ``` self: QtC.KConfigLoader, name: []const u8, reference: *i32, defaultValue: i32 ```
+    pub fn AddItemInt3(self: ?*anyopaque, name: []const u8, reference: *i32, defaultValue: i32) QtC.KCoreConfigSkeleton__ItemInt {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemInt3(@ptrCast(self), name_str, @ptrCast(reference), @intCast(defaultValue));
+    }
+
+    /// Inherited from KCoreConfigSkeleton
+    ///
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemInt)
+    ///
+    /// ``` self: QtC.KConfigLoader, name: []const u8, reference: *i32, defaultValue: i32, key: []const u8 ```
+    pub fn AddItemInt4(self: ?*anyopaque, name: []const u8, reference: *i32, defaultValue: i32, key: []const u8) QtC.KCoreConfigSkeleton__ItemInt {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemInt4(@ptrCast(self), name_str, @ptrCast(reference), @intCast(defaultValue), key_str);
+    }
+
+    /// Inherited from KCoreConfigSkeleton
+    ///
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemUInt)
+    ///
+    /// ``` self: QtC.KConfigLoader, name: []const u8, reference: *u32, defaultValue: u32 ```
+    pub fn AddItemUInt3(self: ?*anyopaque, name: []const u8, reference: *u32, defaultValue: u32) QtC.KCoreConfigSkeleton__ItemUInt {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemUInt3(@ptrCast(self), name_str, @ptrCast(reference), @intCast(defaultValue));
+    }
+
+    /// Inherited from KCoreConfigSkeleton
+    ///
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemUInt)
+    ///
+    /// ``` self: QtC.KConfigLoader, name: []const u8, reference: *u32, defaultValue: u32, key: []const u8 ```
+    pub fn AddItemUInt4(self: ?*anyopaque, name: []const u8, reference: *u32, defaultValue: u32, key: []const u8) QtC.KCoreConfigSkeleton__ItemUInt {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemUInt4(@ptrCast(self), name_str, @ptrCast(reference), @intCast(defaultValue), key_str);
+    }
+
+    /// Inherited from KCoreConfigSkeleton
+    ///
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemLongLong)
+    ///
+    /// ``` self: QtC.KConfigLoader, name: []const u8, reference: *i64, defaultValue: i64 ```
+    pub fn AddItemLongLong3(self: ?*anyopaque, name: []const u8, reference: *i64, defaultValue: i64) QtC.KCoreConfigSkeleton__ItemLongLong {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemLongLong3(@ptrCast(self), name_str, @ptrCast(reference), @intCast(defaultValue));
+    }
+
+    /// Inherited from KCoreConfigSkeleton
+    ///
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemLongLong)
+    ///
+    /// ``` self: QtC.KConfigLoader, name: []const u8, reference: *i64, defaultValue: i64, key: []const u8 ```
+    pub fn AddItemLongLong4(self: ?*anyopaque, name: []const u8, reference: *i64, defaultValue: i64, key: []const u8) QtC.KCoreConfigSkeleton__ItemLongLong {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemLongLong4(@ptrCast(self), name_str, @ptrCast(reference), @intCast(defaultValue), key_str);
+    }
+
+    /// Inherited from KCoreConfigSkeleton
+    ///
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemULongLong)
+    ///
+    /// ``` self: QtC.KConfigLoader, name: []const u8, reference: *u64, defaultValue: u64 ```
+    pub fn AddItemULongLong3(self: ?*anyopaque, name: []const u8, reference: *u64, defaultValue: u64) QtC.KCoreConfigSkeleton__ItemULongLong {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemULongLong3(@ptrCast(self), name_str, @ptrCast(reference), @intCast(defaultValue));
+    }
+
+    /// Inherited from KCoreConfigSkeleton
+    ///
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemULongLong)
+    ///
+    /// ``` self: QtC.KConfigLoader, name: []const u8, reference: *u64, defaultValue: u64, key: []const u8 ```
+    pub fn AddItemULongLong4(self: ?*anyopaque, name: []const u8, reference: *u64, defaultValue: u64, key: []const u8) QtC.KCoreConfigSkeleton__ItemULongLong {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemULongLong4(@ptrCast(self), name_str, @ptrCast(reference), @intCast(defaultValue), key_str);
+    }
+
+    /// Inherited from KCoreConfigSkeleton
+    ///
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemDouble)
+    ///
+    /// ``` self: QtC.KConfigLoader, name: []const u8, reference: *f64, defaultValue: f64 ```
+    pub fn AddItemDouble3(self: ?*anyopaque, name: []const u8, reference: *f64, defaultValue: f64) QtC.KCoreConfigSkeleton__ItemDouble {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemDouble3(@ptrCast(self), name_str, @ptrCast(reference), @floatCast(defaultValue));
+    }
+
+    /// Inherited from KCoreConfigSkeleton
+    ///
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemDouble)
+    ///
+    /// ``` self: QtC.KConfigLoader, name: []const u8, reference: *f64, defaultValue: f64, key: []const u8 ```
+    pub fn AddItemDouble4(self: ?*anyopaque, name: []const u8, reference: *f64, defaultValue: f64, key: []const u8) QtC.KCoreConfigSkeleton__ItemDouble {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemDouble4(@ptrCast(self), name_str, @ptrCast(reference), @floatCast(defaultValue), key_str);
+    }
+
+    /// Inherited from KCoreConfigSkeleton
+    ///
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemRect)
+    ///
+    /// ``` self: QtC.KConfigLoader, name: []const u8, reference: QtC.QRect, defaultValue: QtC.QRect ```
+    pub fn AddItemRect3(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque, defaultValue: ?*anyopaque) QtC.KCoreConfigSkeleton__ItemRect {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemRect3(@ptrCast(self), name_str, @ptrCast(reference), @ptrCast(defaultValue));
+    }
+
+    /// Inherited from KCoreConfigSkeleton
+    ///
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemRect)
+    ///
+    /// ``` self: QtC.KConfigLoader, name: []const u8, reference: QtC.QRect, defaultValue: QtC.QRect, key: []const u8 ```
+    pub fn AddItemRect4(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque, defaultValue: ?*anyopaque, key: []const u8) QtC.KCoreConfigSkeleton__ItemRect {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemRect4(@ptrCast(self), name_str, @ptrCast(reference), @ptrCast(defaultValue), key_str);
+    }
+
+    /// Inherited from KCoreConfigSkeleton
+    ///
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemRectF)
+    ///
+    /// ``` self: QtC.KConfigLoader, name: []const u8, reference: QtC.QRectF, defaultValue: QtC.QRectF ```
+    pub fn AddItemRectF3(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque, defaultValue: ?*anyopaque) QtC.KCoreConfigSkeleton__ItemRectF {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemRectF3(@ptrCast(self), name_str, @ptrCast(reference), @ptrCast(defaultValue));
+    }
+
+    /// Inherited from KCoreConfigSkeleton
+    ///
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemRectF)
+    ///
+    /// ``` self: QtC.KConfigLoader, name: []const u8, reference: QtC.QRectF, defaultValue: QtC.QRectF, key: []const u8 ```
+    pub fn AddItemRectF4(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque, defaultValue: ?*anyopaque, key: []const u8) QtC.KCoreConfigSkeleton__ItemRectF {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemRectF4(@ptrCast(self), name_str, @ptrCast(reference), @ptrCast(defaultValue), key_str);
+    }
+
+    /// Inherited from KCoreConfigSkeleton
+    ///
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemPoint)
+    ///
+    /// ``` self: QtC.KConfigLoader, name: []const u8, reference: QtC.QPoint, defaultValue: QtC.QPoint ```
+    pub fn AddItemPoint3(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque, defaultValue: ?*anyopaque) QtC.KCoreConfigSkeleton__ItemPoint {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemPoint3(@ptrCast(self), name_str, @ptrCast(reference), @ptrCast(defaultValue));
+    }
+
+    /// Inherited from KCoreConfigSkeleton
+    ///
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemPoint)
+    ///
+    /// ``` self: QtC.KConfigLoader, name: []const u8, reference: QtC.QPoint, defaultValue: QtC.QPoint, key: []const u8 ```
+    pub fn AddItemPoint4(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque, defaultValue: ?*anyopaque, key: []const u8) QtC.KCoreConfigSkeleton__ItemPoint {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemPoint4(@ptrCast(self), name_str, @ptrCast(reference), @ptrCast(defaultValue), key_str);
+    }
+
+    /// Inherited from KCoreConfigSkeleton
+    ///
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemPointF)
+    ///
+    /// ``` self: QtC.KConfigLoader, name: []const u8, reference: QtC.QPointF, defaultValue: QtC.QPointF ```
+    pub fn AddItemPointF3(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque, defaultValue: ?*anyopaque) QtC.KCoreConfigSkeleton__ItemPointF {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemPointF3(@ptrCast(self), name_str, @ptrCast(reference), @ptrCast(defaultValue));
+    }
+
+    /// Inherited from KCoreConfigSkeleton
+    ///
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemPointF)
+    ///
+    /// ``` self: QtC.KConfigLoader, name: []const u8, reference: QtC.QPointF, defaultValue: QtC.QPointF, key: []const u8 ```
+    pub fn AddItemPointF4(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque, defaultValue: ?*anyopaque, key: []const u8) QtC.KCoreConfigSkeleton__ItemPointF {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemPointF4(@ptrCast(self), name_str, @ptrCast(reference), @ptrCast(defaultValue), key_str);
+    }
+
+    /// Inherited from KCoreConfigSkeleton
+    ///
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemSize)
+    ///
+    /// ``` self: QtC.KConfigLoader, name: []const u8, reference: QtC.QSize, defaultValue: QtC.QSize ```
+    pub fn AddItemSize3(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque, defaultValue: ?*anyopaque) QtC.KCoreConfigSkeleton__ItemSize {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemSize3(@ptrCast(self), name_str, @ptrCast(reference), @ptrCast(defaultValue));
+    }
+
+    /// Inherited from KCoreConfigSkeleton
+    ///
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemSize)
+    ///
+    /// ``` self: QtC.KConfigLoader, name: []const u8, reference: QtC.QSize, defaultValue: QtC.QSize, key: []const u8 ```
+    pub fn AddItemSize4(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque, defaultValue: ?*anyopaque, key: []const u8) QtC.KCoreConfigSkeleton__ItemSize {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemSize4(@ptrCast(self), name_str, @ptrCast(reference), @ptrCast(defaultValue), key_str);
+    }
+
+    /// Inherited from KCoreConfigSkeleton
+    ///
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemSizeF)
+    ///
+    /// ``` self: QtC.KConfigLoader, name: []const u8, reference: QtC.QSizeF, defaultValue: QtC.QSizeF ```
+    pub fn AddItemSizeF3(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque, defaultValue: ?*anyopaque) QtC.KCoreConfigSkeleton__ItemSizeF {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemSizeF3(@ptrCast(self), name_str, @ptrCast(reference), @ptrCast(defaultValue));
+    }
+
+    /// Inherited from KCoreConfigSkeleton
+    ///
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemSizeF)
+    ///
+    /// ``` self: QtC.KConfigLoader, name: []const u8, reference: QtC.QSizeF, defaultValue: QtC.QSizeF, key: []const u8 ```
+    pub fn AddItemSizeF4(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque, defaultValue: ?*anyopaque, key: []const u8) QtC.KCoreConfigSkeleton__ItemSizeF {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemSizeF4(@ptrCast(self), name_str, @ptrCast(reference), @ptrCast(defaultValue), key_str);
+    }
+
+    /// Inherited from KCoreConfigSkeleton
+    ///
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemDateTime)
+    ///
+    /// ``` self: QtC.KConfigLoader, name: []const u8, reference: QtC.QDateTime, defaultValue: QtC.QDateTime ```
+    pub fn AddItemDateTime3(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque, defaultValue: ?*anyopaque) QtC.KCoreConfigSkeleton__ItemDateTime {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemDateTime3(@ptrCast(self), name_str, @ptrCast(reference), @ptrCast(defaultValue));
+    }
+
+    /// Inherited from KCoreConfigSkeleton
+    ///
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemDateTime)
+    ///
+    /// ``` self: QtC.KConfigLoader, name: []const u8, reference: QtC.QDateTime, defaultValue: QtC.QDateTime, key: []const u8 ```
+    pub fn AddItemDateTime4(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque, defaultValue: ?*anyopaque, key: []const u8) QtC.KCoreConfigSkeleton__ItemDateTime {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemDateTime4(@ptrCast(self), name_str, @ptrCast(reference), @ptrCast(defaultValue), key_str);
+    }
+
+    /// Inherited from KCoreConfigSkeleton
+    ///
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemStringList)
+    ///
+    /// ``` self: QtC.KConfigLoader, name: []const u8, reference: [][]const u8, defaultValue: [][]const u8, allocator: std.mem.Allocator ```
+    pub fn AddItemStringList3(self: ?*anyopaque, name: []const u8, reference: [][]const u8, defaultValue: [][]const u8, allocator: std.mem.Allocator) QtC.KCoreConfigSkeleton__ItemStringList {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        var reference_arr = allocator.alloc(qtc.libqt_string, reference.len) catch @panic("kconfigloader.AddItemStringList3: Memory allocation failed");
+        defer allocator.free(reference_arr);
+        for (reference, 0..reference.len) |item, i| {
+            reference_arr[i] = .{
+                .len = item.len,
+                .data = item.ptr,
+            };
+        }
+        const reference_list = qtc.libqt_list{
+            .len = reference.len,
+            .data = reference_arr.ptr,
+        };
+        var defaultValue_arr = allocator.alloc(qtc.libqt_string, defaultValue.len) catch @panic("kconfigloader.AddItemStringList3: Memory allocation failed");
+        defer allocator.free(defaultValue_arr);
+        for (defaultValue, 0..defaultValue.len) |item, i| {
+            defaultValue_arr[i] = .{
+                .len = item.len,
+                .data = item.ptr,
+            };
+        }
+        const defaultValue_list = qtc.libqt_list{
+            .len = defaultValue.len,
+            .data = defaultValue_arr.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemStringList3(@ptrCast(self), name_str, reference_list, defaultValue_list);
+    }
+
+    /// Inherited from KCoreConfigSkeleton
+    ///
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemStringList)
+    ///
+    /// ``` self: QtC.KConfigLoader, name: []const u8, reference: [][]const u8, defaultValue: [][]const u8, key: []const u8, allocator: std.mem.Allocator ```
+    pub fn AddItemStringList4(self: ?*anyopaque, name: []const u8, reference: [][]const u8, defaultValue: [][]const u8, key: []const u8, allocator: std.mem.Allocator) QtC.KCoreConfigSkeleton__ItemStringList {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        var reference_arr = allocator.alloc(qtc.libqt_string, reference.len) catch @panic("kconfigloader.AddItemStringList4: Memory allocation failed");
+        defer allocator.free(reference_arr);
+        for (reference, 0..reference.len) |item, i| {
+            reference_arr[i] = .{
+                .len = item.len,
+                .data = item.ptr,
+            };
+        }
+        const reference_list = qtc.libqt_list{
+            .len = reference.len,
+            .data = reference_arr.ptr,
+        };
+        var defaultValue_arr = allocator.alloc(qtc.libqt_string, defaultValue.len) catch @panic("kconfigloader.AddItemStringList4: Memory allocation failed");
+        defer allocator.free(defaultValue_arr);
+        for (defaultValue, 0..defaultValue.len) |item, i| {
+            defaultValue_arr[i] = .{
+                .len = item.len,
+                .data = item.ptr,
+            };
+        }
+        const defaultValue_list = qtc.libqt_list{
+            .len = defaultValue.len,
+            .data = defaultValue_arr.ptr,
+        };
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemStringList4(@ptrCast(self), name_str, reference_list, defaultValue_list, key_str);
+    }
+
+    /// Inherited from KCoreConfigSkeleton
+    ///
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemIntList)
+    ///
+    /// ``` self: QtC.KConfigLoader, name: []const u8, reference: []i32, defaultValue: []i32 ```
+    pub fn AddItemIntList3(self: ?*anyopaque, name: []const u8, reference: []i32, defaultValue: []i32) QtC.KCoreConfigSkeleton__ItemIntList {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        const reference_list = qtc.libqt_list{
+            .len = reference.len,
+            .data = reference.ptr,
+        };
+        const defaultValue_list = qtc.libqt_list{
+            .len = defaultValue.len,
+            .data = defaultValue.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemIntList3(@ptrCast(self), name_str, reference_list, defaultValue_list);
+    }
+
+    /// Inherited from KCoreConfigSkeleton
+    ///
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemIntList)
+    ///
+    /// ``` self: QtC.KConfigLoader, name: []const u8, reference: []i32, defaultValue: []i32, key: []const u8 ```
+    pub fn AddItemIntList4(self: ?*anyopaque, name: []const u8, reference: []i32, defaultValue: []i32, key: []const u8) QtC.KCoreConfigSkeleton__ItemIntList {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        const reference_list = qtc.libqt_list{
+            .len = reference.len,
+            .data = reference.ptr,
+        };
+        const defaultValue_list = qtc.libqt_list{
+            .len = defaultValue.len,
+            .data = defaultValue.ptr,
+        };
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemIntList4(@ptrCast(self), name_str, reference_list, defaultValue_list, key_str);
     }
 
     /// Inherited from QObject

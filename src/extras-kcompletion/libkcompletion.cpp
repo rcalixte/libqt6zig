@@ -1,4 +1,5 @@
 #include <KCompletion>
+#include <KCompletionMatches>
 #include <QChildEvent>
 #include <QEvent>
 #include <QList>
@@ -204,6 +205,15 @@ libqt_list /* of libqt_string */ KCompletion_AllMatches2(KCompletion* self, cons
     return _out;
 }
 
+KCompletionMatches* KCompletion_AllWeightedMatches(KCompletion* self) {
+    return new KCompletionMatches(self->allWeightedMatches());
+}
+
+KCompletionMatches* KCompletion_AllWeightedMatches2(KCompletion* self, const libqt_string stringVal) {
+    QString stringVal_QString = QString::fromUtf8(stringVal.data, stringVal.len);
+    return new KCompletionMatches(self->allWeightedMatches(stringVal_QString));
+}
+
 void KCompletion_SetSoundsEnabled(KCompletion* self, bool enable) {
     auto* vkcompletion = dynamic_cast<VirtualKCompletion*>(self);
     if (vkcompletion && vkcompletion->isVirtualKCompletion) {
@@ -396,6 +406,13 @@ void KCompletion_PostProcessMatches(const KCompletion* self, libqt_list /* of li
     auto* vkcompletion = dynamic_cast<const VirtualKCompletion*>(self);
     if (vkcompletion && vkcompletion->isVirtualKCompletion) {
         vkcompletion->postProcessMatches(&matchList_QList);
+    }
+}
+
+void KCompletion_PostProcessMatches2(const KCompletion* self, KCompletionMatches* matches) {
+    auto* vkcompletion = dynamic_cast<const VirtualKCompletion*>(self);
+    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
+        vkcompletion->postProcessMatches(matches);
     }
 }
 
@@ -657,6 +674,25 @@ void KCompletion_OnPostProcessMatches(const KCompletion* self, intptr_t slot) {
     auto* vkcompletion = const_cast<VirtualKCompletion*>(dynamic_cast<const VirtualKCompletion*>(self));
     if (vkcompletion && vkcompletion->isVirtualKCompletion) {
         vkcompletion->setKCompletion_PostProcessMatches_Callback(reinterpret_cast<VirtualKCompletion::KCompletion_PostProcessMatches_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KCompletion_QBasePostProcessMatches2(const KCompletion* self, KCompletionMatches* matches) {
+    auto* vkcompletion = const_cast<VirtualKCompletion*>(dynamic_cast<const VirtualKCompletion*>(self));
+    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
+        vkcompletion->setKCompletion_PostProcessMatches2_IsBase(true);
+        vkcompletion->postProcessMatches(matches);
+    } else {
+        ((VirtualKCompletion*)self)->postProcessMatches(matches);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KCompletion_OnPostProcessMatches2(const KCompletion* self, intptr_t slot) {
+    auto* vkcompletion = const_cast<VirtualKCompletion*>(dynamic_cast<const VirtualKCompletion*>(self));
+    if (vkcompletion && vkcompletion->isVirtualKCompletion) {
+        vkcompletion->setKCompletion_PostProcessMatches2_Callback(reinterpret_cast<VirtualKCompletion::KCompletion_PostProcessMatches2_Callback>(slot));
     }
 }
 

@@ -1,6 +1,7 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const kconfigbase_enums = @import("libkconfigbase.zig").enums;
+const kcoreconfigskeleton_enums = enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
 const std = @import("std");
@@ -1524,6 +1525,21 @@ pub const kcoreconfigskeleton = struct {
         qtc.KCoreConfigSkeleton_AddItem(@ptrCast(self), @ptrCast(item));
     }
 
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemString)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton, name: []const u8, reference: []const u8 ```
+    pub fn AddItemString(self: ?*anyopaque, name: []const u8, reference: []const u8) QtC.KCoreConfigSkeleton__ItemString {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        const reference_str = qtc.libqt_string{
+            .len = reference.len,
+            .data = reference.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemString(@ptrCast(self), name_str, reference_str);
+    }
+
     /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemPassword)
     ///
     /// ``` self: QtC.KCoreConfigSkeleton, name: []const u8, reference: []const u8 ```
@@ -1552,6 +1568,198 @@ pub const kcoreconfigskeleton = struct {
             .data = reference.ptr,
         };
         return qtc.KCoreConfigSkeleton_AddItemPath(@ptrCast(self), name_str, reference_str);
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemProperty)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton, name: []const u8, reference: QtC.QVariant ```
+    pub fn AddItemProperty(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque) QtC.KCoreConfigSkeleton__ItemProperty {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemProperty(@ptrCast(self), name_str, @ptrCast(reference));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemBool)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton, name: []const u8, reference: *bool ```
+    pub fn AddItemBool(self: ?*anyopaque, name: []const u8, reference: *bool) QtC.KCoreConfigSkeleton__ItemBool {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemBool(@ptrCast(self), name_str, @ptrCast(reference));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemInt)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton, name: []const u8, reference: *i32 ```
+    pub fn AddItemInt(self: ?*anyopaque, name: []const u8, reference: *i32) QtC.KCoreConfigSkeleton__ItemInt {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemInt(@ptrCast(self), name_str, @ptrCast(reference));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemUInt)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton, name: []const u8, reference: *u32 ```
+    pub fn AddItemUInt(self: ?*anyopaque, name: []const u8, reference: *u32) QtC.KCoreConfigSkeleton__ItemUInt {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemUInt(@ptrCast(self), name_str, @ptrCast(reference));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemLongLong)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton, name: []const u8, reference: *i64 ```
+    pub fn AddItemLongLong(self: ?*anyopaque, name: []const u8, reference: *i64) QtC.KCoreConfigSkeleton__ItemLongLong {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemLongLong(@ptrCast(self), name_str, @ptrCast(reference));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemULongLong)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton, name: []const u8, reference: *u64 ```
+    pub fn AddItemULongLong(self: ?*anyopaque, name: []const u8, reference: *u64) QtC.KCoreConfigSkeleton__ItemULongLong {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemULongLong(@ptrCast(self), name_str, @ptrCast(reference));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemDouble)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton, name: []const u8, reference: *f64 ```
+    pub fn AddItemDouble(self: ?*anyopaque, name: []const u8, reference: *f64) QtC.KCoreConfigSkeleton__ItemDouble {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemDouble(@ptrCast(self), name_str, @ptrCast(reference));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemRect)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton, name: []const u8, reference: QtC.QRect ```
+    pub fn AddItemRect(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque) QtC.KCoreConfigSkeleton__ItemRect {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemRect(@ptrCast(self), name_str, @ptrCast(reference));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemRectF)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton, name: []const u8, reference: QtC.QRectF ```
+    pub fn AddItemRectF(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque) QtC.KCoreConfigSkeleton__ItemRectF {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemRectF(@ptrCast(self), name_str, @ptrCast(reference));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemPoint)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton, name: []const u8, reference: QtC.QPoint ```
+    pub fn AddItemPoint(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque) QtC.KCoreConfigSkeleton__ItemPoint {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemPoint(@ptrCast(self), name_str, @ptrCast(reference));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemPointF)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton, name: []const u8, reference: QtC.QPointF ```
+    pub fn AddItemPointF(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque) QtC.KCoreConfigSkeleton__ItemPointF {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemPointF(@ptrCast(self), name_str, @ptrCast(reference));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemSize)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton, name: []const u8, reference: QtC.QSize ```
+    pub fn AddItemSize(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque) QtC.KCoreConfigSkeleton__ItemSize {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemSize(@ptrCast(self), name_str, @ptrCast(reference));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemSizeF)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton, name: []const u8, reference: QtC.QSizeF ```
+    pub fn AddItemSizeF(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque) QtC.KCoreConfigSkeleton__ItemSizeF {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemSizeF(@ptrCast(self), name_str, @ptrCast(reference));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemDateTime)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton, name: []const u8, reference: QtC.QDateTime ```
+    pub fn AddItemDateTime(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque) QtC.KCoreConfigSkeleton__ItemDateTime {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemDateTime(@ptrCast(self), name_str, @ptrCast(reference));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemStringList)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton, name: []const u8, reference: [][]const u8, allocator: std.mem.Allocator ```
+    pub fn AddItemStringList(self: ?*anyopaque, name: []const u8, reference: [][]const u8, allocator: std.mem.Allocator) QtC.KCoreConfigSkeleton__ItemStringList {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        var reference_arr = allocator.alloc(qtc.libqt_string, reference.len) catch @panic("kcoreconfigskeleton.AddItemStringList: Memory allocation failed");
+        defer allocator.free(reference_arr);
+        for (reference, 0..reference.len) |item, i| {
+            reference_arr[i] = .{
+                .len = item.len,
+                .data = item.ptr,
+            };
+        }
+        const reference_list = qtc.libqt_list{
+            .len = reference.len,
+            .data = reference_arr.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemStringList(@ptrCast(self), name_str, reference_list);
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemIntList)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton, name: []const u8, reference: []i32 ```
+    pub fn AddItemIntList(self: ?*anyopaque, name: []const u8, reference: []i32) QtC.KCoreConfigSkeleton__ItemIntList {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        const reference_list = qtc.libqt_list{
+            .len = reference.len,
+            .data = reference.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemIntList(@ptrCast(self), name_str, reference_list);
     }
 
     /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#config)
@@ -1803,6 +2011,48 @@ pub const kcoreconfigskeleton = struct {
         qtc.KCoreConfigSkeleton_AddItem2(@ptrCast(self), @ptrCast(item), name_str);
     }
 
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemString)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton, name: []const u8, reference: []const u8, defaultValue: []const u8 ```
+    pub fn AddItemString3(self: ?*anyopaque, name: []const u8, reference: []const u8, defaultValue: []const u8) QtC.KCoreConfigSkeleton__ItemString {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        const reference_str = qtc.libqt_string{
+            .len = reference.len,
+            .data = reference.ptr,
+        };
+        const defaultValue_str = qtc.libqt_string{
+            .len = defaultValue.len,
+            .data = defaultValue.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemString3(@ptrCast(self), name_str, reference_str, defaultValue_str);
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemString)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton, name: []const u8, reference: []const u8, defaultValue: []const u8, key: []const u8 ```
+    pub fn AddItemString4(self: ?*anyopaque, name: []const u8, reference: []const u8, defaultValue: []const u8, key: []const u8) QtC.KCoreConfigSkeleton__ItemString {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        const reference_str = qtc.libqt_string{
+            .len = reference.len,
+            .data = reference.ptr,
+        };
+        const defaultValue_str = qtc.libqt_string{
+            .len = defaultValue.len,
+            .data = defaultValue.ptr,
+        };
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemString4(@ptrCast(self), name_str, reference_str, defaultValue_str, key_str);
+    }
+
     /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemPassword)
     ///
     /// ``` self: QtC.KCoreConfigSkeleton, name: []const u8, reference: []const u8, defaultValue: []const u8 ```
@@ -1885,6 +2135,486 @@ pub const kcoreconfigskeleton = struct {
             .data = key.ptr,
         };
         return qtc.KCoreConfigSkeleton_AddItemPath4(@ptrCast(self), name_str, reference_str, defaultValue_str, key_str);
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemProperty)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton, name: []const u8, reference: QtC.QVariant, defaultValue: QtC.QVariant ```
+    pub fn AddItemProperty3(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque, defaultValue: ?*anyopaque) QtC.KCoreConfigSkeleton__ItemProperty {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemProperty3(@ptrCast(self), name_str, @ptrCast(reference), @ptrCast(defaultValue));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemProperty)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton, name: []const u8, reference: QtC.QVariant, defaultValue: QtC.QVariant, key: []const u8 ```
+    pub fn AddItemProperty4(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque, defaultValue: ?*anyopaque, key: []const u8) QtC.KCoreConfigSkeleton__ItemProperty {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemProperty4(@ptrCast(self), name_str, @ptrCast(reference), @ptrCast(defaultValue), key_str);
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemBool)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton, name: []const u8, reference: *bool, defaultValue: bool ```
+    pub fn AddItemBool3(self: ?*anyopaque, name: []const u8, reference: *bool, defaultValue: bool) QtC.KCoreConfigSkeleton__ItemBool {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemBool3(@ptrCast(self), name_str, @ptrCast(reference), defaultValue);
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemBool)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton, name: []const u8, reference: *bool, defaultValue: bool, key: []const u8 ```
+    pub fn AddItemBool4(self: ?*anyopaque, name: []const u8, reference: *bool, defaultValue: bool, key: []const u8) QtC.KCoreConfigSkeleton__ItemBool {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemBool4(@ptrCast(self), name_str, @ptrCast(reference), defaultValue, key_str);
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemInt)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton, name: []const u8, reference: *i32, defaultValue: i32 ```
+    pub fn AddItemInt3(self: ?*anyopaque, name: []const u8, reference: *i32, defaultValue: i32) QtC.KCoreConfigSkeleton__ItemInt {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemInt3(@ptrCast(self), name_str, @ptrCast(reference), @intCast(defaultValue));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemInt)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton, name: []const u8, reference: *i32, defaultValue: i32, key: []const u8 ```
+    pub fn AddItemInt4(self: ?*anyopaque, name: []const u8, reference: *i32, defaultValue: i32, key: []const u8) QtC.KCoreConfigSkeleton__ItemInt {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemInt4(@ptrCast(self), name_str, @ptrCast(reference), @intCast(defaultValue), key_str);
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemUInt)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton, name: []const u8, reference: *u32, defaultValue: u32 ```
+    pub fn AddItemUInt3(self: ?*anyopaque, name: []const u8, reference: *u32, defaultValue: u32) QtC.KCoreConfigSkeleton__ItemUInt {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemUInt3(@ptrCast(self), name_str, @ptrCast(reference), @intCast(defaultValue));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemUInt)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton, name: []const u8, reference: *u32, defaultValue: u32, key: []const u8 ```
+    pub fn AddItemUInt4(self: ?*anyopaque, name: []const u8, reference: *u32, defaultValue: u32, key: []const u8) QtC.KCoreConfigSkeleton__ItemUInt {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemUInt4(@ptrCast(self), name_str, @ptrCast(reference), @intCast(defaultValue), key_str);
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemLongLong)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton, name: []const u8, reference: *i64, defaultValue: i64 ```
+    pub fn AddItemLongLong3(self: ?*anyopaque, name: []const u8, reference: *i64, defaultValue: i64) QtC.KCoreConfigSkeleton__ItemLongLong {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemLongLong3(@ptrCast(self), name_str, @ptrCast(reference), @intCast(defaultValue));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemLongLong)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton, name: []const u8, reference: *i64, defaultValue: i64, key: []const u8 ```
+    pub fn AddItemLongLong4(self: ?*anyopaque, name: []const u8, reference: *i64, defaultValue: i64, key: []const u8) QtC.KCoreConfigSkeleton__ItemLongLong {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemLongLong4(@ptrCast(self), name_str, @ptrCast(reference), @intCast(defaultValue), key_str);
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemULongLong)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton, name: []const u8, reference: *u64, defaultValue: u64 ```
+    pub fn AddItemULongLong3(self: ?*anyopaque, name: []const u8, reference: *u64, defaultValue: u64) QtC.KCoreConfigSkeleton__ItemULongLong {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemULongLong3(@ptrCast(self), name_str, @ptrCast(reference), @intCast(defaultValue));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemULongLong)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton, name: []const u8, reference: *u64, defaultValue: u64, key: []const u8 ```
+    pub fn AddItemULongLong4(self: ?*anyopaque, name: []const u8, reference: *u64, defaultValue: u64, key: []const u8) QtC.KCoreConfigSkeleton__ItemULongLong {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemULongLong4(@ptrCast(self), name_str, @ptrCast(reference), @intCast(defaultValue), key_str);
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemDouble)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton, name: []const u8, reference: *f64, defaultValue: f64 ```
+    pub fn AddItemDouble3(self: ?*anyopaque, name: []const u8, reference: *f64, defaultValue: f64) QtC.KCoreConfigSkeleton__ItemDouble {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemDouble3(@ptrCast(self), name_str, @ptrCast(reference), @floatCast(defaultValue));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemDouble)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton, name: []const u8, reference: *f64, defaultValue: f64, key: []const u8 ```
+    pub fn AddItemDouble4(self: ?*anyopaque, name: []const u8, reference: *f64, defaultValue: f64, key: []const u8) QtC.KCoreConfigSkeleton__ItemDouble {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemDouble4(@ptrCast(self), name_str, @ptrCast(reference), @floatCast(defaultValue), key_str);
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemRect)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton, name: []const u8, reference: QtC.QRect, defaultValue: QtC.QRect ```
+    pub fn AddItemRect3(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque, defaultValue: ?*anyopaque) QtC.KCoreConfigSkeleton__ItemRect {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemRect3(@ptrCast(self), name_str, @ptrCast(reference), @ptrCast(defaultValue));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemRect)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton, name: []const u8, reference: QtC.QRect, defaultValue: QtC.QRect, key: []const u8 ```
+    pub fn AddItemRect4(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque, defaultValue: ?*anyopaque, key: []const u8) QtC.KCoreConfigSkeleton__ItemRect {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemRect4(@ptrCast(self), name_str, @ptrCast(reference), @ptrCast(defaultValue), key_str);
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemRectF)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton, name: []const u8, reference: QtC.QRectF, defaultValue: QtC.QRectF ```
+    pub fn AddItemRectF3(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque, defaultValue: ?*anyopaque) QtC.KCoreConfigSkeleton__ItemRectF {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemRectF3(@ptrCast(self), name_str, @ptrCast(reference), @ptrCast(defaultValue));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemRectF)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton, name: []const u8, reference: QtC.QRectF, defaultValue: QtC.QRectF, key: []const u8 ```
+    pub fn AddItemRectF4(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque, defaultValue: ?*anyopaque, key: []const u8) QtC.KCoreConfigSkeleton__ItemRectF {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemRectF4(@ptrCast(self), name_str, @ptrCast(reference), @ptrCast(defaultValue), key_str);
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemPoint)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton, name: []const u8, reference: QtC.QPoint, defaultValue: QtC.QPoint ```
+    pub fn AddItemPoint3(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque, defaultValue: ?*anyopaque) QtC.KCoreConfigSkeleton__ItemPoint {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemPoint3(@ptrCast(self), name_str, @ptrCast(reference), @ptrCast(defaultValue));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemPoint)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton, name: []const u8, reference: QtC.QPoint, defaultValue: QtC.QPoint, key: []const u8 ```
+    pub fn AddItemPoint4(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque, defaultValue: ?*anyopaque, key: []const u8) QtC.KCoreConfigSkeleton__ItemPoint {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemPoint4(@ptrCast(self), name_str, @ptrCast(reference), @ptrCast(defaultValue), key_str);
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemPointF)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton, name: []const u8, reference: QtC.QPointF, defaultValue: QtC.QPointF ```
+    pub fn AddItemPointF3(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque, defaultValue: ?*anyopaque) QtC.KCoreConfigSkeleton__ItemPointF {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemPointF3(@ptrCast(self), name_str, @ptrCast(reference), @ptrCast(defaultValue));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemPointF)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton, name: []const u8, reference: QtC.QPointF, defaultValue: QtC.QPointF, key: []const u8 ```
+    pub fn AddItemPointF4(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque, defaultValue: ?*anyopaque, key: []const u8) QtC.KCoreConfigSkeleton__ItemPointF {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemPointF4(@ptrCast(self), name_str, @ptrCast(reference), @ptrCast(defaultValue), key_str);
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemSize)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton, name: []const u8, reference: QtC.QSize, defaultValue: QtC.QSize ```
+    pub fn AddItemSize3(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque, defaultValue: ?*anyopaque) QtC.KCoreConfigSkeleton__ItemSize {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemSize3(@ptrCast(self), name_str, @ptrCast(reference), @ptrCast(defaultValue));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemSize)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton, name: []const u8, reference: QtC.QSize, defaultValue: QtC.QSize, key: []const u8 ```
+    pub fn AddItemSize4(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque, defaultValue: ?*anyopaque, key: []const u8) QtC.KCoreConfigSkeleton__ItemSize {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemSize4(@ptrCast(self), name_str, @ptrCast(reference), @ptrCast(defaultValue), key_str);
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemSizeF)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton, name: []const u8, reference: QtC.QSizeF, defaultValue: QtC.QSizeF ```
+    pub fn AddItemSizeF3(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque, defaultValue: ?*anyopaque) QtC.KCoreConfigSkeleton__ItemSizeF {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemSizeF3(@ptrCast(self), name_str, @ptrCast(reference), @ptrCast(defaultValue));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemSizeF)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton, name: []const u8, reference: QtC.QSizeF, defaultValue: QtC.QSizeF, key: []const u8 ```
+    pub fn AddItemSizeF4(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque, defaultValue: ?*anyopaque, key: []const u8) QtC.KCoreConfigSkeleton__ItemSizeF {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemSizeF4(@ptrCast(self), name_str, @ptrCast(reference), @ptrCast(defaultValue), key_str);
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemDateTime)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton, name: []const u8, reference: QtC.QDateTime, defaultValue: QtC.QDateTime ```
+    pub fn AddItemDateTime3(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque, defaultValue: ?*anyopaque) QtC.KCoreConfigSkeleton__ItemDateTime {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemDateTime3(@ptrCast(self), name_str, @ptrCast(reference), @ptrCast(defaultValue));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemDateTime)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton, name: []const u8, reference: QtC.QDateTime, defaultValue: QtC.QDateTime, key: []const u8 ```
+    pub fn AddItemDateTime4(self: ?*anyopaque, name: []const u8, reference: ?*anyopaque, defaultValue: ?*anyopaque, key: []const u8) QtC.KCoreConfigSkeleton__ItemDateTime {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemDateTime4(@ptrCast(self), name_str, @ptrCast(reference), @ptrCast(defaultValue), key_str);
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemStringList)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton, name: []const u8, reference: [][]const u8, defaultValue: [][]const u8, allocator: std.mem.Allocator ```
+    pub fn AddItemStringList3(self: ?*anyopaque, name: []const u8, reference: [][]const u8, defaultValue: [][]const u8, allocator: std.mem.Allocator) QtC.KCoreConfigSkeleton__ItemStringList {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        var reference_arr = allocator.alloc(qtc.libqt_string, reference.len) catch @panic("kcoreconfigskeleton.AddItemStringList3: Memory allocation failed");
+        defer allocator.free(reference_arr);
+        for (reference, 0..reference.len) |item, i| {
+            reference_arr[i] = .{
+                .len = item.len,
+                .data = item.ptr,
+            };
+        }
+        const reference_list = qtc.libqt_list{
+            .len = reference.len,
+            .data = reference_arr.ptr,
+        };
+        var defaultValue_arr = allocator.alloc(qtc.libqt_string, defaultValue.len) catch @panic("kcoreconfigskeleton.AddItemStringList3: Memory allocation failed");
+        defer allocator.free(defaultValue_arr);
+        for (defaultValue, 0..defaultValue.len) |item, i| {
+            defaultValue_arr[i] = .{
+                .len = item.len,
+                .data = item.ptr,
+            };
+        }
+        const defaultValue_list = qtc.libqt_list{
+            .len = defaultValue.len,
+            .data = defaultValue_arr.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemStringList3(@ptrCast(self), name_str, reference_list, defaultValue_list);
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemStringList)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton, name: []const u8, reference: [][]const u8, defaultValue: [][]const u8, key: []const u8, allocator: std.mem.Allocator ```
+    pub fn AddItemStringList4(self: ?*anyopaque, name: []const u8, reference: [][]const u8, defaultValue: [][]const u8, key: []const u8, allocator: std.mem.Allocator) QtC.KCoreConfigSkeleton__ItemStringList {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        var reference_arr = allocator.alloc(qtc.libqt_string, reference.len) catch @panic("kcoreconfigskeleton.AddItemStringList4: Memory allocation failed");
+        defer allocator.free(reference_arr);
+        for (reference, 0..reference.len) |item, i| {
+            reference_arr[i] = .{
+                .len = item.len,
+                .data = item.ptr,
+            };
+        }
+        const reference_list = qtc.libqt_list{
+            .len = reference.len,
+            .data = reference_arr.ptr,
+        };
+        var defaultValue_arr = allocator.alloc(qtc.libqt_string, defaultValue.len) catch @panic("kcoreconfigskeleton.AddItemStringList4: Memory allocation failed");
+        defer allocator.free(defaultValue_arr);
+        for (defaultValue, 0..defaultValue.len) |item, i| {
+            defaultValue_arr[i] = .{
+                .len = item.len,
+                .data = item.ptr,
+            };
+        }
+        const defaultValue_list = qtc.libqt_list{
+            .len = defaultValue.len,
+            .data = defaultValue_arr.ptr,
+        };
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemStringList4(@ptrCast(self), name_str, reference_list, defaultValue_list, key_str);
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemIntList)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton, name: []const u8, reference: []i32, defaultValue: []i32 ```
+    pub fn AddItemIntList3(self: ?*anyopaque, name: []const u8, reference: []i32, defaultValue: []i32) QtC.KCoreConfigSkeleton__ItemIntList {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        const reference_list = qtc.libqt_list{
+            .len = reference.len,
+            .data = reference.ptr,
+        };
+        const defaultValue_list = qtc.libqt_list{
+            .len = defaultValue.len,
+            .data = defaultValue.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemIntList3(@ptrCast(self), name_str, reference_list, defaultValue_list);
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton.html#addItemIntList)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton, name: []const u8, reference: []i32, defaultValue: []i32, key: []const u8 ```
+    pub fn AddItemIntList4(self: ?*anyopaque, name: []const u8, reference: []i32, defaultValue: []i32, key: []const u8) QtC.KCoreConfigSkeleton__ItemIntList {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        const reference_list = qtc.libqt_list{
+            .len = reference.len,
+            .data = reference.ptr,
+        };
+        const defaultValue_list = qtc.libqt_list{
+            .len = defaultValue.len,
+            .data = defaultValue.ptr,
+        };
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return qtc.KCoreConfigSkeleton_AddItemIntList4(@ptrCast(self), name_str, reference_list, defaultValue_list, key_str);
     }
 
     /// Inherited from QObject
@@ -2650,6 +3380,209 @@ pub const kcoreconfigskeleton = struct {
     }
 };
 
+/// https://api.kde.org/kcoreconfigskeleton-itemstring.html
+pub const kcoreconfigskeleton__itemstring = struct {
+    /// New constructs a new KCoreConfigSkeleton::ItemString object.
+    ///
+    /// ``` _group: []const u8, _key: []const u8, reference: []const u8 ```
+    pub fn New(_group: []const u8, _key: []const u8, reference: []const u8) QtC.KCoreConfigSkeleton__ItemString {
+        const _group_str = qtc.libqt_string{
+            .len = _group.len,
+            .data = _group.ptr,
+        };
+        const _key_str = qtc.libqt_string{
+            .len = _key.len,
+            .data = _key.ptr,
+        };
+        const reference_str = qtc.libqt_string{
+            .len = reference.len,
+            .data = reference.ptr,
+        };
+
+        return qtc.KCoreConfigSkeleton__ItemString_new(_group_str, _key_str, reference_str);
+    }
+
+    /// New2 constructs a new KCoreConfigSkeleton::ItemString object.
+    ///
+    /// ``` _group: []const u8, _key: []const u8, reference: []const u8, defaultValue: []const u8 ```
+    pub fn New2(_group: []const u8, _key: []const u8, reference: []const u8, defaultValue: []const u8) QtC.KCoreConfigSkeleton__ItemString {
+        const _group_str = qtc.libqt_string{
+            .len = _group.len,
+            .data = _group.ptr,
+        };
+        const _key_str = qtc.libqt_string{
+            .len = _key.len,
+            .data = _key.ptr,
+        };
+        const reference_str = qtc.libqt_string{
+            .len = reference.len,
+            .data = reference.ptr,
+        };
+        const defaultValue_str = qtc.libqt_string{
+            .len = defaultValue.len,
+            .data = defaultValue.ptr,
+        };
+
+        return qtc.KCoreConfigSkeleton__ItemString_new2(_group_str, _key_str, reference_str, defaultValue_str);
+    }
+
+    /// New3 constructs a new KCoreConfigSkeleton::ItemString object.
+    ///
+    /// ``` _group: []const u8, _key: []const u8, reference: []const u8, defaultValue: []const u8, typeVal: kcoreconfigskeleton_enums.Type ```
+    pub fn New3(_group: []const u8, _key: []const u8, reference: []const u8, defaultValue: []const u8, typeVal: i32) QtC.KCoreConfigSkeleton__ItemString {
+        const _group_str = qtc.libqt_string{
+            .len = _group.len,
+            .data = _group.ptr,
+        };
+        const _key_str = qtc.libqt_string{
+            .len = _key.len,
+            .data = _key.ptr,
+        };
+        const reference_str = qtc.libqt_string{
+            .len = reference.len,
+            .data = reference.ptr,
+        };
+        const defaultValue_str = qtc.libqt_string{
+            .len = defaultValue.len,
+            .data = defaultValue.ptr,
+        };
+
+        return qtc.KCoreConfigSkeleton__ItemString_new3(_group_str, _key_str, reference_str, defaultValue_str, @intCast(typeVal));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemstring.html#writeConfig)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemString, config: QtC.KConfig ```
+    pub fn WriteConfig(self: ?*anyopaque, config: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemString_WriteConfig(@ptrCast(self), @ptrCast(config));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemstring.html#writeConfig)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemString, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemString, config: QtC.KConfig) callconv(.c) void ```
+    pub fn OnWriteConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCoreConfigSkeleton__ItemString_OnWriteConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemstring.html#writeConfig)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemString, config: QtC.KConfig ```
+    pub fn QBaseWriteConfig(self: ?*anyopaque, config: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemString_QBaseWriteConfig(@ptrCast(self), @ptrCast(config));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemstring.html#readConfig)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemString, config: QtC.KConfig ```
+    pub fn ReadConfig(self: ?*anyopaque, config: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemString_ReadConfig(@ptrCast(self), @ptrCast(config));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemstring.html#readConfig)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemString, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemString, config: QtC.KConfig) callconv(.c) void ```
+    pub fn OnReadConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCoreConfigSkeleton__ItemString_OnReadConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemstring.html#readConfig)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemString, config: QtC.KConfig ```
+    pub fn QBaseReadConfig(self: ?*anyopaque, config: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemString_QBaseReadConfig(@ptrCast(self), @ptrCast(config));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemstring.html#setProperty)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemString, p: QtC.QVariant ```
+    pub fn SetProperty(self: ?*anyopaque, p: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemString_SetProperty(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemstring.html#setProperty)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemString, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemString, p: QtC.QVariant) callconv(.c) void ```
+    pub fn OnSetProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCoreConfigSkeleton__ItemString_OnSetProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemstring.html#setProperty)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemString, p: QtC.QVariant ```
+    pub fn QBaseSetProperty(self: ?*anyopaque, p: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemString_QBaseSetProperty(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemstring.html#isEqual)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemString, p: QtC.QVariant ```
+    pub fn IsEqual(self: ?*anyopaque, p: ?*anyopaque) bool {
+        return qtc.KCoreConfigSkeleton__ItemString_IsEqual(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemstring.html#isEqual)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemString, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemString, p: QtC.QVariant) callconv(.c) bool ```
+    pub fn OnIsEqual(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KCoreConfigSkeleton__ItemString_OnIsEqual(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemstring.html#isEqual)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemString, p: QtC.QVariant ```
+    pub fn QBaseIsEqual(self: ?*anyopaque, p: ?*anyopaque) bool {
+        return qtc.KCoreConfigSkeleton__ItemString_QBaseIsEqual(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemstring.html#property)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemString ```
+    pub fn Property(self: ?*anyopaque) QtC.QVariant {
+        return qtc.KCoreConfigSkeleton__ItemString_Property(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemstring.html#property)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemString, callback: *const fn () callconv(.c) QtC.QVariant ```
+    pub fn OnProperty(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
+        qtc.KCoreConfigSkeleton__ItemString_OnProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemstring.html#property)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemString ```
+    pub fn QBaseProperty(self: ?*anyopaque) QtC.QVariant {
+        return qtc.KCoreConfigSkeleton__ItemString_QBaseProperty(@ptrCast(self));
+    }
+
+    /// Delete this object from C++ memory.
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemString ```
+    pub fn QDelete(self: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemString_Delete(@ptrCast(self));
+    }
+};
+
 /// https://api.kde.org/kcoreconfigskeleton-itempassword.html
 pub const kcoreconfigskeleton__itempassword = struct {
     /// New constructs a new KCoreConfigSkeleton::ItemPassword object.
@@ -3085,6 +4018,855 @@ pub const kcoreconfigskeleton__itempath = struct {
     /// ``` self: QtC.KCoreConfigSkeleton__ItemPath ```
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.KCoreConfigSkeleton__ItemPath_Delete(@ptrCast(self));
+    }
+};
+
+/// https://api.kde.org/kcoreconfigskeleton-itemurl.html
+pub const kcoreconfigskeleton__itemurl = struct {
+    /// New constructs a new KCoreConfigSkeleton::ItemUrl object.
+    ///
+    /// ``` _group: []const u8, _key: []const u8, reference: QtC.QUrl ```
+    pub fn New(_group: []const u8, _key: []const u8, reference: ?*anyopaque) QtC.KCoreConfigSkeleton__ItemUrl {
+        const _group_str = qtc.libqt_string{
+            .len = _group.len,
+            .data = _group.ptr,
+        };
+        const _key_str = qtc.libqt_string{
+            .len = _key.len,
+            .data = _key.ptr,
+        };
+
+        return qtc.KCoreConfigSkeleton__ItemUrl_new(_group_str, _key_str, @ptrCast(reference));
+    }
+
+    /// New2 constructs a new KCoreConfigSkeleton::ItemUrl object.
+    ///
+    /// ``` _group: []const u8, _key: []const u8, reference: QtC.QUrl, defaultValue: QtC.QUrl ```
+    pub fn New2(_group: []const u8, _key: []const u8, reference: ?*anyopaque, defaultValue: ?*anyopaque) QtC.KCoreConfigSkeleton__ItemUrl {
+        const _group_str = qtc.libqt_string{
+            .len = _group.len,
+            .data = _group.ptr,
+        };
+        const _key_str = qtc.libqt_string{
+            .len = _key.len,
+            .data = _key.ptr,
+        };
+
+        return qtc.KCoreConfigSkeleton__ItemUrl_new2(_group_str, _key_str, @ptrCast(reference), @ptrCast(defaultValue));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemurl.html#writeConfig)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemUrl, config: QtC.KConfig ```
+    pub fn WriteConfig(self: ?*anyopaque, config: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemUrl_WriteConfig(@ptrCast(self), @ptrCast(config));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemurl.html#writeConfig)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemUrl, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemUrl, config: QtC.KConfig) callconv(.c) void ```
+    pub fn OnWriteConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCoreConfigSkeleton__ItemUrl_OnWriteConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemurl.html#writeConfig)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemUrl, config: QtC.KConfig ```
+    pub fn QBaseWriteConfig(self: ?*anyopaque, config: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemUrl_QBaseWriteConfig(@ptrCast(self), @ptrCast(config));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemurl.html#readConfig)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemUrl, config: QtC.KConfig ```
+    pub fn ReadConfig(self: ?*anyopaque, config: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemUrl_ReadConfig(@ptrCast(self), @ptrCast(config));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemurl.html#readConfig)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemUrl, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemUrl, config: QtC.KConfig) callconv(.c) void ```
+    pub fn OnReadConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCoreConfigSkeleton__ItemUrl_OnReadConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemurl.html#readConfig)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemUrl, config: QtC.KConfig ```
+    pub fn QBaseReadConfig(self: ?*anyopaque, config: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemUrl_QBaseReadConfig(@ptrCast(self), @ptrCast(config));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemurl.html#setProperty)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemUrl, p: QtC.QVariant ```
+    pub fn SetProperty(self: ?*anyopaque, p: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemUrl_SetProperty(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemurl.html#setProperty)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemUrl, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemUrl, p: QtC.QVariant) callconv(.c) void ```
+    pub fn OnSetProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCoreConfigSkeleton__ItemUrl_OnSetProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemurl.html#setProperty)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemUrl, p: QtC.QVariant ```
+    pub fn QBaseSetProperty(self: ?*anyopaque, p: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemUrl_QBaseSetProperty(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemurl.html#isEqual)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemUrl, p: QtC.QVariant ```
+    pub fn IsEqual(self: ?*anyopaque, p: ?*anyopaque) bool {
+        return qtc.KCoreConfigSkeleton__ItemUrl_IsEqual(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemurl.html#isEqual)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemUrl, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemUrl, p: QtC.QVariant) callconv(.c) bool ```
+    pub fn OnIsEqual(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KCoreConfigSkeleton__ItemUrl_OnIsEqual(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemurl.html#isEqual)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemUrl, p: QtC.QVariant ```
+    pub fn QBaseIsEqual(self: ?*anyopaque, p: ?*anyopaque) bool {
+        return qtc.KCoreConfigSkeleton__ItemUrl_QBaseIsEqual(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemurl.html#property)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemUrl ```
+    pub fn Property(self: ?*anyopaque) QtC.QVariant {
+        return qtc.KCoreConfigSkeleton__ItemUrl_Property(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemurl.html#property)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemUrl, callback: *const fn () callconv(.c) QtC.QVariant ```
+    pub fn OnProperty(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
+        qtc.KCoreConfigSkeleton__ItemUrl_OnProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemurl.html#property)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemUrl ```
+    pub fn QBaseProperty(self: ?*anyopaque) QtC.QVariant {
+        return qtc.KCoreConfigSkeleton__ItemUrl_QBaseProperty(@ptrCast(self));
+    }
+
+    /// Delete this object from C++ memory.
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemUrl ```
+    pub fn QDelete(self: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemUrl_Delete(@ptrCast(self));
+    }
+};
+
+/// https://api.kde.org/kcoreconfigskeleton-itemproperty.html
+pub const kcoreconfigskeleton__itemproperty = struct {
+    /// New constructs a new KCoreConfigSkeleton::ItemProperty object.
+    ///
+    /// ``` _group: []const u8, _key: []const u8, reference: QtC.QVariant ```
+    pub fn New(_group: []const u8, _key: []const u8, reference: ?*anyopaque) QtC.KCoreConfigSkeleton__ItemProperty {
+        const _group_str = qtc.libqt_string{
+            .len = _group.len,
+            .data = _group.ptr,
+        };
+        const _key_str = qtc.libqt_string{
+            .len = _key.len,
+            .data = _key.ptr,
+        };
+
+        return qtc.KCoreConfigSkeleton__ItemProperty_new(_group_str, _key_str, @ptrCast(reference));
+    }
+
+    /// New2 constructs a new KCoreConfigSkeleton::ItemProperty object.
+    ///
+    /// ``` _group: []const u8, _key: []const u8, reference: QtC.QVariant, defaultValue: QtC.QVariant ```
+    pub fn New2(_group: []const u8, _key: []const u8, reference: ?*anyopaque, defaultValue: ?*anyopaque) QtC.KCoreConfigSkeleton__ItemProperty {
+        const _group_str = qtc.libqt_string{
+            .len = _group.len,
+            .data = _group.ptr,
+        };
+        const _key_str = qtc.libqt_string{
+            .len = _key.len,
+            .data = _key.ptr,
+        };
+
+        return qtc.KCoreConfigSkeleton__ItemProperty_new2(_group_str, _key_str, @ptrCast(reference), @ptrCast(defaultValue));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemproperty.html#readConfig)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemProperty, config: QtC.KConfig ```
+    pub fn ReadConfig(self: ?*anyopaque, config: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemProperty_ReadConfig(@ptrCast(self), @ptrCast(config));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemproperty.html#readConfig)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemProperty, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemProperty, config: QtC.KConfig) callconv(.c) void ```
+    pub fn OnReadConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCoreConfigSkeleton__ItemProperty_OnReadConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemproperty.html#readConfig)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemProperty, config: QtC.KConfig ```
+    pub fn QBaseReadConfig(self: ?*anyopaque, config: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemProperty_QBaseReadConfig(@ptrCast(self), @ptrCast(config));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemproperty.html#setProperty)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemProperty, p: QtC.QVariant ```
+    pub fn SetProperty(self: ?*anyopaque, p: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemProperty_SetProperty(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemproperty.html#setProperty)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemProperty, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemProperty, p: QtC.QVariant) callconv(.c) void ```
+    pub fn OnSetProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCoreConfigSkeleton__ItemProperty_OnSetProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemproperty.html#setProperty)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemProperty, p: QtC.QVariant ```
+    pub fn QBaseSetProperty(self: ?*anyopaque, p: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemProperty_QBaseSetProperty(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemproperty.html#isEqual)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemProperty, p: QtC.QVariant ```
+    pub fn IsEqual(self: ?*anyopaque, p: ?*anyopaque) bool {
+        return qtc.KCoreConfigSkeleton__ItemProperty_IsEqual(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemproperty.html#isEqual)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemProperty, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemProperty, p: QtC.QVariant) callconv(.c) bool ```
+    pub fn OnIsEqual(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KCoreConfigSkeleton__ItemProperty_OnIsEqual(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemproperty.html#isEqual)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemProperty, p: QtC.QVariant ```
+    pub fn QBaseIsEqual(self: ?*anyopaque, p: ?*anyopaque) bool {
+        return qtc.KCoreConfigSkeleton__ItemProperty_QBaseIsEqual(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemproperty.html#property)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemProperty ```
+    pub fn Property(self: ?*anyopaque) QtC.QVariant {
+        return qtc.KCoreConfigSkeleton__ItemProperty_Property(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemproperty.html#property)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemProperty, callback: *const fn () callconv(.c) QtC.QVariant ```
+    pub fn OnProperty(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
+        qtc.KCoreConfigSkeleton__ItemProperty_OnProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemproperty.html#property)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemProperty ```
+    pub fn QBaseProperty(self: ?*anyopaque) QtC.QVariant {
+        return qtc.KCoreConfigSkeleton__ItemProperty_QBaseProperty(@ptrCast(self));
+    }
+
+    /// Delete this object from C++ memory.
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemProperty ```
+    pub fn QDelete(self: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemProperty_Delete(@ptrCast(self));
+    }
+};
+
+/// https://api.kde.org/kcoreconfigskeleton-itembool.html
+pub const kcoreconfigskeleton__itembool = struct {
+    /// New constructs a new KCoreConfigSkeleton::ItemBool object.
+    ///
+    /// ``` _group: []const u8, _key: []const u8, reference: *bool ```
+    pub fn New(_group: []const u8, _key: []const u8, reference: *bool) QtC.KCoreConfigSkeleton__ItemBool {
+        const _group_str = qtc.libqt_string{
+            .len = _group.len,
+            .data = _group.ptr,
+        };
+        const _key_str = qtc.libqt_string{
+            .len = _key.len,
+            .data = _key.ptr,
+        };
+
+        return qtc.KCoreConfigSkeleton__ItemBool_new(_group_str, _key_str, @ptrCast(reference));
+    }
+
+    /// New2 constructs a new KCoreConfigSkeleton::ItemBool object.
+    ///
+    /// ``` _group: []const u8, _key: []const u8, reference: *bool, defaultValue: bool ```
+    pub fn New2(_group: []const u8, _key: []const u8, reference: *bool, defaultValue: bool) QtC.KCoreConfigSkeleton__ItemBool {
+        const _group_str = qtc.libqt_string{
+            .len = _group.len,
+            .data = _group.ptr,
+        };
+        const _key_str = qtc.libqt_string{
+            .len = _key.len,
+            .data = _key.ptr,
+        };
+
+        return qtc.KCoreConfigSkeleton__ItemBool_new2(_group_str, _key_str, @ptrCast(reference), defaultValue);
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itembool.html#readConfig)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemBool, config: QtC.KConfig ```
+    pub fn ReadConfig(self: ?*anyopaque, config: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemBool_ReadConfig(@ptrCast(self), @ptrCast(config));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itembool.html#readConfig)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemBool, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemBool, config: QtC.KConfig) callconv(.c) void ```
+    pub fn OnReadConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCoreConfigSkeleton__ItemBool_OnReadConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itembool.html#readConfig)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemBool, config: QtC.KConfig ```
+    pub fn QBaseReadConfig(self: ?*anyopaque, config: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemBool_QBaseReadConfig(@ptrCast(self), @ptrCast(config));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itembool.html#setProperty)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemBool, p: QtC.QVariant ```
+    pub fn SetProperty(self: ?*anyopaque, p: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemBool_SetProperty(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itembool.html#setProperty)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemBool, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemBool, p: QtC.QVariant) callconv(.c) void ```
+    pub fn OnSetProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCoreConfigSkeleton__ItemBool_OnSetProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itembool.html#setProperty)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemBool, p: QtC.QVariant ```
+    pub fn QBaseSetProperty(self: ?*anyopaque, p: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemBool_QBaseSetProperty(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itembool.html#isEqual)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemBool, p: QtC.QVariant ```
+    pub fn IsEqual(self: ?*anyopaque, p: ?*anyopaque) bool {
+        return qtc.KCoreConfigSkeleton__ItemBool_IsEqual(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itembool.html#isEqual)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemBool, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemBool, p: QtC.QVariant) callconv(.c) bool ```
+    pub fn OnIsEqual(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KCoreConfigSkeleton__ItemBool_OnIsEqual(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itembool.html#isEqual)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemBool, p: QtC.QVariant ```
+    pub fn QBaseIsEqual(self: ?*anyopaque, p: ?*anyopaque) bool {
+        return qtc.KCoreConfigSkeleton__ItemBool_QBaseIsEqual(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itembool.html#property)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemBool ```
+    pub fn Property(self: ?*anyopaque) QtC.QVariant {
+        return qtc.KCoreConfigSkeleton__ItemBool_Property(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itembool.html#property)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemBool, callback: *const fn () callconv(.c) QtC.QVariant ```
+    pub fn OnProperty(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
+        qtc.KCoreConfigSkeleton__ItemBool_OnProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itembool.html#property)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemBool ```
+    pub fn QBaseProperty(self: ?*anyopaque) QtC.QVariant {
+        return qtc.KCoreConfigSkeleton__ItemBool_QBaseProperty(@ptrCast(self));
+    }
+
+    /// Delete this object from C++ memory.
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemBool ```
+    pub fn QDelete(self: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemBool_Delete(@ptrCast(self));
+    }
+};
+
+/// https://api.kde.org/kcoreconfigskeleton-itemint.html
+pub const kcoreconfigskeleton__itemint = struct {
+    /// New constructs a new KCoreConfigSkeleton::ItemInt object.
+    ///
+    /// ``` _group: []const u8, _key: []const u8, reference: *i32 ```
+    pub fn New(_group: []const u8, _key: []const u8, reference: *i32) QtC.KCoreConfigSkeleton__ItemInt {
+        const _group_str = qtc.libqt_string{
+            .len = _group.len,
+            .data = _group.ptr,
+        };
+        const _key_str = qtc.libqt_string{
+            .len = _key.len,
+            .data = _key.ptr,
+        };
+
+        return qtc.KCoreConfigSkeleton__ItemInt_new(_group_str, _key_str, @ptrCast(reference));
+    }
+
+    /// New2 constructs a new KCoreConfigSkeleton::ItemInt object.
+    ///
+    /// ``` _group: []const u8, _key: []const u8, reference: *i32, defaultValue: i32 ```
+    pub fn New2(_group: []const u8, _key: []const u8, reference: *i32, defaultValue: i32) QtC.KCoreConfigSkeleton__ItemInt {
+        const _group_str = qtc.libqt_string{
+            .len = _group.len,
+            .data = _group.ptr,
+        };
+        const _key_str = qtc.libqt_string{
+            .len = _key.len,
+            .data = _key.ptr,
+        };
+
+        return qtc.KCoreConfigSkeleton__ItemInt_new2(_group_str, _key_str, @ptrCast(reference), @intCast(defaultValue));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemint.html#readConfig)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemInt, config: QtC.KConfig ```
+    pub fn ReadConfig(self: ?*anyopaque, config: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemInt_ReadConfig(@ptrCast(self), @ptrCast(config));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemint.html#readConfig)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemInt, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemInt, config: QtC.KConfig) callconv(.c) void ```
+    pub fn OnReadConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCoreConfigSkeleton__ItemInt_OnReadConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemint.html#readConfig)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemInt, config: QtC.KConfig ```
+    pub fn QBaseReadConfig(self: ?*anyopaque, config: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemInt_QBaseReadConfig(@ptrCast(self), @ptrCast(config));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemint.html#setProperty)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemInt, p: QtC.QVariant ```
+    pub fn SetProperty(self: ?*anyopaque, p: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemInt_SetProperty(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemint.html#setProperty)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemInt, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemInt, p: QtC.QVariant) callconv(.c) void ```
+    pub fn OnSetProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCoreConfigSkeleton__ItemInt_OnSetProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemint.html#setProperty)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemInt, p: QtC.QVariant ```
+    pub fn QBaseSetProperty(self: ?*anyopaque, p: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemInt_QBaseSetProperty(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemint.html#isEqual)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemInt, p: QtC.QVariant ```
+    pub fn IsEqual(self: ?*anyopaque, p: ?*anyopaque) bool {
+        return qtc.KCoreConfigSkeleton__ItemInt_IsEqual(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemint.html#isEqual)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemInt, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemInt, p: QtC.QVariant) callconv(.c) bool ```
+    pub fn OnIsEqual(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KCoreConfigSkeleton__ItemInt_OnIsEqual(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemint.html#isEqual)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemInt, p: QtC.QVariant ```
+    pub fn QBaseIsEqual(self: ?*anyopaque, p: ?*anyopaque) bool {
+        return qtc.KCoreConfigSkeleton__ItemInt_QBaseIsEqual(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemint.html#property)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemInt ```
+    pub fn Property(self: ?*anyopaque) QtC.QVariant {
+        return qtc.KCoreConfigSkeleton__ItemInt_Property(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemint.html#property)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemInt, callback: *const fn () callconv(.c) QtC.QVariant ```
+    pub fn OnProperty(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
+        qtc.KCoreConfigSkeleton__ItemInt_OnProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemint.html#property)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemInt ```
+    pub fn QBaseProperty(self: ?*anyopaque) QtC.QVariant {
+        return qtc.KCoreConfigSkeleton__ItemInt_QBaseProperty(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemint.html#minValue)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemInt ```
+    pub fn MinValue(self: ?*anyopaque) QtC.QVariant {
+        return qtc.KCoreConfigSkeleton__ItemInt_MinValue(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemint.html#minValue)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemInt, callback: *const fn () callconv(.c) QtC.QVariant ```
+    pub fn OnMinValue(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
+        qtc.KCoreConfigSkeleton__ItemInt_OnMinValue(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemint.html#minValue)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemInt ```
+    pub fn QBaseMinValue(self: ?*anyopaque) QtC.QVariant {
+        return qtc.KCoreConfigSkeleton__ItemInt_QBaseMinValue(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemint.html#maxValue)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemInt ```
+    pub fn MaxValue(self: ?*anyopaque) QtC.QVariant {
+        return qtc.KCoreConfigSkeleton__ItemInt_MaxValue(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemint.html#maxValue)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemInt, callback: *const fn () callconv(.c) QtC.QVariant ```
+    pub fn OnMaxValue(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
+        qtc.KCoreConfigSkeleton__ItemInt_OnMaxValue(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemint.html#maxValue)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemInt ```
+    pub fn QBaseMaxValue(self: ?*anyopaque) QtC.QVariant {
+        return qtc.KCoreConfigSkeleton__ItemInt_QBaseMaxValue(@ptrCast(self));
+    }
+
+    /// Delete this object from C++ memory.
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemInt ```
+    pub fn QDelete(self: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemInt_Delete(@ptrCast(self));
+    }
+};
+
+/// https://api.kde.org/kcoreconfigskeleton-itemlonglong.html
+pub const kcoreconfigskeleton__itemlonglong = struct {
+    /// New constructs a new KCoreConfigSkeleton::ItemLongLong object.
+    ///
+    /// ``` _group: []const u8, _key: []const u8, reference: *i64 ```
+    pub fn New(_group: []const u8, _key: []const u8, reference: *i64) QtC.KCoreConfigSkeleton__ItemLongLong {
+        const _group_str = qtc.libqt_string{
+            .len = _group.len,
+            .data = _group.ptr,
+        };
+        const _key_str = qtc.libqt_string{
+            .len = _key.len,
+            .data = _key.ptr,
+        };
+
+        return qtc.KCoreConfigSkeleton__ItemLongLong_new(_group_str, _key_str, @ptrCast(reference));
+    }
+
+    /// New2 constructs a new KCoreConfigSkeleton::ItemLongLong object.
+    ///
+    /// ``` _group: []const u8, _key: []const u8, reference: *i64, defaultValue: i64 ```
+    pub fn New2(_group: []const u8, _key: []const u8, reference: *i64, defaultValue: i64) QtC.KCoreConfigSkeleton__ItemLongLong {
+        const _group_str = qtc.libqt_string{
+            .len = _group.len,
+            .data = _group.ptr,
+        };
+        const _key_str = qtc.libqt_string{
+            .len = _key.len,
+            .data = _key.ptr,
+        };
+
+        return qtc.KCoreConfigSkeleton__ItemLongLong_new2(_group_str, _key_str, @ptrCast(reference), @intCast(defaultValue));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemlonglong.html#readConfig)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemLongLong, config: QtC.KConfig ```
+    pub fn ReadConfig(self: ?*anyopaque, config: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemLongLong_ReadConfig(@ptrCast(self), @ptrCast(config));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemlonglong.html#readConfig)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemLongLong, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemLongLong, config: QtC.KConfig) callconv(.c) void ```
+    pub fn OnReadConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCoreConfigSkeleton__ItemLongLong_OnReadConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemlonglong.html#readConfig)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemLongLong, config: QtC.KConfig ```
+    pub fn QBaseReadConfig(self: ?*anyopaque, config: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemLongLong_QBaseReadConfig(@ptrCast(self), @ptrCast(config));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemlonglong.html#setProperty)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemLongLong, p: QtC.QVariant ```
+    pub fn SetProperty(self: ?*anyopaque, p: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemLongLong_SetProperty(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemlonglong.html#setProperty)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemLongLong, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemLongLong, p: QtC.QVariant) callconv(.c) void ```
+    pub fn OnSetProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCoreConfigSkeleton__ItemLongLong_OnSetProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemlonglong.html#setProperty)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemLongLong, p: QtC.QVariant ```
+    pub fn QBaseSetProperty(self: ?*anyopaque, p: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemLongLong_QBaseSetProperty(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemlonglong.html#isEqual)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemLongLong, p: QtC.QVariant ```
+    pub fn IsEqual(self: ?*anyopaque, p: ?*anyopaque) bool {
+        return qtc.KCoreConfigSkeleton__ItemLongLong_IsEqual(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemlonglong.html#isEqual)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemLongLong, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemLongLong, p: QtC.QVariant) callconv(.c) bool ```
+    pub fn OnIsEqual(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KCoreConfigSkeleton__ItemLongLong_OnIsEqual(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemlonglong.html#isEqual)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemLongLong, p: QtC.QVariant ```
+    pub fn QBaseIsEqual(self: ?*anyopaque, p: ?*anyopaque) bool {
+        return qtc.KCoreConfigSkeleton__ItemLongLong_QBaseIsEqual(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemlonglong.html#property)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemLongLong ```
+    pub fn Property(self: ?*anyopaque) QtC.QVariant {
+        return qtc.KCoreConfigSkeleton__ItemLongLong_Property(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemlonglong.html#property)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemLongLong, callback: *const fn () callconv(.c) QtC.QVariant ```
+    pub fn OnProperty(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
+        qtc.KCoreConfigSkeleton__ItemLongLong_OnProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemlonglong.html#property)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemLongLong ```
+    pub fn QBaseProperty(self: ?*anyopaque) QtC.QVariant {
+        return qtc.KCoreConfigSkeleton__ItemLongLong_QBaseProperty(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemlonglong.html#minValue)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemLongLong ```
+    pub fn MinValue(self: ?*anyopaque) QtC.QVariant {
+        return qtc.KCoreConfigSkeleton__ItemLongLong_MinValue(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemlonglong.html#minValue)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemLongLong, callback: *const fn () callconv(.c) QtC.QVariant ```
+    pub fn OnMinValue(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
+        qtc.KCoreConfigSkeleton__ItemLongLong_OnMinValue(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemlonglong.html#minValue)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemLongLong ```
+    pub fn QBaseMinValue(self: ?*anyopaque) QtC.QVariant {
+        return qtc.KCoreConfigSkeleton__ItemLongLong_QBaseMinValue(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemlonglong.html#maxValue)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemLongLong ```
+    pub fn MaxValue(self: ?*anyopaque) QtC.QVariant {
+        return qtc.KCoreConfigSkeleton__ItemLongLong_MaxValue(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemlonglong.html#maxValue)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemLongLong, callback: *const fn () callconv(.c) QtC.QVariant ```
+    pub fn OnMaxValue(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
+        qtc.KCoreConfigSkeleton__ItemLongLong_OnMaxValue(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemlonglong.html#maxValue)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemLongLong ```
+    pub fn QBaseMaxValue(self: ?*anyopaque) QtC.QVariant {
+        return qtc.KCoreConfigSkeleton__ItemLongLong_QBaseMaxValue(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemlonglong.html#setMinValue)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemLongLong, minValue: i64 ```
+    pub fn SetMinValue(self: ?*anyopaque, minValue: i64) void {
+        qtc.KCoreConfigSkeleton__ItemLongLong_SetMinValue(@ptrCast(self), @intCast(minValue));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemlonglong.html#setMaxValue)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemLongLong, maxValue: i64 ```
+    pub fn SetMaxValue(self: ?*anyopaque, maxValue: i64) void {
+        qtc.KCoreConfigSkeleton__ItemLongLong_SetMaxValue(@ptrCast(self), @intCast(maxValue));
+    }
+
+    /// Delete this object from C++ memory.
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemLongLong ```
+    pub fn QDelete(self: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemLongLong_Delete(@ptrCast(self));
     }
 };
 
@@ -3536,6 +5318,1796 @@ pub const kcoreconfigskeleton__itemenum = struct {
     }
 };
 
+/// https://api.kde.org/kcoreconfigskeleton-itemuint.html
+pub const kcoreconfigskeleton__itemuint = struct {
+    /// New constructs a new KCoreConfigSkeleton::ItemUInt object.
+    ///
+    /// ``` _group: []const u8, _key: []const u8, reference: *u32 ```
+    pub fn New(_group: []const u8, _key: []const u8, reference: *u32) QtC.KCoreConfigSkeleton__ItemUInt {
+        const _group_str = qtc.libqt_string{
+            .len = _group.len,
+            .data = _group.ptr,
+        };
+        const _key_str = qtc.libqt_string{
+            .len = _key.len,
+            .data = _key.ptr,
+        };
+
+        return qtc.KCoreConfigSkeleton__ItemUInt_new(_group_str, _key_str, @ptrCast(reference));
+    }
+
+    /// New2 constructs a new KCoreConfigSkeleton::ItemUInt object.
+    ///
+    /// ``` _group: []const u8, _key: []const u8, reference: *u32, defaultValue: u32 ```
+    pub fn New2(_group: []const u8, _key: []const u8, reference: *u32, defaultValue: u32) QtC.KCoreConfigSkeleton__ItemUInt {
+        const _group_str = qtc.libqt_string{
+            .len = _group.len,
+            .data = _group.ptr,
+        };
+        const _key_str = qtc.libqt_string{
+            .len = _key.len,
+            .data = _key.ptr,
+        };
+
+        return qtc.KCoreConfigSkeleton__ItemUInt_new2(_group_str, _key_str, @ptrCast(reference), @intCast(defaultValue));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemuint.html#readConfig)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemUInt, config: QtC.KConfig ```
+    pub fn ReadConfig(self: ?*anyopaque, config: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemUInt_ReadConfig(@ptrCast(self), @ptrCast(config));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemuint.html#readConfig)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemUInt, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemUInt, config: QtC.KConfig) callconv(.c) void ```
+    pub fn OnReadConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCoreConfigSkeleton__ItemUInt_OnReadConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemuint.html#readConfig)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemUInt, config: QtC.KConfig ```
+    pub fn QBaseReadConfig(self: ?*anyopaque, config: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemUInt_QBaseReadConfig(@ptrCast(self), @ptrCast(config));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemuint.html#setProperty)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemUInt, p: QtC.QVariant ```
+    pub fn SetProperty(self: ?*anyopaque, p: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemUInt_SetProperty(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemuint.html#setProperty)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemUInt, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemUInt, p: QtC.QVariant) callconv(.c) void ```
+    pub fn OnSetProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCoreConfigSkeleton__ItemUInt_OnSetProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemuint.html#setProperty)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemUInt, p: QtC.QVariant ```
+    pub fn QBaseSetProperty(self: ?*anyopaque, p: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemUInt_QBaseSetProperty(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemuint.html#isEqual)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemUInt, p: QtC.QVariant ```
+    pub fn IsEqual(self: ?*anyopaque, p: ?*anyopaque) bool {
+        return qtc.KCoreConfigSkeleton__ItemUInt_IsEqual(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemuint.html#isEqual)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemUInt, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemUInt, p: QtC.QVariant) callconv(.c) bool ```
+    pub fn OnIsEqual(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KCoreConfigSkeleton__ItemUInt_OnIsEqual(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemuint.html#isEqual)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemUInt, p: QtC.QVariant ```
+    pub fn QBaseIsEqual(self: ?*anyopaque, p: ?*anyopaque) bool {
+        return qtc.KCoreConfigSkeleton__ItemUInt_QBaseIsEqual(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemuint.html#property)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemUInt ```
+    pub fn Property(self: ?*anyopaque) QtC.QVariant {
+        return qtc.KCoreConfigSkeleton__ItemUInt_Property(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemuint.html#property)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemUInt, callback: *const fn () callconv(.c) QtC.QVariant ```
+    pub fn OnProperty(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
+        qtc.KCoreConfigSkeleton__ItemUInt_OnProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemuint.html#property)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemUInt ```
+    pub fn QBaseProperty(self: ?*anyopaque) QtC.QVariant {
+        return qtc.KCoreConfigSkeleton__ItemUInt_QBaseProperty(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemuint.html#minValue)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemUInt ```
+    pub fn MinValue(self: ?*anyopaque) QtC.QVariant {
+        return qtc.KCoreConfigSkeleton__ItemUInt_MinValue(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemuint.html#minValue)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemUInt, callback: *const fn () callconv(.c) QtC.QVariant ```
+    pub fn OnMinValue(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
+        qtc.KCoreConfigSkeleton__ItemUInt_OnMinValue(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemuint.html#minValue)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemUInt ```
+    pub fn QBaseMinValue(self: ?*anyopaque) QtC.QVariant {
+        return qtc.KCoreConfigSkeleton__ItemUInt_QBaseMinValue(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemuint.html#maxValue)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemUInt ```
+    pub fn MaxValue(self: ?*anyopaque) QtC.QVariant {
+        return qtc.KCoreConfigSkeleton__ItemUInt_MaxValue(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemuint.html#maxValue)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemUInt, callback: *const fn () callconv(.c) QtC.QVariant ```
+    pub fn OnMaxValue(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
+        qtc.KCoreConfigSkeleton__ItemUInt_OnMaxValue(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemuint.html#maxValue)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemUInt ```
+    pub fn QBaseMaxValue(self: ?*anyopaque) QtC.QVariant {
+        return qtc.KCoreConfigSkeleton__ItemUInt_QBaseMaxValue(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemuint.html#setMinValue)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemUInt, minValue: u32 ```
+    pub fn SetMinValue(self: ?*anyopaque, minValue: u32) void {
+        qtc.KCoreConfigSkeleton__ItemUInt_SetMinValue(@ptrCast(self), @intCast(minValue));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemuint.html#setMaxValue)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemUInt, maxValue: u32 ```
+    pub fn SetMaxValue(self: ?*anyopaque, maxValue: u32) void {
+        qtc.KCoreConfigSkeleton__ItemUInt_SetMaxValue(@ptrCast(self), @intCast(maxValue));
+    }
+
+    /// Delete this object from C++ memory.
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemUInt ```
+    pub fn QDelete(self: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemUInt_Delete(@ptrCast(self));
+    }
+};
+
+/// https://api.kde.org/kcoreconfigskeleton-itemulonglong.html
+pub const kcoreconfigskeleton__itemulonglong = struct {
+    /// New constructs a new KCoreConfigSkeleton::ItemULongLong object.
+    ///
+    /// ``` _group: []const u8, _key: []const u8, reference: *u64 ```
+    pub fn New(_group: []const u8, _key: []const u8, reference: *u64) QtC.KCoreConfigSkeleton__ItemULongLong {
+        const _group_str = qtc.libqt_string{
+            .len = _group.len,
+            .data = _group.ptr,
+        };
+        const _key_str = qtc.libqt_string{
+            .len = _key.len,
+            .data = _key.ptr,
+        };
+
+        return qtc.KCoreConfigSkeleton__ItemULongLong_new(_group_str, _key_str, @ptrCast(reference));
+    }
+
+    /// New2 constructs a new KCoreConfigSkeleton::ItemULongLong object.
+    ///
+    /// ``` _group: []const u8, _key: []const u8, reference: *u64, defaultValue: u64 ```
+    pub fn New2(_group: []const u8, _key: []const u8, reference: *u64, defaultValue: u64) QtC.KCoreConfigSkeleton__ItemULongLong {
+        const _group_str = qtc.libqt_string{
+            .len = _group.len,
+            .data = _group.ptr,
+        };
+        const _key_str = qtc.libqt_string{
+            .len = _key.len,
+            .data = _key.ptr,
+        };
+
+        return qtc.KCoreConfigSkeleton__ItemULongLong_new2(_group_str, _key_str, @ptrCast(reference), @intCast(defaultValue));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemulonglong.html#readConfig)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemULongLong, config: QtC.KConfig ```
+    pub fn ReadConfig(self: ?*anyopaque, config: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemULongLong_ReadConfig(@ptrCast(self), @ptrCast(config));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemulonglong.html#readConfig)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemULongLong, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemULongLong, config: QtC.KConfig) callconv(.c) void ```
+    pub fn OnReadConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCoreConfigSkeleton__ItemULongLong_OnReadConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemulonglong.html#readConfig)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemULongLong, config: QtC.KConfig ```
+    pub fn QBaseReadConfig(self: ?*anyopaque, config: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemULongLong_QBaseReadConfig(@ptrCast(self), @ptrCast(config));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemulonglong.html#setProperty)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemULongLong, p: QtC.QVariant ```
+    pub fn SetProperty(self: ?*anyopaque, p: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemULongLong_SetProperty(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemulonglong.html#setProperty)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemULongLong, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemULongLong, p: QtC.QVariant) callconv(.c) void ```
+    pub fn OnSetProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCoreConfigSkeleton__ItemULongLong_OnSetProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemulonglong.html#setProperty)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemULongLong, p: QtC.QVariant ```
+    pub fn QBaseSetProperty(self: ?*anyopaque, p: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemULongLong_QBaseSetProperty(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemulonglong.html#isEqual)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemULongLong, p: QtC.QVariant ```
+    pub fn IsEqual(self: ?*anyopaque, p: ?*anyopaque) bool {
+        return qtc.KCoreConfigSkeleton__ItemULongLong_IsEqual(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemulonglong.html#isEqual)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemULongLong, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemULongLong, p: QtC.QVariant) callconv(.c) bool ```
+    pub fn OnIsEqual(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KCoreConfigSkeleton__ItemULongLong_OnIsEqual(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemulonglong.html#isEqual)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemULongLong, p: QtC.QVariant ```
+    pub fn QBaseIsEqual(self: ?*anyopaque, p: ?*anyopaque) bool {
+        return qtc.KCoreConfigSkeleton__ItemULongLong_QBaseIsEqual(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemulonglong.html#property)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemULongLong ```
+    pub fn Property(self: ?*anyopaque) QtC.QVariant {
+        return qtc.KCoreConfigSkeleton__ItemULongLong_Property(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemulonglong.html#property)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemULongLong, callback: *const fn () callconv(.c) QtC.QVariant ```
+    pub fn OnProperty(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
+        qtc.KCoreConfigSkeleton__ItemULongLong_OnProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemulonglong.html#property)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemULongLong ```
+    pub fn QBaseProperty(self: ?*anyopaque) QtC.QVariant {
+        return qtc.KCoreConfigSkeleton__ItemULongLong_QBaseProperty(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemulonglong.html#minValue)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemULongLong ```
+    pub fn MinValue(self: ?*anyopaque) QtC.QVariant {
+        return qtc.KCoreConfigSkeleton__ItemULongLong_MinValue(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemulonglong.html#minValue)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemULongLong, callback: *const fn () callconv(.c) QtC.QVariant ```
+    pub fn OnMinValue(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
+        qtc.KCoreConfigSkeleton__ItemULongLong_OnMinValue(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemulonglong.html#minValue)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemULongLong ```
+    pub fn QBaseMinValue(self: ?*anyopaque) QtC.QVariant {
+        return qtc.KCoreConfigSkeleton__ItemULongLong_QBaseMinValue(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemulonglong.html#maxValue)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemULongLong ```
+    pub fn MaxValue(self: ?*anyopaque) QtC.QVariant {
+        return qtc.KCoreConfigSkeleton__ItemULongLong_MaxValue(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemulonglong.html#maxValue)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemULongLong, callback: *const fn () callconv(.c) QtC.QVariant ```
+    pub fn OnMaxValue(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
+        qtc.KCoreConfigSkeleton__ItemULongLong_OnMaxValue(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemulonglong.html#maxValue)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemULongLong ```
+    pub fn QBaseMaxValue(self: ?*anyopaque) QtC.QVariant {
+        return qtc.KCoreConfigSkeleton__ItemULongLong_QBaseMaxValue(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemulonglong.html#setMinValue)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemULongLong, minValue: u64 ```
+    pub fn SetMinValue(self: ?*anyopaque, minValue: u64) void {
+        qtc.KCoreConfigSkeleton__ItemULongLong_SetMinValue(@ptrCast(self), @intCast(minValue));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemulonglong.html#setMaxValue)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemULongLong, maxValue: u64 ```
+    pub fn SetMaxValue(self: ?*anyopaque, maxValue: u64) void {
+        qtc.KCoreConfigSkeleton__ItemULongLong_SetMaxValue(@ptrCast(self), @intCast(maxValue));
+    }
+
+    /// Delete this object from C++ memory.
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemULongLong ```
+    pub fn QDelete(self: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemULongLong_Delete(@ptrCast(self));
+    }
+};
+
+/// https://api.kde.org/kcoreconfigskeleton-itemdouble.html
+pub const kcoreconfigskeleton__itemdouble = struct {
+    /// New constructs a new KCoreConfigSkeleton::ItemDouble object.
+    ///
+    /// ``` _group: []const u8, _key: []const u8, reference: *f64 ```
+    pub fn New(_group: []const u8, _key: []const u8, reference: *f64) QtC.KCoreConfigSkeleton__ItemDouble {
+        const _group_str = qtc.libqt_string{
+            .len = _group.len,
+            .data = _group.ptr,
+        };
+        const _key_str = qtc.libqt_string{
+            .len = _key.len,
+            .data = _key.ptr,
+        };
+
+        return qtc.KCoreConfigSkeleton__ItemDouble_new(_group_str, _key_str, @ptrCast(reference));
+    }
+
+    /// New2 constructs a new KCoreConfigSkeleton::ItemDouble object.
+    ///
+    /// ``` _group: []const u8, _key: []const u8, reference: *f64, defaultValue: f64 ```
+    pub fn New2(_group: []const u8, _key: []const u8, reference: *f64, defaultValue: f64) QtC.KCoreConfigSkeleton__ItemDouble {
+        const _group_str = qtc.libqt_string{
+            .len = _group.len,
+            .data = _group.ptr,
+        };
+        const _key_str = qtc.libqt_string{
+            .len = _key.len,
+            .data = _key.ptr,
+        };
+
+        return qtc.KCoreConfigSkeleton__ItemDouble_new2(_group_str, _key_str, @ptrCast(reference), @floatCast(defaultValue));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemdouble.html#readConfig)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemDouble, config: QtC.KConfig ```
+    pub fn ReadConfig(self: ?*anyopaque, config: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemDouble_ReadConfig(@ptrCast(self), @ptrCast(config));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemdouble.html#readConfig)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemDouble, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemDouble, config: QtC.KConfig) callconv(.c) void ```
+    pub fn OnReadConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCoreConfigSkeleton__ItemDouble_OnReadConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemdouble.html#readConfig)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemDouble, config: QtC.KConfig ```
+    pub fn QBaseReadConfig(self: ?*anyopaque, config: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemDouble_QBaseReadConfig(@ptrCast(self), @ptrCast(config));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemdouble.html#setProperty)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemDouble, p: QtC.QVariant ```
+    pub fn SetProperty(self: ?*anyopaque, p: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemDouble_SetProperty(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemdouble.html#setProperty)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemDouble, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemDouble, p: QtC.QVariant) callconv(.c) void ```
+    pub fn OnSetProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCoreConfigSkeleton__ItemDouble_OnSetProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemdouble.html#setProperty)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemDouble, p: QtC.QVariant ```
+    pub fn QBaseSetProperty(self: ?*anyopaque, p: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemDouble_QBaseSetProperty(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemdouble.html#isEqual)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemDouble, p: QtC.QVariant ```
+    pub fn IsEqual(self: ?*anyopaque, p: ?*anyopaque) bool {
+        return qtc.KCoreConfigSkeleton__ItemDouble_IsEqual(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemdouble.html#isEqual)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemDouble, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemDouble, p: QtC.QVariant) callconv(.c) bool ```
+    pub fn OnIsEqual(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KCoreConfigSkeleton__ItemDouble_OnIsEqual(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemdouble.html#isEqual)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemDouble, p: QtC.QVariant ```
+    pub fn QBaseIsEqual(self: ?*anyopaque, p: ?*anyopaque) bool {
+        return qtc.KCoreConfigSkeleton__ItemDouble_QBaseIsEqual(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemdouble.html#property)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemDouble ```
+    pub fn Property(self: ?*anyopaque) QtC.QVariant {
+        return qtc.KCoreConfigSkeleton__ItemDouble_Property(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemdouble.html#property)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemDouble, callback: *const fn () callconv(.c) QtC.QVariant ```
+    pub fn OnProperty(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
+        qtc.KCoreConfigSkeleton__ItemDouble_OnProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemdouble.html#property)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemDouble ```
+    pub fn QBaseProperty(self: ?*anyopaque) QtC.QVariant {
+        return qtc.KCoreConfigSkeleton__ItemDouble_QBaseProperty(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemdouble.html#minValue)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemDouble ```
+    pub fn MinValue(self: ?*anyopaque) QtC.QVariant {
+        return qtc.KCoreConfigSkeleton__ItemDouble_MinValue(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemdouble.html#minValue)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemDouble, callback: *const fn () callconv(.c) QtC.QVariant ```
+    pub fn OnMinValue(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
+        qtc.KCoreConfigSkeleton__ItemDouble_OnMinValue(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemdouble.html#minValue)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemDouble ```
+    pub fn QBaseMinValue(self: ?*anyopaque) QtC.QVariant {
+        return qtc.KCoreConfigSkeleton__ItemDouble_QBaseMinValue(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemdouble.html#maxValue)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemDouble ```
+    pub fn MaxValue(self: ?*anyopaque) QtC.QVariant {
+        return qtc.KCoreConfigSkeleton__ItemDouble_MaxValue(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemdouble.html#maxValue)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemDouble, callback: *const fn () callconv(.c) QtC.QVariant ```
+    pub fn OnMaxValue(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
+        qtc.KCoreConfigSkeleton__ItemDouble_OnMaxValue(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemdouble.html#maxValue)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemDouble ```
+    pub fn QBaseMaxValue(self: ?*anyopaque) QtC.QVariant {
+        return qtc.KCoreConfigSkeleton__ItemDouble_QBaseMaxValue(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemdouble.html#setMinValue)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemDouble, minValue: f64 ```
+    pub fn SetMinValue(self: ?*anyopaque, minValue: f64) void {
+        qtc.KCoreConfigSkeleton__ItemDouble_SetMinValue(@ptrCast(self), @floatCast(minValue));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemdouble.html#setMaxValue)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemDouble, maxValue: f64 ```
+    pub fn SetMaxValue(self: ?*anyopaque, maxValue: f64) void {
+        qtc.KCoreConfigSkeleton__ItemDouble_SetMaxValue(@ptrCast(self), @floatCast(maxValue));
+    }
+
+    /// Delete this object from C++ memory.
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemDouble ```
+    pub fn QDelete(self: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemDouble_Delete(@ptrCast(self));
+    }
+};
+
+/// https://api.kde.org/kcoreconfigskeleton-itemrect.html
+pub const kcoreconfigskeleton__itemrect = struct {
+    /// New constructs a new KCoreConfigSkeleton::ItemRect object.
+    ///
+    /// ``` _group: []const u8, _key: []const u8, reference: QtC.QRect ```
+    pub fn New(_group: []const u8, _key: []const u8, reference: ?*anyopaque) QtC.KCoreConfigSkeleton__ItemRect {
+        const _group_str = qtc.libqt_string{
+            .len = _group.len,
+            .data = _group.ptr,
+        };
+        const _key_str = qtc.libqt_string{
+            .len = _key.len,
+            .data = _key.ptr,
+        };
+
+        return qtc.KCoreConfigSkeleton__ItemRect_new(_group_str, _key_str, @ptrCast(reference));
+    }
+
+    /// New2 constructs a new KCoreConfigSkeleton::ItemRect object.
+    ///
+    /// ``` _group: []const u8, _key: []const u8, reference: QtC.QRect, defaultValue: QtC.QRect ```
+    pub fn New2(_group: []const u8, _key: []const u8, reference: ?*anyopaque, defaultValue: ?*anyopaque) QtC.KCoreConfigSkeleton__ItemRect {
+        const _group_str = qtc.libqt_string{
+            .len = _group.len,
+            .data = _group.ptr,
+        };
+        const _key_str = qtc.libqt_string{
+            .len = _key.len,
+            .data = _key.ptr,
+        };
+
+        return qtc.KCoreConfigSkeleton__ItemRect_new2(_group_str, _key_str, @ptrCast(reference), @ptrCast(defaultValue));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemrect.html#readConfig)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemRect, config: QtC.KConfig ```
+    pub fn ReadConfig(self: ?*anyopaque, config: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemRect_ReadConfig(@ptrCast(self), @ptrCast(config));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemrect.html#readConfig)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemRect, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemRect, config: QtC.KConfig) callconv(.c) void ```
+    pub fn OnReadConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCoreConfigSkeleton__ItemRect_OnReadConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemrect.html#readConfig)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemRect, config: QtC.KConfig ```
+    pub fn QBaseReadConfig(self: ?*anyopaque, config: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemRect_QBaseReadConfig(@ptrCast(self), @ptrCast(config));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemrect.html#setProperty)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemRect, p: QtC.QVariant ```
+    pub fn SetProperty(self: ?*anyopaque, p: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemRect_SetProperty(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemrect.html#setProperty)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemRect, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemRect, p: QtC.QVariant) callconv(.c) void ```
+    pub fn OnSetProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCoreConfigSkeleton__ItemRect_OnSetProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemrect.html#setProperty)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemRect, p: QtC.QVariant ```
+    pub fn QBaseSetProperty(self: ?*anyopaque, p: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemRect_QBaseSetProperty(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemrect.html#isEqual)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemRect, p: QtC.QVariant ```
+    pub fn IsEqual(self: ?*anyopaque, p: ?*anyopaque) bool {
+        return qtc.KCoreConfigSkeleton__ItemRect_IsEqual(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemrect.html#isEqual)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemRect, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemRect, p: QtC.QVariant) callconv(.c) bool ```
+    pub fn OnIsEqual(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KCoreConfigSkeleton__ItemRect_OnIsEqual(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemrect.html#isEqual)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemRect, p: QtC.QVariant ```
+    pub fn QBaseIsEqual(self: ?*anyopaque, p: ?*anyopaque) bool {
+        return qtc.KCoreConfigSkeleton__ItemRect_QBaseIsEqual(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemrect.html#property)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemRect ```
+    pub fn Property(self: ?*anyopaque) QtC.QVariant {
+        return qtc.KCoreConfigSkeleton__ItemRect_Property(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemrect.html#property)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemRect, callback: *const fn () callconv(.c) QtC.QVariant ```
+    pub fn OnProperty(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
+        qtc.KCoreConfigSkeleton__ItemRect_OnProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemrect.html#property)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemRect ```
+    pub fn QBaseProperty(self: ?*anyopaque) QtC.QVariant {
+        return qtc.KCoreConfigSkeleton__ItemRect_QBaseProperty(@ptrCast(self));
+    }
+
+    /// Delete this object from C++ memory.
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemRect ```
+    pub fn QDelete(self: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemRect_Delete(@ptrCast(self));
+    }
+};
+
+/// https://api.kde.org/kcoreconfigskeleton-itemrectf.html
+pub const kcoreconfigskeleton__itemrectf = struct {
+    /// New constructs a new KCoreConfigSkeleton::ItemRectF object.
+    ///
+    /// ``` _group: []const u8, _key: []const u8, reference: QtC.QRectF ```
+    pub fn New(_group: []const u8, _key: []const u8, reference: ?*anyopaque) QtC.KCoreConfigSkeleton__ItemRectF {
+        const _group_str = qtc.libqt_string{
+            .len = _group.len,
+            .data = _group.ptr,
+        };
+        const _key_str = qtc.libqt_string{
+            .len = _key.len,
+            .data = _key.ptr,
+        };
+
+        return qtc.KCoreConfigSkeleton__ItemRectF_new(_group_str, _key_str, @ptrCast(reference));
+    }
+
+    /// New2 constructs a new KCoreConfigSkeleton::ItemRectF object.
+    ///
+    /// ``` _group: []const u8, _key: []const u8, reference: QtC.QRectF, defaultValue: QtC.QRectF ```
+    pub fn New2(_group: []const u8, _key: []const u8, reference: ?*anyopaque, defaultValue: ?*anyopaque) QtC.KCoreConfigSkeleton__ItemRectF {
+        const _group_str = qtc.libqt_string{
+            .len = _group.len,
+            .data = _group.ptr,
+        };
+        const _key_str = qtc.libqt_string{
+            .len = _key.len,
+            .data = _key.ptr,
+        };
+
+        return qtc.KCoreConfigSkeleton__ItemRectF_new2(_group_str, _key_str, @ptrCast(reference), @ptrCast(defaultValue));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemrectf.html#readConfig)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemRectF, config: QtC.KConfig ```
+    pub fn ReadConfig(self: ?*anyopaque, config: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemRectF_ReadConfig(@ptrCast(self), @ptrCast(config));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemrectf.html#readConfig)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemRectF, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemRectF, config: QtC.KConfig) callconv(.c) void ```
+    pub fn OnReadConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCoreConfigSkeleton__ItemRectF_OnReadConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemrectf.html#readConfig)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemRectF, config: QtC.KConfig ```
+    pub fn QBaseReadConfig(self: ?*anyopaque, config: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemRectF_QBaseReadConfig(@ptrCast(self), @ptrCast(config));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemrectf.html#setProperty)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemRectF, p: QtC.QVariant ```
+    pub fn SetProperty(self: ?*anyopaque, p: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemRectF_SetProperty(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemrectf.html#setProperty)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemRectF, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemRectF, p: QtC.QVariant) callconv(.c) void ```
+    pub fn OnSetProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCoreConfigSkeleton__ItemRectF_OnSetProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemrectf.html#setProperty)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemRectF, p: QtC.QVariant ```
+    pub fn QBaseSetProperty(self: ?*anyopaque, p: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemRectF_QBaseSetProperty(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemrectf.html#isEqual)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemRectF, p: QtC.QVariant ```
+    pub fn IsEqual(self: ?*anyopaque, p: ?*anyopaque) bool {
+        return qtc.KCoreConfigSkeleton__ItemRectF_IsEqual(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemrectf.html#isEqual)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemRectF, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemRectF, p: QtC.QVariant) callconv(.c) bool ```
+    pub fn OnIsEqual(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KCoreConfigSkeleton__ItemRectF_OnIsEqual(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemrectf.html#isEqual)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemRectF, p: QtC.QVariant ```
+    pub fn QBaseIsEqual(self: ?*anyopaque, p: ?*anyopaque) bool {
+        return qtc.KCoreConfigSkeleton__ItemRectF_QBaseIsEqual(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemrectf.html#property)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemRectF ```
+    pub fn Property(self: ?*anyopaque) QtC.QVariant {
+        return qtc.KCoreConfigSkeleton__ItemRectF_Property(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemrectf.html#property)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemRectF, callback: *const fn () callconv(.c) QtC.QVariant ```
+    pub fn OnProperty(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
+        qtc.KCoreConfigSkeleton__ItemRectF_OnProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemrectf.html#property)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemRectF ```
+    pub fn QBaseProperty(self: ?*anyopaque) QtC.QVariant {
+        return qtc.KCoreConfigSkeleton__ItemRectF_QBaseProperty(@ptrCast(self));
+    }
+
+    /// Delete this object from C++ memory.
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemRectF ```
+    pub fn QDelete(self: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemRectF_Delete(@ptrCast(self));
+    }
+};
+
+/// https://api.kde.org/kcoreconfigskeleton-itempoint.html
+pub const kcoreconfigskeleton__itempoint = struct {
+    /// New constructs a new KCoreConfigSkeleton::ItemPoint object.
+    ///
+    /// ``` _group: []const u8, _key: []const u8, reference: QtC.QPoint ```
+    pub fn New(_group: []const u8, _key: []const u8, reference: ?*anyopaque) QtC.KCoreConfigSkeleton__ItemPoint {
+        const _group_str = qtc.libqt_string{
+            .len = _group.len,
+            .data = _group.ptr,
+        };
+        const _key_str = qtc.libqt_string{
+            .len = _key.len,
+            .data = _key.ptr,
+        };
+
+        return qtc.KCoreConfigSkeleton__ItemPoint_new(_group_str, _key_str, @ptrCast(reference));
+    }
+
+    /// New2 constructs a new KCoreConfigSkeleton::ItemPoint object.
+    ///
+    /// ``` _group: []const u8, _key: []const u8, reference: QtC.QPoint, defaultValue: QtC.QPoint ```
+    pub fn New2(_group: []const u8, _key: []const u8, reference: ?*anyopaque, defaultValue: ?*anyopaque) QtC.KCoreConfigSkeleton__ItemPoint {
+        const _group_str = qtc.libqt_string{
+            .len = _group.len,
+            .data = _group.ptr,
+        };
+        const _key_str = qtc.libqt_string{
+            .len = _key.len,
+            .data = _key.ptr,
+        };
+
+        return qtc.KCoreConfigSkeleton__ItemPoint_new2(_group_str, _key_str, @ptrCast(reference), @ptrCast(defaultValue));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itempoint.html#readConfig)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemPoint, config: QtC.KConfig ```
+    pub fn ReadConfig(self: ?*anyopaque, config: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemPoint_ReadConfig(@ptrCast(self), @ptrCast(config));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itempoint.html#readConfig)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemPoint, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemPoint, config: QtC.KConfig) callconv(.c) void ```
+    pub fn OnReadConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCoreConfigSkeleton__ItemPoint_OnReadConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itempoint.html#readConfig)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemPoint, config: QtC.KConfig ```
+    pub fn QBaseReadConfig(self: ?*anyopaque, config: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemPoint_QBaseReadConfig(@ptrCast(self), @ptrCast(config));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itempoint.html#setProperty)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemPoint, p: QtC.QVariant ```
+    pub fn SetProperty(self: ?*anyopaque, p: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemPoint_SetProperty(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itempoint.html#setProperty)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemPoint, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemPoint, p: QtC.QVariant) callconv(.c) void ```
+    pub fn OnSetProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCoreConfigSkeleton__ItemPoint_OnSetProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itempoint.html#setProperty)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemPoint, p: QtC.QVariant ```
+    pub fn QBaseSetProperty(self: ?*anyopaque, p: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemPoint_QBaseSetProperty(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itempoint.html#isEqual)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemPoint, p: QtC.QVariant ```
+    pub fn IsEqual(self: ?*anyopaque, p: ?*anyopaque) bool {
+        return qtc.KCoreConfigSkeleton__ItemPoint_IsEqual(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itempoint.html#isEqual)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemPoint, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemPoint, p: QtC.QVariant) callconv(.c) bool ```
+    pub fn OnIsEqual(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KCoreConfigSkeleton__ItemPoint_OnIsEqual(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itempoint.html#isEqual)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemPoint, p: QtC.QVariant ```
+    pub fn QBaseIsEqual(self: ?*anyopaque, p: ?*anyopaque) bool {
+        return qtc.KCoreConfigSkeleton__ItemPoint_QBaseIsEqual(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itempoint.html#property)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemPoint ```
+    pub fn Property(self: ?*anyopaque) QtC.QVariant {
+        return qtc.KCoreConfigSkeleton__ItemPoint_Property(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itempoint.html#property)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemPoint, callback: *const fn () callconv(.c) QtC.QVariant ```
+    pub fn OnProperty(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
+        qtc.KCoreConfigSkeleton__ItemPoint_OnProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itempoint.html#property)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemPoint ```
+    pub fn QBaseProperty(self: ?*anyopaque) QtC.QVariant {
+        return qtc.KCoreConfigSkeleton__ItemPoint_QBaseProperty(@ptrCast(self));
+    }
+
+    /// Delete this object from C++ memory.
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemPoint ```
+    pub fn QDelete(self: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemPoint_Delete(@ptrCast(self));
+    }
+};
+
+/// https://api.kde.org/kcoreconfigskeleton-itempointf.html
+pub const kcoreconfigskeleton__itempointf = struct {
+    /// New constructs a new KCoreConfigSkeleton::ItemPointF object.
+    ///
+    /// ``` _group: []const u8, _key: []const u8, reference: QtC.QPointF ```
+    pub fn New(_group: []const u8, _key: []const u8, reference: ?*anyopaque) QtC.KCoreConfigSkeleton__ItemPointF {
+        const _group_str = qtc.libqt_string{
+            .len = _group.len,
+            .data = _group.ptr,
+        };
+        const _key_str = qtc.libqt_string{
+            .len = _key.len,
+            .data = _key.ptr,
+        };
+
+        return qtc.KCoreConfigSkeleton__ItemPointF_new(_group_str, _key_str, @ptrCast(reference));
+    }
+
+    /// New2 constructs a new KCoreConfigSkeleton::ItemPointF object.
+    ///
+    /// ``` _group: []const u8, _key: []const u8, reference: QtC.QPointF, defaultValue: QtC.QPointF ```
+    pub fn New2(_group: []const u8, _key: []const u8, reference: ?*anyopaque, defaultValue: ?*anyopaque) QtC.KCoreConfigSkeleton__ItemPointF {
+        const _group_str = qtc.libqt_string{
+            .len = _group.len,
+            .data = _group.ptr,
+        };
+        const _key_str = qtc.libqt_string{
+            .len = _key.len,
+            .data = _key.ptr,
+        };
+
+        return qtc.KCoreConfigSkeleton__ItemPointF_new2(_group_str, _key_str, @ptrCast(reference), @ptrCast(defaultValue));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itempointf.html#readConfig)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemPointF, config: QtC.KConfig ```
+    pub fn ReadConfig(self: ?*anyopaque, config: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemPointF_ReadConfig(@ptrCast(self), @ptrCast(config));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itempointf.html#readConfig)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemPointF, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemPointF, config: QtC.KConfig) callconv(.c) void ```
+    pub fn OnReadConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCoreConfigSkeleton__ItemPointF_OnReadConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itempointf.html#readConfig)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemPointF, config: QtC.KConfig ```
+    pub fn QBaseReadConfig(self: ?*anyopaque, config: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemPointF_QBaseReadConfig(@ptrCast(self), @ptrCast(config));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itempointf.html#setProperty)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemPointF, p: QtC.QVariant ```
+    pub fn SetProperty(self: ?*anyopaque, p: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemPointF_SetProperty(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itempointf.html#setProperty)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemPointF, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemPointF, p: QtC.QVariant) callconv(.c) void ```
+    pub fn OnSetProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCoreConfigSkeleton__ItemPointF_OnSetProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itempointf.html#setProperty)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemPointF, p: QtC.QVariant ```
+    pub fn QBaseSetProperty(self: ?*anyopaque, p: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemPointF_QBaseSetProperty(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itempointf.html#isEqual)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemPointF, p: QtC.QVariant ```
+    pub fn IsEqual(self: ?*anyopaque, p: ?*anyopaque) bool {
+        return qtc.KCoreConfigSkeleton__ItemPointF_IsEqual(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itempointf.html#isEqual)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemPointF, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemPointF, p: QtC.QVariant) callconv(.c) bool ```
+    pub fn OnIsEqual(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KCoreConfigSkeleton__ItemPointF_OnIsEqual(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itempointf.html#isEqual)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemPointF, p: QtC.QVariant ```
+    pub fn QBaseIsEqual(self: ?*anyopaque, p: ?*anyopaque) bool {
+        return qtc.KCoreConfigSkeleton__ItemPointF_QBaseIsEqual(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itempointf.html#property)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemPointF ```
+    pub fn Property(self: ?*anyopaque) QtC.QVariant {
+        return qtc.KCoreConfigSkeleton__ItemPointF_Property(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itempointf.html#property)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemPointF, callback: *const fn () callconv(.c) QtC.QVariant ```
+    pub fn OnProperty(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
+        qtc.KCoreConfigSkeleton__ItemPointF_OnProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itempointf.html#property)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemPointF ```
+    pub fn QBaseProperty(self: ?*anyopaque) QtC.QVariant {
+        return qtc.KCoreConfigSkeleton__ItemPointF_QBaseProperty(@ptrCast(self));
+    }
+
+    /// Delete this object from C++ memory.
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemPointF ```
+    pub fn QDelete(self: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemPointF_Delete(@ptrCast(self));
+    }
+};
+
+/// https://api.kde.org/kcoreconfigskeleton-itemsize.html
+pub const kcoreconfigskeleton__itemsize = struct {
+    /// New constructs a new KCoreConfigSkeleton::ItemSize object.
+    ///
+    /// ``` _group: []const u8, _key: []const u8, reference: QtC.QSize ```
+    pub fn New(_group: []const u8, _key: []const u8, reference: ?*anyopaque) QtC.KCoreConfigSkeleton__ItemSize {
+        const _group_str = qtc.libqt_string{
+            .len = _group.len,
+            .data = _group.ptr,
+        };
+        const _key_str = qtc.libqt_string{
+            .len = _key.len,
+            .data = _key.ptr,
+        };
+
+        return qtc.KCoreConfigSkeleton__ItemSize_new(_group_str, _key_str, @ptrCast(reference));
+    }
+
+    /// New2 constructs a new KCoreConfigSkeleton::ItemSize object.
+    ///
+    /// ``` _group: []const u8, _key: []const u8, reference: QtC.QSize, defaultValue: QtC.QSize ```
+    pub fn New2(_group: []const u8, _key: []const u8, reference: ?*anyopaque, defaultValue: ?*anyopaque) QtC.KCoreConfigSkeleton__ItemSize {
+        const _group_str = qtc.libqt_string{
+            .len = _group.len,
+            .data = _group.ptr,
+        };
+        const _key_str = qtc.libqt_string{
+            .len = _key.len,
+            .data = _key.ptr,
+        };
+
+        return qtc.KCoreConfigSkeleton__ItemSize_new2(_group_str, _key_str, @ptrCast(reference), @ptrCast(defaultValue));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemsize.html#readConfig)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemSize, config: QtC.KConfig ```
+    pub fn ReadConfig(self: ?*anyopaque, config: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemSize_ReadConfig(@ptrCast(self), @ptrCast(config));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemsize.html#readConfig)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemSize, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemSize, config: QtC.KConfig) callconv(.c) void ```
+    pub fn OnReadConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCoreConfigSkeleton__ItemSize_OnReadConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemsize.html#readConfig)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemSize, config: QtC.KConfig ```
+    pub fn QBaseReadConfig(self: ?*anyopaque, config: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemSize_QBaseReadConfig(@ptrCast(self), @ptrCast(config));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemsize.html#setProperty)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemSize, p: QtC.QVariant ```
+    pub fn SetProperty(self: ?*anyopaque, p: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemSize_SetProperty(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemsize.html#setProperty)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemSize, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemSize, p: QtC.QVariant) callconv(.c) void ```
+    pub fn OnSetProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCoreConfigSkeleton__ItemSize_OnSetProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemsize.html#setProperty)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemSize, p: QtC.QVariant ```
+    pub fn QBaseSetProperty(self: ?*anyopaque, p: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemSize_QBaseSetProperty(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemsize.html#isEqual)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemSize, p: QtC.QVariant ```
+    pub fn IsEqual(self: ?*anyopaque, p: ?*anyopaque) bool {
+        return qtc.KCoreConfigSkeleton__ItemSize_IsEqual(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemsize.html#isEqual)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemSize, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemSize, p: QtC.QVariant) callconv(.c) bool ```
+    pub fn OnIsEqual(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KCoreConfigSkeleton__ItemSize_OnIsEqual(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemsize.html#isEqual)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemSize, p: QtC.QVariant ```
+    pub fn QBaseIsEqual(self: ?*anyopaque, p: ?*anyopaque) bool {
+        return qtc.KCoreConfigSkeleton__ItemSize_QBaseIsEqual(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemsize.html#property)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemSize ```
+    pub fn Property(self: ?*anyopaque) QtC.QVariant {
+        return qtc.KCoreConfigSkeleton__ItemSize_Property(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemsize.html#property)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemSize, callback: *const fn () callconv(.c) QtC.QVariant ```
+    pub fn OnProperty(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
+        qtc.KCoreConfigSkeleton__ItemSize_OnProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemsize.html#property)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemSize ```
+    pub fn QBaseProperty(self: ?*anyopaque) QtC.QVariant {
+        return qtc.KCoreConfigSkeleton__ItemSize_QBaseProperty(@ptrCast(self));
+    }
+
+    /// Delete this object from C++ memory.
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemSize ```
+    pub fn QDelete(self: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemSize_Delete(@ptrCast(self));
+    }
+};
+
+/// https://api.kde.org/kcoreconfigskeleton-itemsizef.html
+pub const kcoreconfigskeleton__itemsizef = struct {
+    /// New constructs a new KCoreConfigSkeleton::ItemSizeF object.
+    ///
+    /// ``` _group: []const u8, _key: []const u8, reference: QtC.QSizeF ```
+    pub fn New(_group: []const u8, _key: []const u8, reference: ?*anyopaque) QtC.KCoreConfigSkeleton__ItemSizeF {
+        const _group_str = qtc.libqt_string{
+            .len = _group.len,
+            .data = _group.ptr,
+        };
+        const _key_str = qtc.libqt_string{
+            .len = _key.len,
+            .data = _key.ptr,
+        };
+
+        return qtc.KCoreConfigSkeleton__ItemSizeF_new(_group_str, _key_str, @ptrCast(reference));
+    }
+
+    /// New2 constructs a new KCoreConfigSkeleton::ItemSizeF object.
+    ///
+    /// ``` _group: []const u8, _key: []const u8, reference: QtC.QSizeF, defaultValue: QtC.QSizeF ```
+    pub fn New2(_group: []const u8, _key: []const u8, reference: ?*anyopaque, defaultValue: ?*anyopaque) QtC.KCoreConfigSkeleton__ItemSizeF {
+        const _group_str = qtc.libqt_string{
+            .len = _group.len,
+            .data = _group.ptr,
+        };
+        const _key_str = qtc.libqt_string{
+            .len = _key.len,
+            .data = _key.ptr,
+        };
+
+        return qtc.KCoreConfigSkeleton__ItemSizeF_new2(_group_str, _key_str, @ptrCast(reference), @ptrCast(defaultValue));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemsizef.html#readConfig)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemSizeF, config: QtC.KConfig ```
+    pub fn ReadConfig(self: ?*anyopaque, config: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemSizeF_ReadConfig(@ptrCast(self), @ptrCast(config));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemsizef.html#readConfig)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemSizeF, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemSizeF, config: QtC.KConfig) callconv(.c) void ```
+    pub fn OnReadConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCoreConfigSkeleton__ItemSizeF_OnReadConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemsizef.html#readConfig)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemSizeF, config: QtC.KConfig ```
+    pub fn QBaseReadConfig(self: ?*anyopaque, config: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemSizeF_QBaseReadConfig(@ptrCast(self), @ptrCast(config));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemsizef.html#setProperty)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemSizeF, p: QtC.QVariant ```
+    pub fn SetProperty(self: ?*anyopaque, p: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemSizeF_SetProperty(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemsizef.html#setProperty)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemSizeF, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemSizeF, p: QtC.QVariant) callconv(.c) void ```
+    pub fn OnSetProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCoreConfigSkeleton__ItemSizeF_OnSetProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemsizef.html#setProperty)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemSizeF, p: QtC.QVariant ```
+    pub fn QBaseSetProperty(self: ?*anyopaque, p: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemSizeF_QBaseSetProperty(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemsizef.html#isEqual)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemSizeF, p: QtC.QVariant ```
+    pub fn IsEqual(self: ?*anyopaque, p: ?*anyopaque) bool {
+        return qtc.KCoreConfigSkeleton__ItemSizeF_IsEqual(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemsizef.html#isEqual)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemSizeF, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemSizeF, p: QtC.QVariant) callconv(.c) bool ```
+    pub fn OnIsEqual(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KCoreConfigSkeleton__ItemSizeF_OnIsEqual(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemsizef.html#isEqual)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemSizeF, p: QtC.QVariant ```
+    pub fn QBaseIsEqual(self: ?*anyopaque, p: ?*anyopaque) bool {
+        return qtc.KCoreConfigSkeleton__ItemSizeF_QBaseIsEqual(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemsizef.html#property)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemSizeF ```
+    pub fn Property(self: ?*anyopaque) QtC.QVariant {
+        return qtc.KCoreConfigSkeleton__ItemSizeF_Property(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemsizef.html#property)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemSizeF, callback: *const fn () callconv(.c) QtC.QVariant ```
+    pub fn OnProperty(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
+        qtc.KCoreConfigSkeleton__ItemSizeF_OnProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemsizef.html#property)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemSizeF ```
+    pub fn QBaseProperty(self: ?*anyopaque) QtC.QVariant {
+        return qtc.KCoreConfigSkeleton__ItemSizeF_QBaseProperty(@ptrCast(self));
+    }
+
+    /// Delete this object from C++ memory.
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemSizeF ```
+    pub fn QDelete(self: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemSizeF_Delete(@ptrCast(self));
+    }
+};
+
+/// https://api.kde.org/kcoreconfigskeleton-itemdatetime.html
+pub const kcoreconfigskeleton__itemdatetime = struct {
+    /// New constructs a new KCoreConfigSkeleton::ItemDateTime object.
+    ///
+    /// ``` _group: []const u8, _key: []const u8, reference: QtC.QDateTime ```
+    pub fn New(_group: []const u8, _key: []const u8, reference: ?*anyopaque) QtC.KCoreConfigSkeleton__ItemDateTime {
+        const _group_str = qtc.libqt_string{
+            .len = _group.len,
+            .data = _group.ptr,
+        };
+        const _key_str = qtc.libqt_string{
+            .len = _key.len,
+            .data = _key.ptr,
+        };
+
+        return qtc.KCoreConfigSkeleton__ItemDateTime_new(_group_str, _key_str, @ptrCast(reference));
+    }
+
+    /// New2 constructs a new KCoreConfigSkeleton::ItemDateTime object.
+    ///
+    /// ``` _group: []const u8, _key: []const u8, reference: QtC.QDateTime, defaultValue: QtC.QDateTime ```
+    pub fn New2(_group: []const u8, _key: []const u8, reference: ?*anyopaque, defaultValue: ?*anyopaque) QtC.KCoreConfigSkeleton__ItemDateTime {
+        const _group_str = qtc.libqt_string{
+            .len = _group.len,
+            .data = _group.ptr,
+        };
+        const _key_str = qtc.libqt_string{
+            .len = _key.len,
+            .data = _key.ptr,
+        };
+
+        return qtc.KCoreConfigSkeleton__ItemDateTime_new2(_group_str, _key_str, @ptrCast(reference), @ptrCast(defaultValue));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemdatetime.html#readConfig)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemDateTime, config: QtC.KConfig ```
+    pub fn ReadConfig(self: ?*anyopaque, config: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemDateTime_ReadConfig(@ptrCast(self), @ptrCast(config));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemdatetime.html#readConfig)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemDateTime, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemDateTime, config: QtC.KConfig) callconv(.c) void ```
+    pub fn OnReadConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCoreConfigSkeleton__ItemDateTime_OnReadConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemdatetime.html#readConfig)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemDateTime, config: QtC.KConfig ```
+    pub fn QBaseReadConfig(self: ?*anyopaque, config: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemDateTime_QBaseReadConfig(@ptrCast(self), @ptrCast(config));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemdatetime.html#setProperty)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemDateTime, p: QtC.QVariant ```
+    pub fn SetProperty(self: ?*anyopaque, p: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemDateTime_SetProperty(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemdatetime.html#setProperty)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemDateTime, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemDateTime, p: QtC.QVariant) callconv(.c) void ```
+    pub fn OnSetProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCoreConfigSkeleton__ItemDateTime_OnSetProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemdatetime.html#setProperty)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemDateTime, p: QtC.QVariant ```
+    pub fn QBaseSetProperty(self: ?*anyopaque, p: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemDateTime_QBaseSetProperty(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemdatetime.html#isEqual)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemDateTime, p: QtC.QVariant ```
+    pub fn IsEqual(self: ?*anyopaque, p: ?*anyopaque) bool {
+        return qtc.KCoreConfigSkeleton__ItemDateTime_IsEqual(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemdatetime.html#isEqual)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemDateTime, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemDateTime, p: QtC.QVariant) callconv(.c) bool ```
+    pub fn OnIsEqual(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KCoreConfigSkeleton__ItemDateTime_OnIsEqual(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemdatetime.html#isEqual)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemDateTime, p: QtC.QVariant ```
+    pub fn QBaseIsEqual(self: ?*anyopaque, p: ?*anyopaque) bool {
+        return qtc.KCoreConfigSkeleton__ItemDateTime_QBaseIsEqual(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemdatetime.html#property)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemDateTime ```
+    pub fn Property(self: ?*anyopaque) QtC.QVariant {
+        return qtc.KCoreConfigSkeleton__ItemDateTime_Property(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemdatetime.html#property)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemDateTime, callback: *const fn () callconv(.c) QtC.QVariant ```
+    pub fn OnProperty(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
+        qtc.KCoreConfigSkeleton__ItemDateTime_OnProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemdatetime.html#property)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemDateTime ```
+    pub fn QBaseProperty(self: ?*anyopaque) QtC.QVariant {
+        return qtc.KCoreConfigSkeleton__ItemDateTime_QBaseProperty(@ptrCast(self));
+    }
+
+    /// Delete this object from C++ memory.
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemDateTime ```
+    pub fn QDelete(self: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemDateTime_Delete(@ptrCast(self));
+    }
+};
+
+/// https://api.kde.org/kcoreconfigskeleton-itemstringlist.html
+pub const kcoreconfigskeleton__itemstringlist = struct {
+    /// New constructs a new KCoreConfigSkeleton::ItemStringList object.
+    ///
+    /// ``` _group: []const u8, _key: []const u8, reference: [][]const u8, allocator: std.mem.Allocator ```
+    pub fn New(_group: []const u8, _key: []const u8, reference: [][]const u8, allocator: std.mem.Allocator) QtC.KCoreConfigSkeleton__ItemStringList {
+        const _group_str = qtc.libqt_string{
+            .len = _group.len,
+            .data = _group.ptr,
+        };
+        const _key_str = qtc.libqt_string{
+            .len = _key.len,
+            .data = _key.ptr,
+        };
+        var reference_arr = allocator.alloc(qtc.libqt_string, reference.len) catch @panic("kcoreconfigskeleton::itemstringlist.Property: Memory allocation failed");
+        defer allocator.free(reference_arr);
+        for (reference, 0..reference.len) |item, i| {
+            reference_arr[i] = .{
+                .len = item.len,
+                .data = item.ptr,
+            };
+        }
+        const reference_list = qtc.libqt_list{
+            .len = reference.len,
+            .data = reference_arr.ptr,
+        };
+
+        return qtc.KCoreConfigSkeleton__ItemStringList_new(_group_str, _key_str, reference_list);
+    }
+
+    /// New2 constructs a new KCoreConfigSkeleton::ItemStringList object.
+    ///
+    /// ``` _group: []const u8, _key: []const u8, reference: [][]const u8, defaultValue: [][]const u8, allocator: std.mem.Allocator ```
+    pub fn New2(_group: []const u8, _key: []const u8, reference: [][]const u8, defaultValue: [][]const u8, allocator: std.mem.Allocator) QtC.KCoreConfigSkeleton__ItemStringList {
+        const _group_str = qtc.libqt_string{
+            .len = _group.len,
+            .data = _group.ptr,
+        };
+        const _key_str = qtc.libqt_string{
+            .len = _key.len,
+            .data = _key.ptr,
+        };
+        var reference_arr = allocator.alloc(qtc.libqt_string, reference.len) catch @panic("kcoreconfigskeleton::itemstringlist.Property: Memory allocation failed");
+        defer allocator.free(reference_arr);
+        for (reference, 0..reference.len) |item, i| {
+            reference_arr[i] = .{
+                .len = item.len,
+                .data = item.ptr,
+            };
+        }
+        const reference_list = qtc.libqt_list{
+            .len = reference.len,
+            .data = reference_arr.ptr,
+        };
+        var defaultValue_arr = allocator.alloc(qtc.libqt_string, defaultValue.len) catch @panic("kcoreconfigskeleton::itemstringlist.Property: Memory allocation failed");
+        defer allocator.free(defaultValue_arr);
+        for (defaultValue, 0..defaultValue.len) |item, i| {
+            defaultValue_arr[i] = .{
+                .len = item.len,
+                .data = item.ptr,
+            };
+        }
+        const defaultValue_list = qtc.libqt_list{
+            .len = defaultValue.len,
+            .data = defaultValue_arr.ptr,
+        };
+
+        return qtc.KCoreConfigSkeleton__ItemStringList_new2(_group_str, _key_str, reference_list, defaultValue_list);
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemstringlist.html#readConfig)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemStringList, config: QtC.KConfig ```
+    pub fn ReadConfig(self: ?*anyopaque, config: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemStringList_ReadConfig(@ptrCast(self), @ptrCast(config));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemstringlist.html#readConfig)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemStringList, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemStringList, config: QtC.KConfig) callconv(.c) void ```
+    pub fn OnReadConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCoreConfigSkeleton__ItemStringList_OnReadConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemstringlist.html#readConfig)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemStringList, config: QtC.KConfig ```
+    pub fn QBaseReadConfig(self: ?*anyopaque, config: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemStringList_QBaseReadConfig(@ptrCast(self), @ptrCast(config));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemstringlist.html#setProperty)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemStringList, p: QtC.QVariant ```
+    pub fn SetProperty(self: ?*anyopaque, p: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemStringList_SetProperty(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemstringlist.html#setProperty)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemStringList, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemStringList, p: QtC.QVariant) callconv(.c) void ```
+    pub fn OnSetProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCoreConfigSkeleton__ItemStringList_OnSetProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemstringlist.html#setProperty)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemStringList, p: QtC.QVariant ```
+    pub fn QBaseSetProperty(self: ?*anyopaque, p: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemStringList_QBaseSetProperty(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemstringlist.html#isEqual)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemStringList, p: QtC.QVariant ```
+    pub fn IsEqual(self: ?*anyopaque, p: ?*anyopaque) bool {
+        return qtc.KCoreConfigSkeleton__ItemStringList_IsEqual(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemstringlist.html#isEqual)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemStringList, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemStringList, p: QtC.QVariant) callconv(.c) bool ```
+    pub fn OnIsEqual(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KCoreConfigSkeleton__ItemStringList_OnIsEqual(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemstringlist.html#isEqual)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemStringList, p: QtC.QVariant ```
+    pub fn QBaseIsEqual(self: ?*anyopaque, p: ?*anyopaque) bool {
+        return qtc.KCoreConfigSkeleton__ItemStringList_QBaseIsEqual(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemstringlist.html#property)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemStringList ```
+    pub fn Property(self: ?*anyopaque) QtC.QVariant {
+        return qtc.KCoreConfigSkeleton__ItemStringList_Property(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemstringlist.html#property)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemStringList, callback: *const fn () callconv(.c) QtC.QVariant ```
+    pub fn OnProperty(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
+        qtc.KCoreConfigSkeleton__ItemStringList_OnProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemstringlist.html#property)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemStringList ```
+    pub fn QBaseProperty(self: ?*anyopaque) QtC.QVariant {
+        return qtc.KCoreConfigSkeleton__ItemStringList_QBaseProperty(@ptrCast(self));
+    }
+
+    /// Delete this object from C++ memory.
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemStringList ```
+    pub fn QDelete(self: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemStringList_Delete(@ptrCast(self));
+    }
+};
+
 /// https://api.kde.org/kcoreconfigskeleton-itempathlist.html
 pub const kcoreconfigskeleton__itempathlist = struct {
     /// New constructs a new KCoreConfigSkeleton::ItemPathList object.
@@ -3550,7 +7122,7 @@ pub const kcoreconfigskeleton__itempathlist = struct {
             .len = _key.len,
             .data = _key.ptr,
         };
-        var reference_arr = allocator.alloc(qtc.libqt_string, reference.len) catch @panic("kcoreconfigskeleton::itempathlist.MaxValue: Memory allocation failed");
+        var reference_arr = allocator.alloc(qtc.libqt_string, reference.len) catch @panic("kcoreconfigskeleton::itempathlist.Property: Memory allocation failed");
         defer allocator.free(reference_arr);
         for (reference, 0..reference.len) |item, i| {
             reference_arr[i] = .{
@@ -3578,7 +7150,7 @@ pub const kcoreconfigskeleton__itempathlist = struct {
             .len = _key.len,
             .data = _key.ptr,
         };
-        var reference_arr = allocator.alloc(qtc.libqt_string, reference.len) catch @panic("kcoreconfigskeleton::itempathlist.MaxValue: Memory allocation failed");
+        var reference_arr = allocator.alloc(qtc.libqt_string, reference.len) catch @panic("kcoreconfigskeleton::itempathlist.Property: Memory allocation failed");
         defer allocator.free(reference_arr);
         for (reference, 0..reference.len) |item, i| {
             reference_arr[i] = .{
@@ -3590,7 +7162,7 @@ pub const kcoreconfigskeleton__itempathlist = struct {
             .len = reference.len,
             .data = reference_arr.ptr,
         };
-        var defaultValue_arr = allocator.alloc(qtc.libqt_string, defaultValue.len) catch @panic("kcoreconfigskeleton::itempathlist.MaxValue: Memory allocation failed");
+        var defaultValue_arr = allocator.alloc(qtc.libqt_string, defaultValue.len) catch @panic("kcoreconfigskeleton::itempathlist.Property: Memory allocation failed");
         defer allocator.free(defaultValue_arr);
         for (defaultValue, 0..defaultValue.len) |item, i| {
             defaultValue_arr[i] = .{
@@ -3760,6 +7332,339 @@ pub const kcoreconfigskeleton__itempathlist = struct {
     /// ``` self: QtC.KCoreConfigSkeleton__ItemPathList ```
     pub fn QDelete(self: ?*anyopaque) void {
         qtc.KCoreConfigSkeleton__ItemPathList_Delete(@ptrCast(self));
+    }
+};
+
+/// https://api.kde.org/kcoreconfigskeleton-itemurllist.html
+pub const kcoreconfigskeleton__itemurllist = struct {
+    /// New constructs a new KCoreConfigSkeleton::ItemUrlList object.
+    ///
+    /// ``` _group: []const u8, _key: []const u8, reference: []QtC.QUrl ```
+    pub fn New(_group: []const u8, _key: []const u8, reference: []QtC.QUrl) QtC.KCoreConfigSkeleton__ItemUrlList {
+        const _group_str = qtc.libqt_string{
+            .len = _group.len,
+            .data = _group.ptr,
+        };
+        const _key_str = qtc.libqt_string{
+            .len = _key.len,
+            .data = _key.ptr,
+        };
+        const reference_list = qtc.libqt_list{
+            .len = reference.len,
+            .data = @ptrCast(reference.ptr),
+        };
+
+        return qtc.KCoreConfigSkeleton__ItemUrlList_new(_group_str, _key_str, reference_list);
+    }
+
+    /// New2 constructs a new KCoreConfigSkeleton::ItemUrlList object.
+    ///
+    /// ``` _group: []const u8, _key: []const u8, reference: []QtC.QUrl, defaultValue: []QtC.QUrl ```
+    pub fn New2(_group: []const u8, _key: []const u8, reference: []QtC.QUrl, defaultValue: []QtC.QUrl) QtC.KCoreConfigSkeleton__ItemUrlList {
+        const _group_str = qtc.libqt_string{
+            .len = _group.len,
+            .data = _group.ptr,
+        };
+        const _key_str = qtc.libqt_string{
+            .len = _key.len,
+            .data = _key.ptr,
+        };
+        const reference_list = qtc.libqt_list{
+            .len = reference.len,
+            .data = @ptrCast(reference.ptr),
+        };
+        const defaultValue_list = qtc.libqt_list{
+            .len = defaultValue.len,
+            .data = @ptrCast(defaultValue.ptr),
+        };
+
+        return qtc.KCoreConfigSkeleton__ItemUrlList_new2(_group_str, _key_str, reference_list, defaultValue_list);
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemurllist.html#readConfig)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemUrlList, config: QtC.KConfig ```
+    pub fn ReadConfig(self: ?*anyopaque, config: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemUrlList_ReadConfig(@ptrCast(self), @ptrCast(config));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemurllist.html#readConfig)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemUrlList, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemUrlList, config: QtC.KConfig) callconv(.c) void ```
+    pub fn OnReadConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCoreConfigSkeleton__ItemUrlList_OnReadConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemurllist.html#readConfig)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemUrlList, config: QtC.KConfig ```
+    pub fn QBaseReadConfig(self: ?*anyopaque, config: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemUrlList_QBaseReadConfig(@ptrCast(self), @ptrCast(config));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemurllist.html#writeConfig)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemUrlList, config: QtC.KConfig ```
+    pub fn WriteConfig(self: ?*anyopaque, config: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemUrlList_WriteConfig(@ptrCast(self), @ptrCast(config));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemurllist.html#writeConfig)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemUrlList, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemUrlList, config: QtC.KConfig) callconv(.c) void ```
+    pub fn OnWriteConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCoreConfigSkeleton__ItemUrlList_OnWriteConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemurllist.html#writeConfig)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemUrlList, config: QtC.KConfig ```
+    pub fn QBaseWriteConfig(self: ?*anyopaque, config: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemUrlList_QBaseWriteConfig(@ptrCast(self), @ptrCast(config));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemurllist.html#setProperty)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemUrlList, p: QtC.QVariant ```
+    pub fn SetProperty(self: ?*anyopaque, p: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemUrlList_SetProperty(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemurllist.html#setProperty)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemUrlList, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemUrlList, p: QtC.QVariant) callconv(.c) void ```
+    pub fn OnSetProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCoreConfigSkeleton__ItemUrlList_OnSetProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemurllist.html#setProperty)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemUrlList, p: QtC.QVariant ```
+    pub fn QBaseSetProperty(self: ?*anyopaque, p: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemUrlList_QBaseSetProperty(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemurllist.html#isEqual)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemUrlList, p: QtC.QVariant ```
+    pub fn IsEqual(self: ?*anyopaque, p: ?*anyopaque) bool {
+        return qtc.KCoreConfigSkeleton__ItemUrlList_IsEqual(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemurllist.html#isEqual)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemUrlList, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemUrlList, p: QtC.QVariant) callconv(.c) bool ```
+    pub fn OnIsEqual(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KCoreConfigSkeleton__ItemUrlList_OnIsEqual(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemurllist.html#isEqual)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemUrlList, p: QtC.QVariant ```
+    pub fn QBaseIsEqual(self: ?*anyopaque, p: ?*anyopaque) bool {
+        return qtc.KCoreConfigSkeleton__ItemUrlList_QBaseIsEqual(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemurllist.html#property)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemUrlList ```
+    pub fn Property(self: ?*anyopaque) QtC.QVariant {
+        return qtc.KCoreConfigSkeleton__ItemUrlList_Property(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemurllist.html#property)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemUrlList, callback: *const fn () callconv(.c) QtC.QVariant ```
+    pub fn OnProperty(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
+        qtc.KCoreConfigSkeleton__ItemUrlList_OnProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemurllist.html#property)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemUrlList ```
+    pub fn QBaseProperty(self: ?*anyopaque) QtC.QVariant {
+        return qtc.KCoreConfigSkeleton__ItemUrlList_QBaseProperty(@ptrCast(self));
+    }
+
+    /// Delete this object from C++ memory.
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemUrlList ```
+    pub fn QDelete(self: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemUrlList_Delete(@ptrCast(self));
+    }
+};
+
+/// https://api.kde.org/kcoreconfigskeleton-itemintlist.html
+pub const kcoreconfigskeleton__itemintlist = struct {
+    /// New constructs a new KCoreConfigSkeleton::ItemIntList object.
+    ///
+    /// ``` _group: []const u8, _key: []const u8, reference: []i32 ```
+    pub fn New(_group: []const u8, _key: []const u8, reference: []i32) QtC.KCoreConfigSkeleton__ItemIntList {
+        const _group_str = qtc.libqt_string{
+            .len = _group.len,
+            .data = _group.ptr,
+        };
+        const _key_str = qtc.libqt_string{
+            .len = _key.len,
+            .data = _key.ptr,
+        };
+        const reference_list = qtc.libqt_list{
+            .len = reference.len,
+            .data = reference.ptr,
+        };
+
+        return qtc.KCoreConfigSkeleton__ItemIntList_new(_group_str, _key_str, reference_list);
+    }
+
+    /// New2 constructs a new KCoreConfigSkeleton::ItemIntList object.
+    ///
+    /// ``` _group: []const u8, _key: []const u8, reference: []i32, defaultValue: []i32 ```
+    pub fn New2(_group: []const u8, _key: []const u8, reference: []i32, defaultValue: []i32) QtC.KCoreConfigSkeleton__ItemIntList {
+        const _group_str = qtc.libqt_string{
+            .len = _group.len,
+            .data = _group.ptr,
+        };
+        const _key_str = qtc.libqt_string{
+            .len = _key.len,
+            .data = _key.ptr,
+        };
+        const reference_list = qtc.libqt_list{
+            .len = reference.len,
+            .data = reference.ptr,
+        };
+        const defaultValue_list = qtc.libqt_list{
+            .len = defaultValue.len,
+            .data = defaultValue.ptr,
+        };
+
+        return qtc.KCoreConfigSkeleton__ItemIntList_new2(_group_str, _key_str, reference_list, defaultValue_list);
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemintlist.html#readConfig)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemIntList, config: QtC.KConfig ```
+    pub fn ReadConfig(self: ?*anyopaque, config: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemIntList_ReadConfig(@ptrCast(self), @ptrCast(config));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemintlist.html#readConfig)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemIntList, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemIntList, config: QtC.KConfig) callconv(.c) void ```
+    pub fn OnReadConfig(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCoreConfigSkeleton__ItemIntList_OnReadConfig(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemintlist.html#readConfig)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemIntList, config: QtC.KConfig ```
+    pub fn QBaseReadConfig(self: ?*anyopaque, config: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemIntList_QBaseReadConfig(@ptrCast(self), @ptrCast(config));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemintlist.html#setProperty)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemIntList, p: QtC.QVariant ```
+    pub fn SetProperty(self: ?*anyopaque, p: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemIntList_SetProperty(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemintlist.html#setProperty)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemIntList, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemIntList, p: QtC.QVariant) callconv(.c) void ```
+    pub fn OnSetProperty(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) void) void {
+        qtc.KCoreConfigSkeleton__ItemIntList_OnSetProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemintlist.html#setProperty)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemIntList, p: QtC.QVariant ```
+    pub fn QBaseSetProperty(self: ?*anyopaque, p: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemIntList_QBaseSetProperty(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemintlist.html#isEqual)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemIntList, p: QtC.QVariant ```
+    pub fn IsEqual(self: ?*anyopaque, p: ?*anyopaque) bool {
+        return qtc.KCoreConfigSkeleton__ItemIntList_IsEqual(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemintlist.html#isEqual)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemIntList, callback: *const fn (self: QtC.KCoreConfigSkeleton__ItemIntList, p: QtC.QVariant) callconv(.c) bool ```
+    pub fn OnIsEqual(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) bool) void {
+        qtc.KCoreConfigSkeleton__ItemIntList_OnIsEqual(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemintlist.html#isEqual)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemIntList, p: QtC.QVariant ```
+    pub fn QBaseIsEqual(self: ?*anyopaque, p: ?*anyopaque) bool {
+        return qtc.KCoreConfigSkeleton__ItemIntList_QBaseIsEqual(@ptrCast(self), @ptrCast(p));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemintlist.html#property)
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemIntList ```
+    pub fn Property(self: ?*anyopaque) QtC.QVariant {
+        return qtc.KCoreConfigSkeleton__ItemIntList_Property(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemintlist.html#property)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemIntList, callback: *const fn () callconv(.c) QtC.QVariant ```
+    pub fn OnProperty(self: ?*anyopaque, callback: *const fn () callconv(.c) QtC.QVariant) void {
+        qtc.KCoreConfigSkeleton__ItemIntList_OnProperty(@ptrCast(self), @intCast(@intFromPtr(callback)));
+    }
+
+    /// [Qt documentation](https://api.kde.org/kcoreconfigskeleton-itemintlist.html#property)
+    ///
+    /// Base class method implementation
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemIntList ```
+    pub fn QBaseProperty(self: ?*anyopaque) QtC.QVariant {
+        return qtc.KCoreConfigSkeleton__ItemIntList_QBaseProperty(@ptrCast(self));
+    }
+
+    /// Delete this object from C++ memory.
+    ///
+    /// ``` self: QtC.KCoreConfigSkeleton__ItemIntList ```
+    pub fn QDelete(self: ?*anyopaque) void {
+        qtc.KCoreConfigSkeleton__ItemIntList_Delete(@ptrCast(self));
     }
 };
 

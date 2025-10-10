@@ -20,6 +20,7 @@ class VirtualKShellCompletion final : public KShellCompletion {
     using KShellCompletion_Metacall_Callback = int (*)(KShellCompletion*, int, int, void**);
     using KShellCompletion_MakeCompletion_Callback = const char* (*)(KShellCompletion*, libqt_string);
     using KShellCompletion_PostProcessMatches_Callback = void (*)(const KShellCompletion*, libqt_list /* of libqt_string */);
+    using KShellCompletion_PostProcessMatches2_Callback = void (*)(const KShellCompletion*, KCompletionMatches*);
     using KShellCompletion_SetDir_Callback = void (*)(KShellCompletion*, QUrl*);
     using KShellCompletion_Dir_Callback = QUrl* (*)();
     using KShellCompletion_IsRunning_Callback = bool (*)();
@@ -55,6 +56,7 @@ class VirtualKShellCompletion final : public KShellCompletion {
     KShellCompletion_Metacall_Callback kshellcompletion_metacall_callback = nullptr;
     KShellCompletion_MakeCompletion_Callback kshellcompletion_makecompletion_callback = nullptr;
     KShellCompletion_PostProcessMatches_Callback kshellcompletion_postprocessmatches_callback = nullptr;
+    KShellCompletion_PostProcessMatches2_Callback kshellcompletion_postprocessmatches2_callback = nullptr;
     KShellCompletion_SetDir_Callback kshellcompletion_setdir_callback = nullptr;
     KShellCompletion_Dir_Callback kshellcompletion_dir_callback = nullptr;
     KShellCompletion_IsRunning_Callback kshellcompletion_isrunning_callback = nullptr;
@@ -89,6 +91,7 @@ class VirtualKShellCompletion final : public KShellCompletion {
     mutable bool kshellcompletion_metacall_isbase = false;
     mutable bool kshellcompletion_makecompletion_isbase = false;
     mutable bool kshellcompletion_postprocessmatches_isbase = false;
+    mutable bool kshellcompletion_postprocessmatches2_isbase = false;
     mutable bool kshellcompletion_setdir_isbase = false;
     mutable bool kshellcompletion_dir_isbase = false;
     mutable bool kshellcompletion_isrunning_isbase = false;
@@ -126,6 +129,7 @@ class VirtualKShellCompletion final : public KShellCompletion {
         kshellcompletion_metacall_callback = nullptr;
         kshellcompletion_makecompletion_callback = nullptr;
         kshellcompletion_postprocessmatches_callback = nullptr;
+        kshellcompletion_postprocessmatches2_callback = nullptr;
         kshellcompletion_setdir_callback = nullptr;
         kshellcompletion_dir_callback = nullptr;
         kshellcompletion_isrunning_callback = nullptr;
@@ -161,6 +165,7 @@ class VirtualKShellCompletion final : public KShellCompletion {
     inline void setKShellCompletion_Metacall_Callback(KShellCompletion_Metacall_Callback cb) { kshellcompletion_metacall_callback = cb; }
     inline void setKShellCompletion_MakeCompletion_Callback(KShellCompletion_MakeCompletion_Callback cb) { kshellcompletion_makecompletion_callback = cb; }
     inline void setKShellCompletion_PostProcessMatches_Callback(KShellCompletion_PostProcessMatches_Callback cb) { kshellcompletion_postprocessmatches_callback = cb; }
+    inline void setKShellCompletion_PostProcessMatches2_Callback(KShellCompletion_PostProcessMatches2_Callback cb) { kshellcompletion_postprocessmatches2_callback = cb; }
     inline void setKShellCompletion_SetDir_Callback(KShellCompletion_SetDir_Callback cb) { kshellcompletion_setdir_callback = cb; }
     inline void setKShellCompletion_Dir_Callback(KShellCompletion_Dir_Callback cb) { kshellcompletion_dir_callback = cb; }
     inline void setKShellCompletion_IsRunning_Callback(KShellCompletion_IsRunning_Callback cb) { kshellcompletion_isrunning_callback = cb; }
@@ -195,6 +200,7 @@ class VirtualKShellCompletion final : public KShellCompletion {
     inline void setKShellCompletion_Metacall_IsBase(bool value) const { kshellcompletion_metacall_isbase = value; }
     inline void setKShellCompletion_MakeCompletion_IsBase(bool value) const { kshellcompletion_makecompletion_isbase = value; }
     inline void setKShellCompletion_PostProcessMatches_IsBase(bool value) const { kshellcompletion_postprocessmatches_isbase = value; }
+    inline void setKShellCompletion_PostProcessMatches2_IsBase(bool value) const { kshellcompletion_postprocessmatches2_isbase = value; }
     inline void setKShellCompletion_SetDir_IsBase(bool value) const { kshellcompletion_setdir_isbase = value; }
     inline void setKShellCompletion_Dir_IsBase(bool value) const { kshellcompletion_dir_isbase = value; }
     inline void setKShellCompletion_IsRunning_IsBase(bool value) const { kshellcompletion_isrunning_isbase = value; }
@@ -292,6 +298,20 @@ class VirtualKShellCompletion final : public KShellCompletion {
             libqt_list /* of libqt_string */ cbval1 = matches_out;
 
             kshellcompletion_postprocessmatches_callback(this, cbval1);
+        } else {
+            KShellCompletion::postProcessMatches(matches);
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void postProcessMatches(KCompletionMatches* matches) const override {
+        if (kshellcompletion_postprocessmatches2_isbase) {
+            kshellcompletion_postprocessmatches2_isbase = false;
+            KShellCompletion::postProcessMatches(matches);
+        } else if (kshellcompletion_postprocessmatches2_callback != nullptr) {
+            KCompletionMatches* cbval1 = matches;
+
+            kshellcompletion_postprocessmatches2_callback(this, cbval1);
         } else {
             KShellCompletion::postProcessMatches(matches);
         }
@@ -725,6 +745,8 @@ class VirtualKShellCompletion final : public KShellCompletion {
     // Friend functions
     friend void KShellCompletion_PostProcessMatches(const KShellCompletion* self, libqt_list /* of libqt_string */ matches);
     friend void KShellCompletion_QBasePostProcessMatches(const KShellCompletion* self, libqt_list /* of libqt_string */ matches);
+    friend void KShellCompletion_PostProcessMatches2(const KShellCompletion* self, KCompletionMatches* matches);
+    friend void KShellCompletion_QBasePostProcessMatches2(const KShellCompletion* self, KCompletionMatches* matches);
     friend void KShellCompletion_TimerEvent(KShellCompletion* self, QTimerEvent* event);
     friend void KShellCompletion_QBaseTimerEvent(KShellCompletion* self, QTimerEvent* event);
     friend void KShellCompletion_ChildEvent(KShellCompletion* self, QChildEvent* event);

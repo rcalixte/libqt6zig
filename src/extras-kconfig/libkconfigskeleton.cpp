@@ -1,7 +1,12 @@
+#include <KConfig>
 #include <KConfigSkeleton>
+#define WORKAROUND_INNER_CLASS_DEFINITION_KConfigSkeleton__ItemColor
+#define WORKAROUND_INNER_CLASS_DEFINITION_KConfigSkeleton__ItemFont
 #include <KCoreConfigSkeleton>
 #include <QChildEvent>
+#include <QColor>
 #include <QEvent>
+#include <QFont>
 #include <QMetaMethod>
 #include <QMetaObject>
 #include <QObject>
@@ -9,6 +14,7 @@
 #include <QByteArray>
 #include <cstring>
 #include <QTimerEvent>
+#include <QVariant>
 #include <kconfigskeleton.h>
 #include "libkconfigskeleton.h"
 #include "libkconfigskeleton.hxx"
@@ -56,6 +62,16 @@ libqt_string KConfigSkeleton_Tr(const char* s) {
     return _str;
 }
 
+KConfigSkeleton__ItemColor* KConfigSkeleton_AddItemColor(KConfigSkeleton* self, const libqt_string name, QColor* reference) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    return self->addItemColor(name_QString, *reference);
+}
+
+KConfigSkeleton__ItemFont* KConfigSkeleton_AddItemFont(KConfigSkeleton* self, const libqt_string name, QFont* reference) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    return self->addItemFont(name_QString, *reference);
+}
+
 libqt_string KConfigSkeleton_Tr2(const char* s, const char* c) {
     QString _ret = KConfigSkeleton::tr(s, c);
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -78,6 +94,28 @@ libqt_string KConfigSkeleton_Tr3(const char* s, const char* c, int n) {
     memcpy((void*)_str.data, _b.data(), _str.len);
     ((char*)_str.data)[_str.len] = '\0';
     return _str;
+}
+
+KConfigSkeleton__ItemColor* KConfigSkeleton_AddItemColor3(KConfigSkeleton* self, const libqt_string name, QColor* reference, const QColor* defaultValue) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    return self->addItemColor(name_QString, *reference, *defaultValue);
+}
+
+KConfigSkeleton__ItemColor* KConfigSkeleton_AddItemColor4(KConfigSkeleton* self, const libqt_string name, QColor* reference, const QColor* defaultValue, const libqt_string key) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    QString key_QString = QString::fromUtf8(key.data, key.len);
+    return self->addItemColor(name_QString, *reference, *defaultValue, key_QString);
+}
+
+KConfigSkeleton__ItemFont* KConfigSkeleton_AddItemFont3(KConfigSkeleton* self, const libqt_string name, QFont* reference, const QFont* defaultValue) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    return self->addItemFont(name_QString, *reference, *defaultValue);
+}
+
+KConfigSkeleton__ItemFont* KConfigSkeleton_AddItemFont4(KConfigSkeleton* self, const libqt_string name, QFont* reference, const QFont* defaultValue, const libqt_string key) {
+    QString name_QString = QString::fromUtf8(name.data, name.len);
+    QString key_QString = QString::fromUtf8(key.data, key.len);
+    return self->addItemFont(name_QString, *reference, *defaultValue, key_QString);
 }
 
 // Base class handler implementation
@@ -593,5 +631,261 @@ void KConfigSkeleton_OnIsSignalConnected(const KConfigSkeleton* self, intptr_t s
 }
 
 void KConfigSkeleton_Delete(KConfigSkeleton* self) {
+    delete self;
+}
+
+KConfigSkeleton__ItemColor* KConfigSkeleton__ItemColor_new(const libqt_string _group, const libqt_string _key, QColor* reference) {
+    QString _group_QString = QString::fromUtf8(_group.data, _group.len);
+    QString _key_QString = QString::fromUtf8(_key.data, _key.len);
+    return new VirtualKConfigSkeletonItemColor(_group_QString, _key_QString, *reference);
+}
+
+KConfigSkeleton__ItemColor* KConfigSkeleton__ItemColor_new2(const libqt_string _group, const libqt_string _key, QColor* reference, const QColor* defaultValue) {
+    QString _group_QString = QString::fromUtf8(_group.data, _group.len);
+    QString _key_QString = QString::fromUtf8(_key.data, _key.len);
+    return new VirtualKConfigSkeletonItemColor(_group_QString, _key_QString, *reference, *defaultValue);
+}
+
+void KConfigSkeleton__ItemColor_ReadConfig(KConfigSkeleton__ItemColor* self, KConfig* config) {
+    auto* vkconfigskeleton__itemcolor = dynamic_cast<VirtualKConfigSkeletonItemColor*>(self);
+    if (vkconfigskeleton__itemcolor && vkconfigskeleton__itemcolor->isVirtualKConfigSkeletonItemColor) {
+        self->readConfig(config);
+    } else {
+        ((VirtualKConfigSkeletonItemColor*)self)->readConfig(config);
+    }
+}
+
+void KConfigSkeleton__ItemColor_SetProperty(KConfigSkeleton__ItemColor* self, const QVariant* p) {
+    auto* vkconfigskeleton__itemcolor = dynamic_cast<VirtualKConfigSkeletonItemColor*>(self);
+    if (vkconfigskeleton__itemcolor && vkconfigskeleton__itemcolor->isVirtualKConfigSkeletonItemColor) {
+        self->setProperty(*p);
+    } else {
+        ((VirtualKConfigSkeletonItemColor*)self)->setProperty(*p);
+    }
+}
+
+bool KConfigSkeleton__ItemColor_IsEqual(const KConfigSkeleton__ItemColor* self, const QVariant* p) {
+    auto* vkconfigskeleton__itemcolor = dynamic_cast<const VirtualKConfigSkeletonItemColor*>(self);
+    if (vkconfigskeleton__itemcolor && vkconfigskeleton__itemcolor->isVirtualKConfigSkeletonItemColor) {
+        return self->isEqual(*p);
+    } else {
+        return ((VirtualKConfigSkeletonItemColor*)self)->isEqual(*p);
+    }
+}
+
+QVariant* KConfigSkeleton__ItemColor_Property(const KConfigSkeleton__ItemColor* self) {
+    auto* vkconfigskeleton__itemcolor = dynamic_cast<const VirtualKConfigSkeletonItemColor*>(self);
+    if (vkconfigskeleton__itemcolor && vkconfigskeleton__itemcolor->isVirtualKConfigSkeletonItemColor) {
+        return new QVariant(self->property());
+    } else {
+        return new QVariant(((VirtualKConfigSkeletonItemColor*)self)->property());
+    }
+}
+
+// Base class handler implementation
+void KConfigSkeleton__ItemColor_QBaseReadConfig(KConfigSkeleton__ItemColor* self, KConfig* config) {
+    auto* vkconfigskeletonitemcolor = dynamic_cast<VirtualKConfigSkeletonItemColor*>(self);
+    if (vkconfigskeletonitemcolor && vkconfigskeletonitemcolor->isVirtualKConfigSkeletonItemColor) {
+        vkconfigskeletonitemcolor->setKConfigSkeleton__ItemColor_ReadConfig_IsBase(true);
+        vkconfigskeletonitemcolor->readConfig(config);
+    } else {
+        self->KConfigSkeleton::ItemColor::readConfig(config);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KConfigSkeleton__ItemColor_OnReadConfig(KConfigSkeleton__ItemColor* self, intptr_t slot) {
+    auto* vkconfigskeletonitemcolor = dynamic_cast<VirtualKConfigSkeletonItemColor*>(self);
+    if (vkconfigskeletonitemcolor && vkconfigskeletonitemcolor->isVirtualKConfigSkeletonItemColor) {
+        vkconfigskeletonitemcolor->setKConfigSkeleton__ItemColor_ReadConfig_Callback(reinterpret_cast<VirtualKConfigSkeletonItemColor::KConfigSkeleton__ItemColor_ReadConfig_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KConfigSkeleton__ItemColor_QBaseSetProperty(KConfigSkeleton__ItemColor* self, const QVariant* p) {
+    auto* vkconfigskeletonitemcolor = dynamic_cast<VirtualKConfigSkeletonItemColor*>(self);
+    if (vkconfigskeletonitemcolor && vkconfigskeletonitemcolor->isVirtualKConfigSkeletonItemColor) {
+        vkconfigskeletonitemcolor->setKConfigSkeleton__ItemColor_SetProperty_IsBase(true);
+        vkconfigskeletonitemcolor->setProperty(*p);
+    } else {
+        self->KConfigSkeleton::ItemColor::setProperty(*p);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KConfigSkeleton__ItemColor_OnSetProperty(KConfigSkeleton__ItemColor* self, intptr_t slot) {
+    auto* vkconfigskeletonitemcolor = dynamic_cast<VirtualKConfigSkeletonItemColor*>(self);
+    if (vkconfigskeletonitemcolor && vkconfigskeletonitemcolor->isVirtualKConfigSkeletonItemColor) {
+        vkconfigskeletonitemcolor->setKConfigSkeleton__ItemColor_SetProperty_Callback(reinterpret_cast<VirtualKConfigSkeletonItemColor::KConfigSkeleton__ItemColor_SetProperty_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool KConfigSkeleton__ItemColor_QBaseIsEqual(const KConfigSkeleton__ItemColor* self, const QVariant* p) {
+    auto* vkconfigskeletonitemcolor = const_cast<VirtualKConfigSkeletonItemColor*>(dynamic_cast<const VirtualKConfigSkeletonItemColor*>(self));
+    if (vkconfigskeletonitemcolor && vkconfigskeletonitemcolor->isVirtualKConfigSkeletonItemColor) {
+        vkconfigskeletonitemcolor->setKConfigSkeleton__ItemColor_IsEqual_IsBase(true);
+        return vkconfigskeletonitemcolor->isEqual(*p);
+    } else {
+        return self->KConfigSkeleton::ItemColor::isEqual(*p);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KConfigSkeleton__ItemColor_OnIsEqual(const KConfigSkeleton__ItemColor* self, intptr_t slot) {
+    auto* vkconfigskeletonitemcolor = const_cast<VirtualKConfigSkeletonItemColor*>(dynamic_cast<const VirtualKConfigSkeletonItemColor*>(self));
+    if (vkconfigskeletonitemcolor && vkconfigskeletonitemcolor->isVirtualKConfigSkeletonItemColor) {
+        vkconfigskeletonitemcolor->setKConfigSkeleton__ItemColor_IsEqual_Callback(reinterpret_cast<VirtualKConfigSkeletonItemColor::KConfigSkeleton__ItemColor_IsEqual_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QVariant* KConfigSkeleton__ItemColor_QBaseProperty(const KConfigSkeleton__ItemColor* self) {
+    auto* vkconfigskeletonitemcolor = const_cast<VirtualKConfigSkeletonItemColor*>(dynamic_cast<const VirtualKConfigSkeletonItemColor*>(self));
+    if (vkconfigskeletonitemcolor && vkconfigskeletonitemcolor->isVirtualKConfigSkeletonItemColor) {
+        vkconfigskeletonitemcolor->setKConfigSkeleton__ItemColor_Property_IsBase(true);
+        return new QVariant(vkconfigskeletonitemcolor->property());
+    } else {
+        return new QVariant(((VirtualKConfigSkeletonItemColor*)self)->property());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KConfigSkeleton__ItemColor_OnProperty(const KConfigSkeleton__ItemColor* self, intptr_t slot) {
+    auto* vkconfigskeletonitemcolor = const_cast<VirtualKConfigSkeletonItemColor*>(dynamic_cast<const VirtualKConfigSkeletonItemColor*>(self));
+    if (vkconfigskeletonitemcolor && vkconfigskeletonitemcolor->isVirtualKConfigSkeletonItemColor) {
+        vkconfigskeletonitemcolor->setKConfigSkeleton__ItemColor_Property_Callback(reinterpret_cast<VirtualKConfigSkeletonItemColor::KConfigSkeleton__ItemColor_Property_Callback>(slot));
+    }
+}
+
+void KConfigSkeleton__ItemColor_Delete(KConfigSkeleton__ItemColor* self) {
+    delete self;
+}
+
+KConfigSkeleton__ItemFont* KConfigSkeleton__ItemFont_new(const libqt_string _group, const libqt_string _key, QFont* reference) {
+    QString _group_QString = QString::fromUtf8(_group.data, _group.len);
+    QString _key_QString = QString::fromUtf8(_key.data, _key.len);
+    return new VirtualKConfigSkeletonItemFont(_group_QString, _key_QString, *reference);
+}
+
+KConfigSkeleton__ItemFont* KConfigSkeleton__ItemFont_new2(const libqt_string _group, const libqt_string _key, QFont* reference, const QFont* defaultValue) {
+    QString _group_QString = QString::fromUtf8(_group.data, _group.len);
+    QString _key_QString = QString::fromUtf8(_key.data, _key.len);
+    return new VirtualKConfigSkeletonItemFont(_group_QString, _key_QString, *reference, *defaultValue);
+}
+
+void KConfigSkeleton__ItemFont_ReadConfig(KConfigSkeleton__ItemFont* self, KConfig* config) {
+    auto* vkconfigskeleton__itemfont = dynamic_cast<VirtualKConfigSkeletonItemFont*>(self);
+    if (vkconfigskeleton__itemfont && vkconfigskeleton__itemfont->isVirtualKConfigSkeletonItemFont) {
+        self->readConfig(config);
+    } else {
+        ((VirtualKConfigSkeletonItemFont*)self)->readConfig(config);
+    }
+}
+
+void KConfigSkeleton__ItemFont_SetProperty(KConfigSkeleton__ItemFont* self, const QVariant* p) {
+    auto* vkconfigskeleton__itemfont = dynamic_cast<VirtualKConfigSkeletonItemFont*>(self);
+    if (vkconfigskeleton__itemfont && vkconfigskeleton__itemfont->isVirtualKConfigSkeletonItemFont) {
+        self->setProperty(*p);
+    } else {
+        ((VirtualKConfigSkeletonItemFont*)self)->setProperty(*p);
+    }
+}
+
+bool KConfigSkeleton__ItemFont_IsEqual(const KConfigSkeleton__ItemFont* self, const QVariant* p) {
+    auto* vkconfigskeleton__itemfont = dynamic_cast<const VirtualKConfigSkeletonItemFont*>(self);
+    if (vkconfigskeleton__itemfont && vkconfigskeleton__itemfont->isVirtualKConfigSkeletonItemFont) {
+        return self->isEqual(*p);
+    } else {
+        return ((VirtualKConfigSkeletonItemFont*)self)->isEqual(*p);
+    }
+}
+
+QVariant* KConfigSkeleton__ItemFont_Property(const KConfigSkeleton__ItemFont* self) {
+    auto* vkconfigskeleton__itemfont = dynamic_cast<const VirtualKConfigSkeletonItemFont*>(self);
+    if (vkconfigskeleton__itemfont && vkconfigskeleton__itemfont->isVirtualKConfigSkeletonItemFont) {
+        return new QVariant(self->property());
+    } else {
+        return new QVariant(((VirtualKConfigSkeletonItemFont*)self)->property());
+    }
+}
+
+// Base class handler implementation
+void KConfigSkeleton__ItemFont_QBaseReadConfig(KConfigSkeleton__ItemFont* self, KConfig* config) {
+    auto* vkconfigskeletonitemfont = dynamic_cast<VirtualKConfigSkeletonItemFont*>(self);
+    if (vkconfigskeletonitemfont && vkconfigskeletonitemfont->isVirtualKConfigSkeletonItemFont) {
+        vkconfigskeletonitemfont->setKConfigSkeleton__ItemFont_ReadConfig_IsBase(true);
+        vkconfigskeletonitemfont->readConfig(config);
+    } else {
+        self->KConfigSkeleton::ItemFont::readConfig(config);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KConfigSkeleton__ItemFont_OnReadConfig(KConfigSkeleton__ItemFont* self, intptr_t slot) {
+    auto* vkconfigskeletonitemfont = dynamic_cast<VirtualKConfigSkeletonItemFont*>(self);
+    if (vkconfigskeletonitemfont && vkconfigskeletonitemfont->isVirtualKConfigSkeletonItemFont) {
+        vkconfigskeletonitemfont->setKConfigSkeleton__ItemFont_ReadConfig_Callback(reinterpret_cast<VirtualKConfigSkeletonItemFont::KConfigSkeleton__ItemFont_ReadConfig_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KConfigSkeleton__ItemFont_QBaseSetProperty(KConfigSkeleton__ItemFont* self, const QVariant* p) {
+    auto* vkconfigskeletonitemfont = dynamic_cast<VirtualKConfigSkeletonItemFont*>(self);
+    if (vkconfigskeletonitemfont && vkconfigskeletonitemfont->isVirtualKConfigSkeletonItemFont) {
+        vkconfigskeletonitemfont->setKConfigSkeleton__ItemFont_SetProperty_IsBase(true);
+        vkconfigskeletonitemfont->setProperty(*p);
+    } else {
+        self->KConfigSkeleton::ItemFont::setProperty(*p);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KConfigSkeleton__ItemFont_OnSetProperty(KConfigSkeleton__ItemFont* self, intptr_t slot) {
+    auto* vkconfigskeletonitemfont = dynamic_cast<VirtualKConfigSkeletonItemFont*>(self);
+    if (vkconfigskeletonitemfont && vkconfigskeletonitemfont->isVirtualKConfigSkeletonItemFont) {
+        vkconfigskeletonitemfont->setKConfigSkeleton__ItemFont_SetProperty_Callback(reinterpret_cast<VirtualKConfigSkeletonItemFont::KConfigSkeleton__ItemFont_SetProperty_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+bool KConfigSkeleton__ItemFont_QBaseIsEqual(const KConfigSkeleton__ItemFont* self, const QVariant* p) {
+    auto* vkconfigskeletonitemfont = const_cast<VirtualKConfigSkeletonItemFont*>(dynamic_cast<const VirtualKConfigSkeletonItemFont*>(self));
+    if (vkconfigskeletonitemfont && vkconfigskeletonitemfont->isVirtualKConfigSkeletonItemFont) {
+        vkconfigskeletonitemfont->setKConfigSkeleton__ItemFont_IsEqual_IsBase(true);
+        return vkconfigskeletonitemfont->isEqual(*p);
+    } else {
+        return self->KConfigSkeleton::ItemFont::isEqual(*p);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KConfigSkeleton__ItemFont_OnIsEqual(const KConfigSkeleton__ItemFont* self, intptr_t slot) {
+    auto* vkconfigskeletonitemfont = const_cast<VirtualKConfigSkeletonItemFont*>(dynamic_cast<const VirtualKConfigSkeletonItemFont*>(self));
+    if (vkconfigskeletonitemfont && vkconfigskeletonitemfont->isVirtualKConfigSkeletonItemFont) {
+        vkconfigskeletonitemfont->setKConfigSkeleton__ItemFont_IsEqual_Callback(reinterpret_cast<VirtualKConfigSkeletonItemFont::KConfigSkeleton__ItemFont_IsEqual_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+QVariant* KConfigSkeleton__ItemFont_QBaseProperty(const KConfigSkeleton__ItemFont* self) {
+    auto* vkconfigskeletonitemfont = const_cast<VirtualKConfigSkeletonItemFont*>(dynamic_cast<const VirtualKConfigSkeletonItemFont*>(self));
+    if (vkconfigskeletonitemfont && vkconfigskeletonitemfont->isVirtualKConfigSkeletonItemFont) {
+        vkconfigskeletonitemfont->setKConfigSkeleton__ItemFont_Property_IsBase(true);
+        return new QVariant(vkconfigskeletonitemfont->property());
+    } else {
+        return new QVariant(((VirtualKConfigSkeletonItemFont*)self)->property());
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KConfigSkeleton__ItemFont_OnProperty(const KConfigSkeleton__ItemFont* self, intptr_t slot) {
+    auto* vkconfigskeletonitemfont = const_cast<VirtualKConfigSkeletonItemFont*>(dynamic_cast<const VirtualKConfigSkeletonItemFont*>(self));
+    if (vkconfigskeletonitemfont && vkconfigskeletonitemfont->isVirtualKConfigSkeletonItemFont) {
+        vkconfigskeletonitemfont->setKConfigSkeleton__ItemFont_Property_Callback(reinterpret_cast<VirtualKConfigSkeletonItemFont::KConfigSkeleton__ItemFont_Property_Callback>(slot));
+    }
+}
+
+void KConfigSkeleton__ItemFont_Delete(KConfigSkeleton__ItemFont* self) {
     delete self;
 }

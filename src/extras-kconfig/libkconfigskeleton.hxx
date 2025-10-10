@@ -431,4 +431,224 @@ class VirtualKConfigSkeleton final : public KConfigSkeleton {
     friend bool KConfigSkeleton_QBaseIsSignalConnected(const KConfigSkeleton* self, const QMetaMethod* signal);
 };
 
+// This class is a subclass of KConfigSkeleton::ItemColor so that we can call protected methods
+class VirtualKConfigSkeletonItemColor final : public KConfigSkeleton::ItemColor {
+
+  public:
+    // Virtual class boolean flag
+    bool isVirtualKConfigSkeletonItemColor = true;
+
+    // Virtual class public types (including callbacks)
+    using KConfigSkeleton__ItemColor_ReadConfig_Callback = void (*)(KConfigSkeleton__ItemColor*, KConfig*);
+    using KConfigSkeleton__ItemColor_SetProperty_Callback = void (*)(KConfigSkeleton__ItemColor*, QVariant*);
+    using KConfigSkeleton__ItemColor_IsEqual_Callback = bool (*)(const KConfigSkeleton__ItemColor*, QVariant*);
+    using KConfigSkeleton__ItemColor_Property_Callback = QVariant* (*)();
+
+  protected:
+    // Instance callback storage
+    KConfigSkeleton__ItemColor_ReadConfig_Callback kconfigskeleton__itemcolor_readconfig_callback = nullptr;
+    KConfigSkeleton__ItemColor_SetProperty_Callback kconfigskeleton__itemcolor_setproperty_callback = nullptr;
+    KConfigSkeleton__ItemColor_IsEqual_Callback kconfigskeleton__itemcolor_isequal_callback = nullptr;
+    KConfigSkeleton__ItemColor_Property_Callback kconfigskeleton__itemcolor_property_callback = nullptr;
+
+    // Instance base flags
+    mutable bool kconfigskeleton__itemcolor_readconfig_isbase = false;
+    mutable bool kconfigskeleton__itemcolor_setproperty_isbase = false;
+    mutable bool kconfigskeleton__itemcolor_isequal_isbase = false;
+    mutable bool kconfigskeleton__itemcolor_property_isbase = false;
+
+  public:
+    VirtualKConfigSkeletonItemColor(const QString& _group, const QString& _key, QColor& reference) : KConfigSkeleton::ItemColor(_group, _key, reference) {};
+    VirtualKConfigSkeletonItemColor(const QString& _group, const QString& _key, QColor& reference, const QColor& defaultValue) : KConfigSkeleton::ItemColor(_group, _key, reference, defaultValue) {};
+
+    ~VirtualKConfigSkeletonItemColor() {
+        kconfigskeleton__itemcolor_readconfig_callback = nullptr;
+        kconfigskeleton__itemcolor_setproperty_callback = nullptr;
+        kconfigskeleton__itemcolor_isequal_callback = nullptr;
+        kconfigskeleton__itemcolor_property_callback = nullptr;
+    }
+
+    // Callback setters
+    inline void setKConfigSkeleton__ItemColor_ReadConfig_Callback(KConfigSkeleton__ItemColor_ReadConfig_Callback cb) { kconfigskeleton__itemcolor_readconfig_callback = cb; }
+    inline void setKConfigSkeleton__ItemColor_SetProperty_Callback(KConfigSkeleton__ItemColor_SetProperty_Callback cb) { kconfigskeleton__itemcolor_setproperty_callback = cb; }
+    inline void setKConfigSkeleton__ItemColor_IsEqual_Callback(KConfigSkeleton__ItemColor_IsEqual_Callback cb) { kconfigskeleton__itemcolor_isequal_callback = cb; }
+    inline void setKConfigSkeleton__ItemColor_Property_Callback(KConfigSkeleton__ItemColor_Property_Callback cb) { kconfigskeleton__itemcolor_property_callback = cb; }
+
+    // Base flag setters
+    inline void setKConfigSkeleton__ItemColor_ReadConfig_IsBase(bool value) const { kconfigskeleton__itemcolor_readconfig_isbase = value; }
+    inline void setKConfigSkeleton__ItemColor_SetProperty_IsBase(bool value) const { kconfigskeleton__itemcolor_setproperty_isbase = value; }
+    inline void setKConfigSkeleton__ItemColor_IsEqual_IsBase(bool value) const { kconfigskeleton__itemcolor_isequal_isbase = value; }
+    inline void setKConfigSkeleton__ItemColor_Property_IsBase(bool value) const { kconfigskeleton__itemcolor_property_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void readConfig(KConfig* config) override {
+        if (kconfigskeleton__itemcolor_readconfig_isbase) {
+            kconfigskeleton__itemcolor_readconfig_isbase = false;
+            KConfigSkeleton__ItemColor::readConfig(config);
+        } else if (kconfigskeleton__itemcolor_readconfig_callback != nullptr) {
+            KConfig* cbval1 = config;
+
+            kconfigskeleton__itemcolor_readconfig_callback(this, cbval1);
+        } else {
+            KConfigSkeleton__ItemColor::readConfig(config);
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void setProperty(const QVariant& p) override {
+        if (kconfigskeleton__itemcolor_setproperty_isbase) {
+            kconfigskeleton__itemcolor_setproperty_isbase = false;
+            KConfigSkeleton__ItemColor::setProperty(p);
+        } else if (kconfigskeleton__itemcolor_setproperty_callback != nullptr) {
+            const QVariant& p_ret = p;
+            // Cast returned reference into pointer
+            QVariant* cbval1 = const_cast<QVariant*>(&p_ret);
+
+            kconfigskeleton__itemcolor_setproperty_callback(this, cbval1);
+        } else {
+            KConfigSkeleton__ItemColor::setProperty(p);
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual bool isEqual(const QVariant& p) const override {
+        if (kconfigskeleton__itemcolor_isequal_isbase) {
+            kconfigskeleton__itemcolor_isequal_isbase = false;
+            return KConfigSkeleton__ItemColor::isEqual(p);
+        } else if (kconfigskeleton__itemcolor_isequal_callback != nullptr) {
+            const QVariant& p_ret = p;
+            // Cast returned reference into pointer
+            QVariant* cbval1 = const_cast<QVariant*>(&p_ret);
+
+            bool callback_ret = kconfigskeleton__itemcolor_isequal_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KConfigSkeleton__ItemColor::isEqual(p);
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual QVariant property() const override {
+        if (kconfigskeleton__itemcolor_property_isbase) {
+            kconfigskeleton__itemcolor_property_isbase = false;
+            return KConfigSkeleton__ItemColor::property();
+        } else if (kconfigskeleton__itemcolor_property_callback != nullptr) {
+            QVariant* callback_ret = kconfigskeleton__itemcolor_property_callback();
+            return *callback_ret;
+        } else {
+            return KConfigSkeleton__ItemColor::property();
+        }
+    }
+};
+
+// This class is a subclass of KConfigSkeleton::ItemFont so that we can call protected methods
+class VirtualKConfigSkeletonItemFont final : public KConfigSkeleton::ItemFont {
+
+  public:
+    // Virtual class boolean flag
+    bool isVirtualKConfigSkeletonItemFont = true;
+
+    // Virtual class public types (including callbacks)
+    using KConfigSkeleton__ItemFont_ReadConfig_Callback = void (*)(KConfigSkeleton__ItemFont*, KConfig*);
+    using KConfigSkeleton__ItemFont_SetProperty_Callback = void (*)(KConfigSkeleton__ItemFont*, QVariant*);
+    using KConfigSkeleton__ItemFont_IsEqual_Callback = bool (*)(const KConfigSkeleton__ItemFont*, QVariant*);
+    using KConfigSkeleton__ItemFont_Property_Callback = QVariant* (*)();
+
+  protected:
+    // Instance callback storage
+    KConfigSkeleton__ItemFont_ReadConfig_Callback kconfigskeleton__itemfont_readconfig_callback = nullptr;
+    KConfigSkeleton__ItemFont_SetProperty_Callback kconfigskeleton__itemfont_setproperty_callback = nullptr;
+    KConfigSkeleton__ItemFont_IsEqual_Callback kconfigskeleton__itemfont_isequal_callback = nullptr;
+    KConfigSkeleton__ItemFont_Property_Callback kconfigskeleton__itemfont_property_callback = nullptr;
+
+    // Instance base flags
+    mutable bool kconfigskeleton__itemfont_readconfig_isbase = false;
+    mutable bool kconfigskeleton__itemfont_setproperty_isbase = false;
+    mutable bool kconfigskeleton__itemfont_isequal_isbase = false;
+    mutable bool kconfigskeleton__itemfont_property_isbase = false;
+
+  public:
+    VirtualKConfigSkeletonItemFont(const QString& _group, const QString& _key, QFont& reference) : KConfigSkeleton::ItemFont(_group, _key, reference) {};
+    VirtualKConfigSkeletonItemFont(const QString& _group, const QString& _key, QFont& reference, const QFont& defaultValue) : KConfigSkeleton::ItemFont(_group, _key, reference, defaultValue) {};
+
+    ~VirtualKConfigSkeletonItemFont() {
+        kconfigskeleton__itemfont_readconfig_callback = nullptr;
+        kconfigskeleton__itemfont_setproperty_callback = nullptr;
+        kconfigskeleton__itemfont_isequal_callback = nullptr;
+        kconfigskeleton__itemfont_property_callback = nullptr;
+    }
+
+    // Callback setters
+    inline void setKConfigSkeleton__ItemFont_ReadConfig_Callback(KConfigSkeleton__ItemFont_ReadConfig_Callback cb) { kconfigskeleton__itemfont_readconfig_callback = cb; }
+    inline void setKConfigSkeleton__ItemFont_SetProperty_Callback(KConfigSkeleton__ItemFont_SetProperty_Callback cb) { kconfigskeleton__itemfont_setproperty_callback = cb; }
+    inline void setKConfigSkeleton__ItemFont_IsEqual_Callback(KConfigSkeleton__ItemFont_IsEqual_Callback cb) { kconfigskeleton__itemfont_isequal_callback = cb; }
+    inline void setKConfigSkeleton__ItemFont_Property_Callback(KConfigSkeleton__ItemFont_Property_Callback cb) { kconfigskeleton__itemfont_property_callback = cb; }
+
+    // Base flag setters
+    inline void setKConfigSkeleton__ItemFont_ReadConfig_IsBase(bool value) const { kconfigskeleton__itemfont_readconfig_isbase = value; }
+    inline void setKConfigSkeleton__ItemFont_SetProperty_IsBase(bool value) const { kconfigskeleton__itemfont_setproperty_isbase = value; }
+    inline void setKConfigSkeleton__ItemFont_IsEqual_IsBase(bool value) const { kconfigskeleton__itemfont_isequal_isbase = value; }
+    inline void setKConfigSkeleton__ItemFont_Property_IsBase(bool value) const { kconfigskeleton__itemfont_property_isbase = value; }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void readConfig(KConfig* config) override {
+        if (kconfigskeleton__itemfont_readconfig_isbase) {
+            kconfigskeleton__itemfont_readconfig_isbase = false;
+            KConfigSkeleton__ItemFont::readConfig(config);
+        } else if (kconfigskeleton__itemfont_readconfig_callback != nullptr) {
+            KConfig* cbval1 = config;
+
+            kconfigskeleton__itemfont_readconfig_callback(this, cbval1);
+        } else {
+            KConfigSkeleton__ItemFont::readConfig(config);
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void setProperty(const QVariant& p) override {
+        if (kconfigskeleton__itemfont_setproperty_isbase) {
+            kconfigskeleton__itemfont_setproperty_isbase = false;
+            KConfigSkeleton__ItemFont::setProperty(p);
+        } else if (kconfigskeleton__itemfont_setproperty_callback != nullptr) {
+            const QVariant& p_ret = p;
+            // Cast returned reference into pointer
+            QVariant* cbval1 = const_cast<QVariant*>(&p_ret);
+
+            kconfigskeleton__itemfont_setproperty_callback(this, cbval1);
+        } else {
+            KConfigSkeleton__ItemFont::setProperty(p);
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual bool isEqual(const QVariant& p) const override {
+        if (kconfigskeleton__itemfont_isequal_isbase) {
+            kconfigskeleton__itemfont_isequal_isbase = false;
+            return KConfigSkeleton__ItemFont::isEqual(p);
+        } else if (kconfigskeleton__itemfont_isequal_callback != nullptr) {
+            const QVariant& p_ret = p;
+            // Cast returned reference into pointer
+            QVariant* cbval1 = const_cast<QVariant*>(&p_ret);
+
+            bool callback_ret = kconfigskeleton__itemfont_isequal_callback(this, cbval1);
+            return callback_ret;
+        } else {
+            return KConfigSkeleton__ItemFont::isEqual(p);
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual QVariant property() const override {
+        if (kconfigskeleton__itemfont_property_isbase) {
+            kconfigskeleton__itemfont_property_isbase = false;
+            return KConfigSkeleton__ItemFont::property();
+        } else if (kconfigskeleton__itemfont_property_callback != nullptr) {
+            QVariant* callback_ret = kconfigskeleton__itemfont_property_callback();
+            return *callback_ret;
+        } else {
+            return KConfigSkeleton__ItemFont::property();
+        }
+    }
+};
+
 #endif

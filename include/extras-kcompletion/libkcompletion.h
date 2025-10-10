@@ -16,6 +16,7 @@ extern "C" {
 #ifdef __cplusplus
 #else
 typedef struct KCompletion KCompletion;
+typedef struct KCompletionMatches KCompletionMatches;
 typedef struct QChildEvent QChildEvent;
 typedef struct QEvent QEvent;
 typedef struct QMetaMethod QMetaMethod;
@@ -42,6 +43,8 @@ bool KCompletion_IgnoreCase(const KCompletion* self);
 bool KCompletion_ShouldAutoSuggest(const KCompletion* self);
 libqt_list /* of libqt_string */ KCompletion_AllMatches(KCompletion* self);
 libqt_list /* of libqt_string */ KCompletion_AllMatches2(KCompletion* self, const libqt_string stringVal);
+KCompletionMatches* KCompletion_AllWeightedMatches(KCompletion* self);
+KCompletionMatches* KCompletion_AllWeightedMatches2(KCompletion* self, const libqt_string stringVal);
 void KCompletion_SetSoundsEnabled(KCompletion* self, bool enable);
 bool KCompletion_SoundsEnabled(const KCompletion* self);
 bool KCompletion_HasMultipleMatches(const KCompletion* self);
@@ -61,6 +64,7 @@ void KCompletion_Connect_Matches(KCompletion* self, intptr_t slot);
 void KCompletion_MultipleMatches(KCompletion* self);
 void KCompletion_Connect_MultipleMatches(KCompletion* self, intptr_t slot);
 void KCompletion_PostProcessMatches(const KCompletion* self, libqt_list /* of libqt_string */ matchList);
+void KCompletion_PostProcessMatches2(const KCompletion* self, KCompletionMatches* matches);
 libqt_string KCompletion_Tr2(const char* s, const char* c);
 libqt_string KCompletion_Tr3(const char* s, const char* c, int n);
 void KCompletion_OnMetacall(KCompletion* self, intptr_t slot);
@@ -83,6 +87,8 @@ void KCompletion_OnClear(KCompletion* self, intptr_t slot);
 void KCompletion_QBaseClear(KCompletion* self);
 void KCompletion_OnPostProcessMatches(const KCompletion* self, intptr_t slot);
 void KCompletion_QBasePostProcessMatches(const KCompletion* self, libqt_list /* of libqt_string */ matchList);
+void KCompletion_OnPostProcessMatches2(const KCompletion* self, intptr_t slot);
+void KCompletion_QBasePostProcessMatches2(const KCompletion* self, KCompletionMatches* matches);
 bool KCompletion_Event(KCompletion* self, QEvent* event);
 void KCompletion_OnEvent(KCompletion* self, intptr_t slot);
 bool KCompletion_QBaseEvent(KCompletion* self, QEvent* event);

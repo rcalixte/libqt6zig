@@ -30,6 +30,7 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
     using KUrlCompletion_ReplaceHome_Callback = bool (*)();
     using KUrlCompletion_SetReplaceHome_Callback = void (*)(KUrlCompletion*, bool);
     using KUrlCompletion_PostProcessMatches_Callback = void (*)(const KUrlCompletion*, libqt_list /* of libqt_string */);
+    using KUrlCompletion_PostProcessMatches2_Callback = void (*)(const KUrlCompletion*, KCompletionMatches*);
     using KUrlCompletion_LastMatch_Callback = const char* (*)();
     using KUrlCompletion_SetCompletionMode_Callback = void (*)(KUrlCompletion*, int);
     using KUrlCompletion_SetOrder_Callback = void (*)(KUrlCompletion*, int);
@@ -65,6 +66,7 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
     KUrlCompletion_ReplaceHome_Callback kurlcompletion_replacehome_callback = nullptr;
     KUrlCompletion_SetReplaceHome_Callback kurlcompletion_setreplacehome_callback = nullptr;
     KUrlCompletion_PostProcessMatches_Callback kurlcompletion_postprocessmatches_callback = nullptr;
+    KUrlCompletion_PostProcessMatches2_Callback kurlcompletion_postprocessmatches2_callback = nullptr;
     KUrlCompletion_LastMatch_Callback kurlcompletion_lastmatch_callback = nullptr;
     KUrlCompletion_SetCompletionMode_Callback kurlcompletion_setcompletionmode_callback = nullptr;
     KUrlCompletion_SetOrder_Callback kurlcompletion_setorder_callback = nullptr;
@@ -99,6 +101,7 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
     mutable bool kurlcompletion_replacehome_isbase = false;
     mutable bool kurlcompletion_setreplacehome_isbase = false;
     mutable bool kurlcompletion_postprocessmatches_isbase = false;
+    mutable bool kurlcompletion_postprocessmatches2_isbase = false;
     mutable bool kurlcompletion_lastmatch_isbase = false;
     mutable bool kurlcompletion_setcompletionmode_isbase = false;
     mutable bool kurlcompletion_setorder_isbase = false;
@@ -137,6 +140,7 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
         kurlcompletion_replacehome_callback = nullptr;
         kurlcompletion_setreplacehome_callback = nullptr;
         kurlcompletion_postprocessmatches_callback = nullptr;
+        kurlcompletion_postprocessmatches2_callback = nullptr;
         kurlcompletion_lastmatch_callback = nullptr;
         kurlcompletion_setcompletionmode_callback = nullptr;
         kurlcompletion_setorder_callback = nullptr;
@@ -172,6 +176,7 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
     inline void setKUrlCompletion_ReplaceHome_Callback(KUrlCompletion_ReplaceHome_Callback cb) { kurlcompletion_replacehome_callback = cb; }
     inline void setKUrlCompletion_SetReplaceHome_Callback(KUrlCompletion_SetReplaceHome_Callback cb) { kurlcompletion_setreplacehome_callback = cb; }
     inline void setKUrlCompletion_PostProcessMatches_Callback(KUrlCompletion_PostProcessMatches_Callback cb) { kurlcompletion_postprocessmatches_callback = cb; }
+    inline void setKUrlCompletion_PostProcessMatches2_Callback(KUrlCompletion_PostProcessMatches2_Callback cb) { kurlcompletion_postprocessmatches2_callback = cb; }
     inline void setKUrlCompletion_LastMatch_Callback(KUrlCompletion_LastMatch_Callback cb) { kurlcompletion_lastmatch_callback = cb; }
     inline void setKUrlCompletion_SetCompletionMode_Callback(KUrlCompletion_SetCompletionMode_Callback cb) { kurlcompletion_setcompletionmode_callback = cb; }
     inline void setKUrlCompletion_SetOrder_Callback(KUrlCompletion_SetOrder_Callback cb) { kurlcompletion_setorder_callback = cb; }
@@ -206,6 +211,7 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
     inline void setKUrlCompletion_ReplaceHome_IsBase(bool value) const { kurlcompletion_replacehome_isbase = value; }
     inline void setKUrlCompletion_SetReplaceHome_IsBase(bool value) const { kurlcompletion_setreplacehome_isbase = value; }
     inline void setKUrlCompletion_PostProcessMatches_IsBase(bool value) const { kurlcompletion_postprocessmatches_isbase = value; }
+    inline void setKUrlCompletion_PostProcessMatches2_IsBase(bool value) const { kurlcompletion_postprocessmatches2_isbase = value; }
     inline void setKUrlCompletion_LastMatch_IsBase(bool value) const { kurlcompletion_lastmatch_isbase = value; }
     inline void setKUrlCompletion_SetCompletionMode_IsBase(bool value) const { kurlcompletion_setcompletionmode_isbase = value; }
     inline void setKUrlCompletion_SetOrder_IsBase(bool value) const { kurlcompletion_setorder_isbase = value; }
@@ -428,6 +434,20 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
             libqt_list /* of libqt_string */ cbval1 = matches_out;
 
             kurlcompletion_postprocessmatches_callback(this, cbval1);
+        } else {
+            KUrlCompletion::postProcessMatches(matches);
+        }
+    }
+
+    // Virtual method for C ABI access and custom callback
+    virtual void postProcessMatches(KCompletionMatches* matches) const override {
+        if (kurlcompletion_postprocessmatches2_isbase) {
+            kurlcompletion_postprocessmatches2_isbase = false;
+            KUrlCompletion::postProcessMatches(matches);
+        } else if (kurlcompletion_postprocessmatches2_callback != nullptr) {
+            KCompletionMatches* cbval1 = matches;
+
+            kurlcompletion_postprocessmatches2_callback(this, cbval1);
         } else {
             KUrlCompletion::postProcessMatches(matches);
         }
@@ -726,6 +746,8 @@ class VirtualKUrlCompletion final : public KUrlCompletion {
     // Friend functions
     friend void KUrlCompletion_PostProcessMatches(const KUrlCompletion* self, libqt_list /* of libqt_string */ matches);
     friend void KUrlCompletion_QBasePostProcessMatches(const KUrlCompletion* self, libqt_list /* of libqt_string */ matches);
+    friend void KUrlCompletion_PostProcessMatches2(const KUrlCompletion* self, KCompletionMatches* matches);
+    friend void KUrlCompletion_QBasePostProcessMatches2(const KUrlCompletion* self, KCompletionMatches* matches);
     friend void KUrlCompletion_TimerEvent(KUrlCompletion* self, QTimerEvent* event);
     friend void KUrlCompletion_QBaseTimerEvent(KUrlCompletion* self, QTimerEvent* event);
     friend void KUrlCompletion_ChildEvent(KUrlCompletion* self, QChildEvent* event);

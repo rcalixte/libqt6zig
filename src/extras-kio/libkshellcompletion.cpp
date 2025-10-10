@@ -1,4 +1,5 @@
 #include <KCompletion>
+#include <KCompletionMatches>
 #include <KShellCompletion>
 #include <KUrlCompletion>
 #include <QChildEvent>
@@ -86,6 +87,13 @@ void KShellCompletion_PostProcessMatches(const KShellCompletion* self, libqt_lis
     auto* vkshellcompletion = dynamic_cast<const VirtualKShellCompletion*>(self);
     if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
         vkshellcompletion->postProcessMatches(&matches_QList);
+    }
+}
+
+void KShellCompletion_PostProcessMatches2(const KShellCompletion* self, KCompletionMatches* matches) {
+    auto* vkshellcompletion = dynamic_cast<const VirtualKShellCompletion*>(self);
+    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
+        vkshellcompletion->postProcessMatches(matches);
     }
 }
 
@@ -191,6 +199,25 @@ void KShellCompletion_OnPostProcessMatches(const KShellCompletion* self, intptr_
     auto* vkshellcompletion = const_cast<VirtualKShellCompletion*>(dynamic_cast<const VirtualKShellCompletion*>(self));
     if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
         vkshellcompletion->setKShellCompletion_PostProcessMatches_Callback(reinterpret_cast<VirtualKShellCompletion::KShellCompletion_PostProcessMatches_Callback>(slot));
+    }
+}
+
+// Base class handler implementation
+void KShellCompletion_QBasePostProcessMatches2(const KShellCompletion* self, KCompletionMatches* matches) {
+    auto* vkshellcompletion = const_cast<VirtualKShellCompletion*>(dynamic_cast<const VirtualKShellCompletion*>(self));
+    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
+        vkshellcompletion->setKShellCompletion_PostProcessMatches2_IsBase(true);
+        vkshellcompletion->postProcessMatches(matches);
+    } else {
+        ((VirtualKShellCompletion*)self)->postProcessMatches(matches);
+    }
+}
+
+// Auxiliary method to allow providing re-implementation
+void KShellCompletion_OnPostProcessMatches2(const KShellCompletion* self, intptr_t slot) {
+    auto* vkshellcompletion = const_cast<VirtualKShellCompletion*>(dynamic_cast<const VirtualKShellCompletion*>(self));
+    if (vkshellcompletion && vkshellcompletion->isVirtualKShellCompletion) {
+        vkshellcompletion->setKShellCompletion_PostProcessMatches2_Callback(reinterpret_cast<VirtualKShellCompletion::KShellCompletion_PostProcessMatches2_Callback>(slot));
     }
 }
 

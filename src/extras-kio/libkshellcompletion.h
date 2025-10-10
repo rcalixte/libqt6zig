@@ -16,6 +16,7 @@ extern "C" {
 #ifdef __cplusplus
 #else
 typedef struct KCompletion KCompletion;
+typedef struct KCompletionMatches KCompletionMatches;
 typedef struct KShellCompletion KShellCompletion;
 typedef struct KUrlCompletion KUrlCompletion;
 typedef struct QChildEvent QChildEvent;
@@ -34,6 +35,7 @@ int KShellCompletion_Metacall(KShellCompletion* self, int param1, int param2, vo
 libqt_string KShellCompletion_Tr(const char* s);
 libqt_string KShellCompletion_MakeCompletion(KShellCompletion* self, const libqt_string text);
 void KShellCompletion_PostProcessMatches(const KShellCompletion* self, libqt_list /* of libqt_string */ matches);
+void KShellCompletion_PostProcessMatches2(const KShellCompletion* self, KCompletionMatches* matches);
 libqt_string KShellCompletion_Tr2(const char* s, const char* c);
 libqt_string KShellCompletion_Tr3(const char* s, const char* c, int n);
 void KShellCompletion_OnMetacall(KShellCompletion* self, intptr_t slot);
@@ -42,6 +44,8 @@ void KShellCompletion_OnMakeCompletion(KShellCompletion* self, intptr_t slot);
 libqt_string KShellCompletion_QBaseMakeCompletion(KShellCompletion* self, const libqt_string text);
 void KShellCompletion_OnPostProcessMatches(const KShellCompletion* self, intptr_t slot);
 void KShellCompletion_QBasePostProcessMatches(const KShellCompletion* self, libqt_list /* of libqt_string */ matches);
+void KShellCompletion_OnPostProcessMatches2(const KShellCompletion* self, intptr_t slot);
+void KShellCompletion_QBasePostProcessMatches2(const KShellCompletion* self, KCompletionMatches* matches);
 void KShellCompletion_SetDir(KShellCompletion* self, const QUrl* dir);
 void KShellCompletion_OnSetDir(KShellCompletion* self, intptr_t slot);
 void KShellCompletion_QBaseSetDir(KShellCompletion* self, const QUrl* dir);
