@@ -51,6 +51,10 @@ pub fn build(b: *std.Build) !void {
                     continue;
                 if (is_macos and std.mem.startsWith(u8, entry.path, "foss-"))
                     continue;
+                if (is_macos and std.mem.eql(u8, basename, "qopenglcontext_platform"))
+                    continue;
+                if (is_macos and (std.mem.startsWith(u8, basename, "qopenglfunction_4_4") or std.mem.startsWith(u8, basename, "qopenglfunction_4_5")))
+                    continue;
 
                 inline for (prefixes) |prefix| {
                     if (std.mem.startsWith(u8, entry.path, prefix)) {
