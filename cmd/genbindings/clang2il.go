@@ -355,6 +355,11 @@ func processClassType(node map[string]interface{}, addNamePrefix string) (CppCla
 		// We produce a type named 'Connection' instead of 'QMetaObject::Connection' as expected, not sure why
 		nodename = "QMetaObject::Connection"
 	}
+	if nodename == "QBrushData" {
+		// TODO This is a hack to prevent QBrushData from being deleted
+		// until the library is built against Qt 6.10+
+		ret.CanDelete = false
+	}
 
 	ret.ClassName = nodename
 
@@ -534,7 +539,7 @@ nextMethod:
 				}
 			}
 
-		case "FriendDecl":
+		case "FriendDecl", "FullComment":
 			// Safe to ignore
 
 		case "VisibilityAttr":
@@ -665,7 +670,9 @@ nextMethod:
 			}
 
 			// Check if this is `= delete`
-			if isExplicitlyDeleted(node) {
+			// TODO This is a hack to prevent QBrushData from generating operator methods
+			// until the library is built against Qt 6.10+
+			if isExplicitlyDeleted(node) || ret.ClassName == "QBrushData" {
 				continue
 			}
 
@@ -1104,6 +1111,9 @@ func parseMethod(node map[string]interface{}, mm *CppMethod, className string) e
 				// This is a virtual method being overridden and is a replacement
 				// for actually using the 'virtual' keyword
 				mm.IsVirtual = true
+
+			case "FullComment":
+				// Safe to ignore
 
 			default:
 				// Something else inside a declaration??
