@@ -238,13 +238,6 @@ pub const qbrush = struct {
 
 /// https://doc.qt.io/qt-6/qbrushdata.html
 pub const qbrushdata = struct {
-    /// New constructs a new QBrushData object.
-    ///
-    /// ``` param1: QtC.QBrushData ```
-    pub fn New(param1: ?*anyopaque) QtC.QBrushData {
-        return qtc.QBrushData_new(@ptrCast(param1));
-    }
-
     /// [Qt documentation](https://doc.qt.io/qt-6/qbrushdata.html#style-var)
     ///
     /// ``` self: QtC.QBrushData ```
@@ -287,22 +280,6 @@ pub const qbrushdata = struct {
     /// ``` self: QtC.QBrushData, transform: QtC.QTransform ```
     pub fn SetTransform(self: ?*anyopaque, transform: QtC.QTransform) void {
         qtc.QBrushData_SetTransform(@ptrCast(self), @ptrCast(transform));
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbrushdata.html#operator-eq)
-    ///
-    /// ``` self: QtC.QBrushData, param1: QtC.QBrushData ```
-    pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
-        qtc.QBrushData_OperatorAssign(@ptrCast(self), @ptrCast(param1));
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qbrushdata.html#dtor.QBrushData)
-    ///
-    /// Delete this object from C++ memory.
-    ///
-    /// ``` self: QtC.QBrushData ```
-    pub fn QDelete(self: ?*anyopaque) void {
-        qtc.QBrushData_Delete(@ptrCast(self));
     }
 };
 

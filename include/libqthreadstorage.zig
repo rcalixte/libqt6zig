@@ -24,13 +24,6 @@ pub const qthreadstoragedata = struct {
         return qtc.QThreadStorageData_Set(@ptrCast(self), p);
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qthreadstoragedata.html#finish)
-    ///
-    /// ``` param1: ?*anyopaque ```
-    pub fn Finish(param1: ?*anyopaque) void {
-        qtc.QThreadStorageData_Finish(param1);
-    }
-
     /// [Qt documentation](https://doc.qt.io/qt-6/qthreadstoragedata.html#id-var)
     ///
     /// ``` self: QtC.QThreadStorageData ```

@@ -37,13 +37,6 @@ pub const qwebengineclienthints = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineclienthints.html#qt_qmlMarker_uncreatable)
-    ///
-    /// ``` self: QtC.QWebEngineClientHints ```
-    pub fn QmlMarkerUncreatable(self: ?*anyopaque) void {
-        qtc.QWebEngineClientHints_QmlMarkerUncreatable(@ptrCast(self));
-    }
-
     /// [Qt documentation](https://doc.qt.io/qt-6/qwebengineclienthints.html#arch)
     ///
     /// ``` self: QtC.QWebEngineClientHints, allocator: std.mem.Allocator ```

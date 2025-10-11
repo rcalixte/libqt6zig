@@ -147,10 +147,6 @@ void QBrush_Delete(QBrush* self) {
     delete self;
 }
 
-QBrushData* QBrushData_new(const QBrushData* param1) {
-    return new QBrushData(*param1);
-}
-
 int QBrushData_Style(const QBrushData* self) {
     return static_cast<int>(self->style);
 }
@@ -173,14 +169,6 @@ QTransform* QBrushData_Transform(const QBrushData* self) {
 
 void QBrushData_SetTransform(QBrushData* self, QTransform* transform) {
     self->transform = *transform;
-}
-
-void QBrushData_OperatorAssign(QBrushData* self, const QBrushData* param1) {
-    self->operator=(*param1);
-}
-
-void QBrushData_Delete(QBrushData* self) {
-    delete self;
 }
 
 QGradient* QGradient_new() {

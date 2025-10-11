@@ -26,7 +26,6 @@ QMetaObject* QWebEngineClientHints_MetaObject(const QWebEngineClientHints* self)
 void* QWebEngineClientHints_Metacast(QWebEngineClientHints* self, const char* param1);
 int QWebEngineClientHints_Metacall(QWebEngineClientHints* self, int param1, int param2, void** param3);
 libqt_string QWebEngineClientHints_Tr(const char* s);
-void QWebEngineClientHints_QmlMarkerUncreatable(QWebEngineClientHints* self);
 libqt_string QWebEngineClientHints_Arch(const QWebEngineClientHints* self);
 libqt_string QWebEngineClientHints_Platform(const QWebEngineClientHints* self);
 libqt_string QWebEngineClientHints_Model(const QWebEngineClientHints* self);

@@ -35,10 +35,6 @@ libqt_string QWebEngineClientHints_Tr(const char* s) {
     return _str;
 }
 
-void QWebEngineClientHints_QmlMarkerUncreatable(QWebEngineClientHints* self) {
-    self->qt_qmlMarker_uncreatable();
-}
-
 libqt_string QWebEngineClientHints_Arch(const QWebEngineClientHints* self) {
     QString _ret = self->arch();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory

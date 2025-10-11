@@ -1,7 +1,6 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const qdir_enums = enums;
-const qfiledevice_enums = @import("libqfiledevice.zig").enums;
 const std = @import("std");
 
 /// https://doc.qt.io/qt-6/qdir.html
@@ -522,28 +521,6 @@ pub const qdir = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#mkdir)
-    ///
-    /// ``` self: QtC.QDir, dirName: []const u8 ```
-    pub fn Mkdir(self: ?*anyopaque, dirName: []const u8) bool {
-        const dirName_str = qtc.libqt_string{
-            .len = dirName.len,
-            .data = dirName.ptr,
-        };
-        return qtc.QDir_Mkdir(@ptrCast(self), dirName_str);
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#mkdir)
-    ///
-    /// ``` self: QtC.QDir, dirName: []const u8, permissions: flag of qfiledevice_enums.Permission ```
-    pub fn Mkdir2(self: ?*anyopaque, dirName: []const u8, permissions: i32) bool {
-        const dirName_str = qtc.libqt_string{
-            .len = dirName.len,
-            .data = dirName.ptr,
-        };
-        return qtc.QDir_Mkdir2(@ptrCast(self), dirName_str, @intCast(permissions));
-    }
-
     /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#rmdir)
     ///
     /// ``` self: QtC.QDir, dirName: []const u8 ```
@@ -553,17 +530,6 @@ pub const qdir = struct {
             .data = dirName.ptr,
         };
         return qtc.QDir_Rmdir(@ptrCast(self), dirName_str);
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#mkpath)
-    ///
-    /// ``` self: QtC.QDir, dirPath: []const u8 ```
-    pub fn Mkpath(self: ?*anyopaque, dirPath: []const u8) bool {
-        const dirPath_str = qtc.libqt_string{
-            .len = dirPath.len,
-            .data = dirPath.ptr,
-        };
-        return qtc.QDir_Mkpath(@ptrCast(self), dirPath_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdir.html#rmpath)

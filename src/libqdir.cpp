@@ -388,24 +388,9 @@ libqt_list /* of QFileInfo* */ QDir_EntryInfoList2(const QDir* self, const libqt
     return _out;
 }
 
-bool QDir_Mkdir(const QDir* self, const libqt_string dirName) {
-    QString dirName_QString = QString::fromUtf8(dirName.data, dirName.len);
-    return self->mkdir(dirName_QString);
-}
-
-bool QDir_Mkdir2(const QDir* self, const libqt_string dirName, int permissions) {
-    QString dirName_QString = QString::fromUtf8(dirName.data, dirName.len);
-    return self->mkdir(dirName_QString, static_cast<QFile::Permissions>(permissions));
-}
-
 bool QDir_Rmdir(const QDir* self, const libqt_string dirName) {
     QString dirName_QString = QString::fromUtf8(dirName.data, dirName.len);
     return self->rmdir(dirName_QString);
-}
-
-bool QDir_Mkpath(const QDir* self, const libqt_string dirPath) {
-    QString dirPath_QString = QString::fromUtf8(dirPath.data, dirPath.len);
-    return self->mkpath(dirPath_QString);
 }
 
 bool QDir_Rmpath(const QDir* self, const libqt_string dirPath) {

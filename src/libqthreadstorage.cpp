@@ -15,10 +15,6 @@ void** QThreadStorageData_Set(QThreadStorageData* self, void* p) {
     return self->set(p);
 }
 
-void QThreadStorageData_Finish(void** param1) {
-    QThreadStorageData::finish(param1);
-}
-
 int QThreadStorageData_Id(const QThreadStorageData* self) {
     return self->id;
 }
