@@ -324,6 +324,21 @@ func AllowMethod(className string, mm CppMethod) error {
 		return ErrTooComplex // Present in Qt 5.15 and 6.4, missing in Qt 6.7
 	}
 
+	if className == "QDir" && (mm.MethodName == "mkdir" || mm.MethodName == "mkpath") {
+		// Qt 6.10: Both methods were converted from regular enum parameters to
+		// std::optional enum parameters, resulting in linker errors
+		// @ref https://github.com/qt/qtbase/commit/4275dfb7bfa78999bb8edf27ab18433f97cd3490
+		return ErrTooComplex
+	}
+
+	if className == "QThreadStorageData" && mm.MethodName == "finish" {
+		return ErrTooComplex // Removed in Qt 6.10
+	}
+
+	if className == "QWebEngineClientHints" && mm.MethodName == "qt_qmlMarker_uncreatable" {
+		return ErrTooComplex // Removed in Qt 6.10
+	}
+
 	if className == "QWaveDecoder" && mm.MethodName == "setIODevice" {
 		return ErrTooComplex // Qt 6: Present in header, but no-op method was not included in compiled library
 	}
@@ -378,6 +393,11 @@ func AllowMethod(className string, mm CppMethod) error {
 
 	if className == "QUrlQuery" && mm.MethodName == "setQueryItems" {
 		// Qt 6: undefined symbol error during compilation
+		return ErrTooComplex
+	}
+
+	if className == "QWebEngineClientHints" && mm.MethodName == "setQmlMarkerUncreatable" {
+		// Removed in Qt 6.10
 		return ErrTooComplex
 	}
 
@@ -505,6 +525,12 @@ func AllowCtor(className string) bool {
 		// @ref https://github.com/qt/qtbase/commit/41679e0b4398c0de38a8107642dc643fe2c3554f
 		// @ref https://github.com/mappu/miqt/issues/168
 		// Block both ctors from generation
+		return false
+	}
+
+	if className == "QBrushData" {
+		// Both the main ctor and the copy constructor were changed from public to protected in Qt 6.10
+		// @ref https://github.com/qt/qtbase/commit/3bbc9e29ef59683351cf35c19a8bd4a030615c64
 		return false
 	}
 
