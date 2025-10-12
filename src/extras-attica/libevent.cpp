@@ -1,4 +1,4 @@
-#define WORKAROUND_INNER_CLASS_DEFINITION_Attica__Event
+#include <Attica/Event>
 #include <QDate>
 #include <QMap>
 #include <QString>

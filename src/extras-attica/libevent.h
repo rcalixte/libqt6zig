@@ -14,9 +14,7 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_Attica__Event)
 typedef Attica::Event Attica__Event;
-#endif
 #else
 typedef struct Attica__Event Attica__Event;
 typedef struct QDate QDate;
