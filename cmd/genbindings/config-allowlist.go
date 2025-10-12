@@ -849,9 +849,6 @@ func AllowType(p CppParameter, isReturnType bool) error {
 		"QPostEventList",                  // Qt QCoreApplication: private headers required
 		"QMetaCallEvent",                  // ..
 		"QPostEvent",                      // ..
-		"QWebFrameAdapter",                // Qt 5 Webkit: Used by e.g. qwebframe.h but never defined anywhere
-		"QWebPageAdapter",                 // ...
-		"QQmlWebChannelAttached",          // Qt 5 qqmlwebchannel.h. Need to add QML support for this to work
 		"QQmlEngine",                      // Qt 6 qqmlengine.h, need to add QtQml for this to work
 		"QJSEngine",                       // Qt 6 qjsengine.h, need to add QtQml for this to work
 		"Character",                       // Qt 6 libqtermwidget, this is an internal class, it's in the Git repo but not in the Debian package
@@ -918,6 +915,7 @@ func AllowStructDef(className string) bool {
 func AllowInnerClassDef(className string) bool {
 	switch className {
 	case
+		"Attica::Event",                      // Qt 6 Attica, event.h
 		"KIO::DeleteJob",                     // Qt 6 KIO, deletejob.h
 		"KIO::Job",                           // Qt 6 KIO, listjob.h
 		"KIO::ListJob",                       // Qt 6 KIO, listjob.h
