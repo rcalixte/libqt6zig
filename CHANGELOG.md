@@ -1,4 +1,9 @@
 
+### 6.8.2 rev40 (13 October 2025)
+
+* Add [kColorPicker](https://github.com/ksnip/kColorPicker) and [kImageAnnotator](https://github.com/ksnip/kImageAnnotator) (#77)
+* Update cross-platform support (#76)
+
 ### 6.8.2 rev39 (11 October 2025)
 
 * **BREAKING CHANGE:** Update for Qt 6.10 (#75)
