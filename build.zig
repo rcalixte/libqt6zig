@@ -282,6 +282,9 @@ const qt_modules = &.{
     "Attica/attica",
     // Qt 6 KCodecs
     "KCodecs",
+    // Qt 6 kColorPicker
+    "kColorPicker-Qt6",
+    "kColorPicker-Qt6/kColorPicker",
     // Qt 6 KCompletion
     "KCompletion",
     // Qt 6 KConfig
@@ -297,6 +300,9 @@ const qt_modules = &.{
     // Qt 6 KI18n
     "KI18n",
     "KI18nLocaleData",
+    // Qt 6 kImageAnnotator
+    "kImageAnnotator-Qt6",
+    "kImageAnnotator-Qt6/kImageAnnotator",
     // Qt 6 KItemModels
     "KItemModels",
     // Qt 6 KItemViews

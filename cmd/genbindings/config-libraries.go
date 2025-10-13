@@ -220,6 +220,17 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 			cflags:      "--std=c++17 -I/usr/include/KF6/KCodecs " + pkgConfigCflags("Qt6Core"),
 		},
 
+		// kColorPicker
+		// Depends on Qt Core, GUI, Widgets
+		{
+			path: "extras-kcolorpicker",
+			dirs: []string{
+				"/usr/include/kColorPicker-Qt6/kColorPicker",
+			},
+			allowHeader: AllowAllHeaders,
+			cflags:      "--std=c++17 -I/usr/include/kColorPicker-Qt6 -I/usr/include/kColorPicker-Qt6/kColorPicker " + pkgConfigCflags("Qt6Widgets"),
+		},
+
 		// KCompletion
 		// Depends on Qt Core, GUI, Widgets
 		{
@@ -287,6 +298,17 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 			},
 			allowHeader: AllowAllHeaders,
 			cflags:      "--std=c++17 -I/usr/include/KF6/KI18n -I/usr/include/KF6/KI18nLocaleData " + pkgConfigCflags("Qt6Core"),
+		},
+
+		// kImageAnnotator
+		// Depends on Qt Core, GUI, Widgets
+		{
+			path: "extras-kimageannotator",
+			dirs: []string{
+				"/usr/include/kImageAnnotator-Qt6/kImageAnnotator",
+			},
+			allowHeader: AllowAllHeaders,
+			cflags:      "--std=c++17 -I/usr/include/kImageAnnotator-Qt6 -I/usr/include/kImageAnnotator-Qt6/kImageAnnotator " + pkgConfigCflags("Qt6Widgets"),
 		},
 
 		// KItemModels

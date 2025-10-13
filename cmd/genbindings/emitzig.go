@@ -93,6 +93,14 @@ func getPageUrl(pageType PageType, pageName, cmdURL, className string) string {
 		return "https://invent.kde.org/plasma/layer-shell-qt"
 	}
 
+	if strings.HasPrefix(pageName, "kcolorpicker") {
+		return "https://github.com/ksnip/kcolorpicker"
+	}
+
+	if strings.HasPrefix(pageName, "kimageannotator") {
+		return "https://github.com/ksnip/kImageAnnotator"
+	}
+
 	if strings.HasPrefix(pageName, "qkeychain") {
 		return "https://github.com/frankosterfeld/qtkeychain"
 	}

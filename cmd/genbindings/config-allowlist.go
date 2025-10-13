@@ -165,6 +165,7 @@ func ImportHeaderForClass(className string) bool {
 		"TerminalInterface",              // Qt 6 kde_terminal_interface.h
 		"KTextEditor",                    // Qt 6 KTextEditor
 		"QKeychain",                      // Qt 6 QKeychain
+		"kImageAnnotator",                // Qt 6 kImageAnnotator
 		"____last____":
 		return false
 	}
