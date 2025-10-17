@@ -60,6 +60,14 @@ QPoint* QPoint_Transposed(const QPoint* self) {
     return new QPoint(self->transposed());
 }
 
+int* QPoint_Rx(QPoint* self) {
+    return &(self->rx());
+}
+
+int* QPoint_Ry(QPoint* self) {
+    return &(self->ry());
+}
+
 QPoint* QPoint_OperatorPlusAssign(QPoint* self, const QPoint* p) {
     QPoint& _ret = self->operator+=(*p);
     // Cast returned reference into pointer
@@ -166,6 +174,14 @@ void QPointF_SetY(QPointF* self, double y) {
 
 QPointF* QPointF_Transposed(const QPointF* self) {
     return new QPointF(self->transposed());
+}
+
+double* QPointF_Rx(QPointF* self) {
+    return &(self->rx());
+}
+
+double* QPointF_Ry(QPointF* self) {
+    return &(self->ry());
 }
 
 QPointF* QPointF_OperatorPlusAssign(QPointF* self, const QPointF* p) {

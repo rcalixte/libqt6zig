@@ -24,8 +24,15 @@ pub const qipv6address = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qipv6address.html#operator-5b-5d)
     ///
     /// ``` self: QtC.QIPv6Address, index: i32 ```
-    pub fn OperatorSubscript(self: ?*anyopaque, index: i32) u8 {
-        return qtc.QIPv6Address_OperatorSubscript(@ptrCast(self), @intCast(index));
+    pub fn OperatorSubscript(self: ?*anyopaque, index: i32) ?*u8 {
+        return @ptrCast(qtc.QIPv6Address_OperatorSubscript(@ptrCast(self), @intCast(index)));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qipv6address.html#operator-5b-5d)
+    ///
+    /// ``` self: QtC.QIPv6Address, index: i32 ```
+    pub fn OperatorSubscript2(self: ?*anyopaque, index: i32) u8 {
+        return qtc.QIPv6Address_OperatorSubscript2(@ptrCast(self), @intCast(index));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qipv6address.html#dtor.QIPv6Address)

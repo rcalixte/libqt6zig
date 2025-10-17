@@ -126,8 +126,15 @@ pub const qvector2d = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qvector2d.html#operator-5b-5d)
     ///
     /// ``` self: QtC.QVector2D, i: i32 ```
-    pub fn OperatorSubscript(self: ?*anyopaque, i: i32) f32 {
-        return qtc.QVector2D_OperatorSubscript(@ptrCast(self), @intCast(i));
+    pub fn OperatorSubscript(self: ?*anyopaque, i: i32) ?*f32 {
+        return @ptrCast(qtc.QVector2D_OperatorSubscript(@ptrCast(self), @intCast(i)));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qvector2d.html#operator-5b-5d)
+    ///
+    /// ``` self: QtC.QVector2D, i: i32 ```
+    pub fn OperatorSubscript2(self: ?*anyopaque, i: i32) f32 {
+        return qtc.QVector2D_OperatorSubscript2(@ptrCast(self), @intCast(i));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvector2d.html#length)
@@ -411,8 +418,15 @@ pub const qvector3d = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qvector3d.html#operator-5b-5d)
     ///
     /// ``` self: QtC.QVector3D, i: i32 ```
-    pub fn OperatorSubscript(self: ?*anyopaque, i: i32) f32 {
-        return qtc.QVector3D_OperatorSubscript(@ptrCast(self), @intCast(i));
+    pub fn OperatorSubscript(self: ?*anyopaque, i: i32) ?*f32 {
+        return @ptrCast(qtc.QVector3D_OperatorSubscript(@ptrCast(self), @intCast(i)));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qvector3d.html#operator-5b-5d)
+    ///
+    /// ``` self: QtC.QVector3D, i: i32 ```
+    pub fn OperatorSubscript2(self: ?*anyopaque, i: i32) f32 {
+        return qtc.QVector3D_OperatorSubscript2(@ptrCast(self), @intCast(i));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvector3d.html#length)
@@ -766,8 +780,15 @@ pub const qvector4d = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qvector4d.html#operator-5b-5d)
     ///
     /// ``` self: QtC.QVector4D, i: i32 ```
-    pub fn OperatorSubscript(self: ?*anyopaque, i: i32) f32 {
-        return qtc.QVector4D_OperatorSubscript(@ptrCast(self), @intCast(i));
+    pub fn OperatorSubscript(self: ?*anyopaque, i: i32) ?*f32 {
+        return @ptrCast(qtc.QVector4D_OperatorSubscript(@ptrCast(self), @intCast(i)));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qvector4d.html#operator-5b-5d)
+    ///
+    /// ``` self: QtC.QVector4D, i: i32 ```
+    pub fn OperatorSubscript2(self: ?*anyopaque, i: i32) f32 {
+        return qtc.QVector4D_OperatorSubscript2(@ptrCast(self), @intCast(i));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvector4d.html#length)

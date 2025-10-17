@@ -21,7 +21,8 @@ typedef struct QIPv6Address QIPv6Address;
 
 QIPv6Address* QIPv6Address_new();
 QIPv6Address* QIPv6Address_new2(const QIPv6Address* param1);
-unsigned char QIPv6Address_OperatorSubscript(const QIPv6Address* self, int index);
+unsigned char* QIPv6Address_OperatorSubscript(QIPv6Address* self, int index);
+unsigned char QIPv6Address_OperatorSubscript2(const QIPv6Address* self, int index);
 void QIPv6Address_Delete(QIPv6Address* self);
 
 QHostAddress* QHostAddress_new();

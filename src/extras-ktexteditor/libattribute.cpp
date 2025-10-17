@@ -105,6 +105,12 @@ bool KTextEditor__Attribute_HasAnyProperty(const KTextEditor__Attribute* self) {
     return self->hasAnyProperty();
 }
 
+KTextEditor__Attribute* KTextEditor__Attribute_OperatorPlusAssign(KTextEditor__Attribute* self, const KTextEditor__Attribute* a) {
+    KTextEditor::Attribute& _ret = self->operator+=(*a);
+    // Cast returned reference into pointer
+    return &_ret;
+}
+
 void KTextEditor__Attribute_OperatorAssign(KTextEditor__Attribute* self, const KTextEditor__Attribute* a) {
     self->operator=(*a);
 }

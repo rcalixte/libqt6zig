@@ -50,6 +50,7 @@ bool KTextEditor__Attribute_BackgroundFillWhitespace(const KTextEditor__Attribut
 void KTextEditor__Attribute_SetBackgroundFillWhitespace(KTextEditor__Attribute* self, bool fillWhitespace);
 void KTextEditor__Attribute_Clear(KTextEditor__Attribute* self);
 bool KTextEditor__Attribute_HasAnyProperty(const KTextEditor__Attribute* self);
+KTextEditor__Attribute* KTextEditor__Attribute_OperatorPlusAssign(KTextEditor__Attribute* self, const KTextEditor__Attribute* a);
 void KTextEditor__Attribute_OperatorAssign(KTextEditor__Attribute* self, const KTextEditor__Attribute* a);
 void KTextEditor__Attribute_SetFontBold1(KTextEditor__Attribute* self, bool bold);
 void KTextEditor__Attribute_Delete(KTextEditor__Attribute* self);

@@ -172,6 +172,20 @@ pub const qsize = struct {
         return qtc.QSize_ShrunkBy(@ptrCast(self), @ptrCast(m));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qsize.html#rwidth)
+    ///
+    /// ``` self: QtC.QSize ```
+    pub fn Rwidth(self: ?*anyopaque) ?*i32 {
+        return @ptrCast(qtc.QSize_Rwidth(@ptrCast(self)));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qsize.html#rheight)
+    ///
+    /// ``` self: QtC.QSize ```
+    pub fn Rheight(self: ?*anyopaque) ?*i32 {
+        return @ptrCast(qtc.QSize_Rheight(@ptrCast(self)));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qsize.html#operator-2b-eq)
     ///
     /// ``` self: QtC.QSize, param1: QtC.QSize ```
@@ -392,6 +406,20 @@ pub const qsizef = struct {
     /// ``` self: QtC.QSizeF, m: QtC.QMarginsF ```
     pub fn ShrunkBy(self: ?*anyopaque, m: QtC.QMarginsF) QtC.QSizeF {
         return qtc.QSizeF_ShrunkBy(@ptrCast(self), @ptrCast(m));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qsizef.html#rwidth)
+    ///
+    /// ``` self: QtC.QSizeF ```
+    pub fn Rwidth(self: ?*anyopaque) ?*f64 {
+        return @ptrCast(qtc.QSizeF_Rwidth(@ptrCast(self)));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qsizef.html#rheight)
+    ///
+    /// ``` self: QtC.QSizeF ```
+    pub fn Rheight(self: ?*anyopaque) ?*f64 {
+        return @ptrCast(qtc.QSizeF_Rheight(@ptrCast(self)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsizef.html#operator-2b-eq)

@@ -101,6 +101,20 @@ pub const qpoint = struct {
         return qtc.QPoint_Transposed(@ptrCast(self));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpoint.html#rx)
+    ///
+    /// ``` self: QtC.QPoint ```
+    pub fn Rx(self: ?*anyopaque) ?*i32 {
+        return @ptrCast(qtc.QPoint_Rx(@ptrCast(self)));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpoint.html#ry)
+    ///
+    /// ``` self: QtC.QPoint ```
+    pub fn Ry(self: ?*anyopaque) ?*i32 {
+        return @ptrCast(qtc.QPoint_Ry(@ptrCast(self)));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qpoint.html#operator-2b-eq)
     ///
     /// ``` self: QtC.QPoint, p: QtC.QPoint ```
@@ -272,6 +286,20 @@ pub const qpointf = struct {
     /// ``` self: QtC.QPointF ```
     pub fn Transposed(self: ?*anyopaque) QtC.QPointF {
         return qtc.QPointF_Transposed(@ptrCast(self));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpointf.html#rx)
+    ///
+    /// ``` self: QtC.QPointF ```
+    pub fn Rx(self: ?*anyopaque) ?*f64 {
+        return @ptrCast(qtc.QPointF_Rx(@ptrCast(self)));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qpointf.html#ry)
+    ///
+    /// ``` self: QtC.QPointF ```
+    pub fn Ry(self: ?*anyopaque) ?*f64 {
+        return @ptrCast(qtc.QPointF_Ry(@ptrCast(self)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qpointf.html#operator-2b-eq)
