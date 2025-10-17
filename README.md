@@ -197,7 +197,7 @@ zig build -Denable-charts=true -Denable-qscintilla=false
 In the event that one or more extra library include paths are needed e.g. a locally compiled extra library in a non-standard path, the `extra-paths` option supports this use case:
 
 ```bash
-zig build -Dextra-paths="C:/Qt/6/mingw_64/include"
+zig build -Dextra-paths="C:/Qt/6/msvc2022_64/include"
 ```
 
 or

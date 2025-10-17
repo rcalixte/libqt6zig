@@ -225,6 +225,14 @@ double QCPVector2D_Y(const QCPVector2D* self) {
     return self->y();
 }
 
+double* QCPVector2D_Rx(QCPVector2D* self) {
+    return &(self->rx());
+}
+
+double* QCPVector2D_Ry(QCPVector2D* self) {
+    return &(self->ry());
+}
+
 void QCPVector2D_SetX(QCPVector2D* self, double x) {
     self->setX(static_cast<double>(x));
 }

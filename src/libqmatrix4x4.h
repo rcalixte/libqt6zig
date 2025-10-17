@@ -38,6 +38,8 @@ QMatrix4x4* QMatrix4x4_new8(const QTransform* transform);
 QMatrix4x4* QMatrix4x4_new9(const QMatrix4x4* param1);
 void QMatrix4x4_CopyAssign(QMatrix4x4* self, QMatrix4x4* other);
 void QMatrix4x4_MoveAssign(QMatrix4x4* self, QMatrix4x4* other);
+const float* QMatrix4x4_OperatorCall(const QMatrix4x4* self, int row, int column);
+float* QMatrix4x4_OperatorCall2(QMatrix4x4* self, int row, int column);
 QVector4D* QMatrix4x4_Column(const QMatrix4x4* self, int index);
 void QMatrix4x4_SetColumn(QMatrix4x4* self, int index, const QVector4D* value);
 QVector4D* QMatrix4x4_Row(const QMatrix4x4* self, int index);

@@ -102,6 +102,14 @@ QSize* QSize_ShrunkBy(const QSize* self, QMargins* m) {
     return new QSize(self->shrunkBy(*m));
 }
 
+int* QSize_Rwidth(QSize* self) {
+    return &(self->rwidth());
+}
+
+int* QSize_Rheight(QSize* self) {
+    return &(self->rheight());
+}
+
 QSize* QSize_OperatorPlusAssign(QSize* self, const QSize* param1) {
     QSize& _ret = self->operator+=(*param1);
     // Cast returned reference into pointer
@@ -232,6 +240,14 @@ QSizeF* QSizeF_GrownBy(const QSizeF* self, QMarginsF* m) {
 
 QSizeF* QSizeF_ShrunkBy(const QSizeF* self, QMarginsF* m) {
     return new QSizeF(self->shrunkBy(*m));
+}
+
+double* QSizeF_Rwidth(QSizeF* self) {
+    return &(self->rwidth());
+}
+
+double* QSizeF_Rheight(QSizeF* self) {
+    return &(self->rheight());
 }
 
 QSizeF* QSizeF_OperatorPlusAssign(QSizeF* self, const QSizeF* param1) {

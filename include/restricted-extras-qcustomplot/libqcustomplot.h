@@ -180,6 +180,8 @@ void QCPVector2D_CopyAssign(QCPVector2D* self, QCPVector2D* other);
 void QCPVector2D_MoveAssign(QCPVector2D* self, QCPVector2D* other);
 double QCPVector2D_X(const QCPVector2D* self);
 double QCPVector2D_Y(const QCPVector2D* self);
+double* QCPVector2D_Rx(QCPVector2D* self);
+double* QCPVector2D_Ry(QCPVector2D* self);
 void QCPVector2D_SetX(QCPVector2D* self, double x);
 void QCPVector2D_SetY(QCPVector2D* self, double y);
 double QCPVector2D_Length(const QCPVector2D* self);

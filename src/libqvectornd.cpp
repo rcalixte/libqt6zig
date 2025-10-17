@@ -78,7 +78,11 @@ void QVector2D_SetY(QVector2D* self, float y) {
     self->setY(static_cast<float>(y));
 }
 
-float QVector2D_OperatorSubscript(const QVector2D* self, int i) {
+float* QVector2D_OperatorSubscript(QVector2D* self, int i) {
+    return &(self->operator[](static_cast<int>(i)));
+}
+
+float QVector2D_OperatorSubscript2(const QVector2D* self, int i) {
     return self->operator[](static_cast<int>(i));
 }
 
@@ -250,7 +254,11 @@ void QVector3D_SetZ(QVector3D* self, float z) {
     self->setZ(static_cast<float>(z));
 }
 
-float QVector3D_OperatorSubscript(const QVector3D* self, int i) {
+float* QVector3D_OperatorSubscript(QVector3D* self, int i) {
+    return &(self->operator[](static_cast<int>(i)));
+}
+
+float QVector3D_OperatorSubscript2(const QVector3D* self, int i) {
     return self->operator[](static_cast<int>(i));
 }
 
@@ -462,7 +470,11 @@ void QVector4D_SetW(QVector4D* self, float w) {
     self->setW(static_cast<float>(w));
 }
 
-float QVector4D_OperatorSubscript(const QVector4D* self, int i) {
+float* QVector4D_OperatorSubscript(QVector4D* self, int i) {
+    return &(self->operator[](static_cast<int>(i)));
+}
+
+float QVector4D_OperatorSubscript2(const QVector4D* self, int i) {
     return self->operator[](static_cast<int>(i));
 }
 

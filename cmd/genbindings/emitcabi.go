@@ -735,6 +735,11 @@ func emitAssignCppToCabi(assignExpression string, p CppParameter, rvalue string)
 		afterCall += indent + assignExpression + namePrefix + "_out;\n"
 		return indent + shouldReturn + rvalue + ";\n" + afterCall
 
+	} else if p.IntType() && p.ByRef && strings.Contains(rvalue, "->") {
+
+		// return type by reference
+		return indent + shouldReturn + "&(" + rvalue + ");\n" + afterCall
+
 	} else if p.QtClassType() && p.ByRef {
 
 		// It's a pointer in disguise, just needs one cast
@@ -1801,15 +1806,7 @@ func emitBindingCpp(src *CppParsedHeader, filename string) (string, error) {
 
 			} else {
 				returnCabi := m.ReturnType.RenderTypeCabi(false)
-				flagOrEnum := false
-
 				returnCallTarget := callTarget
-				if flagOrEnum {
-					if strings.Count(returnCabi, "::") > 1 {
-						returnCabi = strings.TrimPrefix(returnCabi, "Virtual")
-					}
-					returnCallTarget = "static_cast<" + returnCabi + ">(" + callTarget + ")"
-				}
 
 				var virtualCallTarget, vVarTarget, maybeElse, virtualStart, virtualClose, baseClose, emptyReturn string
 

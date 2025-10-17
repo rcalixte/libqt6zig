@@ -56,6 +56,14 @@ void QMatrix4x4_MoveAssign(QMatrix4x4* self, QMatrix4x4* other) {
     *self = std::move(*other);
 }
 
+const float* QMatrix4x4_OperatorCall(const QMatrix4x4* self, int row, int column) {
+    return &(self->operator()(static_cast<int>(row), static_cast<int>(column)));
+}
+
+float* QMatrix4x4_OperatorCall2(QMatrix4x4* self, int row, int column) {
+    return &(self->operator()(static_cast<int>(row), static_cast<int>(column)));
+}
+
 QVector4D* QMatrix4x4_Column(const QMatrix4x4* self, int index) {
     return new QVector4D(self->column(static_cast<int>(index)));
 }

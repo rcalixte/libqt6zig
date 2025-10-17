@@ -82,6 +82,20 @@ pub const qmatrix4x4 = struct {
         qtc.QMatrix4x4_MoveAssign(@ptrCast(self), @ptrCast(other));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmatrix4x4.html#operator-28-29)
+    ///
+    /// ``` self: QtC.QMatrix4x4, row: i32, column: i32 ```
+    pub fn OperatorCall(self: ?*anyopaque, row: i32, column: i32) ?*const f32 {
+        return @ptrCast(qtc.QMatrix4x4_OperatorCall(@ptrCast(self), @intCast(row), @intCast(column)));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmatrix4x4.html#operator-28-29)
+    ///
+    /// ``` self: QtC.QMatrix4x4, row: i32, column: i32 ```
+    pub fn OperatorCall2(self: ?*anyopaque, row: i32, column: i32) ?*f32 {
+        return @ptrCast(qtc.QMatrix4x4_OperatorCall2(@ptrCast(self), @intCast(row), @intCast(column)));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qmatrix4x4.html#column)
     ///
     /// ``` self: QtC.QMatrix4x4, index: i32 ```

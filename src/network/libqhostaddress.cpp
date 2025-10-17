@@ -16,7 +16,11 @@ QIPv6Address* QIPv6Address_new2(const QIPv6Address* param1) {
     return new QIPv6Address(*param1);
 }
 
-unsigned char QIPv6Address_OperatorSubscript(const QIPv6Address* self, int index) {
+unsigned char* QIPv6Address_OperatorSubscript(QIPv6Address* self, int index) {
+    return &(self->operator[](static_cast<int>(index)));
+}
+
+unsigned char QIPv6Address_OperatorSubscript2(const QIPv6Address* self, int index) {
     return static_cast<unsigned char>(self->operator[](static_cast<int>(index)));
 }
 

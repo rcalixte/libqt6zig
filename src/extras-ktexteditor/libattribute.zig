@@ -171,6 +171,13 @@ pub const ktexteditor__attribute = struct {
         return qtc.KTextEditor__Attribute_HasAnyProperty(@ptrCast(self));
     }
 
+    /// [Qt documentation](https://api.kde.org/ktexteditor-attribute.html#operator-2b-eq)
+    ///
+    /// ``` self: QtC.KTextEditor__Attribute, a: QtC.KTextEditor__Attribute ```
+    pub fn OperatorPlusAssign(self: ?*anyopaque, a: ?*anyopaque) QtC.KTextEditor__Attribute {
+        return qtc.KTextEditor__Attribute_OperatorPlusAssign(@ptrCast(self), @ptrCast(a));
+    }
+
     /// [Qt documentation](https://api.kde.org/ktexteditor-attribute.html#operator-eq)
     ///
     /// ``` self: QtC.KTextEditor__Attribute, a: QtC.KTextEditor__Attribute ```
