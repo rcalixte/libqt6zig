@@ -1,4 +1,8 @@
 
+### 6.8.2 rev41 (17 October 2025)
+
+* Unblock methods that return integer values by reference (#78)
+
 ### 6.8.2 rev40 (13 October 2025)
 
 * Add [kColorPicker](https://github.com/ksnip/kColorPicker) and [kImageAnnotator](https://github.com/ksnip/kImageAnnotator) (#77)
