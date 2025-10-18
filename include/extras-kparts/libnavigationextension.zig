@@ -449,29 +449,29 @@ pub const kparts__navigationextension = struct {
 
     /// [Qt documentation](https://api.kde.org/kparts-navigationextension.html#popupMenu)
     ///
-    /// ``` self: QtC.KParts__NavigationExtension, global: QtC.QPoint, url: QtC.QUrl, mode: u32 ```
-    pub fn PopupMenu32(self: ?*anyopaque, global: ?*anyopaque, url: ?*anyopaque, mode: u32) void {
+    /// ``` self: QtC.KParts__NavigationExtension, global: QtC.QPoint, url: QtC.QUrl, mode: u16 ```
+    pub fn PopupMenu32(self: ?*anyopaque, global: ?*anyopaque, url: ?*anyopaque, mode: u16) void {
         qtc.KParts__NavigationExtension_PopupMenu32(@ptrCast(self), @ptrCast(global), @ptrCast(url), mode);
     }
 
     /// [Qt documentation](https://api.kde.org/kparts-navigationextension.html#popupMenu)
     ///
-    /// ``` self: QtC.KParts__NavigationExtension, global: QtC.QPoint, url: QtC.QUrl, mode: u32, arguments: QtC.KParts__OpenUrlArguments ```
-    pub fn PopupMenu42(self: ?*anyopaque, global: ?*anyopaque, url: ?*anyopaque, mode: u32, arguments: ?*anyopaque) void {
+    /// ``` self: QtC.KParts__NavigationExtension, global: QtC.QPoint, url: QtC.QUrl, mode: u16, arguments: QtC.KParts__OpenUrlArguments ```
+    pub fn PopupMenu42(self: ?*anyopaque, global: ?*anyopaque, url: ?*anyopaque, mode: u16, arguments: ?*anyopaque) void {
         qtc.KParts__NavigationExtension_PopupMenu42(@ptrCast(self), @ptrCast(global), @ptrCast(url), mode, @ptrCast(arguments));
     }
 
     /// [Qt documentation](https://api.kde.org/kparts-navigationextension.html#popupMenu)
     ///
-    /// ``` self: QtC.KParts__NavigationExtension, global: QtC.QPoint, url: QtC.QUrl, mode: u32, arguments: QtC.KParts__OpenUrlArguments, flags: flag of navigationextension_enums.PopupFlag ```
-    pub fn PopupMenu52(self: ?*anyopaque, global: ?*anyopaque, url: ?*anyopaque, mode: u32, arguments: ?*anyopaque, flags: i32) void {
+    /// ``` self: QtC.KParts__NavigationExtension, global: QtC.QPoint, url: QtC.QUrl, mode: u16, arguments: QtC.KParts__OpenUrlArguments, flags: flag of navigationextension_enums.PopupFlag ```
+    pub fn PopupMenu52(self: ?*anyopaque, global: ?*anyopaque, url: ?*anyopaque, mode: u16, arguments: ?*anyopaque, flags: i32) void {
         qtc.KParts__NavigationExtension_PopupMenu52(@ptrCast(self), @ptrCast(global), @ptrCast(url), mode, @ptrCast(arguments), @intCast(flags));
     }
 
     /// [Qt documentation](https://api.kde.org/kparts-navigationextension.html#popupMenu)
     ///
-    /// ``` self: QtC.KParts__NavigationExtension, global: QtC.QPoint, url: QtC.QUrl, mode: u32, arguments: QtC.KParts__OpenUrlArguments, flags: flag of navigationextension_enums.PopupFlag, actionGroups: map_constu8_qtcqaction, allocator: std.mem.Allocator ```
-    pub fn PopupMenu6(self: ?*anyopaque, global: ?*anyopaque, url: ?*anyopaque, mode: u32, arguments: ?*anyopaque, flags: i32, actionGroups: map_constu8_anyopaque, allocator: std.mem.Allocator) void {
+    /// ``` self: QtC.KParts__NavigationExtension, global: QtC.QPoint, url: QtC.QUrl, mode: u16, arguments: QtC.KParts__OpenUrlArguments, flags: flag of navigationextension_enums.PopupFlag, actionGroups: map_constu8_qtcqaction, allocator: std.mem.Allocator ```
+    pub fn PopupMenu6(self: ?*anyopaque, global: ?*anyopaque, url: ?*anyopaque, mode: u16, arguments: ?*anyopaque, flags: i32, actionGroups: map_constu8_anyopaque, allocator: std.mem.Allocator) void {
         const actionGroups_keys = allocator.alloc(qtc.libqt_string, actionGroups.count()) catch @panic("kparts::navigationextension.PopupMenu6: Memory allocation failed");
         defer allocator.free(actionGroups_keys);
         const actionGroups_values = allocator.alloc([]QtC.QAction, actionGroups.count()) catch @panic("kparts::navigationextension.PopupMenu6: Memory allocation failed");
