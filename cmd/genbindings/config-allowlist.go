@@ -613,7 +613,7 @@ func AllowType(p CppParameter, isReturnType bool) error {
 	if strings.Contains(p.ParameterType, "QJSValue") { // callback function pointer
 		return ErrTooComplex // e.g. QWebEngineFrame_RunJavaScript2
 	}
-	if strings.HasPrefix(p.ParameterType, "QDBusReply<") {
+	if strings.HasPrefix(p.ParameterType, "QDBusPendingReply<") || strings.HasPrefix(p.ParameterType, "QDBusReply<") {
 		return ErrTooComplex // Qt 6 qdbusconnectioninterface.h, this could probably be made to work
 	}
 	if strings.HasPrefix(p.ParameterType, "StringResult<") {
@@ -935,6 +935,10 @@ func AllowInnerClassDef(className string) bool {
 		"KTextEditor::MovingCursor",          // Qt 6 KTextEditor, document.h
 		"KTextEditor::MovingRange",           // Qt 6 KTextEditor, document.h
 		"KTextEditor::Plugin",                // Qt 6 KTextEditor, plugin.h
+		"PackageKit::Daemon",                 // Qt 6 PackageKit-Qt, daemon.h
+		"PackageKit::Details",                // Qt 6 PackageKit-Qt, transaction.h
+		"PackageKit::Offline",                // Qt 6 PackageKit-Qt, daemon.h
+		"PackageKit::Transaction",            // Qt 6 PackageKit-Qt, transaction.h
 		"Sonnet::BackgroundChecker",          // Qt 6 Sonnet, dialog.h
 		"Sonnet::Dialog",                     // Qt 6 Sonnet, dialog.h
 		"____last____":
