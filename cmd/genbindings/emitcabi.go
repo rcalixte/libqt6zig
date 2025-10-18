@@ -164,6 +164,12 @@ func (p CppParameter) RenderTypeIntermediateCpp() string {
 	if cppType == "MovingRange::InsertBehaviors" {
 		return "KTextEditor::MovingRange::InsertBehaviors"
 	}
+	if cppType == "Transaction::Filters" {
+		return "PackageKit::Transaction::Filters"
+	}
+	if cppType == "Transaction::TransactionFlags" {
+		return "PackageKit::Transaction::TransactionFlag"
+	}
 
 	return cppType
 }
