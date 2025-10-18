@@ -101,6 +101,10 @@ func getPageUrl(pageType PageType, pageName, cmdURL, className string) string {
 		return "https://github.com/ksnip/kImageAnnotator"
 	}
 
+	if strings.HasPrefix(pageName, "packagekit") {
+		return "https://github.com/PackageKit/PackageKit-Qt"
+	}
+
 	if strings.HasPrefix(pageName, "qkeychain") {
 		return "https://github.com/frankosterfeld/qtkeychain"
 	}
@@ -301,7 +305,7 @@ func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType, fullEnumNam
 		ret += "i8" // Signed
 	case "short", "qint16", "int16_t", "GLshort":
 		ret += "i16"
-	case "ushort", "quint16", "unsigned short", "uint16_t", "GLushort":
+	case "ushort", "quint16", "unsigned short", "uint16_t", "mode_t", "GLushort":
 		ret += "u16"
 	case "long":
 		// Windows ILP32 - 32-bits
@@ -318,7 +322,7 @@ func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType, fullEnumNam
 			ret += "u64"
 		}
 
-	case "unsigned int", "quint32", "uint32_t", "uint", "gid_t", "uid_t", "dev_t", "mode_t", "GL", "GLbitfield", "GLenum", "GLuint":
+	case "unsigned int", "quint32", "uint32_t", "uint", "gid_t", "uid_t", "dev_t", "GL", "GLbitfield", "GLenum", "GLuint":
 		ret += "u32"
 	case "qint32", "int", "int32_t", "pid_t", "GLint", "GLsizei":
 		ret += "i32"
@@ -1930,6 +1934,7 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 		maybeUrlPrefix = ifv(strings.Contains(src.Filename, "KSvg"), "ksvg-", maybeUrlPrefix)
 		maybeUrlPrefix = ifv(strings.Contains(src.Filename, "KSyntaxHighlighting"), "ksyntaxhighlighting-", maybeUrlPrefix)
 		maybeUrlPrefix = ifv(strings.Contains(src.Filename, "LayerShellQt"), "layershellqt-", maybeUrlPrefix)
+		maybeUrlPrefix = ifv(strings.Contains(src.Filename, "PackageKit"), "packagekit-", maybeUrlPrefix)
 		maybeUrlPrefix = ifv(strings.Contains(src.Filename, "qt6keychain"), "qkeychain-", maybeUrlPrefix)
 		maybeUrlPrefix = ifv(strings.Contains(src.Filename, "Solid"), "solid-", maybeUrlPrefix)
 		maybeUrlPrefix = ifv(strings.Contains(src.Filename, "Sonnet"), "sonnet-", maybeUrlPrefix)
@@ -2042,7 +2047,8 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 				if enumClass == zfs.currentHeaderName || enumClass == strings.TrimSuffix(zfs.currentHeaderName, "_1") {
 					allImports = append(allImports, "const "+enumClass+"_enums = enums;")
 				} else {
-					allImports = append(allImports, "const "+enumClass+`_enums = @import("`+enumPrefix+"lib"+enumClass+`.zig").enums;`)
+					enumFileName := ifv(enumClass == "transaction" && strings.Contains(src.Filename, "PackageKit"), enumClass+"_1", enumClass)
+					allImports = append(allImports, "const "+enumClass+`_enums = @import("`+enumPrefix+"lib"+enumFileName+`.zig").enums;`)
 				}
 			}
 			if strings.HasPrefix(k, "set_") {
