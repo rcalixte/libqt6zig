@@ -363,6 +363,11 @@ const qt_modules = &.{
     "KGlobalAccel",
     // Qt 6 KWindowSystem
     "KWindowSystem",
+    // Qt 6 PackageKit-Qt
+    "PackageKitQt",
+    "PackageKitQt/PackageKit",
+    "packagekitqt6",
+    "packagekitqt6/PackageKit",
     // Qt 6 KIO
     "KIO",
     "KIOCore",
