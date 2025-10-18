@@ -26,8 +26,8 @@ pub const kacl = struct {
 
     /// New3 constructs a new KACL object.
     ///
-    /// ``` basicPermissions: u32 ```
-    pub fn New3(basicPermissions: u32) QtC.KACL {
+    /// ``` basicPermissions: u16 ```
+    pub fn New3(basicPermissions: u16) QtC.KACL {
         return qtc.KACL_new3(basicPermissions);
     }
 
@@ -111,7 +111,7 @@ pub const kacl = struct {
     /// [Qt documentation](https://api.kde.org/kacl.html#basePermissions)
     ///
     /// ``` self: QtC.KACL ```
-    pub fn BasePermissions(self: ?*anyopaque) u32 {
+    pub fn BasePermissions(self: ?*anyopaque) u16 {
         return @intCast(qtc.KACL_BasePermissions(@ptrCast(self)));
     }
 

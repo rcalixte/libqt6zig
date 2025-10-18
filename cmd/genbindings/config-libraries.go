@@ -567,6 +567,17 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 			cflags: "--std=c++17 -I/usr/include/KF6/KWindowSystem " + pkgConfigCflags("Qt6Widgets"),
 		},
 
+		// PackageKit-Qt
+		// Depends on Qt Core, D-Bus
+		{
+			path: "foss-extras-packagekitqt",
+			dirs: []string{
+				"/usr/include/packagekitqt6/PackageKit",
+			},
+			allowHeader: AllowAllHeaders,
+			cflags:      "--std=c++17 -I/usr/include/packagekitqt6/PackageKit " + pkgConfigCflags("Qt6DBus"),
+		},
+
 		// posix-extras
 
 		// Qt 6 D-Bus
