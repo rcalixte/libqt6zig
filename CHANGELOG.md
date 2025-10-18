@@ -1,4 +1,8 @@
 
+### 6.8.2 rev42 (18 October 2025)
+
+* Add [PackageKit-Qt](https://github.com/PackageKit/PackageKit-Qt) (#79)
+
 ### 6.8.2 rev41 (17 October 2025)
 
 * Unblock methods that return integer values by reference (#78)
