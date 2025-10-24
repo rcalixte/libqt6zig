@@ -1561,6 +1561,10 @@ func emitBindingCpp(src *CppParsedHeader, filename string) (string, error) {
 	srcFilename := filepath.Base(src.Filename)
 	seenClassMethods := map[string]bool{}
 
+	if srcFilename == "offline.h" && strings.Contains(src.Filename, "PackageKit") {
+		ret.WriteString("#include <PackageKit/Transaction>\n")
+	}
+
 	seenRefs := map[string]struct{}{}
 	for _, ref := range getReferencedTypes(src) {
 
