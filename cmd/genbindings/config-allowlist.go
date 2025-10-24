@@ -838,8 +838,6 @@ func AllowType(p CppParameter, isReturnType bool) error {
 		"QPlatformVideoSink",              // Qt 6 Multimedia qvideosink.h
 		"QTextDocument::ResourceProvider", // Qt 6 typedef for unsupported std::function<QVariant(const QUrl&)>
 		"QTransform::Affine",              // Qt 6 qtransform.h - public method returning private type
-		"QAbstractAudioBuffer",            // Qt 5 Multimedia, this is a private/internal type only
-		"QAbstractVideoBuffer",            // Works in Qt 5, but in Qt 6 Multimedia this type is used in qvideoframe.h but is not defined anywhere (it was later added in Qt 6.8)
 		"QRhi",                            // Qt 6 unstable types, used in Multimedia
 		"QPostEventList",                  // Qt QCoreApplication: private headers required
 		"QMetaCallEvent",                  // ..
