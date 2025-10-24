@@ -16,7 +16,7 @@ For previous libqt6zig versions supporting Qt 6.4+, there are branches correspon
 
 This library is designed to be used as a dependency in a larger application and not as a standalone library. The versioning scheme used by this library is based on the Qt version used as a base to generate the bindings with an additional nod to the library revision number. Any breaking changes to the library will be reflected in the changelog.
 
-These bindings are based on the [MIQT bindings for Go](https://github.com/mappu/miqt) that were released in August 2024. This library features support for Qt Core, GUI, Widgets, and Network as well as [additional Qt modules](https://doc.qt.io/qt-6/qt-additional-modules.html) such as Multimedia, Print Support, Spatial Audio, SQL, SVG, WebChannel, WebEngine, and more. In addition to Qt modules, this library also features support for third-party libraries such as [QCustomPlot](https://www.qcustomplot.com), [QScintilla](https://riverbankcomputing.com/software/qscintilla), various [KDE Frameworks](https://api.kde.org), and others. This library has support for slots/signals, subclassing, custom widgets, async via Qt, etc. In addition, there is library tooling that provides native support for Qt Creator/Designer forms and the Qt Resource System. With improper handling, it is fairly easy to encounter segmentation faults or errors. Q3 of the [FAQ](#faq) is a decent entry point for newcomers in addition to the [examples](https://github.com/rcalixte/libqt6zig-examples). Please try out the library and start a [discussion](https://github.com/rcalixte/libqt6zig/discussions) if you have any questions or issues directly relevant to this library.
+These bindings are based on the [MIQT bindings for Go](https://github.com/mappu/miqt) that were released in August 2024. This library features support for Qt Core, GUI, Widgets, and Network as well as [additional Qt modules](https://doc.qt.io/qt-6/qt-additional-modules.html) such as Multimedia, Print Support, Spatial Audio, SQL, SVG, WebChannel, WebEngine, and more. In addition to Qt modules, this library also features support for third-party libraries such as [QCustomPlot](https://www.qcustomplot.com), [QScintilla](https://riverbankcomputing.com/software/qscintilla), various [KDE Frameworks](https://develop.kde.org/products/frameworks/), and others. This library has support for slots/signals, subclassing, custom widgets, async via Qt, etc. In addition, there is library tooling that provides native support for Qt Creator/Designer forms and the Qt Resource System. With improper handling, it is fairly easy to encounter segmentation faults or errors. Q3 of the [FAQ](#faq) is a decent entry point for newcomers in addition to the [examples](https://github.com/rcalixte/libqt6zig-examples). Please try out the library and start a [discussion](https://github.com/rcalixte/libqt6zig/discussions) if you have any questions or issues directly relevant to this library.
 
 ---
 
@@ -114,8 +114,7 @@ Full examples are available in the [`libqt6zig-examples`](https://github.com/rca
 Building
 --------
 
-FreeBSD (native)
-----------------
+### FreeBSD (native)
 
 - *Tested with FreeBSD 14 / Qt 6.8 + 6.9*
 
@@ -128,8 +127,7 @@ sudo pkg install qt6-base qt6-charts qt6-multimedia qt6-pdf qt6-svg qt6-webchann
 > [!NOTE]
 > The `zig` package will need to be downloaded and installed separately if the latest stable version is not available in the default repositories.
 
-Linux (native)
---------------
+### Linux (native)
 
 - *Tested with Debian 12 + 13 / Qt 6.4 + 6.8*
 
@@ -393,16 +391,14 @@ There is a custom implementation of Qt's `uic` and `rcc` tools to allow using [Q
 
 While optional for the `uic-zig` program, there is a hard requirement for the `qrc-zig` program:
 
-FreeBSD
--------
+#### FreeBSD
 
 These tools are already installed with `qt6-base` and located at:
 
 - `/usr/local/libexec/qt6/rcc`
 - `/usr/local/libexec/qt6/uic`
 
-Linux
------
+#### Linux
 
 - __Debian-based distributions__:
 
