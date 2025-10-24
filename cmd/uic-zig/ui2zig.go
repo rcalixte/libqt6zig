@@ -1258,7 +1258,7 @@ func generateWidget(w UiWidget, parentName, parentClass string) (string, error) 
 		// The first listed class can be the central widget.
 		// TODO should it be the first child with a layout? But need to handle windows with no layout
 		if wClass == "QMainWindow" && !setCentralWidget {
-			ret.WriteString(wClassZig + ".SetCentralWidget(ui." + w.Name + ", ui." + child.Name + ");\n") // Set central widget
+			ret.WriteString("\n" + wClassZig + ".SetCentralWidget(ui." + w.Name + ", ui." + child.Name + ");\n") // Set central widget
 			setCentralWidget = true
 		}
 

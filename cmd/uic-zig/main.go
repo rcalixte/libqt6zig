@@ -1,3 +1,5 @@
+// uic-zig is a command-line tool for generating a Zig file from a Qt Creator
+// or Qt Designer form (*.ui).
 package main
 
 import (
