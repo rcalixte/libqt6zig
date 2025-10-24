@@ -1,3 +1,4 @@
+#include <PackageKit/Transaction>
 #include <PackageKit/Offline>
 #include <QList>
 #include <QMap>

@@ -25,6 +25,7 @@ typedef struct QVideoFrameFormat QVideoFrameFormat;
 
 void QAbstractVideoBuffer_Unmap(QAbstractVideoBuffer* self);
 QVideoFrameFormat* QAbstractVideoBuffer_Format(const QAbstractVideoBuffer* self);
+void QAbstractVideoBuffer_OperatorAssign(QAbstractVideoBuffer* self, const QAbstractVideoBuffer* param1);
 void QAbstractVideoBuffer_Delete(QAbstractVideoBuffer* self);
 
 QAbstractVideoBuffer__MapData* QAbstractVideoBuffer__MapData_new(const QAbstractVideoBuffer__MapData* other);

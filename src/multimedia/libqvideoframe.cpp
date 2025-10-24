@@ -1,3 +1,4 @@
+#include <QAbstractVideoBuffer>
 #include <QColor>
 #include <QImage>
 #include <QPainter>
@@ -27,6 +28,10 @@ QVideoFrame* QVideoFrame_new3(const QImage* image) {
 
 QVideoFrame* QVideoFrame_new4(const QVideoFrame* other) {
     return new QVideoFrame(*other);
+}
+
+QVideoFrame* QVideoFrame_new5(QAbstractVideoBuffer* buffer, const QVideoFrameFormat* format) {
+    return new QVideoFrame(buffer, *format);
 }
 
 void QVideoFrame_Swap(QVideoFrame* self, QVideoFrame* other) {
@@ -188,6 +193,10 @@ void QVideoFrame_SetSubtitleText(QVideoFrame* self, const libqt_string text) {
 
 void QVideoFrame_Paint(QVideoFrame* self, QPainter* painter, const QRectF* rect, const QVideoFrame__PaintOptions* options) {
     self->paint(painter, *rect, *options);
+}
+
+QAbstractVideoBuffer* QVideoFrame_VideoBuffer(const QVideoFrame* self) {
+    return self->videoBuffer();
 }
 
 void QVideoFrame_Delete(QVideoFrame* self) {
