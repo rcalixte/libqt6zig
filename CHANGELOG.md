@@ -1,4 +1,8 @@
 
+### 6.8.2 rev43 (24 October 2025)
+
+* Minor tweaks and fix (#80)
+
 ### 6.8.2 rev42 (18 October 2025)
 
 * Add [PackageKit-Qt](https://github.com/PackageKit/PackageKit-Qt) (#79)
