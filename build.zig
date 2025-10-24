@@ -81,7 +81,7 @@ pub fn build(b: *std.Build) !void {
                         var library = std.mem.splitBackwardsScalar(u8, path, '-');
                         const name = library.first();
                         const description = b.fmt("Enable {s} (where supported)", .{name});
-                        const option_name = try std.mem.concat(allocator, u8, &.{ "enable-", name });
+                        const option_name = b.fmt("enable-{s}", .{name});
                         const option_value = b.option(bool, option_name, description);
                         var is_enabled = true;
                         if ((host_os == .macos or host_os == .windows) and std.mem.eql(u8, prefix, "extras-")) {
