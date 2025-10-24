@@ -18,6 +18,7 @@ extern "C" {
 typedef QVideoFrame::PaintOptions QVideoFrame__PaintOptions;
 #endif
 #else
+typedef struct QAbstractVideoBuffer QAbstractVideoBuffer;
 typedef struct QColor QColor;
 typedef struct QImage QImage;
 typedef struct QPainter QPainter;
@@ -32,6 +33,7 @@ QVideoFrame* QVideoFrame_new();
 QVideoFrame* QVideoFrame_new2(const QVideoFrameFormat* format);
 QVideoFrame* QVideoFrame_new3(const QImage* image);
 QVideoFrame* QVideoFrame_new4(const QVideoFrame* other);
+QVideoFrame* QVideoFrame_new5(QAbstractVideoBuffer* buffer, const QVideoFrameFormat* format);
 void QVideoFrame_Swap(QVideoFrame* self, QVideoFrame* other);
 void QVideoFrame_OperatorAssign(QVideoFrame* self, const QVideoFrame* other);
 bool QVideoFrame_OperatorEqual(const QVideoFrame* self, const QVideoFrame* other);
@@ -70,6 +72,7 @@ QImage* QVideoFrame_ToImage(const QVideoFrame* self);
 libqt_string QVideoFrame_SubtitleText(const QVideoFrame* self);
 void QVideoFrame_SetSubtitleText(QVideoFrame* self, const libqt_string text);
 void QVideoFrame_Paint(QVideoFrame* self, QPainter* painter, const QRectF* rect, const QVideoFrame__PaintOptions* options);
+QAbstractVideoBuffer* QVideoFrame_VideoBuffer(const QVideoFrame* self);
 void QVideoFrame_Delete(QVideoFrame* self);
 
 QVideoFrame__PaintOptions* QVideoFrame__PaintOptions_new(const QVideoFrame__PaintOptions* other);

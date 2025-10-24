@@ -17,6 +17,13 @@ pub const qabstractvideobuffer = struct {
         return qtc.QAbstractVideoBuffer_Format(@ptrCast(self));
     }
 
+    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractvideobuffer.html#operator-eq)
+    ///
+    /// ``` self: QtC.QAbstractVideoBuffer, param1: QtC.QAbstractVideoBuffer ```
+    pub fn OperatorAssign(self: ?*anyopaque, param1: ?*anyopaque) void {
+        qtc.QAbstractVideoBuffer_OperatorAssign(@ptrCast(self), @ptrCast(param1));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractvideobuffer.html#dtor.QAbstractVideoBuffer)
     ///
     /// Delete this object from C++ memory.

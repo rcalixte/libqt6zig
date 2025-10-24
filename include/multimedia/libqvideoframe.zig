@@ -36,6 +36,13 @@ pub const qvideoframe = struct {
         return qtc.QVideoFrame_new4(@ptrCast(other));
     }
 
+    /// New5 constructs a new QVideoFrame object.
+    ///
+    /// ``` buffer: QtC.QAbstractVideoBuffer, format: QtC.QVideoFrameFormat ```
+    pub fn New5(buffer: ?*anyopaque, format: ?*anyopaque) QtC.QVideoFrame {
+        return qtc.QVideoFrame_new5(@ptrCast(buffer), @ptrCast(format));
+    }
+
     /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframe.html#swap)
     ///
     /// ``` self: QtC.QVideoFrame, other: QtC.QVideoFrame ```
@@ -318,6 +325,13 @@ pub const qvideoframe = struct {
     /// ``` self: QtC.QVideoFrame, painter: QtC.QPainter, rect: QtC.QRectF, options: QtC.QVideoFrame__PaintOptions ```
     pub fn Paint(self: ?*anyopaque, painter: ?*anyopaque, rect: ?*anyopaque, options: ?*anyopaque) void {
         qtc.QVideoFrame_Paint(@ptrCast(self), @ptrCast(painter), @ptrCast(rect), @ptrCast(options));
+    }
+
+    /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframe.html#videoBuffer)
+    ///
+    /// ``` self: QtC.QVideoFrame ```
+    pub fn VideoBuffer(self: ?*anyopaque) QtC.QAbstractVideoBuffer {
+        return qtc.QVideoFrame_VideoBuffer(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvideoframe.html#dtor.QVideoFrame)

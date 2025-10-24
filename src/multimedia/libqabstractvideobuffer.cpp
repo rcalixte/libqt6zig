@@ -13,6 +13,10 @@ QVideoFrameFormat* QAbstractVideoBuffer_Format(const QAbstractVideoBuffer* self)
     return new QVideoFrameFormat(self->format());
 }
 
+void QAbstractVideoBuffer_OperatorAssign(QAbstractVideoBuffer* self, const QAbstractVideoBuffer* param1) {
+    self->operator=(*param1);
+}
+
 void QAbstractVideoBuffer_Delete(QAbstractVideoBuffer* self) {
     delete self;
 }
