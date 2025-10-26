@@ -1,4 +1,4 @@
-#define WORKAROUND_INNER_CLASS_DEFINITION_KTextEditor__Application
+#include <KTextEditor/Application>
 #include <KTextEditor/Document>
 #include <KTextEditor/MainWindow>
 #include <KTextEditor/Plugin>
@@ -14,8 +14,8 @@
 #include <QTimerEvent>
 #include <QUrl>
 #include <application.h>
-#include "libapplication.h"
-#include "libapplication.hxx"
+#include "libapplication_1.h"
+#include "libapplication_1.hxx"
 
 KTextEditor__Application* KTextEditor__Application_new(QObject* parent) {
     return new VirtualKTextEditorApplication(parent);

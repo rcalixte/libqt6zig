@@ -942,6 +942,7 @@ func cabiPreventStructDeclaration(className string) bool {
 
 var (
 	noQtConnect = map[string]struct{}{
+		"Accounts__AccountService":      {},
 		"KNSCore__EngineBase":           {},
 		"KParts__NavigationExtension":   {},
 		"QAudioDecoder":                 {},

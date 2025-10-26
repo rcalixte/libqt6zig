@@ -2,6 +2,16 @@
 
 const C = @import("qt6c");
 
+pub const Accounts__Account = ?*C.Accounts__Account;
+pub const Accounts__AccountService = ?*C.Accounts__AccountService;
+pub const Accounts__Application = ?*C.Accounts__Application;
+pub const Accounts__AuthData = ?*C.Accounts__AuthData;
+pub const Accounts__Error = ?*C.Accounts__Error;
+pub const Accounts__Manager = ?*C.Accounts__Manager;
+pub const Accounts__Provider = ?*C.Accounts__Provider;
+pub const Accounts__Service = ?*C.Accounts__Service;
+pub const Accounts__ServiceType = ?*C.Accounts__ServiceType;
+pub const Accounts__Watch = ?*C.Accounts__Watch;
 pub const Attica = ?*C.Attica;
 pub const Attica__AccountBalance = ?*C.Attica__AccountBalance;
 pub const Attica__Achievement = ?*C.Attica__Achievement;

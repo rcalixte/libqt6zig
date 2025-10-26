@@ -580,6 +580,20 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 
 		// posix-extras
 
+		// Qt 6 Accounts
+		// Depends on Qt Core, XML
+		{
+			path: "posix-extras-accounts",
+			dirs: []string{
+				"/usr/include/accounts-qt6/Accounts",
+			},
+			allowHeader: func(fullpath string) bool {
+				baseName := filepath.Base(fullpath)
+				return baseName != "manager_p.h" && baseName != "utils.h"
+			},
+			cflags: "--std=c++17 -I/usr/include/accounts-qt6 -I/usr/include/accounts-qt6/Accounts " + pkgConfigCflags("Qt6Xml"),
+		},
+
 		// Qt 6 D-Bus
 		// Depends on Qt Core
 		{

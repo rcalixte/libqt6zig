@@ -1,3 +1,4 @@
+// genbindings regenerates the Qt bindings for Zig
 package main
 
 import (
@@ -64,7 +65,7 @@ func processFormatBatch(batch *FormatBatch) error {
 				var stderr bytes.Buffer
 				cmd.Stderr = &stderr
 				if err := cmd.Run(); err != nil {
-					errors <- fmt.Errorf("zig format failed: %v", err, stderr.String())
+					errors <- fmt.Errorf("zig format failed: %v\nstderr: %s", err, stderr.String())
 					return
 				}
 

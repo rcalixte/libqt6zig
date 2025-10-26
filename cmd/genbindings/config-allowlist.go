@@ -27,6 +27,9 @@ func InsertTypedefs() {
 
 	// Qt 6 KIO
 	KnownTypedefs["KProtocolInfo::Type"] = lookupResultTypedef{pp, CppTypedef{"KProtocolInfo::ExtraField::Type", parseSingleTypeString("KProtocolInfo::ExtraField::Type", "")}}
+
+	// Qt 6 Accounts
+	KnownTypedefs["AccountId"] = lookupResultTypedef{pp, CppTypedef{"Accounts::AccountId", parseSingleTypeString("Accounts::AccountId", "")}}
 }
 
 func Widgets_AllowHeader(fullpath string) bool {
@@ -867,6 +870,7 @@ func AllowType(p CppParameter, isReturnType bool) error {
 		"GLDEBUGPROC",                     // Qt 6 qopenglfunctions.h
 		"QPlatformOpenGLContext",          // Qt 6 qopenglcontext.h
 		"KateInlineNoteData",              // Qt 6 inlinenote.h
+		"AgAccountWatch",                  // Qt 6 accounts.h, external typedef
 		"____last____":
 		return ErrTooComplex
 	}
@@ -908,6 +912,8 @@ func AllowStructDef(className string) bool {
 func AllowInnerClassDef(className string) bool {
 	switch className {
 	case
+		"Accounts::Application",              // Qt 6 Accounts, application.h
+		"Accounts::Provider",                 // Qt 6 Accounts, provider.h
 		"Attica::Event",                      // Qt 6 Attica, event.h
 		"KIO::DeleteJob",                     // Qt 6 KIO, deletejob.h
 		"KIO::Job",                           // Qt 6 KIO, listjob.h
@@ -926,6 +932,7 @@ func AllowInnerClassDef(className string) bool {
 		"KSyntaxHighlighting::FoldingRegion", // Qt 6 KSyntaxHighlighting, foldingregion.h
 		"KSyntaxHighlighting::Format",        // Qt 6 KSyntaxHighlighting, format.h
 		"KSyntaxHighlighting::Theme",         // Qt 6 KSyntaxHighlighting, theme.h
+		"KTextEditor::Application",           // Qt 6 KTextEditor, application.h
 		"KTextEditor::Cursor",                // Qt 6 KTextEditor, cursor.h
 		"KTextEditor::Document",              // Qt 6 KTextEditor, document.h
 		"KTextEditor::MainWindow",            // Qt 6 KTextEditor, mainwindow.h
