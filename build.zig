@@ -368,6 +368,9 @@ const qt_modules = &.{
     "PackageKitQt/PackageKit",
     "packagekitqt6",
     "packagekitqt6/PackageKit",
+    // Qt 6 Accounts
+    "accounts-qt6",
+    "accounts-qt6/Accounts",
     // Qt 6 KIO
     "KIO",
     "KIOCore",
