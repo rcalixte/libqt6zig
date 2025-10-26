@@ -1,7 +1,7 @@
 #include <KAboutData>
 #define WORKAROUND_INNER_CLASS_DEFINITION_KSyntaxHighlighting__Repository
 #include <KSyntaxHighlighting/Theme>
-#define WORKAROUND_INNER_CLASS_DEFINITION_KTextEditor__Application
+#include <KTextEditor/Application>
 #define WORKAROUND_INNER_CLASS_DEFINITION_KTextEditor__Command
 #define WORKAROUND_INNER_CLASS_DEFINITION_KTextEditor__ConfigPage
 #include <KTextEditor/Document>

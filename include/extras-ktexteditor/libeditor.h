@@ -18,9 +18,7 @@ extern "C" {
 typedef KSyntaxHighlighting::Repository KSyntaxHighlighting__Repository;
 #endif
 typedef KSyntaxHighlighting::Theme KSyntaxHighlighting__Theme;
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_KTextEditor__Application)
 typedef KTextEditor::Application KTextEditor__Application;
-#endif
 #if defined(WORKAROUND_INNER_CLASS_DEFINITION_KTextEditor__Command)
 typedef KTextEditor::Command KTextEditor__Command;
 #endif

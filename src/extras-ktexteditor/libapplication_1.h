@@ -14,9 +14,7 @@ extern "C" {
 #endif
 
 #ifdef __cplusplus
-#if defined(WORKAROUND_INNER_CLASS_DEFINITION_KTextEditor__Application)
 typedef KTextEditor::Application KTextEditor__Application;
-#endif
 typedef KTextEditor::Document KTextEditor__Document;
 typedef KTextEditor::MainWindow KTextEditor__MainWindow;
 typedef KTextEditor::Plugin KTextEditor__Plugin;
