@@ -109,6 +109,10 @@ func getPageUrl(pageType PageType, pageName, cmdURL, className string) string {
 		return "https://github.com/frankosterfeld/qtkeychain"
 	}
 
+	if strings.HasPrefix(pageName, "Accounts__") {
+		return "https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1" + strings.ToUpper(pageName[10:11]) + pageName[11:] + ".html"
+	}
+
 	if pageType == DtorPage && strings.Contains(className, "__") {
 		return ""
 	}
@@ -1391,7 +1395,8 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 			(len(c.DirectInherits) > 0 && len(collectInheritedMethodsForZig(c.DirectInherits[0], map[string]struct{}{c.ClassName: {}}, &zfs)) > 0) {
 			footerNeeded = true
 			maybeCharts := ifv(strings.Contains(src.Filename, "QtCharts"), "-qtcharts", "")
-			pageName := ifv(zfs.currentHeaderName == "qcustomplot" && strings.HasPrefix(zigStructName, "QCP"), zigStructName, getPageName(zigStructName)) + maybeCharts
+			isSpecialCase := (zfs.currentHeaderName == "qcustomplot" && strings.HasPrefix(zigStructName, "QCP")) || (strings.Contains(src.Filename, "accounts-qt") && zigStructName[0] != 'Q')
+			pageName := ifv(isSpecialCase, zigStructName, getPageName(zigStructName)) + maybeCharts
 			zigStruct := strings.ToLower(zigStructName)
 			// TODO properly automate deduplication
 			eqStructHeader := zigStruct == zfs.currentHeaderName
@@ -1578,7 +1583,8 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 
 			var docCommentUrl string
 			className := ifv(m.InheritedInClass == "", cmdStructName, cabiClassName(m.InheritedInClass))
-			subjectURL := ifv(zfs.currentHeaderName == "qcustomplot" && strings.HasPrefix(className, "QCP"), className, strings.ToLower(className))
+			isSpecialCase := (zfs.currentHeaderName == "qcustomplot" && strings.HasPrefix(className, "QCP")) || (strings.Contains(src.Filename, "accounts-qt") && className[0] != 'Q')
+			subjectURL := ifv(isSpecialCase, className, strings.ToLower(className))
 			cmdURL := m.MethodName
 			if m.OverrideMethodName != "" {
 				cmdURL = m.OverrideMethodName
@@ -1791,7 +1797,8 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 			}
 
 			className := ifv(m.InheritedInClass == "", cmdStructName, cabiClassName(m.InheritedInClass))
-			subjectURL := ifv(zfs.currentHeaderName == "qcustomplot" && strings.HasPrefix(className, "QCP"), className, strings.ToLower(className))
+			isSpecialCase := (zfs.currentHeaderName == "qcustomplot" && strings.HasPrefix(className, "QCP")) || (strings.Contains(src.Filename, "accounts-qt") && className[0] != 'Q')
+			subjectURL := ifv(isSpecialCase, className, strings.ToLower(className))
 			cmdURL := m.MethodName
 			if m.OverrideMethodName != "" {
 				cmdURL = m.OverrideMethodName
@@ -1882,7 +1889,8 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 
 			var docCommentUrl string
 			className := ifv(m.InheritedInClass == "", cmdStructName, cabiClassName(m.InheritedInClass))
-			subjectURL := ifv(zfs.currentHeaderName == "qcustomplot" && strings.HasPrefix(className, "QCP"), className, strings.ToLower(className))
+			isSpecialCase := (zfs.currentHeaderName == "qcustomplot" && strings.HasPrefix(className, "QCP")) || (strings.Contains(src.Filename, "accounts-qt") && className[0] != 'Q')
+			subjectURL := ifv(isSpecialCase, className, strings.ToLower(className))
 			cmdURL := m.MethodName
 			if m.OverrideMethodName != "" {
 				cmdURL = m.OverrideMethodName
@@ -1911,7 +1919,8 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 
 		if c.CanDelete && (len(c.Methods) > 0 || len(c.VirtualMethods()) > 0 || len(c.Ctors) > 0) {
 			maybeCharts := ifv(strings.Contains(src.Filename, "QtCharts"), "-qtcharts", "")
-			pageUrl := getPageUrl(DtorPage, ifv(zfs.currentHeaderName == "qcustomplot" && strings.HasPrefix(zigStructName, "QCP"), zigStructName, getPageName(zigStructName))+maybeCharts, "", zigStructName)
+			isSpecialCase := (zfs.currentHeaderName == "qcustomplot" && strings.HasPrefix(zigStructName, "QCP")) || (strings.Contains(src.Filename, "accounts-qt") && zigStructName[0] != 'Q')
+			pageUrl := getPageUrl(DtorPage, ifv(isSpecialCase, zigStructName, getPageName(zigStructName))+maybeCharts, "", zigStructName)
 			ret.WriteString(ifv(pageUrl != "", "\n/// [Qt documentation]("+pageUrl+")\n///\n", "\n") +
 				"    /// Delete this object from C++ memory.\n///\n" +
 				"    /// ``` self: QtC." + zigStructName + " ```\n" +
@@ -1928,6 +1937,7 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 		zigIncs[zfs.currentHeaderName+"_enums"] = "pub const " + zfs.currentHeaderName + `_enums = @import("` + dirRoot + "lib" + zfs.currentHeaderName + `.zig").enums;`
 		maybeCharts := ifv(strings.Contains(src.Filename, "QtCharts"), "-qtcharts", "")
 		maybeUrlPrefix := ifv(strings.Contains(src.Filename, "KIO") && !strings.HasPrefix(getPageName(zfs.currentHeaderName), "k"), "kio-", "")
+		maybeUrlPrefix = ifv(strings.Contains(src.Filename, "Accounts"), "Accounts__", maybeUrlPrefix)
 		maybeUrlPrefix = ifv(strings.Contains(src.Filename, "Attica"), "attica-", maybeUrlPrefix)
 		maybeUrlPrefix = ifv(strings.Contains(src.Filename, "KNSCore"), "knscore-", maybeUrlPrefix)
 		maybeUrlPrefix = ifv(strings.Contains(src.Filename, "KParts"), "kparts-", maybeUrlPrefix)
