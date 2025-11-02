@@ -49,7 +49,7 @@ pub const qgenericargument = struct {
     pub fn New6(aName: []const u8, aData: ?*anyopaque) QtC.QGenericArgument {
         const aName_Cstring = aName.ptr;
 
-        return qtc.QGenericArgument_new6(aName_Cstring, aData);
+        return qtc.QGenericArgument_new6(aName_Cstring, @ptrCast(aData));
     }
 
     /// CopyAssign shallow copies `other` into `self`.
@@ -136,7 +136,7 @@ pub const qgenericreturnargument = struct {
     pub fn New6(aName: []const u8, aData: ?*anyopaque) QtC.QGenericReturnArgument {
         const aName_Cstring = aName.ptr;
 
-        return qtc.QGenericReturnArgument_new6(aName_Cstring, aData);
+        return qtc.QGenericReturnArgument_new6(aName_Cstring, @ptrCast(aData));
     }
 
     /// CopyAssign shallow copies `other` into `self`.
@@ -543,21 +543,21 @@ pub const qmetaobject = struct {
     ///
     /// ``` sender: QtC.QObject, signal_index: i32, argv: ?*anyopaque ```
     pub fn Activate(sender: ?*anyopaque, signal_index: i32, argv: ?*anyopaque) void {
-        qtc.QMetaObject_Activate(@ptrCast(sender), @intCast(signal_index), argv);
+        qtc.QMetaObject_Activate(@ptrCast(sender), @intCast(signal_index), @ptrCast(@alignCast(argv)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmetaobject.html#activate)
     ///
     /// ``` sender: QtC.QObject, param2: QtC.QMetaObject, local_signal_index: i32, argv: ?*anyopaque ```
     pub fn Activate2(sender: ?*anyopaque, param2: ?*anyopaque, local_signal_index: i32, argv: ?*anyopaque) void {
-        qtc.QMetaObject_Activate2(@ptrCast(sender), @ptrCast(param2), @intCast(local_signal_index), argv);
+        qtc.QMetaObject_Activate2(@ptrCast(sender), @ptrCast(param2), @intCast(local_signal_index), @ptrCast(@alignCast(argv)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmetaobject.html#activate)
     ///
     /// ``` sender: QtC.QObject, signal_offset: i32, local_signal_index: i32, argv: ?*anyopaque ```
     pub fn Activate3(sender: ?*anyopaque, signal_offset: i32, local_signal_index: i32, argv: ?*anyopaque) void {
-        qtc.QMetaObject_Activate3(@ptrCast(sender), @intCast(signal_offset), @intCast(local_signal_index), argv);
+        qtc.QMetaObject_Activate3(@ptrCast(sender), @intCast(signal_offset), @intCast(local_signal_index), @ptrCast(@alignCast(argv)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmetaobject.html#invokeMethod)
@@ -603,14 +603,14 @@ pub const qmetaobject = struct {
     ///
     /// ``` self: QtC.QMetaObject, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn StaticMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.QMetaObject_StaticMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.QMetaObject_StaticMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmetaobject.html#metacall)
     ///
     /// ``` param1: QtC.QObject, param2: qobjectdefs_enums.Call, param3: i32, param4: ?*anyopaque ```
     pub fn Metacall(param1: ?*anyopaque, param2: i32, param3: i32, param4: ?*anyopaque) i32 {
-        return qtc.QMetaObject_Metacall(@ptrCast(param1), @intCast(param2), @intCast(param3), param4);
+        return qtc.QMetaObject_Metacall(@ptrCast(param1), @intCast(param2), @intCast(param3), @ptrCast(@alignCast(param4)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmetaobject.html#d-var)

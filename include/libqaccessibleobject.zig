@@ -676,7 +676,7 @@ pub const qaccessibleobject = struct {
     ///
     /// ``` self: QtC.QAccessibleObject, id: i32, data: ?*anyopaque ```
     pub fn VirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.QAccessibleObject_VirtualHook(@ptrCast(self), @intCast(id), data);
+        qtc.QAccessibleObject_VirtualHook(@ptrCast(self), @intCast(id), @ptrCast(data));
     }
 
     /// Inherited from QAccessibleInterface
@@ -687,7 +687,7 @@ pub const qaccessibleobject = struct {
     ///
     /// ``` self: QtC.QAccessibleObject, id: i32, data: ?*anyopaque ```
     pub fn QBaseVirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.QAccessibleObject_QBaseVirtualHook(@ptrCast(self), @intCast(id), data);
+        qtc.QAccessibleObject_QBaseVirtualHook(@ptrCast(self), @intCast(id), @ptrCast(data));
     }
 
     /// Inherited from QAccessibleInterface
@@ -1375,7 +1375,7 @@ pub const qaccessibleapplication = struct {
     ///
     /// ``` self: QtC.QAccessibleApplication, id: i32, data: ?*anyopaque ```
     pub fn VirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.QAccessibleApplication_VirtualHook(@ptrCast(self), @intCast(id), data);
+        qtc.QAccessibleApplication_VirtualHook(@ptrCast(self), @intCast(id), @ptrCast(data));
     }
 
     /// Inherited from QAccessibleInterface
@@ -1386,7 +1386,7 @@ pub const qaccessibleapplication = struct {
     ///
     /// ``` self: QtC.QAccessibleApplication, id: i32, data: ?*anyopaque ```
     pub fn QBaseVirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.QAccessibleApplication_QBaseVirtualHook(@ptrCast(self), @intCast(id), data);
+        qtc.QAccessibleApplication_QBaseVirtualHook(@ptrCast(self), @intCast(id), @ptrCast(data));
     }
 
     /// Inherited from QAccessibleInterface

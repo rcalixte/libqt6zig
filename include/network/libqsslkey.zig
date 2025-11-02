@@ -35,7 +35,7 @@ pub const qsslkey = struct {
     ///
     /// ``` handle: ?*anyopaque ```
     pub fn New4(handle: ?*anyopaque) QtC.QSslKey {
-        return qtc.QSslKey_new4(handle);
+        return qtc.QSslKey_new4(@ptrCast(handle));
     }
 
     /// New5 constructs a new QSslKey object.
@@ -115,7 +115,7 @@ pub const qsslkey = struct {
     ///
     /// ``` handle: ?*anyopaque, typeVal: qssl_enums.KeyType ```
     pub fn New12(handle: ?*anyopaque, typeVal: i32) QtC.QSslKey {
-        return qtc.QSslKey_new12(handle, @intCast(typeVal));
+        return qtc.QSslKey_new12(@ptrCast(handle), @intCast(typeVal));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qsslkey.html#operator-eq)

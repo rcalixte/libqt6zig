@@ -287,38 +287,6 @@ pub const kcompletionbase = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#keyBindingMap)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ``` self: QtC.KCompletionBase, callback: *const fn () callconv(.c) map_i32_qtcqkeysequence ```
-    pub fn OnKeyBindingMap(self: ?*anyopaque, callback: *const fn () callconv(.c) map_i32_qtcqkeysequence) void {
-        qtc.KCompletionBase_OnKeyBindingMap(@ptrCast(self), @intCast(@intFromPtr(callback)));
-    }
-
-    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#keyBindingMap)
-    ///
-    /// Base class method implementation
-    ///
-    /// ``` self: QtC.KCompletionBase, allocator: std.mem.Allocator ```
-    pub fn QBaseKeyBindingMap(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_qtcqkeysequence {
-        const _map: qtc.libqt_map = qtc.KCompletionBase_QBaseKeyBindingMap(@ptrCast(self));
-        var _ret: map_i32_qtcqkeysequence = .empty;
-        defer {
-            qtc.libqt_free(_map.keys);
-            qtc.libqt_free(_map.values);
-        }
-        const _keys: [*]i32 = @ptrCast(@alignCast(_map.keys));
-        const _values: [*][]QtC.QKeySequence = @ptrCast(@alignCast(_map.values));
-        var i: usize = 0;
-        while (i < _map.len) : (i += 1) {
-            const _key = _keys[i];
-            const _value = _values[i];
-            _ret.put(allocator, _key, _value) catch @panic("kcompletionbase.KeyBindingMap: Memory allocation failed");
-        }
-        return _ret;
-    }
-
     /// [Qt documentation](https://api.kde.org/kcompletionbase.html#setKeyBindingMap)
     ///
     /// ``` self: QtC.KCompletionBase, keyBindingMap: map_i32_qtcqkeysequence, allocator: std.mem.Allocator ```
@@ -332,7 +300,7 @@ pub const kcompletionbase = struct {
         while (keyBindingMap_it.next()) |entry| {
             const key = entry.key_ptr.*;
             keyBindingMap_keys[i] = @intCast(key);
-            keyBindingMap_values[i] = entry.value_ptr.*;
+            keyBindingMap_values[i] = @ptrCast(entry.value_ptr.*);
             i += 1;
         }
         const keyBindingMap_map = qtc.libqt_map{
@@ -341,41 +309,6 @@ pub const kcompletionbase = struct {
             .values = @ptrCast(keyBindingMap_values.ptr),
         };
         qtc.KCompletionBase_SetKeyBindingMap(@ptrCast(self), keyBindingMap_map);
-    }
-
-    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#setKeyBindingMap)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ``` self: QtC.KCompletionBase, callback: *const fn (self: QtC.KCompletionBase, keyBindingMap: map_i32_qtcqkeysequence) callconv(.c) void ```
-    pub fn OnSetKeyBindingMap(self: ?*anyopaque, callback: *const fn (?*anyopaque, map_i32_qtcqkeysequence) callconv(.c) void) void {
-        qtc.KCompletionBase_OnSetKeyBindingMap(@ptrCast(self), @intCast(@intFromPtr(callback)));
-    }
-
-    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#setKeyBindingMap)
-    ///
-    /// Base class method implementation
-    ///
-    /// ``` self: QtC.KCompletionBase, keyBindingMap: map_i32_qtcqkeysequence, allocator: std.mem.Allocator ```
-    pub fn QBaseSetKeyBindingMap(self: ?*anyopaque, keyBindingMap: map_i32_qtcqkeysequence, allocator: std.mem.Allocator) void {
-        const keyBindingMap_keys = allocator.alloc(i32, keyBindingMap.count()) catch @panic("kcompletionbase.SetKeyBindingMap: Memory allocation failed");
-        defer allocator.free(keyBindingMap_keys);
-        const keyBindingMap_values = allocator.alloc([]QtC.QKeySequence, keyBindingMap.count()) catch @panic("kcompletionbase.SetKeyBindingMap: Memory allocation failed");
-        defer allocator.free(keyBindingMap_values);
-        var i: usize = 0;
-        var keyBindingMap_it = keyBindingMap.iterator();
-        while (keyBindingMap_it.next()) |entry| {
-            const key = entry.key_ptr.*;
-            keyBindingMap_keys[i] = @intCast(key);
-            keyBindingMap_values[i] = entry.value_ptr.*;
-            i += 1;
-        }
-        const keyBindingMap_map = qtc.libqt_map{
-            .len = keyBindingMap.count(),
-            .keys = @ptrCast(keyBindingMap_keys.ptr),
-            .values = @ptrCast(keyBindingMap_values.ptr),
-        };
-        qtc.KCompletionBase_QBaseSetKeyBindingMap(@ptrCast(self), keyBindingMap_map);
     }
 
     /// [Qt documentation](https://api.kde.org/kcompletionbase.html#setDelegate)
@@ -432,7 +365,7 @@ pub const kcompletionbase = struct {
     ///
     /// ``` self: QtC.KCompletionBase, id: i32, data: ?*anyopaque ```
     pub fn VirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.KCompletionBase_VirtualHook(@ptrCast(self), @intCast(id), data);
+        qtc.KCompletionBase_VirtualHook(@ptrCast(self), @intCast(id), @ptrCast(data));
     }
 
     /// [Qt documentation](https://api.kde.org/kcompletionbase.html#virtual_hook)
@@ -450,7 +383,7 @@ pub const kcompletionbase = struct {
     ///
     /// ``` self: QtC.KCompletionBase, id: i32, data: ?*anyopaque ```
     pub fn QBaseVirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.KCompletionBase_QBaseVirtualHook(@ptrCast(self), @intCast(id), data);
+        qtc.KCompletionBase_QBaseVirtualHook(@ptrCast(self), @intCast(id), @ptrCast(data));
     }
 
     /// [Qt documentation](https://api.kde.org/kcompletionbase.html#completionObject)

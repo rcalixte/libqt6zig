@@ -22,7 +22,7 @@ pub const kio__fileundomanager = struct {
 
     /// ``` self: QtC.KIO__FileUndoManager, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.KIO__FileUndoManager_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.KIO__FileUndoManager_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -713,7 +713,7 @@ pub const kio__fileundomanager__uiinterface = struct {
     ///
     /// ``` self: QtC.KIO__FileUndoManager__UiInterface, id: i32, data: ?*anyopaque ```
     pub fn VirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.KIO__FileUndoManager__UiInterface_VirtualHook(@ptrCast(self), @intCast(id), data);
+        qtc.KIO__FileUndoManager__UiInterface_VirtualHook(@ptrCast(self), @intCast(id), @ptrCast(data));
     }
 
     /// [Qt documentation](https://api.kde.org/kio-fileundomanager-uiinterface.html#virtual_hook)
@@ -731,7 +731,7 @@ pub const kio__fileundomanager__uiinterface = struct {
     ///
     /// ``` self: QtC.KIO__FileUndoManager__UiInterface, id: i32, data: ?*anyopaque ```
     pub fn QBaseVirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.KIO__FileUndoManager__UiInterface_QBaseVirtualHook(@ptrCast(self), @intCast(id), data);
+        qtc.KIO__FileUndoManager__UiInterface_QBaseVirtualHook(@ptrCast(self), @intCast(id), @ptrCast(data));
     }
 
     /// Delete this object from C++ memory.

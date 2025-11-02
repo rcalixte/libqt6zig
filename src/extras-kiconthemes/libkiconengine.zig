@@ -467,7 +467,7 @@ pub const kiconengine = struct {
     ///
     /// ``` self: QtC.KIconEngine, id: i32, data: ?*anyopaque ```
     pub fn VirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.KIconEngine_VirtualHook(@ptrCast(self), @intCast(id), data);
+        qtc.KIconEngine_VirtualHook(@ptrCast(self), @intCast(id), @ptrCast(data));
     }
 
     /// Inherited from QIconEngine
@@ -478,7 +478,7 @@ pub const kiconengine = struct {
     ///
     /// ``` self: QtC.KIconEngine, id: i32, data: ?*anyopaque ```
     pub fn QBaseVirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.KIconEngine_QBaseVirtualHook(@ptrCast(self), @intCast(id), data);
+        qtc.KIconEngine_QBaseVirtualHook(@ptrCast(self), @intCast(id), @ptrCast(data));
     }
 
     /// Inherited from QIconEngine

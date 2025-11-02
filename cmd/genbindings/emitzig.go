@@ -203,7 +203,7 @@ func mapParamToString(param string) string {
 
 func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType, fullEnumName bool) string {
 	if p.Pointer && p.ParameterType == "char" {
-		return "[]const u8"
+		return "[]" + ifv(p.Const, "const ", "") + "u8"
 	}
 	if p.ParameterType == "QString" || p.ParameterType == "QAnyStringView" ||
 		p.ParameterType == "QByteArrayView" || p.ParameterType == "QStringView" {
@@ -302,10 +302,10 @@ func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType, fullEnumNam
 		ret += ifv((p.Pointer || p.ByRef) && fullEnumName, "*", "") + "void"
 	case "bool":
 		ret += ifv((p.Pointer || p.ByRef) && fullEnumName, "*", "") + "bool"
-	case "unsigned char", "uchar", "quint8", "uint8_t", "GLboolean", "GLubyte":
+	case "char", "unsigned char", "uchar", "quint8", "uint8_t", "GLboolean", "GLubyte":
 		// Zig byte is unsigned
 		ret += "u8"
-	case "char", "qint8", "signed char", "GLbyte", "GLchar":
+	case "qint8", "signed char", "GLbyte", "GLchar":
 		ret += "i8" // Signed
 	case "short", "qint16", "int16_t", "GLshort":
 		ret += "i16"
@@ -496,6 +496,7 @@ func (p CppParameter) renderReturnTypeZig(zfs *zigFileState, isSlot bool) string
 		ret = strings.ReplaceAll(ret, "[]const u8", "[*:0]const u8")
 		ret = strings.ReplaceAll(ret, "[]u8", "[*:0]u8")
 		ret = strings.ReplaceAll(ret, "[]i32", "[*:-1]i32")
+		ret = strings.ReplaceAll(ret, "[]f64", "[*:-1]f64")
 		ret = strings.ReplaceAll(ret, "[]QtC", "[*:null]QtC")
 		ret = strings.ReplaceAll(ret, "[]struct", "[*:null]struct")
 	}
@@ -596,6 +597,7 @@ func (zfs *zigFileState) emitCommentParametersZig(params []CppParameter, isSlot 
 				paramType = strings.ReplaceAll(paramType, "[]const u8", "[*:0]const u8")
 				paramType = strings.ReplaceAll(paramType, "[]u8", "[*:0]u8")
 				paramType = strings.ReplaceAll(paramType, "[]i32", "[*:-1]i32")
+				paramType = strings.ReplaceAll(paramType, "[]f64", "[*:-1]f64")
 				paramType = strings.ReplaceAll(paramType, "[]QtC", "[*]QtC")
 			}
 			tmp = append(tmp, p.ParameterName+": "+paramType)
@@ -628,6 +630,7 @@ func (zfs *zigFileState) emitParametersZig(params []CppParameter, isSlot bool) s
 				paramType = strings.ReplaceAll(paramType, "[]const u8", "[*:0]const u8")
 				paramType = strings.ReplaceAll(paramType, "[]u8", "[*:0]u8")
 				paramType = strings.ReplaceAll(paramType, "[]i32", "[*:-1]i32")
+				paramType = strings.ReplaceAll(paramType, "[]f64", "[*:-1]f64")
 				paramType = strings.ReplaceAll(paramType, "[]QtC", "[*]QtC")
 				paramType = strings.ReplaceAll(paramType, "[]?*a", "[*]?*a")
 				tmp = append(tmp, paramType)
@@ -700,6 +703,14 @@ func (zfs *zigFileState) emitParametersZig2CABIForwarding(m CppMethod) (preamble
 			addPreamble, rvalue := zfs.emitParameterZig2CABIForwarding(p)
 
 			preamble += addPreamble
+			if p.PointerCount == 2 && p.ParameterType == "void" {
+				// qt_metacall
+				// TODO revisit void** params
+				rvalue = "@ptrCast(@alignCast(" + rvalue + "))"
+			} else if p.PointerCount == 1 && p.ParameterType == "void" {
+				// void* param
+				rvalue = "@ptrCast(" + rvalue + ")"
+			}
 			tmp = append(tmp, rvalue)
 		}
 	}
@@ -787,7 +798,7 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 	} else if kType, vType, _, ok := p.QMapOf(); ok {
 		// QMap<K,V>
 		zfs.imports["std"] = struct{}{}
-		var hashMapType string
+		var hashMapType, valCast, valCastClose string
 		if kType.ParameterType == "QString" {
 			hashMapType = "StringHashMap,,"
 		} else if kType.ParameterType == "QByteArray" {
@@ -800,6 +811,10 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 			hashMapType = "AutoHashMap," + k + ","
 		}
 		vParam := vType.RenderTypeZig(zfs, true, true)
+		if !strings.HasPrefix(vParam, "map_") {
+			valCast = "@ptrCast("
+			valCastClose = ")"
+		}
 
 		kTypeZig := kType.parameterTypeZig()
 
@@ -829,7 +844,7 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 
 			preamble += "    " + nameprefix + "_keys[i] = @" + castType + "Cast(key);\n"
 		}
-		preamble += "    " + nameprefix + "_values[i] = entry.value_ptr.*;\n"
+		preamble += "    " + nameprefix + "_values[i] = " + valCast + "entry.value_ptr.*" + valCastClose + ";\n"
 		preamble += "    i += 1;\n"
 
 		preamble += "}\n"
@@ -884,7 +899,7 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 			rvalue = "@ptrCast(" + p.ParameterName + ")"
 		} else {
 			castType := "int"
-			if p.ParameterType == "float" || p.ParameterType == "double" {
+			if p.RenderTypeZig(zfs, false, false)[0] == 'f' {
 				castType = "float"
 			}
 			rvalue = "@" + castType + "Cast(" + p.ParameterName + ")"
@@ -1701,14 +1716,21 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 					maybeComma = ", "
 				}
 
+				retType := m.ReturnType.renderReturnTypeZig(&zfs, true)
+				paramsZig := zfs.emitParametersZig(m.Parameters, true)
+
+				if strings.HasPrefix(retType, "map_") || strings.Contains(paramsZig, "map_") {
+					continue
+				}
+
 				onDocComment := "\n/// Allows for overriding the related default method\n    ///"
 
 				ret.WriteString(inheritedFrom + docCommentUrl + onDocComment + "\n    /// ``` self: QtC." +
 					zigStructName + ", callback: *const fn (" + maybeCommentSelf + maybeCommentStruct + zfs.emitCommentParametersZig(m.Parameters, true) +
-					") callconv(.c) " + m.ReturnType.renderReturnTypeZig(&zfs, true) + " ```\n" +
+					") callconv(.c) " + retType + " ```\n" +
 					"    pub fn On" + mSafeMethodName + "(self: ?*anyopaque, callback: *const fn (" + maybeAnyopaque + maybeComma +
-					zfs.emitParametersZig(m.Parameters, true) + ") callconv(.c) " +
-					m.ReturnType.renderReturnTypeZig(&zfs, true) + ") void {\n" +
+					paramsZig + ") callconv(.c) " +
+					retType + ") void {\n" +
 					"qtc." + cmdStructName + "_On" + cSafeMethodName + "(@ptrCast(self), @intCast(@intFromPtr(callback)));\n}\n")
 
 				maybeSelf := ifv(m.IsStatic && !m.IsProtected, "", "self: ?*anyopaque")
@@ -1832,6 +1854,13 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 				continue
 			}
 
+			retType := m.ReturnType.renderReturnTypeZig(&zfs, true)
+			paramsZig := zfs.emitParametersZig(m.Parameters, true)
+
+			if strings.HasPrefix(retType, "map_") || strings.Contains(paramsZig, "map_") {
+				continue
+			}
+
 			headerComment = "\n /// Wrapper to allow calling base class virtual or protected method\n ///\n"
 
 			maybeSelf := ifv(m.IsStatic && !m.IsProtected, "", "self: ?*anyopaque")
@@ -1863,10 +1892,10 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 
 			ret.WriteString(inheritedFrom + documentationURL + headerComment + "\n /// ``` self: QtC." +
 				zigStructName + ", callback: *const fn (" + maybeCommentSelf + maybeCommentStruct + zfs.emitCommentParametersZig(m.Parameters, true) +
-				") callconv(.c) " + m.ReturnType.renderReturnTypeZig(&zfs, true) + " ```\n" +
+				") callconv(.c) " + retType + " ```\n" +
 				"    pub fn On" + mSafeMethodName + "(self: ?*anyopaque, callback: *const fn (" + maybeAnyopaque + commaParams +
-				zfs.emitParametersZig(m.Parameters, true) + ") callconv(.c) " +
-				m.ReturnType.renderReturnTypeZig(&zfs, true) + ") void {\n" +
+				paramsZig + ") callconv(.c) " +
+				retType + ") void {\n" +
 				"qtc." + cmdStructName + "_On" + cSafeMethodName + "(@ptrCast(self), @intCast(@intFromPtr(callback)));\n}\n")
 		}
 

@@ -22,7 +22,7 @@ pub const qabstracteventdispatcher = struct {
 
     /// ``` self: QtC.QAbstractEventDispatcher, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.QAbstractEventDispatcher_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.QAbstractEventDispatcher_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -181,7 +181,7 @@ pub const qabstracteventdispatcher = struct {
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QAbstractEventDispatcher_FilterNativeEvent(@ptrCast(self), eventType_str, message, @ptrCast(result));
+        return qtc.QAbstractEventDispatcher_FilterNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstracteventdispatcher.html#aboutToBlock)
@@ -678,7 +678,7 @@ pub const qabstracteventdispatcherv2 = struct {
 
     /// ``` self: QtC.QAbstractEventDispatcherV2, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.QAbstractEventDispatcherV2_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.QAbstractEventDispatcherV2_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -904,7 +904,7 @@ pub const qabstracteventdispatcherv2 = struct {
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QAbstractEventDispatcher_FilterNativeEvent(@ptrCast(self), eventType_str, message, @ptrCast(result));
+        return qtc.QAbstractEventDispatcher_FilterNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// Inherited from QAbstractEventDispatcher

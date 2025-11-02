@@ -61,7 +61,7 @@ pub const qfile = struct {
 
     /// ``` self: QtC.QFile, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.QFile_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.QFile_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Allows for overriding the related default method
@@ -75,7 +75,7 @@ pub const qfile = struct {
     ///
     /// ``` self: QtC.QFile, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.QFile_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.QFile_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -742,8 +742,8 @@ pub const qfile = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#read)
     ///
-    /// ``` self: QtC.QFile, data: []const u8, maxlen: i64 ```
-    pub fn Read(self: ?*anyopaque, data: []const u8, maxlen: i64) i64 {
+    /// ``` self: QtC.QFile, data: []u8, maxlen: i64 ```
+    pub fn Read(self: ?*anyopaque, data: []u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
         return qtc.QIODevice_Read(@ptrCast(self), data_Cstring, @intCast(maxlen));
     }
@@ -778,8 +778,8 @@ pub const qfile = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#readLine)
     ///
-    /// ``` self: QtC.QFile, data: []const u8, maxlen: i64 ```
-    pub fn ReadLine(self: ?*anyopaque, data: []const u8, maxlen: i64) i64 {
+    /// ``` self: QtC.QFile, data: []u8, maxlen: i64 ```
+    pub fn ReadLine(self: ?*anyopaque, data: []u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
         return qtc.QIODevice_ReadLine(@ptrCast(self), data_Cstring, @intCast(maxlen));
     }
@@ -870,8 +870,8 @@ pub const qfile = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#peek)
     ///
-    /// ``` self: QtC.QFile, data: []const u8, maxlen: i64 ```
-    pub fn Peek(self: ?*anyopaque, data: []const u8, maxlen: i64) i64 {
+    /// ``` self: QtC.QFile, data: []u8, maxlen: i64 ```
+    pub fn Peek(self: ?*anyopaque, data: []u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
         return qtc.QIODevice_Peek(@ptrCast(self), data_Cstring, @intCast(maxlen));
     }
@@ -902,8 +902,8 @@ pub const qfile = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#ungetChar)
     ///
-    /// ``` self: QtC.QFile, c: i8 ```
-    pub fn UngetChar(self: ?*anyopaque, c: i8) void {
+    /// ``` self: QtC.QFile, c: u8 ```
+    pub fn UngetChar(self: ?*anyopaque, c: u8) void {
         qtc.QIODevice_UngetChar(@ptrCast(self), @intCast(c));
     }
 
@@ -911,8 +911,8 @@ pub const qfile = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#putChar)
     ///
-    /// ``` self: QtC.QFile, c: i8 ```
-    pub fn PutChar(self: ?*anyopaque, c: i8) bool {
+    /// ``` self: QtC.QFile, c: u8 ```
+    pub fn PutChar(self: ?*anyopaque, c: u8) bool {
         return qtc.QIODevice_PutChar(@ptrCast(self), @intCast(c));
     }
 
@@ -920,8 +920,8 @@ pub const qfile = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#getChar)
     ///
-    /// ``` self: QtC.QFile, c: []const u8 ```
-    pub fn GetChar(self: ?*anyopaque, c: []const u8) bool {
+    /// ``` self: QtC.QFile, c: []u8 ```
+    pub fn GetChar(self: ?*anyopaque, c: []u8) bool {
         const c_Cstring = c.ptr;
         return qtc.QIODevice_GetChar(@ptrCast(self), c_Cstring);
     }
@@ -1608,8 +1608,8 @@ pub const qfile = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QFile, data: []const u8, maxlen: i64 ```
-    pub fn ReadData(self: ?*anyopaque, data: []const u8, maxlen: i64) i64 {
+    /// ``` self: QtC.QFile, data: []u8, maxlen: i64 ```
+    pub fn ReadData(self: ?*anyopaque, data: []u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
         return qtc.QFile_ReadData(@ptrCast(self), data_Cstring, @intCast(maxlen));
     }
@@ -1620,8 +1620,8 @@ pub const qfile = struct {
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QFile, data: []const u8, maxlen: i64 ```
-    pub fn QBaseReadData(self: ?*anyopaque, data: []const u8, maxlen: i64) i64 {
+    /// ``` self: QtC.QFile, data: []u8, maxlen: i64 ```
+    pub fn QBaseReadData(self: ?*anyopaque, data: []u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
         return qtc.QFile_QBaseReadData(@ptrCast(self), data_Cstring, @intCast(maxlen));
     }
@@ -1632,8 +1632,8 @@ pub const qfile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QFile, callback: *const fn (self: QtC.QFile, data: [*:0]const u8, maxlen: i64) callconv(.c) i64 ```
-    pub fn OnReadData(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i64) callconv(.c) i64) void {
+    /// ``` self: QtC.QFile, callback: *const fn (self: QtC.QFile, data: [*:0]u8, maxlen: i64) callconv(.c) i64 ```
+    pub fn OnReadData(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]u8, i64) callconv(.c) i64) void {
         qtc.QFile_OnReadData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -1678,8 +1678,8 @@ pub const qfile = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.QFile, data: []const u8, maxlen: i64 ```
-    pub fn ReadLineData(self: ?*anyopaque, data: []const u8, maxlen: i64) i64 {
+    /// ``` self: QtC.QFile, data: []u8, maxlen: i64 ```
+    pub fn ReadLineData(self: ?*anyopaque, data: []u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
         return qtc.QFile_ReadLineData(@ptrCast(self), data_Cstring, @intCast(maxlen));
     }
@@ -1690,8 +1690,8 @@ pub const qfile = struct {
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.QFile, data: []const u8, maxlen: i64 ```
-    pub fn QBaseReadLineData(self: ?*anyopaque, data: []const u8, maxlen: i64) i64 {
+    /// ``` self: QtC.QFile, data: []u8, maxlen: i64 ```
+    pub fn QBaseReadLineData(self: ?*anyopaque, data: []u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
         return qtc.QFile_QBaseReadLineData(@ptrCast(self), data_Cstring, @intCast(maxlen));
     }
@@ -1702,8 +1702,8 @@ pub const qfile = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.QFile, callback: *const fn (self: QtC.QFile, data: [*:0]const u8, maxlen: i64) callconv(.c) i64 ```
-    pub fn OnReadLineData(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i64) callconv(.c) i64) void {
+    /// ``` self: QtC.QFile, callback: *const fn (self: QtC.QFile, data: [*:0]u8, maxlen: i64) callconv(.c) i64 ```
+    pub fn OnReadLineData(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]u8, i64) callconv(.c) i64) void {
         qtc.QFile_OnReadLineData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

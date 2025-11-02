@@ -7,7 +7,7 @@ pub const qnativeinterface__qeglcontext = struct {
     ///
     /// ``` context: ?*anyopaque, display: ?*anyopaque ```
     pub fn FromNative(context: ?*anyopaque, display: ?*anyopaque) QtC.QOpenGLContext {
-        return qtc.QNativeInterface__QEGLContext_FromNative(context, display);
+        return qtc.QNativeInterface__QEGLContext_FromNative(@ptrCast(context), @ptrCast(display));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qnativeinterface-qeglcontext.html#nativeContext)
@@ -42,6 +42,6 @@ pub const qnativeinterface__qeglcontext = struct {
     ///
     /// ``` context: ?*anyopaque, display: ?*anyopaque, shareContext: QtC.QOpenGLContext ```
     pub fn FromNative3(context: ?*anyopaque, display: ?*anyopaque, shareContext: ?*anyopaque) QtC.QOpenGLContext {
-        return qtc.QNativeInterface__QEGLContext_FromNative3(context, display, @ptrCast(shareContext));
+        return qtc.QNativeInterface__QEGLContext_FromNative3(@ptrCast(context), @ptrCast(display), @ptrCast(shareContext));
     }
 };

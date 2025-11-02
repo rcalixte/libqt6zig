@@ -494,7 +494,7 @@ pub const qaudiolistener = struct {
     ///
     /// ``` self: QtC.QAudioListener, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.QAudioListener_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.QAudioListener_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Inherited from QObject
@@ -505,7 +505,7 @@ pub const qaudiolistener = struct {
     ///
     /// ``` self: QtC.QAudioListener, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.QAudioListener_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.QAudioListener_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Inherited from QObject

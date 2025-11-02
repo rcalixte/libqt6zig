@@ -42,7 +42,7 @@ pub const kdatetimeedit = struct {
 
     /// ``` self: QtC.KDateTimeEdit, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.KDateTimeEdit_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.KDateTimeEdit_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Allows for overriding the related default method
@@ -56,7 +56,7 @@ pub const kdatetimeedit = struct {
     ///
     /// ``` self: QtC.KDateTimeEdit, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.KDateTimeEdit_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.KDateTimeEdit_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -536,7 +536,7 @@ pub const kdatetimeedit = struct {
         while (dateMap_it.next()) |entry| {
             const key = entry.key_ptr.*;
             dateMap_keys[i] = @intCast(key);
-            dateMap_values[i] = entry.value_ptr.*;
+            dateMap_values[i] = @ptrCast(entry.value_ptr.*);
             i += 1;
         }
         const dateMap_map = qtc.libqt_map{
@@ -4938,7 +4938,7 @@ pub const kdatetimeedit = struct {
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.KDateTimeEdit_NativeEvent(@ptrCast(self), eventType_str, message, @ptrCast(result));
+        return qtc.KDateTimeEdit_NativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// Inherited from QWidget
@@ -4953,7 +4953,7 @@ pub const kdatetimeedit = struct {
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.KDateTimeEdit_QBaseNativeEvent(@ptrCast(self), eventType_str, message, @ptrCast(result));
+        return qtc.KDateTimeEdit_QBaseNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// Inherited from QWidget

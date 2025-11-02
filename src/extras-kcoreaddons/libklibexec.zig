@@ -12,7 +12,7 @@ pub const klibexec = struct {
             .len = param1.len,
             .data = param1.ptr,
         };
-        const _str = qtc.KLibexec_PathFromAddress(param1_str, param2);
+        const _str = qtc.KLibexec_PathFromAddress(param1_str, @ptrCast(param2));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("klibexec.PathFromAddress: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

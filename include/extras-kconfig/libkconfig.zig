@@ -612,7 +612,7 @@ pub const kconfig = struct {
     ///
     /// ``` self: QtC.KConfig, id: i32, data: ?*anyopaque ```
     pub fn VirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.KConfig_VirtualHook(@ptrCast(self), @intCast(id), data);
+        qtc.KConfig_VirtualHook(@ptrCast(self), @intCast(id), @ptrCast(data));
     }
 
     /// [Qt documentation](https://api.kde.org/kconfig.html#virtual_hook)
@@ -630,7 +630,7 @@ pub const kconfig = struct {
     ///
     /// ``` self: QtC.KConfig, id: i32, data: ?*anyopaque ```
     pub fn QBaseVirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.KConfig_QBaseVirtualHook(@ptrCast(self), @intCast(id), data);
+        qtc.KConfig_QBaseVirtualHook(@ptrCast(self), @intCast(id), @ptrCast(data));
     }
 
     /// [Qt documentation](https://api.kde.org/kconfig.html#copyTo)

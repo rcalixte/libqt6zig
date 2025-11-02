@@ -1000,7 +1000,7 @@ pub const qstandarditemmodel = struct {
 
     /// ``` self: QtC.QStandardItemModel, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.QStandardItemModel_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.QStandardItemModel_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Allows for overriding the related default method
@@ -1014,7 +1014,7 @@ pub const qstandarditemmodel = struct {
     ///
     /// ``` self: QtC.QStandardItemModel, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.QStandardItemModel_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.QStandardItemModel_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -1042,7 +1042,7 @@ pub const qstandarditemmodel = struct {
         while (roleNames_it.next()) |entry| {
             const key = entry.key_ptr.*;
             roleNames_keys[i] = @intCast(key);
-            roleNames_values[i] = entry.value_ptr.*;
+            roleNames_values[i] = @ptrCast(entry.value_ptr.*);
             i += 1;
         }
         const roleNames_map = qtc.libqt_map{
@@ -1058,38 +1058,6 @@ pub const qstandarditemmodel = struct {
     /// ``` self: QtC.QStandardItemModel, allocator: std.mem.Allocator ```
     pub fn RoleNames(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_u8 {
         const _map: qtc.libqt_map = qtc.QStandardItemModel_RoleNames(@ptrCast(self));
-        var _ret: map_i32_u8 = .empty;
-        defer {
-            qtc.libqt_free(_map.keys);
-            qtc.libqt_free(_map.values);
-        }
-        const _keys: [*]i32 = @ptrCast(@alignCast(_map.keys));
-        const _values: [*][]u8 = @ptrCast(@alignCast(_map.values));
-        var i: usize = 0;
-        while (i < _map.len) : (i += 1) {
-            const _key = _keys[i];
-            const _value = _values[i];
-            _ret.put(allocator, _key, _value) catch @panic("qstandarditemmodel.RoleNames: Memory allocation failed");
-        }
-        return _ret;
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstandarditemmodel.html#roleNames)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ``` self: QtC.QStandardItemModel, callback: *const fn () callconv(.c) map_i32_u8 ```
-    pub fn OnRoleNames(self: ?*anyopaque, callback: *const fn () callconv(.c) map_i32_u8) void {
-        qtc.QStandardItemModel_OnRoleNames(@ptrCast(self), @intCast(@intFromPtr(callback)));
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstandarditemmodel.html#roleNames)
-    ///
-    /// Base class method implementation
-    ///
-    /// ``` self: QtC.QStandardItemModel, allocator: std.mem.Allocator ```
-    pub fn QBaseRoleNames(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_u8 {
-        const _map: qtc.libqt_map = qtc.QStandardItemModel_QBaseRoleNames(@ptrCast(self));
         var _ret: map_i32_u8 = .empty;
         defer {
             qtc.libqt_free(_map.keys);
@@ -1560,38 +1528,6 @@ pub const qstandarditemmodel = struct {
         return _ret;
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstandarditemmodel.html#itemData)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ``` self: QtC.QStandardItemModel, callback: *const fn (self: QtC.QStandardItemModel, index: QtC.QModelIndex) callconv(.c) map_i32_qtcqvariant ```
-    pub fn OnItemData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) map_i32_qtcqvariant) void {
-        qtc.QStandardItemModel_OnItemData(@ptrCast(self), @intCast(@intFromPtr(callback)));
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstandarditemmodel.html#itemData)
-    ///
-    /// Base class method implementation
-    ///
-    /// ``` self: QtC.QStandardItemModel, index: QtC.QModelIndex, allocator: std.mem.Allocator ```
-    pub fn QBaseItemData(self: ?*anyopaque, index: ?*anyopaque, allocator: std.mem.Allocator) map_i32_qtcqvariant {
-        const _map: qtc.libqt_map = qtc.QStandardItemModel_QBaseItemData(@ptrCast(self), @ptrCast(index));
-        var _ret: map_i32_qtcqvariant = .empty;
-        defer {
-            qtc.libqt_free(_map.keys);
-            qtc.libqt_free(_map.values);
-        }
-        const _keys: [*]i32 = @ptrCast(@alignCast(_map.keys));
-        const _values: [*]QtC.QVariant = @ptrCast(@alignCast(_map.values));
-        var i: usize = 0;
-        while (i < _map.len) : (i += 1) {
-            const _key = _keys[i];
-            const _value = _values[i];
-            _ret.put(allocator, _key, _value) catch @panic("qstandarditemmodel.ItemData: Memory allocation failed");
-        }
-        return _ret;
-    }
-
     /// [Qt documentation](https://doc.qt.io/qt-6/qstandarditemmodel.html#setItemData)
     ///
     /// ``` self: QtC.QStandardItemModel, index: QtC.QModelIndex, roles: map_i32_qtcqvariant, allocator: std.mem.Allocator ```
@@ -1605,7 +1541,7 @@ pub const qstandarditemmodel = struct {
         while (roles_it.next()) |entry| {
             const key = entry.key_ptr.*;
             roles_keys[i] = @intCast(key);
-            roles_values[i] = entry.value_ptr.*;
+            roles_values[i] = @ptrCast(entry.value_ptr.*);
             i += 1;
         }
         const roles_map = qtc.libqt_map{
@@ -1614,41 +1550,6 @@ pub const qstandarditemmodel = struct {
             .values = @ptrCast(roles_values.ptr),
         };
         return qtc.QStandardItemModel_SetItemData(@ptrCast(self), @ptrCast(index), roles_map);
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstandarditemmodel.html#setItemData)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ``` self: QtC.QStandardItemModel, callback: *const fn (self: QtC.QStandardItemModel, index: QtC.QModelIndex, roles: map_i32_qtcqvariant) callconv(.c) bool ```
-    pub fn OnSetItemData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, map_i32_qtcqvariant) callconv(.c) bool) void {
-        qtc.QStandardItemModel_OnSetItemData(@ptrCast(self), @intCast(@intFromPtr(callback)));
-    }
-
-    /// [Qt documentation](https://doc.qt.io/qt-6/qstandarditemmodel.html#setItemData)
-    ///
-    /// Base class method implementation
-    ///
-    /// ``` self: QtC.QStandardItemModel, index: QtC.QModelIndex, roles: map_i32_qtcqvariant, allocator: std.mem.Allocator ```
-    pub fn QBaseSetItemData(self: ?*anyopaque, index: ?*anyopaque, roles: map_i32_qtcqvariant, allocator: std.mem.Allocator) bool {
-        const roles_keys = allocator.alloc(i32, roles.count()) catch @panic("qstandarditemmodel.SetItemData: Memory allocation failed");
-        defer allocator.free(roles_keys);
-        const roles_values = allocator.alloc(QtC.QVariant, roles.count()) catch @panic("qstandarditemmodel.SetItemData: Memory allocation failed");
-        defer allocator.free(roles_values);
-        var i: usize = 0;
-        var roles_it = roles.iterator();
-        while (roles_it.next()) |entry| {
-            const key = entry.key_ptr.*;
-            roles_keys[i] = @intCast(key);
-            roles_values[i] = entry.value_ptr.*;
-            i += 1;
-        }
-        const roles_map = qtc.libqt_map{
-            .len = roles.count(),
-            .keys = @ptrCast(roles_keys.ptr),
-            .values = @ptrCast(roles_values.ptr),
-        };
-        return qtc.QStandardItemModel_QBaseSetItemData(@ptrCast(self), @ptrCast(index), roles_map);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstandarditemmodel.html#clear)

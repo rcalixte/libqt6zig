@@ -276,14 +276,14 @@ pub const qmetamethod = struct {
     ///
     /// ``` self: QtC.QMetaMethod, gadget: ?*anyopaque, returnValue: QtC.QGenericReturnArgument ```
     pub fn InvokeOnGadget(self: ?*anyopaque, gadget: ?*anyopaque, returnValue: QtC.QGenericReturnArgument) bool {
-        return qtc.QMetaMethod_InvokeOnGadget(@ptrCast(self), gadget, @ptrCast(returnValue));
+        return qtc.QMetaMethod_InvokeOnGadget(@ptrCast(self), @ptrCast(gadget), @ptrCast(returnValue));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmetamethod.html#invokeOnGadget)
     ///
     /// ``` self: QtC.QMetaMethod, gadget: ?*anyopaque, val0: QtC.QGenericArgument ```
     pub fn InvokeOnGadget2(self: ?*anyopaque, gadget: ?*anyopaque, val0: QtC.QGenericArgument) bool {
-        return qtc.QMetaMethod_InvokeOnGadget2(@ptrCast(self), gadget, @ptrCast(val0));
+        return qtc.QMetaMethod_InvokeOnGadget2(@ptrCast(self), @ptrCast(gadget), @ptrCast(val0));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmetamethod.html#isValid)
@@ -563,133 +563,133 @@ pub const qmetamethod = struct {
     ///
     /// ``` self: QtC.QMetaMethod, gadget: ?*anyopaque, returnValue: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument ```
     pub fn InvokeOnGadget3(self: ?*anyopaque, gadget: ?*anyopaque, returnValue: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument) bool {
-        return qtc.QMetaMethod_InvokeOnGadget3(@ptrCast(self), gadget, @ptrCast(returnValue), @ptrCast(val0));
+        return qtc.QMetaMethod_InvokeOnGadget3(@ptrCast(self), @ptrCast(gadget), @ptrCast(returnValue), @ptrCast(val0));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmetamethod.html#invokeOnGadget)
     ///
     /// ``` self: QtC.QMetaMethod, gadget: ?*anyopaque, returnValue: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument ```
     pub fn InvokeOnGadget4(self: ?*anyopaque, gadget: ?*anyopaque, returnValue: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument) bool {
-        return qtc.QMetaMethod_InvokeOnGadget4(@ptrCast(self), gadget, @ptrCast(returnValue), @ptrCast(val0), @ptrCast(val1));
+        return qtc.QMetaMethod_InvokeOnGadget4(@ptrCast(self), @ptrCast(gadget), @ptrCast(returnValue), @ptrCast(val0), @ptrCast(val1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmetamethod.html#invokeOnGadget)
     ///
     /// ``` self: QtC.QMetaMethod, gadget: ?*anyopaque, returnValue: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument ```
     pub fn InvokeOnGadget5(self: ?*anyopaque, gadget: ?*anyopaque, returnValue: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument) bool {
-        return qtc.QMetaMethod_InvokeOnGadget5(@ptrCast(self), gadget, @ptrCast(returnValue), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2));
+        return qtc.QMetaMethod_InvokeOnGadget5(@ptrCast(self), @ptrCast(gadget), @ptrCast(returnValue), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmetamethod.html#invokeOnGadget)
     ///
     /// ``` self: QtC.QMetaMethod, gadget: ?*anyopaque, returnValue: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument ```
     pub fn InvokeOnGadget6(self: ?*anyopaque, gadget: ?*anyopaque, returnValue: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument) bool {
-        return qtc.QMetaMethod_InvokeOnGadget6(@ptrCast(self), gadget, @ptrCast(returnValue), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3));
+        return qtc.QMetaMethod_InvokeOnGadget6(@ptrCast(self), @ptrCast(gadget), @ptrCast(returnValue), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmetamethod.html#invokeOnGadget)
     ///
     /// ``` self: QtC.QMetaMethod, gadget: ?*anyopaque, returnValue: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument ```
     pub fn InvokeOnGadget7(self: ?*anyopaque, gadget: ?*anyopaque, returnValue: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument) bool {
-        return qtc.QMetaMethod_InvokeOnGadget7(@ptrCast(self), gadget, @ptrCast(returnValue), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4));
+        return qtc.QMetaMethod_InvokeOnGadget7(@ptrCast(self), @ptrCast(gadget), @ptrCast(returnValue), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmetamethod.html#invokeOnGadget)
     ///
     /// ``` self: QtC.QMetaMethod, gadget: ?*anyopaque, returnValue: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument, val5: QtC.QGenericArgument ```
     pub fn InvokeOnGadget8(self: ?*anyopaque, gadget: ?*anyopaque, returnValue: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument, val5: QtC.QGenericArgument) bool {
-        return qtc.QMetaMethod_InvokeOnGadget8(@ptrCast(self), gadget, @ptrCast(returnValue), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4), @ptrCast(val5));
+        return qtc.QMetaMethod_InvokeOnGadget8(@ptrCast(self), @ptrCast(gadget), @ptrCast(returnValue), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4), @ptrCast(val5));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmetamethod.html#invokeOnGadget)
     ///
     /// ``` self: QtC.QMetaMethod, gadget: ?*anyopaque, returnValue: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument, val5: QtC.QGenericArgument, val6: QtC.QGenericArgument ```
     pub fn InvokeOnGadget9(self: ?*anyopaque, gadget: ?*anyopaque, returnValue: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument, val5: QtC.QGenericArgument, val6: QtC.QGenericArgument) bool {
-        return qtc.QMetaMethod_InvokeOnGadget9(@ptrCast(self), gadget, @ptrCast(returnValue), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4), @ptrCast(val5), @ptrCast(val6));
+        return qtc.QMetaMethod_InvokeOnGadget9(@ptrCast(self), @ptrCast(gadget), @ptrCast(returnValue), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4), @ptrCast(val5), @ptrCast(val6));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmetamethod.html#invokeOnGadget)
     ///
     /// ``` self: QtC.QMetaMethod, gadget: ?*anyopaque, returnValue: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument, val5: QtC.QGenericArgument, val6: QtC.QGenericArgument, val7: QtC.QGenericArgument ```
     pub fn InvokeOnGadget10(self: ?*anyopaque, gadget: ?*anyopaque, returnValue: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument, val5: QtC.QGenericArgument, val6: QtC.QGenericArgument, val7: QtC.QGenericArgument) bool {
-        return qtc.QMetaMethod_InvokeOnGadget10(@ptrCast(self), gadget, @ptrCast(returnValue), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4), @ptrCast(val5), @ptrCast(val6), @ptrCast(val7));
+        return qtc.QMetaMethod_InvokeOnGadget10(@ptrCast(self), @ptrCast(gadget), @ptrCast(returnValue), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4), @ptrCast(val5), @ptrCast(val6), @ptrCast(val7));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmetamethod.html#invokeOnGadget)
     ///
     /// ``` self: QtC.QMetaMethod, gadget: ?*anyopaque, returnValue: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument, val5: QtC.QGenericArgument, val6: QtC.QGenericArgument, val7: QtC.QGenericArgument, val8: QtC.QGenericArgument ```
     pub fn InvokeOnGadget11(self: ?*anyopaque, gadget: ?*anyopaque, returnValue: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument, val5: QtC.QGenericArgument, val6: QtC.QGenericArgument, val7: QtC.QGenericArgument, val8: QtC.QGenericArgument) bool {
-        return qtc.QMetaMethod_InvokeOnGadget11(@ptrCast(self), gadget, @ptrCast(returnValue), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4), @ptrCast(val5), @ptrCast(val6), @ptrCast(val7), @ptrCast(val8));
+        return qtc.QMetaMethod_InvokeOnGadget11(@ptrCast(self), @ptrCast(gadget), @ptrCast(returnValue), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4), @ptrCast(val5), @ptrCast(val6), @ptrCast(val7), @ptrCast(val8));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmetamethod.html#invokeOnGadget)
     ///
     /// ``` self: QtC.QMetaMethod, gadget: ?*anyopaque, returnValue: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument, val5: QtC.QGenericArgument, val6: QtC.QGenericArgument, val7: QtC.QGenericArgument, val8: QtC.QGenericArgument, val9: QtC.QGenericArgument ```
     pub fn InvokeOnGadget12(self: ?*anyopaque, gadget: ?*anyopaque, returnValue: QtC.QGenericReturnArgument, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument, val5: QtC.QGenericArgument, val6: QtC.QGenericArgument, val7: QtC.QGenericArgument, val8: QtC.QGenericArgument, val9: QtC.QGenericArgument) bool {
-        return qtc.QMetaMethod_InvokeOnGadget12(@ptrCast(self), gadget, @ptrCast(returnValue), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4), @ptrCast(val5), @ptrCast(val6), @ptrCast(val7), @ptrCast(val8), @ptrCast(val9));
+        return qtc.QMetaMethod_InvokeOnGadget12(@ptrCast(self), @ptrCast(gadget), @ptrCast(returnValue), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4), @ptrCast(val5), @ptrCast(val6), @ptrCast(val7), @ptrCast(val8), @ptrCast(val9));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmetamethod.html#invokeOnGadget)
     ///
     /// ``` self: QtC.QMetaMethod, gadget: ?*anyopaque, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument ```
     pub fn InvokeOnGadget32(self: ?*anyopaque, gadget: ?*anyopaque, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument) bool {
-        return qtc.QMetaMethod_InvokeOnGadget32(@ptrCast(self), gadget, @ptrCast(val0), @ptrCast(val1));
+        return qtc.QMetaMethod_InvokeOnGadget32(@ptrCast(self), @ptrCast(gadget), @ptrCast(val0), @ptrCast(val1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmetamethod.html#invokeOnGadget)
     ///
     /// ``` self: QtC.QMetaMethod, gadget: ?*anyopaque, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument ```
     pub fn InvokeOnGadget42(self: ?*anyopaque, gadget: ?*anyopaque, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument) bool {
-        return qtc.QMetaMethod_InvokeOnGadget42(@ptrCast(self), gadget, @ptrCast(val0), @ptrCast(val1), @ptrCast(val2));
+        return qtc.QMetaMethod_InvokeOnGadget42(@ptrCast(self), @ptrCast(gadget), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmetamethod.html#invokeOnGadget)
     ///
     /// ``` self: QtC.QMetaMethod, gadget: ?*anyopaque, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument ```
     pub fn InvokeOnGadget52(self: ?*anyopaque, gadget: ?*anyopaque, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument) bool {
-        return qtc.QMetaMethod_InvokeOnGadget52(@ptrCast(self), gadget, @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3));
+        return qtc.QMetaMethod_InvokeOnGadget52(@ptrCast(self), @ptrCast(gadget), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmetamethod.html#invokeOnGadget)
     ///
     /// ``` self: QtC.QMetaMethod, gadget: ?*anyopaque, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument ```
     pub fn InvokeOnGadget62(self: ?*anyopaque, gadget: ?*anyopaque, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument) bool {
-        return qtc.QMetaMethod_InvokeOnGadget62(@ptrCast(self), gadget, @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4));
+        return qtc.QMetaMethod_InvokeOnGadget62(@ptrCast(self), @ptrCast(gadget), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmetamethod.html#invokeOnGadget)
     ///
     /// ``` self: QtC.QMetaMethod, gadget: ?*anyopaque, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument, val5: QtC.QGenericArgument ```
     pub fn InvokeOnGadget72(self: ?*anyopaque, gadget: ?*anyopaque, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument, val5: QtC.QGenericArgument) bool {
-        return qtc.QMetaMethod_InvokeOnGadget72(@ptrCast(self), gadget, @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4), @ptrCast(val5));
+        return qtc.QMetaMethod_InvokeOnGadget72(@ptrCast(self), @ptrCast(gadget), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4), @ptrCast(val5));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmetamethod.html#invokeOnGadget)
     ///
     /// ``` self: QtC.QMetaMethod, gadget: ?*anyopaque, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument, val5: QtC.QGenericArgument, val6: QtC.QGenericArgument ```
     pub fn InvokeOnGadget82(self: ?*anyopaque, gadget: ?*anyopaque, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument, val5: QtC.QGenericArgument, val6: QtC.QGenericArgument) bool {
-        return qtc.QMetaMethod_InvokeOnGadget82(@ptrCast(self), gadget, @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4), @ptrCast(val5), @ptrCast(val6));
+        return qtc.QMetaMethod_InvokeOnGadget82(@ptrCast(self), @ptrCast(gadget), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4), @ptrCast(val5), @ptrCast(val6));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmetamethod.html#invokeOnGadget)
     ///
     /// ``` self: QtC.QMetaMethod, gadget: ?*anyopaque, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument, val5: QtC.QGenericArgument, val6: QtC.QGenericArgument, val7: QtC.QGenericArgument ```
     pub fn InvokeOnGadget92(self: ?*anyopaque, gadget: ?*anyopaque, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument, val5: QtC.QGenericArgument, val6: QtC.QGenericArgument, val7: QtC.QGenericArgument) bool {
-        return qtc.QMetaMethod_InvokeOnGadget92(@ptrCast(self), gadget, @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4), @ptrCast(val5), @ptrCast(val6), @ptrCast(val7));
+        return qtc.QMetaMethod_InvokeOnGadget92(@ptrCast(self), @ptrCast(gadget), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4), @ptrCast(val5), @ptrCast(val6), @ptrCast(val7));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmetamethod.html#invokeOnGadget)
     ///
     /// ``` self: QtC.QMetaMethod, gadget: ?*anyopaque, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument, val5: QtC.QGenericArgument, val6: QtC.QGenericArgument, val7: QtC.QGenericArgument, val8: QtC.QGenericArgument ```
     pub fn InvokeOnGadget102(self: ?*anyopaque, gadget: ?*anyopaque, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument, val5: QtC.QGenericArgument, val6: QtC.QGenericArgument, val7: QtC.QGenericArgument, val8: QtC.QGenericArgument) bool {
-        return qtc.QMetaMethod_InvokeOnGadget102(@ptrCast(self), gadget, @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4), @ptrCast(val5), @ptrCast(val6), @ptrCast(val7), @ptrCast(val8));
+        return qtc.QMetaMethod_InvokeOnGadget102(@ptrCast(self), @ptrCast(gadget), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4), @ptrCast(val5), @ptrCast(val6), @ptrCast(val7), @ptrCast(val8));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmetamethod.html#invokeOnGadget)
     ///
     /// ``` self: QtC.QMetaMethod, gadget: ?*anyopaque, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument, val5: QtC.QGenericArgument, val6: QtC.QGenericArgument, val7: QtC.QGenericArgument, val8: QtC.QGenericArgument, val9: QtC.QGenericArgument ```
     pub fn InvokeOnGadget112(self: ?*anyopaque, gadget: ?*anyopaque, val0: QtC.QGenericArgument, val1: QtC.QGenericArgument, val2: QtC.QGenericArgument, val3: QtC.QGenericArgument, val4: QtC.QGenericArgument, val5: QtC.QGenericArgument, val6: QtC.QGenericArgument, val7: QtC.QGenericArgument, val8: QtC.QGenericArgument, val9: QtC.QGenericArgument) bool {
-        return qtc.QMetaMethod_InvokeOnGadget112(@ptrCast(self), gadget, @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4), @ptrCast(val5), @ptrCast(val6), @ptrCast(val7), @ptrCast(val8), @ptrCast(val9));
+        return qtc.QMetaMethod_InvokeOnGadget112(@ptrCast(self), @ptrCast(gadget), @ptrCast(val0), @ptrCast(val1), @ptrCast(val2), @ptrCast(val3), @ptrCast(val4), @ptrCast(val5), @ptrCast(val6), @ptrCast(val7), @ptrCast(val8), @ptrCast(val9));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmetamethod.html#dtor.QMetaMethod)
@@ -1143,21 +1143,21 @@ pub const qmetaproperty = struct {
     ///
     /// ``` self: QtC.QMetaProperty, gadget: ?*anyopaque ```
     pub fn ReadOnGadget(self: ?*anyopaque, gadget: ?*anyopaque) QtC.QVariant {
-        return qtc.QMetaProperty_ReadOnGadget(@ptrCast(self), gadget);
+        return qtc.QMetaProperty_ReadOnGadget(@ptrCast(self), @ptrCast(gadget));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmetaproperty.html#writeOnGadget)
     ///
     /// ``` self: QtC.QMetaProperty, gadget: ?*anyopaque, value: QtC.QVariant ```
     pub fn WriteOnGadget(self: ?*anyopaque, gadget: ?*anyopaque, value: ?*anyopaque) bool {
-        return qtc.QMetaProperty_WriteOnGadget(@ptrCast(self), gadget, @ptrCast(value));
+        return qtc.QMetaProperty_WriteOnGadget(@ptrCast(self), @ptrCast(gadget), @ptrCast(value));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmetaproperty.html#resetOnGadget)
     ///
     /// ``` self: QtC.QMetaProperty, gadget: ?*anyopaque ```
     pub fn ResetOnGadget(self: ?*anyopaque, gadget: ?*anyopaque) bool {
-        return qtc.QMetaProperty_ResetOnGadget(@ptrCast(self), gadget);
+        return qtc.QMetaProperty_ResetOnGadget(@ptrCast(self), @ptrCast(gadget));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmetaproperty.html#hasStdCppSet)

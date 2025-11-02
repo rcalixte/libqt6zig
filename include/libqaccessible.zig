@@ -222,7 +222,7 @@ pub const qaccessibleinterface = struct {
     ///
     /// ``` self: QtC.QAccessibleInterface, id: i32, data: ?*anyopaque ```
     pub fn VirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.QAccessibleInterface_VirtualHook(@ptrCast(self), @intCast(id), data);
+        qtc.QAccessibleInterface_VirtualHook(@ptrCast(self), @intCast(id), @ptrCast(data));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaccessibleinterface.html#interface_cast)

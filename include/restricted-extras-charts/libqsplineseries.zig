@@ -40,7 +40,7 @@ pub const qsplineseries = struct {
 
     /// ``` self: QtC.QSplineSeries, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.QSplineSeries_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.QSplineSeries_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Allows for overriding the related default method
@@ -54,7 +54,7 @@ pub const qsplineseries = struct {
     ///
     /// ``` self: QtC.QSplineSeries, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.QSplineSeries_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.QSplineSeries_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -757,7 +757,7 @@ pub const qsplineseries = struct {
         while (configuration_it.next()) |entry| {
             const key = entry.key_ptr.*;
             configuration_keys[i] = @intCast(key);
-            configuration_values[i] = entry.value_ptr.*;
+            configuration_values[i] = @ptrCast(entry.value_ptr.*);
             i += 1;
         }
         const configuration_map = qtc.libqt_map{

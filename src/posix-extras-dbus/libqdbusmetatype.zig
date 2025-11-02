@@ -36,14 +36,14 @@ pub const qdbusmetatype = struct {
     ///
     /// ``` param1: QtC.QDBusArgument, id: QtC.QMetaType, data: ?*anyopaque ```
     pub fn Marshall(param1: ?*anyopaque, id: QtC.QMetaType, data: ?*anyopaque) bool {
-        return qtc.QDBusMetaType_Marshall(@ptrCast(param1), @ptrCast(id), data);
+        return qtc.QDBusMetaType_Marshall(@ptrCast(param1), @ptrCast(id), @ptrCast(data));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdbusmetatype.html#demarshall)
     ///
     /// ``` param1: QtC.QDBusArgument, id: QtC.QMetaType, data: ?*anyopaque ```
     pub fn Demarshall(param1: ?*anyopaque, id: QtC.QMetaType, data: ?*anyopaque) bool {
-        return qtc.QDBusMetaType_Demarshall(@ptrCast(param1), @ptrCast(id), data);
+        return qtc.QDBusMetaType_Demarshall(@ptrCast(param1), @ptrCast(id), @ptrCast(data));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdbusmetatype.html#registerCustomType)

@@ -32,7 +32,7 @@ pub const sonnet__configwidget = struct {
 
     /// ``` self: QtC.Sonnet__ConfigWidget, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.Sonnet__ConfigWidget_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.Sonnet__ConfigWidget_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Allows for overriding the related default method
@@ -46,7 +46,7 @@ pub const sonnet__configwidget = struct {
     ///
     /// ``` self: QtC.Sonnet__ConfigWidget, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.Sonnet__ConfigWidget_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.Sonnet__ConfigWidget_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -4347,7 +4347,7 @@ pub const sonnet__configwidget = struct {
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.Sonnet__ConfigWidget_NativeEvent(@ptrCast(self), eventType_str, message, @ptrCast(result));
+        return qtc.Sonnet__ConfigWidget_NativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// Inherited from QWidget
@@ -4362,7 +4362,7 @@ pub const sonnet__configwidget = struct {
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.Sonnet__ConfigWidget_QBaseNativeEvent(@ptrCast(self), eventType_str, message, @ptrCast(result));
+        return qtc.Sonnet__ConfigWidget_QBaseNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// Inherited from QWidget

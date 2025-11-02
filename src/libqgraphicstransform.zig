@@ -35,7 +35,7 @@ pub const qgraphicstransform = struct {
 
     /// ``` self: QtC.QGraphicsTransform, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.QGraphicsTransform_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.QGraphicsTransform_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Allows for overriding the related default method
@@ -49,7 +49,7 @@ pub const qgraphicstransform = struct {
     ///
     /// ``` self: QtC.QGraphicsTransform, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.QGraphicsTransform_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.QGraphicsTransform_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -934,7 +934,7 @@ pub const qgraphicsscale = struct {
 
     /// ``` self: QtC.QGraphicsScale, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.QGraphicsScale_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.QGraphicsScale_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Allows for overriding the related default method
@@ -948,7 +948,7 @@ pub const qgraphicsscale = struct {
     ///
     /// ``` self: QtC.QGraphicsScale, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.QGraphicsScale_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.QGraphicsScale_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -1967,7 +1967,7 @@ pub const qgraphicsrotation = struct {
 
     /// ``` self: QtC.QGraphicsRotation, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.QGraphicsRotation_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.QGraphicsRotation_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Allows for overriding the related default method
@@ -1981,7 +1981,7 @@ pub const qgraphicsrotation = struct {
     ///
     /// ``` self: QtC.QGraphicsRotation, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.QGraphicsRotation_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.QGraphicsRotation_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)

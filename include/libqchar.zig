@@ -21,8 +21,8 @@ pub const qlatin1char = struct {
 
     /// New3 constructs a new QLatin1Char object.
     ///
-    /// ``` c: i8 ```
-    pub fn New3(c: i8) QtC.QLatin1Char {
+    /// ``` c: u8 ```
+    pub fn New3(c: u8) QtC.QLatin1Char {
         return qtc.QLatin1Char_new3(@intCast(c));
     }
 
@@ -50,7 +50,7 @@ pub const qlatin1char = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qlatin1char.html#toLatin1)
     ///
     /// ``` self: QtC.QLatin1Char ```
-    pub fn ToLatin1(self: ?*anyopaque) i8 {
+    pub fn ToLatin1(self: ?*anyopaque) u8 {
         return qtc.QLatin1Char_ToLatin1(@ptrCast(self));
     }
 
@@ -138,8 +138,8 @@ pub const qchar = struct {
 
     /// New11 constructs a new QChar object.
     ///
-    /// ``` c: i8 ```
-    pub fn New11(c: i8) QtC.QChar {
+    /// ``` c: u8 ```
+    pub fn New11(c: u8) QtC.QChar {
         return qtc.QChar_new11(@intCast(c));
     }
 
@@ -295,14 +295,14 @@ pub const qchar = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qchar.html#toLatin1)
     ///
     /// ``` self: QtC.QChar ```
-    pub fn ToLatin1(self: ?*anyopaque) i8 {
+    pub fn ToLatin1(self: ?*anyopaque) u8 {
         return qtc.QChar_ToLatin1(@ptrCast(self));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qchar.html#fromLatin1)
     ///
-    /// ``` c: i8 ```
-    pub fn FromLatin1(c: i8) QtC.QChar {
+    /// ``` c: u8 ```
+    pub fn FromLatin1(c: u8) QtC.QChar {
         return qtc.QChar_FromLatin1(@intCast(c));
     }
 

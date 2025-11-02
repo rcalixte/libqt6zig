@@ -41,7 +41,7 @@ pub const qsciscintillabase = struct {
 
     /// ``` self: QtC.QsciScintillaBase, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.QsciScintillaBase_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.QsciScintillaBase_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Allows for overriding the related default method
@@ -55,7 +55,7 @@ pub const qsciscintillabase = struct {
     ///
     /// ``` self: QtC.QsciScintillaBase, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.QsciScintillaBase_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.QsciScintillaBase_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -102,7 +102,7 @@ pub const qsciscintillabase = struct {
     ///
     /// ``` self: QtC.QsciScintillaBase, msg: u32, wParam: u64, lParam: ?*anyopaque ```
     pub fn SendScintilla2(self: ?*anyopaque, msg: u32, wParam: u64, lParam: ?*anyopaque) i64 {
-        return qtc.QsciScintillaBase_SendScintilla2(@ptrCast(self), @intCast(msg), @intCast(wParam), lParam);
+        return qtc.QsciScintillaBase_SendScintilla2(@ptrCast(self), @intCast(msg), @intCast(wParam), @ptrCast(lParam));
     }
 
     /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
@@ -146,8 +146,8 @@ pub const qsciscintillabase = struct {
 
     /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
     ///
-    /// ``` self: QtC.QsciScintillaBase, msg: u32, cpMin: i64, cpMax: i64, lpstrText: []const u8 ```
-    pub fn SendScintilla8(self: ?*anyopaque, msg: u32, cpMin: i64, cpMax: i64, lpstrText: []const u8) i64 {
+    /// ``` self: QtC.QsciScintillaBase, msg: u32, cpMin: i64, cpMax: i64, lpstrText: []u8 ```
+    pub fn SendScintilla8(self: ?*anyopaque, msg: u32, cpMin: i64, cpMax: i64, lpstrText: []u8) i64 {
         const lpstrText_Cstring = lpstrText.ptr;
         return qtc.QsciScintillaBase_SendScintilla8(@ptrCast(self), @intCast(msg), @intCast(cpMin), @intCast(cpMax), lpstrText_Cstring);
     }
@@ -349,7 +349,7 @@ pub const qsciscintillabase = struct {
     ///
     /// ``` self: QtC.QsciScintillaBase, param1: u32, param2: u64, param3: ?*anyopaque ```
     pub fn SCN_MACRORECORD(self: ?*anyopaque, param1: u32, param2: u64, param3: ?*anyopaque) void {
-        qtc.QsciScintillaBase_SCN_MACRORECORD(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        qtc.QsciScintillaBase_SCN_MACRORECORD(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(param3));
     }
 
     /// [Qt documentation](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintillaBase.html)
@@ -5251,7 +5251,7 @@ pub const qsciscintillabase = struct {
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QsciScintillaBase_NativeEvent(@ptrCast(self), eventType_str, message, @ptrCast(result));
+        return qtc.QsciScintillaBase_NativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// Inherited from QWidget
@@ -5266,7 +5266,7 @@ pub const qsciscintillabase = struct {
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QsciScintillaBase_QBaseNativeEvent(@ptrCast(self), eventType_str, message, @ptrCast(result));
+        return qtc.QsciScintillaBase_QBaseNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// Inherited from QWidget

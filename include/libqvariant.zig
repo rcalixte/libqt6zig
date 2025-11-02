@@ -139,7 +139,7 @@ pub const qvariant = struct {
                 .len = key.len,
                 .data = key.ptr,
             };
-            hash_values[i] = entry.value_ptr.*;
+            hash_values[i] = @ptrCast(entry.value_ptr.*);
             i += 1;
         }
         const hash_map = qtc.libqt_map{
@@ -200,7 +200,7 @@ pub const qvariant = struct {
                 .len = key.len,
                 .data = key.ptr,
             };
-            mapVal_values[i] = entry.value_ptr.*;
+            mapVal_values[i] = @ptrCast(entry.value_ptr.*);
             i += 1;
         }
         const mapVal_map = qtc.libqt_map{
@@ -283,7 +283,7 @@ pub const qvariant = struct {
     ///
     /// ``` typeVal: QtC.QMetaType, copyVal: ?*anyopaque ```
     pub fn New30(typeVal: QtC.QMetaType, copyVal: ?*anyopaque) QtC.QVariant {
-        return qtc.QVariant_new30(@ptrCast(typeVal), copyVal);
+        return qtc.QVariant_new30(@ptrCast(typeVal), @ptrCast(copyVal));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#operator-eq)
@@ -867,7 +867,7 @@ pub const qvariant = struct {
     ///
     /// ``` typeVal: QtC.QMetaType, copyVal: ?*anyopaque ```
     pub fn FromMetaType2(typeVal: QtC.QMetaType, copyVal: ?*anyopaque) QtC.QVariant {
-        return qtc.QVariant_FromMetaType2(@ptrCast(typeVal), copyVal);
+        return qtc.QVariant_FromMetaType2(@ptrCast(typeVal), @ptrCast(copyVal));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qvariant.html#dtor.QVariant)

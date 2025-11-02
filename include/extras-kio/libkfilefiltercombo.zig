@@ -43,7 +43,7 @@ pub const kfilefiltercombo = struct {
 
     /// ``` self: QtC.KFileFilterCombo, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.KFileFilterCombo_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.KFileFilterCombo_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Allows for overriding the related default method
@@ -57,7 +57,7 @@ pub const kfilefiltercombo = struct {
     ///
     /// ``` self: QtC.KFileFilterCombo, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.KFileFilterCombo_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.KFileFilterCombo_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -6100,7 +6100,7 @@ pub const kfilefiltercombo = struct {
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.KFileFilterCombo_NativeEvent(@ptrCast(self), eventType_str, message, @ptrCast(result));
+        return qtc.KFileFilterCombo_NativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// Inherited from QWidget
@@ -6115,7 +6115,7 @@ pub const kfilefiltercombo = struct {
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.KFileFilterCombo_QBaseNativeEvent(@ptrCast(self), eventType_str, message, @ptrCast(result));
+        return qtc.KFileFilterCombo_QBaseNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// Inherited from QWidget
@@ -6566,7 +6566,7 @@ pub const kfilefiltercombo = struct {
     ///
     /// ``` self: QtC.KFileFilterCombo, id: i32, data: ?*anyopaque ```
     pub fn VirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.KFileFilterCombo_VirtualHook(@ptrCast(self), @intCast(id), data);
+        qtc.KFileFilterCombo_VirtualHook(@ptrCast(self), @intCast(id), @ptrCast(data));
     }
 
     /// Inherited from KCompletionBase
@@ -6577,7 +6577,7 @@ pub const kfilefiltercombo = struct {
     ///
     /// ``` self: QtC.KFileFilterCombo, id: i32, data: ?*anyopaque ```
     pub fn QBaseVirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.KFileFilterCombo_QBaseVirtualHook(@ptrCast(self), @intCast(id), data);
+        qtc.KFileFilterCombo_QBaseVirtualHook(@ptrCast(self), @intCast(id), @ptrCast(data));
     }
 
     /// Inherited from KCompletionBase
@@ -6950,42 +6950,6 @@ pub const kfilefiltercombo = struct {
 
     /// Inherited from KCompletionBase
     ///
-    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#keyBindingMap)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ``` self: QtC.KFileFilterCombo, allocator: std.mem.Allocator ```
-    pub fn QBaseKeyBindingMap(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_qtcqkeysequence {
-        const _map: qtc.libqt_map = qtc.KFileFilterCombo_QBaseKeyBindingMap(@ptrCast(self));
-        var _ret: map_i32_qtcqkeysequence = .empty;
-        defer {
-            qtc.libqt_free(_map.keys);
-            qtc.libqt_free(_map.values);
-        }
-        const _keys: [*]i32 = @ptrCast(@alignCast(_map.keys));
-        const _values: [*][]QtC.QKeySequence = @ptrCast(@alignCast(_map.values));
-        var i: usize = 0;
-        while (i < _map.len) : (i += 1) {
-            const _key = _keys[i];
-            const _value = _values[i];
-            _ret.put(allocator, _key, _value) catch @panic("kfilefiltercombo.KeyBindingMap: Memory allocation failed");
-        }
-        return _ret;
-    }
-
-    /// Inherited from KCompletionBase
-    ///
-    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#keyBindingMap)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ``` self: QtC.KFileFilterCombo, callback: *const fn () callconv(.c) map_i32_qtcqkeysequence ```
-    pub fn OnKeyBindingMap(self: ?*anyopaque, callback: *const fn () callconv(.c) map_i32_qtcqkeysequence) void {
-        qtc.KFileFilterCombo_OnKeyBindingMap(@ptrCast(self), @intCast(@intFromPtr(callback)));
-    }
-
-    /// Inherited from KCompletionBase
-    ///
     /// [Qt documentation](https://api.kde.org/kcompletionbase.html#setKeyBindingMap)
     ///
     /// Wrapper to allow calling virtual or protected method
@@ -7001,7 +6965,7 @@ pub const kfilefiltercombo = struct {
         while (keyBindingMap_it.next()) |entry| {
             const key = entry.key_ptr.*;
             keyBindingMap_keys[i] = @intCast(key);
-            keyBindingMap_values[i] = entry.value_ptr.*;
+            keyBindingMap_values[i] = @ptrCast(entry.value_ptr.*);
             i += 1;
         }
         const keyBindingMap_map = qtc.libqt_map{
@@ -7010,45 +6974,6 @@ pub const kfilefiltercombo = struct {
             .values = @ptrCast(keyBindingMap_values.ptr),
         };
         qtc.KFileFilterCombo_SetKeyBindingMap(@ptrCast(self), keyBindingMap_map);
-    }
-
-    /// Inherited from KCompletionBase
-    ///
-    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#setKeyBindingMap)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ``` self: QtC.KFileFilterCombo, keyBindingMap: map_i32_qtcqkeysequence, allocator: std.mem.Allocator ```
-    pub fn QBaseSetKeyBindingMap(self: ?*anyopaque, keyBindingMap: map_i32_qtcqkeysequence, allocator: std.mem.Allocator) void {
-        const keyBindingMap_keys = allocator.alloc(i32, keyBindingMap.count()) catch @panic("kfilefiltercombo.SetKeyBindingMap: Memory allocation failed");
-        defer allocator.free(keyBindingMap_keys);
-        const keyBindingMap_values = allocator.alloc([]QtC.QKeySequence, keyBindingMap.count()) catch @panic("kfilefiltercombo.SetKeyBindingMap: Memory allocation failed");
-        defer allocator.free(keyBindingMap_values);
-        var i: usize = 0;
-        var keyBindingMap_it = keyBindingMap.iterator();
-        while (keyBindingMap_it.next()) |entry| {
-            const key = entry.key_ptr.*;
-            keyBindingMap_keys[i] = @intCast(key);
-            keyBindingMap_values[i] = entry.value_ptr.*;
-            i += 1;
-        }
-        const keyBindingMap_map = qtc.libqt_map{
-            .len = keyBindingMap.count(),
-            .keys = @ptrCast(keyBindingMap_keys.ptr),
-            .values = @ptrCast(keyBindingMap_values.ptr),
-        };
-        qtc.KFileFilterCombo_QBaseSetKeyBindingMap(@ptrCast(self), keyBindingMap_map);
-    }
-
-    /// Inherited from KCompletionBase
-    ///
-    /// [Qt documentation](https://api.kde.org/kcompletionbase.html#setKeyBindingMap)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ``` self: QtC.KFileFilterCombo, callback: *const fn (self: QtC.KFileFilterCombo, keyBindingMap: map_i32_qtcqkeysequence) callconv(.c) void ```
-    pub fn OnSetKeyBindingMap(self: ?*anyopaque, callback: *const fn (?*anyopaque, map_i32_qtcqkeysequence) callconv(.c) void) void {
-        qtc.KFileFilterCombo_OnSetKeyBindingMap(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from KCompletionBase

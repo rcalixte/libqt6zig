@@ -30,7 +30,7 @@ pub const konsole__emulation = struct {
 
     /// ``` self: QtC.Konsole__Emulation, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.Konsole__Emulation_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.Konsole__Emulation_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Allows for overriding the related default method
@@ -44,7 +44,7 @@ pub const konsole__emulation = struct {
     ///
     /// ``` self: QtC.Konsole__Emulation, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.Konsole__Emulation_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.Konsole__Emulation_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -83,7 +83,7 @@ pub const konsole__emulation = struct {
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
     ///
     /// ``` self: QtC.Konsole__Emulation ```
-    pub fn EraseChar(self: ?*anyopaque) i8 {
+    pub fn EraseChar(self: ?*anyopaque) u8 {
         return qtc.Konsole__Emulation_EraseChar(@ptrCast(self));
     }
 
@@ -91,8 +91,8 @@ pub const konsole__emulation = struct {
     ///
     /// Allows for overriding the related default method
     ///
-    /// ``` self: QtC.Konsole__Emulation, callback: *const fn () callconv(.c) i8 ```
-    pub fn OnEraseChar(self: ?*anyopaque, callback: *const fn () callconv(.c) i8) void {
+    /// ``` self: QtC.Konsole__Emulation, callback: *const fn () callconv(.c) u8 ```
+    pub fn OnEraseChar(self: ?*anyopaque, callback: *const fn () callconv(.c) u8) void {
         qtc.Konsole__Emulation_OnEraseChar(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -101,7 +101,7 @@ pub const konsole__emulation = struct {
     /// Base class method implementation
     ///
     /// ``` self: QtC.Konsole__Emulation ```
-    pub fn QBaseEraseChar(self: ?*anyopaque) i8 {
+    pub fn QBaseEraseChar(self: ?*anyopaque) u8 {
         return qtc.Konsole__Emulation_QBaseEraseChar(@ptrCast(self));
     }
 

@@ -244,7 +244,7 @@ pub const kacl = struct {
     ///
     /// ``` self: QtC.KACL, id: i32, data: ?*anyopaque ```
     pub fn VirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.KACL_VirtualHook(@ptrCast(self), @intCast(id), data);
+        qtc.KACL_VirtualHook(@ptrCast(self), @intCast(id), @ptrCast(data));
     }
 
     /// [Qt documentation](https://api.kde.org/kacl.html#virtual_hook)
@@ -262,7 +262,7 @@ pub const kacl = struct {
     ///
     /// ``` self: QtC.KACL, id: i32, data: ?*anyopaque ```
     pub fn QBaseVirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.KACL_QBaseVirtualHook(@ptrCast(self), @intCast(id), data);
+        qtc.KACL_QBaseVirtualHook(@ptrCast(self), @intCast(id), @ptrCast(data));
     }
 
     /// [Qt documentation](https://api.kde.org/kacl.html#dtor.KACL)

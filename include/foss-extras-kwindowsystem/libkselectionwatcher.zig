@@ -48,7 +48,7 @@ pub const kselectionwatcher = struct {
 
     /// ``` self: QtC.KSelectionWatcher, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.KSelectionWatcher_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.KSelectionWatcher_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Allows for overriding the related default method
@@ -62,7 +62,7 @@ pub const kselectionwatcher = struct {
     ///
     /// ``` self: QtC.KSelectionWatcher, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.KSelectionWatcher_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.KSelectionWatcher_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -81,7 +81,7 @@ pub const kselectionwatcher = struct {
     ///
     /// ``` self: QtC.KSelectionWatcher, ev_P: ?*anyopaque ```
     pub fn FilterEvent(self: ?*anyopaque, ev_P: ?*anyopaque) void {
-        qtc.KSelectionWatcher_FilterEvent(@ptrCast(self), ev_P);
+        qtc.KSelectionWatcher_FilterEvent(@ptrCast(self), @ptrCast(ev_P));
     }
 
     /// [Qt documentation](https://api.kde.org/kselectionwatcher.html#lostOwner)

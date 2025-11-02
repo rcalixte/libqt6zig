@@ -39,7 +39,7 @@ pub const knumbermodel = struct {
 
     /// ``` self: QtC.KNumberModel, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.KNumberModel_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.KNumberModel_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Allows for overriding the related default method
@@ -53,7 +53,7 @@ pub const knumbermodel = struct {
     ///
     /// ``` self: QtC.KNumberModel, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.KNumberModel_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.KNumberModel_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -188,38 +188,6 @@ pub const knumbermodel = struct {
     /// ``` self: QtC.KNumberModel, allocator: std.mem.Allocator ```
     pub fn RoleNames(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_u8 {
         const _map: qtc.libqt_map = qtc.KNumberModel_RoleNames(@ptrCast(self));
-        var _ret: map_i32_u8 = .empty;
-        defer {
-            qtc.libqt_free(_map.keys);
-            qtc.libqt_free(_map.values);
-        }
-        const _keys: [*]i32 = @ptrCast(@alignCast(_map.keys));
-        const _values: [*][]u8 = @ptrCast(@alignCast(_map.values));
-        var i: usize = 0;
-        while (i < _map.len) : (i += 1) {
-            const _key = _keys[i];
-            const _value = _values[i];
-            _ret.put(allocator, _key, _value) catch @panic("knumbermodel.RoleNames: Memory allocation failed");
-        }
-        return _ret;
-    }
-
-    /// [Qt documentation](https://api.kde.org/knumbermodel.html#roleNames)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ``` self: QtC.KNumberModel, callback: *const fn () callconv(.c) map_i32_u8 ```
-    pub fn OnRoleNames(self: ?*anyopaque, callback: *const fn () callconv(.c) map_i32_u8) void {
-        qtc.KNumberModel_OnRoleNames(@ptrCast(self), @intCast(@intFromPtr(callback)));
-    }
-
-    /// [Qt documentation](https://api.kde.org/knumbermodel.html#roleNames)
-    ///
-    /// Base class method implementation
-    ///
-    /// ``` self: QtC.KNumberModel, allocator: std.mem.Allocator ```
-    pub fn QBaseRoleNames(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_u8 {
-        const _map: qtc.libqt_map = qtc.KNumberModel_QBaseRoleNames(@ptrCast(self));
         var _ret: map_i32_u8 = .empty;
         defer {
             qtc.libqt_free(_map.keys);
@@ -1349,42 +1317,6 @@ pub const knumbermodel = struct {
 
     /// Inherited from QAbstractItemModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#itemData)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ``` self: QtC.KNumberModel, index: QtC.QModelIndex, allocator: std.mem.Allocator ```
-    pub fn QBaseItemData(self: ?*anyopaque, index: ?*anyopaque, allocator: std.mem.Allocator) map_i32_qtcqvariant {
-        const _map: qtc.libqt_map = qtc.KNumberModel_QBaseItemData(@ptrCast(self), @ptrCast(index));
-        var _ret: map_i32_qtcqvariant = .empty;
-        defer {
-            qtc.libqt_free(_map.keys);
-            qtc.libqt_free(_map.values);
-        }
-        const _keys: [*]i32 = @ptrCast(@alignCast(_map.keys));
-        const _values: [*]QtC.QVariant = @ptrCast(@alignCast(_map.values));
-        var i: usize = 0;
-        while (i < _map.len) : (i += 1) {
-            const _key = _keys[i];
-            const _value = _values[i];
-            _ret.put(allocator, _key, _value) catch @panic("knumbermodel.ItemData: Memory allocation failed");
-        }
-        return _ret;
-    }
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#itemData)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ``` self: QtC.KNumberModel, callback: *const fn (self: QtC.KNumberModel, index: QtC.QModelIndex) callconv(.c) map_i32_qtcqvariant ```
-    pub fn OnItemData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) map_i32_qtcqvariant) void {
-        qtc.KNumberModel_OnItemData(@ptrCast(self), @intCast(@intFromPtr(callback)));
-    }
-
-    /// Inherited from QAbstractItemModel
-    ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#setItemData)
     ///
     /// Wrapper to allow calling virtual or protected method
@@ -1400,7 +1332,7 @@ pub const knumbermodel = struct {
         while (roles_it.next()) |entry| {
             const key = entry.key_ptr.*;
             roles_keys[i] = @intCast(key);
-            roles_values[i] = entry.value_ptr.*;
+            roles_values[i] = @ptrCast(entry.value_ptr.*);
             i += 1;
         }
         const roles_map = qtc.libqt_map{
@@ -1409,45 +1341,6 @@ pub const knumbermodel = struct {
             .values = @ptrCast(roles_values.ptr),
         };
         return qtc.KNumberModel_SetItemData(@ptrCast(self), @ptrCast(index), roles_map);
-    }
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#setItemData)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ``` self: QtC.KNumberModel, index: QtC.QModelIndex, roles: map_i32_qtcqvariant, allocator: std.mem.Allocator ```
-    pub fn QBaseSetItemData(self: ?*anyopaque, index: ?*anyopaque, roles: map_i32_qtcqvariant, allocator: std.mem.Allocator) bool {
-        const roles_keys = allocator.alloc(i32, roles.count()) catch @panic("knumbermodel.SetItemData: Memory allocation failed");
-        defer allocator.free(roles_keys);
-        const roles_values = allocator.alloc(QtC.QVariant, roles.count()) catch @panic("knumbermodel.SetItemData: Memory allocation failed");
-        defer allocator.free(roles_values);
-        var i: usize = 0;
-        var roles_it = roles.iterator();
-        while (roles_it.next()) |entry| {
-            const key = entry.key_ptr.*;
-            roles_keys[i] = @intCast(key);
-            roles_values[i] = entry.value_ptr.*;
-            i += 1;
-        }
-        const roles_map = qtc.libqt_map{
-            .len = roles.count(),
-            .keys = @ptrCast(roles_keys.ptr),
-            .values = @ptrCast(roles_values.ptr),
-        };
-        return qtc.KNumberModel_QBaseSetItemData(@ptrCast(self), @ptrCast(index), roles_map);
-    }
-
-    /// Inherited from QAbstractItemModel
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractitemmodel.html#setItemData)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ``` self: QtC.KNumberModel, callback: *const fn (self: QtC.KNumberModel, index: QtC.QModelIndex, roles: map_i32_qtcqvariant) callconv(.c) bool ```
-    pub fn OnSetItemData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, map_i32_qtcqvariant) callconv(.c) bool) void {
-        qtc.KNumberModel_OnSetItemData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractItemModel

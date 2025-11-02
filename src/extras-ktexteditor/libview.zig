@@ -28,7 +28,7 @@ pub const ktexteditor__view = struct {
 
     /// ``` self: QtC.KTextEditor__View, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.KTextEditor__View_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.KTextEditor__View_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)

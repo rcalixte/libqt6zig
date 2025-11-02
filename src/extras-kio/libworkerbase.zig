@@ -312,7 +312,7 @@ pub const kio__workerbase = struct {
                 .len = key.len,
                 .data = key.ptr,
             };
-            sslData_values[i] = entry.value_ptr.*;
+            sslData_values[i] = @ptrCast(entry.value_ptr.*);
             i += 1;
         }
         const sslData_map = qtc.libqt_map{

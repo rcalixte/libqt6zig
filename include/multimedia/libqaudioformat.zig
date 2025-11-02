@@ -180,7 +180,7 @@ pub const qaudioformat = struct {
     ///
     /// ``` self: QtC.QAudioFormat, sample: ?*anyopaque ```
     pub fn NormalizedSampleValue(self: ?*anyopaque, sample: ?*anyopaque) f32 {
-        return qtc.QAudioFormat_NormalizedSampleValue(@ptrCast(self), sample);
+        return qtc.QAudioFormat_NormalizedSampleValue(@ptrCast(self), @ptrCast(sample));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qaudioformat.html#defaultChannelConfigForChannelCount)

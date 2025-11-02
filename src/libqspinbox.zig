@@ -41,7 +41,7 @@ pub const qspinbox = struct {
 
     /// ``` self: QtC.QSpinBox, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.QSpinBox_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.QSpinBox_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Allows for overriding the related default method
@@ -55,7 +55,7 @@ pub const qspinbox = struct {
     ///
     /// ``` self: QtC.QSpinBox, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.QSpinBox_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.QSpinBox_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -5055,7 +5055,7 @@ pub const qspinbox = struct {
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QSpinBox_NativeEvent(@ptrCast(self), eventType_str, message, @ptrCast(result));
+        return qtc.QSpinBox_NativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// Inherited from QWidget
@@ -5070,7 +5070,7 @@ pub const qspinbox = struct {
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QSpinBox_QBaseNativeEvent(@ptrCast(self), eventType_str, message, @ptrCast(result));
+        return qtc.QSpinBox_QBaseNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// Inherited from QWidget
@@ -5897,7 +5897,7 @@ pub const qdoublespinbox = struct {
 
     /// ``` self: QtC.QDoubleSpinBox, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.QDoubleSpinBox_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.QDoubleSpinBox_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Allows for overriding the related default method
@@ -5911,7 +5911,7 @@ pub const qdoublespinbox = struct {
     ///
     /// ``` self: QtC.QDoubleSpinBox, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.QDoubleSpinBox_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.QDoubleSpinBox_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -10919,7 +10919,7 @@ pub const qdoublespinbox = struct {
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QDoubleSpinBox_NativeEvent(@ptrCast(self), eventType_str, message, @ptrCast(result));
+        return qtc.QDoubleSpinBox_NativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// Inherited from QWidget
@@ -10934,7 +10934,7 @@ pub const qdoublespinbox = struct {
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QDoubleSpinBox_QBaseNativeEvent(@ptrCast(self), eventType_str, message, @ptrCast(result));
+        return qtc.QDoubleSpinBox_QBaseNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// Inherited from QWidget

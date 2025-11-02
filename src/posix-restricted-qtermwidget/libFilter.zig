@@ -582,7 +582,7 @@ pub const konsole__filter = struct {
     ///
     /// ``` self: QtC.Konsole__Filter, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.Konsole__Filter_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.Konsole__Filter_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Inherited from QObject
@@ -593,7 +593,7 @@ pub const konsole__filter = struct {
     ///
     /// ``` self: QtC.Konsole__Filter, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.Konsole__Filter_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.Konsole__Filter_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Inherited from QObject
@@ -1528,7 +1528,7 @@ pub const konsole__regexpfilter = struct {
     ///
     /// ``` self: QtC.Konsole__RegExpFilter, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.Konsole__RegExpFilter_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.Konsole__RegExpFilter_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Inherited from QObject
@@ -1539,7 +1539,7 @@ pub const konsole__regexpfilter = struct {
     ///
     /// ``` self: QtC.Konsole__RegExpFilter, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.Konsole__RegExpFilter_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.Konsole__RegExpFilter_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Inherited from QObject
@@ -2068,7 +2068,7 @@ pub const konsole__urlfilter = struct {
 
     /// ``` self: QtC.Konsole__UrlFilter, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.Konsole__UrlFilter_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.Konsole__UrlFilter_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Allows for overriding the related default method
@@ -2082,7 +2082,7 @@ pub const konsole__urlfilter = struct {
     ///
     /// ``` self: QtC.Konsole__UrlFilter, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.Konsole__UrlFilter_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.Konsole__UrlFilter_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -3123,7 +3123,7 @@ pub const konsole__filterobject = struct {
 
     /// ``` self: QtC.Konsole__FilterObject, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.Konsole__FilterObject_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.Konsole__FilterObject_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Allows for overriding the related default method
@@ -3137,7 +3137,7 @@ pub const konsole__filterobject = struct {
     ///
     /// ``` self: QtC.Konsole__FilterObject, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.Konsole__FilterObject_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.Konsole__FilterObject_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)

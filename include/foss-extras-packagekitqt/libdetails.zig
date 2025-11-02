@@ -29,7 +29,7 @@ pub const packagekit__details = struct {
                 .len = key.len,
                 .data = key.ptr,
             };
-            other_values[i] = entry.value_ptr.*;
+            other_values[i] = @ptrCast(entry.value_ptr.*);
             i += 1;
         }
         const other_map = qtc.libqt_map{

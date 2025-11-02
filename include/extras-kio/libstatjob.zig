@@ -26,7 +26,7 @@ pub const kio__statjob = struct {
 
     /// ``` self: QtC.KIO__StatJob, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.KIO__StatJob_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.KIO__StatJob_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -307,7 +307,7 @@ pub const kio__statjob = struct {
                 .len = key.len,
                 .data = key.ptr,
             };
-            values_values[i] = entry.value_ptr.*;
+            values_values[i] = @ptrCast(entry.value_ptr.*);
             i += 1;
         }
         const values_map = qtc.libqt_map{
@@ -336,7 +336,7 @@ pub const kio__statjob = struct {
                 .len = key.len,
                 .data = key.ptr,
             };
-            values_values[i] = entry.value_ptr.*;
+            values_values[i] = @ptrCast(entry.value_ptr.*);
             i += 1;
         }
         const values_map = qtc.libqt_map{

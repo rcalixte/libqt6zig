@@ -54,7 +54,7 @@ pub const qprintdialog = struct {
 
     /// ``` self: QtC.QPrintDialog, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.QPrintDialog_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.QPrintDialog_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Allows for overriding the related default method
@@ -68,7 +68,7 @@ pub const qprintdialog = struct {
     ///
     /// ``` self: QtC.QPrintDialog, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.QPrintDialog_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.QPrintDialog_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -4642,7 +4642,7 @@ pub const qprintdialog = struct {
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QPrintDialog_NativeEvent(@ptrCast(self), eventType_str, message, @ptrCast(result));
+        return qtc.QPrintDialog_NativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// Inherited from QWidget
@@ -4657,7 +4657,7 @@ pub const qprintdialog = struct {
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QPrintDialog_QBaseNativeEvent(@ptrCast(self), eventType_str, message, @ptrCast(result));
+        return qtc.QPrintDialog_QBaseNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// Inherited from QWidget

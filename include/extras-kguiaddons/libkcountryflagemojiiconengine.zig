@@ -447,7 +447,7 @@ pub const kcountryflagemojiiconengine = struct {
     ///
     /// ``` self: QtC.KCountryFlagEmojiIconEngine, id: i32, data: ?*anyopaque ```
     pub fn VirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.KCountryFlagEmojiIconEngine_VirtualHook(@ptrCast(self), @intCast(id), data);
+        qtc.KCountryFlagEmojiIconEngine_VirtualHook(@ptrCast(self), @intCast(id), @ptrCast(data));
     }
 
     /// Inherited from QIconEngine
@@ -458,7 +458,7 @@ pub const kcountryflagemojiiconengine = struct {
     ///
     /// ``` self: QtC.KCountryFlagEmojiIconEngine, id: i32, data: ?*anyopaque ```
     pub fn QBaseVirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.KCountryFlagEmojiIconEngine_QBaseVirtualHook(@ptrCast(self), @intCast(id), data);
+        qtc.KCountryFlagEmojiIconEngine_QBaseVirtualHook(@ptrCast(self), @intCast(id), @ptrCast(data));
     }
 
     /// Inherited from QIconEngine

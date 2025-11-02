@@ -1026,7 +1026,7 @@ pub const kdesktopfile = struct {
     ///
     /// ``` self: QtC.KDesktopFile, id: i32, data: ?*anyopaque ```
     pub fn VirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.KDesktopFile_VirtualHook(@ptrCast(self), @intCast(id), data);
+        qtc.KDesktopFile_VirtualHook(@ptrCast(self), @intCast(id), @ptrCast(data));
     }
 
     /// Inherited from KConfig
@@ -1037,7 +1037,7 @@ pub const kdesktopfile = struct {
     ///
     /// ``` self: QtC.KDesktopFile, id: i32, data: ?*anyopaque ```
     pub fn QBaseVirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.KDesktopFile_QBaseVirtualHook(@ptrCast(self), @intCast(id), data);
+        qtc.KDesktopFile_QBaseVirtualHook(@ptrCast(self), @intCast(id), @ptrCast(data));
     }
 
     /// Inherited from KConfig

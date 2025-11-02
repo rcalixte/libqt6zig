@@ -136,7 +136,7 @@ pub const quuid = struct {
     ///
     /// ``` bytes: ?*anyopaque ```
     pub fn FromBytes(bytes: ?*anyopaque) QtC.QUuid {
-        return qtc.QUuid_FromBytes(bytes);
+        return qtc.QUuid_FromBytes(@ptrCast(bytes));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/quuid.html#fromRfc4122)
@@ -267,7 +267,7 @@ pub const quuid = struct {
     ///
     /// ``` bytes: ?*anyopaque, order: qsysinfo_enums.Endian ```
     pub fn FromBytes2(bytes: ?*anyopaque, order: i32) QtC.QUuid {
-        return qtc.QUuid_FromBytes2(bytes, @intCast(order));
+        return qtc.QUuid_FromBytes2(@ptrCast(bytes), @intCast(order));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/quuid.html#dtor.QUuid)
