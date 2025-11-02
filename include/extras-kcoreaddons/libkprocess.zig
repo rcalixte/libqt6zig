@@ -38,7 +38,7 @@ pub const kprocess = struct {
 
     /// ``` self: QtC.KProcess, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.KProcess_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.KProcess_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Allows for overriding the related default method
@@ -52,7 +52,7 @@ pub const kprocess = struct {
     ///
     /// ``` self: QtC.KProcess, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.KProcess_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.KProcess_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -1264,8 +1264,8 @@ pub const kprocess = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#read)
     ///
-    /// ``` self: QtC.KProcess, data: []const u8, maxlen: i64 ```
-    pub fn Read(self: ?*anyopaque, data: []const u8, maxlen: i64) i64 {
+    /// ``` self: QtC.KProcess, data: []u8, maxlen: i64 ```
+    pub fn Read(self: ?*anyopaque, data: []u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
         return qtc.QIODevice_Read(@ptrCast(self), data_Cstring, @intCast(maxlen));
     }
@@ -1300,8 +1300,8 @@ pub const kprocess = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#readLine)
     ///
-    /// ``` self: QtC.KProcess, data: []const u8, maxlen: i64 ```
-    pub fn ReadLine(self: ?*anyopaque, data: []const u8, maxlen: i64) i64 {
+    /// ``` self: QtC.KProcess, data: []u8, maxlen: i64 ```
+    pub fn ReadLine(self: ?*anyopaque, data: []u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
         return qtc.QIODevice_ReadLine(@ptrCast(self), data_Cstring, @intCast(maxlen));
     }
@@ -1392,8 +1392,8 @@ pub const kprocess = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#peek)
     ///
-    /// ``` self: QtC.KProcess, data: []const u8, maxlen: i64 ```
-    pub fn Peek(self: ?*anyopaque, data: []const u8, maxlen: i64) i64 {
+    /// ``` self: QtC.KProcess, data: []u8, maxlen: i64 ```
+    pub fn Peek(self: ?*anyopaque, data: []u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
         return qtc.QIODevice_Peek(@ptrCast(self), data_Cstring, @intCast(maxlen));
     }
@@ -1424,8 +1424,8 @@ pub const kprocess = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#ungetChar)
     ///
-    /// ``` self: QtC.KProcess, c: i8 ```
-    pub fn UngetChar(self: ?*anyopaque, c: i8) void {
+    /// ``` self: QtC.KProcess, c: u8 ```
+    pub fn UngetChar(self: ?*anyopaque, c: u8) void {
         qtc.QIODevice_UngetChar(@ptrCast(self), @intCast(c));
     }
 
@@ -1433,8 +1433,8 @@ pub const kprocess = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#putChar)
     ///
-    /// ``` self: QtC.KProcess, c: i8 ```
-    pub fn PutChar(self: ?*anyopaque, c: i8) bool {
+    /// ``` self: QtC.KProcess, c: u8 ```
+    pub fn PutChar(self: ?*anyopaque, c: u8) bool {
         return qtc.QIODevice_PutChar(@ptrCast(self), @intCast(c));
     }
 
@@ -1442,8 +1442,8 @@ pub const kprocess = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qiodevice.html#getChar)
     ///
-    /// ``` self: QtC.KProcess, c: []const u8 ```
-    pub fn GetChar(self: ?*anyopaque, c: []const u8) bool {
+    /// ``` self: QtC.KProcess, c: []u8 ```
+    pub fn GetChar(self: ?*anyopaque, c: []u8) bool {
         const c_Cstring = c.ptr;
         return qtc.QIODevice_GetChar(@ptrCast(self), c_Cstring);
     }
@@ -2163,8 +2163,8 @@ pub const kprocess = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KProcess, data: []const u8, maxlen: i64 ```
-    pub fn ReadData(self: ?*anyopaque, data: []const u8, maxlen: i64) i64 {
+    /// ``` self: QtC.KProcess, data: []u8, maxlen: i64 ```
+    pub fn ReadData(self: ?*anyopaque, data: []u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
         return qtc.KProcess_ReadData(@ptrCast(self), data_Cstring, @intCast(maxlen));
     }
@@ -2175,8 +2175,8 @@ pub const kprocess = struct {
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KProcess, data: []const u8, maxlen: i64 ```
-    pub fn QBaseReadData(self: ?*anyopaque, data: []const u8, maxlen: i64) i64 {
+    /// ``` self: QtC.KProcess, data: []u8, maxlen: i64 ```
+    pub fn QBaseReadData(self: ?*anyopaque, data: []u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
         return qtc.KProcess_QBaseReadData(@ptrCast(self), data_Cstring, @intCast(maxlen));
     }
@@ -2187,8 +2187,8 @@ pub const kprocess = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KProcess, callback: *const fn (self: QtC.KProcess, data: [*:0]const u8, maxlen: i64) callconv(.c) i64 ```
-    pub fn OnReadData(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i64) callconv(.c) i64) void {
+    /// ``` self: QtC.KProcess, callback: *const fn (self: QtC.KProcess, data: [*:0]u8, maxlen: i64) callconv(.c) i64 ```
+    pub fn OnReadData(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]u8, i64) callconv(.c) i64) void {
         qtc.KProcess_OnReadData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
@@ -2464,8 +2464,8 @@ pub const kprocess = struct {
     ///
     /// Wrapper to allow calling virtual or protected method
     ///
-    /// ``` self: QtC.KProcess, data: []const u8, maxlen: i64 ```
-    pub fn ReadLineData(self: ?*anyopaque, data: []const u8, maxlen: i64) i64 {
+    /// ``` self: QtC.KProcess, data: []u8, maxlen: i64 ```
+    pub fn ReadLineData(self: ?*anyopaque, data: []u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
         return qtc.KProcess_ReadLineData(@ptrCast(self), data_Cstring, @intCast(maxlen));
     }
@@ -2476,8 +2476,8 @@ pub const kprocess = struct {
     ///
     /// Wrapper to allow calling base class virtual or protected method
     ///
-    /// ``` self: QtC.KProcess, data: []const u8, maxlen: i64 ```
-    pub fn QBaseReadLineData(self: ?*anyopaque, data: []const u8, maxlen: i64) i64 {
+    /// ``` self: QtC.KProcess, data: []u8, maxlen: i64 ```
+    pub fn QBaseReadLineData(self: ?*anyopaque, data: []u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
         return qtc.KProcess_QBaseReadLineData(@ptrCast(self), data_Cstring, @intCast(maxlen));
     }
@@ -2488,8 +2488,8 @@ pub const kprocess = struct {
     ///
     /// Wrapper to allow overriding base class virtual or protected method
     ///
-    /// ``` self: QtC.KProcess, callback: *const fn (self: QtC.KProcess, data: [*:0]const u8, maxlen: i64) callconv(.c) i64 ```
-    pub fn OnReadLineData(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]const u8, i64) callconv(.c) i64) void {
+    /// ``` self: QtC.KProcess, callback: *const fn (self: QtC.KProcess, data: [*:0]u8, maxlen: i64) callconv(.c) i64 ```
+    pub fn OnReadLineData(self: ?*anyopaque, callback: *const fn (?*anyopaque, [*:0]u8, i64) callconv(.c) i64) void {
         qtc.KProcess_OnReadLineData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 

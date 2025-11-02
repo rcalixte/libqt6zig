@@ -101,7 +101,7 @@ pub const kplotaxis = struct {
     /// [Qt documentation](https://api.kde.org/kplotaxis.html#tickLabelFormat)
     ///
     /// ``` self: QtC.KPlotAxis ```
-    pub fn TickLabelFormat(self: ?*anyopaque) i8 {
+    pub fn TickLabelFormat(self: ?*anyopaque) u8 {
         return qtc.KPlotAxis_TickLabelFormat(@ptrCast(self));
     }
 
@@ -145,22 +145,22 @@ pub const kplotaxis = struct {
 
     /// [Qt documentation](https://api.kde.org/kplotaxis.html#setTickLabelFormat)
     ///
-    /// ``` self: QtC.KPlotAxis, format: i8 ```
-    pub fn SetTickLabelFormat1(self: ?*anyopaque, format: i8) void {
+    /// ``` self: QtC.KPlotAxis, format: u8 ```
+    pub fn SetTickLabelFormat1(self: ?*anyopaque, format: u8) void {
         qtc.KPlotAxis_SetTickLabelFormat1(@ptrCast(self), @intCast(format));
     }
 
     /// [Qt documentation](https://api.kde.org/kplotaxis.html#setTickLabelFormat)
     ///
-    /// ``` self: QtC.KPlotAxis, format: i8, fieldWidth: i32 ```
-    pub fn SetTickLabelFormat2(self: ?*anyopaque, format: i8, fieldWidth: i32) void {
+    /// ``` self: QtC.KPlotAxis, format: u8, fieldWidth: i32 ```
+    pub fn SetTickLabelFormat2(self: ?*anyopaque, format: u8, fieldWidth: i32) void {
         qtc.KPlotAxis_SetTickLabelFormat2(@ptrCast(self), @intCast(format), @intCast(fieldWidth));
     }
 
     /// [Qt documentation](https://api.kde.org/kplotaxis.html#setTickLabelFormat)
     ///
-    /// ``` self: QtC.KPlotAxis, format: i8, fieldWidth: i32, precision: i32 ```
-    pub fn SetTickLabelFormat3(self: ?*anyopaque, format: i8, fieldWidth: i32, precision: i32) void {
+    /// ``` self: QtC.KPlotAxis, format: u8, fieldWidth: i32, precision: i32 ```
+    pub fn SetTickLabelFormat3(self: ?*anyopaque, format: u8, fieldWidth: i32, precision: i32) void {
         qtc.KPlotAxis_SetTickLabelFormat3(@ptrCast(self), @intCast(format), @intCast(fieldWidth), @intCast(precision));
     }
 

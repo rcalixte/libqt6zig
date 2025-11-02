@@ -69,7 +69,7 @@ pub const kcrash = struct {
                 .len = key.len,
                 .data = key.ptr,
             };
-            param1_values[i] = entry.value_ptr.*;
+            param1_values[i] = @ptrCast(entry.value_ptr.*);
             i += 1;
         }
         const param1_map = qtc.libqt_map{
@@ -96,7 +96,7 @@ pub const kcrash = struct {
                 .len = key.len,
                 .data = key.ptr,
             };
-            param1_values[i] = entry.value_ptr.*;
+            param1_values[i] = @ptrCast(entry.value_ptr.*);
             i += 1;
         }
         const param1_map = qtc.libqt_map{
@@ -123,7 +123,7 @@ pub const kcrash = struct {
                 .len = key.len,
                 .data = key.ptr,
             };
-            param1_values[i] = entry.value_ptr.*;
+            param1_values[i] = @ptrCast(entry.value_ptr.*);
             i += 1;
         }
         const param1_map = qtc.libqt_map{

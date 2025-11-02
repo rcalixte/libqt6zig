@@ -1324,8 +1324,8 @@ pub const qlocale = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlocale.html#toString)
     ///
-    /// ``` self: QtC.QLocale, f: f64, format: i8, allocator: std.mem.Allocator ```
-    pub fn ToString24(self: ?*anyopaque, f: f64, format: i8, allocator: std.mem.Allocator) []const u8 {
+    /// ``` self: QtC.QLocale, f: f64, format: u8, allocator: std.mem.Allocator ```
+    pub fn ToString24(self: ?*anyopaque, f: f64, format: u8, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QLocale_ToString24(@ptrCast(self), @floatCast(f), @intCast(format));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.ToString24: Memory allocation failed");
@@ -1335,8 +1335,8 @@ pub const qlocale = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlocale.html#toString)
     ///
-    /// ``` self: QtC.QLocale, f: f64, format: i8, precision: i32, allocator: std.mem.Allocator ```
-    pub fn ToString32(self: ?*anyopaque, f: f64, format: i8, precision: i32, allocator: std.mem.Allocator) []const u8 {
+    /// ``` self: QtC.QLocale, f: f64, format: u8, precision: i32, allocator: std.mem.Allocator ```
+    pub fn ToString32(self: ?*anyopaque, f: f64, format: u8, precision: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QLocale_ToString32(@ptrCast(self), @floatCast(f), @intCast(format), @intCast(precision));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.ToString32: Memory allocation failed");
@@ -1346,8 +1346,8 @@ pub const qlocale = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlocale.html#toString)
     ///
-    /// ``` self: QtC.QLocale, f: f32, format: i8, allocator: std.mem.Allocator ```
-    pub fn ToString25(self: ?*anyopaque, f: f32, format: i8, allocator: std.mem.Allocator) []const u8 {
+    /// ``` self: QtC.QLocale, f: f32, format: u8, allocator: std.mem.Allocator ```
+    pub fn ToString25(self: ?*anyopaque, f: f32, format: u8, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QLocale_ToString25(@ptrCast(self), @floatCast(f), @intCast(format));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.ToString25: Memory allocation failed");
@@ -1357,8 +1357,8 @@ pub const qlocale = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qlocale.html#toString)
     ///
-    /// ``` self: QtC.QLocale, f: f32, format: i8, precision: i32, allocator: std.mem.Allocator ```
-    pub fn ToString33(self: ?*anyopaque, f: f32, format: i8, precision: i32, allocator: std.mem.Allocator) []const u8 {
+    /// ``` self: QtC.QLocale, f: f32, format: u8, precision: i32, allocator: std.mem.Allocator ```
+    pub fn ToString33(self: ?*anyopaque, f: f32, format: u8, precision: i32, allocator: std.mem.Allocator) []const u8 {
         const _str = qtc.QLocale_ToString33(@ptrCast(self), @floatCast(f), @intCast(format), @intCast(precision));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qlocale.ToString33: Memory allocation failed");
@@ -2697,8 +2697,8 @@ pub const enums = struct {
     };
 
     pub const TagSeparator = enum {
-        pub const Dash: i8 = 45;
-        pub const Underscore: i8 = 95;
+        pub const Dash: u8 = 45;
+        pub const Underscore: u8 = 95;
     };
 
     pub const CurrencySymbolFormat = enum {

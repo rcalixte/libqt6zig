@@ -1819,7 +1819,7 @@ pub const kconfiggroup = struct {
     ///
     /// ``` self: QtC.KConfigGroup, id: i32, data: ?*anyopaque ```
     pub fn VirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.KConfigGroup_VirtualHook(@ptrCast(self), @intCast(id), data);
+        qtc.KConfigGroup_VirtualHook(@ptrCast(self), @intCast(id), @ptrCast(data));
     }
 
     /// Inherited from KConfigBase
@@ -1830,7 +1830,7 @@ pub const kconfiggroup = struct {
     ///
     /// ``` self: QtC.KConfigGroup, id: i32, data: ?*anyopaque ```
     pub fn QBaseVirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.KConfigGroup_QBaseVirtualHook(@ptrCast(self), @intCast(id), data);
+        qtc.KConfigGroup_QBaseVirtualHook(@ptrCast(self), @intCast(id), @ptrCast(data));
     }
 
     /// Inherited from KConfigBase

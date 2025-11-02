@@ -21,7 +21,7 @@ pub const qtextobject = struct {
 
     /// ``` self: QtC.QTextObject, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.QTextObject_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.QTextObject_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -514,7 +514,7 @@ pub const qtextblockgroup = struct {
 
     /// ``` self: QtC.QTextBlockGroup, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.QTextBlockGroup_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.QTextBlockGroup_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -1041,7 +1041,7 @@ pub const qtextframe = struct {
 
     /// ``` self: QtC.QTextFrame, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.QTextFrame_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.QTextFrame_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Allows for overriding the related default method
@@ -1055,7 +1055,7 @@ pub const qtextframe = struct {
     ///
     /// ``` self: QtC.QTextFrame, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.QTextFrame_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.QTextFrame_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)

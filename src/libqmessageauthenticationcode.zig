@@ -97,8 +97,8 @@ pub const qmessageauthenticationcode = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmessageauthenticationcode.html#hashInto)
     ///
-    /// ``` buffer: []i8, message: []const u8, key: []const u8, method: qcryptographichash_enums.Algorithm, allocator: std.mem.Allocator ```
-    pub fn HashInto(buffer: []i8, message: []const u8, key: []const u8, method: i32, allocator: std.mem.Allocator) []const u8 {
+    /// ``` buffer: []u8, message: []const u8, key: []const u8, method: qcryptographichash_enums.Algorithm, allocator: std.mem.Allocator ```
+    pub fn HashInto(buffer: []u8, message: []const u8, key: []const u8, method: i32, allocator: std.mem.Allocator) []const u8 {
         const buffer_list = qtc.libqt_list{
             .len = buffer.len,
             .data = buffer.ptr,
@@ -127,8 +127,8 @@ pub const qmessageauthenticationcode = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmessageauthenticationcode.html#hashInto)
     ///
-    /// ``` buffer: []i8, messageParts: [][]const u8, key: []const u8, method: qcryptographichash_enums.Algorithm, allocator: std.mem.Allocator ```
-    pub fn HashInto4(buffer: []i8, messageParts: [][]const u8, key: []const u8, method: i32, allocator: std.mem.Allocator) []const u8 {
+    /// ``` buffer: []u8, messageParts: [][]const u8, key: []const u8, method: qcryptographichash_enums.Algorithm, allocator: std.mem.Allocator ```
+    pub fn HashInto4(buffer: []u8, messageParts: [][]const u8, key: []const u8, method: i32, allocator: std.mem.Allocator) []const u8 {
         const buffer_list = qtc.libqt_list{
             .len = buffer.len,
             .data = buffer.ptr,

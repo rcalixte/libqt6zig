@@ -1082,7 +1082,7 @@ pub const qaccessiblewidget = struct {
     ///
     /// ``` self: QtC.QAccessibleWidget, id: i32, data: ?*anyopaque ```
     pub fn VirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.QAccessibleWidget_VirtualHook(@ptrCast(self), @intCast(id), data);
+        qtc.QAccessibleWidget_VirtualHook(@ptrCast(self), @intCast(id), @ptrCast(data));
     }
 
     /// Inherited from QAccessibleInterface
@@ -1093,7 +1093,7 @@ pub const qaccessiblewidget = struct {
     ///
     /// ``` self: QtC.QAccessibleWidget, id: i32, data: ?*anyopaque ```
     pub fn QBaseVirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.QAccessibleWidget_QBaseVirtualHook(@ptrCast(self), @intCast(id), data);
+        qtc.QAccessibleWidget_QBaseVirtualHook(@ptrCast(self), @intCast(id), @ptrCast(data));
     }
 
     /// Inherited from QAccessibleInterface

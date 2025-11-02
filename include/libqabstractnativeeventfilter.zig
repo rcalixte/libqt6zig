@@ -18,7 +18,7 @@ pub const qabstractnativeeventfilter = struct {
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QAbstractNativeEventFilter_NativeEventFilter(@ptrCast(self), eventType_str, message, @ptrCast(result));
+        return qtc.QAbstractNativeEventFilter_NativeEventFilter(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractnativeeventfilter.html#nativeEventFilter)
@@ -40,7 +40,7 @@ pub const qabstractnativeeventfilter = struct {
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QAbstractNativeEventFilter_QBaseNativeEventFilter(@ptrCast(self), eventType_str, message, @ptrCast(result));
+        return qtc.QAbstractNativeEventFilter_QBaseNativeEventFilter(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractnativeeventfilter.html#dtor.QAbstractNativeEventFilter)

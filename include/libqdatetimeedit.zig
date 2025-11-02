@@ -84,7 +84,7 @@ pub const qdatetimeedit = struct {
 
     /// ``` self: QtC.QDateTimeEdit, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.QDateTimeEdit_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.QDateTimeEdit_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Allows for overriding the related default method
@@ -98,7 +98,7 @@ pub const qdatetimeedit = struct {
     ///
     /// ``` self: QtC.QDateTimeEdit, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.QDateTimeEdit_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.QDateTimeEdit_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -5261,7 +5261,7 @@ pub const qdatetimeedit = struct {
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QDateTimeEdit_NativeEvent(@ptrCast(self), eventType_str, message, @ptrCast(result));
+        return qtc.QDateTimeEdit_NativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// Inherited from QWidget
@@ -5276,7 +5276,7 @@ pub const qdatetimeedit = struct {
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QDateTimeEdit_QBaseNativeEvent(@ptrCast(self), eventType_str, message, @ptrCast(result));
+        return qtc.QDateTimeEdit_QBaseNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// Inherited from QWidget
@@ -6084,7 +6084,7 @@ pub const qtimeedit = struct {
 
     /// ``` self: QtC.QTimeEdit, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.QTimeEdit_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.QTimeEdit_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Allows for overriding the related default method
@@ -6098,7 +6098,7 @@ pub const qtimeedit = struct {
     ///
     /// ``` self: QtC.QTimeEdit, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.QTimeEdit_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.QTimeEdit_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -11511,7 +11511,7 @@ pub const qtimeedit = struct {
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QTimeEdit_NativeEvent(@ptrCast(self), eventType_str, message, @ptrCast(result));
+        return qtc.QTimeEdit_NativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// Inherited from QWidget
@@ -11526,7 +11526,7 @@ pub const qtimeedit = struct {
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QTimeEdit_QBaseNativeEvent(@ptrCast(self), eventType_str, message, @ptrCast(result));
+        return qtc.QTimeEdit_QBaseNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// Inherited from QWidget
@@ -12334,7 +12334,7 @@ pub const qdateedit = struct {
 
     /// ``` self: QtC.QDateEdit, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.QDateEdit_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.QDateEdit_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Allows for overriding the related default method
@@ -12348,7 +12348,7 @@ pub const qdateedit = struct {
     ///
     /// ``` self: QtC.QDateEdit, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.QDateEdit_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.QDateEdit_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -17761,7 +17761,7 @@ pub const qdateedit = struct {
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QDateEdit_NativeEvent(@ptrCast(self), eventType_str, message, @ptrCast(result));
+        return qtc.QDateEdit_NativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// Inherited from QWidget
@@ -17776,7 +17776,7 @@ pub const qdateedit = struct {
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QDateEdit_QBaseNativeEvent(@ptrCast(self), eventType_str, message, @ptrCast(result));
+        return qtc.QDateEdit_QBaseNativeEvent(@ptrCast(self), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
     /// Inherited from QWidget

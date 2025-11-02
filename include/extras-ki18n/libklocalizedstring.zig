@@ -530,22 +530,22 @@ pub const klocalizedstring = struct {
 
     /// [Qt documentation](https://api.kde.org/klocalizedstring.html#subs)
     ///
-    /// ``` self: QtC.KLocalizedString, a: f64, fieldWidth: i32, format: i8 ```
-    pub fn Subs38(self: ?*anyopaque, a: f64, fieldWidth: i32, format: i8) QtC.KLocalizedString {
+    /// ``` self: QtC.KLocalizedString, a: f64, fieldWidth: i32, format: u8 ```
+    pub fn Subs38(self: ?*anyopaque, a: f64, fieldWidth: i32, format: u8) QtC.KLocalizedString {
         return qtc.KLocalizedString_Subs38(@ptrCast(self), @floatCast(a), @intCast(fieldWidth), @intCast(format));
     }
 
     /// [Qt documentation](https://api.kde.org/klocalizedstring.html#subs)
     ///
-    /// ``` self: QtC.KLocalizedString, a: f64, fieldWidth: i32, format: i8, precision: i32 ```
-    pub fn Subs48(self: ?*anyopaque, a: f64, fieldWidth: i32, format: i8, precision: i32) QtC.KLocalizedString {
+    /// ``` self: QtC.KLocalizedString, a: f64, fieldWidth: i32, format: u8, precision: i32 ```
+    pub fn Subs48(self: ?*anyopaque, a: f64, fieldWidth: i32, format: u8, precision: i32) QtC.KLocalizedString {
         return qtc.KLocalizedString_Subs48(@ptrCast(self), @floatCast(a), @intCast(fieldWidth), @intCast(format), @intCast(precision));
     }
 
     /// [Qt documentation](https://api.kde.org/klocalizedstring.html#subs)
     ///
-    /// ``` self: QtC.KLocalizedString, a: f64, fieldWidth: i32, format: i8, precision: i32, fillChar: QtC.QChar ```
-    pub fn Subs52(self: ?*anyopaque, a: f64, fieldWidth: i32, format: i8, precision: i32, fillChar: QtC.QChar) QtC.KLocalizedString {
+    /// ``` self: QtC.KLocalizedString, a: f64, fieldWidth: i32, format: u8, precision: i32, fillChar: QtC.QChar ```
+    pub fn Subs52(self: ?*anyopaque, a: f64, fieldWidth: i32, format: u8, precision: i32, fillChar: QtC.QChar) QtC.KLocalizedString {
         return qtc.KLocalizedString_Subs52(@ptrCast(self), @floatCast(a), @intCast(fieldWidth), @intCast(format), @intCast(precision), @ptrCast(fillChar));
     }
 

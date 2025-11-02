@@ -145,8 +145,8 @@ pub const qdebug = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdebug.html#operator-lt-lt)
     ///
-    /// ``` self: QtC.QDebug, t: i8 ```
-    pub fn OperatorShiftLeft3(self: ?*anyopaque, t: i8) QtC.QDebug {
+    /// ``` self: QtC.QDebug, t: u8 ```
+    pub fn OperatorShiftLeft3(self: ?*anyopaque, t: u8) QtC.QDebug {
         return qtc.QDebug_OperatorShiftLeft3(@ptrCast(self), @intCast(t));
     }
 
@@ -261,13 +261,13 @@ pub const qdebug = struct {
     ///
     /// ``` self: QtC.QDebug, t: ?*anyopaque ```
     pub fn OperatorShiftLeft25(self: ?*anyopaque, t: ?*anyopaque) QtC.QDebug {
-        return qtc.QDebug_OperatorShiftLeft25(@ptrCast(self), t);
+        return qtc.QDebug_OperatorShiftLeft25(@ptrCast(self), @ptrCast(t));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdebug.html#maybeQuote)
     ///
-    /// ``` self: QtC.QDebug, c: i8 ```
-    pub fn MaybeQuote1(self: ?*anyopaque, c: i8) QtC.QDebug {
+    /// ``` self: QtC.QDebug, c: u8 ```
+    pub fn MaybeQuote1(self: ?*anyopaque, c: u8) QtC.QDebug {
         return qtc.QDebug_MaybeQuote1(@ptrCast(self), @intCast(c));
     }
 
@@ -381,8 +381,8 @@ pub const qnodebug = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qnodebug.html#maybeQuote)
     ///
-    /// ``` self: QtC.QNoDebug, param1: i8 ```
-    pub fn MaybeQuote1(self: ?*anyopaque, param1: i8) QtC.QNoDebug {
+    /// ``` self: QtC.QNoDebug, param1: u8 ```
+    pub fn MaybeQuote1(self: ?*anyopaque, param1: u8) QtC.QNoDebug {
         return qtc.QNoDebug_MaybeQuote1(@ptrCast(self), @intCast(param1));
     }
 

@@ -57,7 +57,7 @@ pub const qwebenginehttprequest = struct {
                 .len = key.len,
                 .data = key.ptr,
             };
-            postData_values[i] = entry.value_ptr.*;
+            postData_values[i] = @ptrCast(entry.value_ptr.*);
             i += 1;
         }
         const postData_map = qtc.libqt_map{

@@ -49,7 +49,7 @@ pub const qjsonobject = struct {
                 .len = key.len,
                 .data = key.ptr,
             };
-            mapVal_values[i] = entry.value_ptr.*;
+            mapVal_values[i] = @ptrCast(entry.value_ptr.*);
             i += 1;
         }
         const mapVal_map = qtc.libqt_map{
@@ -102,7 +102,7 @@ pub const qjsonobject = struct {
                 .len = key.len,
                 .data = key.ptr,
             };
-            mapVal_values[i] = entry.value_ptr.*;
+            mapVal_values[i] = @ptrCast(entry.value_ptr.*);
             i += 1;
         }
         const mapVal_map = qtc.libqt_map{

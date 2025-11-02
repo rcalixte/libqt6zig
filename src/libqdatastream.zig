@@ -122,8 +122,8 @@ pub const qdatastream = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatastream.html#operator-gt-gt)
     ///
-    /// ``` self: QtC.QDataStream, i: *i8 ```
-    pub fn OperatorShiftRight(self: ?*anyopaque, i: *i8) void {
+    /// ``` self: QtC.QDataStream, i: *u8 ```
+    pub fn OperatorShiftRight(self: ?*anyopaque, i: *u8) void {
         qtc.QDataStream_OperatorShiftRight(@ptrCast(self), @ptrCast(i));
     }
 
@@ -206,16 +206,16 @@ pub const qdatastream = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatastream.html#operator-gt-gt)
     ///
-    /// ``` self: QtC.QDataStream, str: []const u8 ```
-    pub fn OperatorShiftRight14(self: ?*anyopaque, str: []const u8) void {
+    /// ``` self: QtC.QDataStream, str: []u8 ```
+    pub fn OperatorShiftRight14(self: ?*anyopaque, str: []u8) void {
         const str_Cstring = str.ptr;
         qtc.QDataStream_OperatorShiftRight14(@ptrCast(self), str_Cstring);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatastream.html#operator-lt-lt)
     ///
-    /// ``` self: QtC.QDataStream, i: i8 ```
-    pub fn OperatorShiftLeft(self: ?*anyopaque, i: i8) void {
+    /// ``` self: QtC.QDataStream, i: u8 ```
+    pub fn OperatorShiftLeft(self: ?*anyopaque, i: u8) void {
         qtc.QDataStream_OperatorShiftLeft(@ptrCast(self), @intCast(i));
     }
 
@@ -299,24 +299,24 @@ pub const qdatastream = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatastream.html#readBytes)
     ///
-    /// ``` self: QtC.QDataStream, param1: []const u8, lenVal: *u32 ```
-    pub fn ReadBytes(self: ?*anyopaque, param1: []const u8, lenVal: *u32) QtC.QDataStream {
+    /// ``` self: QtC.QDataStream, param1: []u8, lenVal: *u32 ```
+    pub fn ReadBytes(self: ?*anyopaque, param1: []u8, lenVal: *u32) QtC.QDataStream {
         const param1_Cstring = param1.ptr;
         return qtc.QDataStream_ReadBytes(@ptrCast(self), param1_Cstring, @ptrCast(lenVal));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatastream.html#readBytes)
     ///
-    /// ``` self: QtC.QDataStream, param1: []const u8, lenVal: *i64 ```
-    pub fn ReadBytes2(self: ?*anyopaque, param1: []const u8, lenVal: *i64) QtC.QDataStream {
+    /// ``` self: QtC.QDataStream, param1: []u8, lenVal: *i64 ```
+    pub fn ReadBytes2(self: ?*anyopaque, param1: []u8, lenVal: *i64) QtC.QDataStream {
         const param1_Cstring = param1.ptr;
         return qtc.QDataStream_ReadBytes2(@ptrCast(self), param1_Cstring, @ptrCast(lenVal));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdatastream.html#readRawData)
     ///
-    /// ``` self: QtC.QDataStream, param1: []const u8, lenVal: i64 ```
-    pub fn ReadRawData(self: ?*anyopaque, param1: []const u8, lenVal: i64) i64 {
+    /// ``` self: QtC.QDataStream, param1: []u8, lenVal: i64 ```
+    pub fn ReadRawData(self: ?*anyopaque, param1: []u8, lenVal: i64) i64 {
         const param1_Cstring = param1.ptr;
         return qtc.QDataStream_ReadRawData(@ptrCast(self), param1_Cstring, @intCast(lenVal));
     }

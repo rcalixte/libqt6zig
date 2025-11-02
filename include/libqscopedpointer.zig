@@ -35,14 +35,14 @@ pub const qscopedpointerpoddeleter = struct {
     ///
     /// ``` pointer: ?*anyopaque ```
     pub fn Cleanup(pointer: ?*anyopaque) void {
-        qtc.QScopedPointerPodDeleter_Cleanup(pointer);
+        qtc.QScopedPointerPodDeleter_Cleanup(@ptrCast(pointer));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qscopedpointerpoddeleter.html#operator-28-29)
     ///
     /// ``` self: QtC.QScopedPointerPodDeleter, pointer: ?*anyopaque ```
     pub fn OperatorCall(self: ?*anyopaque, pointer: ?*anyopaque) void {
-        qtc.QScopedPointerPodDeleter_OperatorCall(@ptrCast(self), pointer);
+        qtc.QScopedPointerPodDeleter_OperatorCall(@ptrCast(self), @ptrCast(pointer));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qscopedpointerpoddeleter.html#dtor.QScopedPointerPodDeleter)

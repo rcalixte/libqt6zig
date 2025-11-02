@@ -46,7 +46,7 @@ pub const qopenglfunctions_4_2_core = struct {
     ///
     /// ``` self: QtC.QOpenGLFunctions_4_2_Core, nearVal: f64, farVal: f64 ```
     pub fn GlDepthRange(self: ?*anyopaque, nearVal: f64, farVal: f64) void {
-        qtc.QOpenGLFunctions_4_2_Core_GlDepthRange(@ptrCast(self), @intCast(nearVal), @intCast(farVal));
+        qtc.QOpenGLFunctions_4_2_Core_GlDepthRange(@ptrCast(self), @floatCast(nearVal), @floatCast(farVal));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-4-2-core.html#glIsEnabled)
@@ -151,7 +151,7 @@ pub const qopenglfunctions_4_2_core = struct {
     ///
     /// ``` self: QtC.QOpenGLFunctions_4_2_Core, pname: u32, param: f32 ```
     pub fn GlPixelStoref(self: ?*anyopaque, pname: u32, param: f32) void {
-        qtc.QOpenGLFunctions_4_2_Core_GlPixelStoref(@ptrCast(self), @intCast(pname), @intCast(param));
+        qtc.QOpenGLFunctions_4_2_Core_GlPixelStoref(@ptrCast(self), @intCast(pname), @floatCast(param));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-4-2-core.html#glDepthFunc)
@@ -242,7 +242,7 @@ pub const qopenglfunctions_4_2_core = struct {
     ///
     /// ``` self: QtC.QOpenGLFunctions_4_2_Core, depth: f64 ```
     pub fn GlClearDepth(self: ?*anyopaque, depth: f64) void {
-        qtc.QOpenGLFunctions_4_2_Core_GlClearDepth(@ptrCast(self), @intCast(depth));
+        qtc.QOpenGLFunctions_4_2_Core_GlClearDepth(@ptrCast(self), @floatCast(depth));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-4-2-core.html#glClearStencil)
@@ -256,7 +256,7 @@ pub const qopenglfunctions_4_2_core = struct {
     ///
     /// ``` self: QtC.QOpenGLFunctions_4_2_Core, red: f32, green: f32, blue: f32, alpha: f32 ```
     pub fn GlClearColor(self: ?*anyopaque, red: f32, green: f32, blue: f32, alpha: f32) void {
-        qtc.QOpenGLFunctions_4_2_Core_GlClearColor(@ptrCast(self), @intCast(red), @intCast(green), @intCast(blue), @intCast(alpha));
+        qtc.QOpenGLFunctions_4_2_Core_GlClearColor(@ptrCast(self), @floatCast(red), @floatCast(green), @floatCast(blue), @floatCast(alpha));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-4-2-core.html#glClear)
@@ -312,7 +312,7 @@ pub const qopenglfunctions_4_2_core = struct {
     ///
     /// ``` self: QtC.QOpenGLFunctions_4_2_Core, target: u32, pname: u32, param: f32 ```
     pub fn GlTexParameterf(self: ?*anyopaque, target: u32, pname: u32, param: f32) void {
-        qtc.QOpenGLFunctions_4_2_Core_GlTexParameterf(@ptrCast(self), @intCast(target), @intCast(pname), @intCast(param));
+        qtc.QOpenGLFunctions_4_2_Core_GlTexParameterf(@ptrCast(self), @intCast(target), @intCast(pname), @floatCast(param));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-4-2-core.html#glScissor)
@@ -333,14 +333,14 @@ pub const qopenglfunctions_4_2_core = struct {
     ///
     /// ``` self: QtC.QOpenGLFunctions_4_2_Core, size: f32 ```
     pub fn GlPointSize(self: ?*anyopaque, size: f32) void {
-        qtc.QOpenGLFunctions_4_2_Core_GlPointSize(@ptrCast(self), @intCast(size));
+        qtc.QOpenGLFunctions_4_2_Core_GlPointSize(@ptrCast(self), @floatCast(size));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-4-2-core.html#glLineWidth)
     ///
     /// ``` self: QtC.QOpenGLFunctions_4_2_Core, width: f32 ```
     pub fn GlLineWidth(self: ?*anyopaque, width: f32) void {
-        qtc.QOpenGLFunctions_4_2_Core_GlLineWidth(@ptrCast(self), @intCast(width));
+        qtc.QOpenGLFunctions_4_2_Core_GlLineWidth(@ptrCast(self), @floatCast(width));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-4-2-core.html#glHint)
@@ -438,7 +438,7 @@ pub const qopenglfunctions_4_2_core = struct {
     ///
     /// ``` self: QtC.QOpenGLFunctions_4_2_Core, factor: f32, units: f32 ```
     pub fn GlPolygonOffset(self: ?*anyopaque, factor: f32, units: f32) void {
-        qtc.QOpenGLFunctions_4_2_Core_GlPolygonOffset(@ptrCast(self), @intCast(factor), @intCast(units));
+        qtc.QOpenGLFunctions_4_2_Core_GlPolygonOffset(@ptrCast(self), @floatCast(factor), @floatCast(units));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-4-2-core.html#glDrawElements)
@@ -494,7 +494,7 @@ pub const qopenglfunctions_4_2_core = struct {
     ///
     /// ``` self: QtC.QOpenGLFunctions_4_2_Core, red: f32, green: f32, blue: f32, alpha: f32 ```
     pub fn GlBlendColor(self: ?*anyopaque, red: f32, green: f32, blue: f32, alpha: f32) void {
-        qtc.QOpenGLFunctions_4_2_Core_GlBlendColor(@ptrCast(self), @intCast(red), @intCast(green), @intCast(blue), @intCast(alpha));
+        qtc.QOpenGLFunctions_4_2_Core_GlBlendColor(@ptrCast(self), @floatCast(red), @floatCast(green), @floatCast(blue), @floatCast(alpha));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-4-2-core.html#glGetCompressedTexImage)
@@ -550,7 +550,7 @@ pub const qopenglfunctions_4_2_core = struct {
     ///
     /// ``` self: QtC.QOpenGLFunctions_4_2_Core, value: f32, invert: u8 ```
     pub fn GlSampleCoverage(self: ?*anyopaque, value: f32, invert: u8) void {
-        qtc.QOpenGLFunctions_4_2_Core_GlSampleCoverage(@ptrCast(self), @intCast(value), @intCast(invert));
+        qtc.QOpenGLFunctions_4_2_Core_GlSampleCoverage(@ptrCast(self), @floatCast(value), @intCast(invert));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-4-2-core.html#glActiveTexture)
@@ -585,7 +585,7 @@ pub const qopenglfunctions_4_2_core = struct {
     ///
     /// ``` self: QtC.QOpenGLFunctions_4_2_Core, pname: u32, param: f32 ```
     pub fn GlPointParameterf(self: ?*anyopaque, pname: u32, param: f32) void {
-        qtc.QOpenGLFunctions_4_2_Core_GlPointParameterf(@ptrCast(self), @intCast(pname), @intCast(param));
+        qtc.QOpenGLFunctions_4_2_Core_GlPointParameterf(@ptrCast(self), @intCast(pname), @floatCast(param));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-4-2-core.html#glMultiDrawArrays)
@@ -851,28 +851,28 @@ pub const qopenglfunctions_4_2_core = struct {
     ///
     /// ``` self: QtC.QOpenGLFunctions_4_2_Core, location: i32, v0: f32, v1: f32, v2: f32, v3: f32 ```
     pub fn GlUniform4f(self: ?*anyopaque, location: i32, v0: f32, v1: f32, v2: f32, v3: f32) void {
-        qtc.QOpenGLFunctions_4_2_Core_GlUniform4f(@ptrCast(self), @intCast(location), @intCast(v0), @intCast(v1), @intCast(v2), @intCast(v3));
+        qtc.QOpenGLFunctions_4_2_Core_GlUniform4f(@ptrCast(self), @intCast(location), @floatCast(v0), @floatCast(v1), @floatCast(v2), @floatCast(v3));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-4-2-core.html#glUniform3f)
     ///
     /// ``` self: QtC.QOpenGLFunctions_4_2_Core, location: i32, v0: f32, v1: f32, v2: f32 ```
     pub fn GlUniform3f(self: ?*anyopaque, location: i32, v0: f32, v1: f32, v2: f32) void {
-        qtc.QOpenGLFunctions_4_2_Core_GlUniform3f(@ptrCast(self), @intCast(location), @intCast(v0), @intCast(v1), @intCast(v2));
+        qtc.QOpenGLFunctions_4_2_Core_GlUniform3f(@ptrCast(self), @intCast(location), @floatCast(v0), @floatCast(v1), @floatCast(v2));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-4-2-core.html#glUniform2f)
     ///
     /// ``` self: QtC.QOpenGLFunctions_4_2_Core, location: i32, v0: f32, v1: f32 ```
     pub fn GlUniform2f(self: ?*anyopaque, location: i32, v0: f32, v1: f32) void {
-        qtc.QOpenGLFunctions_4_2_Core_GlUniform2f(@ptrCast(self), @intCast(location), @intCast(v0), @intCast(v1));
+        qtc.QOpenGLFunctions_4_2_Core_GlUniform2f(@ptrCast(self), @intCast(location), @floatCast(v0), @floatCast(v1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-4-2-core.html#glUniform1f)
     ///
     /// ``` self: QtC.QOpenGLFunctions_4_2_Core, location: i32, v0: f32 ```
     pub fn GlUniform1f(self: ?*anyopaque, location: i32, v0: f32) void {
-        qtc.QOpenGLFunctions_4_2_Core_GlUniform1f(@ptrCast(self), @intCast(location), @intCast(v0));
+        qtc.QOpenGLFunctions_4_2_Core_GlUniform1f(@ptrCast(self), @intCast(location), @floatCast(v0));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-4-2-core.html#glUseProgram)
@@ -1320,7 +1320,7 @@ pub const qopenglfunctions_4_2_core = struct {
     ///
     /// ``` self: QtC.QOpenGLFunctions_4_2_Core, buffer: u32, drawbuffer: i32, depth: f32, stencil: i32 ```
     pub fn GlClearBufferfi(self: ?*anyopaque, buffer: u32, drawbuffer: i32, depth: f32, stencil: i32) void {
-        qtc.QOpenGLFunctions_4_2_Core_GlClearBufferfi(@ptrCast(self), @intCast(buffer), @intCast(drawbuffer), @intCast(depth), @intCast(stencil));
+        qtc.QOpenGLFunctions_4_2_Core_GlClearBufferfi(@ptrCast(self), @intCast(buffer), @intCast(drawbuffer), @floatCast(depth), @intCast(stencil));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-4-2-core.html#glClearBufferfv)
@@ -1852,7 +1852,7 @@ pub const qopenglfunctions_4_2_core = struct {
     ///
     /// ``` self: QtC.QOpenGLFunctions_4_2_Core, sampler: u32, pname: u32, param: f32 ```
     pub fn GlSamplerParameterf(self: ?*anyopaque, sampler: u32, pname: u32, param: f32) void {
-        qtc.QOpenGLFunctions_4_2_Core_GlSamplerParameterf(@ptrCast(self), @intCast(sampler), @intCast(pname), @intCast(param));
+        qtc.QOpenGLFunctions_4_2_Core_GlSamplerParameterf(@ptrCast(self), @intCast(sampler), @intCast(pname), @floatCast(param));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-4-2-core.html#glSamplerParameteriv)
@@ -2167,28 +2167,28 @@ pub const qopenglfunctions_4_2_core = struct {
     ///
     /// ``` self: QtC.QOpenGLFunctions_4_2_Core, location: i32, x: f64, y: f64, z: f64, w: f64 ```
     pub fn GlUniform4d(self: ?*anyopaque, location: i32, x: f64, y: f64, z: f64, w: f64) void {
-        qtc.QOpenGLFunctions_4_2_Core_GlUniform4d(@ptrCast(self), @intCast(location), @intCast(x), @intCast(y), @intCast(z), @intCast(w));
+        qtc.QOpenGLFunctions_4_2_Core_GlUniform4d(@ptrCast(self), @intCast(location), @floatCast(x), @floatCast(y), @floatCast(z), @floatCast(w));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-4-2-core.html#glUniform3d)
     ///
     /// ``` self: QtC.QOpenGLFunctions_4_2_Core, location: i32, x: f64, y: f64, z: f64 ```
     pub fn GlUniform3d(self: ?*anyopaque, location: i32, x: f64, y: f64, z: f64) void {
-        qtc.QOpenGLFunctions_4_2_Core_GlUniform3d(@ptrCast(self), @intCast(location), @intCast(x), @intCast(y), @intCast(z));
+        qtc.QOpenGLFunctions_4_2_Core_GlUniform3d(@ptrCast(self), @intCast(location), @floatCast(x), @floatCast(y), @floatCast(z));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-4-2-core.html#glUniform2d)
     ///
     /// ``` self: QtC.QOpenGLFunctions_4_2_Core, location: i32, x: f64, y: f64 ```
     pub fn GlUniform2d(self: ?*anyopaque, location: i32, x: f64, y: f64) void {
-        qtc.QOpenGLFunctions_4_2_Core_GlUniform2d(@ptrCast(self), @intCast(location), @intCast(x), @intCast(y));
+        qtc.QOpenGLFunctions_4_2_Core_GlUniform2d(@ptrCast(self), @intCast(location), @floatCast(x), @floatCast(y));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-4-2-core.html#glUniform1d)
     ///
     /// ``` self: QtC.QOpenGLFunctions_4_2_Core, location: i32, x: f64 ```
     pub fn GlUniform1d(self: ?*anyopaque, location: i32, x: f64) void {
-        qtc.QOpenGLFunctions_4_2_Core_GlUniform1d(@ptrCast(self), @intCast(location), @intCast(x));
+        qtc.QOpenGLFunctions_4_2_Core_GlUniform1d(@ptrCast(self), @intCast(location), @floatCast(x));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-4-2-core.html#glDrawElementsIndirect)
@@ -2237,7 +2237,7 @@ pub const qopenglfunctions_4_2_core = struct {
     ///
     /// ``` self: QtC.QOpenGLFunctions_4_2_Core, value: f32 ```
     pub fn GlMinSampleShading(self: ?*anyopaque, value: f32) void {
-        qtc.QOpenGLFunctions_4_2_Core_GlMinSampleShading(@ptrCast(self), @intCast(value));
+        qtc.QOpenGLFunctions_4_2_Core_GlMinSampleShading(@ptrCast(self), @floatCast(value));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-4-2-core.html#glGetDoublei_v)
@@ -2258,7 +2258,7 @@ pub const qopenglfunctions_4_2_core = struct {
     ///
     /// ``` self: QtC.QOpenGLFunctions_4_2_Core, index: u32, n: f64, f: f64 ```
     pub fn GlDepthRangeIndexed(self: ?*anyopaque, index: u32, n: f64, f: f64) void {
-        qtc.QOpenGLFunctions_4_2_Core_GlDepthRangeIndexed(@ptrCast(self), @intCast(index), @intCast(n), @intCast(f));
+        qtc.QOpenGLFunctions_4_2_Core_GlDepthRangeIndexed(@ptrCast(self), @intCast(index), @floatCast(n), @floatCast(f));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-4-2-core.html#glDepthRangeArrayv)
@@ -2300,7 +2300,7 @@ pub const qopenglfunctions_4_2_core = struct {
     ///
     /// ``` self: QtC.QOpenGLFunctions_4_2_Core, index: u32, x: f32, y: f32, w: f32, h: f32 ```
     pub fn GlViewportIndexedf(self: ?*anyopaque, index: u32, x: f32, y: f32, w: f32, h: f32) void {
-        qtc.QOpenGLFunctions_4_2_Core_GlViewportIndexedf(@ptrCast(self), @intCast(index), @intCast(x), @intCast(y), @intCast(w), @intCast(h));
+        qtc.QOpenGLFunctions_4_2_Core_GlViewportIndexedf(@ptrCast(self), @intCast(index), @floatCast(x), @floatCast(y), @floatCast(w), @floatCast(h));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-4-2-core.html#glViewportArrayv)
@@ -2356,28 +2356,28 @@ pub const qopenglfunctions_4_2_core = struct {
     ///
     /// ``` self: QtC.QOpenGLFunctions_4_2_Core, index: u32, x: f64, y: f64, z: f64, w: f64 ```
     pub fn GlVertexAttribL4d(self: ?*anyopaque, index: u32, x: f64, y: f64, z: f64, w: f64) void {
-        qtc.QOpenGLFunctions_4_2_Core_GlVertexAttribL4d(@ptrCast(self), @intCast(index), @intCast(x), @intCast(y), @intCast(z), @intCast(w));
+        qtc.QOpenGLFunctions_4_2_Core_GlVertexAttribL4d(@ptrCast(self), @intCast(index), @floatCast(x), @floatCast(y), @floatCast(z), @floatCast(w));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-4-2-core.html#glVertexAttribL3d)
     ///
     /// ``` self: QtC.QOpenGLFunctions_4_2_Core, index: u32, x: f64, y: f64, z: f64 ```
     pub fn GlVertexAttribL3d(self: ?*anyopaque, index: u32, x: f64, y: f64, z: f64) void {
-        qtc.QOpenGLFunctions_4_2_Core_GlVertexAttribL3d(@ptrCast(self), @intCast(index), @intCast(x), @intCast(y), @intCast(z));
+        qtc.QOpenGLFunctions_4_2_Core_GlVertexAttribL3d(@ptrCast(self), @intCast(index), @floatCast(x), @floatCast(y), @floatCast(z));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-4-2-core.html#glVertexAttribL2d)
     ///
     /// ``` self: QtC.QOpenGLFunctions_4_2_Core, index: u32, x: f64, y: f64 ```
     pub fn GlVertexAttribL2d(self: ?*anyopaque, index: u32, x: f64, y: f64) void {
-        qtc.QOpenGLFunctions_4_2_Core_GlVertexAttribL2d(@ptrCast(self), @intCast(index), @intCast(x), @intCast(y));
+        qtc.QOpenGLFunctions_4_2_Core_GlVertexAttribL2d(@ptrCast(self), @intCast(index), @floatCast(x), @floatCast(y));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-4-2-core.html#glVertexAttribL1d)
     ///
     /// ``` self: QtC.QOpenGLFunctions_4_2_Core, index: u32, x: f64 ```
     pub fn GlVertexAttribL1d(self: ?*anyopaque, index: u32, x: f64) void {
-        qtc.QOpenGLFunctions_4_2_Core_GlVertexAttribL1d(@ptrCast(self), @intCast(index), @intCast(x));
+        qtc.QOpenGLFunctions_4_2_Core_GlVertexAttribL1d(@ptrCast(self), @intCast(index), @floatCast(x));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-4-2-core.html#glGetProgramPipelineInfoLog)
@@ -2545,7 +2545,7 @@ pub const qopenglfunctions_4_2_core = struct {
     ///
     /// ``` self: QtC.QOpenGLFunctions_4_2_Core, program: u32, location: i32, v0: f64, v1: f64, v2: f64, v3: f64 ```
     pub fn GlProgramUniform4d(self: ?*anyopaque, program: u32, location: i32, v0: f64, v1: f64, v2: f64, v3: f64) void {
-        qtc.QOpenGLFunctions_4_2_Core_GlProgramUniform4d(@ptrCast(self), @intCast(program), @intCast(location), @intCast(v0), @intCast(v1), @intCast(v2), @intCast(v3));
+        qtc.QOpenGLFunctions_4_2_Core_GlProgramUniform4d(@ptrCast(self), @intCast(program), @intCast(location), @floatCast(v0), @floatCast(v1), @floatCast(v2), @floatCast(v3));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-4-2-core.html#glProgramUniform4fv)
@@ -2559,7 +2559,7 @@ pub const qopenglfunctions_4_2_core = struct {
     ///
     /// ``` self: QtC.QOpenGLFunctions_4_2_Core, program: u32, location: i32, v0: f32, v1: f32, v2: f32, v3: f32 ```
     pub fn GlProgramUniform4f(self: ?*anyopaque, program: u32, location: i32, v0: f32, v1: f32, v2: f32, v3: f32) void {
-        qtc.QOpenGLFunctions_4_2_Core_GlProgramUniform4f(@ptrCast(self), @intCast(program), @intCast(location), @intCast(v0), @intCast(v1), @intCast(v2), @intCast(v3));
+        qtc.QOpenGLFunctions_4_2_Core_GlProgramUniform4f(@ptrCast(self), @intCast(program), @intCast(location), @floatCast(v0), @floatCast(v1), @floatCast(v2), @floatCast(v3));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-4-2-core.html#glProgramUniform4iv)
@@ -2601,7 +2601,7 @@ pub const qopenglfunctions_4_2_core = struct {
     ///
     /// ``` self: QtC.QOpenGLFunctions_4_2_Core, program: u32, location: i32, v0: f64, v1: f64, v2: f64 ```
     pub fn GlProgramUniform3d(self: ?*anyopaque, program: u32, location: i32, v0: f64, v1: f64, v2: f64) void {
-        qtc.QOpenGLFunctions_4_2_Core_GlProgramUniform3d(@ptrCast(self), @intCast(program), @intCast(location), @intCast(v0), @intCast(v1), @intCast(v2));
+        qtc.QOpenGLFunctions_4_2_Core_GlProgramUniform3d(@ptrCast(self), @intCast(program), @intCast(location), @floatCast(v0), @floatCast(v1), @floatCast(v2));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-4-2-core.html#glProgramUniform3fv)
@@ -2615,7 +2615,7 @@ pub const qopenglfunctions_4_2_core = struct {
     ///
     /// ``` self: QtC.QOpenGLFunctions_4_2_Core, program: u32, location: i32, v0: f32, v1: f32, v2: f32 ```
     pub fn GlProgramUniform3f(self: ?*anyopaque, program: u32, location: i32, v0: f32, v1: f32, v2: f32) void {
-        qtc.QOpenGLFunctions_4_2_Core_GlProgramUniform3f(@ptrCast(self), @intCast(program), @intCast(location), @intCast(v0), @intCast(v1), @intCast(v2));
+        qtc.QOpenGLFunctions_4_2_Core_GlProgramUniform3f(@ptrCast(self), @intCast(program), @intCast(location), @floatCast(v0), @floatCast(v1), @floatCast(v2));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-4-2-core.html#glProgramUniform3iv)
@@ -2657,7 +2657,7 @@ pub const qopenglfunctions_4_2_core = struct {
     ///
     /// ``` self: QtC.QOpenGLFunctions_4_2_Core, program: u32, location: i32, v0: f64, v1: f64 ```
     pub fn GlProgramUniform2d(self: ?*anyopaque, program: u32, location: i32, v0: f64, v1: f64) void {
-        qtc.QOpenGLFunctions_4_2_Core_GlProgramUniform2d(@ptrCast(self), @intCast(program), @intCast(location), @intCast(v0), @intCast(v1));
+        qtc.QOpenGLFunctions_4_2_Core_GlProgramUniform2d(@ptrCast(self), @intCast(program), @intCast(location), @floatCast(v0), @floatCast(v1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-4-2-core.html#glProgramUniform2fv)
@@ -2671,7 +2671,7 @@ pub const qopenglfunctions_4_2_core = struct {
     ///
     /// ``` self: QtC.QOpenGLFunctions_4_2_Core, program: u32, location: i32, v0: f32, v1: f32 ```
     pub fn GlProgramUniform2f(self: ?*anyopaque, program: u32, location: i32, v0: f32, v1: f32) void {
-        qtc.QOpenGLFunctions_4_2_Core_GlProgramUniform2f(@ptrCast(self), @intCast(program), @intCast(location), @intCast(v0), @intCast(v1));
+        qtc.QOpenGLFunctions_4_2_Core_GlProgramUniform2f(@ptrCast(self), @intCast(program), @intCast(location), @floatCast(v0), @floatCast(v1));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-4-2-core.html#glProgramUniform2iv)
@@ -2713,7 +2713,7 @@ pub const qopenglfunctions_4_2_core = struct {
     ///
     /// ``` self: QtC.QOpenGLFunctions_4_2_Core, program: u32, location: i32, v0: f64 ```
     pub fn GlProgramUniform1d(self: ?*anyopaque, program: u32, location: i32, v0: f64) void {
-        qtc.QOpenGLFunctions_4_2_Core_GlProgramUniform1d(@ptrCast(self), @intCast(program), @intCast(location), @intCast(v0));
+        qtc.QOpenGLFunctions_4_2_Core_GlProgramUniform1d(@ptrCast(self), @intCast(program), @intCast(location), @floatCast(v0));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-4-2-core.html#glProgramUniform1fv)
@@ -2727,7 +2727,7 @@ pub const qopenglfunctions_4_2_core = struct {
     ///
     /// ``` self: QtC.QOpenGLFunctions_4_2_Core, program: u32, location: i32, v0: f32 ```
     pub fn GlProgramUniform1f(self: ?*anyopaque, program: u32, location: i32, v0: f32) void {
-        qtc.QOpenGLFunctions_4_2_Core_GlProgramUniform1f(@ptrCast(self), @intCast(program), @intCast(location), @intCast(v0));
+        qtc.QOpenGLFunctions_4_2_Core_GlProgramUniform1f(@ptrCast(self), @intCast(program), @intCast(location), @floatCast(v0));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-4-2-core.html#glProgramUniform1iv)
@@ -2811,14 +2811,14 @@ pub const qopenglfunctions_4_2_core = struct {
     ///
     /// ``` self: QtC.QOpenGLFunctions_4_2_Core, dd: f32 ```
     pub fn GlClearDepthf(self: ?*anyopaque, dd: f32) void {
-        qtc.QOpenGLFunctions_4_2_Core_GlClearDepthf(@ptrCast(self), @intCast(dd));
+        qtc.QOpenGLFunctions_4_2_Core_GlClearDepthf(@ptrCast(self), @floatCast(dd));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-4-2-core.html#glDepthRangef)
     ///
     /// ``` self: QtC.QOpenGLFunctions_4_2_Core, n: f32, f: f32 ```
     pub fn GlDepthRangef(self: ?*anyopaque, n: f32, f: f32) void {
-        qtc.QOpenGLFunctions_4_2_Core_GlDepthRangef(@ptrCast(self), @intCast(n), @intCast(f));
+        qtc.QOpenGLFunctions_4_2_Core_GlDepthRangef(@ptrCast(self), @floatCast(n), @floatCast(f));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-4-2-core.html#glGetShaderPrecisionFormat)
@@ -2909,14 +2909,14 @@ pub const qopenglfunctions_4_2_core = struct {
     ///
     /// ``` self: QtC.QOpenGLFunctions_4_2_Core, mode: u32, count: i32, typeVal: u32, indices: ?*anyopaque, instancecount: i32, basevertex: i32, baseinstance: u32 ```
     pub fn GlDrawElementsInstancedBaseVertexBaseInstance(self: ?*anyopaque, mode: u32, count: i32, typeVal: u32, indices: ?*anyopaque, instancecount: i32, basevertex: i32, baseinstance: u32) void {
-        qtc.QOpenGLFunctions_4_2_Core_GlDrawElementsInstancedBaseVertexBaseInstance(@ptrCast(self), @intCast(mode), @intCast(count), @intCast(typeVal), indices, @intCast(instancecount), @intCast(basevertex), @intCast(baseinstance));
+        qtc.QOpenGLFunctions_4_2_Core_GlDrawElementsInstancedBaseVertexBaseInstance(@ptrCast(self), @intCast(mode), @intCast(count), @intCast(typeVal), @ptrCast(indices), @intCast(instancecount), @intCast(basevertex), @intCast(baseinstance));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-4-2-core.html#glDrawElementsInstancedBaseInstance)
     ///
     /// ``` self: QtC.QOpenGLFunctions_4_2_Core, mode: u32, count: i32, typeVal: u32, indices: ?*anyopaque, instancecount: i32, baseinstance: u32 ```
     pub fn GlDrawElementsInstancedBaseInstance(self: ?*anyopaque, mode: u32, count: i32, typeVal: u32, indices: ?*anyopaque, instancecount: i32, baseinstance: u32) void {
-        qtc.QOpenGLFunctions_4_2_Core_GlDrawElementsInstancedBaseInstance(@ptrCast(self), @intCast(mode), @intCast(count), @intCast(typeVal), indices, @intCast(instancecount), @intCast(baseinstance));
+        qtc.QOpenGLFunctions_4_2_Core_GlDrawElementsInstancedBaseInstance(@ptrCast(self), @intCast(mode), @intCast(count), @intCast(typeVal), @ptrCast(indices), @intCast(instancecount), @intCast(baseinstance));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-4-2-core.html#glDrawArraysInstancedBaseInstance)

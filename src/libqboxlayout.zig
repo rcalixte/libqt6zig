@@ -38,7 +38,7 @@ pub const qboxlayout = struct {
 
     /// ``` self: QtC.QBoxLayout, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.QBoxLayout_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.QBoxLayout_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Allows for overriding the related default method
@@ -52,7 +52,7 @@ pub const qboxlayout = struct {
     ///
     /// ``` self: QtC.QBoxLayout, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.QBoxLayout_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.QBoxLayout_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -2152,7 +2152,7 @@ pub const qhboxlayout = struct {
 
     /// ``` self: QtC.QHBoxLayout, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.QHBoxLayout_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.QHBoxLayout_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Allows for overriding the related default method
@@ -2166,7 +2166,7 @@ pub const qhboxlayout = struct {
     ///
     /// ``` self: QtC.QHBoxLayout, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.QHBoxLayout_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.QHBoxLayout_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -4438,7 +4438,7 @@ pub const qvboxlayout = struct {
 
     /// ``` self: QtC.QVBoxLayout, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.QVBoxLayout_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.QVBoxLayout_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Allows for overriding the related default method
@@ -4452,7 +4452,7 @@ pub const qvboxlayout = struct {
     ///
     /// ``` self: QtC.QVBoxLayout, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.QVBoxLayout_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.QVBoxLayout_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)

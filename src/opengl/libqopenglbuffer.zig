@@ -124,21 +124,21 @@ pub const qopenglbuffer = struct {
     ///
     /// ``` self: QtC.QOpenGLBuffer, offset: i32, data: ?*anyopaque, count: i32 ```
     pub fn Read(self: ?*anyopaque, offset: i32, data: ?*anyopaque, count: i32) bool {
-        return qtc.QOpenGLBuffer_Read(@ptrCast(self), @intCast(offset), data, @intCast(count));
+        return qtc.QOpenGLBuffer_Read(@ptrCast(self), @intCast(offset), @ptrCast(data), @intCast(count));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglbuffer.html#write)
     ///
     /// ``` self: QtC.QOpenGLBuffer, offset: i32, data: ?*anyopaque, count: i32 ```
     pub fn Write(self: ?*anyopaque, offset: i32, data: ?*anyopaque, count: i32) void {
-        qtc.QOpenGLBuffer_Write(@ptrCast(self), @intCast(offset), data, @intCast(count));
+        qtc.QOpenGLBuffer_Write(@ptrCast(self), @intCast(offset), @ptrCast(data), @intCast(count));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglbuffer.html#allocate)
     ///
     /// ``` self: QtC.QOpenGLBuffer, data: ?*anyopaque, count: i32 ```
     pub fn Allocate(self: ?*anyopaque, data: ?*anyopaque, count: i32) void {
-        qtc.QOpenGLBuffer_Allocate(@ptrCast(self), data, @intCast(count));
+        qtc.QOpenGLBuffer_Allocate(@ptrCast(self), @ptrCast(data), @intCast(count));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglbuffer.html#allocate)

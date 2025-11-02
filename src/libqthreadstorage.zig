@@ -21,7 +21,7 @@ pub const qthreadstoragedata = struct {
     ///
     /// ``` self: QtC.QThreadStorageData, p: ?*anyopaque ```
     pub fn Set(self: ?*anyopaque, p: ?*anyopaque) ?*anyopaque {
-        return qtc.QThreadStorageData_Set(@ptrCast(self), p);
+        return qtc.QThreadStorageData_Set(@ptrCast(self), @ptrCast(p));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qthreadstoragedata.html#id-var)

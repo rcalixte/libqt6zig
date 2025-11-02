@@ -103,7 +103,7 @@ pub const qwebenginehistorymodel = struct {
 
     /// ``` self: QtC.QWebEngineHistoryModel, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.QWebEngineHistoryModel_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.QWebEngineHistoryModel_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -325,7 +325,7 @@ pub const qwebenginehistorymodel = struct {
         while (roles_it.next()) |entry| {
             const key = entry.key_ptr.*;
             roles_keys[i] = @intCast(key);
-            roles_values[i] = entry.value_ptr.*;
+            roles_values[i] = @ptrCast(entry.value_ptr.*);
             i += 1;
         }
         const roles_map = qtc.libqt_map{
@@ -1421,7 +1421,7 @@ pub const qwebenginehistory = struct {
 
     /// ``` self: QtC.QWebEngineHistory, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.QWebEngineHistory_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.QWebEngineHistory_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)

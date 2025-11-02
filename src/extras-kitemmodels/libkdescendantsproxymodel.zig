@@ -38,7 +38,7 @@ pub const kdescendantsproxymodel = struct {
 
     /// ``` self: QtC.KDescendantsProxyModel, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.KDescendantsProxyModel_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.KDescendantsProxyModel_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Allows for overriding the related default method
@@ -52,7 +52,7 @@ pub const kdescendantsproxymodel = struct {
     ///
     /// ``` self: QtC.KDescendantsProxyModel, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.KDescendantsProxyModel_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.KDescendantsProxyModel_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -475,38 +475,6 @@ pub const kdescendantsproxymodel = struct {
     /// ``` self: QtC.KDescendantsProxyModel, allocator: std.mem.Allocator ```
     pub fn RoleNames(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_u8 {
         const _map: qtc.libqt_map = qtc.KDescendantsProxyModel_RoleNames(@ptrCast(self));
-        var _ret: map_i32_u8 = .empty;
-        defer {
-            qtc.libqt_free(_map.keys);
-            qtc.libqt_free(_map.values);
-        }
-        const _keys: [*]i32 = @ptrCast(@alignCast(_map.keys));
-        const _values: [*][]u8 = @ptrCast(@alignCast(_map.values));
-        var i: usize = 0;
-        while (i < _map.len) : (i += 1) {
-            const _key = _keys[i];
-            const _value = _values[i];
-            _ret.put(allocator, _key, _value) catch @panic("kdescendantsproxymodel.RoleNames: Memory allocation failed");
-        }
-        return _ret;
-    }
-
-    /// [Qt documentation](https://api.kde.org/kdescendantsproxymodel.html#roleNames)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ``` self: QtC.KDescendantsProxyModel, callback: *const fn () callconv(.c) map_i32_u8 ```
-    pub fn OnRoleNames(self: ?*anyopaque, callback: *const fn () callconv(.c) map_i32_u8) void {
-        qtc.KDescendantsProxyModel_OnRoleNames(@ptrCast(self), @intCast(@intFromPtr(callback)));
-    }
-
-    /// [Qt documentation](https://api.kde.org/kdescendantsproxymodel.html#roleNames)
-    ///
-    /// Base class method implementation
-    ///
-    /// ``` self: QtC.KDescendantsProxyModel, allocator: std.mem.Allocator ```
-    pub fn QBaseRoleNames(self: ?*anyopaque, allocator: std.mem.Allocator) map_i32_u8 {
-        const _map: qtc.libqt_map = qtc.KDescendantsProxyModel_QBaseRoleNames(@ptrCast(self));
         var _ret: map_i32_u8 = .empty;
         defer {
             qtc.libqt_free(_map.keys);
@@ -1583,42 +1551,6 @@ pub const kdescendantsproxymodel = struct {
 
     /// Inherited from QAbstractProxyModel
     ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractproxymodel.html#itemData)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ``` self: QtC.KDescendantsProxyModel, index: QtC.QModelIndex, allocator: std.mem.Allocator ```
-    pub fn QBaseItemData(self: ?*anyopaque, index: ?*anyopaque, allocator: std.mem.Allocator) map_i32_qtcqvariant {
-        const _map: qtc.libqt_map = qtc.KDescendantsProxyModel_QBaseItemData(@ptrCast(self), @ptrCast(index));
-        var _ret: map_i32_qtcqvariant = .empty;
-        defer {
-            qtc.libqt_free(_map.keys);
-            qtc.libqt_free(_map.values);
-        }
-        const _keys: [*]i32 = @ptrCast(@alignCast(_map.keys));
-        const _values: [*]QtC.QVariant = @ptrCast(@alignCast(_map.values));
-        var i: usize = 0;
-        while (i < _map.len) : (i += 1) {
-            const _key = _keys[i];
-            const _value = _values[i];
-            _ret.put(allocator, _key, _value) catch @panic("kdescendantsproxymodel.ItemData: Memory allocation failed");
-        }
-        return _ret;
-    }
-
-    /// Inherited from QAbstractProxyModel
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractproxymodel.html#itemData)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ``` self: QtC.KDescendantsProxyModel, callback: *const fn (self: QtC.KDescendantsProxyModel, index: QtC.QModelIndex) callconv(.c) map_i32_qtcqvariant ```
-    pub fn OnItemData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque) callconv(.c) map_i32_qtcqvariant) void {
-        qtc.KDescendantsProxyModel_OnItemData(@ptrCast(self), @intCast(@intFromPtr(callback)));
-    }
-
-    /// Inherited from QAbstractProxyModel
-    ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qabstractproxymodel.html#setData)
     ///
     /// Wrapper to allow calling virtual or protected method
@@ -1667,7 +1599,7 @@ pub const kdescendantsproxymodel = struct {
         while (roles_it.next()) |entry| {
             const key = entry.key_ptr.*;
             roles_keys[i] = @intCast(key);
-            roles_values[i] = entry.value_ptr.*;
+            roles_values[i] = @ptrCast(entry.value_ptr.*);
             i += 1;
         }
         const roles_map = qtc.libqt_map{
@@ -1676,45 +1608,6 @@ pub const kdescendantsproxymodel = struct {
             .values = @ptrCast(roles_values.ptr),
         };
         return qtc.KDescendantsProxyModel_SetItemData(@ptrCast(self), @ptrCast(index), roles_map);
-    }
-
-    /// Inherited from QAbstractProxyModel
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractproxymodel.html#setItemData)
-    ///
-    /// Wrapper to allow calling base class virtual or protected method
-    ///
-    /// ``` self: QtC.KDescendantsProxyModel, index: QtC.QModelIndex, roles: map_i32_qtcqvariant, allocator: std.mem.Allocator ```
-    pub fn QBaseSetItemData(self: ?*anyopaque, index: ?*anyopaque, roles: map_i32_qtcqvariant, allocator: std.mem.Allocator) bool {
-        const roles_keys = allocator.alloc(i32, roles.count()) catch @panic("kdescendantsproxymodel.SetItemData: Memory allocation failed");
-        defer allocator.free(roles_keys);
-        const roles_values = allocator.alloc(QtC.QVariant, roles.count()) catch @panic("kdescendantsproxymodel.SetItemData: Memory allocation failed");
-        defer allocator.free(roles_values);
-        var i: usize = 0;
-        var roles_it = roles.iterator();
-        while (roles_it.next()) |entry| {
-            const key = entry.key_ptr.*;
-            roles_keys[i] = @intCast(key);
-            roles_values[i] = entry.value_ptr.*;
-            i += 1;
-        }
-        const roles_map = qtc.libqt_map{
-            .len = roles.count(),
-            .keys = @ptrCast(roles_keys.ptr),
-            .values = @ptrCast(roles_values.ptr),
-        };
-        return qtc.KDescendantsProxyModel_QBaseSetItemData(@ptrCast(self), @ptrCast(index), roles_map);
-    }
-
-    /// Inherited from QAbstractProxyModel
-    ///
-    /// [Qt documentation](https://doc.qt.io/qt-6/qabstractproxymodel.html#setItemData)
-    ///
-    /// Wrapper to allow overriding base class virtual or protected method
-    ///
-    /// ``` self: QtC.KDescendantsProxyModel, callback: *const fn (self: QtC.KDescendantsProxyModel, index: QtC.QModelIndex, roles: map_i32_qtcqvariant) callconv(.c) bool ```
-    pub fn OnSetItemData(self: ?*anyopaque, callback: *const fn (?*anyopaque, ?*anyopaque, map_i32_qtcqvariant) callconv(.c) bool) void {
-        qtc.KDescendantsProxyModel_OnSetItemData(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QAbstractProxyModel
@@ -2587,7 +2480,7 @@ pub const kdescendantsproxymodel = struct {
     ///
     /// ``` self: QtC.KDescendantsProxyModel, row: i32, col: i32, internalPtr: ?*anyopaque ```
     pub fn CreateSourceIndex(self: ?*anyopaque, row: i32, col: i32, internalPtr: ?*anyopaque) QtC.QModelIndex {
-        return qtc.KDescendantsProxyModel_CreateSourceIndex(@ptrCast(self), @intCast(row), @intCast(col), internalPtr);
+        return qtc.KDescendantsProxyModel_CreateSourceIndex(@ptrCast(self), @intCast(row), @intCast(col), @ptrCast(internalPtr));
     }
 
     /// Inherited from QAbstractProxyModel
@@ -2598,7 +2491,7 @@ pub const kdescendantsproxymodel = struct {
     ///
     /// ``` self: QtC.KDescendantsProxyModel, row: i32, col: i32, internalPtr: ?*anyopaque ```
     pub fn QBaseCreateSourceIndex(self: ?*anyopaque, row: i32, col: i32, internalPtr: ?*anyopaque) QtC.QModelIndex {
-        return qtc.KDescendantsProxyModel_QBaseCreateSourceIndex(@ptrCast(self), @intCast(row), @intCast(col), internalPtr);
+        return qtc.KDescendantsProxyModel_QBaseCreateSourceIndex(@ptrCast(self), @intCast(row), @intCast(col), @ptrCast(internalPtr));
     }
 
     /// Inherited from QAbstractProxyModel

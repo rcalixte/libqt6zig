@@ -38,7 +38,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
 
     /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn Metacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.KIO__WidgetsAskUserActionHandler_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.KIO__WidgetsAskUserActionHandler_Metacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// Allows for overriding the related default method
@@ -52,7 +52,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
     ///
     /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, param1: qobjectdefs_enums.Call, param2: i32, param3: ?*anyopaque ```
     pub fn QBaseMetacall(self: ?*anyopaque, param1: i32, param2: i32, param3: ?*anyopaque) i32 {
-        return qtc.KIO__WidgetsAskUserActionHandler_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), param3);
+        return qtc.KIO__WidgetsAskUserActionHandler_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -271,7 +271,7 @@ pub const kio__widgetsaskuseractionhandler = struct {
                 .len = key.len,
                 .data = key.ptr,
             };
-            sslErrorData_values[i] = entry.value_ptr.*;
+            sslErrorData_values[i] = @ptrCast(entry.value_ptr.*);
             i += 1;
         }
         const sslErrorData_map = qtc.libqt_map{
@@ -280,44 +280,6 @@ pub const kio__widgetsaskuseractionhandler = struct {
             .values = @ptrCast(sslErrorData_values.ptr),
         };
         qtc.KIO__WidgetsAskUserActionHandler_AskIgnoreSslErrors(@ptrCast(self), sslErrorData_map, @ptrCast(parent));
-    }
-
-    /// [Qt documentation](https://api.kde.org/kio-widgetsaskuseractionhandler.html#askIgnoreSslErrors)
-    ///
-    /// Allows for overriding the related default method
-    ///
-    /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, callback: *const fn (self: QtC.KIO__WidgetsAskUserActionHandler, sslErrorData: map_constu8_qtcqvariant, parent: QtC.QWidget) callconv(.c) void ```
-    pub fn OnAskIgnoreSslErrors(self: ?*anyopaque, callback: *const fn (?*anyopaque, map_constu8_qtcqvariant, ?*anyopaque) callconv(.c) void) void {
-        qtc.KIO__WidgetsAskUserActionHandler_OnAskIgnoreSslErrors(@ptrCast(self), @intCast(@intFromPtr(callback)));
-    }
-
-    /// [Qt documentation](https://api.kde.org/kio-widgetsaskuseractionhandler.html#askIgnoreSslErrors)
-    ///
-    /// Base class method implementation
-    ///
-    /// ``` self: QtC.KIO__WidgetsAskUserActionHandler, sslErrorData: map_constu8_qtcqvariant, parent: QtC.QWidget, allocator: std.mem.Allocator ```
-    pub fn QBaseAskIgnoreSslErrors(self: ?*anyopaque, sslErrorData: map_constu8_qtcqvariant, parent: ?*anyopaque, allocator: std.mem.Allocator) void {
-        const sslErrorData_keys = allocator.alloc(qtc.libqt_string, sslErrorData.count()) catch @panic("kio::widgetsaskuseractionhandler.AskIgnoreSslErrors: Memory allocation failed");
-        defer allocator.free(sslErrorData_keys);
-        const sslErrorData_values = allocator.alloc(QtC.QVariant, sslErrorData.count()) catch @panic("kio::widgetsaskuseractionhandler.AskIgnoreSslErrors: Memory allocation failed");
-        defer allocator.free(sslErrorData_values);
-        var i: usize = 0;
-        var sslErrorData_it = sslErrorData.iterator();
-        while (sslErrorData_it.next()) |entry| {
-            const key = entry.key_ptr.*;
-            sslErrorData_keys[i] = qtc.libqt_string{
-                .len = key.len,
-                .data = key.ptr,
-            };
-            sslErrorData_values[i] = entry.value_ptr.*;
-            i += 1;
-        }
-        const sslErrorData_map = qtc.libqt_map{
-            .len = sslErrorData.count(),
-            .keys = @ptrCast(sslErrorData_keys.ptr),
-            .values = @ptrCast(sslErrorData_values.ptr),
-        };
-        qtc.KIO__WidgetsAskUserActionHandler_QBaseAskIgnoreSslErrors(@ptrCast(self), sslErrorData_map, @ptrCast(parent));
     }
 
     /// [Qt documentation](https://api.kde.org/kio-widgetsaskuseractionhandler.html#setWindow)

@@ -375,7 +375,7 @@ pub const qiconengine = struct {
     ///
     /// ``` self: QtC.QIconEngine, id: i32, data: ?*anyopaque ```
     pub fn VirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.QIconEngine_VirtualHook(@ptrCast(self), @intCast(id), data);
+        qtc.QIconEngine_VirtualHook(@ptrCast(self), @intCast(id), @ptrCast(data));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qiconengine.html#virtual_hook)
@@ -393,7 +393,7 @@ pub const qiconengine = struct {
     ///
     /// ``` self: QtC.QIconEngine, id: i32, data: ?*anyopaque ```
     pub fn QBaseVirtualHook(self: ?*anyopaque, id: i32, data: ?*anyopaque) void {
-        qtc.QIconEngine_QBaseVirtualHook(@ptrCast(self), @intCast(id), data);
+        qtc.QIconEngine_QBaseVirtualHook(@ptrCast(self), @intCast(id), @ptrCast(data));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qiconengine.html#dtor.QIconEngine)
