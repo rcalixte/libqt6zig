@@ -210,6 +210,9 @@ To see the full list of build options available:
 zig build --help
 ```
 
+> [!IMPORTANT]
+> Cross-compilation is not supported by this library at this time.
+
 Usage
 -----
 
@@ -261,9 +264,6 @@ const qnamespace_enums = qt6.qnamespace_enums;
 ```
 
 Full examples of the build system and sample applications can be found in the [`libqt6zig-examples`](https://github.com/rcalixte/libqt6zig-examples) repository.
-
-> [!IMPORTANT]
-> Cross-compilation is not supported by this library at this time.
 
 FAQ
 ---
