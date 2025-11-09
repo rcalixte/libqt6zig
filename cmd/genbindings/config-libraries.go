@@ -605,6 +605,17 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 			cflags:      "--std=c++17 " + pkgConfigCflags("Qt6DBus"),
 		},
 
+		// Qt 6 SignOn
+		// Depends on Qt Core
+		{
+			path: "posix-extras-signon",
+			dirs: []string{
+				"/usr/include/signon-qt6/SignOn",
+			},
+			allowHeader: AllowAllHeaders,
+			cflags:      "--std=c++17 -I/usr/include/signon-qt6 -I/usr/include/signon-qt6/SignOn " + pkgConfigCflags("Qt6Core"),
+		},
+
 		// extras (cont.)
 
 		// KIO
