@@ -53,9 +53,7 @@ pub fn build(b: *std.Build) !void {
                     continue;
                 if ((is_macos or is_windows) and std.mem.eql(u8, basename, "qopenglcontext_platform"))
                     continue;
-                if (is_macos and (std.mem.startsWith(u8, basename, "qopenglfunctions_4_4") or std.mem.startsWith(u8, basename, "qopenglfunctions_4_5")))
-                    continue;
-                if (is_windows and (std.mem.eql(u8, basename, "qhashfunctions") or std.mem.eql(u8, basename, "qprocess")))
+                if (is_windows and (std.mem.eql(u8, basename, "qhashfunctions") or std.mem.eql(u8, basename, "qprocess") or std.mem.eql(u8, basename, "qtextstream")))
                     continue;
 
                 inline for (prefixes) |prefix| {
@@ -99,12 +97,13 @@ pub fn build(b: *std.Build) !void {
 
     for (extra_paths) |extra_path| {
         if (std.mem.eql(u8, extra_path, "")) continue;
-        std.fs.cwd().access(extra_path, .{}) catch {
-            try stdout_writer.interface.print("WARNING: extra path {s} does not exist\n", .{extra_path});
+        const inc_path = b.fmt("{s}/include", .{extra_path});
+        std.fs.cwd().access(inc_path, .{}) catch {
+            try stdout_writer.interface.print("WARNING: extra path {s} does not exist\n", .{inc_path});
             try stdout_writer.interface.flush();
             continue;
         };
-        try qt_include_path.append(b.allocator, b.dupe(extra_path));
+        try qt_include_path.append(b.allocator, b.dupe(inc_path));
     }
     for (os_include_path) |os_path| {
         std.fs.cwd().access(os_path, .{}) catch {
@@ -231,7 +230,7 @@ const os_include_path: []const []const u8 = switch (host_os) {
         "/opt/local/libexec/qt6/mkspecs/common/posix",
     },
     .windows => &.{
-        "C:/Qt/6.8.3/msvc2022_64/include",
+        "C:/Qt/6.8.3/llvm-mingw_64/include",
     },
     else => @panic("Unsupported OS"),
 };
@@ -371,6 +370,9 @@ const qt_modules = &.{
     // Qt 6 Accounts
     "accounts-qt6",
     "accounts-qt6/Accounts",
+    // Qt 6 SignOn
+    "signon-qt6",
+    "signon-qt6/SignOn",
     // Qt 6 KIO
     "KIO",
     "KIOCore",
