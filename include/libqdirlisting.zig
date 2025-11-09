@@ -26,7 +26,7 @@ pub const qdirlisting = struct {
             .len = path.len,
             .data = path.ptr,
         };
-        var nameFilters_arr = allocator.alloc(qtc.libqt_string, nameFilters.len) catch @panic("qdirlisting.: Memory allocation failed");
+        var nameFilters_arr = allocator.alloc(qtc.libqt_string, nameFilters.len) catch @panic("qdirlisting.New2: Memory allocation failed");
         defer allocator.free(nameFilters_arr);
         for (nameFilters, 0..nameFilters.len) |item, i| {
             nameFilters_arr[i] = .{
@@ -62,7 +62,7 @@ pub const qdirlisting = struct {
             .len = path.len,
             .data = path.ptr,
         };
-        var nameFilters_arr = allocator.alloc(qtc.libqt_string, nameFilters.len) catch @panic("qdirlisting.: Memory allocation failed");
+        var nameFilters_arr = allocator.alloc(qtc.libqt_string, nameFilters.len) catch @panic("qdirlisting.New4: Memory allocation failed");
         defer allocator.free(nameFilters_arr);
         for (nameFilters, 0..nameFilters.len) |item, i| {
             nameFilters_arr[i] = .{

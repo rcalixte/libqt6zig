@@ -639,22 +639,22 @@ pub const qopenglfunctions_2_0 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-2-0.html#glGetBufferSubData)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_2_0, target: u32, offset: i64, size: i64, data: *void ```
-    pub fn GlGetBufferSubData(self: ?*anyopaque, target: u32, offset: i64, size: i64, data: *void) void {
+    /// ``` self: QtC.QOpenGLFunctions_2_0, target: u32, offset: isize, size: isize, data: *void ```
+    pub fn GlGetBufferSubData(self: ?*anyopaque, target: u32, offset: isize, size: isize, data: *void) void {
         qtc.QOpenGLFunctions_2_0_GlGetBufferSubData(@ptrCast(self), @intCast(target), @intCast(offset), @intCast(size), data);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-2-0.html#glBufferSubData)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_2_0, target: u32, offset: i64, size: i64, data: *void ```
-    pub fn GlBufferSubData(self: ?*anyopaque, target: u32, offset: i64, size: i64, data: *const void) void {
+    /// ``` self: QtC.QOpenGLFunctions_2_0, target: u32, offset: isize, size: isize, data: *void ```
+    pub fn GlBufferSubData(self: ?*anyopaque, target: u32, offset: isize, size: isize, data: *const void) void {
         qtc.QOpenGLFunctions_2_0_GlBufferSubData(@ptrCast(self), @intCast(target), @intCast(offset), @intCast(size), data);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-2-0.html#glBufferData)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_2_0, target: u32, size: i64, data: *void, usage: u32 ```
-    pub fn GlBufferData(self: ?*anyopaque, target: u32, size: i64, data: *const void, usage: u32) void {
+    /// ``` self: QtC.QOpenGLFunctions_2_0, target: u32, size: isize, data: *void, usage: u32 ```
+    pub fn GlBufferData(self: ?*anyopaque, target: u32, size: isize, data: *const void, usage: u32) void {
         qtc.QOpenGLFunctions_2_0_GlBufferData(@ptrCast(self), @intCast(target), @intCast(size), data, @intCast(usage));
     }
 

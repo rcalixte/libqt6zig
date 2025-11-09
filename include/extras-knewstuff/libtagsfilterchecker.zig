@@ -8,7 +8,7 @@ pub const knscore__tagsfilterchecker = struct {
     ///
     /// ``` tagFilter: [][]const u8, allocator: std.mem.Allocator ```
     pub fn New(tagFilter: [][]const u8, allocator: std.mem.Allocator) QtC.KNSCore__TagsFilterChecker {
-        var tagFilter_arr = allocator.alloc(qtc.libqt_string, tagFilter.len) catch @panic("knscore::tagsfilterchecker.: Memory allocation failed");
+        var tagFilter_arr = allocator.alloc(qtc.libqt_string, tagFilter.len) catch @panic("knscore::tagsfilterchecker.New: Memory allocation failed");
         defer allocator.free(tagFilter_arr);
         for (tagFilter, 0..tagFilter.len) |item, i| {
             tagFilter_arr[i] = .{

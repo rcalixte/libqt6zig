@@ -361,15 +361,15 @@ void* QOpenGLFunctions_2_1_GlMapBuffer(QOpenGLFunctions_2_1* self, uint32_t targ
     return self->glMapBuffer(static_cast<GLenum>(target), static_cast<GLenum>(access));
 }
 
-void QOpenGLFunctions_2_1_GlGetBufferSubData(QOpenGLFunctions_2_1* self, uint32_t target, int64_t offset, int64_t size, void* data) {
+void QOpenGLFunctions_2_1_GlGetBufferSubData(QOpenGLFunctions_2_1* self, uint32_t target, intptr_t offset, intptr_t size, void* data) {
     self->glGetBufferSubData(static_cast<GLenum>(target), static_cast<GLintptr>(offset), static_cast<GLsizeiptr>(size), data);
 }
 
-void QOpenGLFunctions_2_1_GlBufferSubData(QOpenGLFunctions_2_1* self, uint32_t target, int64_t offset, int64_t size, const void* data) {
+void QOpenGLFunctions_2_1_GlBufferSubData(QOpenGLFunctions_2_1* self, uint32_t target, intptr_t offset, intptr_t size, const void* data) {
     self->glBufferSubData(static_cast<GLenum>(target), static_cast<GLintptr>(offset), static_cast<GLsizeiptr>(size), data);
 }
 
-void QOpenGLFunctions_2_1_GlBufferData(QOpenGLFunctions_2_1* self, uint32_t target, int64_t size, const void* data, uint32_t usage) {
+void QOpenGLFunctions_2_1_GlBufferData(QOpenGLFunctions_2_1* self, uint32_t target, intptr_t size, const void* data, uint32_t usage) {
     self->glBufferData(static_cast<GLenum>(target), static_cast<GLsizeiptr>(size), data, static_cast<GLenum>(usage));
 }
 

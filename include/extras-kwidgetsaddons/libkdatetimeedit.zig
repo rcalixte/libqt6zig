@@ -535,7 +535,7 @@ pub const kdatetimeedit = struct {
         var dateMap_it = dateMap.iterator();
         while (dateMap_it.next()) |entry| {
             const key = entry.key_ptr.*;
-            dateMap_keys[i] = @intCast(key);
+            dateMap_keys[i] = @ptrCast(key);
             dateMap_values[i] = @ptrCast(entry.value_ptr.*);
             i += 1;
         }

@@ -6944,7 +6944,7 @@ pub const kcoreconfigskeleton__itemstringlist = struct {
             .len = _key.len,
             .data = _key.ptr,
         };
-        var reference_arr = allocator.alloc(qtc.libqt_string, reference.len) catch @panic("kcoreconfigskeleton::itemstringlist.Property: Memory allocation failed");
+        var reference_arr = allocator.alloc(qtc.libqt_string, reference.len) catch @panic("kcoreconfigskeleton::itemstringlist.New: Memory allocation failed");
         defer allocator.free(reference_arr);
         for (reference, 0..reference.len) |item, i| {
             reference_arr[i] = .{
@@ -6972,7 +6972,7 @@ pub const kcoreconfigskeleton__itemstringlist = struct {
             .len = _key.len,
             .data = _key.ptr,
         };
-        var reference_arr = allocator.alloc(qtc.libqt_string, reference.len) catch @panic("kcoreconfigskeleton::itemstringlist.Property: Memory allocation failed");
+        var reference_arr = allocator.alloc(qtc.libqt_string, reference.len) catch @panic("kcoreconfigskeleton::itemstringlist.New2: Memory allocation failed");
         defer allocator.free(reference_arr);
         for (reference, 0..reference.len) |item, i| {
             reference_arr[i] = .{
@@ -6984,7 +6984,7 @@ pub const kcoreconfigskeleton__itemstringlist = struct {
             .len = reference.len,
             .data = reference_arr.ptr,
         };
-        var defaultValue_arr = allocator.alloc(qtc.libqt_string, defaultValue.len) catch @panic("kcoreconfigskeleton::itemstringlist.Property: Memory allocation failed");
+        var defaultValue_arr = allocator.alloc(qtc.libqt_string, defaultValue.len) catch @panic("kcoreconfigskeleton::itemstringlist.New2: Memory allocation failed");
         defer allocator.free(defaultValue_arr);
         for (defaultValue, 0..defaultValue.len) |item, i| {
             defaultValue_arr[i] = .{
@@ -7122,7 +7122,7 @@ pub const kcoreconfigskeleton__itempathlist = struct {
             .len = _key.len,
             .data = _key.ptr,
         };
-        var reference_arr = allocator.alloc(qtc.libqt_string, reference.len) catch @panic("kcoreconfigskeleton::itempathlist.Property: Memory allocation failed");
+        var reference_arr = allocator.alloc(qtc.libqt_string, reference.len) catch @panic("kcoreconfigskeleton::itempathlist.New: Memory allocation failed");
         defer allocator.free(reference_arr);
         for (reference, 0..reference.len) |item, i| {
             reference_arr[i] = .{
@@ -7150,7 +7150,7 @@ pub const kcoreconfigskeleton__itempathlist = struct {
             .len = _key.len,
             .data = _key.ptr,
         };
-        var reference_arr = allocator.alloc(qtc.libqt_string, reference.len) catch @panic("kcoreconfigskeleton::itempathlist.Property: Memory allocation failed");
+        var reference_arr = allocator.alloc(qtc.libqt_string, reference.len) catch @panic("kcoreconfigskeleton::itempathlist.New2: Memory allocation failed");
         defer allocator.free(reference_arr);
         for (reference, 0..reference.len) |item, i| {
             reference_arr[i] = .{
@@ -7162,7 +7162,7 @@ pub const kcoreconfigskeleton__itempathlist = struct {
             .len = reference.len,
             .data = reference_arr.ptr,
         };
-        var defaultValue_arr = allocator.alloc(qtc.libqt_string, defaultValue.len) catch @panic("kcoreconfigskeleton::itempathlist.Property: Memory allocation failed");
+        var defaultValue_arr = allocator.alloc(qtc.libqt_string, defaultValue.len) catch @panic("kcoreconfigskeleton::itempathlist.New2: Memory allocation failed");
         defer allocator.free(defaultValue_arr);
         for (defaultValue, 0..defaultValue.len) |item, i| {
             defaultValue_arr[i] = .{

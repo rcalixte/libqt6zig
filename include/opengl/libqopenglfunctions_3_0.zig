@@ -639,22 +639,22 @@ pub const qopenglfunctions_3_0 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-3-0.html#glGetBufferSubData)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_3_0, target: u32, offset: i64, size: i64, data: *void ```
-    pub fn GlGetBufferSubData(self: ?*anyopaque, target: u32, offset: i64, size: i64, data: *void) void {
+    /// ``` self: QtC.QOpenGLFunctions_3_0, target: u32, offset: isize, size: isize, data: *void ```
+    pub fn GlGetBufferSubData(self: ?*anyopaque, target: u32, offset: isize, size: isize, data: *void) void {
         qtc.QOpenGLFunctions_3_0_GlGetBufferSubData(@ptrCast(self), @intCast(target), @intCast(offset), @intCast(size), data);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-3-0.html#glBufferSubData)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_3_0, target: u32, offset: i64, size: i64, data: *void ```
-    pub fn GlBufferSubData(self: ?*anyopaque, target: u32, offset: i64, size: i64, data: *const void) void {
+    /// ``` self: QtC.QOpenGLFunctions_3_0, target: u32, offset: isize, size: isize, data: *void ```
+    pub fn GlBufferSubData(self: ?*anyopaque, target: u32, offset: isize, size: isize, data: *const void) void {
         qtc.QOpenGLFunctions_3_0_GlBufferSubData(@ptrCast(self), @intCast(target), @intCast(offset), @intCast(size), data);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-3-0.html#glBufferData)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_3_0, target: u32, size: i64, data: *void, usage: u32 ```
-    pub fn GlBufferData(self: ?*anyopaque, target: u32, size: i64, data: *const void, usage: u32) void {
+    /// ``` self: QtC.QOpenGLFunctions_3_0, target: u32, size: isize, data: *void, usage: u32 ```
+    pub fn GlBufferData(self: ?*anyopaque, target: u32, size: isize, data: *const void, usage: u32) void {
         qtc.QOpenGLFunctions_3_0_GlBufferData(@ptrCast(self), @intCast(target), @intCast(size), data, @intCast(usage));
     }
 
@@ -1178,15 +1178,15 @@ pub const qopenglfunctions_3_0 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-3-0.html#glFlushMappedBufferRange)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_3_0, target: u32, offset: i64, length: i64 ```
-    pub fn GlFlushMappedBufferRange(self: ?*anyopaque, target: u32, offset: i64, length: i64) void {
+    /// ``` self: QtC.QOpenGLFunctions_3_0, target: u32, offset: isize, length: isize ```
+    pub fn GlFlushMappedBufferRange(self: ?*anyopaque, target: u32, offset: isize, length: isize) void {
         qtc.QOpenGLFunctions_3_0_GlFlushMappedBufferRange(@ptrCast(self), @intCast(target), @intCast(offset), @intCast(length));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-3-0.html#glMapBufferRange)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_3_0, target: u32, offset: i64, length: i64, access: u32 ```
-    pub fn GlMapBufferRange(self: ?*anyopaque, target: u32, offset: i64, length: i64, access: u32) ?*anyopaque {
+    /// ``` self: QtC.QOpenGLFunctions_3_0, target: u32, offset: isize, length: isize, access: u32 ```
+    pub fn GlMapBufferRange(self: ?*anyopaque, target: u32, offset: isize, length: isize, access: u32) ?*anyopaque {
         return qtc.QOpenGLFunctions_3_0_GlMapBufferRange(@ptrCast(self), @intCast(target), @intCast(offset), @intCast(length), @intCast(access));
     }
 
@@ -1514,8 +1514,8 @@ pub const qopenglfunctions_3_0 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-3-0.html#glBindBufferRange)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_3_0, target: u32, index: u32, buffer: u32, offset: i64, size: i64 ```
-    pub fn GlBindBufferRange(self: ?*anyopaque, target: u32, index: u32, buffer: u32, offset: i64, size: i64) void {
+    /// ``` self: QtC.QOpenGLFunctions_3_0, target: u32, index: u32, buffer: u32, offset: isize, size: isize ```
+    pub fn GlBindBufferRange(self: ?*anyopaque, target: u32, index: u32, buffer: u32, offset: isize, size: isize) void {
         qtc.QOpenGLFunctions_3_0_GlBindBufferRange(@ptrCast(self), @intCast(target), @intCast(index), @intCast(buffer), @intCast(offset), @intCast(size));
     }
 

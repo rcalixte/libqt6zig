@@ -10,7 +10,7 @@ pub const ktexteditor__command = struct {
     ///
     /// ``` cmds: [][]const u8, allocator: std.mem.Allocator ```
     pub fn New(cmds: [][]const u8, allocator: std.mem.Allocator) QtC.KTextEditor__Command {
-        var cmds_arr = allocator.alloc(qtc.libqt_string, cmds.len) catch @panic("ktexteditor::command.: Memory allocation failed");
+        var cmds_arr = allocator.alloc(qtc.libqt_string, cmds.len) catch @panic("ktexteditor::command.New: Memory allocation failed");
         defer allocator.free(cmds_arr);
         for (cmds, 0..cmds.len) |item, i| {
             cmds_arr[i] = .{
@@ -30,7 +30,7 @@ pub const ktexteditor__command = struct {
     ///
     /// ``` cmds: [][]const u8, parent: QtC.QObject, allocator: std.mem.Allocator ```
     pub fn New2(cmds: [][]const u8, parent: ?*anyopaque, allocator: std.mem.Allocator) QtC.KTextEditor__Command {
-        var cmds_arr = allocator.alloc(qtc.libqt_string, cmds.len) catch @panic("ktexteditor::command.: Memory allocation failed");
+        var cmds_arr = allocator.alloc(qtc.libqt_string, cmds.len) catch @panic("ktexteditor::command.New2: Memory allocation failed");
         defer allocator.free(cmds_arr);
         for (cmds, 0..cmds.len) |item, i| {
             cmds_arr[i] = .{

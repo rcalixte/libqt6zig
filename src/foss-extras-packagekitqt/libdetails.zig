@@ -17,9 +17,9 @@ pub const packagekit__details = struct {
     ///
     /// ``` other: map_constu8_qtcqvariant, allocator: std.mem.Allocator ```
     pub fn New2(other: map_constu8_qtcqvariant, allocator: std.mem.Allocator) QtC.PackageKit__Details {
-        const other_keys = allocator.alloc(qtc.libqt_string, other.count()) catch @panic("packagekit::details.: Memory allocation failed");
+        const other_keys = allocator.alloc(qtc.libqt_string, other.count()) catch @panic("packagekit::details.New2: Memory allocation failed");
         defer allocator.free(other_keys);
-        const other_values = allocator.alloc(QtC.QVariant, other.count()) catch @panic("packagekit::details.: Memory allocation failed");
+        const other_values = allocator.alloc(QtC.QVariant, other.count()) catch @panic("packagekit::details.New2: Memory allocation failed");
         defer allocator.free(other_values);
         var i: usize = 0;
         var other_it = other.iterator();

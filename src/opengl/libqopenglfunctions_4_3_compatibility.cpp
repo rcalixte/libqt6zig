@@ -361,15 +361,15 @@ void* QOpenGLFunctions_4_3_Compatibility_GlMapBuffer(QOpenGLFunctions_4_3_Compat
     return self->glMapBuffer(static_cast<GLenum>(target), static_cast<GLenum>(access));
 }
 
-void QOpenGLFunctions_4_3_Compatibility_GlGetBufferSubData(QOpenGLFunctions_4_3_Compatibility* self, uint32_t target, int64_t offset, int64_t size, void* data) {
+void QOpenGLFunctions_4_3_Compatibility_GlGetBufferSubData(QOpenGLFunctions_4_3_Compatibility* self, uint32_t target, intptr_t offset, intptr_t size, void* data) {
     self->glGetBufferSubData(static_cast<GLenum>(target), static_cast<GLintptr>(offset), static_cast<GLsizeiptr>(size), data);
 }
 
-void QOpenGLFunctions_4_3_Compatibility_GlBufferSubData(QOpenGLFunctions_4_3_Compatibility* self, uint32_t target, int64_t offset, int64_t size, const void* data) {
+void QOpenGLFunctions_4_3_Compatibility_GlBufferSubData(QOpenGLFunctions_4_3_Compatibility* self, uint32_t target, intptr_t offset, intptr_t size, const void* data) {
     self->glBufferSubData(static_cast<GLenum>(target), static_cast<GLintptr>(offset), static_cast<GLsizeiptr>(size), data);
 }
 
-void QOpenGLFunctions_4_3_Compatibility_GlBufferData(QOpenGLFunctions_4_3_Compatibility* self, uint32_t target, int64_t size, const void* data, uint32_t usage) {
+void QOpenGLFunctions_4_3_Compatibility_GlBufferData(QOpenGLFunctions_4_3_Compatibility* self, uint32_t target, intptr_t size, const void* data, uint32_t usage) {
     self->glBufferData(static_cast<GLenum>(target), static_cast<GLsizeiptr>(size), data, static_cast<GLenum>(usage));
 }
 
@@ -669,11 +669,11 @@ void QOpenGLFunctions_4_3_Compatibility_GlBindVertexArray(QOpenGLFunctions_4_3_C
     self->glBindVertexArray(static_cast<GLuint>(array));
 }
 
-void QOpenGLFunctions_4_3_Compatibility_GlFlushMappedBufferRange(QOpenGLFunctions_4_3_Compatibility* self, uint32_t target, int64_t offset, int64_t length) {
+void QOpenGLFunctions_4_3_Compatibility_GlFlushMappedBufferRange(QOpenGLFunctions_4_3_Compatibility* self, uint32_t target, intptr_t offset, intptr_t length) {
     self->glFlushMappedBufferRange(static_cast<GLenum>(target), static_cast<GLintptr>(offset), static_cast<GLsizeiptr>(length));
 }
 
-void* QOpenGLFunctions_4_3_Compatibility_GlMapBufferRange(QOpenGLFunctions_4_3_Compatibility* self, uint32_t target, int64_t offset, int64_t length, uint32_t access) {
+void* QOpenGLFunctions_4_3_Compatibility_GlMapBufferRange(QOpenGLFunctions_4_3_Compatibility* self, uint32_t target, intptr_t offset, intptr_t length, uint32_t access) {
     return self->glMapBufferRange(static_cast<GLenum>(target), static_cast<GLintptr>(offset), static_cast<GLsizeiptr>(length), static_cast<GLbitfield>(access));
 }
 
@@ -861,7 +861,7 @@ void QOpenGLFunctions_4_3_Compatibility_GlBindBufferBase(QOpenGLFunctions_4_3_Co
     self->glBindBufferBase(static_cast<GLenum>(target), static_cast<GLuint>(index), static_cast<GLuint>(buffer));
 }
 
-void QOpenGLFunctions_4_3_Compatibility_GlBindBufferRange(QOpenGLFunctions_4_3_Compatibility* self, uint32_t target, uint32_t index, uint32_t buffer, int64_t offset, int64_t size) {
+void QOpenGLFunctions_4_3_Compatibility_GlBindBufferRange(QOpenGLFunctions_4_3_Compatibility* self, uint32_t target, uint32_t index, uint32_t buffer, intptr_t offset, intptr_t size) {
     self->glBindBufferRange(static_cast<GLenum>(target), static_cast<GLuint>(index), static_cast<GLuint>(buffer), static_cast<GLintptr>(offset), static_cast<GLsizeiptr>(size));
 }
 
@@ -897,7 +897,7 @@ void QOpenGLFunctions_4_3_Compatibility_GlColorMaski(QOpenGLFunctions_4_3_Compat
     self->glColorMaski(static_cast<GLuint>(index), static_cast<GLboolean>(r), static_cast<GLboolean>(g), static_cast<GLboolean>(b), static_cast<GLboolean>(a));
 }
 
-void QOpenGLFunctions_4_3_Compatibility_GlCopyBufferSubData(QOpenGLFunctions_4_3_Compatibility* self, uint32_t readTarget, uint32_t writeTarget, int64_t readOffset, int64_t writeOffset, int64_t size) {
+void QOpenGLFunctions_4_3_Compatibility_GlCopyBufferSubData(QOpenGLFunctions_4_3_Compatibility* self, uint32_t readTarget, uint32_t writeTarget, intptr_t readOffset, intptr_t writeOffset, intptr_t size) {
     self->glCopyBufferSubData(static_cast<GLenum>(readTarget), static_cast<GLenum>(writeTarget), static_cast<GLintptr>(readOffset), static_cast<GLintptr>(writeOffset), static_cast<GLsizeiptr>(size));
 }
 
@@ -1805,7 +1805,7 @@ void QOpenGLFunctions_4_3_Compatibility_GlTexStorage2DMultisample(QOpenGLFunctio
     self->glTexStorage2DMultisample(static_cast<GLenum>(target), static_cast<GLsizei>(samples), static_cast<GLenum>(internalformat), static_cast<GLsizei>(width), static_cast<GLsizei>(height), static_cast<GLboolean>(fixedsamplelocations));
 }
 
-void QOpenGLFunctions_4_3_Compatibility_GlTexBufferRange(QOpenGLFunctions_4_3_Compatibility* self, uint32_t target, uint32_t internalformat, uint32_t buffer, int64_t offset, int64_t size) {
+void QOpenGLFunctions_4_3_Compatibility_GlTexBufferRange(QOpenGLFunctions_4_3_Compatibility* self, uint32_t target, uint32_t internalformat, uint32_t buffer, intptr_t offset, intptr_t size) {
     self->glTexBufferRange(static_cast<GLenum>(target), static_cast<GLenum>(internalformat), static_cast<GLuint>(buffer), static_cast<GLintptr>(offset), static_cast<GLsizeiptr>(size));
 }
 
@@ -1845,7 +1845,7 @@ void QOpenGLFunctions_4_3_Compatibility_GlInvalidateBufferData(QOpenGLFunctions_
     self->glInvalidateBufferData(static_cast<GLuint>(buffer));
 }
 
-void QOpenGLFunctions_4_3_Compatibility_GlInvalidateBufferSubData(QOpenGLFunctions_4_3_Compatibility* self, uint32_t buffer, int64_t offset, int64_t length) {
+void QOpenGLFunctions_4_3_Compatibility_GlInvalidateBufferSubData(QOpenGLFunctions_4_3_Compatibility* self, uint32_t buffer, intptr_t offset, intptr_t length) {
     self->glInvalidateBufferSubData(static_cast<GLuint>(buffer), static_cast<GLintptr>(offset), static_cast<GLsizeiptr>(length));
 }
 
@@ -1889,7 +1889,7 @@ void QOpenGLFunctions_4_3_Compatibility_GlVertexAttribFormat(QOpenGLFunctions_4_
     self->glVertexAttribFormat(static_cast<GLuint>(attribindex), static_cast<GLint>(size), static_cast<GLenum>(typeVal), static_cast<GLboolean>(normalized), static_cast<GLuint>(relativeoffset));
 }
 
-void QOpenGLFunctions_4_3_Compatibility_GlBindVertexBuffer(QOpenGLFunctions_4_3_Compatibility* self, uint32_t bindingindex, uint32_t buffer, int64_t offset, int32_t stride) {
+void QOpenGLFunctions_4_3_Compatibility_GlBindVertexBuffer(QOpenGLFunctions_4_3_Compatibility* self, uint32_t bindingindex, uint32_t buffer, intptr_t offset, int32_t stride) {
     self->glBindVertexBuffer(static_cast<GLuint>(bindingindex), static_cast<GLuint>(buffer), static_cast<GLintptr>(offset), static_cast<GLsizei>(stride));
 }
 
@@ -1901,7 +1901,7 @@ void QOpenGLFunctions_4_3_Compatibility_GlCopyImageSubData(QOpenGLFunctions_4_3_
     self->glCopyImageSubData(static_cast<GLuint>(srcName), static_cast<GLenum>(srcTarget), static_cast<GLint>(srcLevel), static_cast<GLint>(srcX), static_cast<GLint>(srcY), static_cast<GLint>(srcZ), static_cast<GLuint>(dstName), static_cast<GLenum>(dstTarget), static_cast<GLint>(dstLevel), static_cast<GLint>(dstX), static_cast<GLint>(dstY), static_cast<GLint>(dstZ), static_cast<GLsizei>(srcWidth), static_cast<GLsizei>(srcHeight), static_cast<GLsizei>(srcDepth));
 }
 
-void QOpenGLFunctions_4_3_Compatibility_GlDispatchComputeIndirect(QOpenGLFunctions_4_3_Compatibility* self, int64_t indirect) {
+void QOpenGLFunctions_4_3_Compatibility_GlDispatchComputeIndirect(QOpenGLFunctions_4_3_Compatibility* self, intptr_t indirect) {
     self->glDispatchComputeIndirect(static_cast<GLintptr>(indirect));
 }
 
@@ -1909,7 +1909,7 @@ void QOpenGLFunctions_4_3_Compatibility_GlDispatchCompute(QOpenGLFunctions_4_3_C
     self->glDispatchCompute(static_cast<GLuint>(num_groups_x), static_cast<GLuint>(num_groups_y), static_cast<GLuint>(num_groups_z));
 }
 
-void QOpenGLFunctions_4_3_Compatibility_GlClearBufferSubData(QOpenGLFunctions_4_3_Compatibility* self, uint32_t target, uint32_t internalformat, int64_t offset, int64_t size, uint32_t format, uint32_t typeVal, const void* data) {
+void QOpenGLFunctions_4_3_Compatibility_GlClearBufferSubData(QOpenGLFunctions_4_3_Compatibility* self, uint32_t target, uint32_t internalformat, intptr_t offset, intptr_t size, uint32_t format, uint32_t typeVal, const void* data) {
     self->glClearBufferSubData(static_cast<GLenum>(target), static_cast<GLenum>(internalformat), static_cast<GLintptr>(offset), static_cast<GLsizeiptr>(size), static_cast<GLenum>(format), static_cast<GLenum>(typeVal), data);
 }
 

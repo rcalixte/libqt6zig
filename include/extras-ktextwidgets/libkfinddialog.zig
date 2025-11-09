@@ -35,7 +35,7 @@ pub const kfinddialog = struct {
     ///
     /// ``` parent: QtC.QWidget, options: i64, findStrings: [][]const u8, allocator: std.mem.Allocator ```
     pub fn New4(parent: ?*anyopaque, options: i64, findStrings: [][]const u8, allocator: std.mem.Allocator) QtC.KFindDialog {
-        var findStrings_arr = allocator.alloc(qtc.libqt_string, findStrings.len) catch @panic("kfinddialog.: Memory allocation failed");
+        var findStrings_arr = allocator.alloc(qtc.libqt_string, findStrings.len) catch @panic("kfinddialog.New4: Memory allocation failed");
         defer allocator.free(findStrings_arr);
         for (findStrings, 0..findStrings.len) |item, i| {
             findStrings_arr[i] = .{
@@ -55,7 +55,7 @@ pub const kfinddialog = struct {
     ///
     /// ``` parent: QtC.QWidget, options: i64, findStrings: [][]const u8, hasSelection: bool, allocator: std.mem.Allocator ```
     pub fn New5(parent: ?*anyopaque, options: i64, findStrings: [][]const u8, hasSelection: bool, allocator: std.mem.Allocator) QtC.KFindDialog {
-        var findStrings_arr = allocator.alloc(qtc.libqt_string, findStrings.len) catch @panic("kfinddialog.: Memory allocation failed");
+        var findStrings_arr = allocator.alloc(qtc.libqt_string, findStrings.len) catch @panic("kfinddialog.New5: Memory allocation failed");
         defer allocator.free(findStrings_arr);
         for (findStrings, 0..findStrings.len) |item, i| {
             findStrings_arr[i] = .{
@@ -75,7 +75,7 @@ pub const kfinddialog = struct {
     ///
     /// ``` parent: QtC.QWidget, options: i64, findStrings: [][]const u8, hasSelection: bool, replaceDialog: bool, allocator: std.mem.Allocator ```
     pub fn New6(parent: ?*anyopaque, options: i64, findStrings: [][]const u8, hasSelection: bool, replaceDialog: bool, allocator: std.mem.Allocator) QtC.KFindDialog {
-        var findStrings_arr = allocator.alloc(qtc.libqt_string, findStrings.len) catch @panic("kfinddialog.: Memory allocation failed");
+        var findStrings_arr = allocator.alloc(qtc.libqt_string, findStrings.len) catch @panic("kfinddialog.New6: Memory allocation failed");
         defer allocator.free(findStrings_arr);
         for (findStrings, 0..findStrings.len) |item, i| {
             findStrings_arr[i] = .{

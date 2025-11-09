@@ -117,11 +117,11 @@ void QOpenGLExtraFunctions_GlFramebufferTextureLayer(QOpenGLExtraFunctions* self
     self->glFramebufferTextureLayer(static_cast<GLenum>(target), static_cast<GLenum>(attachment), static_cast<GLuint>(texture), static_cast<GLint>(level), static_cast<GLint>(layer));
 }
 
-void* QOpenGLExtraFunctions_GlMapBufferRange(QOpenGLExtraFunctions* self, uint32_t target, int64_t offset, int64_t length, uint32_t access) {
+void* QOpenGLExtraFunctions_GlMapBufferRange(QOpenGLExtraFunctions* self, uint32_t target, intptr_t offset, intptr_t length, uint32_t access) {
     return self->glMapBufferRange(static_cast<GLenum>(target), static_cast<GLintptr>(offset), static_cast<GLsizeiptr>(length), static_cast<GLbitfield>(access));
 }
 
-void QOpenGLExtraFunctions_GlFlushMappedBufferRange(QOpenGLExtraFunctions* self, uint32_t target, int64_t offset, int64_t length) {
+void QOpenGLExtraFunctions_GlFlushMappedBufferRange(QOpenGLExtraFunctions* self, uint32_t target, intptr_t offset, intptr_t length) {
     self->glFlushMappedBufferRange(static_cast<GLenum>(target), static_cast<GLintptr>(offset), static_cast<GLsizeiptr>(length));
 }
 
@@ -153,7 +153,7 @@ void QOpenGLExtraFunctions_GlEndTransformFeedback(QOpenGLExtraFunctions* self) {
     self->glEndTransformFeedback();
 }
 
-void QOpenGLExtraFunctions_GlBindBufferRange(QOpenGLExtraFunctions* self, uint32_t target, uint32_t index, uint32_t buffer, int64_t offset, int64_t size) {
+void QOpenGLExtraFunctions_GlBindBufferRange(QOpenGLExtraFunctions* self, uint32_t target, uint32_t index, uint32_t buffer, intptr_t offset, intptr_t size) {
     self->glBindBufferRange(static_cast<GLenum>(target), static_cast<GLuint>(index), static_cast<GLuint>(buffer), static_cast<GLintptr>(offset), static_cast<GLsizeiptr>(size));
 }
 
@@ -249,7 +249,7 @@ const uint8_t* QOpenGLExtraFunctions_GlGetStringi(QOpenGLExtraFunctions* self, u
     return (const uint8_t*)self->glGetStringi(static_cast<GLenum>(name), static_cast<GLuint>(index));
 }
 
-void QOpenGLExtraFunctions_GlCopyBufferSubData(QOpenGLExtraFunctions* self, uint32_t readTarget, uint32_t writeTarget, int64_t readOffset, int64_t writeOffset, int64_t size) {
+void QOpenGLExtraFunctions_GlCopyBufferSubData(QOpenGLExtraFunctions* self, uint32_t readTarget, uint32_t writeTarget, intptr_t readOffset, intptr_t writeOffset, intptr_t size) {
     self->glCopyBufferSubData(static_cast<GLenum>(readTarget), static_cast<GLenum>(writeTarget), static_cast<GLintptr>(readOffset), static_cast<GLintptr>(writeOffset), static_cast<GLsizeiptr>(size));
 }
 
@@ -385,7 +385,7 @@ void QOpenGLExtraFunctions_GlDispatchCompute(QOpenGLExtraFunctions* self, uint32
     self->glDispatchCompute(static_cast<GLuint>(num_groups_x), static_cast<GLuint>(num_groups_y), static_cast<GLuint>(num_groups_z));
 }
 
-void QOpenGLExtraFunctions_GlDispatchComputeIndirect(QOpenGLExtraFunctions* self, int64_t indirect) {
+void QOpenGLExtraFunctions_GlDispatchComputeIndirect(QOpenGLExtraFunctions* self, intptr_t indirect) {
     self->glDispatchComputeIndirect(static_cast<GLintptr>(indirect));
 }
 
@@ -625,7 +625,7 @@ void QOpenGLExtraFunctions_GlGetTexLevelParameterfv(QOpenGLExtraFunctions* self,
     self->glGetTexLevelParameterfv(static_cast<GLenum>(target), static_cast<GLint>(level), static_cast<GLenum>(pname), static_cast<GLfloat*>(params));
 }
 
-void QOpenGLExtraFunctions_GlBindVertexBuffer(QOpenGLExtraFunctions* self, uint32_t bindingindex, uint32_t buffer, int64_t offset, int32_t stride) {
+void QOpenGLExtraFunctions_GlBindVertexBuffer(QOpenGLExtraFunctions* self, uint32_t bindingindex, uint32_t buffer, intptr_t offset, int32_t stride) {
     self->glBindVertexBuffer(static_cast<GLuint>(bindingindex), static_cast<GLuint>(buffer), static_cast<GLintptr>(offset), static_cast<GLsizei>(stride));
 }
 
@@ -801,7 +801,7 @@ void QOpenGLExtraFunctions_GlTexBuffer(QOpenGLExtraFunctions* self, uint32_t tar
     self->glTexBuffer(static_cast<GLenum>(target), static_cast<GLenum>(internalformat), static_cast<GLuint>(buffer));
 }
 
-void QOpenGLExtraFunctions_GlTexBufferRange(QOpenGLExtraFunctions* self, uint32_t target, uint32_t internalformat, uint32_t buffer, int64_t offset, int64_t size) {
+void QOpenGLExtraFunctions_GlTexBufferRange(QOpenGLExtraFunctions* self, uint32_t target, uint32_t internalformat, uint32_t buffer, intptr_t offset, intptr_t size) {
     self->glTexBufferRange(static_cast<GLenum>(target), static_cast<GLenum>(internalformat), static_cast<GLuint>(buffer), static_cast<GLintptr>(offset), static_cast<GLsizeiptr>(size));
 }
 

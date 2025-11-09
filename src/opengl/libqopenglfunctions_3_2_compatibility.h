@@ -110,9 +110,9 @@ void QOpenGLFunctions_3_2_Compatibility_GlBlendFuncSeparate(QOpenGLFunctions_3_2
 void QOpenGLFunctions_3_2_Compatibility_GlGetBufferParameteriv(QOpenGLFunctions_3_2_Compatibility* self, uint32_t target, uint32_t pname, int32_t* params);
 unsigned char QOpenGLFunctions_3_2_Compatibility_GlUnmapBuffer(QOpenGLFunctions_3_2_Compatibility* self, uint32_t target);
 void* QOpenGLFunctions_3_2_Compatibility_GlMapBuffer(QOpenGLFunctions_3_2_Compatibility* self, uint32_t target, uint32_t access);
-void QOpenGLFunctions_3_2_Compatibility_GlGetBufferSubData(QOpenGLFunctions_3_2_Compatibility* self, uint32_t target, int64_t offset, int64_t size, void* data);
-void QOpenGLFunctions_3_2_Compatibility_GlBufferSubData(QOpenGLFunctions_3_2_Compatibility* self, uint32_t target, int64_t offset, int64_t size, const void* data);
-void QOpenGLFunctions_3_2_Compatibility_GlBufferData(QOpenGLFunctions_3_2_Compatibility* self, uint32_t target, int64_t size, const void* data, uint32_t usage);
+void QOpenGLFunctions_3_2_Compatibility_GlGetBufferSubData(QOpenGLFunctions_3_2_Compatibility* self, uint32_t target, intptr_t offset, intptr_t size, void* data);
+void QOpenGLFunctions_3_2_Compatibility_GlBufferSubData(QOpenGLFunctions_3_2_Compatibility* self, uint32_t target, intptr_t offset, intptr_t size, const void* data);
+void QOpenGLFunctions_3_2_Compatibility_GlBufferData(QOpenGLFunctions_3_2_Compatibility* self, uint32_t target, intptr_t size, const void* data, uint32_t usage);
 unsigned char QOpenGLFunctions_3_2_Compatibility_GlIsBuffer(QOpenGLFunctions_3_2_Compatibility* self, uint32_t buffer);
 void QOpenGLFunctions_3_2_Compatibility_GlGenBuffers(QOpenGLFunctions_3_2_Compatibility* self, int32_t n, uint32_t* buffers);
 void QOpenGLFunctions_3_2_Compatibility_GlDeleteBuffers(QOpenGLFunctions_3_2_Compatibility* self, int32_t n, const uint32_t* buffers);
@@ -187,8 +187,8 @@ unsigned char QOpenGLFunctions_3_2_Compatibility_GlIsVertexArray(QOpenGLFunction
 void QOpenGLFunctions_3_2_Compatibility_GlGenVertexArrays(QOpenGLFunctions_3_2_Compatibility* self, int32_t n, uint32_t* arrays);
 void QOpenGLFunctions_3_2_Compatibility_GlDeleteVertexArrays(QOpenGLFunctions_3_2_Compatibility* self, int32_t n, const uint32_t* arrays);
 void QOpenGLFunctions_3_2_Compatibility_GlBindVertexArray(QOpenGLFunctions_3_2_Compatibility* self, uint32_t array);
-void QOpenGLFunctions_3_2_Compatibility_GlFlushMappedBufferRange(QOpenGLFunctions_3_2_Compatibility* self, uint32_t target, int64_t offset, int64_t length);
-void* QOpenGLFunctions_3_2_Compatibility_GlMapBufferRange(QOpenGLFunctions_3_2_Compatibility* self, uint32_t target, int64_t offset, int64_t length, uint32_t access);
+void QOpenGLFunctions_3_2_Compatibility_GlFlushMappedBufferRange(QOpenGLFunctions_3_2_Compatibility* self, uint32_t target, intptr_t offset, intptr_t length);
+void* QOpenGLFunctions_3_2_Compatibility_GlMapBufferRange(QOpenGLFunctions_3_2_Compatibility* self, uint32_t target, intptr_t offset, intptr_t length, uint32_t access);
 void QOpenGLFunctions_3_2_Compatibility_GlFramebufferTextureLayer(QOpenGLFunctions_3_2_Compatibility* self, uint32_t target, uint32_t attachment, uint32_t texture, int32_t level, int32_t layer);
 void QOpenGLFunctions_3_2_Compatibility_GlRenderbufferStorageMultisample(QOpenGLFunctions_3_2_Compatibility* self, uint32_t target, int32_t samples, uint32_t internalformat, int32_t width, int32_t height);
 void QOpenGLFunctions_3_2_Compatibility_GlBlitFramebuffer(QOpenGLFunctions_3_2_Compatibility* self, int32_t srcX0, int32_t srcY0, int32_t srcX1, int32_t srcY1, int32_t dstX0, int32_t dstY0, int32_t dstX1, int32_t dstY1, uint32_t mask, uint32_t filter);
@@ -235,7 +235,7 @@ void QOpenGLFunctions_3_2_Compatibility_GlEndConditionalRender(QOpenGLFunctions_
 void QOpenGLFunctions_3_2_Compatibility_GlBeginConditionalRender(QOpenGLFunctions_3_2_Compatibility* self, uint32_t id, uint32_t mode);
 void QOpenGLFunctions_3_2_Compatibility_GlClampColor(QOpenGLFunctions_3_2_Compatibility* self, uint32_t target, uint32_t clamp);
 void QOpenGLFunctions_3_2_Compatibility_GlBindBufferBase(QOpenGLFunctions_3_2_Compatibility* self, uint32_t target, uint32_t index, uint32_t buffer);
-void QOpenGLFunctions_3_2_Compatibility_GlBindBufferRange(QOpenGLFunctions_3_2_Compatibility* self, uint32_t target, uint32_t index, uint32_t buffer, int64_t offset, int64_t size);
+void QOpenGLFunctions_3_2_Compatibility_GlBindBufferRange(QOpenGLFunctions_3_2_Compatibility* self, uint32_t target, uint32_t index, uint32_t buffer, intptr_t offset, intptr_t size);
 void QOpenGLFunctions_3_2_Compatibility_GlEndTransformFeedback(QOpenGLFunctions_3_2_Compatibility* self);
 void QOpenGLFunctions_3_2_Compatibility_GlBeginTransformFeedback(QOpenGLFunctions_3_2_Compatibility* self, uint32_t primitiveMode);
 unsigned char QOpenGLFunctions_3_2_Compatibility_GlIsEnabledi(QOpenGLFunctions_3_2_Compatibility* self, uint32_t target, uint32_t index);
@@ -244,7 +244,7 @@ void QOpenGLFunctions_3_2_Compatibility_GlEnablei(QOpenGLFunctions_3_2_Compatibi
 void QOpenGLFunctions_3_2_Compatibility_GlGetIntegeriV(QOpenGLFunctions_3_2_Compatibility* self, uint32_t target, uint32_t index, int32_t* data);
 void QOpenGLFunctions_3_2_Compatibility_GlGetBooleaniV(QOpenGLFunctions_3_2_Compatibility* self, uint32_t target, uint32_t index, unsigned char* data);
 void QOpenGLFunctions_3_2_Compatibility_GlColorMaski(QOpenGLFunctions_3_2_Compatibility* self, uint32_t index, unsigned char r, unsigned char g, unsigned char b, unsigned char a);
-void QOpenGLFunctions_3_2_Compatibility_GlCopyBufferSubData(QOpenGLFunctions_3_2_Compatibility* self, uint32_t readTarget, uint32_t writeTarget, int64_t readOffset, int64_t writeOffset, int64_t size);
+void QOpenGLFunctions_3_2_Compatibility_GlCopyBufferSubData(QOpenGLFunctions_3_2_Compatibility* self, uint32_t readTarget, uint32_t writeTarget, intptr_t readOffset, intptr_t writeOffset, intptr_t size);
 void QOpenGLFunctions_3_2_Compatibility_GlUniformBlockBinding(QOpenGLFunctions_3_2_Compatibility* self, uint32_t program, uint32_t uniformBlockIndex, uint32_t uniformBlockBinding);
 void QOpenGLFunctions_3_2_Compatibility_GlGetActiveUniformBlockName(QOpenGLFunctions_3_2_Compatibility* self, uint32_t program, uint32_t uniformBlockIndex, int32_t bufSize, int32_t* length, GLchar* uniformBlockName);
 void QOpenGLFunctions_3_2_Compatibility_GlGetActiveUniformBlockiv(QOpenGLFunctions_3_2_Compatibility* self, uint32_t program, uint32_t uniformBlockIndex, uint32_t pname, int32_t* params);

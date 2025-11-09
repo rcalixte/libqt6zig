@@ -20,7 +20,7 @@ pub const kio__previewjob = struct {
     ///
     /// ``` items: QtC.KFileItemList, size: QtC.QSize, enabledPlugins: [][]const u8, allocator: std.mem.Allocator ```
     pub fn New2(items: ?*anyopaque, size: ?*anyopaque, enabledPlugins: [][]const u8, allocator: std.mem.Allocator) QtC.KIO__PreviewJob {
-        var enabledPlugins_arr = allocator.alloc(qtc.libqt_string, enabledPlugins.len) catch @panic("kio::previewjob.: Memory allocation failed");
+        var enabledPlugins_arr = allocator.alloc(qtc.libqt_string, enabledPlugins.len) catch @panic("kio::previewjob.New2: Memory allocation failed");
         defer allocator.free(enabledPlugins_arr);
         for (enabledPlugins, 0..enabledPlugins.len) |item, i| {
             enabledPlugins_arr[i] = .{
