@@ -202,15 +202,15 @@ pub const qopenglextrafunctions = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glMapBufferRange)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, target: u32, offset: i64, length: i64, access: u32 ```
-    pub fn GlMapBufferRange(self: ?*anyopaque, target: u32, offset: i64, length: i64, access: u32) ?*anyopaque {
+    /// ``` self: QtC.QOpenGLExtraFunctions, target: u32, offset: isize, length: isize, access: u32 ```
+    pub fn GlMapBufferRange(self: ?*anyopaque, target: u32, offset: isize, length: isize, access: u32) ?*anyopaque {
         return qtc.QOpenGLExtraFunctions_GlMapBufferRange(@ptrCast(self), @intCast(target), @intCast(offset), @intCast(length), @intCast(access));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glFlushMappedBufferRange)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, target: u32, offset: i64, length: i64 ```
-    pub fn GlFlushMappedBufferRange(self: ?*anyopaque, target: u32, offset: i64, length: i64) void {
+    /// ``` self: QtC.QOpenGLExtraFunctions, target: u32, offset: isize, length: isize ```
+    pub fn GlFlushMappedBufferRange(self: ?*anyopaque, target: u32, offset: isize, length: isize) void {
         qtc.QOpenGLExtraFunctions_GlFlushMappedBufferRange(@ptrCast(self), @intCast(target), @intCast(offset), @intCast(length));
     }
 
@@ -265,8 +265,8 @@ pub const qopenglextrafunctions = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glBindBufferRange)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, target: u32, index: u32, buffer: u32, offset: i64, size: i64 ```
-    pub fn GlBindBufferRange(self: ?*anyopaque, target: u32, index: u32, buffer: u32, offset: i64, size: i64) void {
+    /// ``` self: QtC.QOpenGLExtraFunctions, target: u32, index: u32, buffer: u32, offset: isize, size: isize ```
+    pub fn GlBindBufferRange(self: ?*anyopaque, target: u32, index: u32, buffer: u32, offset: isize, size: isize) void {
         qtc.QOpenGLExtraFunctions_GlBindBufferRange(@ptrCast(self), @intCast(target), @intCast(index), @intCast(buffer), @intCast(offset), @intCast(size));
     }
 
@@ -433,8 +433,8 @@ pub const qopenglextrafunctions = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glCopyBufferSubData)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, readTarget: u32, writeTarget: u32, readOffset: i64, writeOffset: i64, size: i64 ```
-    pub fn GlCopyBufferSubData(self: ?*anyopaque, readTarget: u32, writeTarget: u32, readOffset: i64, writeOffset: i64, size: i64) void {
+    /// ``` self: QtC.QOpenGLExtraFunctions, readTarget: u32, writeTarget: u32, readOffset: isize, writeOffset: isize, size: isize ```
+    pub fn GlCopyBufferSubData(self: ?*anyopaque, readTarget: u32, writeTarget: u32, readOffset: isize, writeOffset: isize, size: isize) void {
         qtc.QOpenGLExtraFunctions_GlCopyBufferSubData(@ptrCast(self), @intCast(readTarget), @intCast(writeTarget), @intCast(readOffset), @intCast(writeOffset), @intCast(size));
     }
 
@@ -671,8 +671,8 @@ pub const qopenglextrafunctions = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glDispatchComputeIndirect)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, indirect: i64 ```
-    pub fn GlDispatchComputeIndirect(self: ?*anyopaque, indirect: i64) void {
+    /// ``` self: QtC.QOpenGLExtraFunctions, indirect: isize ```
+    pub fn GlDispatchComputeIndirect(self: ?*anyopaque, indirect: isize) void {
         qtc.QOpenGLExtraFunctions_GlDispatchComputeIndirect(@ptrCast(self), @intCast(indirect));
     }
 
@@ -1091,8 +1091,8 @@ pub const qopenglextrafunctions = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glBindVertexBuffer)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, bindingindex: u32, buffer: u32, offset: i64, stride: i32 ```
-    pub fn GlBindVertexBuffer(self: ?*anyopaque, bindingindex: u32, buffer: u32, offset: i64, stride: i32) void {
+    /// ``` self: QtC.QOpenGLExtraFunctions, bindingindex: u32, buffer: u32, offset: isize, stride: i32 ```
+    pub fn GlBindVertexBuffer(self: ?*anyopaque, bindingindex: u32, buffer: u32, offset: isize, stride: i32) void {
         qtc.QOpenGLExtraFunctions_GlBindVertexBuffer(@ptrCast(self), @intCast(bindingindex), @intCast(buffer), @intCast(offset), @intCast(stride));
     }
 
@@ -1399,8 +1399,8 @@ pub const qopenglextrafunctions = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glTexBufferRange)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, target: u32, internalformat: u32, buffer: u32, offset: i64, size: i64 ```
-    pub fn GlTexBufferRange(self: ?*anyopaque, target: u32, internalformat: u32, buffer: u32, offset: i64, size: i64) void {
+    /// ``` self: QtC.QOpenGLExtraFunctions, target: u32, internalformat: u32, buffer: u32, offset: isize, size: isize ```
+    pub fn GlTexBufferRange(self: ?*anyopaque, target: u32, internalformat: u32, buffer: u32, offset: isize, size: isize) void {
         qtc.QOpenGLExtraFunctions_GlTexBufferRange(@ptrCast(self), @intCast(target), @intCast(internalformat), @intCast(buffer), @intCast(offset), @intCast(size));
     }
 

@@ -110,9 +110,9 @@ void QOpenGLFunctions_2_0_GlBlendFuncSeparate(QOpenGLFunctions_2_0* self, uint32
 void QOpenGLFunctions_2_0_GlGetBufferParameteriv(QOpenGLFunctions_2_0* self, uint32_t target, uint32_t pname, int32_t* params);
 unsigned char QOpenGLFunctions_2_0_GlUnmapBuffer(QOpenGLFunctions_2_0* self, uint32_t target);
 void* QOpenGLFunctions_2_0_GlMapBuffer(QOpenGLFunctions_2_0* self, uint32_t target, uint32_t access);
-void QOpenGLFunctions_2_0_GlGetBufferSubData(QOpenGLFunctions_2_0* self, uint32_t target, int64_t offset, int64_t size, void* data);
-void QOpenGLFunctions_2_0_GlBufferSubData(QOpenGLFunctions_2_0* self, uint32_t target, int64_t offset, int64_t size, const void* data);
-void QOpenGLFunctions_2_0_GlBufferData(QOpenGLFunctions_2_0* self, uint32_t target, int64_t size, const void* data, uint32_t usage);
+void QOpenGLFunctions_2_0_GlGetBufferSubData(QOpenGLFunctions_2_0* self, uint32_t target, intptr_t offset, intptr_t size, void* data);
+void QOpenGLFunctions_2_0_GlBufferSubData(QOpenGLFunctions_2_0* self, uint32_t target, intptr_t offset, intptr_t size, const void* data);
+void QOpenGLFunctions_2_0_GlBufferData(QOpenGLFunctions_2_0* self, uint32_t target, intptr_t size, const void* data, uint32_t usage);
 unsigned char QOpenGLFunctions_2_0_GlIsBuffer(QOpenGLFunctions_2_0* self, uint32_t buffer);
 void QOpenGLFunctions_2_0_GlGenBuffers(QOpenGLFunctions_2_0* self, int32_t n, uint32_t* buffers);
 void QOpenGLFunctions_2_0_GlDeleteBuffers(QOpenGLFunctions_2_0* self, int32_t n, const uint32_t* buffers);

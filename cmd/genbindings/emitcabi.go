@@ -27,7 +27,7 @@ func (p CppParameter) cParameterName() string {
 
 func (p CppParameter) RenderTypeCabi(isSlot bool) string {
 	if p.ParameterType == "QString" || p.ParameterType == "QByteArray" ||
-		p.ParameterType == "QAnyStringView" {
+		p.ParameterType == "QAnyStringView" || p.ParameterType == "SignOn::MethodName" {
 		if isSlot {
 			return "const char*"
 		} else {
@@ -94,7 +94,7 @@ func (p CppParameter) RenderTypeCabi(isSlot bool) string {
 		ret = "int32_t"
 	case "quint32", "GLbitfield", "GLenum", "GLuint":
 		ret = "uint32_t"
-	case "qlonglong", "qint64", "GLint64", "GLintptr", "GLsizeiptr":
+	case "qlonglong", "qint64", "GLint64":
 		ret = "int64_t"
 	case "qulonglong", "quint64", "GLuint64":
 		ret = "uint64_t"
@@ -104,7 +104,7 @@ func (p CppParameter) RenderTypeCabi(isSlot bool) string {
 		ret = "_Float16" // No idea where this typedef comes from, but it exists
 	case "const double", "qreal", "GLdouble":
 		ret = "double"
-	case "qintptr", "QIntegerForSizeof<void *>::Signed": // long long int
+	case "qintptr", "QIntegerForSizeof<void *>::Signed", "GLintptr", "GLsizeiptr": // long long int
 		ret = "intptr_t" // long int
 	case "quintptr", "uintptr", "QIntegerForSizeof<void *>::Unsigned":
 		ret = "uintptr_t"
@@ -255,7 +255,7 @@ func makeNamePrefix(in string) string {
 func emitCABI2CppForwarding(p CppParameter, indent, currentClass string, isSlot bool) (preamble, forwarding string) {
 	nameprefix := makeNamePrefix(p.ParameterName)
 
-	if p.ParameterType == "QString" {
+	if p.ParameterType == "QString" || p.ParameterType == "SignOn::MethodName" {
 		var maybePointer string
 		if isSlot {
 			if p.Pointer || p.ByRef {
@@ -529,7 +529,7 @@ func emitAssignCppToCabi(assignExpression string, p CppParameter, rvalue string)
 		shouldReturn = ""
 		return indent + shouldReturn + rvalue + ";\n" + afterCall
 
-	} else if p.ParameterType == "QString" {
+	} else if p.ParameterType == "QString" || p.ParameterType == "SignOn::MethodName" {
 
 		if isSignal {
 			shouldReturn = maybeConst + "QString " + namePrefix + "_ret = "
@@ -1014,7 +1014,7 @@ var (
 	}
 )
 
-func emitVirtualBindingHeader(src *CppParsedHeader, filename, packageName string) (string, error) {
+func emitVirtualBindingHeader(src *CppParsedHeader, packageName string) (string, error) {
 	ret := strings.Builder{}
 
 	srcFilename := filepath.Base(src.Filename)
@@ -1287,7 +1287,7 @@ func emitVirtualBindingHeader(src *CppParsedHeader, filename, packageName string
 	return ret.String(), nil
 }
 
-func emitBindingHeader(src *CppParsedHeader, filename, packageName string) (string, map[string]struct{}, error) {
+func emitBindingHeader(src *CppParsedHeader, packageName string) (string, map[string]struct{}, error) {
 	ret := strings.Builder{}
 	qtstructdefs := make(map[string]struct{})
 

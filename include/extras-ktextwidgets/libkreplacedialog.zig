@@ -35,7 +35,7 @@ pub const kreplacedialog = struct {
     ///
     /// ``` parent: QtC.QWidget, options: i64, findStrings: [][]const u8, allocator: std.mem.Allocator ```
     pub fn New4(parent: ?*anyopaque, options: i64, findStrings: [][]const u8, allocator: std.mem.Allocator) QtC.KReplaceDialog {
-        var findStrings_arr = allocator.alloc(qtc.libqt_string, findStrings.len) catch @panic("kreplacedialog.: Memory allocation failed");
+        var findStrings_arr = allocator.alloc(qtc.libqt_string, findStrings.len) catch @panic("kreplacedialog.New4: Memory allocation failed");
         defer allocator.free(findStrings_arr);
         for (findStrings, 0..findStrings.len) |item, i| {
             findStrings_arr[i] = .{
@@ -55,7 +55,7 @@ pub const kreplacedialog = struct {
     ///
     /// ``` parent: QtC.QWidget, options: i64, findStrings: [][]const u8, replaceStrings: [][]const u8, allocator: std.mem.Allocator ```
     pub fn New5(parent: ?*anyopaque, options: i64, findStrings: [][]const u8, replaceStrings: [][]const u8, allocator: std.mem.Allocator) QtC.KReplaceDialog {
-        var findStrings_arr = allocator.alloc(qtc.libqt_string, findStrings.len) catch @panic("kreplacedialog.: Memory allocation failed");
+        var findStrings_arr = allocator.alloc(qtc.libqt_string, findStrings.len) catch @panic("kreplacedialog.New5: Memory allocation failed");
         defer allocator.free(findStrings_arr);
         for (findStrings, 0..findStrings.len) |item, i| {
             findStrings_arr[i] = .{
@@ -67,7 +67,7 @@ pub const kreplacedialog = struct {
             .len = findStrings.len,
             .data = findStrings_arr.ptr,
         };
-        var replaceStrings_arr = allocator.alloc(qtc.libqt_string, replaceStrings.len) catch @panic("kreplacedialog.: Memory allocation failed");
+        var replaceStrings_arr = allocator.alloc(qtc.libqt_string, replaceStrings.len) catch @panic("kreplacedialog.New5: Memory allocation failed");
         defer allocator.free(replaceStrings_arr);
         for (replaceStrings, 0..replaceStrings.len) |item, i| {
             replaceStrings_arr[i] = .{
@@ -87,7 +87,7 @@ pub const kreplacedialog = struct {
     ///
     /// ``` parent: QtC.QWidget, options: i64, findStrings: [][]const u8, replaceStrings: [][]const u8, hasSelection: bool, allocator: std.mem.Allocator ```
     pub fn New6(parent: ?*anyopaque, options: i64, findStrings: [][]const u8, replaceStrings: [][]const u8, hasSelection: bool, allocator: std.mem.Allocator) QtC.KReplaceDialog {
-        var findStrings_arr = allocator.alloc(qtc.libqt_string, findStrings.len) catch @panic("kreplacedialog.: Memory allocation failed");
+        var findStrings_arr = allocator.alloc(qtc.libqt_string, findStrings.len) catch @panic("kreplacedialog.New6: Memory allocation failed");
         defer allocator.free(findStrings_arr);
         for (findStrings, 0..findStrings.len) |item, i| {
             findStrings_arr[i] = .{
@@ -99,7 +99,7 @@ pub const kreplacedialog = struct {
             .len = findStrings.len,
             .data = findStrings_arr.ptr,
         };
-        var replaceStrings_arr = allocator.alloc(qtc.libqt_string, replaceStrings.len) catch @panic("kreplacedialog.: Memory allocation failed");
+        var replaceStrings_arr = allocator.alloc(qtc.libqt_string, replaceStrings.len) catch @panic("kreplacedialog.New6: Memory allocation failed");
         defer allocator.free(replaceStrings_arr);
         for (replaceStrings, 0..replaceStrings.len) |item, i| {
             replaceStrings_arr[i] = .{

@@ -290,9 +290,9 @@ pub const qmetaobject = struct {
         return qtc.QMetaObject_Cast2(@ptrCast(self), @ptrCast(obj));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmetaobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QMetaObject, s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(self: ?*anyopaque, s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
@@ -627,9 +627,9 @@ pub const qmetaobject = struct {
         qtc.QMetaObject_SetD(@ptrCast(self), @ptrCast(d));
     }
 
-    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qmetaobject.html#tr)
     ///
-    /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
+    /// ``` self: QtC.QMetaObject, s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(self: ?*anyopaque, s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;

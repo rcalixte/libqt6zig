@@ -711,7 +711,7 @@ pub const kmacroexpander = struct {
         var param2_it = param2.iterator();
         while (param2_it.next()) |entry| {
             const key = entry.key_ptr.*;
-            param2_keys[i] = @intCast(key);
+            param2_keys[i] = @ptrCast(key);
             param2_values[i] = @ptrCast(entry.value_ptr.*);
             i += 1;
         }
@@ -743,7 +743,7 @@ pub const kmacroexpander = struct {
         var param2_it = param2.iterator();
         while (param2_it.next()) |entry| {
             const key = entry.key_ptr.*;
-            param2_keys[i] = @intCast(key);
+            param2_keys[i] = @ptrCast(key);
             param2_values[i] = @ptrCast(entry.value_ptr.*);
             i += 1;
         }
@@ -845,7 +845,7 @@ pub const kmacroexpander = struct {
         var param2_it = param2.iterator();
         while (param2_it.next()) |entry| {
             const key = entry.key_ptr.*;
-            param2_keys[i] = @intCast(key);
+            param2_keys[i] = @ptrCast(key);
             param2_values[i] = @ptrCast(entry.value_ptr.*);
             i += 1;
         }
@@ -912,7 +912,7 @@ pub const kmacroexpander = struct {
         var param2_it = param2.iterator();
         while (param2_it.next()) |entry| {
             const key = entry.key_ptr.*;
-            param2_keys[i] = @intCast(key);
+            param2_keys[i] = @ptrCast(key);
             param2_values[i] = @ptrCast(entry.value_ptr.*);
             i += 1;
         }

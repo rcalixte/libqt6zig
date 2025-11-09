@@ -21,7 +21,7 @@ pub const qcommandlineoption = struct {
     ///
     /// ``` names: [][]const u8, allocator: std.mem.Allocator ```
     pub fn New2(names: [][]const u8, allocator: std.mem.Allocator) QtC.QCommandLineOption {
-        var names_arr = allocator.alloc(qtc.libqt_string, names.len) catch @panic("qcommandlineoption.: Memory allocation failed");
+        var names_arr = allocator.alloc(qtc.libqt_string, names.len) catch @panic("qcommandlineoption.New2: Memory allocation failed");
         defer allocator.free(names_arr);
         for (names, 0..names.len) |item, i| {
             names_arr[i] = .{
@@ -57,7 +57,7 @@ pub const qcommandlineoption = struct {
     ///
     /// ``` names: [][]const u8, description: []const u8, allocator: std.mem.Allocator ```
     pub fn New4(names: [][]const u8, description: []const u8, allocator: std.mem.Allocator) QtC.QCommandLineOption {
-        var names_arr = allocator.alloc(qtc.libqt_string, names.len) catch @panic("qcommandlineoption.: Memory allocation failed");
+        var names_arr = allocator.alloc(qtc.libqt_string, names.len) catch @panic("qcommandlineoption.New4: Memory allocation failed");
         defer allocator.free(names_arr);
         for (names, 0..names.len) |item, i| {
             names_arr[i] = .{
@@ -132,7 +132,7 @@ pub const qcommandlineoption = struct {
     ///
     /// ``` names: [][]const u8, description: []const u8, valueName: []const u8, allocator: std.mem.Allocator ```
     pub fn New8(names: [][]const u8, description: []const u8, valueName: []const u8, allocator: std.mem.Allocator) QtC.QCommandLineOption {
-        var names_arr = allocator.alloc(qtc.libqt_string, names.len) catch @panic("qcommandlineoption.: Memory allocation failed");
+        var names_arr = allocator.alloc(qtc.libqt_string, names.len) catch @panic("qcommandlineoption.New8: Memory allocation failed");
         defer allocator.free(names_arr);
         for (names, 0..names.len) |item, i| {
             names_arr[i] = .{
@@ -160,7 +160,7 @@ pub const qcommandlineoption = struct {
     ///
     /// ``` names: [][]const u8, description: []const u8, valueName: []const u8, defaultValue: []const u8, allocator: std.mem.Allocator ```
     pub fn New9(names: [][]const u8, description: []const u8, valueName: []const u8, defaultValue: []const u8, allocator: std.mem.Allocator) QtC.QCommandLineOption {
-        var names_arr = allocator.alloc(qtc.libqt_string, names.len) catch @panic("qcommandlineoption.: Memory allocation failed");
+        var names_arr = allocator.alloc(qtc.libqt_string, names.len) catch @panic("qcommandlineoption.New9: Memory allocation failed");
         defer allocator.free(names_arr);
         for (names, 0..names.len) |item, i| {
             names_arr[i] = .{

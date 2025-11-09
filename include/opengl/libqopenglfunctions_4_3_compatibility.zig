@@ -639,22 +639,22 @@ pub const qopenglfunctions_4_3_compatibility = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-4-3-compatibility.html#glGetBufferSubData)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_4_3_Compatibility, target: u32, offset: i64, size: i64, data: *void ```
-    pub fn GlGetBufferSubData(self: ?*anyopaque, target: u32, offset: i64, size: i64, data: *void) void {
+    /// ``` self: QtC.QOpenGLFunctions_4_3_Compatibility, target: u32, offset: isize, size: isize, data: *void ```
+    pub fn GlGetBufferSubData(self: ?*anyopaque, target: u32, offset: isize, size: isize, data: *void) void {
         qtc.QOpenGLFunctions_4_3_Compatibility_GlGetBufferSubData(@ptrCast(self), @intCast(target), @intCast(offset), @intCast(size), data);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-4-3-compatibility.html#glBufferSubData)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_4_3_Compatibility, target: u32, offset: i64, size: i64, data: *void ```
-    pub fn GlBufferSubData(self: ?*anyopaque, target: u32, offset: i64, size: i64, data: *const void) void {
+    /// ``` self: QtC.QOpenGLFunctions_4_3_Compatibility, target: u32, offset: isize, size: isize, data: *void ```
+    pub fn GlBufferSubData(self: ?*anyopaque, target: u32, offset: isize, size: isize, data: *const void) void {
         qtc.QOpenGLFunctions_4_3_Compatibility_GlBufferSubData(@ptrCast(self), @intCast(target), @intCast(offset), @intCast(size), data);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-4-3-compatibility.html#glBufferData)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_4_3_Compatibility, target: u32, size: i64, data: *void, usage: u32 ```
-    pub fn GlBufferData(self: ?*anyopaque, target: u32, size: i64, data: *const void, usage: u32) void {
+    /// ``` self: QtC.QOpenGLFunctions_4_3_Compatibility, target: u32, size: isize, data: *void, usage: u32 ```
+    pub fn GlBufferData(self: ?*anyopaque, target: u32, size: isize, data: *const void, usage: u32) void {
         qtc.QOpenGLFunctions_4_3_Compatibility_GlBufferData(@ptrCast(self), @intCast(target), @intCast(size), data, @intCast(usage));
     }
 
@@ -1178,15 +1178,15 @@ pub const qopenglfunctions_4_3_compatibility = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-4-3-compatibility.html#glFlushMappedBufferRange)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_4_3_Compatibility, target: u32, offset: i64, length: i64 ```
-    pub fn GlFlushMappedBufferRange(self: ?*anyopaque, target: u32, offset: i64, length: i64) void {
+    /// ``` self: QtC.QOpenGLFunctions_4_3_Compatibility, target: u32, offset: isize, length: isize ```
+    pub fn GlFlushMappedBufferRange(self: ?*anyopaque, target: u32, offset: isize, length: isize) void {
         qtc.QOpenGLFunctions_4_3_Compatibility_GlFlushMappedBufferRange(@ptrCast(self), @intCast(target), @intCast(offset), @intCast(length));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-4-3-compatibility.html#glMapBufferRange)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_4_3_Compatibility, target: u32, offset: i64, length: i64, access: u32 ```
-    pub fn GlMapBufferRange(self: ?*anyopaque, target: u32, offset: i64, length: i64, access: u32) ?*anyopaque {
+    /// ``` self: QtC.QOpenGLFunctions_4_3_Compatibility, target: u32, offset: isize, length: isize, access: u32 ```
+    pub fn GlMapBufferRange(self: ?*anyopaque, target: u32, offset: isize, length: isize, access: u32) ?*anyopaque {
         return qtc.QOpenGLFunctions_4_3_Compatibility_GlMapBufferRange(@ptrCast(self), @intCast(target), @intCast(offset), @intCast(length), @intCast(access));
     }
 
@@ -1514,8 +1514,8 @@ pub const qopenglfunctions_4_3_compatibility = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-4-3-compatibility.html#glBindBufferRange)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_4_3_Compatibility, target: u32, index: u32, buffer: u32, offset: i64, size: i64 ```
-    pub fn GlBindBufferRange(self: ?*anyopaque, target: u32, index: u32, buffer: u32, offset: i64, size: i64) void {
+    /// ``` self: QtC.QOpenGLFunctions_4_3_Compatibility, target: u32, index: u32, buffer: u32, offset: isize, size: isize ```
+    pub fn GlBindBufferRange(self: ?*anyopaque, target: u32, index: u32, buffer: u32, offset: isize, size: isize) void {
         qtc.QOpenGLFunctions_4_3_Compatibility_GlBindBufferRange(@ptrCast(self), @intCast(target), @intCast(index), @intCast(buffer), @intCast(offset), @intCast(size));
     }
 
@@ -1577,8 +1577,8 @@ pub const qopenglfunctions_4_3_compatibility = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-4-3-compatibility.html#glCopyBufferSubData)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_4_3_Compatibility, readTarget: u32, writeTarget: u32, readOffset: i64, writeOffset: i64, size: i64 ```
-    pub fn GlCopyBufferSubData(self: ?*anyopaque, readTarget: u32, writeTarget: u32, readOffset: i64, writeOffset: i64, size: i64) void {
+    /// ``` self: QtC.QOpenGLFunctions_4_3_Compatibility, readTarget: u32, writeTarget: u32, readOffset: isize, writeOffset: isize, size: isize ```
+    pub fn GlCopyBufferSubData(self: ?*anyopaque, readTarget: u32, writeTarget: u32, readOffset: isize, writeOffset: isize, size: isize) void {
         qtc.QOpenGLFunctions_4_3_Compatibility_GlCopyBufferSubData(@ptrCast(self), @intCast(readTarget), @intCast(writeTarget), @intCast(readOffset), @intCast(writeOffset), @intCast(size));
     }
 
@@ -3166,8 +3166,8 @@ pub const qopenglfunctions_4_3_compatibility = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-4-3-compatibility.html#glTexBufferRange)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_4_3_Compatibility, target: u32, internalformat: u32, buffer: u32, offset: i64, size: i64 ```
-    pub fn GlTexBufferRange(self: ?*anyopaque, target: u32, internalformat: u32, buffer: u32, offset: i64, size: i64) void {
+    /// ``` self: QtC.QOpenGLFunctions_4_3_Compatibility, target: u32, internalformat: u32, buffer: u32, offset: isize, size: isize ```
+    pub fn GlTexBufferRange(self: ?*anyopaque, target: u32, internalformat: u32, buffer: u32, offset: isize, size: isize) void {
         qtc.QOpenGLFunctions_4_3_Compatibility_GlTexBufferRange(@ptrCast(self), @intCast(target), @intCast(internalformat), @intCast(buffer), @intCast(offset), @intCast(size));
     }
 
@@ -3236,8 +3236,8 @@ pub const qopenglfunctions_4_3_compatibility = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-4-3-compatibility.html#glInvalidateBufferSubData)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_4_3_Compatibility, buffer: u32, offset: i64, length: i64 ```
-    pub fn GlInvalidateBufferSubData(self: ?*anyopaque, buffer: u32, offset: i64, length: i64) void {
+    /// ``` self: QtC.QOpenGLFunctions_4_3_Compatibility, buffer: u32, offset: isize, length: isize ```
+    pub fn GlInvalidateBufferSubData(self: ?*anyopaque, buffer: u32, offset: isize, length: isize) void {
         qtc.QOpenGLFunctions_4_3_Compatibility_GlInvalidateBufferSubData(@ptrCast(self), @intCast(buffer), @intCast(offset), @intCast(length));
     }
 
@@ -3313,8 +3313,8 @@ pub const qopenglfunctions_4_3_compatibility = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-4-3-compatibility.html#glBindVertexBuffer)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_4_3_Compatibility, bindingindex: u32, buffer: u32, offset: i64, stride: i32 ```
-    pub fn GlBindVertexBuffer(self: ?*anyopaque, bindingindex: u32, buffer: u32, offset: i64, stride: i32) void {
+    /// ``` self: QtC.QOpenGLFunctions_4_3_Compatibility, bindingindex: u32, buffer: u32, offset: isize, stride: i32 ```
+    pub fn GlBindVertexBuffer(self: ?*anyopaque, bindingindex: u32, buffer: u32, offset: isize, stride: i32) void {
         qtc.QOpenGLFunctions_4_3_Compatibility_GlBindVertexBuffer(@ptrCast(self), @intCast(bindingindex), @intCast(buffer), @intCast(offset), @intCast(stride));
     }
 
@@ -3334,8 +3334,8 @@ pub const qopenglfunctions_4_3_compatibility = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-4-3-compatibility.html#glDispatchComputeIndirect)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_4_3_Compatibility, indirect: i64 ```
-    pub fn GlDispatchComputeIndirect(self: ?*anyopaque, indirect: i64) void {
+    /// ``` self: QtC.QOpenGLFunctions_4_3_Compatibility, indirect: isize ```
+    pub fn GlDispatchComputeIndirect(self: ?*anyopaque, indirect: isize) void {
         qtc.QOpenGLFunctions_4_3_Compatibility_GlDispatchComputeIndirect(@ptrCast(self), @intCast(indirect));
     }
 
@@ -3348,8 +3348,8 @@ pub const qopenglfunctions_4_3_compatibility = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-4-3-compatibility.html#glClearBufferSubData)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_4_3_Compatibility, target: u32, internalformat: u32, offset: i64, size: i64, format: u32, typeVal: u32, data: ?*anyopaque ```
-    pub fn GlClearBufferSubData(self: ?*anyopaque, target: u32, internalformat: u32, offset: i64, size: i64, format: u32, typeVal: u32, data: ?*anyopaque) void {
+    /// ``` self: QtC.QOpenGLFunctions_4_3_Compatibility, target: u32, internalformat: u32, offset: isize, size: isize, format: u32, typeVal: u32, data: ?*anyopaque ```
+    pub fn GlClearBufferSubData(self: ?*anyopaque, target: u32, internalformat: u32, offset: isize, size: isize, format: u32, typeVal: u32, data: ?*anyopaque) void {
         qtc.QOpenGLFunctions_4_3_Compatibility_GlClearBufferSubData(@ptrCast(self), @intCast(target), @intCast(internalformat), @intCast(offset), @intCast(size), @intCast(format), @intCast(typeVal), @ptrCast(data));
     }
 

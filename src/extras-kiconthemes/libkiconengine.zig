@@ -13,7 +13,7 @@ pub const kiconengine = struct {
             .len = iconName.len,
             .data = iconName.ptr,
         };
-        var overlays_arr = allocator.alloc(qtc.libqt_string, overlays.len) catch @panic("kiconengine.: Memory allocation failed");
+        var overlays_arr = allocator.alloc(qtc.libqt_string, overlays.len) catch @panic("kiconengine.New: Memory allocation failed");
         defer allocator.free(overlays_arr);
         for (overlays, 0..overlays.len) |item, i| {
             overlays_arr[i] = .{
@@ -61,7 +61,7 @@ pub const kiconengine = struct {
             .len = iconName.len,
             .data = iconName.ptr,
         };
-        var overlays_arr = allocator.alloc(qtc.libqt_string, overlays.len) catch @panic("kiconengine.: Memory allocation failed");
+        var overlays_arr = allocator.alloc(qtc.libqt_string, overlays.len) catch @panic("kiconengine.New4: Memory allocation failed");
         defer allocator.free(overlays_arr);
         for (overlays, 0..overlays.len) |item, i| {
             overlays_arr[i] = .{

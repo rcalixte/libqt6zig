@@ -27,7 +27,7 @@ pub const kio__commandlauncherjob = struct {
             .len = executable.len,
             .data = executable.ptr,
         };
-        var args_arr = allocator.alloc(qtc.libqt_string, args.len) catch @panic("kio::commandlauncherjob.: Memory allocation failed");
+        var args_arr = allocator.alloc(qtc.libqt_string, args.len) catch @panic("kio::commandlauncherjob.New2: Memory allocation failed");
         defer allocator.free(args_arr);
         for (args, 0..args.len) |item, i| {
             args_arr[i] = .{
@@ -63,7 +63,7 @@ pub const kio__commandlauncherjob = struct {
             .len = executable.len,
             .data = executable.ptr,
         };
-        var args_arr = allocator.alloc(qtc.libqt_string, args.len) catch @panic("kio::commandlauncherjob.: Memory allocation failed");
+        var args_arr = allocator.alloc(qtc.libqt_string, args.len) catch @panic("kio::commandlauncherjob.New4: Memory allocation failed");
         defer allocator.free(args_arr);
         for (args, 0..args.len) |item, i| {
             args_arr[i] = .{

@@ -34,7 +34,7 @@ pub const kiconloader = struct {
             .len = appname.len,
             .data = appname.ptr,
         };
-        var extraSearchPaths_arr = allocator.alloc(qtc.libqt_string, extraSearchPaths.len) catch @panic("kiconloader.: Memory allocation failed");
+        var extraSearchPaths_arr = allocator.alloc(qtc.libqt_string, extraSearchPaths.len) catch @panic("kiconloader.New3: Memory allocation failed");
         defer allocator.free(extraSearchPaths_arr);
         for (extraSearchPaths, 0..extraSearchPaths.len) |item, i| {
             extraSearchPaths_arr[i] = .{
@@ -58,7 +58,7 @@ pub const kiconloader = struct {
             .len = appname.len,
             .data = appname.ptr,
         };
-        var extraSearchPaths_arr = allocator.alloc(qtc.libqt_string, extraSearchPaths.len) catch @panic("kiconloader.: Memory allocation failed");
+        var extraSearchPaths_arr = allocator.alloc(qtc.libqt_string, extraSearchPaths.len) catch @panic("kiconloader.New4: Memory allocation failed");
         defer allocator.free(extraSearchPaths_arr);
         for (extraSearchPaths, 0..extraSearchPaths.len) |item, i| {
             extraSearchPaths_arr[i] = .{

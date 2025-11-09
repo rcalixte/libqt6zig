@@ -871,6 +871,7 @@ func AllowType(p CppParameter, isReturnType bool) error {
 		"QPlatformOpenGLContext",          // Qt 6 qopenglcontext.h
 		"KateInlineNoteData",              // Qt 6 inlinenote.h
 		"AgAccountWatch",                  // Qt 6 accounts.h, external typedef
+		"SignOn::AuthService::IdentityFilterCriteria", // Qt 6 authservice.h, this results in an infinite loop for some reason
 		"____last____":
 		return ErrTooComplex
 	}

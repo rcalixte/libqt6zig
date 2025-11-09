@@ -717,8 +717,8 @@ pub const qopengltexture = struct {
     pub fn LevelOfDetailRange(self: ?*anyopaque) struct_f32_f32 {
         const _pair: qtc.libqt_pair = qtc.QOpenGLTexture_LevelOfDetailRange(@ptrCast(self));
         return struct_f32_f32{
-            .first = @ptrCast(_pair.first),
-            .second = @ptrCast(_pair.second),
+            .first = @as(*f32, @ptrCast(@alignCast(_pair.first))).*,
+            .second = @as(*f32, @ptrCast(@alignCast(_pair.second))).*,
         };
     }
 

@@ -20,7 +20,7 @@ pub const qstringlistmodel = struct {
     ///
     /// ``` strings: [][]const u8, allocator: std.mem.Allocator ```
     pub fn New2(strings: [][]const u8, allocator: std.mem.Allocator) QtC.QStringListModel {
-        var strings_arr = allocator.alloc(qtc.libqt_string, strings.len) catch @panic("qstringlistmodel.: Memory allocation failed");
+        var strings_arr = allocator.alloc(qtc.libqt_string, strings.len) catch @panic("qstringlistmodel.New2: Memory allocation failed");
         defer allocator.free(strings_arr);
         for (strings, 0..strings.len) |item, i| {
             strings_arr[i] = .{
@@ -47,7 +47,7 @@ pub const qstringlistmodel = struct {
     ///
     /// ``` strings: [][]const u8, parent: QtC.QObject, allocator: std.mem.Allocator ```
     pub fn New4(strings: [][]const u8, parent: ?*anyopaque, allocator: std.mem.Allocator) QtC.QStringListModel {
-        var strings_arr = allocator.alloc(qtc.libqt_string, strings.len) catch @panic("qstringlistmodel.: Memory allocation failed");
+        var strings_arr = allocator.alloc(qtc.libqt_string, strings.len) catch @panic("qstringlistmodel.New4: Memory allocation failed");
         defer allocator.free(strings_arr);
         for (strings, 0..strings.len) |item, i| {
             strings_arr[i] = .{

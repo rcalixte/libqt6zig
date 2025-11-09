@@ -28,7 +28,7 @@ pub const qfont = struct {
     ///
     /// ``` families: [][]const u8, allocator: std.mem.Allocator ```
     pub fn New3(families: [][]const u8, allocator: std.mem.Allocator) QtC.QFont {
-        var families_arr = allocator.alloc(qtc.libqt_string, families.len) catch @panic("qfont.: Memory allocation failed");
+        var families_arr = allocator.alloc(qtc.libqt_string, families.len) catch @panic("qfont.New3: Memory allocation failed");
         defer allocator.free(families_arr);
         for (families, 0..families.len) |item, i| {
             families_arr[i] = .{
@@ -98,7 +98,7 @@ pub const qfont = struct {
     ///
     /// ``` families: [][]const u8, pointSize: i32, allocator: std.mem.Allocator ```
     pub fn New9(families: [][]const u8, pointSize: i32, allocator: std.mem.Allocator) QtC.QFont {
-        var families_arr = allocator.alloc(qtc.libqt_string, families.len) catch @panic("qfont.: Memory allocation failed");
+        var families_arr = allocator.alloc(qtc.libqt_string, families.len) catch @panic("qfont.New9: Memory allocation failed");
         defer allocator.free(families_arr);
         for (families, 0..families.len) |item, i| {
             families_arr[i] = .{
@@ -118,7 +118,7 @@ pub const qfont = struct {
     ///
     /// ``` families: [][]const u8, pointSize: i32, weight: i32, allocator: std.mem.Allocator ```
     pub fn New10(families: [][]const u8, pointSize: i32, weight: i32, allocator: std.mem.Allocator) QtC.QFont {
-        var families_arr = allocator.alloc(qtc.libqt_string, families.len) catch @panic("qfont.: Memory allocation failed");
+        var families_arr = allocator.alloc(qtc.libqt_string, families.len) catch @panic("qfont.New10: Memory allocation failed");
         defer allocator.free(families_arr);
         for (families, 0..families.len) |item, i| {
             families_arr[i] = .{
@@ -138,7 +138,7 @@ pub const qfont = struct {
     ///
     /// ``` families: [][]const u8, pointSize: i32, weight: i32, italic: bool, allocator: std.mem.Allocator ```
     pub fn New11(families: [][]const u8, pointSize: i32, weight: i32, italic: bool, allocator: std.mem.Allocator) QtC.QFont {
-        var families_arr = allocator.alloc(qtc.libqt_string, families.len) catch @panic("qfont.: Memory allocation failed");
+        var families_arr = allocator.alloc(qtc.libqt_string, families.len) catch @panic("qfont.New11: Memory allocation failed");
         defer allocator.free(families_arr);
         for (families, 0..families.len) |item, i| {
             families_arr[i] = .{

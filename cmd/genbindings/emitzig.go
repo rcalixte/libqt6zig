@@ -113,6 +113,10 @@ func getPageUrl(pageType PageType, pageName, cmdURL, className string) string {
 		return "https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1" + strings.ToUpper(pageName[10:11]) + pageName[11:] + ".html"
 	}
 
+	if strings.HasPrefix(pageName, "SignOn__") {
+		return "https://accounts-sso.gitlab.io/signond/classSignOn_1_1" + strings.ToUpper(pageName[8:9]) + pageName[9:] + ".html"
+	}
+
 	if pageType == DtorPage && strings.Contains(className, "__") {
 		return ""
 	}
@@ -206,7 +210,8 @@ func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType, fullEnumNam
 		return "[]" + ifv(p.Const, "const ", "") + "u8"
 	}
 	if p.ParameterType == "QString" || p.ParameterType == "QAnyStringView" ||
-		p.ParameterType == "QByteArrayView" || p.ParameterType == "QStringView" {
+		p.ParameterType == "QByteArrayView" || p.ParameterType == "QStringView" ||
+		p.ParameterType == "SignOn::MethodName" {
 		return "[]const u8"
 	}
 	if p.ParameterType == "QByteArray" {
@@ -232,7 +237,7 @@ func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType, fullEnumNam
 
 	if t1, t2, _, ok := p.QMapOf(); ok {
 		var hashMapType, k string
-		if t1.ParameterType == "QString" {
+		if t1.ParameterType == "QString" || t1.ParameterType == "SignOn::MethodName" {
 			k = "constu8"
 			hashMapType = "StringHashMap,,"
 		} else if t1.ParameterType == "QByteArray" {
@@ -330,7 +335,7 @@ func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType, fullEnumNam
 		ret += "u32"
 	case "qint32", "int", "int32_t", "pid_t", "GLint", "GLsizei":
 		ret += "i32"
-	case "qlonglong", "qint64", "long long", "GLint64", "GLintptr", "GLsizeiptr":
+	case "qlonglong", "qint64", "long long", "GLint64":
 		ret += "i64"
 	case "qulonglong", "quint64", "unsigned long long", "GLuint64":
 		ret += "u64"
@@ -351,7 +356,7 @@ func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType, fullEnumNam
 			ret += "i64"
 		}
 
-	case "qintptr", "intptr_t", "QIntegerForSizeof<void *>::Signed":
+	case "qintptr", "intptr_t", "QIntegerForSizeof<void *>::Signed", "GLintptr", "GLsizeiptr":
 		ret += "isize"
 	case "uintptr_t", "quintptr", "QIntegerForSizeof<void *>::Unsigned":
 		ret += "usize"
@@ -506,7 +511,7 @@ func (p CppParameter) renderReturnTypeZig(zfs *zigFileState, isSlot bool) string
 
 func (p CppParameter) parameterTypeZig() string {
 	if p.ParameterType == "QString" || p.ParameterType == "QByteArray" ||
-		p.ParameterType == "QAnyStringView" {
+		p.ParameterType == "QAnyStringView" || p.ParameterType == "SignOn::MethodName" {
 		return "qtc.libqt_string"
 	}
 
@@ -726,7 +731,7 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 	lowerClass := strings.ToLower(zfs.currentClassName)
 
 	if p.ParameterType == "QString" || p.ParameterType == "QByteArray" ||
-		p.ParameterType == "QAnyStringView" {
+		p.ParameterType == "QAnyStringView" || p.ParameterType == "SignOn::MethodName" {
 		// Zig: convert [](const) u8 -> libqt_string
 		// C ABI: convert libqt_string -> real QString
 
@@ -747,7 +752,7 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 		// We need to use the C ABI type for that.
 		zfs.imports["std"] = struct{}{}
 
-		if t.ParameterType == "QString" || t.ParameterType == "QByteArray" {
+		if t.ParameterType == "QString" || t.ParameterType == "QByteArray" || t.ParameterType == "SignOn::MethodName" {
 			preamble += "var " + nameprefix + "_arr = allocator.alloc(qtc.libqt_string, " + p.ParameterName + `.len) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
 			preamble += "defer allocator.free(" + nameprefix + "_arr);\n"
 			preamble += "for (" + p.ParameterName + ", 0.." + p.ParameterName + ".len) |item, i| {\n"
@@ -759,7 +764,7 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 		}
 		preamble += "const " + nameprefix + "_list = qtc.libqt_list{\n"
 		preamble += "    .len = " + p.ParameterName + ".len,\n"
-		if t.ParameterType == "QString" || t.ParameterType == "QByteArray" {
+		if t.ParameterType == "QString" || t.ParameterType == "QByteArray" || t.ParameterType == "SignOn::MethodName" {
 			preamble += "    .data = " + nameprefix + "_arr.ptr,\n"
 		} else if t.QtClassType() {
 			preamble += "    .data = @ptrCast(" + p.ParameterName + ".ptr),\n"
@@ -799,7 +804,7 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 		// QMap<K,V>
 		zfs.imports["std"] = struct{}{}
 		var hashMapType, valCast, valCastClose string
-		if kType.ParameterType == "QString" {
+		if kType.ParameterType == "QString" || kType.ParameterType == "SignOn::MethodName" {
 			hashMapType = "StringHashMap,,"
 		} else if kType.ParameterType == "QByteArray" {
 			hashMapType = "AutoHashMap,u8,"
@@ -837,8 +842,8 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 			preamble += "        .data = key.ptr,\n"
 			preamble += "    };\n"
 		} else {
-			castType := "int"
-			if kTypeZig == "f64" {
+			castType := ifv(kType.IntType(), "int", "ptr")
+			if kTypeZig[0] == 'f' {
 				castType = "float"
 			}
 
@@ -944,7 +949,8 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 		return shouldReturn + " " + rvalue + ";\n" + afterword
 
 	} else if rt.ParameterType == "QString" || rt.ParameterType == "QAnyStringView" ||
-		rt.ParameterType == "QByteArrayView" || rt.ParameterType == "QStringView" {
+		rt.ParameterType == "QByteArrayView" || rt.ParameterType == "QStringView" ||
+		rt.ParameterType == "SignOn::MethodName" {
 		zfs.imports["std"] = struct{}{}
 
 		shouldReturn = "const " + namePrefix + "_str ="
@@ -1170,7 +1176,7 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 		kCast := "@ptrCast("
 		kClose := ")"
 		kTypeZig := kType.RenderTypeZig(zfs, false, false)
-		if kTypeZig == "i32" || kTypeZig == "f64" {
+		if kType.IntType() {
 			kCast = "@as(*" + kTypeZig + ", @ptrCast(@alignCast("
 			kClose = "))).*"
 		}
@@ -1178,7 +1184,7 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 		vCast := "@ptrCast("
 		vClose := ")"
 		vTypeZig := vType.RenderTypeZig(zfs, false, false)
-		if vTypeZig == "i32" || vTypeZig == "f64" {
+		if vType.IntType() {
 			vCast = "@as(*" + vTypeZig + ", @ptrCast(@alignCast("
 			vClose = "))).*"
 		} else if vType.ParameterType == "void" && vType.Pointer {
@@ -1410,7 +1416,11 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 			(len(c.DirectInherits) > 0 && len(collectInheritedMethodsForZig(c.DirectInherits[0], map[string]struct{}{c.ClassName: {}}, &zfs)) > 0) {
 			footerNeeded = true
 			maybeCharts := ifv(strings.Contains(src.Filename, "QtCharts"), "-qtcharts", "")
-			isSpecialCase := (zfs.currentHeaderName == "qcustomplot" && strings.HasPrefix(zigStructName, "QCP")) || (strings.Contains(src.Filename, "accounts-qt") && zigStructName[0] != 'Q')
+
+			isSpecialCase := (zfs.currentHeaderName == "qcustomplot" && strings.HasPrefix(zigStructName, "QCP")) ||
+				(strings.Contains(src.Filename, "accounts-qt") && zigStructName[0] != 'Q') ||
+				(strings.Contains(src.Filename, "signon-qt") && zigStructName[0] != 'Q')
+
 			pageName := ifv(isSpecialCase, zigStructName, getPageName(zigStructName)) + maybeCharts
 			zigStruct := strings.ToLower(zigStructName)
 			// TODO properly automate deduplication
@@ -1432,6 +1442,7 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 				continue
 			}
 
+			zfs.currentMethodName = "New" + maybeSuffix(i)
 			preamble, forwarding := zfs.emitParametersZig2CABIForwarding(ctor)
 
 			allocatorParam := ifv(strings.Contains(preamble, "allocator"), "allocator: std.mem.Allocator", "")
@@ -1598,13 +1609,17 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 
 			var docCommentUrl string
 			className := ifv(m.InheritedInClass == "", cmdStructName, cabiClassName(m.InheritedInClass))
-			isSpecialCase := (zfs.currentHeaderName == "qcustomplot" && strings.HasPrefix(className, "QCP")) || (strings.Contains(src.Filename, "accounts-qt") && className[0] != 'Q')
+
+			isSpecialCase := (zfs.currentHeaderName == "qcustomplot" && strings.HasPrefix(className, "QCP")) ||
+				(strings.Contains(src.Filename, "accounts-qt") && className[0] != 'Q') ||
+				(strings.Contains(src.Filename, "signon-qt") && className[0] != 'Q')
+
 			subjectURL := ifv(isSpecialCase, className, strings.ToLower(className))
 			cmdURL := m.MethodName
 			if m.OverrideMethodName != "" {
 				cmdURL = m.OverrideMethodName
 			}
-			if newURL, ok := qtMethodUrlOverrides[cmdURL]; ok {
+			if newURL, ok := qtMethodUrlOverrides[cmdURL]; ok && zigStructName != "QMetaObject" {
 				subjectURL = newURL
 			}
 			if m.IsVariable {
@@ -1631,7 +1646,6 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 			allocComma := ifv(allocatorParam != "", ", ", "")
 			commentParam := "self: QtC." + zigStructName + commaParams
 
-			mTrim := mSafeMethodName[:len(mSafeMethodName)-1]
 			fnMethod := mSafeMethodName + "(self: ?*anyopaque" + commaParams
 			if m.IsStatic && !m.IsProtected {
 				commentParam = ""
@@ -1639,10 +1653,6 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 				if len(m.Parameters) == 0 {
 					allocComma = ""
 				}
-			}
-
-			if mSafeMethodName == "Tr" || mTrim == "Tr" {
-				commentParam = ""
 			}
 
 			if commentParam != "" || len(m.Parameters) > 0 || allocatorParam != "" {
@@ -1819,7 +1829,11 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 			}
 
 			className := ifv(m.InheritedInClass == "", cmdStructName, cabiClassName(m.InheritedInClass))
-			isSpecialCase := (zfs.currentHeaderName == "qcustomplot" && strings.HasPrefix(className, "QCP")) || (strings.Contains(src.Filename, "accounts-qt") && className[0] != 'Q')
+
+			isSpecialCase := (zfs.currentHeaderName == "qcustomplot" && strings.HasPrefix(className, "QCP")) ||
+				(strings.Contains(src.Filename, "accounts-qt") && className[0] != 'Q') ||
+				(strings.Contains(src.Filename, "signon-qt") && className[0] != 'Q')
+
 			subjectURL := ifv(isSpecialCase, className, strings.ToLower(className))
 			cmdURL := m.MethodName
 			if m.OverrideMethodName != "" {
@@ -1918,7 +1932,11 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 
 			var docCommentUrl string
 			className := ifv(m.InheritedInClass == "", cmdStructName, cabiClassName(m.InheritedInClass))
-			isSpecialCase := (zfs.currentHeaderName == "qcustomplot" && strings.HasPrefix(className, "QCP")) || (strings.Contains(src.Filename, "accounts-qt") && className[0] != 'Q')
+
+			isSpecialCase := (zfs.currentHeaderName == "qcustomplot" && strings.HasPrefix(className, "QCP")) ||
+				(strings.Contains(src.Filename, "accounts-qt") && className[0] != 'Q') ||
+				(strings.Contains(src.Filename, "signon-qt") && className[0] != 'Q')
+
 			subjectURL := ifv(isSpecialCase, className, strings.ToLower(className))
 			cmdURL := m.MethodName
 			if m.OverrideMethodName != "" {
@@ -1948,7 +1966,11 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 
 		if c.CanDelete && (len(c.Methods) > 0 || len(c.VirtualMethods()) > 0 || len(c.Ctors) > 0) {
 			maybeCharts := ifv(strings.Contains(src.Filename, "QtCharts"), "-qtcharts", "")
-			isSpecialCase := (zfs.currentHeaderName == "qcustomplot" && strings.HasPrefix(zigStructName, "QCP")) || (strings.Contains(src.Filename, "accounts-qt") && zigStructName[0] != 'Q')
+
+			isSpecialCase := (zfs.currentHeaderName == "qcustomplot" && strings.HasPrefix(zigStructName, "QCP")) ||
+				(strings.Contains(src.Filename, "accounts-qt") && zigStructName[0] != 'Q') ||
+				(strings.Contains(src.Filename, "signon-qt") && zigStructName[0] != 'Q')
+
 			pageUrl := getPageUrl(DtorPage, ifv(isSpecialCase, zigStructName, getPageName(zigStructName))+maybeCharts, "", zigStructName)
 			ret.WriteString(ifv(pageUrl != "", "\n/// [Qt documentation]("+pageUrl+")\n///\n", "\n") +
 				"    /// Delete this object from C++ memory.\n///\n" +
@@ -1975,6 +1997,7 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 		maybeUrlPrefix = ifv(strings.Contains(src.Filename, "LayerShellQt"), "layershellqt-", maybeUrlPrefix)
 		maybeUrlPrefix = ifv(strings.Contains(src.Filename, "PackageKit"), "packagekit-", maybeUrlPrefix)
 		maybeUrlPrefix = ifv(strings.Contains(src.Filename, "qt6keychain"), "qkeychain-", maybeUrlPrefix)
+		maybeUrlPrefix = ifv(strings.Contains(src.Filename, "SignOn"), "SignOn__", maybeUrlPrefix)
 		maybeUrlPrefix = ifv(strings.Contains(src.Filename, "Solid"), "solid-", maybeUrlPrefix)
 		maybeUrlPrefix = ifv(strings.Contains(src.Filename, "Sonnet"), "sonnet-", maybeUrlPrefix)
 		pageName := maybeUrlPrefix + getPageName(zfs.currentHeaderName) + maybeCharts

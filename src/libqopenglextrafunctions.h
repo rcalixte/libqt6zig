@@ -50,8 +50,8 @@ void QOpenGLExtraFunctions_GlUniformMatrix4x3fv(QOpenGLExtraFunctions* self, int
 void QOpenGLExtraFunctions_GlBlitFramebuffer(QOpenGLExtraFunctions* self, int32_t srcX0, int32_t srcY0, int32_t srcX1, int32_t srcY1, int32_t dstX0, int32_t dstY0, int32_t dstX1, int32_t dstY1, uint32_t mask, uint32_t filter);
 void QOpenGLExtraFunctions_GlRenderbufferStorageMultisample(QOpenGLExtraFunctions* self, uint32_t target, int32_t samples, uint32_t internalformat, int32_t width, int32_t height);
 void QOpenGLExtraFunctions_GlFramebufferTextureLayer(QOpenGLExtraFunctions* self, uint32_t target, uint32_t attachment, uint32_t texture, int32_t level, int32_t layer);
-void* QOpenGLExtraFunctions_GlMapBufferRange(QOpenGLExtraFunctions* self, uint32_t target, int64_t offset, int64_t length, uint32_t access);
-void QOpenGLExtraFunctions_GlFlushMappedBufferRange(QOpenGLExtraFunctions* self, uint32_t target, int64_t offset, int64_t length);
+void* QOpenGLExtraFunctions_GlMapBufferRange(QOpenGLExtraFunctions* self, uint32_t target, intptr_t offset, intptr_t length, uint32_t access);
+void QOpenGLExtraFunctions_GlFlushMappedBufferRange(QOpenGLExtraFunctions* self, uint32_t target, intptr_t offset, intptr_t length);
 void QOpenGLExtraFunctions_GlBindVertexArray(QOpenGLExtraFunctions* self, uint32_t array);
 void QOpenGLExtraFunctions_GlDeleteVertexArrays(QOpenGLExtraFunctions* self, int32_t n, const uint32_t* arrays);
 void QOpenGLExtraFunctions_GlGenVertexArrays(QOpenGLExtraFunctions* self, int32_t n, uint32_t* arrays);
@@ -59,7 +59,7 @@ unsigned char QOpenGLExtraFunctions_GlIsVertexArray(QOpenGLExtraFunctions* self,
 void QOpenGLExtraFunctions_GlGetIntegeriV(QOpenGLExtraFunctions* self, uint32_t target, uint32_t index, int32_t* data);
 void QOpenGLExtraFunctions_GlBeginTransformFeedback(QOpenGLExtraFunctions* self, uint32_t primitiveMode);
 void QOpenGLExtraFunctions_GlEndTransformFeedback(QOpenGLExtraFunctions* self);
-void QOpenGLExtraFunctions_GlBindBufferRange(QOpenGLExtraFunctions* self, uint32_t target, uint32_t index, uint32_t buffer, int64_t offset, int64_t size);
+void QOpenGLExtraFunctions_GlBindBufferRange(QOpenGLExtraFunctions* self, uint32_t target, uint32_t index, uint32_t buffer, intptr_t offset, intptr_t size);
 void QOpenGLExtraFunctions_GlBindBufferBase(QOpenGLExtraFunctions* self, uint32_t target, uint32_t index, uint32_t buffer);
 void QOpenGLExtraFunctions_GlVertexAttribIPointer(QOpenGLExtraFunctions* self, uint32_t index, int32_t size, uint32_t typeVal, int32_t stride, const void* pointer);
 void QOpenGLExtraFunctions_GlGetVertexAttribIiv(QOpenGLExtraFunctions* self, uint32_t index, uint32_t pname, int32_t* params);
@@ -83,7 +83,7 @@ void QOpenGLExtraFunctions_GlClearBufferuiv(QOpenGLExtraFunctions* self, uint32_
 void QOpenGLExtraFunctions_GlClearBufferfv(QOpenGLExtraFunctions* self, uint32_t buffer, int32_t drawbuffer, const float* value);
 void QOpenGLExtraFunctions_GlClearBufferfi(QOpenGLExtraFunctions* self, uint32_t buffer, int32_t drawbuffer, float depth, int32_t stencil);
 const uint8_t* QOpenGLExtraFunctions_GlGetStringi(QOpenGLExtraFunctions* self, uint32_t name, uint32_t index);
-void QOpenGLExtraFunctions_GlCopyBufferSubData(QOpenGLExtraFunctions* self, uint32_t readTarget, uint32_t writeTarget, int64_t readOffset, int64_t writeOffset, int64_t size);
+void QOpenGLExtraFunctions_GlCopyBufferSubData(QOpenGLExtraFunctions* self, uint32_t readTarget, uint32_t writeTarget, intptr_t readOffset, intptr_t writeOffset, intptr_t size);
 void QOpenGLExtraFunctions_GlGetActiveUniformsiv(QOpenGLExtraFunctions* self, uint32_t program, int32_t uniformCount, const uint32_t* uniformIndices, uint32_t pname, int32_t* params);
 uint32_t QOpenGLExtraFunctions_GlGetUniformBlockIndex(QOpenGLExtraFunctions* self, uint32_t program, const GLchar* uniformBlockName);
 void QOpenGLExtraFunctions_GlGetActiveUniformBlockiv(QOpenGLExtraFunctions* self, uint32_t program, uint32_t uniformBlockIndex, uint32_t pname, int32_t* params);
@@ -117,7 +117,7 @@ void QOpenGLExtraFunctions_GlTexStorage2D(QOpenGLExtraFunctions* self, uint32_t 
 void QOpenGLExtraFunctions_GlTexStorage3D(QOpenGLExtraFunctions* self, uint32_t target, int32_t levels, uint32_t internalformat, int32_t width, int32_t height, int32_t depth);
 void QOpenGLExtraFunctions_GlGetInternalformativ(QOpenGLExtraFunctions* self, uint32_t target, uint32_t internalformat, uint32_t pname, int32_t bufSize, int32_t* params);
 void QOpenGLExtraFunctions_GlDispatchCompute(QOpenGLExtraFunctions* self, uint32_t num_groups_x, uint32_t num_groups_y, uint32_t num_groups_z);
-void QOpenGLExtraFunctions_GlDispatchComputeIndirect(QOpenGLExtraFunctions* self, int64_t indirect);
+void QOpenGLExtraFunctions_GlDispatchComputeIndirect(QOpenGLExtraFunctions* self, intptr_t indirect);
 void QOpenGLExtraFunctions_GlDrawArraysIndirect(QOpenGLExtraFunctions* self, uint32_t mode, const void* indirect);
 void QOpenGLExtraFunctions_GlDrawElementsIndirect(QOpenGLExtraFunctions* self, uint32_t mode, uint32_t typeVal, const void* indirect);
 void QOpenGLExtraFunctions_GlFramebufferParameteri(QOpenGLExtraFunctions* self, uint32_t target, uint32_t pname, int32_t param);
@@ -177,7 +177,7 @@ void QOpenGLExtraFunctions_GlGetMultisamplefv(QOpenGLExtraFunctions* self, uint3
 void QOpenGLExtraFunctions_GlSampleMaski(QOpenGLExtraFunctions* self, uint32_t maskNumber, uint32_t mask);
 void QOpenGLExtraFunctions_GlGetTexLevelParameteriv(QOpenGLExtraFunctions* self, uint32_t target, int32_t level, uint32_t pname, int32_t* params);
 void QOpenGLExtraFunctions_GlGetTexLevelParameterfv(QOpenGLExtraFunctions* self, uint32_t target, int32_t level, uint32_t pname, float* params);
-void QOpenGLExtraFunctions_GlBindVertexBuffer(QOpenGLExtraFunctions* self, uint32_t bindingindex, uint32_t buffer, int64_t offset, int32_t stride);
+void QOpenGLExtraFunctions_GlBindVertexBuffer(QOpenGLExtraFunctions* self, uint32_t bindingindex, uint32_t buffer, intptr_t offset, int32_t stride);
 void QOpenGLExtraFunctions_GlVertexAttribFormat(QOpenGLExtraFunctions* self, uint32_t attribindex, int32_t size, uint32_t typeVal, unsigned char normalized, uint32_t relativeoffset);
 void QOpenGLExtraFunctions_GlVertexAttribIFormat(QOpenGLExtraFunctions* self, uint32_t attribindex, int32_t size, uint32_t typeVal, uint32_t relativeoffset);
 void QOpenGLExtraFunctions_GlVertexAttribBinding(QOpenGLExtraFunctions* self, uint32_t attribindex, uint32_t bindingindex);
@@ -221,7 +221,7 @@ void QOpenGLExtraFunctions_GlSamplerParameterIuiv(QOpenGLExtraFunctions* self, u
 void QOpenGLExtraFunctions_GlGetSamplerParameterIiv(QOpenGLExtraFunctions* self, uint32_t sampler, uint32_t pname, int32_t* params);
 void QOpenGLExtraFunctions_GlGetSamplerParameterIuiv(QOpenGLExtraFunctions* self, uint32_t sampler, uint32_t pname, uint32_t* params);
 void QOpenGLExtraFunctions_GlTexBuffer(QOpenGLExtraFunctions* self, uint32_t target, uint32_t internalformat, uint32_t buffer);
-void QOpenGLExtraFunctions_GlTexBufferRange(QOpenGLExtraFunctions* self, uint32_t target, uint32_t internalformat, uint32_t buffer, int64_t offset, int64_t size);
+void QOpenGLExtraFunctions_GlTexBufferRange(QOpenGLExtraFunctions* self, uint32_t target, uint32_t internalformat, uint32_t buffer, intptr_t offset, intptr_t size);
 void QOpenGLExtraFunctions_GlTexStorage3DMultisample(QOpenGLExtraFunctions* self, uint32_t target, int32_t samples, uint32_t internalformat, int32_t width, int32_t height, int32_t depth, unsigned char fixedsamplelocations);
 void QOpenGLExtraFunctions_Delete(QOpenGLExtraFunctions* self);
 

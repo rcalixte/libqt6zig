@@ -127,9 +127,9 @@ pub const qvariant = struct {
     ///
     /// ``` hash: map_constu8_qtcqvariant, allocator: std.mem.Allocator ```
     pub fn New17(hash: map_constu8_qtcqvariant, allocator: std.mem.Allocator) QtC.QVariant {
-        const hash_keys = allocator.alloc(qtc.libqt_string, hash.count()) catch @panic("qvariant.: Memory allocation failed");
+        const hash_keys = allocator.alloc(qtc.libqt_string, hash.count()) catch @panic("qvariant.New17: Memory allocation failed");
         defer allocator.free(hash_keys);
-        const hash_values = allocator.alloc(QtC.QVariant, hash.count()) catch @panic("qvariant.: Memory allocation failed");
+        const hash_values = allocator.alloc(QtC.QVariant, hash.count()) catch @panic("qvariant.New17: Memory allocation failed");
         defer allocator.free(hash_values);
         var i: usize = 0;
         var hash_it = hash.iterator();
@@ -188,9 +188,9 @@ pub const qvariant = struct {
     ///
     /// ``` mapVal: map_constu8_qtcqvariant, allocator: std.mem.Allocator ```
     pub fn New22(mapVal: map_constu8_qtcqvariant, allocator: std.mem.Allocator) QtC.QVariant {
-        const mapVal_keys = allocator.alloc(qtc.libqt_string, mapVal.count()) catch @panic("qvariant.: Memory allocation failed");
+        const mapVal_keys = allocator.alloc(qtc.libqt_string, mapVal.count()) catch @panic("qvariant.New22: Memory allocation failed");
         defer allocator.free(mapVal_keys);
-        const mapVal_values = allocator.alloc(QtC.QVariant, mapVal.count()) catch @panic("qvariant.: Memory allocation failed");
+        const mapVal_values = allocator.alloc(QtC.QVariant, mapVal.count()) catch @panic("qvariant.New22: Memory allocation failed");
         defer allocator.free(mapVal_values);
         var i: usize = 0;
         var mapVal_it = mapVal.iterator();
@@ -235,7 +235,7 @@ pub const qvariant = struct {
     ///
     /// ``` stringlist: [][]const u8, allocator: std.mem.Allocator ```
     pub fn New25(stringlist: [][]const u8, allocator: std.mem.Allocator) QtC.QVariant {
-        var stringlist_arr = allocator.alloc(qtc.libqt_string, stringlist.len) catch @panic("qvariant.: Memory allocation failed");
+        var stringlist_arr = allocator.alloc(qtc.libqt_string, stringlist.len) catch @panic("qvariant.New25: Memory allocation failed");
         defer allocator.free(stringlist_arr);
         for (stringlist, 0..stringlist.len) |item, i| {
             stringlist_arr[i] = .{

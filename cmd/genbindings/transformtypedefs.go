@@ -39,6 +39,11 @@ func applyTypedefs(p CppParameter, className string) CppParameter {
 			break
 		}
 		p.ApplyTypedef(td.Typedef.UnderlyingType)
+
+		if p.QtCppOriginalType != nil && p.ParameterType == p.QtCppOriginalType.ParameterType && p.QtCppOriginalType.ParameterType != "value_type" {
+			// TODO this is a hack to prevent an infinite loop
+			break
+		}
 	}
 
 	if fd, ok := KnownTypedefs[className+"::"+p.ParameterType]; ok {
