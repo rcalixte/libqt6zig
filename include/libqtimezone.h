@@ -42,7 +42,7 @@ int QTimeZone_FixedSecondsAheadOfUtc(const QTimeZone* self);
 bool QTimeZone_IsUtcOrFixedOffset(int spec);
 bool QTimeZone_IsUtcOrFixedOffset2(const QTimeZone* self);
 QTimeZone* QTimeZone_AsBackendZone(const QTimeZone* self);
-bool QTimeZone_HasAlternativeName(const QTimeZone* self, QByteArrayView* alias);
+bool QTimeZone_HasAlternativeName(const QTimeZone* self, libqt_string alias);
 libqt_string QTimeZone_Id(const QTimeZone* self);
 uint16_t QTimeZone_Territory(const QTimeZone* self);
 uint16_t QTimeZone_Country(const QTimeZone* self);

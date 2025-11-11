@@ -69,7 +69,7 @@ bool QMetaType_HasRegisteredDataStreamOperators(const QMetaType* self);
 bool QMetaType_Save2(QDataStream* stream, int typeVal, const void* data);
 bool QMetaType_Load2(QDataStream* stream, int typeVal, void* data);
 QMetaType* QMetaType_UnderlyingType(const QMetaType* self);
-QMetaType* QMetaType_FromName(QByteArrayView* name);
+QMetaType* QMetaType_FromName(libqt_string name);
 bool QMetaType_DebugStream(QMetaType* self, QDebug* dbg, const void* rhs);
 bool QMetaType_HasRegisteredDebugStreamOperator(const QMetaType* self);
 bool QMetaType_DebugStream2(QDebug* dbg, const void* rhs, int typeId);

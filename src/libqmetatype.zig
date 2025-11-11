@@ -346,7 +346,11 @@ pub const qmetatype = struct {
     ///
     /// ``` name: []const u8 ```
     pub fn FromName(name: []const u8) QtC.QMetaType {
-        return qtc.QMetaType_FromName(name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return qtc.QMetaType_FromName(name_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qmetatype.html#debugStream)

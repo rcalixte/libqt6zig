@@ -40,11 +40,11 @@ libqt_string QUuid_ToByteArray(const QUuid* self);
 QUuid__Id128Bytes* QUuid_ToBytes(const QUuid* self);
 libqt_string QUuid_ToRfc4122(const QUuid* self);
 QUuid* QUuid_FromBytes(const void* bytes);
-QUuid* QUuid_FromRfc4122(QByteArrayView* param1);
+QUuid* QUuid_FromRfc4122(libqt_string param1);
 bool QUuid_IsNull(const QUuid* self);
 QUuid* QUuid_CreateUuid();
-QUuid* QUuid_CreateUuidV5(QUuid* ns, QByteArrayView* baseData);
-QUuid* QUuid_CreateUuidV3(QUuid* ns, QByteArrayView* baseData);
+QUuid* QUuid_CreateUuidV5(QUuid* ns, libqt_string baseData);
+QUuid* QUuid_CreateUuidV3(QUuid* ns, libqt_string baseData);
 int QUuid_Variant(const QUuid* self);
 int QUuid_Version(const QUuid* self);
 unsigned int QUuid_Data1(const QUuid* self);
@@ -61,7 +61,7 @@ void QUuid_Delete(QUuid* self);
 
 QUuid__Id128Bytes* QUuid__Id128Bytes_new();
 QUuid__Id128Bytes* QUuid__Id128Bytes_new2(const QUuid__Id128Bytes* param1);
-QByteArrayView* QUuid__Id128Bytes_ToQByteArrayView(const QUuid__Id128Bytes* self);
+libqt_string QUuid__Id128Bytes_ToQByteArrayView(const QUuid__Id128Bytes* self);
 void QUuid__Id128Bytes_Delete(QUuid__Id128Bytes* self);
 
 #ifdef __cplusplus

@@ -4,20 +4,23 @@
 #include "libqbytearrayview.h"
 #include "libqbytearrayview.hxx"
 
-QByteArrayView* QByteArrayView_new(const QByteArrayView* other) {
-    return new QByteArrayView(*other);
+QByteArrayView* QByteArrayView_new(const libqt_string other) {
+    QByteArrayView other_QByteArrayView(other.data, other.len);
+    return new QByteArrayView(other_QByteArrayView);
 }
 
-QByteArrayView* QByteArrayView_new2(QByteArrayView* other) {
-    return new QByteArrayView(std::move(*other));
+QByteArrayView* QByteArrayView_new2(libqt_string other) {
+    QByteArrayView other_QByteArrayView(other.data, other.len);
+    return new QByteArrayView(std::move(other_QByteArrayView));
 }
 
 QByteArrayView* QByteArrayView_new3() {
     return new QByteArrayView();
 }
 
-QByteArrayView* QByteArrayView_new4(const QByteArrayView* param1) {
-    return new QByteArrayView(*param1);
+QByteArrayView* QByteArrayView_new4(const libqt_string param1) {
+    QByteArrayView param1_QByteArrayView(param1.data, param1.len);
+    return new QByteArrayView(param1_QByteArrayView);
 }
 
 void QByteArrayView_CopyAssign(QByteArrayView* self, QByteArrayView* other) {
@@ -60,48 +63,104 @@ char QByteArrayView_At(const QByteArrayView* self, ptrdiff_t n) {
     return self->at((qsizetype)(n));
 }
 
-QByteArrayView* QByteArrayView_First(const QByteArrayView* self, ptrdiff_t n) {
-    return new QByteArrayView(self->first((qsizetype)(n)));
+libqt_string QByteArrayView_First(const QByteArrayView* self, ptrdiff_t n) {
+    QByteArrayView _qb = self->first((qsizetype)(n));
+    libqt_string _str;
+    _str.len = _qb.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _qb.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
-QByteArrayView* QByteArrayView_Last(const QByteArrayView* self, ptrdiff_t n) {
-    return new QByteArrayView(self->last((qsizetype)(n)));
+libqt_string QByteArrayView_Last(const QByteArrayView* self, ptrdiff_t n) {
+    QByteArrayView _qb = self->last((qsizetype)(n));
+    libqt_string _str;
+    _str.len = _qb.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _qb.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
-QByteArrayView* QByteArrayView_Sliced(const QByteArrayView* self, ptrdiff_t pos) {
-    return new QByteArrayView(self->sliced((qsizetype)(pos)));
+libqt_string QByteArrayView_Sliced(const QByteArrayView* self, ptrdiff_t pos) {
+    QByteArrayView _qb = self->sliced((qsizetype)(pos));
+    libqt_string _str;
+    _str.len = _qb.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _qb.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
-QByteArrayView* QByteArrayView_Sliced2(const QByteArrayView* self, ptrdiff_t pos, ptrdiff_t n) {
-    return new QByteArrayView(self->sliced((qsizetype)(pos), (qsizetype)(n)));
+libqt_string QByteArrayView_Sliced2(const QByteArrayView* self, ptrdiff_t pos, ptrdiff_t n) {
+    QByteArrayView _qb = self->sliced((qsizetype)(pos), (qsizetype)(n));
+    libqt_string _str;
+    _str.len = _qb.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _qb.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
-QByteArrayView* QByteArrayView_Slice(QByteArrayView* self, ptrdiff_t pos) {
-    QByteArrayView& _ret = self->slice((qsizetype)(pos));
-    // Cast returned reference into pointer
-    return &_ret;
+libqt_string QByteArrayView_Slice(QByteArrayView* self, ptrdiff_t pos) {
+    QByteArrayView _qb = self->slice((qsizetype)(pos));
+    libqt_string _str;
+    _str.len = _qb.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _qb.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
-QByteArrayView* QByteArrayView_Slice2(QByteArrayView* self, ptrdiff_t pos, ptrdiff_t n) {
-    QByteArrayView& _ret = self->slice((qsizetype)(pos), (qsizetype)(n));
-    // Cast returned reference into pointer
-    return &_ret;
+libqt_string QByteArrayView_Slice2(QByteArrayView* self, ptrdiff_t pos, ptrdiff_t n) {
+    QByteArrayView _qb = self->slice((qsizetype)(pos), (qsizetype)(n));
+    libqt_string _str;
+    _str.len = _qb.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _qb.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
-QByteArrayView* QByteArrayView_Chopped(const QByteArrayView* self, ptrdiff_t lenVal) {
-    return new QByteArrayView(self->chopped((qsizetype)(lenVal)));
+libqt_string QByteArrayView_Chopped(const QByteArrayView* self, ptrdiff_t lenVal) {
+    QByteArrayView _qb = self->chopped((qsizetype)(lenVal));
+    libqt_string _str;
+    _str.len = _qb.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _qb.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
-QByteArrayView* QByteArrayView_Left(const QByteArrayView* self, ptrdiff_t n) {
-    return new QByteArrayView(self->left((qsizetype)(n)));
+libqt_string QByteArrayView_Left(const QByteArrayView* self, ptrdiff_t n) {
+    QByteArrayView _qb = self->left((qsizetype)(n));
+    libqt_string _str;
+    _str.len = _qb.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _qb.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
-QByteArrayView* QByteArrayView_Right(const QByteArrayView* self, ptrdiff_t n) {
-    return new QByteArrayView(self->right((qsizetype)(n)));
+libqt_string QByteArrayView_Right(const QByteArrayView* self, ptrdiff_t n) {
+    QByteArrayView _qb = self->right((qsizetype)(n));
+    libqt_string _str;
+    _str.len = _qb.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _qb.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
-QByteArrayView* QByteArrayView_Mid(const QByteArrayView* self, ptrdiff_t pos) {
-    return new QByteArrayView(self->mid((qsizetype)(pos)));
+libqt_string QByteArrayView_Mid(const QByteArrayView* self, ptrdiff_t pos) {
+    QByteArrayView _qb = self->mid((qsizetype)(pos));
+    libqt_string _str;
+    _str.len = _qb.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _qb.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 void QByteArrayView_Truncate(QByteArrayView* self, ptrdiff_t n) {
@@ -112,8 +171,14 @@ void QByteArrayView_Chop(QByteArrayView* self, ptrdiff_t n) {
     self->chop((qsizetype)(n));
 }
 
-QByteArrayView* QByteArrayView_Trimmed(const QByteArrayView* self) {
-    return new QByteArrayView(self->trimmed());
+libqt_string QByteArrayView_Trimmed(const QByteArrayView* self) {
+    QByteArrayView _qb = self->trimmed();
+    libqt_string _str;
+    _str.len = _qb.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _qb.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 int16_t QByteArrayView_ToShort(const QByteArrayView* self) {
@@ -156,60 +221,68 @@ double QByteArrayView_ToDouble(const QByteArrayView* self) {
     return self->toDouble();
 }
 
-bool QByteArrayView_StartsWith(const QByteArrayView* self, QByteArrayView* other) {
-    return self->startsWith(*other);
+bool QByteArrayView_StartsWith(const QByteArrayView* self, libqt_string other) {
+    QByteArrayView other_QByteArrayView(other.data, other.len);
+    return self->startsWith(other_QByteArrayView);
 }
 
 bool QByteArrayView_StartsWith2(const QByteArrayView* self, char c) {
     return self->startsWith(static_cast<char>(c));
 }
 
-bool QByteArrayView_EndsWith(const QByteArrayView* self, QByteArrayView* other) {
-    return self->endsWith(*other);
+bool QByteArrayView_EndsWith(const QByteArrayView* self, libqt_string other) {
+    QByteArrayView other_QByteArrayView(other.data, other.len);
+    return self->endsWith(other_QByteArrayView);
 }
 
 bool QByteArrayView_EndsWith2(const QByteArrayView* self, char c) {
     return self->endsWith(static_cast<char>(c));
 }
 
-ptrdiff_t QByteArrayView_IndexOf(const QByteArrayView* self, QByteArrayView* a) {
-    return static_cast<ptrdiff_t>(self->indexOf(*a));
+ptrdiff_t QByteArrayView_IndexOf(const QByteArrayView* self, libqt_string a) {
+    QByteArrayView a_QByteArrayView(a.data, a.len);
+    return static_cast<ptrdiff_t>(self->indexOf(a_QByteArrayView));
 }
 
 ptrdiff_t QByteArrayView_IndexOf2(const QByteArrayView* self, char ch) {
     return static_cast<ptrdiff_t>(self->indexOf(static_cast<char>(ch)));
 }
 
-bool QByteArrayView_Contains(const QByteArrayView* self, QByteArrayView* a) {
-    return self->contains(*a);
+bool QByteArrayView_Contains(const QByteArrayView* self, libqt_string a) {
+    QByteArrayView a_QByteArrayView(a.data, a.len);
+    return self->contains(a_QByteArrayView);
 }
 
 bool QByteArrayView_Contains2(const QByteArrayView* self, char c) {
     return self->contains(static_cast<char>(c));
 }
 
-ptrdiff_t QByteArrayView_LastIndexOf(const QByteArrayView* self, QByteArrayView* a) {
-    return static_cast<ptrdiff_t>(self->lastIndexOf(*a));
+ptrdiff_t QByteArrayView_LastIndexOf(const QByteArrayView* self, libqt_string a) {
+    QByteArrayView a_QByteArrayView(a.data, a.len);
+    return static_cast<ptrdiff_t>(self->lastIndexOf(a_QByteArrayView));
 }
 
-ptrdiff_t QByteArrayView_LastIndexOf2(const QByteArrayView* self, QByteArrayView* a, ptrdiff_t from) {
-    return static_cast<ptrdiff_t>(self->lastIndexOf(*a, (qsizetype)(from)));
+ptrdiff_t QByteArrayView_LastIndexOf2(const QByteArrayView* self, libqt_string a, ptrdiff_t from) {
+    QByteArrayView a_QByteArrayView(a.data, a.len);
+    return static_cast<ptrdiff_t>(self->lastIndexOf(a_QByteArrayView, (qsizetype)(from)));
 }
 
 ptrdiff_t QByteArrayView_LastIndexOf3(const QByteArrayView* self, char ch) {
     return static_cast<ptrdiff_t>(self->lastIndexOf(static_cast<char>(ch)));
 }
 
-ptrdiff_t QByteArrayView_Count(const QByteArrayView* self, QByteArrayView* a) {
-    return static_cast<ptrdiff_t>(self->count(*a));
+ptrdiff_t QByteArrayView_Count(const QByteArrayView* self, libqt_string a) {
+    QByteArrayView a_QByteArrayView(a.data, a.len);
+    return static_cast<ptrdiff_t>(self->count(a_QByteArrayView));
 }
 
 ptrdiff_t QByteArrayView_Count2(const QByteArrayView* self, char ch) {
     return static_cast<ptrdiff_t>(self->count(static_cast<char>(ch)));
 }
 
-int QByteArrayView_Compare(const QByteArrayView* self, QByteArrayView* a) {
-    return self->compare(*a);
+int QByteArrayView_Compare(const QByteArrayView* self, libqt_string a) {
+    QByteArrayView a_QByteArrayView(a.data, a.len);
+    return self->compare(a_QByteArrayView);
 }
 
 bool QByteArrayView_IsValidUtf8(const QByteArrayView* self) {
@@ -276,8 +349,14 @@ ptrdiff_t QByteArrayView_MaxSize2() {
     return static_cast<ptrdiff_t>(QByteArrayView::maxSize());
 }
 
-QByteArrayView* QByteArrayView_Mid2(const QByteArrayView* self, ptrdiff_t pos, ptrdiff_t n) {
-    return new QByteArrayView(self->mid((qsizetype)(pos), (qsizetype)(n)));
+libqt_string QByteArrayView_Mid2(const QByteArrayView* self, ptrdiff_t pos, ptrdiff_t n) {
+    QByteArrayView _qb = self->mid((qsizetype)(pos), (qsizetype)(n));
+    libqt_string _str;
+    _str.len = _qb.length();
+    _str.data = static_cast<const char*>(malloc(_str.len + 1));
+    memcpy((void*)_str.data, _qb.data(), _str.len);
+    ((char*)_str.data)[_str.len] = '\0';
+    return _str;
 }
 
 int16_t QByteArrayView_ToShort1(const QByteArrayView* self, bool* ok) {
@@ -352,8 +431,9 @@ double QByteArrayView_ToDouble1(const QByteArrayView* self, bool* ok) {
     return self->toDouble(ok);
 }
 
-ptrdiff_t QByteArrayView_IndexOf22(const QByteArrayView* self, QByteArrayView* a, ptrdiff_t from) {
-    return static_cast<ptrdiff_t>(self->indexOf(*a, (qsizetype)(from)));
+ptrdiff_t QByteArrayView_IndexOf22(const QByteArrayView* self, libqt_string a, ptrdiff_t from) {
+    QByteArrayView a_QByteArrayView(a.data, a.len);
+    return static_cast<ptrdiff_t>(self->indexOf(a_QByteArrayView, (qsizetype)(from)));
 }
 
 ptrdiff_t QByteArrayView_IndexOf23(const QByteArrayView* self, char ch, ptrdiff_t from) {
@@ -364,8 +444,9 @@ ptrdiff_t QByteArrayView_LastIndexOf22(const QByteArrayView* self, char ch, ptrd
     return static_cast<ptrdiff_t>(self->lastIndexOf(static_cast<char>(ch), (qsizetype)(from)));
 }
 
-int QByteArrayView_Compare2(const QByteArrayView* self, QByteArrayView* a, int cs) {
-    return self->compare(*a, static_cast<Qt::CaseSensitivity>(cs));
+int QByteArrayView_Compare2(const QByteArrayView* self, libqt_string a, int cs) {
+    QByteArrayView a_QByteArrayView(a.data, a.len);
+    return self->compare(a_QByteArrayView, static_cast<Qt::CaseSensitivity>(cs));
 }
 
 void QByteArrayView_Delete(QByteArrayView* self) {

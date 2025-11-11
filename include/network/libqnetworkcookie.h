@@ -49,7 +49,7 @@ void QNetworkCookie_SetValue(QNetworkCookie* self, const libqt_string value);
 libqt_string QNetworkCookie_ToRawForm(const QNetworkCookie* self);
 bool QNetworkCookie_HasSameIdentifier(const QNetworkCookie* self, const QNetworkCookie* other);
 void QNetworkCookie_Normalize(QNetworkCookie* self, const QUrl* url);
-libqt_list /* of QNetworkCookie* */ QNetworkCookie_ParseCookies(QByteArrayView* cookieString);
+libqt_list /* of QNetworkCookie* */ QNetworkCookie_ParseCookies(libqt_string cookieString);
 libqt_string QNetworkCookie_ToRawForm1(const QNetworkCookie* self, int form);
 void QNetworkCookie_Delete(QNetworkCookie* self);
 

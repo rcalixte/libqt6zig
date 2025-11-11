@@ -27,7 +27,8 @@ func (p CppParameter) cParameterName() string {
 
 func (p CppParameter) RenderTypeCabi(isSlot bool) string {
 	if p.ParameterType == "QString" || p.ParameterType == "QByteArray" ||
-		p.ParameterType == "QAnyStringView" || p.ParameterType == "SignOn::MethodName" {
+		p.ParameterType == "QAnyStringView" || p.ParameterType == "QByteArrayView" ||
+		p.ParameterType == "SignOn::MethodName" {
 		if isSlot {
 			return "const char*"
 		} else {
@@ -272,7 +273,7 @@ func emitCABI2CppForwarding(p CppParameter, indent, currentClass string, isSlot 
 		}
 		return preamble, maybePointer + nameprefix + "_QString"
 
-	} else if p.ParameterType == "QByteArray" {
+	} else if p.ParameterType == "QByteArray" || p.ParameterType == "QByteArrayView" {
 		if isSlot {
 			preamble += indent + p.ParameterType + " " + nameprefix + "_" + p.ParameterType + "(" + p.ParameterName + ");\n"
 		} else {
@@ -584,7 +585,7 @@ func emitAssignCppToCabi(assignExpression string, p CppParameter, rvalue string)
 		afterCall += indent + assignExpression + namePrefix + "_str;\n"
 		return indent + shouldReturn + rvalue + ";\n" + afterCall
 
-	} else if p.ParameterType == "QByteArray" {
+	} else if p.ParameterType == "QByteArray" || p.ParameterType == "QByteArrayView" {
 
 		// C++ has given us a QByteArray. CABI needs this as a libqt_string
 		// Do not free the data, the caller will free it
@@ -622,7 +623,7 @@ func emitAssignCppToCabi(assignExpression string, p CppParameter, rvalue string)
 		shouldReturn = p.RenderTypeQtCpp() + " " + namePrefix + "_ret = "
 
 		if isSignal && cType == "libqt_string" {
-			maybeMethod := ifv(t.ParameterType == "QByteArray", "", ".toUtf8()")
+			maybeMethod := ifv(strings.HasPrefix(t.ParameterType, "QByteArray"), "", ".toUtf8()")
 
 			afterCall = indent + "// Convert QString from UTF-16 in C++ RAII memory to null-terminated UTF-8 chars in manually-managed C memory\n"
 			afterCall += indent + "const char** " + namePrefix + "_arr = static_cast<const char**>(malloc(sizeof(const char*) * (" + namePrefix + "_ret" + memberRef + "size() + 1)));\n"
@@ -1649,13 +1650,18 @@ func emitBindingCpp(src *CppParsedHeader, filename string) (string, error) {
 			// The returned ctor needs to return a C++ pointer for the class itself
 			preamble, forwarding := emitParametersCABI2CppForwarding(ctor.Parameters, "\t", c.ClassName)
 
-			if ctor.LinuxOnly {
+			if ctor.FossOnly {
+				voidCasts := ""
+				for _, p := range ctor.Parameters {
+					voidCasts += "\t(void)" + p.ParameterName + "; // Suppress unused parameter warning\n"
+				}
+
 				ret.WriteString(fmt.Sprintf(
 					"%s* %s_new%s(%s) {\n"+
-						"#ifdef Q_OS_LINUX\n"+
+						"#if defined(Q_OS_LINUX) || defined(Q_OS_BSD4)\n"+
 						"%s"+
 						"\treturn new %s(%s);\n"+
-						"#else\n"+
+						"#else\n%s"+
 						"\treturn nullptr;\n"+
 						"#endif\n"+
 						"}\n"+
@@ -1665,7 +1671,7 @@ func emitBindingCpp(src *CppParsedHeader, filename string) (string, error) {
 					maybeSuffix(i),
 					emitParametersCabi(ctor, ""),
 					preamble,
-					c.ClassName, forwarding,
+					c.ClassName, forwarding, voidCasts,
 				))
 
 			} else {
@@ -1770,13 +1776,18 @@ func emitBindingCpp(src *CppParsedHeader, filename string) (string, error) {
 
 			maybeConst := ifv(m.IsConst, "const ", "")
 
-			if m.LinuxOnly {
+			if m.FossOnly {
+				voidCasts := "\t(void)self; // Suppress unused parameter warning\n"
+				for _, p := range m.Parameters {
+					voidCasts += "\t(void)" + p.ParameterName + "; // Suppress unused parameter warning\n"
+				}
+
 				ret.WriteString(fmt.Sprintf(
 					"%s %s_%s(%s) {\n"+
-						"#ifdef Q_OS_LINUX\n"+
+						"#if defined(Q_OS_LINUX) || defined(Q_OS_BSD4)\n"+
 						"%s"+
 						"%s"+
-						"#else\n"+
+						"#else\n%s"+
 						"\treturn {};\n"+
 						"#endif\n"+
 						"}\n"+
@@ -1784,6 +1795,7 @@ func emitBindingCpp(src *CppParsedHeader, filename string) (string, error) {
 					m.ReturnType.RenderTypeCabi(false), methodPrefixName, mSafeMethodName, emitParametersCabi(m, maybeConst+methodPrefixName+"*"),
 					preamble,
 					emitAssignCppToCabi("\treturn ", m.ReturnType, callTarget),
+					voidCasts,
 				))
 
 			} else if m.BecomesNonConstInVersion != nil {

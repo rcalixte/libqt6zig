@@ -92,8 +92,9 @@ libqt_string QUrl_ToEncoded(const QUrl* self) {
     return _str;
 }
 
-QUrl* QUrl_FromEncoded(QByteArrayView* input) {
-    return new QUrl(QUrl::fromEncoded(*input));
+QUrl* QUrl_FromEncoded(libqt_string input) {
+    QByteArrayView input_QByteArrayView(input.data, input.len);
+    return new QUrl(QUrl::fromEncoded(input_QByteArrayView));
 }
 
 QUrl* QUrl_FromUserInput(const libqt_string userInput) {
@@ -483,8 +484,9 @@ void QUrl_SetUrl2(QUrl* self, const libqt_string url, int mode) {
     self->setUrl(url_QString, static_cast<QUrl::ParsingMode>(mode));
 }
 
-QUrl* QUrl_FromEncoded2(QByteArrayView* input, int mode) {
-    return new QUrl(QUrl::fromEncoded(*input, static_cast<QUrl::ParsingMode>(mode)));
+QUrl* QUrl_FromEncoded2(libqt_string input, int mode) {
+    QByteArrayView input_QByteArrayView(input.data, input.len);
+    return new QUrl(QUrl::fromEncoded(input_QByteArrayView, static_cast<QUrl::ParsingMode>(mode)));
 }
 
 QUrl* QUrl_FromUserInput2(const libqt_string userInput, const libqt_string workingDirectory) {

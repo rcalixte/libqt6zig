@@ -257,7 +257,11 @@ pub const qnetworkcookie = struct {
     ///
     /// ``` cookieString: []const u8, allocator: std.mem.Allocator ```
     pub fn ParseCookies(cookieString: []const u8, allocator: std.mem.Allocator) []QtC.QNetworkCookie {
-        const _arr: qtc.libqt_list = qtc.QNetworkCookie_ParseCookies(cookieString.ptr);
+        const cookieString_str = qtc.libqt_string{
+            .len = cookieString.len,
+            .data = cookieString.ptr,
+        };
+        const _arr: qtc.libqt_list = qtc.QNetworkCookie_ParseCookies(cookieString_str);
         defer qtc.libqt_free(_arr.data);
         const _ret = allocator.alloc(QtC.QNetworkCookie, _arr.len) catch @panic("qnetworkcookie.ParseCookies: Memory allocation failed");
         const _data: [*]QtC.QNetworkCookie = @ptrCast(@alignCast(_arr.data));

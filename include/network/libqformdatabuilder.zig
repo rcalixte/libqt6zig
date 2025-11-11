@@ -28,7 +28,11 @@ pub const qformdatapartbuilder = struct {
     ///
     /// ``` self: QtC.QFormDataPartBuilder, data: []const u8 ```
     pub fn SetBody(self: ?*anyopaque, data: []const u8) QtC.QFormDataPartBuilder {
-        return qtc.QFormDataPartBuilder_SetBody(@ptrCast(self), data.ptr);
+        const data_str = qtc.libqt_string{
+            .len = data.len,
+            .data = data.ptr,
+        };
+        return qtc.QFormDataPartBuilder_SetBody(@ptrCast(self), data_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qformdatapartbuilder.html#setBodyDevice)
@@ -49,17 +53,25 @@ pub const qformdatapartbuilder = struct {
     ///
     /// ``` self: QtC.QFormDataPartBuilder, data: []const u8, fileName: []const u8 ```
     pub fn SetBody2(self: ?*anyopaque, data: []const u8, fileName: []const u8) QtC.QFormDataPartBuilder {
+        const data_str = qtc.libqt_string{
+            .len = data.len,
+            .data = data.ptr,
+        };
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
-        return qtc.QFormDataPartBuilder_SetBody2(@ptrCast(self), data.ptr, fileName_str);
+        return qtc.QFormDataPartBuilder_SetBody2(@ptrCast(self), data_str, fileName_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qformdatapartbuilder.html#setBody)
     ///
     /// ``` self: QtC.QFormDataPartBuilder, data: []const u8, fileName: []const u8, mimeType: []const u8 ```
     pub fn SetBody3(self: ?*anyopaque, data: []const u8, fileName: []const u8, mimeType: []const u8) QtC.QFormDataPartBuilder {
+        const data_str = qtc.libqt_string{
+            .len = data.len,
+            .data = data.ptr,
+        };
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
@@ -68,7 +80,7 @@ pub const qformdatapartbuilder = struct {
             .len = mimeType.len,
             .data = mimeType.ptr,
         };
-        return qtc.QFormDataPartBuilder_SetBody3(@ptrCast(self), data.ptr, fileName_str, mimeType_str);
+        return qtc.QFormDataPartBuilder_SetBody3(@ptrCast(self), data_str, fileName_str, mimeType_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qformdatapartbuilder.html#setBodyDevice)

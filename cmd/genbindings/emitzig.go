@@ -511,12 +511,9 @@ func (p CppParameter) renderReturnTypeZig(zfs *zigFileState, isSlot bool) string
 
 func (p CppParameter) parameterTypeZig() string {
 	if p.ParameterType == "QString" || p.ParameterType == "QByteArray" ||
-		p.ParameterType == "QAnyStringView" || p.ParameterType == "SignOn::MethodName" {
+		p.ParameterType == "QAnyStringView" || p.ParameterType == "QByteArrayView" ||
+		p.ParameterType == "QStringView" || p.ParameterType == "SignOn::MethodName" {
 		return "qtc.libqt_string"
-	}
-
-	if p.ParameterType == "QByteArrayView" || p.ParameterType == "QStringView" {
-		return "qtc.libqt_strview"
 	}
 
 	if _, _, ok := p.QListOf(); ok {
@@ -731,7 +728,8 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 	lowerClass := strings.ToLower(zfs.currentClassName)
 
 	if p.ParameterType == "QString" || p.ParameterType == "QByteArray" ||
-		p.ParameterType == "QAnyStringView" || p.ParameterType == "SignOn::MethodName" {
+		p.ParameterType == "QAnyStringView" || p.ParameterType == "QByteArrayView" ||
+		p.ParameterType == "SignOn::MethodName" {
 		// Zig: convert [](const) u8 -> libqt_string
 		// C ABI: convert libqt_string -> real QString
 
@@ -742,7 +740,7 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 
 		rvalue = nameprefix + "_str"
 
-	} else if p.ParameterType == "QByteArrayView" || p.ParameterType == "QStringView" {
+	} else if p.ParameterType == "QStringView" {
 		rvalue = p.ParameterName + ".ptr"
 
 	} else if t, _, ok := p.QListOf(); ok {
@@ -1324,6 +1322,14 @@ var (
 		"QFileDevice_Close":        {},
 		"QPaintDevice_PaintEngine": {},
 	}
+
+	// These functions are not portable to all platforms
+	platformFunctions = map[string]struct{}{
+		"QsciScintilla_FindMatchingBrace": {},
+		"QTextStream_OperatorShiftRight8": {},
+		"QTextStream_OperatorShiftRight9": {},
+		"QVersionNumber_FromString2":      {},
+	}
 )
 
 func emitZig(src *CppParsedHeader, headerName, packageName string) (string, map[string]string, error) {
@@ -1447,7 +1453,7 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 
 			allocatorParam := ifv(strings.Contains(preamble, "allocator"), "allocator: std.mem.Allocator", "")
 
-			if ctor.LinuxOnly {
+			if ctor.FossOnly {
 				zfs.imports["builtin"] = struct{}{}
 
 				backticks := ifv(len(ctor.Parameters) > 0 || allocatorParam != "", "```", "")
@@ -1458,11 +1464,11 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 					" object.\n    ///\n    /// " + backticks + " " +
 					zfs.emitCommentParametersZig(ctor.Parameters, false) + commaParams + allocComma + allocatorParam + " " + backticks + "\n" +
 					"    pub fn New" + maybeSuffix(i) + "(" + zfs.emitParametersZig(ctor.Parameters, false) + allocComma + allocatorParam + ") QtC." + zigStructName + ` {
-        switch (builtin.target.os.tag) {
-            .linux => {
+        switch (builtin.os.tag) {
+            .linux, .freebsd => {
                 return qtc.` + zigStructName + "_new" + maybeSuffix(i) + "(" + forwarding + `);
             },
-            else => @panic("Unsupported operating system"),
+            else => @compileError("Unsupported operating system"),
         }
     }
 
@@ -1605,6 +1611,15 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 				inheritedFrom = "\n    /// Inherited from " + m.InheritedInClass + "\n    ///"
 			}
 
+			maybePlatformCompileError := ""
+			if _, ok := platformFunctions[cmdStructName+"_"+mSafeMethodName]; ok && !m.FossOnly {
+				zfs.imports["builtin"] = struct{}{}
+				maybePlatformCompileError = "switch (builtin.os.tag) {\n" +
+					"    .linux, .freebsd => {},\n" +
+					`    else => @compileError("Unsupported operating system"),` +
+					"\n}\n"
+			}
+
 			ret.WriteString(inheritedFrom)
 
 			var docCommentUrl string
@@ -1664,13 +1679,13 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 			ret.WriteString("\n    /// " + backticks + " " +
 				commentParam + zfs.emitCommentParametersZig(m.Parameters, false) +
 				allocComma + allocatorParam + " " + backticks + "\n" + returnComment +
-				"    pub fn " + fnMethod + zfs.emitParametersZig(m.Parameters, false) + allocComma + allocatorParam + ") " + returnTypeDecl + " {")
+				"    pub fn " + fnMethod + zfs.emitParametersZig(m.Parameters, false) + allocComma + allocatorParam + ") " + returnTypeDecl + " {" + maybePlatformCompileError)
 
-			if m.LinuxOnly {
+			if m.FossOnly {
 				zfs.imports["builtin"] = struct{}{}
 				ret.WriteString(`
-    if (builtin.target.os.tag != .linux) {
-        @panic("Unsupported operating system");
+    if (builtin.os.tag != .linux and builtin.os.tag != .freebsd) {
+        @compileError("Unsupported operating system");
     }
 `)
 			}
@@ -1754,11 +1769,11 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 					allocComma + allocatorParam + " " + backticks + "\n" + returnComment +
 					"    pub fn " + baseMethod + zfs.emitParametersZig(m.Parameters, false) + allocComma + allocatorParam + ") " + returnTypeDecl + " {")
 
-				if m.LinuxOnly {
+				if m.FossOnly {
 					zfs.imports["builtin"] = struct{}{}
 					ret.WriteString(`
-			if (builtin.target.os.tag != .linux) {
-				@panic("Unsupported operating system");
+			if (builtin.os.tag != .linux and builtin.os.tag != .freebsd) {
+				@compileError("Unsupported operating system");
 			}
 		`)
 				}

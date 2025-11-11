@@ -53,7 +53,7 @@ pub fn build(b: *std.Build) !void {
                     continue;
                 if ((is_macos or is_windows) and std.mem.eql(u8, basename, "qopenglcontext_platform"))
                     continue;
-                if (is_windows and (std.mem.eql(u8, basename, "qhashfunctions") or std.mem.eql(u8, basename, "qprocess") or std.mem.eql(u8, basename, "qtextstream")))
+                if (is_windows and (std.mem.eql(u8, basename, "qhashfunctions") or std.mem.eql(u8, basename, "qprocess")))
                     continue;
 
                 inline for (prefixes) |prefix| {

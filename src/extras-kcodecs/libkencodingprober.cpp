@@ -32,8 +32,9 @@ void KEncodingProber_Reset(KEncodingProber* self) {
     self->reset();
 }
 
-int KEncodingProber_Feed(KEncodingProber* self, QByteArrayView* data) {
-    return static_cast<int>(self->feed(*data));
+int KEncodingProber_Feed(KEncodingProber* self, libqt_string data) {
+    QByteArrayView data_QByteArrayView(data.data, data.len);
+    return static_cast<int>(self->feed(data_QByteArrayView));
 }
 
 int KEncodingProber_Feed2(KEncodingProber* self, const char* data, ptrdiff_t lenVal) {

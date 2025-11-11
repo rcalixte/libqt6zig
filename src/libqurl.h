@@ -32,7 +32,7 @@ libqt_string QUrl_Url(const QUrl* self);
 libqt_string QUrl_ToString(const QUrl* self);
 libqt_string QUrl_ToDisplayString(const QUrl* self);
 libqt_string QUrl_ToEncoded(const QUrl* self);
-QUrl* QUrl_FromEncoded(QByteArrayView* input);
+QUrl* QUrl_FromEncoded(libqt_string input);
 QUrl* QUrl_FromUserInput(const libqt_string userInput);
 bool QUrl_IsValid(const QUrl* self);
 libqt_string QUrl_ErrorString(const QUrl* self);
@@ -79,7 +79,7 @@ libqt_list /* of libqt_string */ QUrl_ToStringList(const libqt_list /* of QUrl* 
 libqt_list /* of QUrl* */ QUrl_FromStringList(const libqt_list /* of libqt_string */ uris);
 void QUrl_SetIdnWhitelist(const libqt_list /* of libqt_string */ idnWhitelist);
 void QUrl_SetUrl2(QUrl* self, const libqt_string url, int mode);
-QUrl* QUrl_FromEncoded2(QByteArrayView* input, int mode);
+QUrl* QUrl_FromEncoded2(libqt_string input, int mode);
 QUrl* QUrl_FromUserInput2(const libqt_string userInput, const libqt_string workingDirectory);
 QUrl* QUrl_FromUserInput3(const libqt_string userInput, const libqt_string workingDirectory, int options);
 void QUrl_SetAuthority2(QUrl* self, const libqt_string authority, int mode);

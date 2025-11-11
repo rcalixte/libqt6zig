@@ -9,14 +9,24 @@ pub const qbytearrayview = struct {
     ///
     /// ``` other: []const u8 ```
     pub fn New(other: []const u8) QtC.QByteArrayView {
-        return qtc.QByteArrayView_new(other.ptr);
+        const other_str = qtc.libqt_string{
+            .len = other.len,
+            .data = other.ptr,
+        };
+
+        return qtc.QByteArrayView_new(other_str);
     }
 
     /// New2 constructs a new QByteArrayView object and invalidates the source QByteArrayView object.
     ///
     /// ``` other: []const u8 ```
     pub fn New2(other: []const u8) QtC.QByteArrayView {
-        return qtc.QByteArrayView_new2(other.ptr);
+        const other_str = qtc.libqt_string{
+            .len = other.len,
+            .data = other.ptr,
+        };
+
+        return qtc.QByteArrayView_new2(other_str);
     }
 
     /// New3 constructs a new QByteArrayView object.
@@ -30,7 +40,12 @@ pub const qbytearrayview = struct {
     ///
     /// ``` param1: []const u8 ```
     pub fn New4(param1: []const u8) QtC.QByteArrayView {
-        return qtc.QByteArrayView_new4(param1.ptr);
+        const param1_str = qtc.libqt_string{
+            .len = param1.len,
+            .data = param1.ptr,
+        };
+
+        return qtc.QByteArrayView_new4(param1_str);
     }
 
     /// CopyAssign shallow copies `other` into `self`.
@@ -304,7 +319,11 @@ pub const qbytearrayview = struct {
     ///
     /// ``` self: QtC.QByteArrayView, other: []const u8 ```
     pub fn StartsWith(self: ?*anyopaque, other: []const u8) bool {
-        return qtc.QByteArrayView_StartsWith(@ptrCast(self), other.ptr);
+        const other_str = qtc.libqt_string{
+            .len = other.len,
+            .data = other.ptr,
+        };
+        return qtc.QByteArrayView_StartsWith(@ptrCast(self), other_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#startsWith)
@@ -318,7 +337,11 @@ pub const qbytearrayview = struct {
     ///
     /// ``` self: QtC.QByteArrayView, other: []const u8 ```
     pub fn EndsWith(self: ?*anyopaque, other: []const u8) bool {
-        return qtc.QByteArrayView_EndsWith(@ptrCast(self), other.ptr);
+        const other_str = qtc.libqt_string{
+            .len = other.len,
+            .data = other.ptr,
+        };
+        return qtc.QByteArrayView_EndsWith(@ptrCast(self), other_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#endsWith)
@@ -332,7 +355,11 @@ pub const qbytearrayview = struct {
     ///
     /// ``` self: QtC.QByteArrayView, a: []const u8 ```
     pub fn IndexOf(self: ?*anyopaque, a: []const u8) i64 {
-        return qtc.QByteArrayView_IndexOf(@ptrCast(self), a.ptr);
+        const a_str = qtc.libqt_string{
+            .len = a.len,
+            .data = a.ptr,
+        };
+        return qtc.QByteArrayView_IndexOf(@ptrCast(self), a_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#indexOf)
@@ -346,7 +373,11 @@ pub const qbytearrayview = struct {
     ///
     /// ``` self: QtC.QByteArrayView, a: []const u8 ```
     pub fn Contains(self: ?*anyopaque, a: []const u8) bool {
-        return qtc.QByteArrayView_Contains(@ptrCast(self), a.ptr);
+        const a_str = qtc.libqt_string{
+            .len = a.len,
+            .data = a.ptr,
+        };
+        return qtc.QByteArrayView_Contains(@ptrCast(self), a_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#contains)
@@ -360,14 +391,22 @@ pub const qbytearrayview = struct {
     ///
     /// ``` self: QtC.QByteArrayView, a: []const u8 ```
     pub fn LastIndexOf(self: ?*anyopaque, a: []const u8) i64 {
-        return qtc.QByteArrayView_LastIndexOf(@ptrCast(self), a.ptr);
+        const a_str = qtc.libqt_string{
+            .len = a.len,
+            .data = a.ptr,
+        };
+        return qtc.QByteArrayView_LastIndexOf(@ptrCast(self), a_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#lastIndexOf)
     ///
     /// ``` self: QtC.QByteArrayView, a: []const u8, from: i64 ```
     pub fn LastIndexOf2(self: ?*anyopaque, a: []const u8, from: i64) i64 {
-        return qtc.QByteArrayView_LastIndexOf2(@ptrCast(self), a.ptr, @intCast(from));
+        const a_str = qtc.libqt_string{
+            .len = a.len,
+            .data = a.ptr,
+        };
+        return qtc.QByteArrayView_LastIndexOf2(@ptrCast(self), a_str, @intCast(from));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#lastIndexOf)
@@ -381,7 +420,11 @@ pub const qbytearrayview = struct {
     ///
     /// ``` self: QtC.QByteArrayView, a: []const u8 ```
     pub fn Count(self: ?*anyopaque, a: []const u8) i64 {
-        return qtc.QByteArrayView_Count(@ptrCast(self), a.ptr);
+        const a_str = qtc.libqt_string{
+            .len = a.len,
+            .data = a.ptr,
+        };
+        return qtc.QByteArrayView_Count(@ptrCast(self), a_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#count)
@@ -395,7 +438,11 @@ pub const qbytearrayview = struct {
     ///
     /// ``` self: QtC.QByteArrayView, a: []const u8 ```
     pub fn Compare(self: ?*anyopaque, a: []const u8) i32 {
-        return qtc.QByteArrayView_Compare(@ptrCast(self), a.ptr);
+        const a_str = qtc.libqt_string{
+            .len = a.len,
+            .data = a.ptr,
+        };
+        return qtc.QByteArrayView_Compare(@ptrCast(self), a_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#isValidUtf8)
@@ -648,7 +695,11 @@ pub const qbytearrayview = struct {
     ///
     /// ``` self: QtC.QByteArrayView, a: []const u8, from: i64 ```
     pub fn IndexOf22(self: ?*anyopaque, a: []const u8, from: i64) i64 {
-        return qtc.QByteArrayView_IndexOf22(@ptrCast(self), a.ptr, @intCast(from));
+        const a_str = qtc.libqt_string{
+            .len = a.len,
+            .data = a.ptr,
+        };
+        return qtc.QByteArrayView_IndexOf22(@ptrCast(self), a_str, @intCast(from));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#indexOf)
@@ -669,7 +720,11 @@ pub const qbytearrayview = struct {
     ///
     /// ``` self: QtC.QByteArrayView, a: []const u8, cs: qnamespace_enums.CaseSensitivity ```
     pub fn Compare2(self: ?*anyopaque, a: []const u8, cs: i32) i32 {
-        return qtc.QByteArrayView_Compare2(@ptrCast(self), a.ptr, @intCast(cs));
+        const a_str = qtc.libqt_string{
+            .len = a.len,
+            .data = a.ptr,
+        };
+        return qtc.QByteArrayView_Compare2(@ptrCast(self), a_str, @intCast(cs));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbytearrayview.html#dtor.QByteArrayView)

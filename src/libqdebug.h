@@ -58,7 +58,7 @@ QDebug* QDebug_OperatorShiftLeft16(QDebug* self, double t);
 QDebug* QDebug_OperatorShiftLeft17(QDebug* self, const char* t);
 QDebug* QDebug_OperatorShiftLeft19(QDebug* self, const libqt_string t);
 QDebug* QDebug_OperatorShiftLeft23(QDebug* self, const libqt_string t);
-QDebug* QDebug_OperatorShiftLeft24(QDebug* self, QByteArrayView* t);
+QDebug* QDebug_OperatorShiftLeft24(QDebug* self, libqt_string t);
 QDebug* QDebug_OperatorShiftLeft25(QDebug* self, const void* t);
 QDebug* QDebug_MaybeQuote1(QDebug* self, char c);
 void QDebug_Delete(QDebug* self);

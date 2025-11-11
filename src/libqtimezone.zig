@@ -180,7 +180,11 @@ pub const qtimezone = struct {
     ///
     /// ``` self: QtC.QTimeZone, alias: []const u8 ```
     pub fn HasAlternativeName(self: ?*anyopaque, alias: []const u8) bool {
-        return qtc.QTimeZone_HasAlternativeName(@ptrCast(self), alias.ptr);
+        const alias_str = qtc.libqt_string{
+            .len = alias.len,
+            .data = alias.ptr,
+        };
+        return qtc.QTimeZone_HasAlternativeName(@ptrCast(self), alias_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qtimezone.html#id)

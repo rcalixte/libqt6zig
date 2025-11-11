@@ -1,5 +1,6 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const builtin = @import("builtin");
 const qabstractscrollarea_enums = @import("../libqabstractscrollarea.zig").enums;
 const qframe_enums = @import("../libqframe.zig").enums;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
@@ -552,6 +553,11 @@ pub const qsciscintilla = struct {
     ///
     /// ``` self: QtC.QsciScintilla, brace: *i64, other: *i64, mode: qsciscintilla_enums.BraceMatch ```
     pub fn FindMatchingBrace(self: ?*anyopaque, brace: *i64, other: *i64, mode: i32) bool {
+        switch (builtin.os.tag) {
+            .linux, .freebsd => {},
+            else => @compileError("Unsupported operating system"),
+        }
+
         return qtc.QsciScintilla_FindMatchingBrace(@ptrCast(self), @ptrCast(brace), @ptrCast(other), @intCast(mode));
     }
 

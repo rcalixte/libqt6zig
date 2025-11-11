@@ -196,14 +196,22 @@ pub const qstringdecoder = struct {
     ///
     /// ``` self: QtC.QStringDecoder, out: QtC.QChar, ba: []const u8 ```
     pub fn AppendToBuffer(self: ?*anyopaque, out: ?*anyopaque, ba: []const u8) QtC.QChar {
-        return qtc.QStringDecoder_AppendToBuffer(@ptrCast(self), @ptrCast(out), ba.ptr);
+        const ba_str = qtc.libqt_string{
+            .len = ba.len,
+            .data = ba.ptr,
+        };
+        return qtc.QStringDecoder_AppendToBuffer(@ptrCast(self), @ptrCast(out), ba_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qstringdecoder.html#decoderForHtml)
     ///
     /// ``` data: []const u8 ```
     pub fn DecoderForHtml(data: []const u8) QtC.QStringDecoder {
-        return qtc.QStringDecoder_DecoderForHtml(data.ptr);
+        const data_str = qtc.libqt_string{
+            .len = data.len,
+            .data = data.ptr,
+        };
+        return qtc.QStringDecoder_DecoderForHtml(data_str);
     }
 
     /// Inherited from QStringConverter

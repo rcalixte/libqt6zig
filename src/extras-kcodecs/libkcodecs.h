@@ -31,30 +31,30 @@ typedef struct KCodecs__Encoder KCodecs__Encoder;
 typedef struct QByteArrayView QByteArrayView;
 #endif
 
-libqt_string KCodecs_QuotedPrintableEncode(QByteArrayView* param1, bool param2);
-void KCodecs_QuotedPrintableEncode2(QByteArrayView* param1, libqt_string param2, bool param3);
-libqt_string KCodecs_QuotedPrintableDecode(QByteArrayView* param1);
-void KCodecs_QuotedPrintableDecode2(QByteArrayView* param1, libqt_string param2);
-libqt_string KCodecs_Uudecode(QByteArrayView* param1);
-void KCodecs_Uudecode2(QByteArrayView* param1, libqt_string param2);
-libqt_string KCodecs_Base64Encode(QByteArrayView* param1);
-void KCodecs_Base64Encode2(QByteArrayView* param1, libqt_string param2, bool param3);
-libqt_string KCodecs_Base64Decode(QByteArrayView* param1);
-void KCodecs_Base64Decode2(QByteArrayView* param1, libqt_string param2);
-libqt_string KCodecs_Base45Decode(QByteArrayView* param1);
+libqt_string KCodecs_QuotedPrintableEncode(libqt_string param1, bool param2);
+void KCodecs_QuotedPrintableEncode2(libqt_string param1, libqt_string param2, bool param3);
+libqt_string KCodecs_QuotedPrintableDecode(libqt_string param1);
+void KCodecs_QuotedPrintableDecode2(libqt_string param1, libqt_string param2);
+libqt_string KCodecs_Uudecode(libqt_string param1);
+void KCodecs_Uudecode2(libqt_string param1, libqt_string param2);
+libqt_string KCodecs_Base64Encode(libqt_string param1);
+void KCodecs_Base64Encode2(libqt_string param1, libqt_string param2, bool param3);
+libqt_string KCodecs_Base64Decode(libqt_string param1);
+void KCodecs_Base64Decode2(libqt_string param1, libqt_string param2);
+libqt_string KCodecs_Base45Decode(libqt_string param1);
 
-KCodecs__Codec* KCodecs__Codec_CodecForName(QByteArrayView* name);
+KCodecs__Codec* KCodecs__Codec_CodecForName(libqt_string name);
 ptrdiff_t KCodecs__Codec_MaxEncodedSizeFor(const KCodecs__Codec* self, ptrdiff_t insize, int newline);
 ptrdiff_t KCodecs__Codec_MaxDecodedSizeFor(const KCodecs__Codec* self, ptrdiff_t insize, int newline);
 KCodecs__Encoder* KCodecs__Codec_MakeEncoder(const KCodecs__Codec* self, int newline);
 KCodecs__Decoder* KCodecs__Codec_MakeDecoder(const KCodecs__Codec* self, int newline);
 bool KCodecs__Codec_Encode(const KCodecs__Codec* self, const char* scursor, const char* send, char* dcursor, const char* dend, int newline);
 bool KCodecs__Codec_Decode(const KCodecs__Codec* self, const char* scursor, const char* send, char* dcursor, const char* dend, int newline);
-libqt_string KCodecs__Codec_Encode2(const KCodecs__Codec* self, QByteArrayView* src);
-libqt_string KCodecs__Codec_Decode2(const KCodecs__Codec* self, QByteArrayView* src);
+libqt_string KCodecs__Codec_Encode2(const KCodecs__Codec* self, libqt_string src);
+libqt_string KCodecs__Codec_Decode2(const KCodecs__Codec* self, libqt_string src);
 const char* KCodecs__Codec_Name(const KCodecs__Codec* self);
-libqt_string KCodecs__Codec_Encode22(const KCodecs__Codec* self, QByteArrayView* src, int newline);
-libqt_string KCodecs__Codec_Decode22(const KCodecs__Codec* self, QByteArrayView* src, int newline);
+libqt_string KCodecs__Codec_Encode22(const KCodecs__Codec* self, libqt_string src, int newline);
+libqt_string KCodecs__Codec_Decode22(const KCodecs__Codec* self, libqt_string src, int newline);
 void KCodecs__Codec_Delete(KCodecs__Codec* self);
 
 bool KCodecs__Decoder_Decode(KCodecs__Decoder* self, const char* scursor, const char* send, char* dcursor, const char* dend);
