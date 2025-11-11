@@ -725,7 +725,11 @@ pub const qimage = struct {
     ///
     /// ``` self: QtC.QImage, data: []const u8 ```
     pub fn LoadFromData(self: ?*anyopaque, data: []const u8) bool {
-        return qtc.QImage_LoadFromData(@ptrCast(self), data.ptr);
+        const data_str = qtc.libqt_string{
+            .len = data.len,
+            .data = data.ptr,
+        };
+        return qtc.QImage_LoadFromData(@ptrCast(self), data_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#loadFromData)
@@ -768,7 +772,11 @@ pub const qimage = struct {
     ///
     /// ``` data: []const u8 ```
     pub fn FromData(data: []const u8) QtC.QImage {
-        return qtc.QImage_FromData(data.ptr);
+        const data_str = qtc.libqt_string{
+            .len = data.len,
+            .data = data.ptr,
+        };
+        return qtc.QImage_FromData(data_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#fromData)
@@ -1347,8 +1355,12 @@ pub const qimage = struct {
     ///
     /// ``` self: QtC.QImage, data: []const u8, format: []const u8 ```
     pub fn LoadFromData22(self: ?*anyopaque, data: []const u8, format: []const u8) bool {
+        const data_str = qtc.libqt_string{
+            .len = data.len,
+            .data = data.ptr,
+        };
         const format_Cstring = format.ptr;
-        return qtc.QImage_LoadFromData22(@ptrCast(self), data.ptr, format_Cstring);
+        return qtc.QImage_LoadFromData22(@ptrCast(self), data_str, format_Cstring);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#loadFromData)
@@ -1415,8 +1427,12 @@ pub const qimage = struct {
     ///
     /// ``` data: []const u8, format: []const u8 ```
     pub fn FromData22(data: []const u8, format: []const u8) QtC.QImage {
+        const data_str = qtc.libqt_string{
+            .len = data.len,
+            .data = data.ptr,
+        };
         const format_Cstring = format.ptr;
-        return qtc.QImage_FromData22(data.ptr, format_Cstring);
+        return qtc.QImage_FromData22(data_str, format_Cstring);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qimage.html#fromData)

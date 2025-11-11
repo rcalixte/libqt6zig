@@ -254,7 +254,11 @@ pub const qdebug = struct {
     ///
     /// ``` self: QtC.QDebug, t: []const u8 ```
     pub fn OperatorShiftLeft24(self: ?*anyopaque, t: []const u8) QtC.QDebug {
-        return qtc.QDebug_OperatorShiftLeft24(@ptrCast(self), t.ptr);
+        const t_str = qtc.libqt_string{
+            .len = t.len,
+            .data = t.ptr,
+        };
+        return qtc.QDebug_OperatorShiftLeft24(@ptrCast(self), t_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qdebug.html#operator-lt-lt)

@@ -44,7 +44,11 @@ pub const kencodingprober = struct {
     ///
     /// Returns: ``` kencodingprober_enums.ProberState ```
     pub fn Feed(self: ?*anyopaque, data: []const u8) i32 {
-        return qtc.KEncodingProber_Feed(@ptrCast(self), data.ptr);
+        const data_str = qtc.libqt_string{
+            .len = data.len,
+            .data = data.ptr,
+        };
+        return qtc.KEncodingProber_Feed(@ptrCast(self), data_str);
     }
 
     /// [Qt documentation](https://api.kde.org/kencodingprober.html#feed)

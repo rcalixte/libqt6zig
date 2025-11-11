@@ -22,30 +22,23 @@ extern "C" {
 
 // Forward declarations
 struct libqt_string;
-struct libqt_strview;
 struct libqt_list;
 struct libqt_bitarray;
 struct libqt_map;
 struct libqt_pair;
 
 typedef struct libqt_string libqt_string;
-typedef struct libqt_strview libqt_strview;
 typedef struct libqt_list libqt_list;
 typedef struct libqt_bitarray libqt_bitarray;
 typedef struct libqt_map libqt_map;
 typedef struct libqt_pair libqt_pair;
 
 // Structs representing Qt-allocated memory
+
 // QString
 struct libqt_string {
     size_t len;
     const char* data;
-};
-
-// QAnyStringView, QByteArrayView, and similar view types
-struct libqt_strview {
-    size_t len;
-    const char* ptr;
 };
 
 // QList
@@ -94,15 +87,6 @@ static size_t libqt_strv_length(const char** strv) {
         }
     }
     return len;
-}
-
-static libqt_strview qstrview(const char* string) {
-    libqt_strview view = {0, NULL}; // Initialize to zero and NULL
-    if (string) {
-        view.ptr = string;
-        view.len = strlen(string);
-    }
-    return view;
 }
 
 #ifdef __cplusplus

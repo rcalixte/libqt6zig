@@ -27,7 +27,12 @@ pub const qbytearraymatcher = struct {
     ///
     /// ``` pattern: []const u8 ```
     pub fn New3(pattern: []const u8) QtC.QByteArrayMatcher {
-        return qtc.QByteArrayMatcher_new3(pattern.ptr);
+        const pattern_str = qtc.libqt_string{
+            .len = pattern.len,
+            .data = pattern.ptr,
+        };
+
+        return qtc.QByteArrayMatcher_new3(pattern_str);
     }
 
     /// New4 constructs a new QByteArrayMatcher object.
@@ -85,7 +90,11 @@ pub const qbytearraymatcher = struct {
     ///
     /// ``` self: QtC.QByteArrayMatcher, data: []const u8 ```
     pub fn IndexIn2(self: ?*anyopaque, data: []const u8) i64 {
-        return qtc.QByteArrayMatcher_IndexIn2(@ptrCast(self), data.ptr);
+        const data_str = qtc.libqt_string{
+            .len = data.len,
+            .data = data.ptr,
+        };
+        return qtc.QByteArrayMatcher_IndexIn2(@ptrCast(self), data_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbytearraymatcher.html#pattern)
@@ -111,7 +120,11 @@ pub const qbytearraymatcher = struct {
     ///
     /// ``` self: QtC.QByteArrayMatcher, data: []const u8, from: i64 ```
     pub fn IndexIn22(self: ?*anyopaque, data: []const u8, from: i64) i64 {
-        return qtc.QByteArrayMatcher_IndexIn22(@ptrCast(self), data.ptr, @intCast(from));
+        const data_str = qtc.libqt_string{
+            .len = data.len,
+            .data = data.ptr,
+        };
+        return qtc.QByteArrayMatcher_IndexIn22(@ptrCast(self), data_str, @intCast(from));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qbytearraymatcher.html#dtor.QByteArrayMatcher)

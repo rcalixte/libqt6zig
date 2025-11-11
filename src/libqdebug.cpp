@@ -199,8 +199,9 @@ QDebug* QDebug_OperatorShiftLeft23(QDebug* self, const libqt_string t) {
     return &_ret;
 }
 
-QDebug* QDebug_OperatorShiftLeft24(QDebug* self, QByteArrayView* t) {
-    QDebug& _ret = self->operator<<(*t);
+QDebug* QDebug_OperatorShiftLeft24(QDebug* self, libqt_string t) {
+    QByteArrayView t_QByteArrayView(t.data, t.len);
+    QDebug& _ret = self->operator<<(t_QByteArrayView);
     // Cast returned reference into pointer
     return &_ret;
 }

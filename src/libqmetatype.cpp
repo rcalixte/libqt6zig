@@ -195,8 +195,9 @@ QMetaType* QMetaType_UnderlyingType(const QMetaType* self) {
     return new QMetaType(self->underlyingType());
 }
 
-QMetaType* QMetaType_FromName(QByteArrayView* name) {
-    return new QMetaType(QMetaType::fromName(*name));
+QMetaType* QMetaType_FromName(libqt_string name) {
+    QByteArrayView name_QByteArrayView(name.data, name.len);
+    return new QMetaType(QMetaType::fromName(name_QByteArrayView));
 }
 
 bool QMetaType_DebugStream(QMetaType* self, QDebug* dbg, const void* rhs) {

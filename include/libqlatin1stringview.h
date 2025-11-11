@@ -26,7 +26,7 @@ QLatin1String* QLatin1String_new2(const char* s);
 QLatin1String* QLatin1String_new3(const char* f, const char* l);
 QLatin1String* QLatin1String_new4(const char* s, ptrdiff_t sz);
 QLatin1String* QLatin1String_new5(const libqt_string s);
-QLatin1String* QLatin1String_new6(QByteArrayView* s);
+QLatin1String* QLatin1String_new6(libqt_string s);
 void QLatin1String_CopyAssign(QLatin1String* self, QLatin1String* other);
 void QLatin1String_MoveAssign(QLatin1String* self, QLatin1String* other);
 libqt_string QLatin1String_ToString(const QLatin1String* self);

@@ -1,5 +1,6 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const builtin = @import("builtin");
 const qiodevicebase_enums = @import("libqiodevicebase.zig").enums;
 const qstringconverter_base_enums = @import("libqstringconverter_base.zig").enums;
 const qtextstream_enums = enums;
@@ -376,6 +377,11 @@ pub const qtextstream = struct {
     ///
     /// ``` self: QtC.QTextStream, i: *i64 ```
     pub fn OperatorShiftRight8(self: ?*anyopaque, i: *i64) QtC.QTextStream {
+        switch (builtin.os.tag) {
+            .linux, .freebsd => {},
+            else => @compileError("Unsupported operating system"),
+        }
+
         return qtc.QTextStream_OperatorShiftRight8(@ptrCast(self), @ptrCast(i));
     }
 
@@ -383,6 +389,11 @@ pub const qtextstream = struct {
     ///
     /// ``` self: QtC.QTextStream, i: *u64 ```
     pub fn OperatorShiftRight9(self: ?*anyopaque, i: *u64) QtC.QTextStream {
+        switch (builtin.os.tag) {
+            .linux, .freebsd => {},
+            else => @compileError("Unsupported operating system"),
+        }
+
         return qtc.QTextStream_OperatorShiftRight9(@ptrCast(self), @ptrCast(i));
     }
 

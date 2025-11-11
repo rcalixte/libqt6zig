@@ -127,7 +127,11 @@ pub const qurl = struct {
     ///
     /// ``` input: []const u8 ```
     pub fn FromEncoded(input: []const u8) QtC.QUrl {
-        return qtc.QUrl_FromEncoded(input.ptr);
+        const input_str = qtc.libqt_string{
+            .len = input.len,
+            .data = input.ptr,
+        };
+        return qtc.QUrl_FromEncoded(input_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#fromUserInput)
@@ -647,7 +651,11 @@ pub const qurl = struct {
     ///
     /// ``` input: []const u8, mode: qurl_enums.ParsingMode ```
     pub fn FromEncoded2(input: []const u8, mode: i32) QtC.QUrl {
-        return qtc.QUrl_FromEncoded2(input.ptr, @intCast(mode));
+        const input_str = qtc.libqt_string{
+            .len = input.len,
+            .data = input.ptr,
+        };
+        return qtc.QUrl_FromEncoded2(input_str, @intCast(mode));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qurl.html#fromUserInput)

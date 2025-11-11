@@ -948,11 +948,11 @@ pub const qsocketdescriptor = struct {
     ///
     /// ``` descriptor: i32 ```
     pub fn New5(descriptor: i32) QtC.QSocketDescriptor {
-        switch (builtin.target.os.tag) {
-            .linux => {
+        switch (builtin.os.tag) {
+            .linux, .freebsd => {
                 return qtc.QSocketDescriptor_new5(@intCast(descriptor));
             },
-            else => @panic("Unsupported operating system"),
+            else => @compileError("Unsupported operating system"),
         }
     }
 
@@ -974,8 +974,8 @@ pub const qsocketdescriptor = struct {
     ///
     /// ``` self: QtC.QSocketDescriptor ```
     pub fn ToInt(self: ?*anyopaque) i32 {
-        if (builtin.target.os.tag != .linux) {
-            @panic("Unsupported operating system");
+        if (builtin.os.tag != .linux and builtin.os.tag != .freebsd) {
+            @compileError("Unsupported operating system");
         }
 
         return qtc.QSocketDescriptor_ToInt(@ptrCast(self));

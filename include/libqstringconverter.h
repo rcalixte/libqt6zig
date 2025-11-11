@@ -38,8 +38,8 @@ QStringDecoder* QStringDecoder_new3(libqt_string name);
 QStringDecoder* QStringDecoder_new4(int encoding, int flags);
 QStringDecoder* QStringDecoder_new5(libqt_string name, int f);
 ptrdiff_t QStringDecoder_RequiredSpace(const QStringDecoder* self, ptrdiff_t inputLength);
-QChar* QStringDecoder_AppendToBuffer(QStringDecoder* self, QChar* out, QByteArrayView* ba);
-QStringDecoder* QStringDecoder_DecoderForHtml(QByteArrayView* data);
+QChar* QStringDecoder_AppendToBuffer(QStringDecoder* self, QChar* out, libqt_string ba);
+QStringDecoder* QStringDecoder_DecoderForHtml(libqt_string data);
 void QStringDecoder_Delete(QStringDecoder* self);
 
 #ifdef __cplusplus

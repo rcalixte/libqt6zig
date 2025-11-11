@@ -473,9 +473,10 @@ QSocketDescriptor* QSocketDescriptor_new4(const QSocketDescriptor* param1) {
 }
 
 QSocketDescriptor* QSocketDescriptor_new5(int descriptor) {
-#ifdef Q_OS_LINUX
+#if defined(Q_OS_LINUX) || defined(Q_OS_BSD4)
     return new QSocketDescriptor(static_cast<QSocketDescriptor::DescriptorType>(descriptor));
 #else
+    (void)descriptor; // Suppress unused parameter warning
     return nullptr;
 #endif
 }
@@ -489,9 +490,10 @@ void QSocketDescriptor_MoveAssign(QSocketDescriptor* self, QSocketDescriptor* ot
 }
 
 int QSocketDescriptor_ToInt(const QSocketDescriptor* self) {
-#ifdef Q_OS_LINUX
+#if defined(Q_OS_LINUX) || defined(Q_OS_BSD4)
     return static_cast<int>(self->operator int());
 #else
+    (void)self; // Suppress unused parameter warning
     return {};
 #endif
 }

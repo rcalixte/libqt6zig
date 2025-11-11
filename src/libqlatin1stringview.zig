@@ -56,7 +56,12 @@ pub const qlatin1string = struct {
     ///
     /// ``` s: []const u8 ```
     pub fn New6(s: []const u8) QtC.QLatin1String {
-        return qtc.QLatin1String_new6(s.ptr);
+        const s_str = qtc.libqt_string{
+            .len = s.len,
+            .data = s.ptr,
+        };
+
+        return qtc.QLatin1String_new6(s_str);
     }
 
     /// CopyAssign shallow copies `other` into `self`.

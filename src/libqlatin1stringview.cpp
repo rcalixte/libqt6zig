@@ -31,8 +31,9 @@ QLatin1String* QLatin1String_new5(const libqt_string s) {
     return new QLatin1String(s_QByteArray);
 }
 
-QLatin1String* QLatin1String_new6(QByteArrayView* s) {
-    return new QLatin1String(*s);
+QLatin1String* QLatin1String_new6(libqt_string s) {
+    QByteArrayView s_QByteArrayView(s.data, s.len);
+    return new QLatin1String(s_QByteArrayView);
 }
 
 void QLatin1String_CopyAssign(QLatin1String* self, QLatin1String* other) {

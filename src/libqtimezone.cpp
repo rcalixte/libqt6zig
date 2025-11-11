@@ -91,8 +91,9 @@ QTimeZone* QTimeZone_AsBackendZone(const QTimeZone* self) {
     return new QTimeZone(self->asBackendZone());
 }
 
-bool QTimeZone_HasAlternativeName(const QTimeZone* self, QByteArrayView* alias) {
-    return self->hasAlternativeName(*alias);
+bool QTimeZone_HasAlternativeName(const QTimeZone* self, libqt_string alias) {
+    QByteArrayView alias_QByteArrayView(alias.data, alias.len);
+    return self->hasAlternativeName(alias_QByteArrayView);
 }
 
 libqt_string QTimeZone_Id(const QTimeZone* self) {

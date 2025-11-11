@@ -23,7 +23,7 @@ KEncodingProber* KEncodingProber_new();
 KEncodingProber* KEncodingProber_new2(int proberType);
 libqt_string KEncodingProber_Tr(const char* sourceText);
 void KEncodingProber_Reset(KEncodingProber* self);
-int KEncodingProber_Feed(KEncodingProber* self, QByteArrayView* data);
+int KEncodingProber_Feed(KEncodingProber* self, libqt_string data);
 int KEncodingProber_Feed2(KEncodingProber* self, const char* data, ptrdiff_t lenVal);
 int KEncodingProber_State(const KEncodingProber* self);
 libqt_string KEncodingProber_Encoding(const KEncodingProber* self);

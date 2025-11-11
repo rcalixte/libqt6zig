@@ -1,5 +1,6 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const builtin = @import("builtin");
 const std = @import("std");
 
 /// https://doc.qt.io/qt-6/qversionnumber.html
@@ -159,6 +160,11 @@ pub const qversionnumber = struct {
     ///
     /// ``` stringVal: []const u8, suffixIndex: *i64 ```
     pub fn FromString2(stringVal: []const u8, suffixIndex: *i64) QtC.QVersionNumber {
+        switch (builtin.os.tag) {
+            .linux, .freebsd => {},
+            else => @compileError("Unsupported operating system"),
+        }
+
         const stringVal_str = qtc.libqt_string{
             .len = stringVal.len,
             .data = stringVal.ptr,

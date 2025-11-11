@@ -38,20 +38,20 @@ void QHttpHeaders_Clear(QHttpHeaders* self);
 void QHttpHeaders_RemoveAll(QHttpHeaders* self, libqt_string name);
 void QHttpHeaders_RemoveAll2(QHttpHeaders* self, int name);
 void QHttpHeaders_RemoveAt(QHttpHeaders* self, ptrdiff_t i);
-QByteArrayView* QHttpHeaders_Value(const QHttpHeaders* self, libqt_string name);
-QByteArrayView* QHttpHeaders_Value2(const QHttpHeaders* self, int name);
+libqt_string QHttpHeaders_Value(const QHttpHeaders* self, libqt_string name);
+libqt_string QHttpHeaders_Value2(const QHttpHeaders* self, int name);
 libqt_list /* of libqt_string */ QHttpHeaders_Values(const QHttpHeaders* self, libqt_string name);
 libqt_list /* of libqt_string */ QHttpHeaders_Values2(const QHttpHeaders* self, int name);
-QByteArrayView* QHttpHeaders_ValueAt(const QHttpHeaders* self, ptrdiff_t i);
+libqt_string QHttpHeaders_ValueAt(const QHttpHeaders* self, ptrdiff_t i);
 libqt_string QHttpHeaders_CombinedValue(const QHttpHeaders* self, libqt_string name);
 libqt_string QHttpHeaders_CombinedValue2(const QHttpHeaders* self, int name);
 ptrdiff_t QHttpHeaders_Size(const QHttpHeaders* self);
 void QHttpHeaders_Reserve(QHttpHeaders* self, ptrdiff_t size);
 bool QHttpHeaders_IsEmpty(const QHttpHeaders* self);
-QByteArrayView* QHttpHeaders_WellKnownHeaderName(int name);
+libqt_string QHttpHeaders_WellKnownHeaderName(int name);
 libqt_list /* of libqt_pair  tuple of libqt_string and libqt_string  */ QHttpHeaders_ToListOfPairs(const QHttpHeaders* self);
-QByteArrayView* QHttpHeaders_Value22(const QHttpHeaders* self, libqt_string name, QByteArrayView* defaultValue);
-QByteArrayView* QHttpHeaders_Value23(const QHttpHeaders* self, int name, QByteArrayView* defaultValue);
+libqt_string QHttpHeaders_Value22(const QHttpHeaders* self, libqt_string name, libqt_string defaultValue);
+libqt_string QHttpHeaders_Value23(const QHttpHeaders* self, int name, libqt_string defaultValue);
 void QHttpHeaders_Delete(QHttpHeaders* self);
 
 #ifdef __cplusplus

@@ -143,7 +143,11 @@ pub const quuid = struct {
     ///
     /// ``` param1: []const u8 ```
     pub fn FromRfc4122(param1: []const u8) QtC.QUuid {
-        return qtc.QUuid_FromRfc4122(param1.ptr);
+        const param1_str = qtc.libqt_string{
+            .len = param1.len,
+            .data = param1.ptr,
+        };
+        return qtc.QUuid_FromRfc4122(param1_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/quuid.html#isNull)
@@ -164,14 +168,22 @@ pub const quuid = struct {
     ///
     /// ``` ns: QtC.QUuid, baseData: []const u8 ```
     pub fn CreateUuidV5(ns: QtC.QUuid, baseData: []const u8) QtC.QUuid {
-        return qtc.QUuid_CreateUuidV5(@ptrCast(ns), baseData.ptr);
+        const baseData_str = qtc.libqt_string{
+            .len = baseData.len,
+            .data = baseData.ptr,
+        };
+        return qtc.QUuid_CreateUuidV5(@ptrCast(ns), baseData_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/quuid.html#createUuidV3)
     ///
     /// ``` ns: QtC.QUuid, baseData: []const u8 ```
     pub fn CreateUuidV3(ns: QtC.QUuid, baseData: []const u8) QtC.QUuid {
-        return qtc.QUuid_CreateUuidV3(@ptrCast(ns), baseData.ptr);
+        const baseData_str = qtc.libqt_string{
+            .len = baseData.len,
+            .data = baseData.ptr,
+        };
+        return qtc.QUuid_CreateUuidV3(@ptrCast(ns), baseData_str);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/quuid.html#variant)
