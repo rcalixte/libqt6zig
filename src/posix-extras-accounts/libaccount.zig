@@ -1340,14 +1340,18 @@ pub const accounts__account = struct {
 
     /// [Qt documentation](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Account.html)
     ///
-    /// ``` self: QtC.Accounts__Account, key: []const u8, token: []const u8 ```
-    pub fn Verify(self: ?*anyopaque, key: []const u8, token: []const u8) bool {
+    /// ``` self: QtC.Accounts__Account, key: []const u8, token: [][]const u8, allocator: std.mem.Allocator ```
+    pub fn Verify(self: ?*anyopaque, key: []const u8, token: [][]const u8, allocator: std.mem.Allocator) bool {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
-        const token_Cstring = token.ptr;
-        return qtc.Accounts__Account_Verify(@ptrCast(self), key_str, token_Cstring);
+        var token_chararr = allocator.alloc([*c]const u8, token.len) catch @panic("accounts::account.Verify: Memory allocation failed");
+        defer allocator.free(token_chararr);
+        for (token, 0..token.len) |str, i| {
+            token_chararr[i] = @ptrCast(str.ptr);
+        }
+        return qtc.Accounts__Account_Verify(@ptrCast(self), key_str, token_chararr.ptr);
     }
 
     /// [Qt documentation](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1Account.html)

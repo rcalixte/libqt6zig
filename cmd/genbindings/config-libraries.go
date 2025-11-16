@@ -300,6 +300,17 @@ func ProcessLibraries(clangBin, outDir, extraLibsDir string) {
 			cflags:      "--std=c++17 -I/usr/include/KF6/KI18n -I/usr/include/KF6/KI18nLocaleData " + pkgConfigCflags("Qt6Core"),
 		},
 
+		// KIdleTime
+		// Depends on Qt Core
+		{
+			path: "extras-kidletime",
+			dirs: []string{
+				"/usr/include/KF6/KIdleTime",
+			},
+			allowHeader: AllowAllHeaders,
+			cflags:      "--std=c++17 -I/usr/include/KF6/KIdleTime " + pkgConfigCflags("Qt6Core"),
+		},
+
 		// kImageAnnotator
 		// Depends on Qt Core, GUI, Widgets
 		{

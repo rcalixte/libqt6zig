@@ -1,6 +1,7 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const qopenglfunctions_enums = @import("libqopenglfunctions.zig").enums;
+const std = @import("std");
 
 /// https://doc.qt.io/qt-6/qopenglextrafunctions.html
 pub const qopenglextrafunctions = struct {
@@ -76,16 +77,16 @@ pub const qopenglextrafunctions = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glGenQueries)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, n: i32, ids: *u32 ```
-    pub fn GlGenQueries(self: ?*anyopaque, n: i32, ids: *u32) void {
-        qtc.QOpenGLExtraFunctions_GlGenQueries(@ptrCast(self), @intCast(n), @ptrCast(ids));
+    /// ``` self: QtC.QOpenGLExtraFunctions, n: i32, ids: []u32 ```
+    pub fn GlGenQueries(self: ?*anyopaque, n: i32, ids: []u32) void {
+        qtc.QOpenGLExtraFunctions_GlGenQueries(@ptrCast(self), @intCast(n), ids.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glDeleteQueries)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, n: i32, ids: *const u32 ```
-    pub fn GlDeleteQueries(self: ?*anyopaque, n: i32, ids: *const u32) void {
-        qtc.QOpenGLExtraFunctions_GlDeleteQueries(@ptrCast(self), @intCast(n), @ptrCast(ids));
+    /// ``` self: QtC.QOpenGLExtraFunctions, n: i32, ids: []const u32 ```
+    pub fn GlDeleteQueries(self: ?*anyopaque, n: i32, ids: []const u32) void {
+        qtc.QOpenGLExtraFunctions_GlDeleteQueries(@ptrCast(self), @intCast(n), ids.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glIsQuery)
@@ -111,16 +112,16 @@ pub const qopenglextrafunctions = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glGetQueryiv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, target: u32, pname: u32, params: *i32 ```
-    pub fn GlGetQueryiv(self: ?*anyopaque, target: u32, pname: u32, params: *i32) void {
-        qtc.QOpenGLExtraFunctions_GlGetQueryiv(@ptrCast(self), @intCast(target), @intCast(pname), @ptrCast(params));
+    /// ``` self: QtC.QOpenGLExtraFunctions, target: u32, pname: u32, params: []i32 ```
+    pub fn GlGetQueryiv(self: ?*anyopaque, target: u32, pname: u32, params: []i32) void {
+        qtc.QOpenGLExtraFunctions_GlGetQueryiv(@ptrCast(self), @intCast(target), @intCast(pname), params.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glGetQueryObjectuiv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, id: u32, pname: u32, params: *u32 ```
-    pub fn GlGetQueryObjectuiv(self: ?*anyopaque, id: u32, pname: u32, params: *u32) void {
-        qtc.QOpenGLExtraFunctions_GlGetQueryObjectuiv(@ptrCast(self), @intCast(id), @intCast(pname), @ptrCast(params));
+    /// ``` self: QtC.QOpenGLExtraFunctions, id: u32, pname: u32, params: []u32 ```
+    pub fn GlGetQueryObjectuiv(self: ?*anyopaque, id: u32, pname: u32, params: []u32) void {
+        qtc.QOpenGLExtraFunctions_GlGetQueryObjectuiv(@ptrCast(self), @intCast(id), @intCast(pname), params.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glUnmapBuffer)
@@ -139,44 +140,44 @@ pub const qopenglextrafunctions = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glUniformMatrix2x3fv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, location: i32, count: i32, transpose: u8, value: *const f32 ```
-    pub fn GlUniformMatrix2x3fv(self: ?*anyopaque, location: i32, count: i32, transpose: u8, value: *const f32) void {
-        qtc.QOpenGLExtraFunctions_GlUniformMatrix2x3fv(@ptrCast(self), @intCast(location), @intCast(count), @intCast(transpose), @ptrCast(value));
+    /// ``` self: QtC.QOpenGLExtraFunctions, location: i32, count: i32, transpose: u8, value: []const f32 ```
+    pub fn GlUniformMatrix2x3fv(self: ?*anyopaque, location: i32, count: i32, transpose: u8, value: []const f32) void {
+        qtc.QOpenGLExtraFunctions_GlUniformMatrix2x3fv(@ptrCast(self), @intCast(location), @intCast(count), @intCast(transpose), value.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glUniformMatrix3x2fv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, location: i32, count: i32, transpose: u8, value: *const f32 ```
-    pub fn GlUniformMatrix3x2fv(self: ?*anyopaque, location: i32, count: i32, transpose: u8, value: *const f32) void {
-        qtc.QOpenGLExtraFunctions_GlUniformMatrix3x2fv(@ptrCast(self), @intCast(location), @intCast(count), @intCast(transpose), @ptrCast(value));
+    /// ``` self: QtC.QOpenGLExtraFunctions, location: i32, count: i32, transpose: u8, value: []const f32 ```
+    pub fn GlUniformMatrix3x2fv(self: ?*anyopaque, location: i32, count: i32, transpose: u8, value: []const f32) void {
+        qtc.QOpenGLExtraFunctions_GlUniformMatrix3x2fv(@ptrCast(self), @intCast(location), @intCast(count), @intCast(transpose), value.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glUniformMatrix2x4fv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, location: i32, count: i32, transpose: u8, value: *const f32 ```
-    pub fn GlUniformMatrix2x4fv(self: ?*anyopaque, location: i32, count: i32, transpose: u8, value: *const f32) void {
-        qtc.QOpenGLExtraFunctions_GlUniformMatrix2x4fv(@ptrCast(self), @intCast(location), @intCast(count), @intCast(transpose), @ptrCast(value));
+    /// ``` self: QtC.QOpenGLExtraFunctions, location: i32, count: i32, transpose: u8, value: []const f32 ```
+    pub fn GlUniformMatrix2x4fv(self: ?*anyopaque, location: i32, count: i32, transpose: u8, value: []const f32) void {
+        qtc.QOpenGLExtraFunctions_GlUniformMatrix2x4fv(@ptrCast(self), @intCast(location), @intCast(count), @intCast(transpose), value.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glUniformMatrix4x2fv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, location: i32, count: i32, transpose: u8, value: *const f32 ```
-    pub fn GlUniformMatrix4x2fv(self: ?*anyopaque, location: i32, count: i32, transpose: u8, value: *const f32) void {
-        qtc.QOpenGLExtraFunctions_GlUniformMatrix4x2fv(@ptrCast(self), @intCast(location), @intCast(count), @intCast(transpose), @ptrCast(value));
+    /// ``` self: QtC.QOpenGLExtraFunctions, location: i32, count: i32, transpose: u8, value: []const f32 ```
+    pub fn GlUniformMatrix4x2fv(self: ?*anyopaque, location: i32, count: i32, transpose: u8, value: []const f32) void {
+        qtc.QOpenGLExtraFunctions_GlUniformMatrix4x2fv(@ptrCast(self), @intCast(location), @intCast(count), @intCast(transpose), value.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glUniformMatrix3x4fv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, location: i32, count: i32, transpose: u8, value: *const f32 ```
-    pub fn GlUniformMatrix3x4fv(self: ?*anyopaque, location: i32, count: i32, transpose: u8, value: *const f32) void {
-        qtc.QOpenGLExtraFunctions_GlUniformMatrix3x4fv(@ptrCast(self), @intCast(location), @intCast(count), @intCast(transpose), @ptrCast(value));
+    /// ``` self: QtC.QOpenGLExtraFunctions, location: i32, count: i32, transpose: u8, value: []const f32 ```
+    pub fn GlUniformMatrix3x4fv(self: ?*anyopaque, location: i32, count: i32, transpose: u8, value: []const f32) void {
+        qtc.QOpenGLExtraFunctions_GlUniformMatrix3x4fv(@ptrCast(self), @intCast(location), @intCast(count), @intCast(transpose), value.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glUniformMatrix4x3fv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, location: i32, count: i32, transpose: u8, value: *const f32 ```
-    pub fn GlUniformMatrix4x3fv(self: ?*anyopaque, location: i32, count: i32, transpose: u8, value: *const f32) void {
-        qtc.QOpenGLExtraFunctions_GlUniformMatrix4x3fv(@ptrCast(self), @intCast(location), @intCast(count), @intCast(transpose), @ptrCast(value));
+    /// ``` self: QtC.QOpenGLExtraFunctions, location: i32, count: i32, transpose: u8, value: []const f32 ```
+    pub fn GlUniformMatrix4x3fv(self: ?*anyopaque, location: i32, count: i32, transpose: u8, value: []const f32) void {
+        qtc.QOpenGLExtraFunctions_GlUniformMatrix4x3fv(@ptrCast(self), @intCast(location), @intCast(count), @intCast(transpose), value.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glBlitFramebuffer)
@@ -223,16 +224,16 @@ pub const qopenglextrafunctions = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glDeleteVertexArrays)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, n: i32, arrays: *const u32 ```
-    pub fn GlDeleteVertexArrays(self: ?*anyopaque, n: i32, arrays: *const u32) void {
-        qtc.QOpenGLExtraFunctions_GlDeleteVertexArrays(@ptrCast(self), @intCast(n), @ptrCast(arrays));
+    /// ``` self: QtC.QOpenGLExtraFunctions, n: i32, arrays: []const u32 ```
+    pub fn GlDeleteVertexArrays(self: ?*anyopaque, n: i32, arrays: []const u32) void {
+        qtc.QOpenGLExtraFunctions_GlDeleteVertexArrays(@ptrCast(self), @intCast(n), arrays.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glGenVertexArrays)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, n: i32, arrays: *u32 ```
-    pub fn GlGenVertexArrays(self: ?*anyopaque, n: i32, arrays: *u32) void {
-        qtc.QOpenGLExtraFunctions_GlGenVertexArrays(@ptrCast(self), @intCast(n), @ptrCast(arrays));
+    /// ``` self: QtC.QOpenGLExtraFunctions, n: i32, arrays: []u32 ```
+    pub fn GlGenVertexArrays(self: ?*anyopaque, n: i32, arrays: []u32) void {
+        qtc.QOpenGLExtraFunctions_GlGenVertexArrays(@ptrCast(self), @intCast(n), arrays.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glIsVertexArray)
@@ -244,9 +245,9 @@ pub const qopenglextrafunctions = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glGetIntegeri_v)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, target: u32, index: u32, data: *i32 ```
-    pub fn GlGetIntegeriV(self: ?*anyopaque, target: u32, index: u32, data: *i32) void {
-        qtc.QOpenGLExtraFunctions_GlGetIntegeriV(@ptrCast(self), @intCast(target), @intCast(index), @ptrCast(data));
+    /// ``` self: QtC.QOpenGLExtraFunctions, target: u32, index: u32, data: []i32 ```
+    pub fn GlGetIntegeriV(self: ?*anyopaque, target: u32, index: u32, data: []i32) void {
+        qtc.QOpenGLExtraFunctions_GlGetIntegeriV(@ptrCast(self), @intCast(target), @intCast(index), data.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glBeginTransformFeedback)
@@ -286,16 +287,16 @@ pub const qopenglextrafunctions = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glGetVertexAttribIiv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, index: u32, pname: u32, params: *i32 ```
-    pub fn GlGetVertexAttribIiv(self: ?*anyopaque, index: u32, pname: u32, params: *i32) void {
-        qtc.QOpenGLExtraFunctions_GlGetVertexAttribIiv(@ptrCast(self), @intCast(index), @intCast(pname), @ptrCast(params));
+    /// ``` self: QtC.QOpenGLExtraFunctions, index: u32, pname: u32, params: []i32 ```
+    pub fn GlGetVertexAttribIiv(self: ?*anyopaque, index: u32, pname: u32, params: []i32) void {
+        qtc.QOpenGLExtraFunctions_GlGetVertexAttribIiv(@ptrCast(self), @intCast(index), @intCast(pname), params.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glGetVertexAttribIuiv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, index: u32, pname: u32, params: *u32 ```
-    pub fn GlGetVertexAttribIuiv(self: ?*anyopaque, index: u32, pname: u32, params: *u32) void {
-        qtc.QOpenGLExtraFunctions_GlGetVertexAttribIuiv(@ptrCast(self), @intCast(index), @intCast(pname), @ptrCast(params));
+    /// ``` self: QtC.QOpenGLExtraFunctions, index: u32, pname: u32, params: []u32 ```
+    pub fn GlGetVertexAttribIuiv(self: ?*anyopaque, index: u32, pname: u32, params: []u32) void {
+        qtc.QOpenGLExtraFunctions_GlGetVertexAttribIuiv(@ptrCast(self), @intCast(index), @intCast(pname), params.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glVertexAttribI4i)
@@ -314,30 +315,30 @@ pub const qopenglextrafunctions = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glVertexAttribI4iv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, index: u32, v: *const i32 ```
-    pub fn GlVertexAttribI4iv(self: ?*anyopaque, index: u32, v: *const i32) void {
-        qtc.QOpenGLExtraFunctions_GlVertexAttribI4iv(@ptrCast(self), @intCast(index), @ptrCast(v));
+    /// ``` self: QtC.QOpenGLExtraFunctions, index: u32, v: []const i32 ```
+    pub fn GlVertexAttribI4iv(self: ?*anyopaque, index: u32, v: []const i32) void {
+        qtc.QOpenGLExtraFunctions_GlVertexAttribI4iv(@ptrCast(self), @intCast(index), v.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glVertexAttribI4uiv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, index: u32, v: *const u32 ```
-    pub fn GlVertexAttribI4uiv(self: ?*anyopaque, index: u32, v: *const u32) void {
-        qtc.QOpenGLExtraFunctions_GlVertexAttribI4uiv(@ptrCast(self), @intCast(index), @ptrCast(v));
+    /// ``` self: QtC.QOpenGLExtraFunctions, index: u32, v: []const u32 ```
+    pub fn GlVertexAttribI4uiv(self: ?*anyopaque, index: u32, v: []const u32) void {
+        qtc.QOpenGLExtraFunctions_GlVertexAttribI4uiv(@ptrCast(self), @intCast(index), v.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glGetUniformuiv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, location: i32, params: *u32 ```
-    pub fn GlGetUniformuiv(self: ?*anyopaque, program: u32, location: i32, params: *u32) void {
-        qtc.QOpenGLExtraFunctions_GlGetUniformuiv(@ptrCast(self), @intCast(program), @intCast(location), @ptrCast(params));
+    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, location: i32, params: []u32 ```
+    pub fn GlGetUniformuiv(self: ?*anyopaque, program: u32, location: i32, params: []u32) void {
+        qtc.QOpenGLExtraFunctions_GlGetUniformuiv(@ptrCast(self), @intCast(program), @intCast(location), params.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glGetFragDataLocation)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, name: *const i8 ```
-    pub fn GlGetFragDataLocation(self: ?*anyopaque, program: u32, name: *const i8) i32 {
-        return qtc.QOpenGLExtraFunctions_GlGetFragDataLocation(@ptrCast(self), @intCast(program), @ptrCast(name));
+    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, name: []const u8 ```
+    pub fn GlGetFragDataLocation(self: ?*anyopaque, program: u32, name: []const u8) i32 {
+        return qtc.QOpenGLExtraFunctions_GlGetFragDataLocation(@ptrCast(self), @intCast(program), name.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glUniform1ui)
@@ -370,51 +371,51 @@ pub const qopenglextrafunctions = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glUniform1uiv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, location: i32, count: i32, value: *const u32 ```
-    pub fn GlUniform1uiv(self: ?*anyopaque, location: i32, count: i32, value: *const u32) void {
-        qtc.QOpenGLExtraFunctions_GlUniform1uiv(@ptrCast(self), @intCast(location), @intCast(count), @ptrCast(value));
+    /// ``` self: QtC.QOpenGLExtraFunctions, location: i32, count: i32, value: []const u32 ```
+    pub fn GlUniform1uiv(self: ?*anyopaque, location: i32, count: i32, value: []const u32) void {
+        qtc.QOpenGLExtraFunctions_GlUniform1uiv(@ptrCast(self), @intCast(location), @intCast(count), value.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glUniform2uiv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, location: i32, count: i32, value: *const u32 ```
-    pub fn GlUniform2uiv(self: ?*anyopaque, location: i32, count: i32, value: *const u32) void {
-        qtc.QOpenGLExtraFunctions_GlUniform2uiv(@ptrCast(self), @intCast(location), @intCast(count), @ptrCast(value));
+    /// ``` self: QtC.QOpenGLExtraFunctions, location: i32, count: i32, value: []const u32 ```
+    pub fn GlUniform2uiv(self: ?*anyopaque, location: i32, count: i32, value: []const u32) void {
+        qtc.QOpenGLExtraFunctions_GlUniform2uiv(@ptrCast(self), @intCast(location), @intCast(count), value.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glUniform3uiv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, location: i32, count: i32, value: *const u32 ```
-    pub fn GlUniform3uiv(self: ?*anyopaque, location: i32, count: i32, value: *const u32) void {
-        qtc.QOpenGLExtraFunctions_GlUniform3uiv(@ptrCast(self), @intCast(location), @intCast(count), @ptrCast(value));
+    /// ``` self: QtC.QOpenGLExtraFunctions, location: i32, count: i32, value: []const u32 ```
+    pub fn GlUniform3uiv(self: ?*anyopaque, location: i32, count: i32, value: []const u32) void {
+        qtc.QOpenGLExtraFunctions_GlUniform3uiv(@ptrCast(self), @intCast(location), @intCast(count), value.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glUniform4uiv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, location: i32, count: i32, value: *const u32 ```
-    pub fn GlUniform4uiv(self: ?*anyopaque, location: i32, count: i32, value: *const u32) void {
-        qtc.QOpenGLExtraFunctions_GlUniform4uiv(@ptrCast(self), @intCast(location), @intCast(count), @ptrCast(value));
+    /// ``` self: QtC.QOpenGLExtraFunctions, location: i32, count: i32, value: []const u32 ```
+    pub fn GlUniform4uiv(self: ?*anyopaque, location: i32, count: i32, value: []const u32) void {
+        qtc.QOpenGLExtraFunctions_GlUniform4uiv(@ptrCast(self), @intCast(location), @intCast(count), value.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glClearBufferiv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, buffer: u32, drawbuffer: i32, value: *const i32 ```
-    pub fn GlClearBufferiv(self: ?*anyopaque, buffer: u32, drawbuffer: i32, value: *const i32) void {
-        qtc.QOpenGLExtraFunctions_GlClearBufferiv(@ptrCast(self), @intCast(buffer), @intCast(drawbuffer), @ptrCast(value));
+    /// ``` self: QtC.QOpenGLExtraFunctions, buffer: u32, drawbuffer: i32, value: []const i32 ```
+    pub fn GlClearBufferiv(self: ?*anyopaque, buffer: u32, drawbuffer: i32, value: []const i32) void {
+        qtc.QOpenGLExtraFunctions_GlClearBufferiv(@ptrCast(self), @intCast(buffer), @intCast(drawbuffer), value.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glClearBufferuiv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, buffer: u32, drawbuffer: i32, value: *const u32 ```
-    pub fn GlClearBufferuiv(self: ?*anyopaque, buffer: u32, drawbuffer: i32, value: *const u32) void {
-        qtc.QOpenGLExtraFunctions_GlClearBufferuiv(@ptrCast(self), @intCast(buffer), @intCast(drawbuffer), @ptrCast(value));
+    /// ``` self: QtC.QOpenGLExtraFunctions, buffer: u32, drawbuffer: i32, value: []const u32 ```
+    pub fn GlClearBufferuiv(self: ?*anyopaque, buffer: u32, drawbuffer: i32, value: []const u32) void {
+        qtc.QOpenGLExtraFunctions_GlClearBufferuiv(@ptrCast(self), @intCast(buffer), @intCast(drawbuffer), value.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glClearBufferfv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, buffer: u32, drawbuffer: i32, value: *const f32 ```
-    pub fn GlClearBufferfv(self: ?*anyopaque, buffer: u32, drawbuffer: i32, value: *const f32) void {
-        qtc.QOpenGLExtraFunctions_GlClearBufferfv(@ptrCast(self), @intCast(buffer), @intCast(drawbuffer), @ptrCast(value));
+    /// ``` self: QtC.QOpenGLExtraFunctions, buffer: u32, drawbuffer: i32, value: []const f32 ```
+    pub fn GlClearBufferfv(self: ?*anyopaque, buffer: u32, drawbuffer: i32, value: []const f32) void {
+        qtc.QOpenGLExtraFunctions_GlClearBufferfv(@ptrCast(self), @intCast(buffer), @intCast(drawbuffer), value.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glClearBufferfi)
@@ -427,8 +428,12 @@ pub const qopenglextrafunctions = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glGetStringi)
     ///
     /// ``` self: QtC.QOpenGLExtraFunctions, name: u32, index: u32 ```
-    pub fn GlGetStringi(self: ?*anyopaque, name: u32, index: u32) ?*const u8 {
-        return @ptrCast(qtc.QOpenGLExtraFunctions_GlGetStringi(@ptrCast(self), @intCast(name), @intCast(index)));
+    pub fn GlGetStringi(self: ?*anyopaque, name: u32, index: u32) []const u8 {
+        const ret_str: ?[*:0]const u8 = qtc.QOpenGLExtraFunctions_GlGetStringi(@ptrCast(self), @intCast(name), @intCast(index));
+        if (ret_str == null) {
+            return "";
+        }
+        return std.mem.span(ret_str.?);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glCopyBufferSubData)
@@ -440,30 +445,30 @@ pub const qopenglextrafunctions = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glGetActiveUniformsiv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, uniformCount: i32, uniformIndices: *const u32, pname: u32, params: *i32 ```
-    pub fn GlGetActiveUniformsiv(self: ?*anyopaque, program: u32, uniformCount: i32, uniformIndices: *const u32, pname: u32, params: *i32) void {
-        qtc.QOpenGLExtraFunctions_GlGetActiveUniformsiv(@ptrCast(self), @intCast(program), @intCast(uniformCount), @ptrCast(uniformIndices), @intCast(pname), @ptrCast(params));
+    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, uniformCount: i32, uniformIndices: []const u32, pname: u32, params: []i32 ```
+    pub fn GlGetActiveUniformsiv(self: ?*anyopaque, program: u32, uniformCount: i32, uniformIndices: []const u32, pname: u32, params: []i32) void {
+        qtc.QOpenGLExtraFunctions_GlGetActiveUniformsiv(@ptrCast(self), @intCast(program), @intCast(uniformCount), uniformIndices.ptr, @intCast(pname), params.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glGetUniformBlockIndex)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, uniformBlockName: *const i8 ```
-    pub fn GlGetUniformBlockIndex(self: ?*anyopaque, program: u32, uniformBlockName: *const i8) u32 {
-        return qtc.QOpenGLExtraFunctions_GlGetUniformBlockIndex(@ptrCast(self), @intCast(program), @ptrCast(uniformBlockName));
+    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, uniformBlockName: []const u8 ```
+    pub fn GlGetUniformBlockIndex(self: ?*anyopaque, program: u32, uniformBlockName: []const u8) u32 {
+        return qtc.QOpenGLExtraFunctions_GlGetUniformBlockIndex(@ptrCast(self), @intCast(program), uniformBlockName.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glGetActiveUniformBlockiv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, uniformBlockIndex: u32, pname: u32, params: *i32 ```
-    pub fn GlGetActiveUniformBlockiv(self: ?*anyopaque, program: u32, uniformBlockIndex: u32, pname: u32, params: *i32) void {
-        qtc.QOpenGLExtraFunctions_GlGetActiveUniformBlockiv(@ptrCast(self), @intCast(program), @intCast(uniformBlockIndex), @intCast(pname), @ptrCast(params));
+    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, uniformBlockIndex: u32, pname: u32, params: []i32 ```
+    pub fn GlGetActiveUniformBlockiv(self: ?*anyopaque, program: u32, uniformBlockIndex: u32, pname: u32, params: []i32) void {
+        qtc.QOpenGLExtraFunctions_GlGetActiveUniformBlockiv(@ptrCast(self), @intCast(program), @intCast(uniformBlockIndex), @intCast(pname), params.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glGetActiveUniformBlockName)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, uniformBlockIndex: u32, bufSize: i32, length: *i32, uniformBlockName: *i8 ```
-    pub fn GlGetActiveUniformBlockName(self: ?*anyopaque, program: u32, uniformBlockIndex: u32, bufSize: i32, length: *i32, uniformBlockName: *i8) void {
-        qtc.QOpenGLExtraFunctions_GlGetActiveUniformBlockName(@ptrCast(self), @intCast(program), @intCast(uniformBlockIndex), @intCast(bufSize), @ptrCast(length), @ptrCast(uniformBlockName));
+    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, uniformBlockIndex: u32, bufSize: i32, length: []i32, uniformBlockName: []u8 ```
+    pub fn GlGetActiveUniformBlockName(self: ?*anyopaque, program: u32, uniformBlockIndex: u32, bufSize: i32, length: []i32, uniformBlockName: []u8) void {
+        qtc.QOpenGLExtraFunctions_GlGetActiveUniformBlockName(@ptrCast(self), @intCast(program), @intCast(uniformBlockIndex), @intCast(bufSize), length.ptr, uniformBlockName.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glUniformBlockBinding)
@@ -489,37 +494,37 @@ pub const qopenglextrafunctions = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glGetInteger64v)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, pname: u32, data: *i64 ```
-    pub fn GlGetInteger64v(self: ?*anyopaque, pname: u32, data: *i64) void {
-        qtc.QOpenGLExtraFunctions_GlGetInteger64v(@ptrCast(self), @intCast(pname), @ptrCast(data));
+    /// ``` self: QtC.QOpenGLExtraFunctions, pname: u32, data: []i64 ```
+    pub fn GlGetInteger64v(self: ?*anyopaque, pname: u32, data: []i64) void {
+        qtc.QOpenGLExtraFunctions_GlGetInteger64v(@ptrCast(self), @intCast(pname), data.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glGetInteger64i_v)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, target: u32, index: u32, data: *i64 ```
-    pub fn GlGetInteger64iV(self: ?*anyopaque, target: u32, index: u32, data: *i64) void {
-        qtc.QOpenGLExtraFunctions_GlGetInteger64iV(@ptrCast(self), @intCast(target), @intCast(index), @ptrCast(data));
+    /// ``` self: QtC.QOpenGLExtraFunctions, target: u32, index: u32, data: []i64 ```
+    pub fn GlGetInteger64iV(self: ?*anyopaque, target: u32, index: u32, data: []i64) void {
+        qtc.QOpenGLExtraFunctions_GlGetInteger64iV(@ptrCast(self), @intCast(target), @intCast(index), data.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glGetBufferParameteri64v)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, target: u32, pname: u32, params: *i64 ```
-    pub fn GlGetBufferParameteri64v(self: ?*anyopaque, target: u32, pname: u32, params: *i64) void {
-        qtc.QOpenGLExtraFunctions_GlGetBufferParameteri64v(@ptrCast(self), @intCast(target), @intCast(pname), @ptrCast(params));
+    /// ``` self: QtC.QOpenGLExtraFunctions, target: u32, pname: u32, params: []i64 ```
+    pub fn GlGetBufferParameteri64v(self: ?*anyopaque, target: u32, pname: u32, params: []i64) void {
+        qtc.QOpenGLExtraFunctions_GlGetBufferParameteri64v(@ptrCast(self), @intCast(target), @intCast(pname), params.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glGenSamplers)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, count: i32, samplers: *u32 ```
-    pub fn GlGenSamplers(self: ?*anyopaque, count: i32, samplers: *u32) void {
-        qtc.QOpenGLExtraFunctions_GlGenSamplers(@ptrCast(self), @intCast(count), @ptrCast(samplers));
+    /// ``` self: QtC.QOpenGLExtraFunctions, count: i32, samplers: []u32 ```
+    pub fn GlGenSamplers(self: ?*anyopaque, count: i32, samplers: []u32) void {
+        qtc.QOpenGLExtraFunctions_GlGenSamplers(@ptrCast(self), @intCast(count), samplers.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glDeleteSamplers)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, count: i32, samplers: *const u32 ```
-    pub fn GlDeleteSamplers(self: ?*anyopaque, count: i32, samplers: *const u32) void {
-        qtc.QOpenGLExtraFunctions_GlDeleteSamplers(@ptrCast(self), @intCast(count), @ptrCast(samplers));
+    /// ``` self: QtC.QOpenGLExtraFunctions, count: i32, samplers: []const u32 ```
+    pub fn GlDeleteSamplers(self: ?*anyopaque, count: i32, samplers: []const u32) void {
+        qtc.QOpenGLExtraFunctions_GlDeleteSamplers(@ptrCast(self), @intCast(count), samplers.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glIsSampler)
@@ -545,9 +550,9 @@ pub const qopenglextrafunctions = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glSamplerParameteriv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, sampler: u32, pname: u32, param: *const i32 ```
-    pub fn GlSamplerParameteriv(self: ?*anyopaque, sampler: u32, pname: u32, param: *const i32) void {
-        qtc.QOpenGLExtraFunctions_GlSamplerParameteriv(@ptrCast(self), @intCast(sampler), @intCast(pname), @ptrCast(param));
+    /// ``` self: QtC.QOpenGLExtraFunctions, sampler: u32, pname: u32, param: []const i32 ```
+    pub fn GlSamplerParameteriv(self: ?*anyopaque, sampler: u32, pname: u32, param: []const i32) void {
+        qtc.QOpenGLExtraFunctions_GlSamplerParameteriv(@ptrCast(self), @intCast(sampler), @intCast(pname), param.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glSamplerParameterf)
@@ -559,23 +564,23 @@ pub const qopenglextrafunctions = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glSamplerParameterfv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, sampler: u32, pname: u32, param: *const f32 ```
-    pub fn GlSamplerParameterfv(self: ?*anyopaque, sampler: u32, pname: u32, param: *const f32) void {
-        qtc.QOpenGLExtraFunctions_GlSamplerParameterfv(@ptrCast(self), @intCast(sampler), @intCast(pname), @ptrCast(param));
+    /// ``` self: QtC.QOpenGLExtraFunctions, sampler: u32, pname: u32, param: []const f32 ```
+    pub fn GlSamplerParameterfv(self: ?*anyopaque, sampler: u32, pname: u32, param: []const f32) void {
+        qtc.QOpenGLExtraFunctions_GlSamplerParameterfv(@ptrCast(self), @intCast(sampler), @intCast(pname), param.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glGetSamplerParameteriv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, sampler: u32, pname: u32, params: *i32 ```
-    pub fn GlGetSamplerParameteriv(self: ?*anyopaque, sampler: u32, pname: u32, params: *i32) void {
-        qtc.QOpenGLExtraFunctions_GlGetSamplerParameteriv(@ptrCast(self), @intCast(sampler), @intCast(pname), @ptrCast(params));
+    /// ``` self: QtC.QOpenGLExtraFunctions, sampler: u32, pname: u32, params: []i32 ```
+    pub fn GlGetSamplerParameteriv(self: ?*anyopaque, sampler: u32, pname: u32, params: []i32) void {
+        qtc.QOpenGLExtraFunctions_GlGetSamplerParameteriv(@ptrCast(self), @intCast(sampler), @intCast(pname), params.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glGetSamplerParameterfv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, sampler: u32, pname: u32, params: *f32 ```
-    pub fn GlGetSamplerParameterfv(self: ?*anyopaque, sampler: u32, pname: u32, params: *f32) void {
-        qtc.QOpenGLExtraFunctions_GlGetSamplerParameterfv(@ptrCast(self), @intCast(sampler), @intCast(pname), @ptrCast(params));
+    /// ``` self: QtC.QOpenGLExtraFunctions, sampler: u32, pname: u32, params: []f32 ```
+    pub fn GlGetSamplerParameterfv(self: ?*anyopaque, sampler: u32, pname: u32, params: []f32) void {
+        qtc.QOpenGLExtraFunctions_GlGetSamplerParameterfv(@ptrCast(self), @intCast(sampler), @intCast(pname), params.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glVertexAttribDivisor)
@@ -594,16 +599,16 @@ pub const qopenglextrafunctions = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glDeleteTransformFeedbacks)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, n: i32, ids: *const u32 ```
-    pub fn GlDeleteTransformFeedbacks(self: ?*anyopaque, n: i32, ids: *const u32) void {
-        qtc.QOpenGLExtraFunctions_GlDeleteTransformFeedbacks(@ptrCast(self), @intCast(n), @ptrCast(ids));
+    /// ``` self: QtC.QOpenGLExtraFunctions, n: i32, ids: []const u32 ```
+    pub fn GlDeleteTransformFeedbacks(self: ?*anyopaque, n: i32, ids: []const u32) void {
+        qtc.QOpenGLExtraFunctions_GlDeleteTransformFeedbacks(@ptrCast(self), @intCast(n), ids.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glGenTransformFeedbacks)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, n: i32, ids: *u32 ```
-    pub fn GlGenTransformFeedbacks(self: ?*anyopaque, n: i32, ids: *u32) void {
-        qtc.QOpenGLExtraFunctions_GlGenTransformFeedbacks(@ptrCast(self), @intCast(n), @ptrCast(ids));
+    /// ``` self: QtC.QOpenGLExtraFunctions, n: i32, ids: []u32 ```
+    pub fn GlGenTransformFeedbacks(self: ?*anyopaque, n: i32, ids: []u32) void {
+        qtc.QOpenGLExtraFunctions_GlGenTransformFeedbacks(@ptrCast(self), @intCast(n), ids.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glIsTransformFeedback)
@@ -657,9 +662,9 @@ pub const qopenglextrafunctions = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glGetInternalformativ)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, target: u32, internalformat: u32, pname: u32, bufSize: i32, params: *i32 ```
-    pub fn GlGetInternalformativ(self: ?*anyopaque, target: u32, internalformat: u32, pname: u32, bufSize: i32, params: *i32) void {
-        qtc.QOpenGLExtraFunctions_GlGetInternalformativ(@ptrCast(self), @intCast(target), @intCast(internalformat), @intCast(pname), @intCast(bufSize), @ptrCast(params));
+    /// ``` self: QtC.QOpenGLExtraFunctions, target: u32, internalformat: u32, pname: u32, bufSize: i32, params: []i32 ```
+    pub fn GlGetInternalformativ(self: ?*anyopaque, target: u32, internalformat: u32, pname: u32, bufSize: i32, params: []i32) void {
+        qtc.QOpenGLExtraFunctions_GlGetInternalformativ(@ptrCast(self), @intCast(target), @intCast(internalformat), @intCast(pname), @intCast(bufSize), params.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glDispatchCompute)
@@ -699,37 +704,37 @@ pub const qopenglextrafunctions = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glGetFramebufferParameteriv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, target: u32, pname: u32, params: *i32 ```
-    pub fn GlGetFramebufferParameteriv(self: ?*anyopaque, target: u32, pname: u32, params: *i32) void {
-        qtc.QOpenGLExtraFunctions_GlGetFramebufferParameteriv(@ptrCast(self), @intCast(target), @intCast(pname), @ptrCast(params));
+    /// ``` self: QtC.QOpenGLExtraFunctions, target: u32, pname: u32, params: []i32 ```
+    pub fn GlGetFramebufferParameteriv(self: ?*anyopaque, target: u32, pname: u32, params: []i32) void {
+        qtc.QOpenGLExtraFunctions_GlGetFramebufferParameteriv(@ptrCast(self), @intCast(target), @intCast(pname), params.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glGetProgramInterfaceiv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, programInterface: u32, pname: u32, params: *i32 ```
-    pub fn GlGetProgramInterfaceiv(self: ?*anyopaque, program: u32, programInterface: u32, pname: u32, params: *i32) void {
-        qtc.QOpenGLExtraFunctions_GlGetProgramInterfaceiv(@ptrCast(self), @intCast(program), @intCast(programInterface), @intCast(pname), @ptrCast(params));
+    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, programInterface: u32, pname: u32, params: []i32 ```
+    pub fn GlGetProgramInterfaceiv(self: ?*anyopaque, program: u32, programInterface: u32, pname: u32, params: []i32) void {
+        qtc.QOpenGLExtraFunctions_GlGetProgramInterfaceiv(@ptrCast(self), @intCast(program), @intCast(programInterface), @intCast(pname), params.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glGetProgramResourceIndex)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, programInterface: u32, name: *const i8 ```
-    pub fn GlGetProgramResourceIndex(self: ?*anyopaque, program: u32, programInterface: u32, name: *const i8) u32 {
-        return qtc.QOpenGLExtraFunctions_GlGetProgramResourceIndex(@ptrCast(self), @intCast(program), @intCast(programInterface), @ptrCast(name));
+    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, programInterface: u32, name: []const u8 ```
+    pub fn GlGetProgramResourceIndex(self: ?*anyopaque, program: u32, programInterface: u32, name: []const u8) u32 {
+        return qtc.QOpenGLExtraFunctions_GlGetProgramResourceIndex(@ptrCast(self), @intCast(program), @intCast(programInterface), name.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glGetProgramResourceName)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, programInterface: u32, index: u32, bufSize: i32, length: *i32, name: *i8 ```
-    pub fn GlGetProgramResourceName(self: ?*anyopaque, program: u32, programInterface: u32, index: u32, bufSize: i32, length: *i32, name: *i8) void {
-        qtc.QOpenGLExtraFunctions_GlGetProgramResourceName(@ptrCast(self), @intCast(program), @intCast(programInterface), @intCast(index), @intCast(bufSize), @ptrCast(length), @ptrCast(name));
+    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, programInterface: u32, index: u32, bufSize: i32, length: []i32, name: []u8 ```
+    pub fn GlGetProgramResourceName(self: ?*anyopaque, program: u32, programInterface: u32, index: u32, bufSize: i32, length: []i32, name: []u8) void {
+        qtc.QOpenGLExtraFunctions_GlGetProgramResourceName(@ptrCast(self), @intCast(program), @intCast(programInterface), @intCast(index), @intCast(bufSize), length.ptr, name.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glGetProgramResourceLocation)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, programInterface: u32, name: *const i8 ```
-    pub fn GlGetProgramResourceLocation(self: ?*anyopaque, program: u32, programInterface: u32, name: *const i8) i32 {
-        return qtc.QOpenGLExtraFunctions_GlGetProgramResourceLocation(@ptrCast(self), @intCast(program), @intCast(programInterface), @ptrCast(name));
+    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, programInterface: u32, name: []const u8 ```
+    pub fn GlGetProgramResourceLocation(self: ?*anyopaque, program: u32, programInterface: u32, name: []const u8) i32 {
+        return qtc.QOpenGLExtraFunctions_GlGetProgramResourceLocation(@ptrCast(self), @intCast(program), @intCast(programInterface), name.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glUseProgramStages)
@@ -755,16 +760,16 @@ pub const qopenglextrafunctions = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glDeleteProgramPipelines)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, n: i32, pipelines: *const u32 ```
-    pub fn GlDeleteProgramPipelines(self: ?*anyopaque, n: i32, pipelines: *const u32) void {
-        qtc.QOpenGLExtraFunctions_GlDeleteProgramPipelines(@ptrCast(self), @intCast(n), @ptrCast(pipelines));
+    /// ``` self: QtC.QOpenGLExtraFunctions, n: i32, pipelines: []const u32 ```
+    pub fn GlDeleteProgramPipelines(self: ?*anyopaque, n: i32, pipelines: []const u32) void {
+        qtc.QOpenGLExtraFunctions_GlDeleteProgramPipelines(@ptrCast(self), @intCast(n), pipelines.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glGenProgramPipelines)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, n: i32, pipelines: *u32 ```
-    pub fn GlGenProgramPipelines(self: ?*anyopaque, n: i32, pipelines: *u32) void {
-        qtc.QOpenGLExtraFunctions_GlGenProgramPipelines(@ptrCast(self), @intCast(n), @ptrCast(pipelines));
+    /// ``` self: QtC.QOpenGLExtraFunctions, n: i32, pipelines: []u32 ```
+    pub fn GlGenProgramPipelines(self: ?*anyopaque, n: i32, pipelines: []u32) void {
+        qtc.QOpenGLExtraFunctions_GlGenProgramPipelines(@ptrCast(self), @intCast(n), pipelines.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glIsProgramPipeline)
@@ -776,9 +781,9 @@ pub const qopenglextrafunctions = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glGetProgramPipelineiv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, pipeline: u32, pname: u32, params: *i32 ```
-    pub fn GlGetProgramPipelineiv(self: ?*anyopaque, pipeline: u32, pname: u32, params: *i32) void {
-        qtc.QOpenGLExtraFunctions_GlGetProgramPipelineiv(@ptrCast(self), @intCast(pipeline), @intCast(pname), @ptrCast(params));
+    /// ``` self: QtC.QOpenGLExtraFunctions, pipeline: u32, pname: u32, params: []i32 ```
+    pub fn GlGetProgramPipelineiv(self: ?*anyopaque, pipeline: u32, pname: u32, params: []i32) void {
+        qtc.QOpenGLExtraFunctions_GlGetProgramPipelineiv(@ptrCast(self), @intCast(pipeline), @intCast(pname), params.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glProgramUniform1i)
@@ -867,149 +872,149 @@ pub const qopenglextrafunctions = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glProgramUniform1iv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, location: i32, count: i32, value: *const i32 ```
-    pub fn GlProgramUniform1iv(self: ?*anyopaque, program: u32, location: i32, count: i32, value: *const i32) void {
-        qtc.QOpenGLExtraFunctions_GlProgramUniform1iv(@ptrCast(self), @intCast(program), @intCast(location), @intCast(count), @ptrCast(value));
+    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, location: i32, count: i32, value: []const i32 ```
+    pub fn GlProgramUniform1iv(self: ?*anyopaque, program: u32, location: i32, count: i32, value: []const i32) void {
+        qtc.QOpenGLExtraFunctions_GlProgramUniform1iv(@ptrCast(self), @intCast(program), @intCast(location), @intCast(count), value.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glProgramUniform2iv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, location: i32, count: i32, value: *const i32 ```
-    pub fn GlProgramUniform2iv(self: ?*anyopaque, program: u32, location: i32, count: i32, value: *const i32) void {
-        qtc.QOpenGLExtraFunctions_GlProgramUniform2iv(@ptrCast(self), @intCast(program), @intCast(location), @intCast(count), @ptrCast(value));
+    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, location: i32, count: i32, value: []const i32 ```
+    pub fn GlProgramUniform2iv(self: ?*anyopaque, program: u32, location: i32, count: i32, value: []const i32) void {
+        qtc.QOpenGLExtraFunctions_GlProgramUniform2iv(@ptrCast(self), @intCast(program), @intCast(location), @intCast(count), value.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glProgramUniform3iv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, location: i32, count: i32, value: *const i32 ```
-    pub fn GlProgramUniform3iv(self: ?*anyopaque, program: u32, location: i32, count: i32, value: *const i32) void {
-        qtc.QOpenGLExtraFunctions_GlProgramUniform3iv(@ptrCast(self), @intCast(program), @intCast(location), @intCast(count), @ptrCast(value));
+    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, location: i32, count: i32, value: []const i32 ```
+    pub fn GlProgramUniform3iv(self: ?*anyopaque, program: u32, location: i32, count: i32, value: []const i32) void {
+        qtc.QOpenGLExtraFunctions_GlProgramUniform3iv(@ptrCast(self), @intCast(program), @intCast(location), @intCast(count), value.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glProgramUniform4iv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, location: i32, count: i32, value: *const i32 ```
-    pub fn GlProgramUniform4iv(self: ?*anyopaque, program: u32, location: i32, count: i32, value: *const i32) void {
-        qtc.QOpenGLExtraFunctions_GlProgramUniform4iv(@ptrCast(self), @intCast(program), @intCast(location), @intCast(count), @ptrCast(value));
+    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, location: i32, count: i32, value: []const i32 ```
+    pub fn GlProgramUniform4iv(self: ?*anyopaque, program: u32, location: i32, count: i32, value: []const i32) void {
+        qtc.QOpenGLExtraFunctions_GlProgramUniform4iv(@ptrCast(self), @intCast(program), @intCast(location), @intCast(count), value.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glProgramUniform1uiv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, location: i32, count: i32, value: *const u32 ```
-    pub fn GlProgramUniform1uiv(self: ?*anyopaque, program: u32, location: i32, count: i32, value: *const u32) void {
-        qtc.QOpenGLExtraFunctions_GlProgramUniform1uiv(@ptrCast(self), @intCast(program), @intCast(location), @intCast(count), @ptrCast(value));
+    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, location: i32, count: i32, value: []const u32 ```
+    pub fn GlProgramUniform1uiv(self: ?*anyopaque, program: u32, location: i32, count: i32, value: []const u32) void {
+        qtc.QOpenGLExtraFunctions_GlProgramUniform1uiv(@ptrCast(self), @intCast(program), @intCast(location), @intCast(count), value.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glProgramUniform2uiv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, location: i32, count: i32, value: *const u32 ```
-    pub fn GlProgramUniform2uiv(self: ?*anyopaque, program: u32, location: i32, count: i32, value: *const u32) void {
-        qtc.QOpenGLExtraFunctions_GlProgramUniform2uiv(@ptrCast(self), @intCast(program), @intCast(location), @intCast(count), @ptrCast(value));
+    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, location: i32, count: i32, value: []const u32 ```
+    pub fn GlProgramUniform2uiv(self: ?*anyopaque, program: u32, location: i32, count: i32, value: []const u32) void {
+        qtc.QOpenGLExtraFunctions_GlProgramUniform2uiv(@ptrCast(self), @intCast(program), @intCast(location), @intCast(count), value.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glProgramUniform3uiv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, location: i32, count: i32, value: *const u32 ```
-    pub fn GlProgramUniform3uiv(self: ?*anyopaque, program: u32, location: i32, count: i32, value: *const u32) void {
-        qtc.QOpenGLExtraFunctions_GlProgramUniform3uiv(@ptrCast(self), @intCast(program), @intCast(location), @intCast(count), @ptrCast(value));
+    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, location: i32, count: i32, value: []const u32 ```
+    pub fn GlProgramUniform3uiv(self: ?*anyopaque, program: u32, location: i32, count: i32, value: []const u32) void {
+        qtc.QOpenGLExtraFunctions_GlProgramUniform3uiv(@ptrCast(self), @intCast(program), @intCast(location), @intCast(count), value.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glProgramUniform4uiv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, location: i32, count: i32, value: *const u32 ```
-    pub fn GlProgramUniform4uiv(self: ?*anyopaque, program: u32, location: i32, count: i32, value: *const u32) void {
-        qtc.QOpenGLExtraFunctions_GlProgramUniform4uiv(@ptrCast(self), @intCast(program), @intCast(location), @intCast(count), @ptrCast(value));
+    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, location: i32, count: i32, value: []const u32 ```
+    pub fn GlProgramUniform4uiv(self: ?*anyopaque, program: u32, location: i32, count: i32, value: []const u32) void {
+        qtc.QOpenGLExtraFunctions_GlProgramUniform4uiv(@ptrCast(self), @intCast(program), @intCast(location), @intCast(count), value.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glProgramUniform1fv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, location: i32, count: i32, value: *const f32 ```
-    pub fn GlProgramUniform1fv(self: ?*anyopaque, program: u32, location: i32, count: i32, value: *const f32) void {
-        qtc.QOpenGLExtraFunctions_GlProgramUniform1fv(@ptrCast(self), @intCast(program), @intCast(location), @intCast(count), @ptrCast(value));
+    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, location: i32, count: i32, value: []const f32 ```
+    pub fn GlProgramUniform1fv(self: ?*anyopaque, program: u32, location: i32, count: i32, value: []const f32) void {
+        qtc.QOpenGLExtraFunctions_GlProgramUniform1fv(@ptrCast(self), @intCast(program), @intCast(location), @intCast(count), value.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glProgramUniform2fv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, location: i32, count: i32, value: *const f32 ```
-    pub fn GlProgramUniform2fv(self: ?*anyopaque, program: u32, location: i32, count: i32, value: *const f32) void {
-        qtc.QOpenGLExtraFunctions_GlProgramUniform2fv(@ptrCast(self), @intCast(program), @intCast(location), @intCast(count), @ptrCast(value));
+    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, location: i32, count: i32, value: []const f32 ```
+    pub fn GlProgramUniform2fv(self: ?*anyopaque, program: u32, location: i32, count: i32, value: []const f32) void {
+        qtc.QOpenGLExtraFunctions_GlProgramUniform2fv(@ptrCast(self), @intCast(program), @intCast(location), @intCast(count), value.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glProgramUniform3fv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, location: i32, count: i32, value: *const f32 ```
-    pub fn GlProgramUniform3fv(self: ?*anyopaque, program: u32, location: i32, count: i32, value: *const f32) void {
-        qtc.QOpenGLExtraFunctions_GlProgramUniform3fv(@ptrCast(self), @intCast(program), @intCast(location), @intCast(count), @ptrCast(value));
+    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, location: i32, count: i32, value: []const f32 ```
+    pub fn GlProgramUniform3fv(self: ?*anyopaque, program: u32, location: i32, count: i32, value: []const f32) void {
+        qtc.QOpenGLExtraFunctions_GlProgramUniform3fv(@ptrCast(self), @intCast(program), @intCast(location), @intCast(count), value.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glProgramUniform4fv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, location: i32, count: i32, value: *const f32 ```
-    pub fn GlProgramUniform4fv(self: ?*anyopaque, program: u32, location: i32, count: i32, value: *const f32) void {
-        qtc.QOpenGLExtraFunctions_GlProgramUniform4fv(@ptrCast(self), @intCast(program), @intCast(location), @intCast(count), @ptrCast(value));
+    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, location: i32, count: i32, value: []const f32 ```
+    pub fn GlProgramUniform4fv(self: ?*anyopaque, program: u32, location: i32, count: i32, value: []const f32) void {
+        qtc.QOpenGLExtraFunctions_GlProgramUniform4fv(@ptrCast(self), @intCast(program), @intCast(location), @intCast(count), value.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glProgramUniformMatrix2fv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, location: i32, count: i32, transpose: u8, value: *const f32 ```
-    pub fn GlProgramUniformMatrix2fv(self: ?*anyopaque, program: u32, location: i32, count: i32, transpose: u8, value: *const f32) void {
-        qtc.QOpenGLExtraFunctions_GlProgramUniformMatrix2fv(@ptrCast(self), @intCast(program), @intCast(location), @intCast(count), @intCast(transpose), @ptrCast(value));
+    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, location: i32, count: i32, transpose: u8, value: []const f32 ```
+    pub fn GlProgramUniformMatrix2fv(self: ?*anyopaque, program: u32, location: i32, count: i32, transpose: u8, value: []const f32) void {
+        qtc.QOpenGLExtraFunctions_GlProgramUniformMatrix2fv(@ptrCast(self), @intCast(program), @intCast(location), @intCast(count), @intCast(transpose), value.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glProgramUniformMatrix3fv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, location: i32, count: i32, transpose: u8, value: *const f32 ```
-    pub fn GlProgramUniformMatrix3fv(self: ?*anyopaque, program: u32, location: i32, count: i32, transpose: u8, value: *const f32) void {
-        qtc.QOpenGLExtraFunctions_GlProgramUniformMatrix3fv(@ptrCast(self), @intCast(program), @intCast(location), @intCast(count), @intCast(transpose), @ptrCast(value));
+    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, location: i32, count: i32, transpose: u8, value: []const f32 ```
+    pub fn GlProgramUniformMatrix3fv(self: ?*anyopaque, program: u32, location: i32, count: i32, transpose: u8, value: []const f32) void {
+        qtc.QOpenGLExtraFunctions_GlProgramUniformMatrix3fv(@ptrCast(self), @intCast(program), @intCast(location), @intCast(count), @intCast(transpose), value.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glProgramUniformMatrix4fv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, location: i32, count: i32, transpose: u8, value: *const f32 ```
-    pub fn GlProgramUniformMatrix4fv(self: ?*anyopaque, program: u32, location: i32, count: i32, transpose: u8, value: *const f32) void {
-        qtc.QOpenGLExtraFunctions_GlProgramUniformMatrix4fv(@ptrCast(self), @intCast(program), @intCast(location), @intCast(count), @intCast(transpose), @ptrCast(value));
+    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, location: i32, count: i32, transpose: u8, value: []const f32 ```
+    pub fn GlProgramUniformMatrix4fv(self: ?*anyopaque, program: u32, location: i32, count: i32, transpose: u8, value: []const f32) void {
+        qtc.QOpenGLExtraFunctions_GlProgramUniformMatrix4fv(@ptrCast(self), @intCast(program), @intCast(location), @intCast(count), @intCast(transpose), value.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glProgramUniformMatrix2x3fv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, location: i32, count: i32, transpose: u8, value: *const f32 ```
-    pub fn GlProgramUniformMatrix2x3fv(self: ?*anyopaque, program: u32, location: i32, count: i32, transpose: u8, value: *const f32) void {
-        qtc.QOpenGLExtraFunctions_GlProgramUniformMatrix2x3fv(@ptrCast(self), @intCast(program), @intCast(location), @intCast(count), @intCast(transpose), @ptrCast(value));
+    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, location: i32, count: i32, transpose: u8, value: []const f32 ```
+    pub fn GlProgramUniformMatrix2x3fv(self: ?*anyopaque, program: u32, location: i32, count: i32, transpose: u8, value: []const f32) void {
+        qtc.QOpenGLExtraFunctions_GlProgramUniformMatrix2x3fv(@ptrCast(self), @intCast(program), @intCast(location), @intCast(count), @intCast(transpose), value.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glProgramUniformMatrix3x2fv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, location: i32, count: i32, transpose: u8, value: *const f32 ```
-    pub fn GlProgramUniformMatrix3x2fv(self: ?*anyopaque, program: u32, location: i32, count: i32, transpose: u8, value: *const f32) void {
-        qtc.QOpenGLExtraFunctions_GlProgramUniformMatrix3x2fv(@ptrCast(self), @intCast(program), @intCast(location), @intCast(count), @intCast(transpose), @ptrCast(value));
+    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, location: i32, count: i32, transpose: u8, value: []const f32 ```
+    pub fn GlProgramUniformMatrix3x2fv(self: ?*anyopaque, program: u32, location: i32, count: i32, transpose: u8, value: []const f32) void {
+        qtc.QOpenGLExtraFunctions_GlProgramUniformMatrix3x2fv(@ptrCast(self), @intCast(program), @intCast(location), @intCast(count), @intCast(transpose), value.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glProgramUniformMatrix2x4fv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, location: i32, count: i32, transpose: u8, value: *const f32 ```
-    pub fn GlProgramUniformMatrix2x4fv(self: ?*anyopaque, program: u32, location: i32, count: i32, transpose: u8, value: *const f32) void {
-        qtc.QOpenGLExtraFunctions_GlProgramUniformMatrix2x4fv(@ptrCast(self), @intCast(program), @intCast(location), @intCast(count), @intCast(transpose), @ptrCast(value));
+    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, location: i32, count: i32, transpose: u8, value: []const f32 ```
+    pub fn GlProgramUniformMatrix2x4fv(self: ?*anyopaque, program: u32, location: i32, count: i32, transpose: u8, value: []const f32) void {
+        qtc.QOpenGLExtraFunctions_GlProgramUniformMatrix2x4fv(@ptrCast(self), @intCast(program), @intCast(location), @intCast(count), @intCast(transpose), value.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glProgramUniformMatrix4x2fv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, location: i32, count: i32, transpose: u8, value: *const f32 ```
-    pub fn GlProgramUniformMatrix4x2fv(self: ?*anyopaque, program: u32, location: i32, count: i32, transpose: u8, value: *const f32) void {
-        qtc.QOpenGLExtraFunctions_GlProgramUniformMatrix4x2fv(@ptrCast(self), @intCast(program), @intCast(location), @intCast(count), @intCast(transpose), @ptrCast(value));
+    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, location: i32, count: i32, transpose: u8, value: []const f32 ```
+    pub fn GlProgramUniformMatrix4x2fv(self: ?*anyopaque, program: u32, location: i32, count: i32, transpose: u8, value: []const f32) void {
+        qtc.QOpenGLExtraFunctions_GlProgramUniformMatrix4x2fv(@ptrCast(self), @intCast(program), @intCast(location), @intCast(count), @intCast(transpose), value.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glProgramUniformMatrix3x4fv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, location: i32, count: i32, transpose: u8, value: *const f32 ```
-    pub fn GlProgramUniformMatrix3x4fv(self: ?*anyopaque, program: u32, location: i32, count: i32, transpose: u8, value: *const f32) void {
-        qtc.QOpenGLExtraFunctions_GlProgramUniformMatrix3x4fv(@ptrCast(self), @intCast(program), @intCast(location), @intCast(count), @intCast(transpose), @ptrCast(value));
+    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, location: i32, count: i32, transpose: u8, value: []const f32 ```
+    pub fn GlProgramUniformMatrix3x4fv(self: ?*anyopaque, program: u32, location: i32, count: i32, transpose: u8, value: []const f32) void {
+        qtc.QOpenGLExtraFunctions_GlProgramUniformMatrix3x4fv(@ptrCast(self), @intCast(program), @intCast(location), @intCast(count), @intCast(transpose), value.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glProgramUniformMatrix4x3fv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, location: i32, count: i32, transpose: u8, value: *const f32 ```
-    pub fn GlProgramUniformMatrix4x3fv(self: ?*anyopaque, program: u32, location: i32, count: i32, transpose: u8, value: *const f32) void {
-        qtc.QOpenGLExtraFunctions_GlProgramUniformMatrix4x3fv(@ptrCast(self), @intCast(program), @intCast(location), @intCast(count), @intCast(transpose), @ptrCast(value));
+    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, location: i32, count: i32, transpose: u8, value: []const f32 ```
+    pub fn GlProgramUniformMatrix4x3fv(self: ?*anyopaque, program: u32, location: i32, count: i32, transpose: u8, value: []const f32) void {
+        qtc.QOpenGLExtraFunctions_GlProgramUniformMatrix4x3fv(@ptrCast(self), @intCast(program), @intCast(location), @intCast(count), @intCast(transpose), value.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glValidateProgramPipeline)
@@ -1021,9 +1026,9 @@ pub const qopenglextrafunctions = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glGetProgramPipelineInfoLog)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, pipeline: u32, bufSize: i32, length: *i32, infoLog: *i8 ```
-    pub fn GlGetProgramPipelineInfoLog(self: ?*anyopaque, pipeline: u32, bufSize: i32, length: *i32, infoLog: *i8) void {
-        qtc.QOpenGLExtraFunctions_GlGetProgramPipelineInfoLog(@ptrCast(self), @intCast(pipeline), @intCast(bufSize), @ptrCast(length), @ptrCast(infoLog));
+    /// ``` self: QtC.QOpenGLExtraFunctions, pipeline: u32, bufSize: i32, length: []i32, infoLog: []u8 ```
+    pub fn GlGetProgramPipelineInfoLog(self: ?*anyopaque, pipeline: u32, bufSize: i32, length: []i32, infoLog: []u8) void {
+        qtc.QOpenGLExtraFunctions_GlGetProgramPipelineInfoLog(@ptrCast(self), @intCast(pipeline), @intCast(bufSize), length.ptr, infoLog.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glBindImageTexture)
@@ -1035,9 +1040,9 @@ pub const qopenglextrafunctions = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glGetBooleani_v)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, target: u32, index: u32, data: *u8 ```
-    pub fn GlGetBooleaniV(self: ?*anyopaque, target: u32, index: u32, data: *u8) void {
-        qtc.QOpenGLExtraFunctions_GlGetBooleaniV(@ptrCast(self), @intCast(target), @intCast(index), @ptrCast(data));
+    /// ``` self: QtC.QOpenGLExtraFunctions, target: u32, index: u32, data: []u8 ```
+    pub fn GlGetBooleaniV(self: ?*anyopaque, target: u32, index: u32, data: []u8) void {
+        qtc.QOpenGLExtraFunctions_GlGetBooleaniV(@ptrCast(self), @intCast(target), @intCast(index), data.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glMemoryBarrier)
@@ -1063,9 +1068,9 @@ pub const qopenglextrafunctions = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glGetMultisamplefv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, pname: u32, index: u32, val: *f32 ```
-    pub fn GlGetMultisamplefv(self: ?*anyopaque, pname: u32, index: u32, val: *f32) void {
-        qtc.QOpenGLExtraFunctions_GlGetMultisamplefv(@ptrCast(self), @intCast(pname), @intCast(index), @ptrCast(val));
+    /// ``` self: QtC.QOpenGLExtraFunctions, pname: u32, index: u32, val: []f32 ```
+    pub fn GlGetMultisamplefv(self: ?*anyopaque, pname: u32, index: u32, val: []f32) void {
+        qtc.QOpenGLExtraFunctions_GlGetMultisamplefv(@ptrCast(self), @intCast(pname), @intCast(index), val.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glSampleMaski)
@@ -1077,16 +1082,16 @@ pub const qopenglextrafunctions = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glGetTexLevelParameteriv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, target: u32, level: i32, pname: u32, params: *i32 ```
-    pub fn GlGetTexLevelParameteriv(self: ?*anyopaque, target: u32, level: i32, pname: u32, params: *i32) void {
-        qtc.QOpenGLExtraFunctions_GlGetTexLevelParameteriv(@ptrCast(self), @intCast(target), @intCast(level), @intCast(pname), @ptrCast(params));
+    /// ``` self: QtC.QOpenGLExtraFunctions, target: u32, level: i32, pname: u32, params: []i32 ```
+    pub fn GlGetTexLevelParameteriv(self: ?*anyopaque, target: u32, level: i32, pname: u32, params: []i32) void {
+        qtc.QOpenGLExtraFunctions_GlGetTexLevelParameteriv(@ptrCast(self), @intCast(target), @intCast(level), @intCast(pname), params.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glGetTexLevelParameterfv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, target: u32, level: i32, pname: u32, params: *f32 ```
-    pub fn GlGetTexLevelParameterfv(self: ?*anyopaque, target: u32, level: i32, pname: u32, params: *f32) void {
-        qtc.QOpenGLExtraFunctions_GlGetTexLevelParameterfv(@ptrCast(self), @intCast(target), @intCast(level), @intCast(pname), @ptrCast(params));
+    /// ``` self: QtC.QOpenGLExtraFunctions, target: u32, level: i32, pname: u32, params: []f32 ```
+    pub fn GlGetTexLevelParameterfv(self: ?*anyopaque, target: u32, level: i32, pname: u32, params: []f32) void {
+        qtc.QOpenGLExtraFunctions_GlGetTexLevelParameterfv(@ptrCast(self), @intCast(target), @intCast(level), @intCast(pname), params.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glBindVertexBuffer)
@@ -1140,23 +1145,23 @@ pub const qopenglextrafunctions = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glDebugMessageControl)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, source: u32, typeVal: u32, severity: u32, count: i32, ids: *const u32, enabled: u8 ```
-    pub fn GlDebugMessageControl(self: ?*anyopaque, source: u32, typeVal: u32, severity: u32, count: i32, ids: *const u32, enabled: u8) void {
-        qtc.QOpenGLExtraFunctions_GlDebugMessageControl(@ptrCast(self), @intCast(source), @intCast(typeVal), @intCast(severity), @intCast(count), @ptrCast(ids), @intCast(enabled));
+    /// ``` self: QtC.QOpenGLExtraFunctions, source: u32, typeVal: u32, severity: u32, count: i32, ids: []const u32, enabled: u8 ```
+    pub fn GlDebugMessageControl(self: ?*anyopaque, source: u32, typeVal: u32, severity: u32, count: i32, ids: []const u32, enabled: u8) void {
+        qtc.QOpenGLExtraFunctions_GlDebugMessageControl(@ptrCast(self), @intCast(source), @intCast(typeVal), @intCast(severity), @intCast(count), ids.ptr, @intCast(enabled));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glDebugMessageInsert)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, source: u32, typeVal: u32, id: u32, severity: u32, length: i32, buf: *const i8 ```
-    pub fn GlDebugMessageInsert(self: ?*anyopaque, source: u32, typeVal: u32, id: u32, severity: u32, length: i32, buf: *const i8) void {
-        qtc.QOpenGLExtraFunctions_GlDebugMessageInsert(@ptrCast(self), @intCast(source), @intCast(typeVal), @intCast(id), @intCast(severity), @intCast(length), @ptrCast(buf));
+    /// ``` self: QtC.QOpenGLExtraFunctions, source: u32, typeVal: u32, id: u32, severity: u32, length: i32, buf: []const u8 ```
+    pub fn GlDebugMessageInsert(self: ?*anyopaque, source: u32, typeVal: u32, id: u32, severity: u32, length: i32, buf: []const u8) void {
+        qtc.QOpenGLExtraFunctions_GlDebugMessageInsert(@ptrCast(self), @intCast(source), @intCast(typeVal), @intCast(id), @intCast(severity), @intCast(length), buf.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glPushDebugGroup)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, source: u32, id: u32, length: i32, message: *const i8 ```
-    pub fn GlPushDebugGroup(self: ?*anyopaque, source: u32, id: u32, length: i32, message: *const i8) void {
-        qtc.QOpenGLExtraFunctions_GlPushDebugGroup(@ptrCast(self), @intCast(source), @intCast(id), @intCast(length), @ptrCast(message));
+    /// ``` self: QtC.QOpenGLExtraFunctions, source: u32, id: u32, length: i32, message: []const u8 ```
+    pub fn GlPushDebugGroup(self: ?*anyopaque, source: u32, id: u32, length: i32, message: []const u8) void {
+        qtc.QOpenGLExtraFunctions_GlPushDebugGroup(@ptrCast(self), @intCast(source), @intCast(id), @intCast(length), message.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glPopDebugGroup)
@@ -1168,30 +1173,30 @@ pub const qopenglextrafunctions = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glObjectLabel)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, identifier: u32, name: u32, length: i32, label: *const i8 ```
-    pub fn GlObjectLabel(self: ?*anyopaque, identifier: u32, name: u32, length: i32, label: *const i8) void {
-        qtc.QOpenGLExtraFunctions_GlObjectLabel(@ptrCast(self), @intCast(identifier), @intCast(name), @intCast(length), @ptrCast(label));
+    /// ``` self: QtC.QOpenGLExtraFunctions, identifier: u32, name: u32, length: i32, label: []const u8 ```
+    pub fn GlObjectLabel(self: ?*anyopaque, identifier: u32, name: u32, length: i32, label: []const u8) void {
+        qtc.QOpenGLExtraFunctions_GlObjectLabel(@ptrCast(self), @intCast(identifier), @intCast(name), @intCast(length), label.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glGetObjectLabel)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, identifier: u32, name: u32, bufSize: i32, length: *i32, label: *i8 ```
-    pub fn GlGetObjectLabel(self: ?*anyopaque, identifier: u32, name: u32, bufSize: i32, length: *i32, label: *i8) void {
-        qtc.QOpenGLExtraFunctions_GlGetObjectLabel(@ptrCast(self), @intCast(identifier), @intCast(name), @intCast(bufSize), @ptrCast(length), @ptrCast(label));
+    /// ``` self: QtC.QOpenGLExtraFunctions, identifier: u32, name: u32, bufSize: i32, length: []i32, label: []u8 ```
+    pub fn GlGetObjectLabel(self: ?*anyopaque, identifier: u32, name: u32, bufSize: i32, length: []i32, label: []u8) void {
+        qtc.QOpenGLExtraFunctions_GlGetObjectLabel(@ptrCast(self), @intCast(identifier), @intCast(name), @intCast(bufSize), length.ptr, label.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glObjectPtrLabel)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, ptr: ?*anyopaque, length: i32, label: *const i8 ```
-    pub fn GlObjectPtrLabel(self: ?*anyopaque, ptr: ?*anyopaque, length: i32, label: *const i8) void {
-        qtc.QOpenGLExtraFunctions_GlObjectPtrLabel(@ptrCast(self), @ptrCast(ptr), @intCast(length), @ptrCast(label));
+    /// ``` self: QtC.QOpenGLExtraFunctions, ptr: ?*anyopaque, length: i32, label: []const u8 ```
+    pub fn GlObjectPtrLabel(self: ?*anyopaque, ptr: ?*anyopaque, length: i32, label: []const u8) void {
+        qtc.QOpenGLExtraFunctions_GlObjectPtrLabel(@ptrCast(self), @ptrCast(ptr), @intCast(length), label.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glGetObjectPtrLabel)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, ptr: ?*anyopaque, bufSize: i32, length: *i32, label: *i8 ```
-    pub fn GlGetObjectPtrLabel(self: ?*anyopaque, ptr: ?*anyopaque, bufSize: i32, length: *i32, label: *i8) void {
-        qtc.QOpenGLExtraFunctions_GlGetObjectPtrLabel(@ptrCast(self), @ptrCast(ptr), @intCast(bufSize), @ptrCast(length), @ptrCast(label));
+    /// ``` self: QtC.QOpenGLExtraFunctions, ptr: ?*anyopaque, bufSize: i32, length: []i32, label: []u8 ```
+    pub fn GlGetObjectPtrLabel(self: ?*anyopaque, ptr: ?*anyopaque, bufSize: i32, length: []i32, label: []u8) void {
+        qtc.QOpenGLExtraFunctions_GlGetObjectPtrLabel(@ptrCast(self), @ptrCast(ptr), @intCast(bufSize), length.ptr, label.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glGetPointerv)
@@ -1301,23 +1306,23 @@ pub const qopenglextrafunctions = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glGetnUniformfv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, location: i32, bufSize: i32, params: *f32 ```
-    pub fn GlGetnUniformfv(self: ?*anyopaque, program: u32, location: i32, bufSize: i32, params: *f32) void {
-        qtc.QOpenGLExtraFunctions_GlGetnUniformfv(@ptrCast(self), @intCast(program), @intCast(location), @intCast(bufSize), @ptrCast(params));
+    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, location: i32, bufSize: i32, params: []f32 ```
+    pub fn GlGetnUniformfv(self: ?*anyopaque, program: u32, location: i32, bufSize: i32, params: []f32) void {
+        qtc.QOpenGLExtraFunctions_GlGetnUniformfv(@ptrCast(self), @intCast(program), @intCast(location), @intCast(bufSize), params.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glGetnUniformiv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, location: i32, bufSize: i32, params: *i32 ```
-    pub fn GlGetnUniformiv(self: ?*anyopaque, program: u32, location: i32, bufSize: i32, params: *i32) void {
-        qtc.QOpenGLExtraFunctions_GlGetnUniformiv(@ptrCast(self), @intCast(program), @intCast(location), @intCast(bufSize), @ptrCast(params));
+    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, location: i32, bufSize: i32, params: []i32 ```
+    pub fn GlGetnUniformiv(self: ?*anyopaque, program: u32, location: i32, bufSize: i32, params: []i32) void {
+        qtc.QOpenGLExtraFunctions_GlGetnUniformiv(@ptrCast(self), @intCast(program), @intCast(location), @intCast(bufSize), params.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glGetnUniformuiv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, location: i32, bufSize: i32, params: *u32 ```
-    pub fn GlGetnUniformuiv(self: ?*anyopaque, program: u32, location: i32, bufSize: i32, params: *u32) void {
-        qtc.QOpenGLExtraFunctions_GlGetnUniformuiv(@ptrCast(self), @intCast(program), @intCast(location), @intCast(bufSize), @ptrCast(params));
+    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, location: i32, bufSize: i32, params: []u32 ```
+    pub fn GlGetnUniformuiv(self: ?*anyopaque, program: u32, location: i32, bufSize: i32, params: []u32) void {
+        qtc.QOpenGLExtraFunctions_GlGetnUniformuiv(@ptrCast(self), @intCast(program), @intCast(location), @intCast(bufSize), params.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glMinSampleShading)
@@ -1336,58 +1341,58 @@ pub const qopenglextrafunctions = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glTexParameterIiv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, target: u32, pname: u32, params: *const i32 ```
-    pub fn GlTexParameterIiv(self: ?*anyopaque, target: u32, pname: u32, params: *const i32) void {
-        qtc.QOpenGLExtraFunctions_GlTexParameterIiv(@ptrCast(self), @intCast(target), @intCast(pname), @ptrCast(params));
+    /// ``` self: QtC.QOpenGLExtraFunctions, target: u32, pname: u32, params: []const i32 ```
+    pub fn GlTexParameterIiv(self: ?*anyopaque, target: u32, pname: u32, params: []const i32) void {
+        qtc.QOpenGLExtraFunctions_GlTexParameterIiv(@ptrCast(self), @intCast(target), @intCast(pname), params.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glTexParameterIuiv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, target: u32, pname: u32, params: *const u32 ```
-    pub fn GlTexParameterIuiv(self: ?*anyopaque, target: u32, pname: u32, params: *const u32) void {
-        qtc.QOpenGLExtraFunctions_GlTexParameterIuiv(@ptrCast(self), @intCast(target), @intCast(pname), @ptrCast(params));
+    /// ``` self: QtC.QOpenGLExtraFunctions, target: u32, pname: u32, params: []const u32 ```
+    pub fn GlTexParameterIuiv(self: ?*anyopaque, target: u32, pname: u32, params: []const u32) void {
+        qtc.QOpenGLExtraFunctions_GlTexParameterIuiv(@ptrCast(self), @intCast(target), @intCast(pname), params.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glGetTexParameterIiv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, target: u32, pname: u32, params: *i32 ```
-    pub fn GlGetTexParameterIiv(self: ?*anyopaque, target: u32, pname: u32, params: *i32) void {
-        qtc.QOpenGLExtraFunctions_GlGetTexParameterIiv(@ptrCast(self), @intCast(target), @intCast(pname), @ptrCast(params));
+    /// ``` self: QtC.QOpenGLExtraFunctions, target: u32, pname: u32, params: []i32 ```
+    pub fn GlGetTexParameterIiv(self: ?*anyopaque, target: u32, pname: u32, params: []i32) void {
+        qtc.QOpenGLExtraFunctions_GlGetTexParameterIiv(@ptrCast(self), @intCast(target), @intCast(pname), params.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glGetTexParameterIuiv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, target: u32, pname: u32, params: *u32 ```
-    pub fn GlGetTexParameterIuiv(self: ?*anyopaque, target: u32, pname: u32, params: *u32) void {
-        qtc.QOpenGLExtraFunctions_GlGetTexParameterIuiv(@ptrCast(self), @intCast(target), @intCast(pname), @ptrCast(params));
+    /// ``` self: QtC.QOpenGLExtraFunctions, target: u32, pname: u32, params: []u32 ```
+    pub fn GlGetTexParameterIuiv(self: ?*anyopaque, target: u32, pname: u32, params: []u32) void {
+        qtc.QOpenGLExtraFunctions_GlGetTexParameterIuiv(@ptrCast(self), @intCast(target), @intCast(pname), params.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glSamplerParameterIiv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, sampler: u32, pname: u32, param: *const i32 ```
-    pub fn GlSamplerParameterIiv(self: ?*anyopaque, sampler: u32, pname: u32, param: *const i32) void {
-        qtc.QOpenGLExtraFunctions_GlSamplerParameterIiv(@ptrCast(self), @intCast(sampler), @intCast(pname), @ptrCast(param));
+    /// ``` self: QtC.QOpenGLExtraFunctions, sampler: u32, pname: u32, param: []const i32 ```
+    pub fn GlSamplerParameterIiv(self: ?*anyopaque, sampler: u32, pname: u32, param: []const i32) void {
+        qtc.QOpenGLExtraFunctions_GlSamplerParameterIiv(@ptrCast(self), @intCast(sampler), @intCast(pname), param.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glSamplerParameterIuiv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, sampler: u32, pname: u32, param: *const u32 ```
-    pub fn GlSamplerParameterIuiv(self: ?*anyopaque, sampler: u32, pname: u32, param: *const u32) void {
-        qtc.QOpenGLExtraFunctions_GlSamplerParameterIuiv(@ptrCast(self), @intCast(sampler), @intCast(pname), @ptrCast(param));
+    /// ``` self: QtC.QOpenGLExtraFunctions, sampler: u32, pname: u32, param: []const u32 ```
+    pub fn GlSamplerParameterIuiv(self: ?*anyopaque, sampler: u32, pname: u32, param: []const u32) void {
+        qtc.QOpenGLExtraFunctions_GlSamplerParameterIuiv(@ptrCast(self), @intCast(sampler), @intCast(pname), param.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glGetSamplerParameterIiv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, sampler: u32, pname: u32, params: *i32 ```
-    pub fn GlGetSamplerParameterIiv(self: ?*anyopaque, sampler: u32, pname: u32, params: *i32) void {
-        qtc.QOpenGLExtraFunctions_GlGetSamplerParameterIiv(@ptrCast(self), @intCast(sampler), @intCast(pname), @ptrCast(params));
+    /// ``` self: QtC.QOpenGLExtraFunctions, sampler: u32, pname: u32, params: []i32 ```
+    pub fn GlGetSamplerParameterIiv(self: ?*anyopaque, sampler: u32, pname: u32, params: []i32) void {
+        qtc.QOpenGLExtraFunctions_GlGetSamplerParameterIiv(@ptrCast(self), @intCast(sampler), @intCast(pname), params.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glGetSamplerParameterIuiv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, sampler: u32, pname: u32, params: *u32 ```
-    pub fn GlGetSamplerParameterIuiv(self: ?*anyopaque, sampler: u32, pname: u32, params: *u32) void {
-        qtc.QOpenGLExtraFunctions_GlGetSamplerParameterIuiv(@ptrCast(self), @intCast(sampler), @intCast(pname), @ptrCast(params));
+    /// ``` self: QtC.QOpenGLExtraFunctions, sampler: u32, pname: u32, params: []u32 ```
+    pub fn GlGetSamplerParameterIuiv(self: ?*anyopaque, sampler: u32, pname: u32, params: []u32) void {
+        qtc.QOpenGLExtraFunctions_GlGetSamplerParameterIuiv(@ptrCast(self), @intCast(sampler), @intCast(pname), params.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glTexBuffer)
@@ -1525,9 +1530,9 @@ pub const qopenglextrafunctions = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions.html#glDeleteTextures)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, n: i32, textures: *const u32 ```
-    pub fn GlDeleteTextures(self: ?*anyopaque, n: i32, textures: *const u32) void {
-        qtc.QOpenGLFunctions_GlDeleteTextures(@ptrCast(self), @intCast(n), @ptrCast(textures));
+    /// ``` self: QtC.QOpenGLExtraFunctions, n: i32, textures: []const u32 ```
+    pub fn GlDeleteTextures(self: ?*anyopaque, n: i32, textures: []const u32) void {
+        qtc.QOpenGLFunctions_GlDeleteTextures(@ptrCast(self), @intCast(n), textures.ptr);
     }
 
     /// Inherited from QOpenGLFunctions
@@ -1615,36 +1620,36 @@ pub const qopenglextrafunctions = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions.html#glGenTextures)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, n: i32, textures: *u32 ```
-    pub fn GlGenTextures(self: ?*anyopaque, n: i32, textures: *u32) void {
-        qtc.QOpenGLFunctions_GlGenTextures(@ptrCast(self), @intCast(n), @ptrCast(textures));
+    /// ``` self: QtC.QOpenGLExtraFunctions, n: i32, textures: []u32 ```
+    pub fn GlGenTextures(self: ?*anyopaque, n: i32, textures: []u32) void {
+        qtc.QOpenGLFunctions_GlGenTextures(@ptrCast(self), @intCast(n), textures.ptr);
     }
 
     /// Inherited from QOpenGLFunctions
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions.html#glGetBooleanv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, pname: u32, params: *u8 ```
-    pub fn GlGetBooleanv(self: ?*anyopaque, pname: u32, params: *u8) void {
-        qtc.QOpenGLFunctions_GlGetBooleanv(@ptrCast(self), @intCast(pname), @ptrCast(params));
+    /// ``` self: QtC.QOpenGLExtraFunctions, pname: u32, params: []u8 ```
+    pub fn GlGetBooleanv(self: ?*anyopaque, pname: u32, params: []u8) void {
+        qtc.QOpenGLFunctions_GlGetBooleanv(@ptrCast(self), @intCast(pname), params.ptr);
     }
 
     /// Inherited from QOpenGLFunctions
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions.html#glGetFloatv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, pname: u32, params: *f32 ```
-    pub fn GlGetFloatv(self: ?*anyopaque, pname: u32, params: *f32) void {
-        qtc.QOpenGLFunctions_GlGetFloatv(@ptrCast(self), @intCast(pname), @ptrCast(params));
+    /// ``` self: QtC.QOpenGLExtraFunctions, pname: u32, params: []f32 ```
+    pub fn GlGetFloatv(self: ?*anyopaque, pname: u32, params: []f32) void {
+        qtc.QOpenGLFunctions_GlGetFloatv(@ptrCast(self), @intCast(pname), params.ptr);
     }
 
     /// Inherited from QOpenGLFunctions
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions.html#glGetIntegerv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, pname: u32, params: *i32 ```
-    pub fn GlGetIntegerv(self: ?*anyopaque, pname: u32, params: *i32) void {
-        qtc.QOpenGLFunctions_GlGetIntegerv(@ptrCast(self), @intCast(pname), @ptrCast(params));
+    /// ``` self: QtC.QOpenGLExtraFunctions, pname: u32, params: []i32 ```
+    pub fn GlGetIntegerv(self: ?*anyopaque, pname: u32, params: []i32) void {
+        qtc.QOpenGLFunctions_GlGetIntegerv(@ptrCast(self), @intCast(pname), params.ptr);
     }
 
     /// Inherited from QOpenGLFunctions
@@ -1652,26 +1657,30 @@ pub const qopenglextrafunctions = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions.html#glGetString)
     ///
     /// ``` self: QtC.QOpenGLExtraFunctions, name: u32 ```
-    pub fn GlGetString(self: ?*anyopaque, name: u32) ?*const u8 {
-        return @ptrCast(qtc.QOpenGLFunctions_GlGetString(@ptrCast(self), @intCast(name)));
+    pub fn GlGetString(self: ?*anyopaque, name: u32) []const u8 {
+        const ret_str: ?[*:0]const u8 = qtc.QOpenGLFunctions_GlGetString(@ptrCast(self), @intCast(name));
+        if (ret_str == null) {
+            return "";
+        }
+        return std.mem.span(ret_str.?);
     }
 
     /// Inherited from QOpenGLFunctions
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions.html#glGetTexParameterfv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, target: u32, pname: u32, params: *f32 ```
-    pub fn GlGetTexParameterfv(self: ?*anyopaque, target: u32, pname: u32, params: *f32) void {
-        qtc.QOpenGLFunctions_GlGetTexParameterfv(@ptrCast(self), @intCast(target), @intCast(pname), @ptrCast(params));
+    /// ``` self: QtC.QOpenGLExtraFunctions, target: u32, pname: u32, params: []f32 ```
+    pub fn GlGetTexParameterfv(self: ?*anyopaque, target: u32, pname: u32, params: []f32) void {
+        qtc.QOpenGLFunctions_GlGetTexParameterfv(@ptrCast(self), @intCast(target), @intCast(pname), params.ptr);
     }
 
     /// Inherited from QOpenGLFunctions
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions.html#glGetTexParameteriv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, target: u32, pname: u32, params: *i32 ```
-    pub fn GlGetTexParameteriv(self: ?*anyopaque, target: u32, pname: u32, params: *i32) void {
-        qtc.QOpenGLFunctions_GlGetTexParameteriv(@ptrCast(self), @intCast(target), @intCast(pname), @ptrCast(params));
+    /// ``` self: QtC.QOpenGLExtraFunctions, target: u32, pname: u32, params: []i32 ```
+    pub fn GlGetTexParameteriv(self: ?*anyopaque, target: u32, pname: u32, params: []i32) void {
+        qtc.QOpenGLFunctions_GlGetTexParameteriv(@ptrCast(self), @intCast(target), @intCast(pname), params.ptr);
     }
 
     /// Inherited from QOpenGLFunctions
@@ -1795,9 +1804,9 @@ pub const qopenglextrafunctions = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions.html#glTexParameterfv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, target: u32, pname: u32, params: *const f32 ```
-    pub fn GlTexParameterfv(self: ?*anyopaque, target: u32, pname: u32, params: *const f32) void {
-        qtc.QOpenGLFunctions_GlTexParameterfv(@ptrCast(self), @intCast(target), @intCast(pname), @ptrCast(params));
+    /// ``` self: QtC.QOpenGLExtraFunctions, target: u32, pname: u32, params: []const f32 ```
+    pub fn GlTexParameterfv(self: ?*anyopaque, target: u32, pname: u32, params: []const f32) void {
+        qtc.QOpenGLFunctions_GlTexParameterfv(@ptrCast(self), @intCast(target), @intCast(pname), params.ptr);
     }
 
     /// Inherited from QOpenGLFunctions
@@ -1813,9 +1822,9 @@ pub const qopenglextrafunctions = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions.html#glTexParameteriv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, target: u32, pname: u32, params: *const i32 ```
-    pub fn GlTexParameteriv(self: ?*anyopaque, target: u32, pname: u32, params: *const i32) void {
-        qtc.QOpenGLFunctions_GlTexParameteriv(@ptrCast(self), @intCast(target), @intCast(pname), @ptrCast(params));
+    /// ``` self: QtC.QOpenGLExtraFunctions, target: u32, pname: u32, params: []const i32 ```
+    pub fn GlTexParameteriv(self: ?*anyopaque, target: u32, pname: u32, params: []const i32) void {
+        qtc.QOpenGLFunctions_GlTexParameteriv(@ptrCast(self), @intCast(target), @intCast(pname), params.ptr);
     }
 
     /// Inherited from QOpenGLFunctions
@@ -2003,18 +2012,18 @@ pub const qopenglextrafunctions = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions.html#glDeleteBuffers)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, n: i32, buffers: *const u32 ```
-    pub fn GlDeleteBuffers(self: ?*anyopaque, n: i32, buffers: *const u32) void {
-        qtc.QOpenGLFunctions_GlDeleteBuffers(@ptrCast(self), @intCast(n), @ptrCast(buffers));
+    /// ``` self: QtC.QOpenGLExtraFunctions, n: i32, buffers: []const u32 ```
+    pub fn GlDeleteBuffers(self: ?*anyopaque, n: i32, buffers: []const u32) void {
+        qtc.QOpenGLFunctions_GlDeleteBuffers(@ptrCast(self), @intCast(n), buffers.ptr);
     }
 
     /// Inherited from QOpenGLFunctions
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions.html#glDeleteFramebuffers)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, n: i32, framebuffers: *const u32 ```
-    pub fn GlDeleteFramebuffers(self: ?*anyopaque, n: i32, framebuffers: *const u32) void {
-        qtc.QOpenGLFunctions_GlDeleteFramebuffers(@ptrCast(self), @intCast(n), @ptrCast(framebuffers));
+    /// ``` self: QtC.QOpenGLExtraFunctions, n: i32, framebuffers: []const u32 ```
+    pub fn GlDeleteFramebuffers(self: ?*anyopaque, n: i32, framebuffers: []const u32) void {
+        qtc.QOpenGLFunctions_GlDeleteFramebuffers(@ptrCast(self), @intCast(n), framebuffers.ptr);
     }
 
     /// Inherited from QOpenGLFunctions
@@ -2030,9 +2039,9 @@ pub const qopenglextrafunctions = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions.html#glDeleteRenderbuffers)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, n: i32, renderbuffers: *const u32 ```
-    pub fn GlDeleteRenderbuffers(self: ?*anyopaque, n: i32, renderbuffers: *const u32) void {
-        qtc.QOpenGLFunctions_GlDeleteRenderbuffers(@ptrCast(self), @intCast(n), @ptrCast(renderbuffers));
+    /// ``` self: QtC.QOpenGLExtraFunctions, n: i32, renderbuffers: []const u32 ```
+    pub fn GlDeleteRenderbuffers(self: ?*anyopaque, n: i32, renderbuffers: []const u32) void {
+        qtc.QOpenGLFunctions_GlDeleteRenderbuffers(@ptrCast(self), @intCast(n), renderbuffers.ptr);
     }
 
     /// Inherited from QOpenGLFunctions
@@ -2102,9 +2111,9 @@ pub const qopenglextrafunctions = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions.html#glGenBuffers)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, n: i32, buffers: *u32 ```
-    pub fn GlGenBuffers(self: ?*anyopaque, n: i32, buffers: *u32) void {
-        qtc.QOpenGLFunctions_GlGenBuffers(@ptrCast(self), @intCast(n), @ptrCast(buffers));
+    /// ``` self: QtC.QOpenGLExtraFunctions, n: i32, buffers: []u32 ```
+    pub fn GlGenBuffers(self: ?*anyopaque, n: i32, buffers: []u32) void {
+        qtc.QOpenGLFunctions_GlGenBuffers(@ptrCast(self), @intCast(n), buffers.ptr);
     }
 
     /// Inherited from QOpenGLFunctions
@@ -2120,27 +2129,27 @@ pub const qopenglextrafunctions = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions.html#glGenFramebuffers)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, n: i32, framebuffers: *u32 ```
-    pub fn GlGenFramebuffers(self: ?*anyopaque, n: i32, framebuffers: *u32) void {
-        qtc.QOpenGLFunctions_GlGenFramebuffers(@ptrCast(self), @intCast(n), @ptrCast(framebuffers));
+    /// ``` self: QtC.QOpenGLExtraFunctions, n: i32, framebuffers: []u32 ```
+    pub fn GlGenFramebuffers(self: ?*anyopaque, n: i32, framebuffers: []u32) void {
+        qtc.QOpenGLFunctions_GlGenFramebuffers(@ptrCast(self), @intCast(n), framebuffers.ptr);
     }
 
     /// Inherited from QOpenGLFunctions
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions.html#glGenRenderbuffers)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, n: i32, renderbuffers: *u32 ```
-    pub fn GlGenRenderbuffers(self: ?*anyopaque, n: i32, renderbuffers: *u32) void {
-        qtc.QOpenGLFunctions_GlGenRenderbuffers(@ptrCast(self), @intCast(n), @ptrCast(renderbuffers));
+    /// ``` self: QtC.QOpenGLExtraFunctions, n: i32, renderbuffers: []u32 ```
+    pub fn GlGenRenderbuffers(self: ?*anyopaque, n: i32, renderbuffers: []u32) void {
+        qtc.QOpenGLFunctions_GlGenRenderbuffers(@ptrCast(self), @intCast(n), renderbuffers.ptr);
     }
 
     /// Inherited from QOpenGLFunctions
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions.html#glGetAttachedShaders)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, maxcount: i32, count: *i32, shaders: *u32 ```
-    pub fn GlGetAttachedShaders(self: ?*anyopaque, program: u32, maxcount: i32, count: *i32, shaders: *u32) void {
-        qtc.QOpenGLFunctions_GlGetAttachedShaders(@ptrCast(self), @intCast(program), @intCast(maxcount), @ptrCast(count), @ptrCast(shaders));
+    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, maxcount: i32, count: []i32, shaders: []u32 ```
+    pub fn GlGetAttachedShaders(self: ?*anyopaque, program: u32, maxcount: i32, count: []i32, shaders: []u32) void {
+        qtc.QOpenGLFunctions_GlGetAttachedShaders(@ptrCast(self), @intCast(program), @intCast(maxcount), count.ptr, shaders.ptr);
     }
 
     /// Inherited from QOpenGLFunctions
@@ -2157,102 +2166,102 @@ pub const qopenglextrafunctions = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions.html#glGetBufferParameteriv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, target: u32, pname: u32, params: *i32 ```
-    pub fn GlGetBufferParameteriv(self: ?*anyopaque, target: u32, pname: u32, params: *i32) void {
-        qtc.QOpenGLFunctions_GlGetBufferParameteriv(@ptrCast(self), @intCast(target), @intCast(pname), @ptrCast(params));
+    /// ``` self: QtC.QOpenGLExtraFunctions, target: u32, pname: u32, params: []i32 ```
+    pub fn GlGetBufferParameteriv(self: ?*anyopaque, target: u32, pname: u32, params: []i32) void {
+        qtc.QOpenGLFunctions_GlGetBufferParameteriv(@ptrCast(self), @intCast(target), @intCast(pname), params.ptr);
     }
 
     /// Inherited from QOpenGLFunctions
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions.html#glGetFramebufferAttachmentParameteriv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, target: u32, attachment: u32, pname: u32, params: *i32 ```
-    pub fn GlGetFramebufferAttachmentParameteriv(self: ?*anyopaque, target: u32, attachment: u32, pname: u32, params: *i32) void {
-        qtc.QOpenGLFunctions_GlGetFramebufferAttachmentParameteriv(@ptrCast(self), @intCast(target), @intCast(attachment), @intCast(pname), @ptrCast(params));
+    /// ``` self: QtC.QOpenGLExtraFunctions, target: u32, attachment: u32, pname: u32, params: []i32 ```
+    pub fn GlGetFramebufferAttachmentParameteriv(self: ?*anyopaque, target: u32, attachment: u32, pname: u32, params: []i32) void {
+        qtc.QOpenGLFunctions_GlGetFramebufferAttachmentParameteriv(@ptrCast(self), @intCast(target), @intCast(attachment), @intCast(pname), params.ptr);
     }
 
     /// Inherited from QOpenGLFunctions
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions.html#glGetProgramiv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, pname: u32, params: *i32 ```
-    pub fn GlGetProgramiv(self: ?*anyopaque, program: u32, pname: u32, params: *i32) void {
-        qtc.QOpenGLFunctions_GlGetProgramiv(@ptrCast(self), @intCast(program), @intCast(pname), @ptrCast(params));
+    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, pname: u32, params: []i32 ```
+    pub fn GlGetProgramiv(self: ?*anyopaque, program: u32, pname: u32, params: []i32) void {
+        qtc.QOpenGLFunctions_GlGetProgramiv(@ptrCast(self), @intCast(program), @intCast(pname), params.ptr);
     }
 
     /// Inherited from QOpenGLFunctions
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions.html#glGetProgramInfoLog)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, bufsize: i32, length: *i32, infolog: []u8 ```
-    pub fn GlGetProgramInfoLog(self: ?*anyopaque, program: u32, bufsize: i32, length: *i32, infolog: []u8) void {
+    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, bufsize: i32, length: []i32, infolog: []u8 ```
+    pub fn GlGetProgramInfoLog(self: ?*anyopaque, program: u32, bufsize: i32, length: []i32, infolog: []u8) void {
         const infolog_Cstring = infolog.ptr;
-        qtc.QOpenGLFunctions_GlGetProgramInfoLog(@ptrCast(self), @intCast(program), @intCast(bufsize), @ptrCast(length), infolog_Cstring);
+        qtc.QOpenGLFunctions_GlGetProgramInfoLog(@ptrCast(self), @intCast(program), @intCast(bufsize), length.ptr, infolog_Cstring);
     }
 
     /// Inherited from QOpenGLFunctions
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions.html#glGetRenderbufferParameteriv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, target: u32, pname: u32, params: *i32 ```
-    pub fn GlGetRenderbufferParameteriv(self: ?*anyopaque, target: u32, pname: u32, params: *i32) void {
-        qtc.QOpenGLFunctions_GlGetRenderbufferParameteriv(@ptrCast(self), @intCast(target), @intCast(pname), @ptrCast(params));
+    /// ``` self: QtC.QOpenGLExtraFunctions, target: u32, pname: u32, params: []i32 ```
+    pub fn GlGetRenderbufferParameteriv(self: ?*anyopaque, target: u32, pname: u32, params: []i32) void {
+        qtc.QOpenGLFunctions_GlGetRenderbufferParameteriv(@ptrCast(self), @intCast(target), @intCast(pname), params.ptr);
     }
 
     /// Inherited from QOpenGLFunctions
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions.html#glGetShaderiv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, shader: u32, pname: u32, params: *i32 ```
-    pub fn GlGetShaderiv(self: ?*anyopaque, shader: u32, pname: u32, params: *i32) void {
-        qtc.QOpenGLFunctions_GlGetShaderiv(@ptrCast(self), @intCast(shader), @intCast(pname), @ptrCast(params));
+    /// ``` self: QtC.QOpenGLExtraFunctions, shader: u32, pname: u32, params: []i32 ```
+    pub fn GlGetShaderiv(self: ?*anyopaque, shader: u32, pname: u32, params: []i32) void {
+        qtc.QOpenGLFunctions_GlGetShaderiv(@ptrCast(self), @intCast(shader), @intCast(pname), params.ptr);
     }
 
     /// Inherited from QOpenGLFunctions
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions.html#glGetShaderInfoLog)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, shader: u32, bufsize: i32, length: *i32, infolog: []u8 ```
-    pub fn GlGetShaderInfoLog(self: ?*anyopaque, shader: u32, bufsize: i32, length: *i32, infolog: []u8) void {
+    /// ``` self: QtC.QOpenGLExtraFunctions, shader: u32, bufsize: i32, length: []i32, infolog: []u8 ```
+    pub fn GlGetShaderInfoLog(self: ?*anyopaque, shader: u32, bufsize: i32, length: []i32, infolog: []u8) void {
         const infolog_Cstring = infolog.ptr;
-        qtc.QOpenGLFunctions_GlGetShaderInfoLog(@ptrCast(self), @intCast(shader), @intCast(bufsize), @ptrCast(length), infolog_Cstring);
+        qtc.QOpenGLFunctions_GlGetShaderInfoLog(@ptrCast(self), @intCast(shader), @intCast(bufsize), length.ptr, infolog_Cstring);
     }
 
     /// Inherited from QOpenGLFunctions
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions.html#glGetShaderPrecisionFormat)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, shadertype: u32, precisiontype: u32, range: *i32, precision: *i32 ```
-    pub fn GlGetShaderPrecisionFormat(self: ?*anyopaque, shadertype: u32, precisiontype: u32, range: *i32, precision: *i32) void {
-        qtc.QOpenGLFunctions_GlGetShaderPrecisionFormat(@ptrCast(self), @intCast(shadertype), @intCast(precisiontype), @ptrCast(range), @ptrCast(precision));
+    /// ``` self: QtC.QOpenGLExtraFunctions, shadertype: u32, precisiontype: u32, range: []i32, precision: []i32 ```
+    pub fn GlGetShaderPrecisionFormat(self: ?*anyopaque, shadertype: u32, precisiontype: u32, range: []i32, precision: []i32) void {
+        qtc.QOpenGLFunctions_GlGetShaderPrecisionFormat(@ptrCast(self), @intCast(shadertype), @intCast(precisiontype), range.ptr, precision.ptr);
     }
 
     /// Inherited from QOpenGLFunctions
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions.html#glGetShaderSource)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, shader: u32, bufsize: i32, length: *i32, source: []u8 ```
-    pub fn GlGetShaderSource(self: ?*anyopaque, shader: u32, bufsize: i32, length: *i32, source: []u8) void {
+    /// ``` self: QtC.QOpenGLExtraFunctions, shader: u32, bufsize: i32, length: []i32, source: []u8 ```
+    pub fn GlGetShaderSource(self: ?*anyopaque, shader: u32, bufsize: i32, length: []i32, source: []u8) void {
         const source_Cstring = source.ptr;
-        qtc.QOpenGLFunctions_GlGetShaderSource(@ptrCast(self), @intCast(shader), @intCast(bufsize), @ptrCast(length), source_Cstring);
+        qtc.QOpenGLFunctions_GlGetShaderSource(@ptrCast(self), @intCast(shader), @intCast(bufsize), length.ptr, source_Cstring);
     }
 
     /// Inherited from QOpenGLFunctions
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions.html#glGetUniformfv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, location: i32, params: *f32 ```
-    pub fn GlGetUniformfv(self: ?*anyopaque, program: u32, location: i32, params: *f32) void {
-        qtc.QOpenGLFunctions_GlGetUniformfv(@ptrCast(self), @intCast(program), @intCast(location), @ptrCast(params));
+    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, location: i32, params: []f32 ```
+    pub fn GlGetUniformfv(self: ?*anyopaque, program: u32, location: i32, params: []f32) void {
+        qtc.QOpenGLFunctions_GlGetUniformfv(@ptrCast(self), @intCast(program), @intCast(location), params.ptr);
     }
 
     /// Inherited from QOpenGLFunctions
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions.html#glGetUniformiv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, location: i32, params: *i32 ```
-    pub fn GlGetUniformiv(self: ?*anyopaque, program: u32, location: i32, params: *i32) void {
-        qtc.QOpenGLFunctions_GlGetUniformiv(@ptrCast(self), @intCast(program), @intCast(location), @ptrCast(params));
+    /// ``` self: QtC.QOpenGLExtraFunctions, program: u32, location: i32, params: []i32 ```
+    pub fn GlGetUniformiv(self: ?*anyopaque, program: u32, location: i32, params: []i32) void {
+        qtc.QOpenGLFunctions_GlGetUniformiv(@ptrCast(self), @intCast(program), @intCast(location), params.ptr);
     }
 
     /// Inherited from QOpenGLFunctions
@@ -2269,18 +2278,18 @@ pub const qopenglextrafunctions = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions.html#glGetVertexAttribfv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, index: u32, pname: u32, params: *f32 ```
-    pub fn GlGetVertexAttribfv(self: ?*anyopaque, index: u32, pname: u32, params: *f32) void {
-        qtc.QOpenGLFunctions_GlGetVertexAttribfv(@ptrCast(self), @intCast(index), @intCast(pname), @ptrCast(params));
+    /// ``` self: QtC.QOpenGLExtraFunctions, index: u32, pname: u32, params: []f32 ```
+    pub fn GlGetVertexAttribfv(self: ?*anyopaque, index: u32, pname: u32, params: []f32) void {
+        qtc.QOpenGLFunctions_GlGetVertexAttribfv(@ptrCast(self), @intCast(index), @intCast(pname), params.ptr);
     }
 
     /// Inherited from QOpenGLFunctions
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions.html#glGetVertexAttribiv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, index: u32, pname: u32, params: *i32 ```
-    pub fn GlGetVertexAttribiv(self: ?*anyopaque, index: u32, pname: u32, params: *i32) void {
-        qtc.QOpenGLFunctions_GlGetVertexAttribiv(@ptrCast(self), @intCast(index), @intCast(pname), @ptrCast(params));
+    /// ``` self: QtC.QOpenGLExtraFunctions, index: u32, pname: u32, params: []i32 ```
+    pub fn GlGetVertexAttribiv(self: ?*anyopaque, index: u32, pname: u32, params: []i32) void {
+        qtc.QOpenGLFunctions_GlGetVertexAttribiv(@ptrCast(self), @intCast(index), @intCast(pname), params.ptr);
     }
 
     /// Inherited from QOpenGLFunctions
@@ -2377,19 +2386,23 @@ pub const qopenglextrafunctions = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions.html#glShaderBinary)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, n: i32, shaders: *const u32, binaryformat: u32, binary: ?*anyopaque, length: i32 ```
-    pub fn GlShaderBinary(self: ?*anyopaque, n: i32, shaders: *const u32, binaryformat: u32, binary: ?*anyopaque, length: i32) void {
-        qtc.QOpenGLFunctions_GlShaderBinary(@ptrCast(self), @intCast(n), @ptrCast(shaders), @intCast(binaryformat), @ptrCast(binary), @intCast(length));
+    /// ``` self: QtC.QOpenGLExtraFunctions, n: i32, shaders: []const u32, binaryformat: u32, binary: ?*anyopaque, length: i32 ```
+    pub fn GlShaderBinary(self: ?*anyopaque, n: i32, shaders: []const u32, binaryformat: u32, binary: ?*anyopaque, length: i32) void {
+        qtc.QOpenGLFunctions_GlShaderBinary(@ptrCast(self), @intCast(n), shaders.ptr, @intCast(binaryformat), @ptrCast(binary), @intCast(length));
     }
 
     /// Inherited from QOpenGLFunctions
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions.html#glShaderSource)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, shader: u32, count: i32, stringVal: []const u8, length: *const i32 ```
-    pub fn GlShaderSource(self: ?*anyopaque, shader: u32, count: i32, stringVal: []const u8, length: *const i32) void {
-        const stringVal_Cstring = stringVal.ptr;
-        qtc.QOpenGLFunctions_GlShaderSource(@ptrCast(self), @intCast(shader), @intCast(count), stringVal_Cstring, @ptrCast(length));
+    /// ``` self: QtC.QOpenGLExtraFunctions, shader: u32, count: i32, stringVal: [][]const u8, length: []const i32, allocator: std.mem.Allocator ```
+    pub fn GlShaderSource(self: ?*anyopaque, shader: u32, count: i32, stringVal: [][]const u8, length: []const i32, allocator: std.mem.Allocator) void {
+        var stringVal_chararr = allocator.alloc([*c]const u8, stringVal.len) catch @panic("qopenglextrafunctions.GlShaderSource: Memory allocation failed");
+        defer allocator.free(stringVal_chararr);
+        for (stringVal, 0..stringVal.len) |str, i| {
+            stringVal_chararr[i] = @ptrCast(str.ptr);
+        }
+        qtc.QOpenGLFunctions_GlShaderSource(@ptrCast(self), @intCast(shader), @intCast(count), stringVal_chararr.ptr, length.ptr);
     }
 
     /// Inherited from QOpenGLFunctions
@@ -2432,9 +2445,9 @@ pub const qopenglextrafunctions = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions.html#glUniform1fv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, location: i32, count: i32, v: *const f32 ```
-    pub fn GlUniform1fv(self: ?*anyopaque, location: i32, count: i32, v: *const f32) void {
-        qtc.QOpenGLFunctions_GlUniform1fv(@ptrCast(self), @intCast(location), @intCast(count), @ptrCast(v));
+    /// ``` self: QtC.QOpenGLExtraFunctions, location: i32, count: i32, v: []const f32 ```
+    pub fn GlUniform1fv(self: ?*anyopaque, location: i32, count: i32, v: []const f32) void {
+        qtc.QOpenGLFunctions_GlUniform1fv(@ptrCast(self), @intCast(location), @intCast(count), v.ptr);
     }
 
     /// Inherited from QOpenGLFunctions
@@ -2450,9 +2463,9 @@ pub const qopenglextrafunctions = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions.html#glUniform1iv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, location: i32, count: i32, v: *const i32 ```
-    pub fn GlUniform1iv(self: ?*anyopaque, location: i32, count: i32, v: *const i32) void {
-        qtc.QOpenGLFunctions_GlUniform1iv(@ptrCast(self), @intCast(location), @intCast(count), @ptrCast(v));
+    /// ``` self: QtC.QOpenGLExtraFunctions, location: i32, count: i32, v: []const i32 ```
+    pub fn GlUniform1iv(self: ?*anyopaque, location: i32, count: i32, v: []const i32) void {
+        qtc.QOpenGLFunctions_GlUniform1iv(@ptrCast(self), @intCast(location), @intCast(count), v.ptr);
     }
 
     /// Inherited from QOpenGLFunctions
@@ -2468,9 +2481,9 @@ pub const qopenglextrafunctions = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions.html#glUniform2fv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, location: i32, count: i32, v: *const f32 ```
-    pub fn GlUniform2fv(self: ?*anyopaque, location: i32, count: i32, v: *const f32) void {
-        qtc.QOpenGLFunctions_GlUniform2fv(@ptrCast(self), @intCast(location), @intCast(count), @ptrCast(v));
+    /// ``` self: QtC.QOpenGLExtraFunctions, location: i32, count: i32, v: []const f32 ```
+    pub fn GlUniform2fv(self: ?*anyopaque, location: i32, count: i32, v: []const f32) void {
+        qtc.QOpenGLFunctions_GlUniform2fv(@ptrCast(self), @intCast(location), @intCast(count), v.ptr);
     }
 
     /// Inherited from QOpenGLFunctions
@@ -2486,9 +2499,9 @@ pub const qopenglextrafunctions = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions.html#glUniform2iv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, location: i32, count: i32, v: *const i32 ```
-    pub fn GlUniform2iv(self: ?*anyopaque, location: i32, count: i32, v: *const i32) void {
-        qtc.QOpenGLFunctions_GlUniform2iv(@ptrCast(self), @intCast(location), @intCast(count), @ptrCast(v));
+    /// ``` self: QtC.QOpenGLExtraFunctions, location: i32, count: i32, v: []const i32 ```
+    pub fn GlUniform2iv(self: ?*anyopaque, location: i32, count: i32, v: []const i32) void {
+        qtc.QOpenGLFunctions_GlUniform2iv(@ptrCast(self), @intCast(location), @intCast(count), v.ptr);
     }
 
     /// Inherited from QOpenGLFunctions
@@ -2504,9 +2517,9 @@ pub const qopenglextrafunctions = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions.html#glUniform3fv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, location: i32, count: i32, v: *const f32 ```
-    pub fn GlUniform3fv(self: ?*anyopaque, location: i32, count: i32, v: *const f32) void {
-        qtc.QOpenGLFunctions_GlUniform3fv(@ptrCast(self), @intCast(location), @intCast(count), @ptrCast(v));
+    /// ``` self: QtC.QOpenGLExtraFunctions, location: i32, count: i32, v: []const f32 ```
+    pub fn GlUniform3fv(self: ?*anyopaque, location: i32, count: i32, v: []const f32) void {
+        qtc.QOpenGLFunctions_GlUniform3fv(@ptrCast(self), @intCast(location), @intCast(count), v.ptr);
     }
 
     /// Inherited from QOpenGLFunctions
@@ -2522,9 +2535,9 @@ pub const qopenglextrafunctions = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions.html#glUniform3iv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, location: i32, count: i32, v: *const i32 ```
-    pub fn GlUniform3iv(self: ?*anyopaque, location: i32, count: i32, v: *const i32) void {
-        qtc.QOpenGLFunctions_GlUniform3iv(@ptrCast(self), @intCast(location), @intCast(count), @ptrCast(v));
+    /// ``` self: QtC.QOpenGLExtraFunctions, location: i32, count: i32, v: []const i32 ```
+    pub fn GlUniform3iv(self: ?*anyopaque, location: i32, count: i32, v: []const i32) void {
+        qtc.QOpenGLFunctions_GlUniform3iv(@ptrCast(self), @intCast(location), @intCast(count), v.ptr);
     }
 
     /// Inherited from QOpenGLFunctions
@@ -2540,9 +2553,9 @@ pub const qopenglextrafunctions = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions.html#glUniform4fv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, location: i32, count: i32, v: *const f32 ```
-    pub fn GlUniform4fv(self: ?*anyopaque, location: i32, count: i32, v: *const f32) void {
-        qtc.QOpenGLFunctions_GlUniform4fv(@ptrCast(self), @intCast(location), @intCast(count), @ptrCast(v));
+    /// ``` self: QtC.QOpenGLExtraFunctions, location: i32, count: i32, v: []const f32 ```
+    pub fn GlUniform4fv(self: ?*anyopaque, location: i32, count: i32, v: []const f32) void {
+        qtc.QOpenGLFunctions_GlUniform4fv(@ptrCast(self), @intCast(location), @intCast(count), v.ptr);
     }
 
     /// Inherited from QOpenGLFunctions
@@ -2558,36 +2571,36 @@ pub const qopenglextrafunctions = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions.html#glUniform4iv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, location: i32, count: i32, v: *const i32 ```
-    pub fn GlUniform4iv(self: ?*anyopaque, location: i32, count: i32, v: *const i32) void {
-        qtc.QOpenGLFunctions_GlUniform4iv(@ptrCast(self), @intCast(location), @intCast(count), @ptrCast(v));
+    /// ``` self: QtC.QOpenGLExtraFunctions, location: i32, count: i32, v: []const i32 ```
+    pub fn GlUniform4iv(self: ?*anyopaque, location: i32, count: i32, v: []const i32) void {
+        qtc.QOpenGLFunctions_GlUniform4iv(@ptrCast(self), @intCast(location), @intCast(count), v.ptr);
     }
 
     /// Inherited from QOpenGLFunctions
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions.html#glUniformMatrix2fv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, location: i32, count: i32, transpose: u8, value: *const f32 ```
-    pub fn GlUniformMatrix2fv(self: ?*anyopaque, location: i32, count: i32, transpose: u8, value: *const f32) void {
-        qtc.QOpenGLFunctions_GlUniformMatrix2fv(@ptrCast(self), @intCast(location), @intCast(count), @intCast(transpose), @ptrCast(value));
+    /// ``` self: QtC.QOpenGLExtraFunctions, location: i32, count: i32, transpose: u8, value: []const f32 ```
+    pub fn GlUniformMatrix2fv(self: ?*anyopaque, location: i32, count: i32, transpose: u8, value: []const f32) void {
+        qtc.QOpenGLFunctions_GlUniformMatrix2fv(@ptrCast(self), @intCast(location), @intCast(count), @intCast(transpose), value.ptr);
     }
 
     /// Inherited from QOpenGLFunctions
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions.html#glUniformMatrix3fv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, location: i32, count: i32, transpose: u8, value: *const f32 ```
-    pub fn GlUniformMatrix3fv(self: ?*anyopaque, location: i32, count: i32, transpose: u8, value: *const f32) void {
-        qtc.QOpenGLFunctions_GlUniformMatrix3fv(@ptrCast(self), @intCast(location), @intCast(count), @intCast(transpose), @ptrCast(value));
+    /// ``` self: QtC.QOpenGLExtraFunctions, location: i32, count: i32, transpose: u8, value: []const f32 ```
+    pub fn GlUniformMatrix3fv(self: ?*anyopaque, location: i32, count: i32, transpose: u8, value: []const f32) void {
+        qtc.QOpenGLFunctions_GlUniformMatrix3fv(@ptrCast(self), @intCast(location), @intCast(count), @intCast(transpose), value.ptr);
     }
 
     /// Inherited from QOpenGLFunctions
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions.html#glUniformMatrix4fv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, location: i32, count: i32, transpose: u8, value: *const f32 ```
-    pub fn GlUniformMatrix4fv(self: ?*anyopaque, location: i32, count: i32, transpose: u8, value: *const f32) void {
-        qtc.QOpenGLFunctions_GlUniformMatrix4fv(@ptrCast(self), @intCast(location), @intCast(count), @intCast(transpose), @ptrCast(value));
+    /// ``` self: QtC.QOpenGLExtraFunctions, location: i32, count: i32, transpose: u8, value: []const f32 ```
+    pub fn GlUniformMatrix4fv(self: ?*anyopaque, location: i32, count: i32, transpose: u8, value: []const f32) void {
+        qtc.QOpenGLFunctions_GlUniformMatrix4fv(@ptrCast(self), @intCast(location), @intCast(count), @intCast(transpose), value.ptr);
     }
 
     /// Inherited from QOpenGLFunctions
@@ -2621,9 +2634,9 @@ pub const qopenglextrafunctions = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions.html#glVertexAttrib1fv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, indx: u32, values: *const f32 ```
-    pub fn GlVertexAttrib1fv(self: ?*anyopaque, indx: u32, values: *const f32) void {
-        qtc.QOpenGLFunctions_GlVertexAttrib1fv(@ptrCast(self), @intCast(indx), @ptrCast(values));
+    /// ``` self: QtC.QOpenGLExtraFunctions, indx: u32, values: []const f32 ```
+    pub fn GlVertexAttrib1fv(self: ?*anyopaque, indx: u32, values: []const f32) void {
+        qtc.QOpenGLFunctions_GlVertexAttrib1fv(@ptrCast(self), @intCast(indx), values.ptr);
     }
 
     /// Inherited from QOpenGLFunctions
@@ -2639,9 +2652,9 @@ pub const qopenglextrafunctions = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions.html#glVertexAttrib2fv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, indx: u32, values: *const f32 ```
-    pub fn GlVertexAttrib2fv(self: ?*anyopaque, indx: u32, values: *const f32) void {
-        qtc.QOpenGLFunctions_GlVertexAttrib2fv(@ptrCast(self), @intCast(indx), @ptrCast(values));
+    /// ``` self: QtC.QOpenGLExtraFunctions, indx: u32, values: []const f32 ```
+    pub fn GlVertexAttrib2fv(self: ?*anyopaque, indx: u32, values: []const f32) void {
+        qtc.QOpenGLFunctions_GlVertexAttrib2fv(@ptrCast(self), @intCast(indx), values.ptr);
     }
 
     /// Inherited from QOpenGLFunctions
@@ -2657,9 +2670,9 @@ pub const qopenglextrafunctions = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions.html#glVertexAttrib3fv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, indx: u32, values: *const f32 ```
-    pub fn GlVertexAttrib3fv(self: ?*anyopaque, indx: u32, values: *const f32) void {
-        qtc.QOpenGLFunctions_GlVertexAttrib3fv(@ptrCast(self), @intCast(indx), @ptrCast(values));
+    /// ``` self: QtC.QOpenGLExtraFunctions, indx: u32, values: []const f32 ```
+    pub fn GlVertexAttrib3fv(self: ?*anyopaque, indx: u32, values: []const f32) void {
+        qtc.QOpenGLFunctions_GlVertexAttrib3fv(@ptrCast(self), @intCast(indx), values.ptr);
     }
 
     /// Inherited from QOpenGLFunctions
@@ -2675,9 +2688,9 @@ pub const qopenglextrafunctions = struct {
     ///
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions.html#glVertexAttrib4fv)
     ///
-    /// ``` self: QtC.QOpenGLExtraFunctions, indx: u32, values: *const f32 ```
-    pub fn GlVertexAttrib4fv(self: ?*anyopaque, indx: u32, values: *const f32) void {
-        qtc.QOpenGLFunctions_GlVertexAttrib4fv(@ptrCast(self), @intCast(indx), @ptrCast(values));
+    /// ``` self: QtC.QOpenGLExtraFunctions, indx: u32, values: []const f32 ```
+    pub fn GlVertexAttrib4fv(self: ?*anyopaque, indx: u32, values: []const f32) void {
+        qtc.QOpenGLFunctions_GlVertexAttrib4fv(@ptrCast(self), @intCast(indx), values.ptr);
     }
 
     /// Inherited from QOpenGLFunctions

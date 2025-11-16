@@ -315,6 +315,7 @@ pub const KIconEngine = ?*C.KIconEngine;
 pub const KIconLoader = ?*C.KIconLoader;
 pub const KIconTheme = ?*C.KIconTheme;
 pub const KIconUtils = ?*C.KIconUtils;
+pub const KIdleTime = ?*C.KIdleTime;
 pub const KImageFilePreview = ?*C.KImageFilePreview;
 pub const KJob = ?*C.KJob;
 pub const KJobTrackerInterface = ?*C.KJobTrackerInterface;

@@ -701,6 +701,7 @@
 #include "extras-ki18n/libkcountry.h"
 #include "extras-ki18n/libkcountrysubdivision.h"
 #include "extras-ki18n/libktimezone.h"
+#include "extras-kidletime/libkidletime.h"
 #include "extras-kimageannotator/libKImageAnnotator.h"
 #include "extras-kitemmodels/libkbreadcrumbselectionmodel.h"
 #include "extras-kitemmodels/libkcheckableproxymodel.h"

@@ -284,6 +284,18 @@ func (p CppParameter) IntType() bool {
 	}
 }
 
+func (p CppParameter) GlIntType() bool {
+	switch p.ParameterType {
+	case "GLbitfield", "GLboolean", "GLbyte", "GLchar", "GLdouble", "GLenum", "GLfloat",
+		"GLint", "GLint64", "GLintptr", "GLshort", "GLsizei", "GLsizeiptr", "GLubyte",
+		"GLuint", "GLuint64", "GLushort":
+		return true
+
+	default:
+		return false
+	}
+}
+
 func (p CppParameter) Void() bool {
 	return (p.ParameterType == "void" || p.ParameterType == "GLvoid") && !p.Pointer
 }
