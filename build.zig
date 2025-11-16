@@ -300,6 +300,8 @@ const qt_modules = &.{
     // Qt 6 KI18n
     "KI18n",
     "KI18nLocaleData",
+    // Qt 6 KIdleTime
+    "KIdleTime",
     // Qt 6 kImageAnnotator
     "kImageAnnotator-Qt6",
     "kImageAnnotator-Qt6/kImageAnnotator",
