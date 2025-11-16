@@ -1,5 +1,6 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
+const std = @import("std");
 
 /// https://doc.qt.io/qt-6/qopenglfunctions-1-1.html
 pub const qopenglfunctions_1_1 = struct {
@@ -58,30 +59,30 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glGetTexLevelParameteriv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, target: u32, level: i32, pname: u32, params: *i32 ```
-    pub fn GlGetTexLevelParameteriv(self: ?*anyopaque, target: u32, level: i32, pname: u32, params: *i32) void {
-        qtc.QOpenGLFunctions_1_1_GlGetTexLevelParameteriv(@ptrCast(self), @intCast(target), @intCast(level), @intCast(pname), @ptrCast(params));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, target: u32, level: i32, pname: u32, params: []i32 ```
+    pub fn GlGetTexLevelParameteriv(self: ?*anyopaque, target: u32, level: i32, pname: u32, params: []i32) void {
+        qtc.QOpenGLFunctions_1_1_GlGetTexLevelParameteriv(@ptrCast(self), @intCast(target), @intCast(level), @intCast(pname), params.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glGetTexLevelParameterfv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, target: u32, level: i32, pname: u32, params: *f32 ```
-    pub fn GlGetTexLevelParameterfv(self: ?*anyopaque, target: u32, level: i32, pname: u32, params: *f32) void {
-        qtc.QOpenGLFunctions_1_1_GlGetTexLevelParameterfv(@ptrCast(self), @intCast(target), @intCast(level), @intCast(pname), @ptrCast(params));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, target: u32, level: i32, pname: u32, params: []f32 ```
+    pub fn GlGetTexLevelParameterfv(self: ?*anyopaque, target: u32, level: i32, pname: u32, params: []f32) void {
+        qtc.QOpenGLFunctions_1_1_GlGetTexLevelParameterfv(@ptrCast(self), @intCast(target), @intCast(level), @intCast(pname), params.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glGetTexParameteriv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, target: u32, pname: u32, params: *i32 ```
-    pub fn GlGetTexParameteriv(self: ?*anyopaque, target: u32, pname: u32, params: *i32) void {
-        qtc.QOpenGLFunctions_1_1_GlGetTexParameteriv(@ptrCast(self), @intCast(target), @intCast(pname), @ptrCast(params));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, target: u32, pname: u32, params: []i32 ```
+    pub fn GlGetTexParameteriv(self: ?*anyopaque, target: u32, pname: u32, params: []i32) void {
+        qtc.QOpenGLFunctions_1_1_GlGetTexParameteriv(@ptrCast(self), @intCast(target), @intCast(pname), params.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glGetTexParameterfv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, target: u32, pname: u32, params: *f32 ```
-    pub fn GlGetTexParameterfv(self: ?*anyopaque, target: u32, pname: u32, params: *f32) void {
-        qtc.QOpenGLFunctions_1_1_GlGetTexParameterfv(@ptrCast(self), @intCast(target), @intCast(pname), @ptrCast(params));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, target: u32, pname: u32, params: []f32 ```
+    pub fn GlGetTexParameterfv(self: ?*anyopaque, target: u32, pname: u32, params: []f32) void {
+        qtc.QOpenGLFunctions_1_1_GlGetTexParameterfv(@ptrCast(self), @intCast(target), @intCast(pname), params.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glGetTexImage)
@@ -94,36 +95,40 @@ pub const qopenglfunctions_1_1 = struct {
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glGetString)
     ///
     /// ``` self: QtC.QOpenGLFunctions_1_1, name: u32 ```
-    pub fn GlGetString(self: ?*anyopaque, name: u32) ?*const u8 {
-        return @ptrCast(qtc.QOpenGLFunctions_1_1_GlGetString(@ptrCast(self), @intCast(name)));
+    pub fn GlGetString(self: ?*anyopaque, name: u32) []const u8 {
+        const ret_str: ?[*:0]const u8 = qtc.QOpenGLFunctions_1_1_GlGetString(@ptrCast(self), @intCast(name));
+        if (ret_str == null) {
+            return "";
+        }
+        return std.mem.span(ret_str.?);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glGetIntegerv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, pname: u32, params: *i32 ```
-    pub fn GlGetIntegerv(self: ?*anyopaque, pname: u32, params: *i32) void {
-        qtc.QOpenGLFunctions_1_1_GlGetIntegerv(@ptrCast(self), @intCast(pname), @ptrCast(params));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, pname: u32, params: []i32 ```
+    pub fn GlGetIntegerv(self: ?*anyopaque, pname: u32, params: []i32) void {
+        qtc.QOpenGLFunctions_1_1_GlGetIntegerv(@ptrCast(self), @intCast(pname), params.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glGetFloatv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, pname: u32, params: *f32 ```
-    pub fn GlGetFloatv(self: ?*anyopaque, pname: u32, params: *f32) void {
-        qtc.QOpenGLFunctions_1_1_GlGetFloatv(@ptrCast(self), @intCast(pname), @ptrCast(params));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, pname: u32, params: []f32 ```
+    pub fn GlGetFloatv(self: ?*anyopaque, pname: u32, params: []f32) void {
+        qtc.QOpenGLFunctions_1_1_GlGetFloatv(@ptrCast(self), @intCast(pname), params.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glGetDoublev)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, pname: u32, params: *f64 ```
-    pub fn GlGetDoublev(self: ?*anyopaque, pname: u32, params: *f64) void {
-        qtc.QOpenGLFunctions_1_1_GlGetDoublev(@ptrCast(self), @intCast(pname), @ptrCast(params));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, pname: u32, params: []f64 ```
+    pub fn GlGetDoublev(self: ?*anyopaque, pname: u32, params: []f64) void {
+        qtc.QOpenGLFunctions_1_1_GlGetDoublev(@ptrCast(self), @intCast(pname), params.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glGetBooleanv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, pname: u32, params: *u8 ```
-    pub fn GlGetBooleanv(self: ?*anyopaque, pname: u32, params: *u8) void {
-        qtc.QOpenGLFunctions_1_1_GlGetBooleanv(@ptrCast(self), @intCast(pname), @ptrCast(params));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, pname: u32, params: []u8 ```
+    pub fn GlGetBooleanv(self: ?*anyopaque, pname: u32, params: []u8) void {
+        qtc.QOpenGLFunctions_1_1_GlGetBooleanv(@ptrCast(self), @intCast(pname), params.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glReadPixels)
@@ -289,9 +294,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glTexParameteriv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, target: u32, pname: u32, params: *const i32 ```
-    pub fn GlTexParameteriv(self: ?*anyopaque, target: u32, pname: u32, params: *const i32) void {
-        qtc.QOpenGLFunctions_1_1_GlTexParameteriv(@ptrCast(self), @intCast(target), @intCast(pname), @ptrCast(params));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, target: u32, pname: u32, params: []const i32 ```
+    pub fn GlTexParameteriv(self: ?*anyopaque, target: u32, pname: u32, params: []const i32) void {
+        qtc.QOpenGLFunctions_1_1_GlTexParameteriv(@ptrCast(self), @intCast(target), @intCast(pname), params.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glTexParameteri)
@@ -303,9 +308,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glTexParameterfv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, target: u32, pname: u32, params: *const f32 ```
-    pub fn GlTexParameterfv(self: ?*anyopaque, target: u32, pname: u32, params: *const f32) void {
-        qtc.QOpenGLFunctions_1_1_GlTexParameterfv(@ptrCast(self), @intCast(target), @intCast(pname), @ptrCast(params));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, target: u32, pname: u32, params: []const f32 ```
+    pub fn GlTexParameterfv(self: ?*anyopaque, target: u32, pname: u32, params: []const f32) void {
+        qtc.QOpenGLFunctions_1_1_GlTexParameterfv(@ptrCast(self), @intCast(target), @intCast(pname), params.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glTexParameterf)
@@ -366,9 +371,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glIndexubv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, c: *const u8 ```
-    pub fn GlIndexubv(self: ?*anyopaque, c: *const u8) void {
-        qtc.QOpenGLFunctions_1_1_GlIndexubv(@ptrCast(self), @ptrCast(c));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, c: []const u8 ```
+    pub fn GlIndexubv(self: ?*anyopaque, c: []const u8) void {
+        qtc.QOpenGLFunctions_1_1_GlIndexubv(@ptrCast(self), c.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glIndexub)
@@ -387,16 +392,16 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glGenTextures)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, n: i32, textures: *u32 ```
-    pub fn GlGenTextures(self: ?*anyopaque, n: i32, textures: *u32) void {
-        qtc.QOpenGLFunctions_1_1_GlGenTextures(@ptrCast(self), @intCast(n), @ptrCast(textures));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, n: i32, textures: []u32 ```
+    pub fn GlGenTextures(self: ?*anyopaque, n: i32, textures: []u32) void {
+        qtc.QOpenGLFunctions_1_1_GlGenTextures(@ptrCast(self), @intCast(n), textures.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glDeleteTextures)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, n: i32, textures: *const u32 ```
-    pub fn GlDeleteTextures(self: ?*anyopaque, n: i32, textures: *const u32) void {
-        qtc.QOpenGLFunctions_1_1_GlDeleteTextures(@ptrCast(self), @intCast(n), @ptrCast(textures));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, n: i32, textures: []const u32 ```
+    pub fn GlDeleteTextures(self: ?*anyopaque, n: i32, textures: []const u32) void {
+        qtc.QOpenGLFunctions_1_1_GlDeleteTextures(@ptrCast(self), @intCast(n), textures.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glBindTexture)
@@ -534,16 +539,16 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glMultMatrixd)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, m: *const f64 ```
-    pub fn GlMultMatrixd(self: ?*anyopaque, m: *const f64) void {
-        qtc.QOpenGLFunctions_1_1_GlMultMatrixd(@ptrCast(self), @ptrCast(m));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, m: []const f64 ```
+    pub fn GlMultMatrixd(self: ?*anyopaque, m: []const f64) void {
+        qtc.QOpenGLFunctions_1_1_GlMultMatrixd(@ptrCast(self), m.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glMultMatrixf)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, m: *const f32 ```
-    pub fn GlMultMatrixf(self: ?*anyopaque, m: *const f32) void {
-        qtc.QOpenGLFunctions_1_1_GlMultMatrixf(@ptrCast(self), @ptrCast(m));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, m: []const f32 ```
+    pub fn GlMultMatrixf(self: ?*anyopaque, m: []const f32) void {
+        qtc.QOpenGLFunctions_1_1_GlMultMatrixf(@ptrCast(self), m.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glMatrixMode)
@@ -555,16 +560,16 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glLoadMatrixd)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, m: *const f64 ```
-    pub fn GlLoadMatrixd(self: ?*anyopaque, m: *const f64) void {
-        qtc.QOpenGLFunctions_1_1_GlLoadMatrixd(@ptrCast(self), @ptrCast(m));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, m: []const f64 ```
+    pub fn GlLoadMatrixd(self: ?*anyopaque, m: []const f64) void {
+        qtc.QOpenGLFunctions_1_1_GlLoadMatrixd(@ptrCast(self), m.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glLoadMatrixf)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, m: *const f32 ```
-    pub fn GlLoadMatrixf(self: ?*anyopaque, m: *const f32) void {
-        qtc.QOpenGLFunctions_1_1_GlLoadMatrixf(@ptrCast(self), @ptrCast(m));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, m: []const f32 ```
+    pub fn GlLoadMatrixf(self: ?*anyopaque, m: []const f32) void {
+        qtc.QOpenGLFunctions_1_1_GlLoadMatrixf(@ptrCast(self), m.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glLoadIdentity)
@@ -590,121 +595,121 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glGetTexGeniv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, coord: u32, pname: u32, params: *i32 ```
-    pub fn GlGetTexGeniv(self: ?*anyopaque, coord: u32, pname: u32, params: *i32) void {
-        qtc.QOpenGLFunctions_1_1_GlGetTexGeniv(@ptrCast(self), @intCast(coord), @intCast(pname), @ptrCast(params));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, coord: u32, pname: u32, params: []i32 ```
+    pub fn GlGetTexGeniv(self: ?*anyopaque, coord: u32, pname: u32, params: []i32) void {
+        qtc.QOpenGLFunctions_1_1_GlGetTexGeniv(@ptrCast(self), @intCast(coord), @intCast(pname), params.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glGetTexGenfv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, coord: u32, pname: u32, params: *f32 ```
-    pub fn GlGetTexGenfv(self: ?*anyopaque, coord: u32, pname: u32, params: *f32) void {
-        qtc.QOpenGLFunctions_1_1_GlGetTexGenfv(@ptrCast(self), @intCast(coord), @intCast(pname), @ptrCast(params));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, coord: u32, pname: u32, params: []f32 ```
+    pub fn GlGetTexGenfv(self: ?*anyopaque, coord: u32, pname: u32, params: []f32) void {
+        qtc.QOpenGLFunctions_1_1_GlGetTexGenfv(@ptrCast(self), @intCast(coord), @intCast(pname), params.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glGetTexGendv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, coord: u32, pname: u32, params: *f64 ```
-    pub fn GlGetTexGendv(self: ?*anyopaque, coord: u32, pname: u32, params: *f64) void {
-        qtc.QOpenGLFunctions_1_1_GlGetTexGendv(@ptrCast(self), @intCast(coord), @intCast(pname), @ptrCast(params));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, coord: u32, pname: u32, params: []f64 ```
+    pub fn GlGetTexGendv(self: ?*anyopaque, coord: u32, pname: u32, params: []f64) void {
+        qtc.QOpenGLFunctions_1_1_GlGetTexGendv(@ptrCast(self), @intCast(coord), @intCast(pname), params.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glGetTexEnviv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, target: u32, pname: u32, params: *i32 ```
-    pub fn GlGetTexEnviv(self: ?*anyopaque, target: u32, pname: u32, params: *i32) void {
-        qtc.QOpenGLFunctions_1_1_GlGetTexEnviv(@ptrCast(self), @intCast(target), @intCast(pname), @ptrCast(params));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, target: u32, pname: u32, params: []i32 ```
+    pub fn GlGetTexEnviv(self: ?*anyopaque, target: u32, pname: u32, params: []i32) void {
+        qtc.QOpenGLFunctions_1_1_GlGetTexEnviv(@ptrCast(self), @intCast(target), @intCast(pname), params.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glGetTexEnvfv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, target: u32, pname: u32, params: *f32 ```
-    pub fn GlGetTexEnvfv(self: ?*anyopaque, target: u32, pname: u32, params: *f32) void {
-        qtc.QOpenGLFunctions_1_1_GlGetTexEnvfv(@ptrCast(self), @intCast(target), @intCast(pname), @ptrCast(params));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, target: u32, pname: u32, params: []f32 ```
+    pub fn GlGetTexEnvfv(self: ?*anyopaque, target: u32, pname: u32, params: []f32) void {
+        qtc.QOpenGLFunctions_1_1_GlGetTexEnvfv(@ptrCast(self), @intCast(target), @intCast(pname), params.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glGetPolygonStipple)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, mask: *u8 ```
-    pub fn GlGetPolygonStipple(self: ?*anyopaque, mask: *u8) void {
-        qtc.QOpenGLFunctions_1_1_GlGetPolygonStipple(@ptrCast(self), @ptrCast(mask));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, mask: []u8 ```
+    pub fn GlGetPolygonStipple(self: ?*anyopaque, mask: []u8) void {
+        qtc.QOpenGLFunctions_1_1_GlGetPolygonStipple(@ptrCast(self), mask.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glGetPixelMapusv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, mapVal: u32, values: *u16 ```
-    pub fn GlGetPixelMapusv(self: ?*anyopaque, mapVal: u32, values: *u16) void {
-        qtc.QOpenGLFunctions_1_1_GlGetPixelMapusv(@ptrCast(self), @intCast(mapVal), @ptrCast(values));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, mapVal: u32, values: []u16 ```
+    pub fn GlGetPixelMapusv(self: ?*anyopaque, mapVal: u32, values: []u16) void {
+        qtc.QOpenGLFunctions_1_1_GlGetPixelMapusv(@ptrCast(self), @intCast(mapVal), values.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glGetPixelMapuiv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, mapVal: u32, values: *u32 ```
-    pub fn GlGetPixelMapuiv(self: ?*anyopaque, mapVal: u32, values: *u32) void {
-        qtc.QOpenGLFunctions_1_1_GlGetPixelMapuiv(@ptrCast(self), @intCast(mapVal), @ptrCast(values));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, mapVal: u32, values: []u32 ```
+    pub fn GlGetPixelMapuiv(self: ?*anyopaque, mapVal: u32, values: []u32) void {
+        qtc.QOpenGLFunctions_1_1_GlGetPixelMapuiv(@ptrCast(self), @intCast(mapVal), values.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glGetPixelMapfv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, mapVal: u32, values: *f32 ```
-    pub fn GlGetPixelMapfv(self: ?*anyopaque, mapVal: u32, values: *f32) void {
-        qtc.QOpenGLFunctions_1_1_GlGetPixelMapfv(@ptrCast(self), @intCast(mapVal), @ptrCast(values));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, mapVal: u32, values: []f32 ```
+    pub fn GlGetPixelMapfv(self: ?*anyopaque, mapVal: u32, values: []f32) void {
+        qtc.QOpenGLFunctions_1_1_GlGetPixelMapfv(@ptrCast(self), @intCast(mapVal), values.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glGetMaterialiv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, face: u32, pname: u32, params: *i32 ```
-    pub fn GlGetMaterialiv(self: ?*anyopaque, face: u32, pname: u32, params: *i32) void {
-        qtc.QOpenGLFunctions_1_1_GlGetMaterialiv(@ptrCast(self), @intCast(face), @intCast(pname), @ptrCast(params));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, face: u32, pname: u32, params: []i32 ```
+    pub fn GlGetMaterialiv(self: ?*anyopaque, face: u32, pname: u32, params: []i32) void {
+        qtc.QOpenGLFunctions_1_1_GlGetMaterialiv(@ptrCast(self), @intCast(face), @intCast(pname), params.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glGetMaterialfv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, face: u32, pname: u32, params: *f32 ```
-    pub fn GlGetMaterialfv(self: ?*anyopaque, face: u32, pname: u32, params: *f32) void {
-        qtc.QOpenGLFunctions_1_1_GlGetMaterialfv(@ptrCast(self), @intCast(face), @intCast(pname), @ptrCast(params));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, face: u32, pname: u32, params: []f32 ```
+    pub fn GlGetMaterialfv(self: ?*anyopaque, face: u32, pname: u32, params: []f32) void {
+        qtc.QOpenGLFunctions_1_1_GlGetMaterialfv(@ptrCast(self), @intCast(face), @intCast(pname), params.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glGetMapiv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, target: u32, query: u32, v: *i32 ```
-    pub fn GlGetMapiv(self: ?*anyopaque, target: u32, query: u32, v: *i32) void {
-        qtc.QOpenGLFunctions_1_1_GlGetMapiv(@ptrCast(self), @intCast(target), @intCast(query), @ptrCast(v));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, target: u32, query: u32, v: []i32 ```
+    pub fn GlGetMapiv(self: ?*anyopaque, target: u32, query: u32, v: []i32) void {
+        qtc.QOpenGLFunctions_1_1_GlGetMapiv(@ptrCast(self), @intCast(target), @intCast(query), v.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glGetMapfv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, target: u32, query: u32, v: *f32 ```
-    pub fn GlGetMapfv(self: ?*anyopaque, target: u32, query: u32, v: *f32) void {
-        qtc.QOpenGLFunctions_1_1_GlGetMapfv(@ptrCast(self), @intCast(target), @intCast(query), @ptrCast(v));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, target: u32, query: u32, v: []f32 ```
+    pub fn GlGetMapfv(self: ?*anyopaque, target: u32, query: u32, v: []f32) void {
+        qtc.QOpenGLFunctions_1_1_GlGetMapfv(@ptrCast(self), @intCast(target), @intCast(query), v.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glGetMapdv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, target: u32, query: u32, v: *f64 ```
-    pub fn GlGetMapdv(self: ?*anyopaque, target: u32, query: u32, v: *f64) void {
-        qtc.QOpenGLFunctions_1_1_GlGetMapdv(@ptrCast(self), @intCast(target), @intCast(query), @ptrCast(v));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, target: u32, query: u32, v: []f64 ```
+    pub fn GlGetMapdv(self: ?*anyopaque, target: u32, query: u32, v: []f64) void {
+        qtc.QOpenGLFunctions_1_1_GlGetMapdv(@ptrCast(self), @intCast(target), @intCast(query), v.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glGetLightiv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, light: u32, pname: u32, params: *i32 ```
-    pub fn GlGetLightiv(self: ?*anyopaque, light: u32, pname: u32, params: *i32) void {
-        qtc.QOpenGLFunctions_1_1_GlGetLightiv(@ptrCast(self), @intCast(light), @intCast(pname), @ptrCast(params));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, light: u32, pname: u32, params: []i32 ```
+    pub fn GlGetLightiv(self: ?*anyopaque, light: u32, pname: u32, params: []i32) void {
+        qtc.QOpenGLFunctions_1_1_GlGetLightiv(@ptrCast(self), @intCast(light), @intCast(pname), params.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glGetLightfv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, light: u32, pname: u32, params: *f32 ```
-    pub fn GlGetLightfv(self: ?*anyopaque, light: u32, pname: u32, params: *f32) void {
-        qtc.QOpenGLFunctions_1_1_GlGetLightfv(@ptrCast(self), @intCast(light), @intCast(pname), @ptrCast(params));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, light: u32, pname: u32, params: []f32 ```
+    pub fn GlGetLightfv(self: ?*anyopaque, light: u32, pname: u32, params: []f32) void {
+        qtc.QOpenGLFunctions_1_1_GlGetLightfv(@ptrCast(self), @intCast(light), @intCast(pname), params.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glGetClipPlane)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, plane: u32, equation: *f64 ```
-    pub fn GlGetClipPlane(self: ?*anyopaque, plane: u32, equation: *f64) void {
-        qtc.QOpenGLFunctions_1_1_GlGetClipPlane(@ptrCast(self), @intCast(plane), @ptrCast(equation));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, plane: u32, equation: []f64 ```
+    pub fn GlGetClipPlane(self: ?*anyopaque, plane: u32, equation: []f64) void {
+        qtc.QOpenGLFunctions_1_1_GlGetClipPlane(@ptrCast(self), @intCast(plane), equation.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glDrawPixels)
@@ -723,23 +728,23 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glPixelMapusv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, mapVal: u32, mapsize: i32, values: *const u16 ```
-    pub fn GlPixelMapusv(self: ?*anyopaque, mapVal: u32, mapsize: i32, values: *const u16) void {
-        qtc.QOpenGLFunctions_1_1_GlPixelMapusv(@ptrCast(self), @intCast(mapVal), @intCast(mapsize), @ptrCast(values));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, mapVal: u32, mapsize: i32, values: []const u16 ```
+    pub fn GlPixelMapusv(self: ?*anyopaque, mapVal: u32, mapsize: i32, values: []const u16) void {
+        qtc.QOpenGLFunctions_1_1_GlPixelMapusv(@ptrCast(self), @intCast(mapVal), @intCast(mapsize), values.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glPixelMapuiv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, mapVal: u32, mapsize: i32, values: *const u32 ```
-    pub fn GlPixelMapuiv(self: ?*anyopaque, mapVal: u32, mapsize: i32, values: *const u32) void {
-        qtc.QOpenGLFunctions_1_1_GlPixelMapuiv(@ptrCast(self), @intCast(mapVal), @intCast(mapsize), @ptrCast(values));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, mapVal: u32, mapsize: i32, values: []const u32 ```
+    pub fn GlPixelMapuiv(self: ?*anyopaque, mapVal: u32, mapsize: i32, values: []const u32) void {
+        qtc.QOpenGLFunctions_1_1_GlPixelMapuiv(@ptrCast(self), @intCast(mapVal), @intCast(mapsize), values.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glPixelMapfv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, mapVal: u32, mapsize: i32, values: *const f32 ```
-    pub fn GlPixelMapfv(self: ?*anyopaque, mapVal: u32, mapsize: i32, values: *const f32) void {
-        qtc.QOpenGLFunctions_1_1_GlPixelMapfv(@ptrCast(self), @intCast(mapVal), @intCast(mapsize), @ptrCast(values));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, mapVal: u32, mapsize: i32, values: []const f32 ```
+    pub fn GlPixelMapfv(self: ?*anyopaque, mapVal: u32, mapsize: i32, values: []const f32) void {
+        qtc.QOpenGLFunctions_1_1_GlPixelMapfv(@ptrCast(self), @intCast(mapVal), @intCast(mapsize), values.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glPixelTransferi)
@@ -800,9 +805,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glEvalCoord2fv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, u: *const f32 ```
-    pub fn GlEvalCoord2fv(self: ?*anyopaque, u: *const f32) void {
-        qtc.QOpenGLFunctions_1_1_GlEvalCoord2fv(@ptrCast(self), @ptrCast(u));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, u: []const f32 ```
+    pub fn GlEvalCoord2fv(self: ?*anyopaque, u: []const f32) void {
+        qtc.QOpenGLFunctions_1_1_GlEvalCoord2fv(@ptrCast(self), u.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glEvalCoord2f)
@@ -814,9 +819,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glEvalCoord2dv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, u: *const f64 ```
-    pub fn GlEvalCoord2dv(self: ?*anyopaque, u: *const f64) void {
-        qtc.QOpenGLFunctions_1_1_GlEvalCoord2dv(@ptrCast(self), @ptrCast(u));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, u: []const f64 ```
+    pub fn GlEvalCoord2dv(self: ?*anyopaque, u: []const f64) void {
+        qtc.QOpenGLFunctions_1_1_GlEvalCoord2dv(@ptrCast(self), u.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glEvalCoord2d)
@@ -828,9 +833,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glEvalCoord1fv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, u: *const f32 ```
-    pub fn GlEvalCoord1fv(self: ?*anyopaque, u: *const f32) void {
-        qtc.QOpenGLFunctions_1_1_GlEvalCoord1fv(@ptrCast(self), @ptrCast(u));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, u: []const f32 ```
+    pub fn GlEvalCoord1fv(self: ?*anyopaque, u: []const f32) void {
+        qtc.QOpenGLFunctions_1_1_GlEvalCoord1fv(@ptrCast(self), u.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glEvalCoord1f)
@@ -842,9 +847,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glEvalCoord1dv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, u: *const f64 ```
-    pub fn GlEvalCoord1dv(self: ?*anyopaque, u: *const f64) void {
-        qtc.QOpenGLFunctions_1_1_GlEvalCoord1dv(@ptrCast(self), @ptrCast(u));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, u: []const f64 ```
+    pub fn GlEvalCoord1dv(self: ?*anyopaque, u: []const f64) void {
+        qtc.QOpenGLFunctions_1_1_GlEvalCoord1dv(@ptrCast(self), u.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glEvalCoord1d)
@@ -884,30 +889,30 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glMap2f)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, target: u32, u1Val: f32, u2Val: f32, ustride: i32, uorder: i32, v1: f32, v2: f32, vstride: i32, vorder: i32, points: *const f32 ```
-    pub fn GlMap2f(self: ?*anyopaque, target: u32, u1Val: f32, u2Val: f32, ustride: i32, uorder: i32, v1: f32, v2: f32, vstride: i32, vorder: i32, points: *const f32) void {
-        qtc.QOpenGLFunctions_1_1_GlMap2f(@ptrCast(self), @intCast(target), @floatCast(u1Val), @floatCast(u2Val), @intCast(ustride), @intCast(uorder), @floatCast(v1), @floatCast(v2), @intCast(vstride), @intCast(vorder), @ptrCast(points));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, target: u32, u1Val: f32, u2Val: f32, ustride: i32, uorder: i32, v1: f32, v2: f32, vstride: i32, vorder: i32, points: []const f32 ```
+    pub fn GlMap2f(self: ?*anyopaque, target: u32, u1Val: f32, u2Val: f32, ustride: i32, uorder: i32, v1: f32, v2: f32, vstride: i32, vorder: i32, points: []const f32) void {
+        qtc.QOpenGLFunctions_1_1_GlMap2f(@ptrCast(self), @intCast(target), @floatCast(u1Val), @floatCast(u2Val), @intCast(ustride), @intCast(uorder), @floatCast(v1), @floatCast(v2), @intCast(vstride), @intCast(vorder), points.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glMap2d)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, target: u32, u1Val: f64, u2Val: f64, ustride: i32, uorder: i32, v1: f64, v2: f64, vstride: i32, vorder: i32, points: *const f64 ```
-    pub fn GlMap2d(self: ?*anyopaque, target: u32, u1Val: f64, u2Val: f64, ustride: i32, uorder: i32, v1: f64, v2: f64, vstride: i32, vorder: i32, points: *const f64) void {
-        qtc.QOpenGLFunctions_1_1_GlMap2d(@ptrCast(self), @intCast(target), @floatCast(u1Val), @floatCast(u2Val), @intCast(ustride), @intCast(uorder), @floatCast(v1), @floatCast(v2), @intCast(vstride), @intCast(vorder), @ptrCast(points));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, target: u32, u1Val: f64, u2Val: f64, ustride: i32, uorder: i32, v1: f64, v2: f64, vstride: i32, vorder: i32, points: []const f64 ```
+    pub fn GlMap2d(self: ?*anyopaque, target: u32, u1Val: f64, u2Val: f64, ustride: i32, uorder: i32, v1: f64, v2: f64, vstride: i32, vorder: i32, points: []const f64) void {
+        qtc.QOpenGLFunctions_1_1_GlMap2d(@ptrCast(self), @intCast(target), @floatCast(u1Val), @floatCast(u2Val), @intCast(ustride), @intCast(uorder), @floatCast(v1), @floatCast(v2), @intCast(vstride), @intCast(vorder), points.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glMap1f)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, target: u32, u1Val: f32, u2Val: f32, stride: i32, order: i32, points: *const f32 ```
-    pub fn GlMap1f(self: ?*anyopaque, target: u32, u1Val: f32, u2Val: f32, stride: i32, order: i32, points: *const f32) void {
-        qtc.QOpenGLFunctions_1_1_GlMap1f(@ptrCast(self), @intCast(target), @floatCast(u1Val), @floatCast(u2Val), @intCast(stride), @intCast(order), @ptrCast(points));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, target: u32, u1Val: f32, u2Val: f32, stride: i32, order: i32, points: []const f32 ```
+    pub fn GlMap1f(self: ?*anyopaque, target: u32, u1Val: f32, u2Val: f32, stride: i32, order: i32, points: []const f32) void {
+        qtc.QOpenGLFunctions_1_1_GlMap1f(@ptrCast(self), @intCast(target), @floatCast(u1Val), @floatCast(u2Val), @intCast(stride), @intCast(order), points.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glMap1d)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, target: u32, u1Val: f64, u2Val: f64, stride: i32, order: i32, points: *const f64 ```
-    pub fn GlMap1d(self: ?*anyopaque, target: u32, u1Val: f64, u2Val: f64, stride: i32, order: i32, points: *const f64) void {
-        qtc.QOpenGLFunctions_1_1_GlMap1d(@ptrCast(self), @intCast(target), @floatCast(u1Val), @floatCast(u2Val), @intCast(stride), @intCast(order), @ptrCast(points));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, target: u32, u1Val: f64, u2Val: f64, stride: i32, order: i32, points: []const f64 ```
+    pub fn GlMap1d(self: ?*anyopaque, target: u32, u1Val: f64, u2Val: f64, stride: i32, order: i32, points: []const f64) void {
+        qtc.QOpenGLFunctions_1_1_GlMap1d(@ptrCast(self), @intCast(target), @floatCast(u1Val), @floatCast(u2Val), @intCast(stride), @intCast(order), points.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glPushAttrib)
@@ -996,23 +1001,23 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glSelectBuffer)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, size: i32, buffer: *u32 ```
-    pub fn GlSelectBuffer(self: ?*anyopaque, size: i32, buffer: *u32) void {
-        qtc.QOpenGLFunctions_1_1_GlSelectBuffer(@ptrCast(self), @intCast(size), @ptrCast(buffer));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, size: i32, buffer: []u32 ```
+    pub fn GlSelectBuffer(self: ?*anyopaque, size: i32, buffer: []u32) void {
+        qtc.QOpenGLFunctions_1_1_GlSelectBuffer(@ptrCast(self), @intCast(size), buffer.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glFeedbackBuffer)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, size: i32, typeVal: u32, buffer: *f32 ```
-    pub fn GlFeedbackBuffer(self: ?*anyopaque, size: i32, typeVal: u32, buffer: *f32) void {
-        qtc.QOpenGLFunctions_1_1_GlFeedbackBuffer(@ptrCast(self), @intCast(size), @intCast(typeVal), @ptrCast(buffer));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, size: i32, typeVal: u32, buffer: []f32 ```
+    pub fn GlFeedbackBuffer(self: ?*anyopaque, size: i32, typeVal: u32, buffer: []f32) void {
+        qtc.QOpenGLFunctions_1_1_GlFeedbackBuffer(@ptrCast(self), @intCast(size), @intCast(typeVal), buffer.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glTexGeniv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, coord: u32, pname: u32, params: *const i32 ```
-    pub fn GlTexGeniv(self: ?*anyopaque, coord: u32, pname: u32, params: *const i32) void {
-        qtc.QOpenGLFunctions_1_1_GlTexGeniv(@ptrCast(self), @intCast(coord), @intCast(pname), @ptrCast(params));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, coord: u32, pname: u32, params: []const i32 ```
+    pub fn GlTexGeniv(self: ?*anyopaque, coord: u32, pname: u32, params: []const i32) void {
+        qtc.QOpenGLFunctions_1_1_GlTexGeniv(@ptrCast(self), @intCast(coord), @intCast(pname), params.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glTexGeni)
@@ -1024,9 +1029,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glTexGenfv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, coord: u32, pname: u32, params: *const f32 ```
-    pub fn GlTexGenfv(self: ?*anyopaque, coord: u32, pname: u32, params: *const f32) void {
-        qtc.QOpenGLFunctions_1_1_GlTexGenfv(@ptrCast(self), @intCast(coord), @intCast(pname), @ptrCast(params));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, coord: u32, pname: u32, params: []const f32 ```
+    pub fn GlTexGenfv(self: ?*anyopaque, coord: u32, pname: u32, params: []const f32) void {
+        qtc.QOpenGLFunctions_1_1_GlTexGenfv(@ptrCast(self), @intCast(coord), @intCast(pname), params.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glTexGenf)
@@ -1038,9 +1043,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glTexGendv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, coord: u32, pname: u32, params: *const f64 ```
-    pub fn GlTexGendv(self: ?*anyopaque, coord: u32, pname: u32, params: *const f64) void {
-        qtc.QOpenGLFunctions_1_1_GlTexGendv(@ptrCast(self), @intCast(coord), @intCast(pname), @ptrCast(params));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, coord: u32, pname: u32, params: []const f64 ```
+    pub fn GlTexGendv(self: ?*anyopaque, coord: u32, pname: u32, params: []const f64) void {
+        qtc.QOpenGLFunctions_1_1_GlTexGendv(@ptrCast(self), @intCast(coord), @intCast(pname), params.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glTexGend)
@@ -1052,9 +1057,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glTexEnviv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, target: u32, pname: u32, params: *const i32 ```
-    pub fn GlTexEnviv(self: ?*anyopaque, target: u32, pname: u32, params: *const i32) void {
-        qtc.QOpenGLFunctions_1_1_GlTexEnviv(@ptrCast(self), @intCast(target), @intCast(pname), @ptrCast(params));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, target: u32, pname: u32, params: []const i32 ```
+    pub fn GlTexEnviv(self: ?*anyopaque, target: u32, pname: u32, params: []const i32) void {
+        qtc.QOpenGLFunctions_1_1_GlTexEnviv(@ptrCast(self), @intCast(target), @intCast(pname), params.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glTexEnvi)
@@ -1066,9 +1071,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glTexEnvfv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, target: u32, pname: u32, params: *const f32 ```
-    pub fn GlTexEnvfv(self: ?*anyopaque, target: u32, pname: u32, params: *const f32) void {
-        qtc.QOpenGLFunctions_1_1_GlTexEnvfv(@ptrCast(self), @intCast(target), @intCast(pname), @ptrCast(params));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, target: u32, pname: u32, params: []const f32 ```
+    pub fn GlTexEnvfv(self: ?*anyopaque, target: u32, pname: u32, params: []const f32) void {
+        qtc.QOpenGLFunctions_1_1_GlTexEnvfv(@ptrCast(self), @intCast(target), @intCast(pname), params.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glTexEnvf)
@@ -1087,16 +1092,16 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glPolygonStipple)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, mask: *const u8 ```
-    pub fn GlPolygonStipple(self: ?*anyopaque, mask: *const u8) void {
-        qtc.QOpenGLFunctions_1_1_GlPolygonStipple(@ptrCast(self), @ptrCast(mask));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, mask: []const u8 ```
+    pub fn GlPolygonStipple(self: ?*anyopaque, mask: []const u8) void {
+        qtc.QOpenGLFunctions_1_1_GlPolygonStipple(@ptrCast(self), mask.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glMaterialiv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, face: u32, pname: u32, params: *const i32 ```
-    pub fn GlMaterialiv(self: ?*anyopaque, face: u32, pname: u32, params: *const i32) void {
-        qtc.QOpenGLFunctions_1_1_GlMaterialiv(@ptrCast(self), @intCast(face), @intCast(pname), @ptrCast(params));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, face: u32, pname: u32, params: []const i32 ```
+    pub fn GlMaterialiv(self: ?*anyopaque, face: u32, pname: u32, params: []const i32) void {
+        qtc.QOpenGLFunctions_1_1_GlMaterialiv(@ptrCast(self), @intCast(face), @intCast(pname), params.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glMateriali)
@@ -1108,9 +1113,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glMaterialfv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, face: u32, pname: u32, params: *const f32 ```
-    pub fn GlMaterialfv(self: ?*anyopaque, face: u32, pname: u32, params: *const f32) void {
-        qtc.QOpenGLFunctions_1_1_GlMaterialfv(@ptrCast(self), @intCast(face), @intCast(pname), @ptrCast(params));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, face: u32, pname: u32, params: []const f32 ```
+    pub fn GlMaterialfv(self: ?*anyopaque, face: u32, pname: u32, params: []const f32) void {
+        qtc.QOpenGLFunctions_1_1_GlMaterialfv(@ptrCast(self), @intCast(face), @intCast(pname), params.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glMaterialf)
@@ -1129,9 +1134,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glLightModeliv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, pname: u32, params: *const i32 ```
-    pub fn GlLightModeliv(self: ?*anyopaque, pname: u32, params: *const i32) void {
-        qtc.QOpenGLFunctions_1_1_GlLightModeliv(@ptrCast(self), @intCast(pname), @ptrCast(params));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, pname: u32, params: []const i32 ```
+    pub fn GlLightModeliv(self: ?*anyopaque, pname: u32, params: []const i32) void {
+        qtc.QOpenGLFunctions_1_1_GlLightModeliv(@ptrCast(self), @intCast(pname), params.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glLightModeli)
@@ -1143,9 +1148,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glLightModelfv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, pname: u32, params: *const f32 ```
-    pub fn GlLightModelfv(self: ?*anyopaque, pname: u32, params: *const f32) void {
-        qtc.QOpenGLFunctions_1_1_GlLightModelfv(@ptrCast(self), @intCast(pname), @ptrCast(params));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, pname: u32, params: []const f32 ```
+    pub fn GlLightModelfv(self: ?*anyopaque, pname: u32, params: []const f32) void {
+        qtc.QOpenGLFunctions_1_1_GlLightModelfv(@ptrCast(self), @intCast(pname), params.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glLightModelf)
@@ -1157,9 +1162,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glLightiv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, light: u32, pname: u32, params: *const i32 ```
-    pub fn GlLightiv(self: ?*anyopaque, light: u32, pname: u32, params: *const i32) void {
-        qtc.QOpenGLFunctions_1_1_GlLightiv(@ptrCast(self), @intCast(light), @intCast(pname), @ptrCast(params));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, light: u32, pname: u32, params: []const i32 ```
+    pub fn GlLightiv(self: ?*anyopaque, light: u32, pname: u32, params: []const i32) void {
+        qtc.QOpenGLFunctions_1_1_GlLightiv(@ptrCast(self), @intCast(light), @intCast(pname), params.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glLighti)
@@ -1171,9 +1176,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glLightfv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, light: u32, pname: u32, params: *const f32 ```
-    pub fn GlLightfv(self: ?*anyopaque, light: u32, pname: u32, params: *const f32) void {
-        qtc.QOpenGLFunctions_1_1_GlLightfv(@ptrCast(self), @intCast(light), @intCast(pname), @ptrCast(params));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, light: u32, pname: u32, params: []const f32 ```
+    pub fn GlLightfv(self: ?*anyopaque, light: u32, pname: u32, params: []const f32) void {
+        qtc.QOpenGLFunctions_1_1_GlLightfv(@ptrCast(self), @intCast(light), @intCast(pname), params.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glLightf)
@@ -1185,9 +1190,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glFogiv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, pname: u32, params: *const i32 ```
-    pub fn GlFogiv(self: ?*anyopaque, pname: u32, params: *const i32) void {
-        qtc.QOpenGLFunctions_1_1_GlFogiv(@ptrCast(self), @intCast(pname), @ptrCast(params));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, pname: u32, params: []const i32 ```
+    pub fn GlFogiv(self: ?*anyopaque, pname: u32, params: []const i32) void {
+        qtc.QOpenGLFunctions_1_1_GlFogiv(@ptrCast(self), @intCast(pname), params.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glFogi)
@@ -1199,9 +1204,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glFogfv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, pname: u32, params: *const f32 ```
-    pub fn GlFogfv(self: ?*anyopaque, pname: u32, params: *const f32) void {
-        qtc.QOpenGLFunctions_1_1_GlFogfv(@ptrCast(self), @intCast(pname), @ptrCast(params));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, pname: u32, params: []const f32 ```
+    pub fn GlFogfv(self: ?*anyopaque, pname: u32, params: []const f32) void {
+        qtc.QOpenGLFunctions_1_1_GlFogfv(@ptrCast(self), @intCast(pname), params.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glFogf)
@@ -1220,16 +1225,16 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glClipPlane)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, plane: u32, equation: *const f64 ```
-    pub fn GlClipPlane(self: ?*anyopaque, plane: u32, equation: *const f64) void {
-        qtc.QOpenGLFunctions_1_1_GlClipPlane(@ptrCast(self), @intCast(plane), @ptrCast(equation));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, plane: u32, equation: []const f64 ```
+    pub fn GlClipPlane(self: ?*anyopaque, plane: u32, equation: []const f64) void {
+        qtc.QOpenGLFunctions_1_1_GlClipPlane(@ptrCast(self), @intCast(plane), equation.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glVertex4sv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, v: *const i16 ```
-    pub fn GlVertex4sv(self: ?*anyopaque, v: *const i16) void {
-        qtc.QOpenGLFunctions_1_1_GlVertex4sv(@ptrCast(self), @ptrCast(v));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, v: []const i16 ```
+    pub fn GlVertex4sv(self: ?*anyopaque, v: []const i16) void {
+        qtc.QOpenGLFunctions_1_1_GlVertex4sv(@ptrCast(self), v.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glVertex4s)
@@ -1241,9 +1246,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glVertex4iv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, v: *const i32 ```
-    pub fn GlVertex4iv(self: ?*anyopaque, v: *const i32) void {
-        qtc.QOpenGLFunctions_1_1_GlVertex4iv(@ptrCast(self), @ptrCast(v));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, v: []const i32 ```
+    pub fn GlVertex4iv(self: ?*anyopaque, v: []const i32) void {
+        qtc.QOpenGLFunctions_1_1_GlVertex4iv(@ptrCast(self), v.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glVertex4i)
@@ -1255,9 +1260,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glVertex4fv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, v: *const f32 ```
-    pub fn GlVertex4fv(self: ?*anyopaque, v: *const f32) void {
-        qtc.QOpenGLFunctions_1_1_GlVertex4fv(@ptrCast(self), @ptrCast(v));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, v: []const f32 ```
+    pub fn GlVertex4fv(self: ?*anyopaque, v: []const f32) void {
+        qtc.QOpenGLFunctions_1_1_GlVertex4fv(@ptrCast(self), v.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glVertex4f)
@@ -1269,9 +1274,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glVertex4dv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, v: *const f64 ```
-    pub fn GlVertex4dv(self: ?*anyopaque, v: *const f64) void {
-        qtc.QOpenGLFunctions_1_1_GlVertex4dv(@ptrCast(self), @ptrCast(v));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, v: []const f64 ```
+    pub fn GlVertex4dv(self: ?*anyopaque, v: []const f64) void {
+        qtc.QOpenGLFunctions_1_1_GlVertex4dv(@ptrCast(self), v.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glVertex4d)
@@ -1283,9 +1288,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glVertex3sv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, v: *const i16 ```
-    pub fn GlVertex3sv(self: ?*anyopaque, v: *const i16) void {
-        qtc.QOpenGLFunctions_1_1_GlVertex3sv(@ptrCast(self), @ptrCast(v));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, v: []const i16 ```
+    pub fn GlVertex3sv(self: ?*anyopaque, v: []const i16) void {
+        qtc.QOpenGLFunctions_1_1_GlVertex3sv(@ptrCast(self), v.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glVertex3s)
@@ -1297,9 +1302,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glVertex3iv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, v: *const i32 ```
-    pub fn GlVertex3iv(self: ?*anyopaque, v: *const i32) void {
-        qtc.QOpenGLFunctions_1_1_GlVertex3iv(@ptrCast(self), @ptrCast(v));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, v: []const i32 ```
+    pub fn GlVertex3iv(self: ?*anyopaque, v: []const i32) void {
+        qtc.QOpenGLFunctions_1_1_GlVertex3iv(@ptrCast(self), v.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glVertex3i)
@@ -1311,9 +1316,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glVertex3fv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, v: *const f32 ```
-    pub fn GlVertex3fv(self: ?*anyopaque, v: *const f32) void {
-        qtc.QOpenGLFunctions_1_1_GlVertex3fv(@ptrCast(self), @ptrCast(v));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, v: []const f32 ```
+    pub fn GlVertex3fv(self: ?*anyopaque, v: []const f32) void {
+        qtc.QOpenGLFunctions_1_1_GlVertex3fv(@ptrCast(self), v.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glVertex3f)
@@ -1325,9 +1330,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glVertex3dv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, v: *const f64 ```
-    pub fn GlVertex3dv(self: ?*anyopaque, v: *const f64) void {
-        qtc.QOpenGLFunctions_1_1_GlVertex3dv(@ptrCast(self), @ptrCast(v));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, v: []const f64 ```
+    pub fn GlVertex3dv(self: ?*anyopaque, v: []const f64) void {
+        qtc.QOpenGLFunctions_1_1_GlVertex3dv(@ptrCast(self), v.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glVertex3d)
@@ -1339,9 +1344,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glVertex2sv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, v: *const i16 ```
-    pub fn GlVertex2sv(self: ?*anyopaque, v: *const i16) void {
-        qtc.QOpenGLFunctions_1_1_GlVertex2sv(@ptrCast(self), @ptrCast(v));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, v: []const i16 ```
+    pub fn GlVertex2sv(self: ?*anyopaque, v: []const i16) void {
+        qtc.QOpenGLFunctions_1_1_GlVertex2sv(@ptrCast(self), v.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glVertex2s)
@@ -1353,9 +1358,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glVertex2iv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, v: *const i32 ```
-    pub fn GlVertex2iv(self: ?*anyopaque, v: *const i32) void {
-        qtc.QOpenGLFunctions_1_1_GlVertex2iv(@ptrCast(self), @ptrCast(v));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, v: []const i32 ```
+    pub fn GlVertex2iv(self: ?*anyopaque, v: []const i32) void {
+        qtc.QOpenGLFunctions_1_1_GlVertex2iv(@ptrCast(self), v.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glVertex2i)
@@ -1367,9 +1372,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glVertex2fv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, v: *const f32 ```
-    pub fn GlVertex2fv(self: ?*anyopaque, v: *const f32) void {
-        qtc.QOpenGLFunctions_1_1_GlVertex2fv(@ptrCast(self), @ptrCast(v));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, v: []const f32 ```
+    pub fn GlVertex2fv(self: ?*anyopaque, v: []const f32) void {
+        qtc.QOpenGLFunctions_1_1_GlVertex2fv(@ptrCast(self), v.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glVertex2f)
@@ -1381,9 +1386,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glVertex2dv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, v: *const f64 ```
-    pub fn GlVertex2dv(self: ?*anyopaque, v: *const f64) void {
-        qtc.QOpenGLFunctions_1_1_GlVertex2dv(@ptrCast(self), @ptrCast(v));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, v: []const f64 ```
+    pub fn GlVertex2dv(self: ?*anyopaque, v: []const f64) void {
+        qtc.QOpenGLFunctions_1_1_GlVertex2dv(@ptrCast(self), v.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glVertex2d)
@@ -1395,9 +1400,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glTexCoord4sv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, v: *const i16 ```
-    pub fn GlTexCoord4sv(self: ?*anyopaque, v: *const i16) void {
-        qtc.QOpenGLFunctions_1_1_GlTexCoord4sv(@ptrCast(self), @ptrCast(v));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, v: []const i16 ```
+    pub fn GlTexCoord4sv(self: ?*anyopaque, v: []const i16) void {
+        qtc.QOpenGLFunctions_1_1_GlTexCoord4sv(@ptrCast(self), v.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glTexCoord4s)
@@ -1409,9 +1414,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glTexCoord4iv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, v: *const i32 ```
-    pub fn GlTexCoord4iv(self: ?*anyopaque, v: *const i32) void {
-        qtc.QOpenGLFunctions_1_1_GlTexCoord4iv(@ptrCast(self), @ptrCast(v));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, v: []const i32 ```
+    pub fn GlTexCoord4iv(self: ?*anyopaque, v: []const i32) void {
+        qtc.QOpenGLFunctions_1_1_GlTexCoord4iv(@ptrCast(self), v.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glTexCoord4i)
@@ -1423,9 +1428,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glTexCoord4fv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, v: *const f32 ```
-    pub fn GlTexCoord4fv(self: ?*anyopaque, v: *const f32) void {
-        qtc.QOpenGLFunctions_1_1_GlTexCoord4fv(@ptrCast(self), @ptrCast(v));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, v: []const f32 ```
+    pub fn GlTexCoord4fv(self: ?*anyopaque, v: []const f32) void {
+        qtc.QOpenGLFunctions_1_1_GlTexCoord4fv(@ptrCast(self), v.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glTexCoord4f)
@@ -1437,9 +1442,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glTexCoord4dv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, v: *const f64 ```
-    pub fn GlTexCoord4dv(self: ?*anyopaque, v: *const f64) void {
-        qtc.QOpenGLFunctions_1_1_GlTexCoord4dv(@ptrCast(self), @ptrCast(v));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, v: []const f64 ```
+    pub fn GlTexCoord4dv(self: ?*anyopaque, v: []const f64) void {
+        qtc.QOpenGLFunctions_1_1_GlTexCoord4dv(@ptrCast(self), v.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glTexCoord4d)
@@ -1451,9 +1456,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glTexCoord3sv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, v: *const i16 ```
-    pub fn GlTexCoord3sv(self: ?*anyopaque, v: *const i16) void {
-        qtc.QOpenGLFunctions_1_1_GlTexCoord3sv(@ptrCast(self), @ptrCast(v));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, v: []const i16 ```
+    pub fn GlTexCoord3sv(self: ?*anyopaque, v: []const i16) void {
+        qtc.QOpenGLFunctions_1_1_GlTexCoord3sv(@ptrCast(self), v.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glTexCoord3s)
@@ -1465,9 +1470,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glTexCoord3iv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, v: *const i32 ```
-    pub fn GlTexCoord3iv(self: ?*anyopaque, v: *const i32) void {
-        qtc.QOpenGLFunctions_1_1_GlTexCoord3iv(@ptrCast(self), @ptrCast(v));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, v: []const i32 ```
+    pub fn GlTexCoord3iv(self: ?*anyopaque, v: []const i32) void {
+        qtc.QOpenGLFunctions_1_1_GlTexCoord3iv(@ptrCast(self), v.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glTexCoord3i)
@@ -1479,9 +1484,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glTexCoord3fv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, v: *const f32 ```
-    pub fn GlTexCoord3fv(self: ?*anyopaque, v: *const f32) void {
-        qtc.QOpenGLFunctions_1_1_GlTexCoord3fv(@ptrCast(self), @ptrCast(v));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, v: []const f32 ```
+    pub fn GlTexCoord3fv(self: ?*anyopaque, v: []const f32) void {
+        qtc.QOpenGLFunctions_1_1_GlTexCoord3fv(@ptrCast(self), v.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glTexCoord3f)
@@ -1493,9 +1498,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glTexCoord3dv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, v: *const f64 ```
-    pub fn GlTexCoord3dv(self: ?*anyopaque, v: *const f64) void {
-        qtc.QOpenGLFunctions_1_1_GlTexCoord3dv(@ptrCast(self), @ptrCast(v));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, v: []const f64 ```
+    pub fn GlTexCoord3dv(self: ?*anyopaque, v: []const f64) void {
+        qtc.QOpenGLFunctions_1_1_GlTexCoord3dv(@ptrCast(self), v.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glTexCoord3d)
@@ -1507,9 +1512,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glTexCoord2sv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, v: *const i16 ```
-    pub fn GlTexCoord2sv(self: ?*anyopaque, v: *const i16) void {
-        qtc.QOpenGLFunctions_1_1_GlTexCoord2sv(@ptrCast(self), @ptrCast(v));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, v: []const i16 ```
+    pub fn GlTexCoord2sv(self: ?*anyopaque, v: []const i16) void {
+        qtc.QOpenGLFunctions_1_1_GlTexCoord2sv(@ptrCast(self), v.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glTexCoord2s)
@@ -1521,9 +1526,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glTexCoord2iv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, v: *const i32 ```
-    pub fn GlTexCoord2iv(self: ?*anyopaque, v: *const i32) void {
-        qtc.QOpenGLFunctions_1_1_GlTexCoord2iv(@ptrCast(self), @ptrCast(v));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, v: []const i32 ```
+    pub fn GlTexCoord2iv(self: ?*anyopaque, v: []const i32) void {
+        qtc.QOpenGLFunctions_1_1_GlTexCoord2iv(@ptrCast(self), v.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glTexCoord2i)
@@ -1535,9 +1540,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glTexCoord2fv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, v: *const f32 ```
-    pub fn GlTexCoord2fv(self: ?*anyopaque, v: *const f32) void {
-        qtc.QOpenGLFunctions_1_1_GlTexCoord2fv(@ptrCast(self), @ptrCast(v));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, v: []const f32 ```
+    pub fn GlTexCoord2fv(self: ?*anyopaque, v: []const f32) void {
+        qtc.QOpenGLFunctions_1_1_GlTexCoord2fv(@ptrCast(self), v.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glTexCoord2f)
@@ -1549,9 +1554,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glTexCoord2dv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, v: *const f64 ```
-    pub fn GlTexCoord2dv(self: ?*anyopaque, v: *const f64) void {
-        qtc.QOpenGLFunctions_1_1_GlTexCoord2dv(@ptrCast(self), @ptrCast(v));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, v: []const f64 ```
+    pub fn GlTexCoord2dv(self: ?*anyopaque, v: []const f64) void {
+        qtc.QOpenGLFunctions_1_1_GlTexCoord2dv(@ptrCast(self), v.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glTexCoord2d)
@@ -1563,9 +1568,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glTexCoord1sv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, v: *const i16 ```
-    pub fn GlTexCoord1sv(self: ?*anyopaque, v: *const i16) void {
-        qtc.QOpenGLFunctions_1_1_GlTexCoord1sv(@ptrCast(self), @ptrCast(v));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, v: []const i16 ```
+    pub fn GlTexCoord1sv(self: ?*anyopaque, v: []const i16) void {
+        qtc.QOpenGLFunctions_1_1_GlTexCoord1sv(@ptrCast(self), v.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glTexCoord1s)
@@ -1577,9 +1582,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glTexCoord1iv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, v: *const i32 ```
-    pub fn GlTexCoord1iv(self: ?*anyopaque, v: *const i32) void {
-        qtc.QOpenGLFunctions_1_1_GlTexCoord1iv(@ptrCast(self), @ptrCast(v));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, v: []const i32 ```
+    pub fn GlTexCoord1iv(self: ?*anyopaque, v: []const i32) void {
+        qtc.QOpenGLFunctions_1_1_GlTexCoord1iv(@ptrCast(self), v.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glTexCoord1i)
@@ -1591,9 +1596,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glTexCoord1fv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, v: *const f32 ```
-    pub fn GlTexCoord1fv(self: ?*anyopaque, v: *const f32) void {
-        qtc.QOpenGLFunctions_1_1_GlTexCoord1fv(@ptrCast(self), @ptrCast(v));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, v: []const f32 ```
+    pub fn GlTexCoord1fv(self: ?*anyopaque, v: []const f32) void {
+        qtc.QOpenGLFunctions_1_1_GlTexCoord1fv(@ptrCast(self), v.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glTexCoord1f)
@@ -1605,9 +1610,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glTexCoord1dv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, v: *const f64 ```
-    pub fn GlTexCoord1dv(self: ?*anyopaque, v: *const f64) void {
-        qtc.QOpenGLFunctions_1_1_GlTexCoord1dv(@ptrCast(self), @ptrCast(v));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, v: []const f64 ```
+    pub fn GlTexCoord1dv(self: ?*anyopaque, v: []const f64) void {
+        qtc.QOpenGLFunctions_1_1_GlTexCoord1dv(@ptrCast(self), v.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glTexCoord1d)
@@ -1619,9 +1624,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glRectsv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, v1: *const i16, v2: *const i16 ```
-    pub fn GlRectsv(self: ?*anyopaque, v1: *const i16, v2: *const i16) void {
-        qtc.QOpenGLFunctions_1_1_GlRectsv(@ptrCast(self), @ptrCast(v1), @ptrCast(v2));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, v1: []const i16, v2: []const i16 ```
+    pub fn GlRectsv(self: ?*anyopaque, v1: []const i16, v2: []const i16) void {
+        qtc.QOpenGLFunctions_1_1_GlRectsv(@ptrCast(self), v1.ptr, v2.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glRects)
@@ -1633,9 +1638,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glRectiv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, v1: *const i32, v2: *const i32 ```
-    pub fn GlRectiv(self: ?*anyopaque, v1: *const i32, v2: *const i32) void {
-        qtc.QOpenGLFunctions_1_1_GlRectiv(@ptrCast(self), @ptrCast(v1), @ptrCast(v2));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, v1: []const i32, v2: []const i32 ```
+    pub fn GlRectiv(self: ?*anyopaque, v1: []const i32, v2: []const i32) void {
+        qtc.QOpenGLFunctions_1_1_GlRectiv(@ptrCast(self), v1.ptr, v2.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glRecti)
@@ -1647,9 +1652,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glRectfv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, v1: *const f32, v2: *const f32 ```
-    pub fn GlRectfv(self: ?*anyopaque, v1: *const f32, v2: *const f32) void {
-        qtc.QOpenGLFunctions_1_1_GlRectfv(@ptrCast(self), @ptrCast(v1), @ptrCast(v2));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, v1: []const f32, v2: []const f32 ```
+    pub fn GlRectfv(self: ?*anyopaque, v1: []const f32, v2: []const f32) void {
+        qtc.QOpenGLFunctions_1_1_GlRectfv(@ptrCast(self), v1.ptr, v2.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glRectf)
@@ -1661,9 +1666,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glRectdv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, v1: *const f64, v2: *const f64 ```
-    pub fn GlRectdv(self: ?*anyopaque, v1: *const f64, v2: *const f64) void {
-        qtc.QOpenGLFunctions_1_1_GlRectdv(@ptrCast(self), @ptrCast(v1), @ptrCast(v2));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, v1: []const f64, v2: []const f64 ```
+    pub fn GlRectdv(self: ?*anyopaque, v1: []const f64, v2: []const f64) void {
+        qtc.QOpenGLFunctions_1_1_GlRectdv(@ptrCast(self), v1.ptr, v2.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glRectd)
@@ -1675,9 +1680,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glRasterPos4sv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, v: *const i16 ```
-    pub fn GlRasterPos4sv(self: ?*anyopaque, v: *const i16) void {
-        qtc.QOpenGLFunctions_1_1_GlRasterPos4sv(@ptrCast(self), @ptrCast(v));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, v: []const i16 ```
+    pub fn GlRasterPos4sv(self: ?*anyopaque, v: []const i16) void {
+        qtc.QOpenGLFunctions_1_1_GlRasterPos4sv(@ptrCast(self), v.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glRasterPos4s)
@@ -1689,9 +1694,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glRasterPos4iv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, v: *const i32 ```
-    pub fn GlRasterPos4iv(self: ?*anyopaque, v: *const i32) void {
-        qtc.QOpenGLFunctions_1_1_GlRasterPos4iv(@ptrCast(self), @ptrCast(v));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, v: []const i32 ```
+    pub fn GlRasterPos4iv(self: ?*anyopaque, v: []const i32) void {
+        qtc.QOpenGLFunctions_1_1_GlRasterPos4iv(@ptrCast(self), v.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glRasterPos4i)
@@ -1703,9 +1708,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glRasterPos4fv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, v: *const f32 ```
-    pub fn GlRasterPos4fv(self: ?*anyopaque, v: *const f32) void {
-        qtc.QOpenGLFunctions_1_1_GlRasterPos4fv(@ptrCast(self), @ptrCast(v));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, v: []const f32 ```
+    pub fn GlRasterPos4fv(self: ?*anyopaque, v: []const f32) void {
+        qtc.QOpenGLFunctions_1_1_GlRasterPos4fv(@ptrCast(self), v.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glRasterPos4f)
@@ -1717,9 +1722,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glRasterPos4dv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, v: *const f64 ```
-    pub fn GlRasterPos4dv(self: ?*anyopaque, v: *const f64) void {
-        qtc.QOpenGLFunctions_1_1_GlRasterPos4dv(@ptrCast(self), @ptrCast(v));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, v: []const f64 ```
+    pub fn GlRasterPos4dv(self: ?*anyopaque, v: []const f64) void {
+        qtc.QOpenGLFunctions_1_1_GlRasterPos4dv(@ptrCast(self), v.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glRasterPos4d)
@@ -1731,9 +1736,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glRasterPos3sv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, v: *const i16 ```
-    pub fn GlRasterPos3sv(self: ?*anyopaque, v: *const i16) void {
-        qtc.QOpenGLFunctions_1_1_GlRasterPos3sv(@ptrCast(self), @ptrCast(v));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, v: []const i16 ```
+    pub fn GlRasterPos3sv(self: ?*anyopaque, v: []const i16) void {
+        qtc.QOpenGLFunctions_1_1_GlRasterPos3sv(@ptrCast(self), v.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glRasterPos3s)
@@ -1745,9 +1750,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glRasterPos3iv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, v: *const i32 ```
-    pub fn GlRasterPos3iv(self: ?*anyopaque, v: *const i32) void {
-        qtc.QOpenGLFunctions_1_1_GlRasterPos3iv(@ptrCast(self), @ptrCast(v));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, v: []const i32 ```
+    pub fn GlRasterPos3iv(self: ?*anyopaque, v: []const i32) void {
+        qtc.QOpenGLFunctions_1_1_GlRasterPos3iv(@ptrCast(self), v.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glRasterPos3i)
@@ -1759,9 +1764,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glRasterPos3fv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, v: *const f32 ```
-    pub fn GlRasterPos3fv(self: ?*anyopaque, v: *const f32) void {
-        qtc.QOpenGLFunctions_1_1_GlRasterPos3fv(@ptrCast(self), @ptrCast(v));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, v: []const f32 ```
+    pub fn GlRasterPos3fv(self: ?*anyopaque, v: []const f32) void {
+        qtc.QOpenGLFunctions_1_1_GlRasterPos3fv(@ptrCast(self), v.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glRasterPos3f)
@@ -1773,9 +1778,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glRasterPos3dv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, v: *const f64 ```
-    pub fn GlRasterPos3dv(self: ?*anyopaque, v: *const f64) void {
-        qtc.QOpenGLFunctions_1_1_GlRasterPos3dv(@ptrCast(self), @ptrCast(v));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, v: []const f64 ```
+    pub fn GlRasterPos3dv(self: ?*anyopaque, v: []const f64) void {
+        qtc.QOpenGLFunctions_1_1_GlRasterPos3dv(@ptrCast(self), v.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glRasterPos3d)
@@ -1787,9 +1792,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glRasterPos2sv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, v: *const i16 ```
-    pub fn GlRasterPos2sv(self: ?*anyopaque, v: *const i16) void {
-        qtc.QOpenGLFunctions_1_1_GlRasterPos2sv(@ptrCast(self), @ptrCast(v));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, v: []const i16 ```
+    pub fn GlRasterPos2sv(self: ?*anyopaque, v: []const i16) void {
+        qtc.QOpenGLFunctions_1_1_GlRasterPos2sv(@ptrCast(self), v.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glRasterPos2s)
@@ -1801,9 +1806,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glRasterPos2iv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, v: *const i32 ```
-    pub fn GlRasterPos2iv(self: ?*anyopaque, v: *const i32) void {
-        qtc.QOpenGLFunctions_1_1_GlRasterPos2iv(@ptrCast(self), @ptrCast(v));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, v: []const i32 ```
+    pub fn GlRasterPos2iv(self: ?*anyopaque, v: []const i32) void {
+        qtc.QOpenGLFunctions_1_1_GlRasterPos2iv(@ptrCast(self), v.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glRasterPos2i)
@@ -1815,9 +1820,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glRasterPos2fv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, v: *const f32 ```
-    pub fn GlRasterPos2fv(self: ?*anyopaque, v: *const f32) void {
-        qtc.QOpenGLFunctions_1_1_GlRasterPos2fv(@ptrCast(self), @ptrCast(v));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, v: []const f32 ```
+    pub fn GlRasterPos2fv(self: ?*anyopaque, v: []const f32) void {
+        qtc.QOpenGLFunctions_1_1_GlRasterPos2fv(@ptrCast(self), v.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glRasterPos2f)
@@ -1829,9 +1834,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glRasterPos2dv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, v: *const f64 ```
-    pub fn GlRasterPos2dv(self: ?*anyopaque, v: *const f64) void {
-        qtc.QOpenGLFunctions_1_1_GlRasterPos2dv(@ptrCast(self), @ptrCast(v));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, v: []const f64 ```
+    pub fn GlRasterPos2dv(self: ?*anyopaque, v: []const f64) void {
+        qtc.QOpenGLFunctions_1_1_GlRasterPos2dv(@ptrCast(self), v.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glRasterPos2d)
@@ -1843,9 +1848,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glNormal3sv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, v: *const i16 ```
-    pub fn GlNormal3sv(self: ?*anyopaque, v: *const i16) void {
-        qtc.QOpenGLFunctions_1_1_GlNormal3sv(@ptrCast(self), @ptrCast(v));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, v: []const i16 ```
+    pub fn GlNormal3sv(self: ?*anyopaque, v: []const i16) void {
+        qtc.QOpenGLFunctions_1_1_GlNormal3sv(@ptrCast(self), v.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glNormal3s)
@@ -1857,9 +1862,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glNormal3iv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, v: *const i32 ```
-    pub fn GlNormal3iv(self: ?*anyopaque, v: *const i32) void {
-        qtc.QOpenGLFunctions_1_1_GlNormal3iv(@ptrCast(self), @ptrCast(v));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, v: []const i32 ```
+    pub fn GlNormal3iv(self: ?*anyopaque, v: []const i32) void {
+        qtc.QOpenGLFunctions_1_1_GlNormal3iv(@ptrCast(self), v.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glNormal3i)
@@ -1871,9 +1876,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glNormal3fv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, v: *const f32 ```
-    pub fn GlNormal3fv(self: ?*anyopaque, v: *const f32) void {
-        qtc.QOpenGLFunctions_1_1_GlNormal3fv(@ptrCast(self), @ptrCast(v));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, v: []const f32 ```
+    pub fn GlNormal3fv(self: ?*anyopaque, v: []const f32) void {
+        qtc.QOpenGLFunctions_1_1_GlNormal3fv(@ptrCast(self), v.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glNormal3f)
@@ -1885,9 +1890,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glNormal3dv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, v: *const f64 ```
-    pub fn GlNormal3dv(self: ?*anyopaque, v: *const f64) void {
-        qtc.QOpenGLFunctions_1_1_GlNormal3dv(@ptrCast(self), @ptrCast(v));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, v: []const f64 ```
+    pub fn GlNormal3dv(self: ?*anyopaque, v: []const f64) void {
+        qtc.QOpenGLFunctions_1_1_GlNormal3dv(@ptrCast(self), v.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glNormal3d)
@@ -1899,9 +1904,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glNormal3bv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, v: *const i8 ```
-    pub fn GlNormal3bv(self: ?*anyopaque, v: *const i8) void {
-        qtc.QOpenGLFunctions_1_1_GlNormal3bv(@ptrCast(self), @ptrCast(v));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, v: []const i8 ```
+    pub fn GlNormal3bv(self: ?*anyopaque, v: []const i8) void {
+        qtc.QOpenGLFunctions_1_1_GlNormal3bv(@ptrCast(self), v.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glNormal3b)
@@ -1913,9 +1918,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glIndexsv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, c: *const i16 ```
-    pub fn GlIndexsv(self: ?*anyopaque, c: *const i16) void {
-        qtc.QOpenGLFunctions_1_1_GlIndexsv(@ptrCast(self), @ptrCast(c));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, c: []const i16 ```
+    pub fn GlIndexsv(self: ?*anyopaque, c: []const i16) void {
+        qtc.QOpenGLFunctions_1_1_GlIndexsv(@ptrCast(self), c.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glIndexs)
@@ -1927,9 +1932,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glIndexiv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, c: *const i32 ```
-    pub fn GlIndexiv(self: ?*anyopaque, c: *const i32) void {
-        qtc.QOpenGLFunctions_1_1_GlIndexiv(@ptrCast(self), @ptrCast(c));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, c: []const i32 ```
+    pub fn GlIndexiv(self: ?*anyopaque, c: []const i32) void {
+        qtc.QOpenGLFunctions_1_1_GlIndexiv(@ptrCast(self), c.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glIndexi)
@@ -1941,9 +1946,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glIndexfv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, c: *const f32 ```
-    pub fn GlIndexfv(self: ?*anyopaque, c: *const f32) void {
-        qtc.QOpenGLFunctions_1_1_GlIndexfv(@ptrCast(self), @ptrCast(c));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, c: []const f32 ```
+    pub fn GlIndexfv(self: ?*anyopaque, c: []const f32) void {
+        qtc.QOpenGLFunctions_1_1_GlIndexfv(@ptrCast(self), c.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glIndexf)
@@ -1955,9 +1960,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glIndexdv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, c: *const f64 ```
-    pub fn GlIndexdv(self: ?*anyopaque, c: *const f64) void {
-        qtc.QOpenGLFunctions_1_1_GlIndexdv(@ptrCast(self), @ptrCast(c));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, c: []const f64 ```
+    pub fn GlIndexdv(self: ?*anyopaque, c: []const f64) void {
+        qtc.QOpenGLFunctions_1_1_GlIndexdv(@ptrCast(self), c.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glIndexd)
@@ -1976,9 +1981,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glEdgeFlagv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, flag: *const u8 ```
-    pub fn GlEdgeFlagv(self: ?*anyopaque, flag: *const u8) void {
-        qtc.QOpenGLFunctions_1_1_GlEdgeFlagv(@ptrCast(self), @ptrCast(flag));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, flag: []const u8 ```
+    pub fn GlEdgeFlagv(self: ?*anyopaque, flag: []const u8) void {
+        qtc.QOpenGLFunctions_1_1_GlEdgeFlagv(@ptrCast(self), flag.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glEdgeFlag)
@@ -1990,9 +1995,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glColor4usv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, v: *const u16 ```
-    pub fn GlColor4usv(self: ?*anyopaque, v: *const u16) void {
-        qtc.QOpenGLFunctions_1_1_GlColor4usv(@ptrCast(self), @ptrCast(v));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, v: []const u16 ```
+    pub fn GlColor4usv(self: ?*anyopaque, v: []const u16) void {
+        qtc.QOpenGLFunctions_1_1_GlColor4usv(@ptrCast(self), v.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glColor4us)
@@ -2004,9 +2009,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glColor4uiv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, v: *const u32 ```
-    pub fn GlColor4uiv(self: ?*anyopaque, v: *const u32) void {
-        qtc.QOpenGLFunctions_1_1_GlColor4uiv(@ptrCast(self), @ptrCast(v));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, v: []const u32 ```
+    pub fn GlColor4uiv(self: ?*anyopaque, v: []const u32) void {
+        qtc.QOpenGLFunctions_1_1_GlColor4uiv(@ptrCast(self), v.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glColor4ui)
@@ -2018,9 +2023,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glColor4ubv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, v: *const u8 ```
-    pub fn GlColor4ubv(self: ?*anyopaque, v: *const u8) void {
-        qtc.QOpenGLFunctions_1_1_GlColor4ubv(@ptrCast(self), @ptrCast(v));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, v: []const u8 ```
+    pub fn GlColor4ubv(self: ?*anyopaque, v: []const u8) void {
+        qtc.QOpenGLFunctions_1_1_GlColor4ubv(@ptrCast(self), v.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glColor4ub)
@@ -2032,9 +2037,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glColor4sv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, v: *const i16 ```
-    pub fn GlColor4sv(self: ?*anyopaque, v: *const i16) void {
-        qtc.QOpenGLFunctions_1_1_GlColor4sv(@ptrCast(self), @ptrCast(v));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, v: []const i16 ```
+    pub fn GlColor4sv(self: ?*anyopaque, v: []const i16) void {
+        qtc.QOpenGLFunctions_1_1_GlColor4sv(@ptrCast(self), v.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glColor4s)
@@ -2046,9 +2051,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glColor4iv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, v: *const i32 ```
-    pub fn GlColor4iv(self: ?*anyopaque, v: *const i32) void {
-        qtc.QOpenGLFunctions_1_1_GlColor4iv(@ptrCast(self), @ptrCast(v));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, v: []const i32 ```
+    pub fn GlColor4iv(self: ?*anyopaque, v: []const i32) void {
+        qtc.QOpenGLFunctions_1_1_GlColor4iv(@ptrCast(self), v.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glColor4i)
@@ -2060,9 +2065,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glColor4fv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, v: *const f32 ```
-    pub fn GlColor4fv(self: ?*anyopaque, v: *const f32) void {
-        qtc.QOpenGLFunctions_1_1_GlColor4fv(@ptrCast(self), @ptrCast(v));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, v: []const f32 ```
+    pub fn GlColor4fv(self: ?*anyopaque, v: []const f32) void {
+        qtc.QOpenGLFunctions_1_1_GlColor4fv(@ptrCast(self), v.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glColor4f)
@@ -2074,9 +2079,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glColor4dv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, v: *const f64 ```
-    pub fn GlColor4dv(self: ?*anyopaque, v: *const f64) void {
-        qtc.QOpenGLFunctions_1_1_GlColor4dv(@ptrCast(self), @ptrCast(v));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, v: []const f64 ```
+    pub fn GlColor4dv(self: ?*anyopaque, v: []const f64) void {
+        qtc.QOpenGLFunctions_1_1_GlColor4dv(@ptrCast(self), v.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glColor4d)
@@ -2088,9 +2093,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glColor4bv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, v: *const i8 ```
-    pub fn GlColor4bv(self: ?*anyopaque, v: *const i8) void {
-        qtc.QOpenGLFunctions_1_1_GlColor4bv(@ptrCast(self), @ptrCast(v));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, v: []const i8 ```
+    pub fn GlColor4bv(self: ?*anyopaque, v: []const i8) void {
+        qtc.QOpenGLFunctions_1_1_GlColor4bv(@ptrCast(self), v.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glColor4b)
@@ -2102,9 +2107,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glColor3usv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, v: *const u16 ```
-    pub fn GlColor3usv(self: ?*anyopaque, v: *const u16) void {
-        qtc.QOpenGLFunctions_1_1_GlColor3usv(@ptrCast(self), @ptrCast(v));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, v: []const u16 ```
+    pub fn GlColor3usv(self: ?*anyopaque, v: []const u16) void {
+        qtc.QOpenGLFunctions_1_1_GlColor3usv(@ptrCast(self), v.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glColor3us)
@@ -2116,9 +2121,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glColor3uiv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, v: *const u32 ```
-    pub fn GlColor3uiv(self: ?*anyopaque, v: *const u32) void {
-        qtc.QOpenGLFunctions_1_1_GlColor3uiv(@ptrCast(self), @ptrCast(v));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, v: []const u32 ```
+    pub fn GlColor3uiv(self: ?*anyopaque, v: []const u32) void {
+        qtc.QOpenGLFunctions_1_1_GlColor3uiv(@ptrCast(self), v.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glColor3ui)
@@ -2130,9 +2135,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glColor3ubv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, v: *const u8 ```
-    pub fn GlColor3ubv(self: ?*anyopaque, v: *const u8) void {
-        qtc.QOpenGLFunctions_1_1_GlColor3ubv(@ptrCast(self), @ptrCast(v));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, v: []const u8 ```
+    pub fn GlColor3ubv(self: ?*anyopaque, v: []const u8) void {
+        qtc.QOpenGLFunctions_1_1_GlColor3ubv(@ptrCast(self), v.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glColor3ub)
@@ -2144,9 +2149,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glColor3sv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, v: *const i16 ```
-    pub fn GlColor3sv(self: ?*anyopaque, v: *const i16) void {
-        qtc.QOpenGLFunctions_1_1_GlColor3sv(@ptrCast(self), @ptrCast(v));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, v: []const i16 ```
+    pub fn GlColor3sv(self: ?*anyopaque, v: []const i16) void {
+        qtc.QOpenGLFunctions_1_1_GlColor3sv(@ptrCast(self), v.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glColor3s)
@@ -2158,9 +2163,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glColor3iv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, v: *const i32 ```
-    pub fn GlColor3iv(self: ?*anyopaque, v: *const i32) void {
-        qtc.QOpenGLFunctions_1_1_GlColor3iv(@ptrCast(self), @ptrCast(v));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, v: []const i32 ```
+    pub fn GlColor3iv(self: ?*anyopaque, v: []const i32) void {
+        qtc.QOpenGLFunctions_1_1_GlColor3iv(@ptrCast(self), v.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glColor3i)
@@ -2172,9 +2177,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glColor3fv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, v: *const f32 ```
-    pub fn GlColor3fv(self: ?*anyopaque, v: *const f32) void {
-        qtc.QOpenGLFunctions_1_1_GlColor3fv(@ptrCast(self), @ptrCast(v));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, v: []const f32 ```
+    pub fn GlColor3fv(self: ?*anyopaque, v: []const f32) void {
+        qtc.QOpenGLFunctions_1_1_GlColor3fv(@ptrCast(self), v.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glColor3f)
@@ -2186,9 +2191,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glColor3dv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, v: *const f64 ```
-    pub fn GlColor3dv(self: ?*anyopaque, v: *const f64) void {
-        qtc.QOpenGLFunctions_1_1_GlColor3dv(@ptrCast(self), @ptrCast(v));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, v: []const f64 ```
+    pub fn GlColor3dv(self: ?*anyopaque, v: []const f64) void {
+        qtc.QOpenGLFunctions_1_1_GlColor3dv(@ptrCast(self), v.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glColor3d)
@@ -2200,9 +2205,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glColor3bv)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, v: *const i8 ```
-    pub fn GlColor3bv(self: ?*anyopaque, v: *const i8) void {
-        qtc.QOpenGLFunctions_1_1_GlColor3bv(@ptrCast(self), @ptrCast(v));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, v: []const i8 ```
+    pub fn GlColor3bv(self: ?*anyopaque, v: []const i8) void {
+        qtc.QOpenGLFunctions_1_1_GlColor3bv(@ptrCast(self), v.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glColor3b)
@@ -2214,9 +2219,9 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glBitmap)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, width: i32, height: i32, xorig: f32, yorig: f32, xmove: f32, ymove: f32, bitmap: *const u8 ```
-    pub fn GlBitmap(self: ?*anyopaque, width: i32, height: i32, xorig: f32, yorig: f32, xmove: f32, ymove: f32, bitmap: *const u8) void {
-        qtc.QOpenGLFunctions_1_1_GlBitmap(@ptrCast(self), @intCast(width), @intCast(height), @floatCast(xorig), @floatCast(yorig), @floatCast(xmove), @floatCast(ymove), @ptrCast(bitmap));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, width: i32, height: i32, xorig: f32, yorig: f32, xmove: f32, ymove: f32, bitmap: []const u8 ```
+    pub fn GlBitmap(self: ?*anyopaque, width: i32, height: i32, xorig: f32, yorig: f32, xmove: f32, ymove: f32, bitmap: []const u8) void {
+        qtc.QOpenGLFunctions_1_1_GlBitmap(@ptrCast(self), @intCast(width), @intCast(height), @floatCast(xorig), @floatCast(yorig), @floatCast(xmove), @floatCast(ymove), bitmap.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glBegin)
@@ -2291,16 +2296,16 @@ pub const qopenglfunctions_1_1 = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glPrioritizeTextures)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, n: i32, textures: *const u32, priorities: *const f32 ```
-    pub fn GlPrioritizeTextures(self: ?*anyopaque, n: i32, textures: *const u32, priorities: *const f32) void {
-        qtc.QOpenGLFunctions_1_1_GlPrioritizeTextures(@ptrCast(self), @intCast(n), @ptrCast(textures), @ptrCast(priorities));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, n: i32, textures: []const u32, priorities: []const f32 ```
+    pub fn GlPrioritizeTextures(self: ?*anyopaque, n: i32, textures: []const u32, priorities: []const f32) void {
+        qtc.QOpenGLFunctions_1_1_GlPrioritizeTextures(@ptrCast(self), @intCast(n), textures.ptr, priorities.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glAreTexturesResident)
     ///
-    /// ``` self: QtC.QOpenGLFunctions_1_1, n: i32, textures: *const u32, residences: *u8 ```
-    pub fn GlAreTexturesResident(self: ?*anyopaque, n: i32, textures: *const u32, residences: *u8) u8 {
-        return qtc.QOpenGLFunctions_1_1_GlAreTexturesResident(@ptrCast(self), @intCast(n), @ptrCast(textures), @ptrCast(residences));
+    /// ``` self: QtC.QOpenGLFunctions_1_1, n: i32, textures: []const u32, residences: []u8 ```
+    pub fn GlAreTexturesResident(self: ?*anyopaque, n: i32, textures: []const u32, residences: []u8) u8 {
+        return qtc.QOpenGLFunctions_1_1_GlAreTexturesResident(@ptrCast(self), @intCast(n), textures.ptr, residences.ptr);
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglfunctions-1-1.html#glVertexPointer)

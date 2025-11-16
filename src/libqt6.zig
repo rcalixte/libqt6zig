@@ -352,6 +352,7 @@ pub const kiconloader = @import("extras-kiconthemes/libkiconloader.zig").kiconlo
 pub const kiconloader_enums = @import("extras-kiconthemes/libkiconloader.zig").enums;
 pub const kicontheme = @import("extras-kiconthemes/libkicontheme.zig").kicontheme;
 pub const kiconutils = @import("extras-kguiaddons/libkiconutils.zig").kiconutils;
+pub const kidletime = @import("extras-kidletime/libkidletime.zig").kidletime;
 pub const kimageannotator = @import("extras-kimageannotator/libKImageAnnotator.zig").kimageannotator;
 pub const kimageannotator__kimageannotator = @import("extras-kimageannotator/libKImageAnnotator.zig").kimageannotator__kimageannotator;
 pub const kimagefilepreview = @import("extras-kio/libkimagefilepreview.zig").kimagefilepreview;

@@ -1385,9 +1385,9 @@ pub const qopenglshaderprogram = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeValue)
     ///
-    /// ``` self: QtC.QOpenGLShaderProgram, location: i32, values: *const f32, columns: i32, rows: i32 ```
-    pub fn SetAttributeValue9(self: ?*anyopaque, location: i32, values: *const f32, columns: i32, rows: i32) void {
-        qtc.QOpenGLShaderProgram_SetAttributeValue9(@ptrCast(self), @intCast(location), @ptrCast(values), @intCast(columns), @intCast(rows));
+    /// ``` self: QtC.QOpenGLShaderProgram, location: i32, values: []const f32, columns: i32, rows: i32 ```
+    pub fn SetAttributeValue9(self: ?*anyopaque, location: i32, values: []const f32, columns: i32, rows: i32) void {
+        qtc.QOpenGLShaderProgram_SetAttributeValue9(@ptrCast(self), @intCast(location), values.ptr, @intCast(columns), @intCast(rows));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeValue)
@@ -1456,17 +1456,17 @@ pub const qopenglshaderprogram = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeValue)
     ///
-    /// ``` self: QtC.QOpenGLShaderProgram, name: []const u8, values: *const f32, columns: i32, rows: i32 ```
-    pub fn SetAttributeValue18(self: ?*anyopaque, name: []const u8, values: *const f32, columns: i32, rows: i32) void {
+    /// ``` self: QtC.QOpenGLShaderProgram, name: []const u8, values: []const f32, columns: i32, rows: i32 ```
+    pub fn SetAttributeValue18(self: ?*anyopaque, name: []const u8, values: []const f32, columns: i32, rows: i32) void {
         const name_Cstring = name.ptr;
-        qtc.QOpenGLShaderProgram_SetAttributeValue18(@ptrCast(self), name_Cstring, @ptrCast(values), @intCast(columns), @intCast(rows));
+        qtc.QOpenGLShaderProgram_SetAttributeValue18(@ptrCast(self), name_Cstring, values.ptr, @intCast(columns), @intCast(rows));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeArray)
     ///
-    /// ``` self: QtC.QOpenGLShaderProgram, location: i32, values: *const f32, tupleSize: i32 ```
-    pub fn SetAttributeArray(self: ?*anyopaque, location: i32, values: *const f32, tupleSize: i32) void {
-        qtc.QOpenGLShaderProgram_SetAttributeArray(@ptrCast(self), @intCast(location), @ptrCast(values), @intCast(tupleSize));
+    /// ``` self: QtC.QOpenGLShaderProgram, location: i32, values: []const f32, tupleSize: i32 ```
+    pub fn SetAttributeArray(self: ?*anyopaque, location: i32, values: []const f32, tupleSize: i32) void {
+        qtc.QOpenGLShaderProgram_SetAttributeArray(@ptrCast(self), @intCast(location), values.ptr, @intCast(tupleSize));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeArray)
@@ -1499,10 +1499,10 @@ pub const qopenglshaderprogram = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeArray)
     ///
-    /// ``` self: QtC.QOpenGLShaderProgram, name: []const u8, values: *const f32, tupleSize: i32 ```
-    pub fn SetAttributeArray6(self: ?*anyopaque, name: []const u8, values: *const f32, tupleSize: i32) void {
+    /// ``` self: QtC.QOpenGLShaderProgram, name: []const u8, values: []const f32, tupleSize: i32 ```
+    pub fn SetAttributeArray6(self: ?*anyopaque, name: []const u8, values: []const f32, tupleSize: i32) void {
         const name_Cstring = name.ptr;
-        qtc.QOpenGLShaderProgram_SetAttributeArray6(@ptrCast(self), name_Cstring, @ptrCast(values), @intCast(tupleSize));
+        qtc.QOpenGLShaderProgram_SetAttributeArray6(@ptrCast(self), name_Cstring, values.ptr, @intCast(tupleSize));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeArray)
@@ -1854,23 +1854,23 @@ pub const qopenglshaderprogram = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValueArray)
     ///
-    /// ``` self: QtC.QOpenGLShaderProgram, location: i32, values: *const f32, count: i32, tupleSize: i32 ```
-    pub fn SetUniformValueArray(self: ?*anyopaque, location: i32, values: *const f32, count: i32, tupleSize: i32) void {
-        qtc.QOpenGLShaderProgram_SetUniformValueArray(@ptrCast(self), @intCast(location), @ptrCast(values), @intCast(count), @intCast(tupleSize));
+    /// ``` self: QtC.QOpenGLShaderProgram, location: i32, values: []const f32, count: i32, tupleSize: i32 ```
+    pub fn SetUniformValueArray(self: ?*anyopaque, location: i32, values: []const f32, count: i32, tupleSize: i32) void {
+        qtc.QOpenGLShaderProgram_SetUniformValueArray(@ptrCast(self), @intCast(location), values.ptr, @intCast(count), @intCast(tupleSize));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValueArray)
     ///
-    /// ``` self: QtC.QOpenGLShaderProgram, location: i32, values: *const i32, count: i32 ```
-    pub fn SetUniformValueArray2(self: ?*anyopaque, location: i32, values: *const i32, count: i32) void {
-        qtc.QOpenGLShaderProgram_SetUniformValueArray2(@ptrCast(self), @intCast(location), @ptrCast(values), @intCast(count));
+    /// ``` self: QtC.QOpenGLShaderProgram, location: i32, values: []const i32, count: i32 ```
+    pub fn SetUniformValueArray2(self: ?*anyopaque, location: i32, values: []const i32, count: i32) void {
+        qtc.QOpenGLShaderProgram_SetUniformValueArray2(@ptrCast(self), @intCast(location), values.ptr, @intCast(count));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValueArray)
     ///
-    /// ``` self: QtC.QOpenGLShaderProgram, location: i32, values: *const u32, count: i32 ```
-    pub fn SetUniformValueArray3(self: ?*anyopaque, location: i32, values: *const u32, count: i32) void {
-        qtc.QOpenGLShaderProgram_SetUniformValueArray3(@ptrCast(self), @intCast(location), @ptrCast(values), @intCast(count));
+    /// ``` self: QtC.QOpenGLShaderProgram, location: i32, values: []const u32, count: i32 ```
+    pub fn SetUniformValueArray3(self: ?*anyopaque, location: i32, values: []const u32, count: i32) void {
+        qtc.QOpenGLShaderProgram_SetUniformValueArray3(@ptrCast(self), @intCast(location), values.ptr, @intCast(count));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValueArray)
@@ -1903,26 +1903,26 @@ pub const qopenglshaderprogram = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValueArray)
     ///
-    /// ``` self: QtC.QOpenGLShaderProgram, name: []const u8, values: *const f32, count: i32, tupleSize: i32 ```
-    pub fn SetUniformValueArray16(self: ?*anyopaque, name: []const u8, values: *const f32, count: i32, tupleSize: i32) void {
+    /// ``` self: QtC.QOpenGLShaderProgram, name: []const u8, values: []const f32, count: i32, tupleSize: i32 ```
+    pub fn SetUniformValueArray16(self: ?*anyopaque, name: []const u8, values: []const f32, count: i32, tupleSize: i32) void {
         const name_Cstring = name.ptr;
-        qtc.QOpenGLShaderProgram_SetUniformValueArray16(@ptrCast(self), name_Cstring, @ptrCast(values), @intCast(count), @intCast(tupleSize));
+        qtc.QOpenGLShaderProgram_SetUniformValueArray16(@ptrCast(self), name_Cstring, values.ptr, @intCast(count), @intCast(tupleSize));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValueArray)
     ///
-    /// ``` self: QtC.QOpenGLShaderProgram, name: []const u8, values: *const i32, count: i32 ```
-    pub fn SetUniformValueArray17(self: ?*anyopaque, name: []const u8, values: *const i32, count: i32) void {
+    /// ``` self: QtC.QOpenGLShaderProgram, name: []const u8, values: []const i32, count: i32 ```
+    pub fn SetUniformValueArray17(self: ?*anyopaque, name: []const u8, values: []const i32, count: i32) void {
         const name_Cstring = name.ptr;
-        qtc.QOpenGLShaderProgram_SetUniformValueArray17(@ptrCast(self), name_Cstring, @ptrCast(values), @intCast(count));
+        qtc.QOpenGLShaderProgram_SetUniformValueArray17(@ptrCast(self), name_Cstring, values.ptr, @intCast(count));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValueArray)
     ///
-    /// ``` self: QtC.QOpenGLShaderProgram, name: []const u8, values: *const u32, count: i32 ```
-    pub fn SetUniformValueArray18(self: ?*anyopaque, name: []const u8, values: *const u32, count: i32) void {
+    /// ``` self: QtC.QOpenGLShaderProgram, name: []const u8, values: []const u32, count: i32 ```
+    pub fn SetUniformValueArray18(self: ?*anyopaque, name: []const u8, values: []const u32, count: i32) void {
         const name_Cstring = name.ptr;
-        qtc.QOpenGLShaderProgram_SetUniformValueArray18(@ptrCast(self), name_Cstring, @ptrCast(values), @intCast(count));
+        qtc.QOpenGLShaderProgram_SetUniformValueArray18(@ptrCast(self), name_Cstring, values.ptr, @intCast(count));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValueArray)
@@ -1992,9 +1992,9 @@ pub const qopenglshaderprogram = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeArray)
     ///
-    /// ``` self: QtC.QOpenGLShaderProgram, location: i32, values: *const f32, tupleSize: i32, stride: i32 ```
-    pub fn SetAttributeArray42(self: ?*anyopaque, location: i32, values: *const f32, tupleSize: i32, stride: i32) void {
-        qtc.QOpenGLShaderProgram_SetAttributeArray42(@ptrCast(self), @intCast(location), @ptrCast(values), @intCast(tupleSize), @intCast(stride));
+    /// ``` self: QtC.QOpenGLShaderProgram, location: i32, values: []const f32, tupleSize: i32, stride: i32 ```
+    pub fn SetAttributeArray42(self: ?*anyopaque, location: i32, values: []const f32, tupleSize: i32, stride: i32) void {
+        qtc.QOpenGLShaderProgram_SetAttributeArray42(@ptrCast(self), @intCast(location), values.ptr, @intCast(tupleSize), @intCast(stride));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeArray)
@@ -2027,10 +2027,10 @@ pub const qopenglshaderprogram = struct {
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeArray)
     ///
-    /// ``` self: QtC.QOpenGLShaderProgram, name: []const u8, values: *const f32, tupleSize: i32, stride: i32 ```
-    pub fn SetAttributeArray43(self: ?*anyopaque, name: []const u8, values: *const f32, tupleSize: i32, stride: i32) void {
+    /// ``` self: QtC.QOpenGLShaderProgram, name: []const u8, values: []const f32, tupleSize: i32, stride: i32 ```
+    pub fn SetAttributeArray43(self: ?*anyopaque, name: []const u8, values: []const f32, tupleSize: i32, stride: i32) void {
         const name_Cstring = name.ptr;
-        qtc.QOpenGLShaderProgram_SetAttributeArray43(@ptrCast(self), name_Cstring, @ptrCast(values), @intCast(tupleSize), @intCast(stride));
+        qtc.QOpenGLShaderProgram_SetAttributeArray43(@ptrCast(self), name_Cstring, values.ptr, @intCast(tupleSize), @intCast(stride));
     }
 
     /// [Qt documentation](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeArray)
