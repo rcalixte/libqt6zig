@@ -207,7 +207,7 @@ func mapParamToString(param string) string {
 
 func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType, fullEnumName bool) string {
 	if p.Pointer && p.ParameterType == "char" {
-		return "[]" + ifv(p.Const, "const ", "") + "u8"
+		return strings.Repeat("[]", p.PointerCount) + ifv(p.Const, "const ", "") + "u8"
 	}
 	if p.ParameterType == "QString" || p.ParameterType == "QAnyStringView" ||
 		p.ParameterType == "QByteArrayView" || p.ParameterType == "QStringView" ||
@@ -302,15 +302,22 @@ func (p CppParameter) RenderTypeZig(zfs *zigFileState, isReturnType, fullEnumNam
 		}
 	}
 
+	if p.GlIntType() && p.Pointer {
+		tmp := &p // copy
+		tmp.Pointer = false
+		ret = tmp.RenderTypeZig(zfs, isReturnType, fullEnumName)
+		return "[]" + ifv(p.Const, "const ", "") + ret
+	}
+
 	switch p.ParameterType {
 	case "GLvoid":
 		ret += ifv((p.Pointer || p.ByRef) && fullEnumName, "*", "") + "void"
 	case "bool":
 		ret += ifv((p.Pointer || p.ByRef) && fullEnumName, "*", "") + "bool"
-	case "char", "unsigned char", "uchar", "quint8", "uint8_t", "GLboolean", "GLubyte":
+	case "char", "unsigned char", "uchar", "quint8", "uint8_t", "GLboolean", "GLubyte", "GLchar":
 		// Zig byte is unsigned
 		ret += "u8"
-	case "qint8", "signed char", "GLbyte", "GLchar":
+	case "qint8", "signed char", "GLbyte":
 		ret += "i8" // Signed
 	case "short", "qint16", "int16_t", "GLshort":
 		ret += "i16"
@@ -487,6 +494,10 @@ func (p CppParameter) renderReturnTypeZig(zfs *zigFileState, isSlot bool) string
 		ret = maybeConst + "QtC." + ret
 	}
 
+	if p.GlIntType() && p.Pointer && !isSlot {
+		return ret
+	}
+
 	if p.IntType() && (p.Pointer || p.ByRef) {
 		ret = "?*" + maybeConst + ret
 	}
@@ -591,7 +602,9 @@ func (zfs *zigFileState) emitCommentParametersZig(params []CppParameter, isSlot 
 				paramType = "QtC." + paramType
 			}
 			if p.IntType() && (p.Pointer || p.ByRef) {
-				paramType = strings.Repeat("*", max(p.PointerCount, 1)) + ifv(p.Const, "const ", "") + paramType
+				if !p.GlIntType() {
+					paramType = strings.Repeat("*", max(p.PointerCount, 1)) + ifv(p.Const, "const ", "") + paramType
+				}
 			}
 			if isSlot {
 				// C calling convention limitations
@@ -888,14 +901,35 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 		rvalue = nameprefix + "_pair"
 
 	} else if p.Pointer && p.ParameterType == "char" {
-		// Single char* argument
-		preamble += "const " + nameprefix + "_Cstring = " + p.ParameterName + ".ptr;\n"
-		rvalue = nameprefix + "_Cstring"
+		switch p.PointerCount {
+		case 1:
+			// Single char* argument
+			preamble += "const " + nameprefix + "_Cstring = " + p.ParameterName + ".ptr;\n"
+			rvalue = nameprefix + "_Cstring"
+
+		case 2:
+			// Single char** argument
+			zfs.imports["std"] = struct{}{}
+
+			preamble += "var " + nameprefix + "_chararr = allocator.alloc([*c]const u8, " + p.ParameterName + `.len) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
+			preamble += "defer allocator.free(" + nameprefix + "_chararr);\n"
+			preamble += "for (" + p.ParameterName + ", 0.." + p.ParameterName + ".len) |str, i| {\n"
+			preamble += "    " + nameprefix + "_chararr[i] = @ptrCast(str.ptr);\n"
+			preamble += "}\n"
+
+			rvalue = nameprefix + "_chararr.ptr"
+
+		default:
+			panic("char** argument with " + strconv.Itoa(p.PointerCount) + " pointers")
+		}
 
 	} else if p.QtClassType() {
 		// The C++ type is a pointer to Qt class
 		// We want our functions to accept the Zig wrapper type, and forward as a pointer
 		rvalue = "@ptrCast(" + p.ParameterName + ")"
+
+	} else if p.GlIntType() && p.Pointer {
+		rvalue = p.ParameterName + ".ptr"
 
 	} else if p.IntType() || p.IsFlagType() || p.IsKnownEnum() {
 		if p.Pointer || p.ByRef {
@@ -1207,6 +1241,18 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 		}
 
 		return shouldReturn + " " + rvalue + ";"
+
+	} else if rt.GlIntType() && rt.Pointer {
+		zfs.imports["std"] = struct{}{}
+
+		shouldReturn = "const ret_str: ?[*:0]const u8 = "
+
+		afterword += "if (ret_str == null) {\n"
+		afterword += `    return "";`
+		afterword += "}\n"
+		afterword += assignExpr + "std.mem.span(ret_str.?);"
+
+		return shouldReturn + " " + rvalue + ";\n" + afterword
 
 	} else if rt.IntType() || rt.IsKnownEnum() || rt.IsFlagType() || rt.ParameterType == "bool" || rt.QtCppOriginalType != nil {
 
