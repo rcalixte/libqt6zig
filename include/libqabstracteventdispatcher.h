@@ -37,7 +37,6 @@ typedef struct QThread QThread;
 QMetaObject* QAbstractEventDispatcher_MetaObject(const QAbstractEventDispatcher* self);
 void* QAbstractEventDispatcher_Metacast(QAbstractEventDispatcher* self, const char* param1);
 int QAbstractEventDispatcher_Metacall(QAbstractEventDispatcher* self, int param1, int param2, void** param3);
-libqt_string QAbstractEventDispatcher_Tr(const char* s);
 QAbstractEventDispatcher* QAbstractEventDispatcher_Instance();
 bool QAbstractEventDispatcher_ProcessEvents(QAbstractEventDispatcher* self, int flags);
 void QAbstractEventDispatcher_RegisterSocketNotifier(QAbstractEventDispatcher* self, QSocketNotifier* notifier);
@@ -61,20 +60,15 @@ void QAbstractEventDispatcher_AboutToBlock(QAbstractEventDispatcher* self);
 void QAbstractEventDispatcher_Connect_AboutToBlock(QAbstractEventDispatcher* self, intptr_t slot);
 void QAbstractEventDispatcher_Awake(QAbstractEventDispatcher* self);
 void QAbstractEventDispatcher_Connect_Awake(QAbstractEventDispatcher* self, intptr_t slot);
-libqt_string QAbstractEventDispatcher_Tr2(const char* s, const char* c);
-libqt_string QAbstractEventDispatcher_Tr3(const char* s, const char* c, int n);
 QAbstractEventDispatcher* QAbstractEventDispatcher_Instance1(QThread* thread);
 void QAbstractEventDispatcher_Delete(QAbstractEventDispatcher* self);
 
 QMetaObject* QAbstractEventDispatcherV2_MetaObject(const QAbstractEventDispatcherV2* self);
 void* QAbstractEventDispatcherV2_Metacast(QAbstractEventDispatcherV2* self, const char* param1);
 int QAbstractEventDispatcherV2_Metacall(QAbstractEventDispatcherV2* self, int param1, int param2, void** param3);
-libqt_string QAbstractEventDispatcherV2_Tr(const char* s);
 bool QAbstractEventDispatcherV2_UnregisterTimer(QAbstractEventDispatcherV2* self, int timerId);
 libqt_list /* of QAbstractEventDispatcher__TimerInfoV2* */ QAbstractEventDispatcherV2_TimersForObject(const QAbstractEventDispatcherV2* self, QObject* object);
 bool QAbstractEventDispatcherV2_ProcessEventsWithDeadline(QAbstractEventDispatcherV2* self, int flags, QDeadlineTimer* deadline);
-libqt_string QAbstractEventDispatcherV2_Tr2(const char* s, const char* c);
-libqt_string QAbstractEventDispatcherV2_Tr3(const char* s, const char* c, int n);
 void QAbstractEventDispatcherV2_Delete(QAbstractEventDispatcherV2* self);
 
 QAbstractEventDispatcher__TimerInfo* QAbstractEventDispatcher__TimerInfo_new(const QAbstractEventDispatcher__TimerInfo* other);

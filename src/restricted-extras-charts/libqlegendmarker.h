@@ -28,7 +28,6 @@ typedef struct QPen QPen;
 QMetaObject* QLegendMarker_MetaObject(const QLegendMarker* self);
 void* QLegendMarker_Metacast(QLegendMarker* self, const char* param1);
 int QLegendMarker_Metacall(QLegendMarker* self, int param1, int param2, void** param3);
-libqt_string QLegendMarker_Tr(const char* s);
 int QLegendMarker_Type(QLegendMarker* self);
 libqt_string QLegendMarker_Label(const QLegendMarker* self);
 void QLegendMarker_SetLabel(QLegendMarker* self, const libqt_string label);
@@ -63,8 +62,6 @@ void QLegendMarker_VisibleChanged(QLegendMarker* self);
 void QLegendMarker_Connect_VisibleChanged(QLegendMarker* self, intptr_t slot);
 void QLegendMarker_ShapeChanged(QLegendMarker* self);
 void QLegendMarker_Connect_ShapeChanged(QLegendMarker* self, intptr_t slot);
-libqt_string QLegendMarker_Tr2(const char* s, const char* c);
-libqt_string QLegendMarker_Tr3(const char* s, const char* c, int n);
 void QLegendMarker_Delete(QLegendMarker* self);
 
 #ifdef __cplusplus

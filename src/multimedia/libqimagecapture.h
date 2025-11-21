@@ -34,7 +34,6 @@ QImageCapture* QImageCapture_new2(QObject* parent);
 QMetaObject* QImageCapture_MetaObject(const QImageCapture* self);
 void* QImageCapture_Metacast(QImageCapture* self, const char* param1);
 int QImageCapture_Metacall(QImageCapture* self, int param1, int param2, void** param3);
-libqt_string QImageCapture_Tr(const char* s);
 bool QImageCapture_IsAvailable(const QImageCapture* self);
 QMediaCaptureSession* QImageCapture_CaptureSession(const QImageCapture* self);
 int QImageCapture_Error(const QImageCapture* self);
@@ -79,8 +78,6 @@ void QImageCapture_ImageAvailable(QImageCapture* self, int id, const QVideoFrame
 void QImageCapture_Connect_ImageAvailable(QImageCapture* self, intptr_t slot);
 void QImageCapture_ImageSaved(QImageCapture* self, int id, const libqt_string fileName);
 void QImageCapture_Connect_ImageSaved(QImageCapture* self, intptr_t slot);
-libqt_string QImageCapture_Tr2(const char* s, const char* c);
-libqt_string QImageCapture_Tr3(const char* s, const char* c, int n);
 int QImageCapture_CaptureToFile1(QImageCapture* self, const libqt_string location);
 void QImageCapture_OnMetacall(QImageCapture* self, intptr_t slot);
 int QImageCapture_QBaseMetacall(QImageCapture* self, int param1, int param2, void** param3);

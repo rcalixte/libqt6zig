@@ -60,14 +60,11 @@ KFileCustomDialog* KFileCustomDialog_new4(const QUrl* startDir, QWidget* parent)
 QMetaObject* KFileCustomDialog_MetaObject(const KFileCustomDialog* self);
 void* KFileCustomDialog_Metacast(KFileCustomDialog* self, const char* param1);
 int KFileCustomDialog_Metacall(KFileCustomDialog* self, int param1, int param2, void** param3);
-libqt_string KFileCustomDialog_Tr(const char* s);
 void KFileCustomDialog_SetUrl(KFileCustomDialog* self, const QUrl* url);
 void KFileCustomDialog_SetCustomWidget(KFileCustomDialog* self, QWidget* widget);
 KFileWidget* KFileCustomDialog_FileWidget(const KFileCustomDialog* self);
 void KFileCustomDialog_SetOperationMode(KFileCustomDialog* self, int op);
 void KFileCustomDialog_Accept(KFileCustomDialog* self);
-libqt_string KFileCustomDialog_Tr2(const char* s, const char* c);
-libqt_string KFileCustomDialog_Tr3(const char* s, const char* c, int n);
 void KFileCustomDialog_OnMetacall(KFileCustomDialog* self, intptr_t slot);
 int KFileCustomDialog_QBaseMetacall(KFileCustomDialog* self, int param1, int param2, void** param3);
 void KFileCustomDialog_OnAccept(KFileCustomDialog* self, intptr_t slot);

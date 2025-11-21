@@ -68,18 +68,6 @@ int KIconButton_Metacall(KIconButton* self, int param1, int param2, void** param
     }
 }
 
-libqt_string KIconButton_Tr(const char* s) {
-    QString _ret = KIconButton::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 void KIconButton_SetStrictIconSize(KIconButton* self, bool b) {
     self->setStrictIconSize(b);
 }
@@ -151,30 +139,6 @@ void KIconButton_Connect_IconChanged(KIconButton* self, intptr_t slot) {
         slotFunc(self, sigval1);
         libqt_free(icon_str);
     });
-}
-
-libqt_string KIconButton_Tr2(const char* s, const char* c) {
-    QString _ret = KIconButton::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string KIconButton_Tr3(const char* s, const char* c, int n) {
-    QString _ret = KIconButton::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 void KIconButton_SetIconType3(KIconButton* self, int group, int context, bool user) {

@@ -30,7 +30,6 @@ typedef struct QWebEngineCookieStore__FilterRequest QWebEngineCookieStore__Filte
 QMetaObject* QWebEngineCookieStore_MetaObject(const QWebEngineCookieStore* self);
 void* QWebEngineCookieStore_Metacast(QWebEngineCookieStore* self, const char* param1);
 int QWebEngineCookieStore_Metacall(QWebEngineCookieStore* self, int param1, int param2, void** param3);
-libqt_string QWebEngineCookieStore_Tr(const char* s);
 void QWebEngineCookieStore_SetCookie(QWebEngineCookieStore* self, const QNetworkCookie* cookie);
 void QWebEngineCookieStore_DeleteCookie(QWebEngineCookieStore* self, const QNetworkCookie* cookie);
 void QWebEngineCookieStore_DeleteSessionCookies(QWebEngineCookieStore* self);
@@ -40,8 +39,6 @@ void QWebEngineCookieStore_CookieAdded(QWebEngineCookieStore* self, const QNetwo
 void QWebEngineCookieStore_Connect_CookieAdded(QWebEngineCookieStore* self, intptr_t slot);
 void QWebEngineCookieStore_CookieRemoved(QWebEngineCookieStore* self, const QNetworkCookie* cookie);
 void QWebEngineCookieStore_Connect_CookieRemoved(QWebEngineCookieStore* self, intptr_t slot);
-libqt_string QWebEngineCookieStore_Tr2(const char* s, const char* c);
-libqt_string QWebEngineCookieStore_Tr3(const char* s, const char* c, int n);
 void QWebEngineCookieStore_SetCookie2(QWebEngineCookieStore* self, const QNetworkCookie* cookie, const QUrl* origin);
 void QWebEngineCookieStore_DeleteCookie2(QWebEngineCookieStore* self, const QNetworkCookie* cookie, const QUrl* origin);
 void QWebEngineCookieStore_Delete(QWebEngineCookieStore* self);

@@ -58,7 +58,6 @@ KPageWidget* KPageWidget_new2();
 QMetaObject* KPageWidget_MetaObject(const KPageWidget* self);
 void* KPageWidget_Metacast(KPageWidget* self, const char* param1);
 int KPageWidget_Metacall(KPageWidget* self, int param1, int param2, void** param3);
-libqt_string KPageWidget_Tr(const char* s);
 KPageWidgetItem* KPageWidget_AddPage(KPageWidget* self, QWidget* widget, const libqt_string name);
 void KPageWidget_AddPage2(KPageWidget* self, KPageWidgetItem* item);
 KPageWidgetItem* KPageWidget_InsertPage(KPageWidget* self, KPageWidgetItem* before, QWidget* widget, const libqt_string name);
@@ -74,8 +73,6 @@ void KPageWidget_PageToggled(KPageWidget* self, KPageWidgetItem* page, bool chec
 void KPageWidget_Connect_PageToggled(KPageWidget* self, intptr_t slot);
 void KPageWidget_PageRemoved(KPageWidget* self, KPageWidgetItem* page);
 void KPageWidget_Connect_PageRemoved(KPageWidget* self, intptr_t slot);
-libqt_string KPageWidget_Tr2(const char* s, const char* c);
-libqt_string KPageWidget_Tr3(const char* s, const char* c, int n);
 void KPageWidget_OnMetacall(KPageWidget* self, intptr_t slot);
 int KPageWidget_QBaseMetacall(KPageWidget* self, int param1, int param2, void** param3);
 QAbstractItemView* KPageWidget_CreateView(KPageWidget* self);

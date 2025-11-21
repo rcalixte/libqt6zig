@@ -40,11 +40,8 @@ typedef struct QUrl QUrl;
 QMetaObject* KIO__StoredTransferJob_MetaObject(const KIO__StoredTransferJob* self);
 void* KIO__StoredTransferJob_Metacast(KIO__StoredTransferJob* self, const char* param1);
 int KIO__StoredTransferJob_Metacall(KIO__StoredTransferJob* self, int param1, int param2, void** param3);
-libqt_string KIO__StoredTransferJob_Tr(const char* s);
 void KIO__StoredTransferJob_SetData(KIO__StoredTransferJob* self, const libqt_string arr);
 libqt_string KIO__StoredTransferJob_Data(const KIO__StoredTransferJob* self);
-libqt_string KIO__StoredTransferJob_Tr2(const char* s, const char* c);
-libqt_string KIO__StoredTransferJob_Tr3(const char* s, const char* c, int n);
 void KIO__StoredTransferJob_Delete(KIO__StoredTransferJob* self);
 
 KIO__StoredTransferJob* KIO_StoredGet(const QUrl* param1, int param2, int param3);

@@ -74,18 +74,6 @@ int QScrollBar_Metacall(QScrollBar* self, int param1, int param2, void** param3)
     }
 }
 
-libqt_string QScrollBar_Tr(const char* s) {
-    QString _ret = QScrollBar::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 QSize* QScrollBar_SizeHint(const QScrollBar* self) {
     auto* vqscrollbar = dynamic_cast<const VirtualQScrollBar*>(self);
     if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
@@ -165,30 +153,6 @@ void QScrollBar_InitStyleOption(const QScrollBar* self, QStyleOptionSlider* opti
     if (vqscrollbar && vqscrollbar->isVirtualQScrollBar) {
         vqscrollbar->initStyleOption(option);
     }
-}
-
-libqt_string QScrollBar_Tr2(const char* s, const char* c) {
-    QString _ret = QScrollBar::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QScrollBar_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QScrollBar::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 // Base class handler implementation

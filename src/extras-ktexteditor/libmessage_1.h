@@ -38,7 +38,6 @@ KTextEditor__Message* KTextEditor__Message_new2(const libqt_string richtext, int
 QMetaObject* KTextEditor__Message_MetaObject(const KTextEditor__Message* self);
 void* KTextEditor__Message_Metacast(KTextEditor__Message* self, const char* param1);
 int KTextEditor__Message_Metacall(KTextEditor__Message* self, int param1, int param2, void** param3);
-libqt_string KTextEditor__Message_Tr(const char* s);
 libqt_string KTextEditor__Message_Text(const KTextEditor__Message* self);
 QIcon* KTextEditor__Message_Icon(const KTextEditor__Message* self);
 int KTextEditor__Message_MessageType(const KTextEditor__Message* self);
@@ -66,8 +65,6 @@ void KTextEditor__Message_TextChanged(KTextEditor__Message* self, const libqt_st
 void KTextEditor__Message_Connect_TextChanged(KTextEditor__Message* self, intptr_t slot);
 void KTextEditor__Message_IconChanged(KTextEditor__Message* self, const QIcon* icon);
 void KTextEditor__Message_Connect_IconChanged(KTextEditor__Message* self, intptr_t slot);
-libqt_string KTextEditor__Message_Tr2(const char* s, const char* c);
-libqt_string KTextEditor__Message_Tr3(const char* s, const char* c, int n);
 void KTextEditor__Message_AddAction2(KTextEditor__Message* self, QAction* action, bool closeOnTrigger);
 void KTextEditor__Message_SetAutoHide1(KTextEditor__Message* self, int delay);
 void KTextEditor__Message_OnMetacall(KTextEditor__Message* self, intptr_t slot);

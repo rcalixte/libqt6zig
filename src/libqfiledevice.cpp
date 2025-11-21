@@ -24,18 +24,6 @@ int QFileDevice_Metacall(QFileDevice* self, int param1, int param2, void** param
     return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
-libqt_string QFileDevice_Tr(const char* s) {
-    QString _ret = QFileDevice::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 int QFileDevice_Error(const QFileDevice* self) {
     return static_cast<int>(self->error());
 }
@@ -114,30 +102,6 @@ QDateTime* QFileDevice_FileTime(const QFileDevice* self, int time) {
 
 bool QFileDevice_SetFileTime(QFileDevice* self, const QDateTime* newDate, int fileTime) {
     return self->setFileTime(*newDate, static_cast<QFileDevice::FileTime>(fileTime));
-}
-
-libqt_string QFileDevice_Tr2(const char* s, const char* c) {
-    QString _ret = QFileDevice::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QFileDevice_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QFileDevice::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 unsigned char* QFileDevice_Map3(QFileDevice* self, long long offset, long long size, int flags) {

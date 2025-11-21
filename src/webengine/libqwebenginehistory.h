@@ -44,18 +44,14 @@ void QWebEngineHistoryItem_Delete(QWebEngineHistoryItem* self);
 QMetaObject* QWebEngineHistoryModel_MetaObject(const QWebEngineHistoryModel* self);
 void* QWebEngineHistoryModel_Metacast(QWebEngineHistoryModel* self, const char* param1);
 int QWebEngineHistoryModel_Metacall(QWebEngineHistoryModel* self, int param1, int param2, void** param3);
-libqt_string QWebEngineHistoryModel_Tr(const char* s);
 int QWebEngineHistoryModel_RowCount(const QWebEngineHistoryModel* self, const QModelIndex* parent);
 QVariant* QWebEngineHistoryModel_Data(const QWebEngineHistoryModel* self, const QModelIndex* index, int role);
 libqt_map /* of int to libqt_string */ QWebEngineHistoryModel_RoleNames(const QWebEngineHistoryModel* self);
 void QWebEngineHistoryModel_Reset(QWebEngineHistoryModel* self);
-libqt_string QWebEngineHistoryModel_Tr2(const char* s, const char* c);
-libqt_string QWebEngineHistoryModel_Tr3(const char* s, const char* c, int n);
 
 QMetaObject* QWebEngineHistory_MetaObject(const QWebEngineHistory* self);
 void* QWebEngineHistory_Metacast(QWebEngineHistory* self, const char* param1);
 int QWebEngineHistory_Metacall(QWebEngineHistory* self, int param1, int param2, void** param3);
-libqt_string QWebEngineHistory_Tr(const char* s);
 void QWebEngineHistory_Clear(QWebEngineHistory* self);
 libqt_list /* of QWebEngineHistoryItem* */ QWebEngineHistory_Items(const QWebEngineHistory* self);
 libqt_list /* of QWebEngineHistoryItem* */ QWebEngineHistory_BackItems(const QWebEngineHistory* self, int maxItems);
@@ -74,8 +70,6 @@ int QWebEngineHistory_Count(const QWebEngineHistory* self);
 QWebEngineHistoryModel* QWebEngineHistory_ItemsModel(const QWebEngineHistory* self);
 QWebEngineHistoryModel* QWebEngineHistory_BackItemsModel(const QWebEngineHistory* self);
 QWebEngineHistoryModel* QWebEngineHistory_ForwardItemsModel(const QWebEngineHistory* self);
-libqt_string QWebEngineHistory_Tr2(const char* s, const char* c);
-libqt_string QWebEngineHistory_Tr3(const char* s, const char* c, int n);
 
 #ifdef __cplusplus
 } /* extern C */

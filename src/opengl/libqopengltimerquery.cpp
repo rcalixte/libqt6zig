@@ -39,18 +39,6 @@ int QOpenGLTimerQuery_Metacall(QOpenGLTimerQuery* self, int param1, int param2, 
     }
 }
 
-libqt_string QOpenGLTimerQuery_Tr(const char* s) {
-    QString _ret = QOpenGLTimerQuery::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 bool QOpenGLTimerQuery_Create(QOpenGLTimerQuery* self) {
     return self->create();
 }
@@ -89,30 +77,6 @@ bool QOpenGLTimerQuery_IsResultAvailable(const QOpenGLTimerQuery* self) {
 
 uint64_t QOpenGLTimerQuery_WaitForResult(const QOpenGLTimerQuery* self) {
     return self->waitForResult();
-}
-
-libqt_string QOpenGLTimerQuery_Tr2(const char* s, const char* c) {
-    QString _ret = QOpenGLTimerQuery::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QOpenGLTimerQuery_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QOpenGLTimerQuery::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 // Base class handler implementation
@@ -482,18 +446,6 @@ int QOpenGLTimeMonitor_Metacall(QOpenGLTimeMonitor* self, int param1, int param2
     }
 }
 
-libqt_string QOpenGLTimeMonitor_Tr(const char* s) {
-    QString _ret = QOpenGLTimeMonitor::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 void QOpenGLTimeMonitor_SetSampleCount(QOpenGLTimeMonitor* self, int sampleCount) {
     self->setSampleCount(static_cast<int>(sampleCount));
 }
@@ -563,30 +515,6 @@ libqt_list /* of uint64_t */ QOpenGLTimeMonitor_WaitForIntervals(const QOpenGLTi
 
 void QOpenGLTimeMonitor_Reset(QOpenGLTimeMonitor* self) {
     self->reset();
-}
-
-libqt_string QOpenGLTimeMonitor_Tr2(const char* s, const char* c) {
-    QString _ret = QOpenGLTimeMonitor::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QOpenGLTimeMonitor_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QOpenGLTimeMonitor::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 // Base class handler implementation

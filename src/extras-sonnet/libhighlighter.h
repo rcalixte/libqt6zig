@@ -43,7 +43,6 @@ Sonnet__Highlighter* Sonnet__Highlighter_new4(QPlainTextEdit* textEdit, const QC
 QMetaObject* Sonnet__Highlighter_MetaObject(const Sonnet__Highlighter* self);
 void* Sonnet__Highlighter_Metacast(Sonnet__Highlighter* self, const char* param1);
 int Sonnet__Highlighter_Metacall(Sonnet__Highlighter* self, int param1, int param2, void** param3);
-libqt_string Sonnet__Highlighter_Tr(const char* s);
 bool Sonnet__Highlighter_SpellCheckerFound(const Sonnet__Highlighter* self);
 libqt_string Sonnet__Highlighter_CurrentLanguage(const Sonnet__Highlighter* self);
 void Sonnet__Highlighter_SetActive(Sonnet__Highlighter* self, bool active);
@@ -69,8 +68,6 @@ bool Sonnet__Highlighter_EventFilter(Sonnet__Highlighter* self, QObject* o, QEve
 void Sonnet__Highlighter_SetCurrentLanguage(Sonnet__Highlighter* self, const libqt_string language);
 void Sonnet__Highlighter_SlotAutoDetection(Sonnet__Highlighter* self);
 void Sonnet__Highlighter_SlotRehighlight(Sonnet__Highlighter* self);
-libqt_string Sonnet__Highlighter_Tr2(const char* s, const char* c);
-libqt_string Sonnet__Highlighter_Tr3(const char* s, const char* c, int n);
 libqt_list /* of libqt_string */ Sonnet__Highlighter_SuggestionsForWord22(Sonnet__Highlighter* self, const libqt_string word, int max);
 libqt_list /* of libqt_string */ Sonnet__Highlighter_SuggestionsForWord3(Sonnet__Highlighter* self, const libqt_string word, const QTextCursor* cursor, int max);
 void Sonnet__Highlighter_OnMetacall(Sonnet__Highlighter* self, intptr_t slot);

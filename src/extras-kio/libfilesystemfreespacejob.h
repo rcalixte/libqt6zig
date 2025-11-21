@@ -35,11 +35,8 @@ typedef struct QUrl QUrl;
 QMetaObject* KIO__FileSystemFreeSpaceJob_MetaObject(const KIO__FileSystemFreeSpaceJob* self);
 void* KIO__FileSystemFreeSpaceJob_Metacast(KIO__FileSystemFreeSpaceJob* self, const char* param1);
 int KIO__FileSystemFreeSpaceJob_Metacall(KIO__FileSystemFreeSpaceJob* self, int param1, int param2, void** param3);
-libqt_string KIO__FileSystemFreeSpaceJob_Tr(const char* s);
 unsigned long long KIO__FileSystemFreeSpaceJob_Size(const KIO__FileSystemFreeSpaceJob* self);
 unsigned long long KIO__FileSystemFreeSpaceJob_AvailableSize(const KIO__FileSystemFreeSpaceJob* self);
-libqt_string KIO__FileSystemFreeSpaceJob_Tr2(const char* s, const char* c);
-libqt_string KIO__FileSystemFreeSpaceJob_Tr3(const char* s, const char* c, int n);
 void KIO__FileSystemFreeSpaceJob_Delete(KIO__FileSystemFreeSpaceJob* self);
 
 KIO__FileSystemFreeSpaceJob* KIO_FileSystemFreeSpace(const QUrl* param1);

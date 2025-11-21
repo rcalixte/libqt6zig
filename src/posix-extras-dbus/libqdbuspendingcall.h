@@ -45,12 +45,9 @@ QDBusPendingCallWatcher* QDBusPendingCallWatcher_new2(const QDBusPendingCall* ca
 QMetaObject* QDBusPendingCallWatcher_MetaObject(const QDBusPendingCallWatcher* self);
 void* QDBusPendingCallWatcher_Metacast(QDBusPendingCallWatcher* self, const char* param1);
 int QDBusPendingCallWatcher_Metacall(QDBusPendingCallWatcher* self, int param1, int param2, void** param3);
-libqt_string QDBusPendingCallWatcher_Tr(const char* s);
 void QDBusPendingCallWatcher_WaitForFinished(QDBusPendingCallWatcher* self);
 void QDBusPendingCallWatcher_Finished(QDBusPendingCallWatcher* self);
 void QDBusPendingCallWatcher_Connect_Finished(QDBusPendingCallWatcher* self, intptr_t slot);
-libqt_string QDBusPendingCallWatcher_Tr2(const char* s, const char* c);
-libqt_string QDBusPendingCallWatcher_Tr3(const char* s, const char* c, int n);
 void QDBusPendingCallWatcher_Finished1(QDBusPendingCallWatcher* self, QDBusPendingCallWatcher* selfVal);
 void QDBusPendingCallWatcher_Connect_Finished1(QDBusPendingCallWatcher* self, intptr_t slot);
 void QDBusPendingCallWatcher_OnMetacall(QDBusPendingCallWatcher* self, intptr_t slot);

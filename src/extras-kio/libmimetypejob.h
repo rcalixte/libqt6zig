@@ -39,9 +39,6 @@ typedef struct QUrl QUrl;
 QMetaObject* KIO__MimetypeJob_MetaObject(const KIO__MimetypeJob* self);
 void* KIO__MimetypeJob_Metacast(KIO__MimetypeJob* self, const char* param1);
 int KIO__MimetypeJob_Metacall(KIO__MimetypeJob* self, int param1, int param2, void** param3);
-libqt_string KIO__MimetypeJob_Tr(const char* s);
-libqt_string KIO__MimetypeJob_Tr2(const char* s, const char* c);
-libqt_string KIO__MimetypeJob_Tr3(const char* s, const char* c, int n);
 void KIO__MimetypeJob_Delete(KIO__MimetypeJob* self);
 
 KIO__MimetypeJob* KIO_Mimetype(const QUrl* param1, int param2);

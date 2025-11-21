@@ -42,18 +42,6 @@ int KIO__ForwardingWorkerBase_Metacall(KIO__ForwardingWorkerBase* self, int para
     }
 }
 
-libqt_string KIO__ForwardingWorkerBase_Tr(const char* s) {
-    QString _ret = KIO::ForwardingWorkerBase::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 KIO__WorkerResult* KIO__ForwardingWorkerBase_Get(KIO__ForwardingWorkerBase* self, const QUrl* url) {
     auto* vkio__forwardingworkerbase = dynamic_cast<VirtualKIOForwardingWorkerBase*>(self);
     if (vkio__forwardingworkerbase && vkio__forwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
@@ -176,30 +164,6 @@ void KIO__ForwardingWorkerBase_AdjustUDSEntry(const KIO__ForwardingWorkerBase* s
     if (vkio__forwardingworkerbase && vkio__forwardingworkerbase->isVirtualKIOForwardingWorkerBase) {
         vkio__forwardingworkerbase->adjustUDSEntry(*entry, static_cast<VirtualKIOForwardingWorkerBase::UDSEntryCreationMode>(creationMode));
     }
-}
-
-libqt_string KIO__ForwardingWorkerBase_Tr2(const char* s, const char* c) {
-    QString _ret = KIO::ForwardingWorkerBase::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string KIO__ForwardingWorkerBase_Tr3(const char* s, const char* c, int n) {
-    QString _ret = KIO::ForwardingWorkerBase::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 // Base class handler implementation

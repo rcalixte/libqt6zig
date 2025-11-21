@@ -34,7 +34,6 @@ QAbstractSocket* QAbstractSocket_new(int socketType, QObject* parent);
 QMetaObject* QAbstractSocket_MetaObject(const QAbstractSocket* self);
 void* QAbstractSocket_Metacast(QAbstractSocket* self, const char* param1);
 int QAbstractSocket_Metacall(QAbstractSocket* self, int param1, int param2, void** param3);
-libqt_string QAbstractSocket_Tr(const char* s);
 void QAbstractSocket_Resume(QAbstractSocket* self);
 int QAbstractSocket_PauseMode(const QAbstractSocket* self);
 void QAbstractSocket_SetPauseMode(QAbstractSocket* self, int pauseMode);
@@ -88,8 +87,6 @@ long long QAbstractSocket_ReadData(QAbstractSocket* self, char* data, long long 
 long long QAbstractSocket_ReadLineData(QAbstractSocket* self, char* data, long long maxlen);
 long long QAbstractSocket_SkipData(QAbstractSocket* self, long long maxSize);
 long long QAbstractSocket_WriteData(QAbstractSocket* self, const char* data, long long lenVal);
-libqt_string QAbstractSocket_Tr2(const char* s, const char* c);
-libqt_string QAbstractSocket_Tr3(const char* s, const char* c, int n);
 bool QAbstractSocket_Bind1(QAbstractSocket* self, uint16_t port);
 bool QAbstractSocket_Bind22(QAbstractSocket* self, uint16_t port, int mode);
 void QAbstractSocket_ConnectToHost3(QAbstractSocket* self, const QHostAddress* address, uint16_t port, int mode);

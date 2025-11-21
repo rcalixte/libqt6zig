@@ -56,14 +56,11 @@ KNameAndUrlInputDialog* KNameAndUrlInputDialog_new(const libqt_string nameLabel,
 QMetaObject* KNameAndUrlInputDialog_MetaObject(const KNameAndUrlInputDialog* self);
 void* KNameAndUrlInputDialog_Metacast(KNameAndUrlInputDialog* self, const char* param1);
 int KNameAndUrlInputDialog_Metacall(KNameAndUrlInputDialog* self, int param1, int param2, void** param3);
-libqt_string KNameAndUrlInputDialog_Tr(const char* s);
 void KNameAndUrlInputDialog_SetSuggestedName(KNameAndUrlInputDialog* self, const libqt_string name);
 void KNameAndUrlInputDialog_SetSuggestedUrl(KNameAndUrlInputDialog* self, const QUrl* url);
 libqt_string KNameAndUrlInputDialog_Name(const KNameAndUrlInputDialog* self);
 QUrl* KNameAndUrlInputDialog_Url(const KNameAndUrlInputDialog* self);
 libqt_string KNameAndUrlInputDialog_UrlText(const KNameAndUrlInputDialog* self);
-libqt_string KNameAndUrlInputDialog_Tr2(const char* s, const char* c);
-libqt_string KNameAndUrlInputDialog_Tr3(const char* s, const char* c, int n);
 void KNameAndUrlInputDialog_OnMetacall(KNameAndUrlInputDialog* self, intptr_t slot);
 int KNameAndUrlInputDialog_QBaseMetacall(KNameAndUrlInputDialog* self, int param1, int param2, void** param3);
 void KNameAndUrlInputDialog_SetVisible(KNameAndUrlInputDialog* self, bool visible);

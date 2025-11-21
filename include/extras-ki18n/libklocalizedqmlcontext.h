@@ -31,7 +31,6 @@ KLocalizedQmlContext* KLocalizedQmlContext_new2(QObject* parent);
 QMetaObject* KLocalizedQmlContext_MetaObject(const KLocalizedQmlContext* self);
 void* KLocalizedQmlContext_Metacast(KLocalizedQmlContext* self, const char* param1);
 int KLocalizedQmlContext_Metacall(KLocalizedQmlContext* self, int param1, int param2, void** param3);
-libqt_string KLocalizedQmlContext_Tr(const char* s);
 libqt_string KLocalizedQmlContext_TranslationDomain(const KLocalizedQmlContext* self);
 void KLocalizedQmlContext_SetTranslationDomain(KLocalizedQmlContext* self, const libqt_string domain);
 libqt_string KLocalizedQmlContext_I18n(const KLocalizedQmlContext* self, const libqt_string message);
@@ -52,8 +51,6 @@ libqt_string KLocalizedQmlContext_Xi18ndp(const KLocalizedQmlContext* self, cons
 libqt_string KLocalizedQmlContext_Xi18ndcp(const KLocalizedQmlContext* self, const libqt_string domain, const libqt_string context, const libqt_string singular, const libqt_string plural);
 void KLocalizedQmlContext_TranslationDomainChanged(KLocalizedQmlContext* self, const libqt_string translationDomain);
 void KLocalizedQmlContext_Connect_TranslationDomainChanged(KLocalizedQmlContext* self, intptr_t slot);
-libqt_string KLocalizedQmlContext_Tr2(const char* s, const char* c);
-libqt_string KLocalizedQmlContext_Tr3(const char* s, const char* c, int n);
 libqt_string KLocalizedQmlContext_I18n2(const KLocalizedQmlContext* self, const libqt_string message, const QVariant* param1);
 libqt_string KLocalizedQmlContext_I18n3(const KLocalizedQmlContext* self, const libqt_string message, const QVariant* param1, const QVariant* param2);
 libqt_string KLocalizedQmlContext_I18n4(const KLocalizedQmlContext* self, const libqt_string message, const QVariant* param1, const QVariant* param2, const QVariant* param3);

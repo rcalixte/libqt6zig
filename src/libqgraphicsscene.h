@@ -67,7 +67,6 @@ QGraphicsScene* QGraphicsScene_new6(double x, double y, double width, double hei
 QMetaObject* QGraphicsScene_MetaObject(const QGraphicsScene* self);
 void* QGraphicsScene_Metacast(QGraphicsScene* self, const char* param1);
 int QGraphicsScene_Metacall(QGraphicsScene* self, int param1, int param2, void** param3);
-libqt_string QGraphicsScene_Tr(const char* s);
 QRectF* QGraphicsScene_SceneRect(const QGraphicsScene* self);
 double QGraphicsScene_Width(const QGraphicsScene* self);
 double QGraphicsScene_Height(const QGraphicsScene* self);
@@ -172,8 +171,6 @@ void QGraphicsScene_SelectionChanged(QGraphicsScene* self);
 void QGraphicsScene_Connect_SelectionChanged(QGraphicsScene* self, intptr_t slot);
 void QGraphicsScene_FocusItemChanged(QGraphicsScene* self, QGraphicsItem* newFocus, QGraphicsItem* oldFocus, int reason);
 void QGraphicsScene_Connect_FocusItemChanged(QGraphicsScene* self, intptr_t slot);
-libqt_string QGraphicsScene_Tr2(const char* s, const char* c);
-libqt_string QGraphicsScene_Tr3(const char* s, const char* c, int n);
 void QGraphicsScene_Render2(QGraphicsScene* self, QPainter* painter, const QRectF* target);
 void QGraphicsScene_Render3(QGraphicsScene* self, QPainter* painter, const QRectF* target, const QRectF* source);
 void QGraphicsScene_Render4(QGraphicsScene* self, QPainter* painter, const QRectF* target, const QRectF* source, int aspectRatioMode);

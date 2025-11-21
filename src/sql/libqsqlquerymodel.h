@@ -45,7 +45,6 @@ QSqlQueryModel* QSqlQueryModel_new2(QObject* parent);
 QMetaObject* QSqlQueryModel_MetaObject(const QSqlQueryModel* self);
 void* QSqlQueryModel_Metacast(QSqlQueryModel* self, const char* param1);
 int QSqlQueryModel_Metacall(QSqlQueryModel* self, int param1, int param2, void** param3);
-libqt_string QSqlQueryModel_Tr(const char* s);
 int QSqlQueryModel_RowCount(const QSqlQueryModel* self, const QModelIndex* parent);
 int QSqlQueryModel_ColumnCount(const QSqlQueryModel* self, const QModelIndex* parent);
 QSqlRecord* QSqlQueryModel_Record(const QSqlQueryModel* self, int row);
@@ -65,8 +64,6 @@ bool QSqlQueryModel_CanFetchMore(const QSqlQueryModel* self, const QModelIndex* 
 libqt_map /* of int to libqt_string */ QSqlQueryModel_RoleNames(const QSqlQueryModel* self);
 void QSqlQueryModel_QueryChange(QSqlQueryModel* self);
 QModelIndex* QSqlQueryModel_IndexInQuery(const QSqlQueryModel* self, const QModelIndex* item);
-libqt_string QSqlQueryModel_Tr2(const char* s, const char* c);
-libqt_string QSqlQueryModel_Tr3(const char* s, const char* c, int n);
 void QSqlQueryModel_SetQuery22(QSqlQueryModel* self, const libqt_string query, const QSqlDatabase* db);
 QSqlQuery* QSqlQueryModel_Query1(const QSqlQueryModel* self, Disambiguated_t* param1);
 void QSqlQueryModel_OnMetacall(QSqlQueryModel* self, intptr_t slot);

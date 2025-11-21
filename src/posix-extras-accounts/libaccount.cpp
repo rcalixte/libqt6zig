@@ -44,18 +44,6 @@ int Accounts__Watch_Metacall(Accounts__Watch* self, int param1, int param2, void
     }
 }
 
-libqt_string Accounts__Watch_Tr(const char* s) {
-    QString _ret = Accounts::Watch::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 void Accounts__Watch_Notify(Accounts__Watch* self, const char* key) {
     self->notify(key);
 }
@@ -66,30 +54,6 @@ void Accounts__Watch_Connect_Notify(Accounts__Watch* self, intptr_t slot) {
         const char* sigval1 = (const char*)key;
         slotFunc(self, sigval1);
     });
-}
-
-libqt_string Accounts__Watch_Tr2(const char* s, const char* c) {
-    QString _ret = Accounts::Watch::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string Accounts__Watch_Tr3(const char* s, const char* c, int n) {
-    QString _ret = Accounts::Watch::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 // Base class handler implementation
@@ -461,18 +425,6 @@ int Accounts__Account_Metacall(Accounts__Account* self, int param1, int param2, 
     }
 }
 
-libqt_string Accounts__Account_Tr(const char* s) {
-    QString _ret = Accounts::Account::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 Accounts__Account* Accounts__Account_FromId(Accounts__Manager* manager, unsigned int id) {
     return Accounts::Account::fromId(manager, static_cast<Accounts::AccountId>(id));
 }
@@ -832,30 +784,6 @@ void Accounts__Account_Connect_Removed(Accounts__Account* self, intptr_t slot) {
     Accounts::Account::connect(self, &Accounts::Account::removed, [self, slotFunc]() {
         slotFunc(self);
     });
-}
-
-libqt_string Accounts__Account_Tr2(const char* s, const char* c) {
-    QString _ret = Accounts::Account::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string Accounts__Account_Tr3(const char* s, const char* c, int n) {
-    QString _ret = Accounts::Account::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 Accounts__Account* Accounts__Account_FromId3(Accounts__Manager* manager, unsigned int id, QObject* parent) {

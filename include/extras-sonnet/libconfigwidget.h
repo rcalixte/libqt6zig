@@ -57,7 +57,6 @@ Sonnet__ConfigWidget* Sonnet__ConfigWidget_new(QWidget* parent);
 QMetaObject* Sonnet__ConfigWidget_MetaObject(const Sonnet__ConfigWidget* self);
 void* Sonnet__ConfigWidget_Metacast(Sonnet__ConfigWidget* self, const char* param1);
 int Sonnet__ConfigWidget_Metacall(Sonnet__ConfigWidget* self, int param1, int param2, void** param3);
-libqt_string Sonnet__ConfigWidget_Tr(const char* s);
 bool Sonnet__ConfigWidget_BackgroundCheckingButtonShown(const Sonnet__ConfigWidget* self);
 void Sonnet__ConfigWidget_SetLanguage(Sonnet__ConfigWidget* self, const libqt_string language);
 libqt_string Sonnet__ConfigWidget_Language(const Sonnet__ConfigWidget* self);
@@ -66,8 +65,6 @@ void Sonnet__ConfigWidget_SetBackgroundCheckingButtonShown(Sonnet__ConfigWidget*
 void Sonnet__ConfigWidget_SlotDefault(Sonnet__ConfigWidget* self);
 void Sonnet__ConfigWidget_ConfigChanged(Sonnet__ConfigWidget* self);
 void Sonnet__ConfigWidget_Connect_ConfigChanged(Sonnet__ConfigWidget* self, intptr_t slot);
-libqt_string Sonnet__ConfigWidget_Tr2(const char* s, const char* c);
-libqt_string Sonnet__ConfigWidget_Tr3(const char* s, const char* c, int n);
 void Sonnet__ConfigWidget_OnMetacall(Sonnet__ConfigWidget* self, intptr_t slot);
 int Sonnet__ConfigWidget_QBaseMetacall(Sonnet__ConfigWidget* self, int param1, int param2, void** param3);
 int Sonnet__ConfigWidget_DevType(const Sonnet__ConfigWidget* self);

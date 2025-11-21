@@ -51,18 +51,6 @@ int QPdfSearchModel_Metacall(QPdfSearchModel* self, int param1, int param2, void
     }
 }
 
-libqt_string QPdfSearchModel_Tr(const char* s) {
-    QString _ret = QPdfSearchModel::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 libqt_list /* of QPdfLink* */ QPdfSearchModel_ResultsOnPage(const QPdfSearchModel* self, int page) {
     QList<QPdfLink> _ret = self->resultsOnPage(static_cast<int>(page));
     // Convert QList<> from C++ memory to manually-managed C memory
@@ -214,30 +202,6 @@ void QPdfSearchModel_TimerEvent(QPdfSearchModel* self, QTimerEvent* event) {
     if (vqpdfsearchmodel && vqpdfsearchmodel->isVirtualQPdfSearchModel) {
         vqpdfsearchmodel->timerEvent(event);
     }
-}
-
-libqt_string QPdfSearchModel_Tr2(const char* s, const char* c) {
-    QString _ret = QPdfSearchModel::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QPdfSearchModel_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QPdfSearchModel::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 // Base class handler implementation

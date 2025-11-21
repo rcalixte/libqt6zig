@@ -32,7 +32,6 @@ KToolBarLabelAction* KToolBarLabelAction_new2(QAction* buddy, const libqt_string
 QMetaObject* KToolBarLabelAction_MetaObject(const KToolBarLabelAction* self);
 void* KToolBarLabelAction_Metacast(KToolBarLabelAction* self, const char* param1);
 int KToolBarLabelAction_Metacall(KToolBarLabelAction* self, int param1, int param2, void** param3);
-libqt_string KToolBarLabelAction_Tr(const char* s);
 void KToolBarLabelAction_SetBuddy(KToolBarLabelAction* self, QAction* buddy);
 QAction* KToolBarLabelAction_Buddy(const KToolBarLabelAction* self);
 QWidget* KToolBarLabelAction_CreateWidget(KToolBarLabelAction* self, QWidget* parent);
@@ -40,8 +39,6 @@ void KToolBarLabelAction_TextChanged(KToolBarLabelAction* self, const libqt_stri
 void KToolBarLabelAction_Connect_TextChanged(KToolBarLabelAction* self, intptr_t slot);
 bool KToolBarLabelAction_Event(KToolBarLabelAction* self, QEvent* param1);
 bool KToolBarLabelAction_EventFilter(KToolBarLabelAction* self, QObject* watched, QEvent* event);
-libqt_string KToolBarLabelAction_Tr2(const char* s, const char* c);
-libqt_string KToolBarLabelAction_Tr3(const char* s, const char* c, int n);
 void KToolBarLabelAction_OnMetacall(KToolBarLabelAction* self, intptr_t slot);
 int KToolBarLabelAction_QBaseMetacall(KToolBarLabelAction* self, int param1, int param2, void** param3);
 void KToolBarLabelAction_OnCreateWidget(KToolBarLabelAction* self, intptr_t slot);

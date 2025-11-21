@@ -47,18 +47,6 @@ int QDtlsClientVerifier_Metacall(QDtlsClientVerifier* self, int param1, int para
     }
 }
 
-libqt_string QDtlsClientVerifier_Tr(const char* s) {
-    QString _ret = QDtlsClientVerifier::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 bool QDtlsClientVerifier_SetCookieGeneratorParameters(QDtlsClientVerifier* self, const QDtlsClientVerifier__GeneratorParameters* params) {
     return self->setCookieGeneratorParameters(*params);
 }
@@ -88,30 +76,6 @@ unsigned char QDtlsClientVerifier_DtlsError(const QDtlsClientVerifier* self) {
 
 libqt_string QDtlsClientVerifier_DtlsErrorString(const QDtlsClientVerifier* self) {
     QString _ret = self->dtlsErrorString();
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QDtlsClientVerifier_Tr2(const char* s, const char* c) {
-    QString _ret = QDtlsClientVerifier::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QDtlsClientVerifier_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QDtlsClientVerifier::tr(s, c, static_cast<int>(n));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -489,18 +453,6 @@ int QDtls_Metacall(QDtls* self, int param1, int param2, void** param3) {
     }
 }
 
-libqt_string QDtls_Tr(const char* s) {
-    QString _ret = QDtls::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 bool QDtls_SetPeer(QDtls* self, const QHostAddress* address, uint16_t port) {
     return self->setPeer(*address, static_cast<quint16>(port));
 }
@@ -670,30 +622,6 @@ void QDtls_Connect_HandshakeTimeout(QDtls* self, intptr_t slot) {
     QDtls::connect(self, &QDtls::handshakeTimeout, [self, slotFunc]() {
         slotFunc(self);
     });
-}
-
-libqt_string QDtls_Tr2(const char* s, const char* c) {
-    QString _ret = QDtls::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QDtls_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QDtls::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 bool QDtls_SetPeer3(QDtls* self, const QHostAddress* address, uint16_t port, const libqt_string verificationName) {

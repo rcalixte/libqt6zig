@@ -28,7 +28,6 @@ typedef struct QWidget QWidget;
 QMetaObject* KGlobalAccel_MetaObject(const KGlobalAccel* self);
 void* KGlobalAccel_Metacast(KGlobalAccel* self, const char* param1);
 int KGlobalAccel_Metacall(KGlobalAccel* self, int param1, int param2, void** param3);
-libqt_string KGlobalAccel_Tr(const char* s);
 KGlobalAccel* KGlobalAccel_Self();
 void KGlobalAccel_StealShortcutSystemwide(const QKeySequence* seq);
 bool KGlobalAccel_CleanComponent(const libqt_string componentUnique);
@@ -49,8 +48,6 @@ void KGlobalAccel_GlobalShortcutChanged(KGlobalAccel* self, QAction* action, con
 void KGlobalAccel_Connect_GlobalShortcutChanged(KGlobalAccel* self, intptr_t slot);
 void KGlobalAccel_GlobalShortcutActiveChanged(KGlobalAccel* self, QAction* action, bool active);
 void KGlobalAccel_Connect_GlobalShortcutActiveChanged(KGlobalAccel* self, intptr_t slot);
-libqt_string KGlobalAccel_Tr2(const char* s, const char* c);
-libqt_string KGlobalAccel_Tr3(const char* s, const char* c, int n);
 libqt_list /* of KGlobalShortcutInfo* */ KGlobalAccel_GlobalShortcutsByKey2(const QKeySequence* seq, int typeVal);
 bool KGlobalAccel_IsGlobalShortcutAvailable2(const QKeySequence* seq, const libqt_string component);
 bool KGlobalAccel_SetDefaultShortcut3(KGlobalAccel* self, QAction* action, const libqt_list /* of QKeySequence* */ shortcut, int loadFlag);

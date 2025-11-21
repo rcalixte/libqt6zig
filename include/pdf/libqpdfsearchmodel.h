@@ -39,7 +39,6 @@ QPdfSearchModel* QPdfSearchModel_new2(QObject* parent);
 QMetaObject* QPdfSearchModel_MetaObject(const QPdfSearchModel* self);
 void* QPdfSearchModel_Metacast(QPdfSearchModel* self, const char* param1);
 int QPdfSearchModel_Metacall(QPdfSearchModel* self, int param1, int param2, void** param3);
-libqt_string QPdfSearchModel_Tr(const char* s);
 libqt_list /* of QPdfLink* */ QPdfSearchModel_ResultsOnPage(const QPdfSearchModel* self, int page);
 QPdfLink* QPdfSearchModel_ResultAtIndex(const QPdfSearchModel* self, int index);
 QPdfDocument* QPdfSearchModel_Document(const QPdfSearchModel* self);
@@ -57,8 +56,6 @@ void QPdfSearchModel_Connect_SearchStringChanged(QPdfSearchModel* self, intptr_t
 void QPdfSearchModel_CountChanged(QPdfSearchModel* self);
 void QPdfSearchModel_Connect_CountChanged(QPdfSearchModel* self, intptr_t slot);
 void QPdfSearchModel_TimerEvent(QPdfSearchModel* self, QTimerEvent* event);
-libqt_string QPdfSearchModel_Tr2(const char* s, const char* c);
-libqt_string QPdfSearchModel_Tr3(const char* s, const char* c, int n);
 void QPdfSearchModel_OnMetacall(QPdfSearchModel* self, intptr_t slot);
 int QPdfSearchModel_QBaseMetacall(QPdfSearchModel* self, int param1, int param2, void** param3);
 void QPdfSearchModel_OnRoleNames(const QPdfSearchModel* self, intptr_t slot);

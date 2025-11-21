@@ -62,18 +62,6 @@ int Sonnet__Dialog_Metacall(Sonnet__Dialog* self, int param1, int param2, void**
     }
 }
 
-libqt_string Sonnet__Dialog_Tr(const char* s) {
-    QString _ret = Sonnet::Dialog::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 libqt_string Sonnet__Dialog_OriginalBuffer(const Sonnet__Dialog* self) {
     QString _ret = self->originalBuffer();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -283,30 +271,6 @@ void Sonnet__Dialog_Connect_LanguageChanged(Sonnet__Dialog* self, intptr_t slot)
         slotFunc(self, sigval1);
         libqt_free(language_str);
     });
-}
-
-libqt_string Sonnet__Dialog_Tr2(const char* s, const char* c) {
-    QString _ret = Sonnet::Dialog::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string Sonnet__Dialog_Tr3(const char* s, const char* c, int n) {
-    QString _ret = Sonnet::Dialog::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 void Sonnet__Dialog_ShowProgressDialog1(Sonnet__Dialog* self, int timeout) {

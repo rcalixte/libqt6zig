@@ -104,18 +104,6 @@ int QPointingDevice_Metacall(QPointingDevice* self, int param1, int param2, void
     }
 }
 
-libqt_string QPointingDevice_Tr(const char* s) {
-    QString _ret = QPointingDevice::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 void QPointingDevice_SetType(QPointingDevice* self, int devType) {
     self->setType(static_cast<QInputDevice::DeviceType>(devType));
 }
@@ -167,30 +155,6 @@ void QPointingDevice_Connect_GrabChanged(QPointingDevice* self, intptr_t slot) {
         QEventPoint* sigval4 = const_cast<QEventPoint*>(&point_ret);
         slotFunc(self, sigval1, sigval2, sigval3, sigval4);
     });
-}
-
-libqt_string QPointingDevice_Tr2(const char* s, const char* c) {
-    QString _ret = QPointingDevice::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QPointingDevice_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QPointingDevice::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 QPointingDevice* QPointingDevice_PrimaryPointingDevice1(const libqt_string seatName) {

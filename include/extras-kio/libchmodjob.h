@@ -31,9 +31,6 @@ typedef struct QObject QObject;
 QMetaObject* KIO__ChmodJob_MetaObject(const KIO__ChmodJob* self);
 void* KIO__ChmodJob_Metacast(KIO__ChmodJob* self, const char* param1);
 int KIO__ChmodJob_Metacall(KIO__ChmodJob* self, int param1, int param2, void** param3);
-libqt_string KIO__ChmodJob_Tr(const char* s);
-libqt_string KIO__ChmodJob_Tr2(const char* s, const char* c);
-libqt_string KIO__ChmodJob_Tr3(const char* s, const char* c, int n);
 void KIO__ChmodJob_Delete(KIO__ChmodJob* self);
 
 #ifdef __cplusplus

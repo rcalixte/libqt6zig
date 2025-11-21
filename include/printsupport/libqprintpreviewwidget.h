@@ -60,7 +60,6 @@ QPrintPreviewWidget* QPrintPreviewWidget_new6(QWidget* parent, int flags);
 QMetaObject* QPrintPreviewWidget_MetaObject(const QPrintPreviewWidget* self);
 void* QPrintPreviewWidget_Metacast(QPrintPreviewWidget* self, const char* param1);
 int QPrintPreviewWidget_Metacall(QPrintPreviewWidget* self, int param1, int param2, void** param3);
-libqt_string QPrintPreviewWidget_Tr(const char* s);
 double QPrintPreviewWidget_ZoomFactor(const QPrintPreviewWidget* self);
 int QPrintPreviewWidget_Orientation(const QPrintPreviewWidget* self);
 int QPrintPreviewWidget_ViewMode(const QPrintPreviewWidget* self);
@@ -88,8 +87,6 @@ void QPrintPreviewWidget_PaintRequested(QPrintPreviewWidget* self, QPrinter* pri
 void QPrintPreviewWidget_Connect_PaintRequested(QPrintPreviewWidget* self, intptr_t slot);
 void QPrintPreviewWidget_PreviewChanged(QPrintPreviewWidget* self);
 void QPrintPreviewWidget_Connect_PreviewChanged(QPrintPreviewWidget* self, intptr_t slot);
-libqt_string QPrintPreviewWidget_Tr2(const char* s, const char* c);
-libqt_string QPrintPreviewWidget_Tr3(const char* s, const char* c, int n);
 void QPrintPreviewWidget_ZoomIn1(QPrintPreviewWidget* self, double zoom);
 void QPrintPreviewWidget_ZoomOut1(QPrintPreviewWidget* self, double zoom);
 void QPrintPreviewWidget_OnMetacall(QPrintPreviewWidget* self, intptr_t slot);

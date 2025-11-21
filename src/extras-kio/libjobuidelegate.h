@@ -36,13 +36,10 @@ typedef struct QWidget QWidget;
 QMetaObject* KIO__JobUiDelegate_MetaObject(const KIO__JobUiDelegate* self);
 void* KIO__JobUiDelegate_Metacast(KIO__JobUiDelegate* self, const char* param1);
 int KIO__JobUiDelegate_Metacall(KIO__JobUiDelegate* self, int param1, int param2, void** param3);
-libqt_string KIO__JobUiDelegate_Tr(const char* s);
 void KIO__JobUiDelegate_SetWindow(KIO__JobUiDelegate* self, QWidget* window);
 void KIO__JobUiDelegate_UnregisterWindow(QWidget* window);
 bool KIO__JobUiDelegate_AskDeleteConfirmation(KIO__JobUiDelegate* self, const libqt_list /* of QUrl* */ urls, int deletionType, int confirmationType);
 void KIO__JobUiDelegate_UpdateUrlInClipboard(KIO__JobUiDelegate* self, const QUrl* src, const QUrl* dest);
-libqt_string KIO__JobUiDelegate_Tr2(const char* s, const char* c);
-libqt_string KIO__JobUiDelegate_Tr3(const char* s, const char* c, int n);
 void KIO__JobUiDelegate_Delete(KIO__JobUiDelegate* self);
 
 #ifdef __cplusplus

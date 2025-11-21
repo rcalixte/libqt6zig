@@ -39,9 +39,6 @@ typedef struct QObject QObject;
 QMetaObject* Attica__PutJob_MetaObject(const Attica__PutJob* self);
 void* Attica__PutJob_Metacast(Attica__PutJob* self, const char* param1);
 int Attica__PutJob_Metacall(Attica__PutJob* self, int param1, int param2, void** param3);
-libqt_string Attica__PutJob_Tr(const char* s);
-libqt_string Attica__PutJob_Tr2(const char* s, const char* c);
-libqt_string Attica__PutJob_Tr3(const char* s, const char* c, int n);
 void Attica__PutJob_Delete(Attica__PutJob* self);
 
 #ifdef __cplusplus

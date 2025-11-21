@@ -32,12 +32,9 @@ typedef struct Solid__NetworkShare Solid__NetworkShare;
 QMetaObject* Solid__NetworkShare_MetaObject(const Solid__NetworkShare* self);
 void* Solid__NetworkShare_Metacast(Solid__NetworkShare* self, const char* param1);
 int Solid__NetworkShare_Metacall(Solid__NetworkShare* self, int param1, int param2, void** param3);
-libqt_string Solid__NetworkShare_Tr(const char* s);
 int Solid__NetworkShare_DeviceInterfaceType();
 int Solid__NetworkShare_Type(const Solid__NetworkShare* self);
 QUrl* Solid__NetworkShare_Url(const Solid__NetworkShare* self);
-libqt_string Solid__NetworkShare_Tr2(const char* s, const char* c);
-libqt_string Solid__NetworkShare_Tr3(const char* s, const char* c, int n);
 void Solid__NetworkShare_Delete(Solid__NetworkShare* self);
 
 #ifdef __cplusplus

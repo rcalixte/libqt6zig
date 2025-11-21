@@ -58,7 +58,6 @@ Sonnet__Dialog* Sonnet__Dialog_new(Sonnet__BackgroundChecker* checker, QWidget* 
 QMetaObject* Sonnet__Dialog_MetaObject(const Sonnet__Dialog* self);
 void* Sonnet__Dialog_Metacast(Sonnet__Dialog* self, const char* param1);
 int Sonnet__Dialog_Metacall(Sonnet__Dialog* self, int param1, int param2, void** param3);
-libqt_string Sonnet__Dialog_Tr(const char* s);
 libqt_string Sonnet__Dialog_OriginalBuffer(const Sonnet__Dialog* self);
 libqt_string Sonnet__Dialog_Buffer(const Sonnet__Dialog* self);
 void Sonnet__Dialog_Show(Sonnet__Dialog* self);
@@ -83,8 +82,6 @@ void Sonnet__Dialog_SpellCheckStatus(Sonnet__Dialog* self, const libqt_string pa
 void Sonnet__Dialog_Connect_SpellCheckStatus(Sonnet__Dialog* self, intptr_t slot);
 void Sonnet__Dialog_LanguageChanged(Sonnet__Dialog* self, const libqt_string language);
 void Sonnet__Dialog_Connect_LanguageChanged(Sonnet__Dialog* self, intptr_t slot);
-libqt_string Sonnet__Dialog_Tr2(const char* s, const char* c);
-libqt_string Sonnet__Dialog_Tr3(const char* s, const char* c, int n);
 void Sonnet__Dialog_ShowProgressDialog1(Sonnet__Dialog* self, int timeout);
 void Sonnet__Dialog_ShowSpellCheckCompletionMessage1(Sonnet__Dialog* self, bool b);
 void Sonnet__Dialog_OnMetacall(Sonnet__Dialog* self, intptr_t slot);

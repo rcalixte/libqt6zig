@@ -57,18 +57,6 @@ int QProxyStyle_Metacall(QProxyStyle* self, int param1, int param2, void** param
     }
 }
 
-libqt_string QProxyStyle_Tr(const char* s) {
-    QString _ret = QProxyStyle::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 QStyle* QProxyStyle_BaseStyle(const QProxyStyle* self) {
     return self->baseStyle();
 }
@@ -292,30 +280,6 @@ bool QProxyStyle_Event(QProxyStyle* self, QEvent* e) {
         return vqproxystyle->event(e);
     }
     return {};
-}
-
-libqt_string QProxyStyle_Tr2(const char* s, const char* c) {
-    QString _ret = QProxyStyle::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QProxyStyle_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QProxyStyle::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 // Base class handler implementation

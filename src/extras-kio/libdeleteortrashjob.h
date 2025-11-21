@@ -34,12 +34,9 @@ KIO__DeleteOrTrashJob* KIO__DeleteOrTrashJob_new(const libqt_list /* of QUrl* */
 QMetaObject* KIO__DeleteOrTrashJob_MetaObject(const KIO__DeleteOrTrashJob* self);
 void* KIO__DeleteOrTrashJob_Metacast(KIO__DeleteOrTrashJob* self, const char* param1);
 int KIO__DeleteOrTrashJob_Metacall(KIO__DeleteOrTrashJob* self, int param1, int param2, void** param3);
-libqt_string KIO__DeleteOrTrashJob_Tr(const char* s);
 void KIO__DeleteOrTrashJob_Start(KIO__DeleteOrTrashJob* self);
 void KIO__DeleteOrTrashJob_Started(KIO__DeleteOrTrashJob* self);
 void KIO__DeleteOrTrashJob_Connect_Started(KIO__DeleteOrTrashJob* self, intptr_t slot);
-libqt_string KIO__DeleteOrTrashJob_Tr2(const char* s, const char* c);
-libqt_string KIO__DeleteOrTrashJob_Tr3(const char* s, const char* c, int n);
 void KIO__DeleteOrTrashJob_OnMetacall(KIO__DeleteOrTrashJob* self, intptr_t slot);
 int KIO__DeleteOrTrashJob_QBaseMetacall(KIO__DeleteOrTrashJob* self, int param1, int param2, void** param3);
 void KIO__DeleteOrTrashJob_OnStart(KIO__DeleteOrTrashJob* self, intptr_t slot);

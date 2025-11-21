@@ -57,7 +57,6 @@ QOpenGLWindow* QOpenGLWindow_new6(QOpenGLContext* shareContext, int updateBehavi
 QMetaObject* QOpenGLWindow_MetaObject(const QOpenGLWindow* self);
 void* QOpenGLWindow_Metacast(QOpenGLWindow* self, const char* param1);
 int QOpenGLWindow_Metacall(QOpenGLWindow* self, int param1, int param2, void** param3);
-libqt_string QOpenGLWindow_Tr(const char* s);
 int QOpenGLWindow_UpdateBehavior(const QOpenGLWindow* self);
 bool QOpenGLWindow_IsValid(const QOpenGLWindow* self);
 void QOpenGLWindow_MakeCurrent(QOpenGLWindow* self);
@@ -77,8 +76,6 @@ void QOpenGLWindow_PaintEvent(QOpenGLWindow* self, QPaintEvent* event);
 void QOpenGLWindow_ResizeEvent(QOpenGLWindow* self, QResizeEvent* event);
 int QOpenGLWindow_Metric(const QOpenGLWindow* self, int metric);
 QPaintDevice* QOpenGLWindow_Redirected(const QOpenGLWindow* self, QPoint* param1);
-libqt_string QOpenGLWindow_Tr2(const char* s, const char* c);
-libqt_string QOpenGLWindow_Tr3(const char* s, const char* c, int n);
 void QOpenGLWindow_OnMetacall(QOpenGLWindow* self, intptr_t slot);
 int QOpenGLWindow_QBaseMetacall(QOpenGLWindow* self, int param1, int param2, void** param3);
 void QOpenGLWindow_OnInitializeGL(QOpenGLWindow* self, intptr_t slot);

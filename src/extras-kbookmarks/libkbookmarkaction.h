@@ -32,10 +32,7 @@ KBookmarkAction* KBookmarkAction_new(const KBookmark* bk, KBookmarkOwner* owner,
 QMetaObject* KBookmarkAction_MetaObject(const KBookmarkAction* self);
 void* KBookmarkAction_Metacast(KBookmarkAction* self, const char* param1);
 int KBookmarkAction_Metacall(KBookmarkAction* self, int param1, int param2, void** param3);
-libqt_string KBookmarkAction_Tr(const char* s);
 void KBookmarkAction_SlotSelected(KBookmarkAction* self, int mb, int km);
-libqt_string KBookmarkAction_Tr2(const char* s, const char* c);
-libqt_string KBookmarkAction_Tr3(const char* s, const char* c, int n);
 void KBookmarkAction_OnMetacall(KBookmarkAction* self, intptr_t slot);
 int KBookmarkAction_QBaseMetacall(KBookmarkAction* self, int param1, int param2, void** param3);
 bool KBookmarkAction_Event(KBookmarkAction* self, QEvent* param1);

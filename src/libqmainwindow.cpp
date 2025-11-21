@@ -74,18 +74,6 @@ int QMainWindow_Metacall(QMainWindow* self, int param1, int param2, void** param
     }
 }
 
-libqt_string QMainWindow_Tr(const char* s) {
-    QString _ret = QMainWindow::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 QSize* QMainWindow_IconSize(const QMainWindow* self) {
     return new QSize(self->iconSize());
 }
@@ -379,30 +367,6 @@ bool QMainWindow_Event(QMainWindow* self, QEvent* event) {
         return vqmainwindow->event(event);
     }
     return {};
-}
-
-libqt_string QMainWindow_Tr2(const char* s, const char* c) {
-    QString _ret = QMainWindow::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QMainWindow_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QMainWindow::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 void QMainWindow_AddToolBarBreak1(QMainWindow* self, int area) {

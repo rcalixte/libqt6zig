@@ -69,7 +69,6 @@ KToolBar* KToolBar_new9(const libqt_string objectName, QMainWindow* parentWindow
 QMetaObject* KToolBar_MetaObject(const KToolBar* self);
 void* KToolBar_Metacast(KToolBar* self, const char* param1);
 int KToolBar_Metacall(KToolBar* self, int param1, int param2, void** param3);
-libqt_string KToolBar_Tr(const char* s);
 KMainWindow* KToolBar_MainWindow(const KToolBar* self);
 void KToolBar_SetIconDimensions(KToolBar* self, int size);
 int KToolBar_IconSizeDefault(const KToolBar* self);
@@ -95,8 +94,6 @@ void KToolBar_DropEvent(KToolBar* self, QDropEvent* param1);
 void KToolBar_MousePressEvent(KToolBar* self, QMouseEvent* param1);
 void KToolBar_MouseMoveEvent(KToolBar* self, QMouseEvent* param1);
 void KToolBar_MouseReleaseEvent(KToolBar* self, QMouseEvent* param1);
-libqt_string KToolBar_Tr2(const char* s, const char* c);
-libqt_string KToolBar_Tr3(const char* s, const char* c, int n);
 void KToolBar_OnMetacall(KToolBar* self, intptr_t slot);
 int KToolBar_QBaseMetacall(KToolBar* self, int param1, int param2, void** param3);
 void KToolBar_OnEventFilter(KToolBar* self, intptr_t slot);

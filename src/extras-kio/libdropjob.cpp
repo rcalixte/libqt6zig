@@ -31,18 +31,6 @@ int KIO__DropJob_Metacall(KIO__DropJob* self, int param1, int param2, void** par
     return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
-libqt_string KIO__DropJob_Tr(const char* s) {
-    QString _ret = KIO::DropJob::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 void KIO__DropJob_SetApplicationActions(KIO__DropJob* self, const libqt_list /* of QAction* */ actions) {
     QList<QAction*> actions_QList;
     actions_QList.reserve(actions.len);
@@ -95,30 +83,6 @@ void KIO__DropJob_Connect_PopupMenuAboutToShow(KIO__DropJob* self, intptr_t slot
         KFileItemListProperties* sigval1 = const_cast<KFileItemListProperties*>(&itemProps_ret);
         slotFunc(self, sigval1);
     });
-}
-
-libqt_string KIO__DropJob_Tr2(const char* s, const char* c) {
-    QString _ret = KIO::DropJob::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string KIO__DropJob_Tr3(const char* s, const char* c, int n) {
-    QString _ret = KIO::DropJob::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 void KIO__DropJob_ShowMenu2(KIO__DropJob* self, const QPoint* p, QAction* atAction) {

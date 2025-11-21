@@ -148,18 +148,6 @@ int QItemSelectionModel_Metacall(QItemSelectionModel* self, int param1, int para
     }
 }
 
-libqt_string QItemSelectionModel_Tr(const char* s) {
-    QString _ret = QItemSelectionModel::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 QModelIndex* QItemSelectionModel_CurrentIndex(const QItemSelectionModel* self) {
     return new QModelIndex(self->currentIndex());
 }
@@ -379,30 +367,6 @@ void QItemSelectionModel_Connect_ModelChanged(QItemSelectionModel* self, intptr_
         QAbstractItemModel* sigval1 = model;
         slotFunc(self, sigval1);
     });
-}
-
-libqt_string QItemSelectionModel_Tr2(const char* s, const char* c) {
-    QString _ret = QItemSelectionModel::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QItemSelectionModel_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QItemSelectionModel::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 bool QItemSelectionModel_IsRowSelected2(const QItemSelectionModel* self, int row, const QModelIndex* parent) {

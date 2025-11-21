@@ -35,12 +35,9 @@ typedef struct QObject QObject;
 QMetaObject* Attica__PlatformDependentV3_MetaObject(const Attica__PlatformDependentV3* self);
 void* Attica__PlatformDependentV3_Metacast(Attica__PlatformDependentV3* self, const char* param1);
 int Attica__PlatformDependentV3_Metacall(Attica__PlatformDependentV3* self, int param1, int param2, void** param3);
-libqt_string Attica__PlatformDependentV3_Tr(const char* s);
 bool Attica__PlatformDependentV3_IsReady(Attica__PlatformDependentV3* self);
 void Attica__PlatformDependentV3_ReadyChanged(Attica__PlatformDependentV3* self);
 void Attica__PlatformDependentV3_Connect_ReadyChanged(Attica__PlatformDependentV3* self, intptr_t slot);
-libqt_string Attica__PlatformDependentV3_Tr2(const char* s, const char* c);
-libqt_string Attica__PlatformDependentV3_Tr3(const char* s, const char* c, int n);
 void Attica__PlatformDependentV3_Delete(Attica__PlatformDependentV3* self);
 
 #ifdef __cplusplus

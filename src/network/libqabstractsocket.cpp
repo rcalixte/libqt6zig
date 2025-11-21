@@ -39,18 +39,6 @@ int QAbstractSocket_Metacall(QAbstractSocket* self, int param1, int param2, void
     }
 }
 
-libqt_string QAbstractSocket_Tr(const char* s) {
-    QString _ret = QAbstractSocket::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 void QAbstractSocket_Resume(QAbstractSocket* self) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
     if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
@@ -406,30 +394,6 @@ long long QAbstractSocket_WriteData(QAbstractSocket* self, const char* data, lon
         return static_cast<long long>(vqabstractsocket->writeData(data, static_cast<qint64>(lenVal)));
     }
     return {};
-}
-
-libqt_string QAbstractSocket_Tr2(const char* s, const char* c) {
-    QString _ret = QAbstractSocket::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QAbstractSocket_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QAbstractSocket::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 bool QAbstractSocket_Bind1(QAbstractSocket* self, uint16_t port) {

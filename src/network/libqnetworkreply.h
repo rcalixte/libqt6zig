@@ -36,7 +36,6 @@ typedef struct QVariant QVariant;
 QMetaObject* QNetworkReply_MetaObject(const QNetworkReply* self);
 void* QNetworkReply_Metacast(QNetworkReply* self, const char* param1);
 int QNetworkReply_Metacall(QNetworkReply* self, int param1, int param2, void** param3);
-libqt_string QNetworkReply_Tr(const char* s);
 void QNetworkReply_Close(QNetworkReply* self);
 bool QNetworkReply_IsSequential(const QNetworkReply* self);
 long long QNetworkReply_ReadBufferSize(const QNetworkReply* self);
@@ -84,8 +83,6 @@ void QNetworkReply_UploadProgress(QNetworkReply* self, long long bytesSent, long
 void QNetworkReply_Connect_UploadProgress(QNetworkReply* self, intptr_t slot);
 void QNetworkReply_DownloadProgress(QNetworkReply* self, long long bytesReceived, long long bytesTotal);
 void QNetworkReply_Connect_DownloadProgress(QNetworkReply* self, intptr_t slot);
-libqt_string QNetworkReply_Tr2(const char* s, const char* c);
-libqt_string QNetworkReply_Tr3(const char* s, const char* c, int n);
 void QNetworkReply_Delete(QNetworkReply* self);
 
 #ifdef __cplusplus

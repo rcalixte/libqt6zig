@@ -30,18 +30,6 @@ int KIO__TransferJob_Metacall(KIO__TransferJob* self, int param1, int param2, vo
     return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
-libqt_string KIO__TransferJob_Tr(const char* s) {
-    QString _ret = KIO::TransferJob::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 void KIO__TransferJob_SetModificationTime(KIO__TransferJob* self, const QDateTime* mtime) {
     self->setModificationTime(*mtime);
 }
@@ -184,30 +172,6 @@ void KIO__TransferJob_Connect_CanResume(KIO__TransferJob* self, intptr_t slot) {
         unsigned long long sigval2 = static_cast<unsigned long long>(offset);
         slotFunc(self, sigval1, sigval2);
     });
-}
-
-libqt_string KIO__TransferJob_Tr2(const char* s, const char* c) {
-    QString _ret = KIO::TransferJob::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string KIO__TransferJob_Tr3(const char* s, const char* c, int n) {
-    QString _ret = KIO::TransferJob::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 void KIO__TransferJob_Delete(KIO__TransferJob* self) {

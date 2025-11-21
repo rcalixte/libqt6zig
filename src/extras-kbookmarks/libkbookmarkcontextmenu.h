@@ -61,7 +61,6 @@ KBookmarkContextMenu* KBookmarkContextMenu_new2(const KBookmark* bm, KBookmarkMa
 QMetaObject* KBookmarkContextMenu_MetaObject(const KBookmarkContextMenu* self);
 void* KBookmarkContextMenu_Metacast(KBookmarkContextMenu* self, const char* param1);
 int KBookmarkContextMenu_Metacall(KBookmarkContextMenu* self, int param1, int param2, void** param3);
-libqt_string KBookmarkContextMenu_Tr(const char* s);
 void KBookmarkContextMenu_AddActions(KBookmarkContextMenu* self);
 void KBookmarkContextMenu_SetBrowserMode(KBookmarkContextMenu* self, bool browserMode);
 bool KBookmarkContextMenu_BrowserMode(const KBookmarkContextMenu* self);
@@ -71,8 +70,6 @@ void KBookmarkContextMenu_SlotInsert(KBookmarkContextMenu* self);
 void KBookmarkContextMenu_SlotRemove(KBookmarkContextMenu* self);
 void KBookmarkContextMenu_SlotCopyLocation(KBookmarkContextMenu* self);
 void KBookmarkContextMenu_SlotOpenFolderInTabs(KBookmarkContextMenu* self);
-libqt_string KBookmarkContextMenu_Tr2(const char* s, const char* c);
-libqt_string KBookmarkContextMenu_Tr3(const char* s, const char* c, int n);
 void KBookmarkContextMenu_OnMetacall(KBookmarkContextMenu* self, intptr_t slot);
 int KBookmarkContextMenu_QBaseMetacall(KBookmarkContextMenu* self, int param1, int param2, void** param3);
 void KBookmarkContextMenu_OnAddActions(KBookmarkContextMenu* self, intptr_t slot);

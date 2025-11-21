@@ -29,7 +29,6 @@ typedef struct QVariant QVariant;
 QMetaObject* QAbstractAxis_MetaObject(const QAbstractAxis* self);
 void* QAbstractAxis_Metacast(QAbstractAxis* self, const char* param1);
 int QAbstractAxis_Metacall(QAbstractAxis* self, int param1, int param2, void** param3);
-libqt_string QAbstractAxis_Tr(const char* s);
 int QAbstractAxis_Type(const QAbstractAxis* self);
 bool QAbstractAxis_IsVisible(const QAbstractAxis* self);
 void QAbstractAxis_SetVisible(QAbstractAxis* self);
@@ -149,8 +148,6 @@ void QAbstractAxis_LabelsTruncatedChanged(QAbstractAxis* self, bool labelsTrunca
 void QAbstractAxis_Connect_LabelsTruncatedChanged(QAbstractAxis* self, intptr_t slot);
 void QAbstractAxis_TruncateLabelsChanged(QAbstractAxis* self, bool truncateLabels);
 void QAbstractAxis_Connect_TruncateLabelsChanged(QAbstractAxis* self, intptr_t slot);
-libqt_string QAbstractAxis_Tr2(const char* s, const char* c);
-libqt_string QAbstractAxis_Tr3(const char* s, const char* c, int n);
 void QAbstractAxis_SetVisible1(QAbstractAxis* self, bool visible);
 void QAbstractAxis_SetLineVisible1(QAbstractAxis* self, bool visible);
 void QAbstractAxis_SetGridLineVisible1(QAbstractAxis* self, bool visible);

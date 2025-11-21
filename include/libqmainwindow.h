@@ -61,7 +61,6 @@ QMainWindow* QMainWindow_new3(QWidget* parent, int flags);
 QMetaObject* QMainWindow_MetaObject(const QMainWindow* self);
 void* QMainWindow_Metacast(QMainWindow* self, const char* param1);
 int QMainWindow_Metacall(QMainWindow* self, int param1, int param2, void** param3);
-libqt_string QMainWindow_Tr(const char* s);
 QSize* QMainWindow_IconSize(const QMainWindow* self);
 void QMainWindow_SetIconSize(QMainWindow* self, const QSize* iconSize);
 int QMainWindow_ToolButtonStyle(const QMainWindow* self);
@@ -122,8 +121,6 @@ void QMainWindow_TabifiedDockWidgetActivated(QMainWindow* self, QDockWidget* doc
 void QMainWindow_Connect_TabifiedDockWidgetActivated(QMainWindow* self, intptr_t slot);
 void QMainWindow_ContextMenuEvent(QMainWindow* self, QContextMenuEvent* event);
 bool QMainWindow_Event(QMainWindow* self, QEvent* event);
-libqt_string QMainWindow_Tr2(const char* s, const char* c);
-libqt_string QMainWindow_Tr3(const char* s, const char* c, int n);
 void QMainWindow_AddToolBarBreak1(QMainWindow* self, int area);
 libqt_string QMainWindow_SaveState1(const QMainWindow* self, int version);
 bool QMainWindow_RestoreState2(QMainWindow* self, const libqt_string state, int version);

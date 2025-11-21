@@ -25,7 +25,6 @@ typedef struct QObject QObject;
 QMetaObject* QFutureWatcherBase_MetaObject(const QFutureWatcherBase* self);
 void* QFutureWatcherBase_Metacast(QFutureWatcherBase* self, const char* param1);
 int QFutureWatcherBase_Metacall(QFutureWatcherBase* self, int param1, int param2, void** param3);
-libqt_string QFutureWatcherBase_Tr(const char* s);
 int QFutureWatcherBase_ProgressValue(const QFutureWatcherBase* self);
 int QFutureWatcherBase_ProgressMinimum(const QFutureWatcherBase* self);
 int QFutureWatcherBase_ProgressMaximum(const QFutureWatcherBase* self);
@@ -72,8 +71,6 @@ void QFutureWatcherBase_ToggleSuspended(QFutureWatcherBase* self);
 void QFutureWatcherBase_SetPaused(QFutureWatcherBase* self, bool paused);
 void QFutureWatcherBase_Pause(QFutureWatcherBase* self);
 void QFutureWatcherBase_TogglePaused(QFutureWatcherBase* self);
-libqt_string QFutureWatcherBase_Tr2(const char* s, const char* c);
-libqt_string QFutureWatcherBase_Tr3(const char* s, const char* c, int n);
 void QFutureWatcherBase_Delete(QFutureWatcherBase* self);
 
 #ifdef __cplusplus

@@ -145,7 +145,6 @@ bool QAccessibleTableInterface_UnselectColumn(QAccessibleTableInterface* self, i
 void QAccessibleTableInterface_ModelChange(QAccessibleTableInterface* self, QAccessibleTableModelChangeEvent* event);
 void QAccessibleTableInterface_Delete(QAccessibleTableInterface* self);
 
-libqt_string QAccessibleActionInterface_Tr(const char* sourceText);
 libqt_list /* of libqt_string */ QAccessibleActionInterface_ActionNames(const QAccessibleActionInterface* self);
 libqt_string QAccessibleActionInterface_LocalizedActionName(const QAccessibleActionInterface* self, const libqt_string name);
 libqt_string QAccessibleActionInterface_LocalizedActionDescription(const QAccessibleActionInterface* self, const libqt_string name);
@@ -164,8 +163,6 @@ libqt_string QAccessibleActionInterface_ScrollDownAction();
 libqt_string QAccessibleActionInterface_NextPageAction();
 libqt_string QAccessibleActionInterface_PreviousPageAction();
 void QAccessibleActionInterface_OperatorAssign(QAccessibleActionInterface* self, const QAccessibleActionInterface* param1);
-libqt_string QAccessibleActionInterface_Tr2(const char* sourceText, const char* disambiguation);
-libqt_string QAccessibleActionInterface_Tr3(const char* sourceText, const char* disambiguation, int n);
 void QAccessibleActionInterface_Delete(QAccessibleActionInterface* self);
 
 libqt_string QAccessibleImageInterface_ImageDescription(const QAccessibleImageInterface* self);

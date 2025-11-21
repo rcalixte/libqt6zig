@@ -61,7 +61,6 @@ KShortcutsDialog* KShortcutsDialog_new5(int actionTypes, int allowLetterShortcut
 QMetaObject* KShortcutsDialog_MetaObject(const KShortcutsDialog* self);
 void* KShortcutsDialog_Metacast(KShortcutsDialog* self, const char* param1);
 int KShortcutsDialog_Metacall(KShortcutsDialog* self, int param1, int param2, void** param3);
-libqt_string KShortcutsDialog_Tr(const char* s);
 void KShortcutsDialog_AddCollection(KShortcutsDialog* self, KActionCollection* collection);
 libqt_list /* of KActionCollection* */ KShortcutsDialog_ActionCollections(const KShortcutsDialog* self);
 bool KShortcutsDialog_Configure(KShortcutsDialog* self);
@@ -74,8 +73,6 @@ void KShortcutsDialog_AddActionToSchemesMoreButton(KShortcutsDialog* self, QActi
 void KShortcutsDialog_Accept(KShortcutsDialog* self);
 void KShortcutsDialog_Saved(KShortcutsDialog* self);
 void KShortcutsDialog_Connect_Saved(KShortcutsDialog* self, intptr_t slot);
-libqt_string KShortcutsDialog_Tr2(const char* s, const char* c);
-libqt_string KShortcutsDialog_Tr3(const char* s, const char* c, int n);
 void KShortcutsDialog_AddCollection2(KShortcutsDialog* self, KActionCollection* collection, const libqt_string title);
 bool KShortcutsDialog_Configure1(KShortcutsDialog* self, bool saveSettings);
 void KShortcutsDialog_ShowDialog2(KActionCollection* collection, int allowLetterShortcuts);

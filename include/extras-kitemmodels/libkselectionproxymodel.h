@@ -41,7 +41,6 @@ KSelectionProxyModel* KSelectionProxyModel_new3(QItemSelectionModel* selectionMo
 QMetaObject* KSelectionProxyModel_MetaObject(const KSelectionProxyModel* self);
 void* KSelectionProxyModel_Metacast(KSelectionProxyModel* self, const char* param1);
 int KSelectionProxyModel_Metacall(KSelectionProxyModel* self, int param1, int param2, void** param3);
-libqt_string KSelectionProxyModel_Tr(const char* s);
 void KSelectionProxyModel_SetSourceModel(KSelectionProxyModel* self, QAbstractItemModel* sourceModel);
 QItemSelectionModel* KSelectionProxyModel_SelectionModel(const KSelectionProxyModel* self);
 void KSelectionProxyModel_SetSelectionModel(KSelectionProxyModel* self, QItemSelectionModel* selectionModel);
@@ -64,8 +63,6 @@ QModelIndex* KSelectionProxyModel_Index(const KSelectionProxyModel* self, int pa
 QModelIndex* KSelectionProxyModel_Parent(const KSelectionProxyModel* self, const QModelIndex* param1);
 int KSelectionProxyModel_ColumnCount(const KSelectionProxyModel* self, const QModelIndex* param1);
 libqt_list /* of QModelIndex* */ KSelectionProxyModel_Match(const KSelectionProxyModel* self, const QModelIndex* start, int role, const QVariant* value, int hits, int flags);
-libqt_string KSelectionProxyModel_Tr2(const char* s, const char* c);
-libqt_string KSelectionProxyModel_Tr3(const char* s, const char* c, int n);
 void KSelectionProxyModel_OnMetacall(KSelectionProxyModel* self, intptr_t slot);
 int KSelectionProxyModel_QBaseMetacall(KSelectionProxyModel* self, int param1, int param2, void** param3);
 void KSelectionProxyModel_OnSetSourceModel(KSelectionProxyModel* self, intptr_t slot);

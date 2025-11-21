@@ -151,7 +151,6 @@ QTableWidget* QTableWidget_new4(int rows, int columns, QWidget* parent);
 QMetaObject* QTableWidget_MetaObject(const QTableWidget* self);
 void* QTableWidget_Metacast(QTableWidget* self, const char* param1);
 int QTableWidget_Metacall(QTableWidget* self, int param1, int param2, void** param3);
-libqt_string QTableWidget_Tr(const char* s);
 void QTableWidget_SetRowCount(QTableWidget* self, int rows);
 int QTableWidget_RowCount(const QTableWidget* self);
 void QTableWidget_SetColumnCount(QTableWidget* self, int columns);
@@ -243,8 +242,6 @@ QMimeData* QTableWidget_MimeData(const QTableWidget* self, const libqt_list /* o
 bool QTableWidget_DropMimeData(QTableWidget* self, int row, int column, const QMimeData* data, int action);
 int QTableWidget_SupportedDropActions(const QTableWidget* self);
 void QTableWidget_DropEvent(QTableWidget* self, QDropEvent* event);
-libqt_string QTableWidget_Tr2(const char* s, const char* c);
-libqt_string QTableWidget_Tr3(const char* s, const char* c, int n);
 void QTableWidget_SortItems2(QTableWidget* self, int column, int order);
 void QTableWidget_ScrollToItem2(QTableWidget* self, const QTableWidgetItem* item, int hint);
 void QTableWidget_OnMetacall(QTableWidget* self, intptr_t slot);

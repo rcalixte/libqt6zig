@@ -38,7 +38,6 @@ QTransposeProxyModel* QTransposeProxyModel_new2(QObject* parent);
 QMetaObject* QTransposeProxyModel_MetaObject(const QTransposeProxyModel* self);
 void* QTransposeProxyModel_Metacast(QTransposeProxyModel* self, const char* param1);
 int QTransposeProxyModel_Metacall(QTransposeProxyModel* self, int param1, int param2, void** param3);
-libqt_string QTransposeProxyModel_Tr(const char* s);
 void QTransposeProxyModel_SetSourceModel(QTransposeProxyModel* self, QAbstractItemModel* newSourceModel);
 int QTransposeProxyModel_RowCount(const QTransposeProxyModel* self, const QModelIndex* parent);
 int QTransposeProxyModel_ColumnCount(const QTransposeProxyModel* self, const QModelIndex* parent);
@@ -58,8 +57,6 @@ bool QTransposeProxyModel_InsertColumns(QTransposeProxyModel* self, int column, 
 bool QTransposeProxyModel_RemoveColumns(QTransposeProxyModel* self, int column, int count, const QModelIndex* parent);
 bool QTransposeProxyModel_MoveColumns(QTransposeProxyModel* self, const QModelIndex* sourceParent, int sourceColumn, int count, const QModelIndex* destinationParent, int destinationChild);
 void QTransposeProxyModel_Sort(QTransposeProxyModel* self, int column, int order);
-libqt_string QTransposeProxyModel_Tr2(const char* s, const char* c);
-libqt_string QTransposeProxyModel_Tr3(const char* s, const char* c, int n);
 void QTransposeProxyModel_OnMetacall(QTransposeProxyModel* self, intptr_t slot);
 int QTransposeProxyModel_QBaseMetacall(QTransposeProxyModel* self, int param1, int param2, void** param3);
 void QTransposeProxyModel_OnSetSourceModel(QTransposeProxyModel* self, intptr_t slot);

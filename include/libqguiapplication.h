@@ -41,7 +41,6 @@ QGuiApplication* QGuiApplication_new2(int* argc, char** argv, int param3);
 QMetaObject* QGuiApplication_MetaObject(const QGuiApplication* self);
 void* QGuiApplication_Metacast(QGuiApplication* self, const char* param1);
 int QGuiApplication_Metacall(QGuiApplication* self, int param1, int param2, void** param3);
-libqt_string QGuiApplication_Tr(const char* s);
 void QGuiApplication_SetApplicationDisplayName(const libqt_string name);
 libqt_string QGuiApplication_ApplicationDisplayName();
 void QGuiApplication_SetBadgeNumber(QGuiApplication* self, long long number);
@@ -121,8 +120,6 @@ void QGuiApplication_Connect_PaletteChanged(QGuiApplication* self, intptr_t slot
 void QGuiApplication_FontChanged(QGuiApplication* self, const QFont* font);
 void QGuiApplication_Connect_FontChanged(QGuiApplication* self, intptr_t slot);
 bool QGuiApplication_Event(QGuiApplication* self, QEvent* param1);
-libqt_string QGuiApplication_Tr2(const char* s, const char* c);
-libqt_string QGuiApplication_Tr3(const char* s, const char* c, int n);
 void QGuiApplication_OnMetacall(QGuiApplication* self, intptr_t slot);
 int QGuiApplication_QBaseMetacall(QGuiApplication* self, int param1, int param2, void** param3);
 void QGuiApplication_OnNotify(QGuiApplication* self, intptr_t slot);

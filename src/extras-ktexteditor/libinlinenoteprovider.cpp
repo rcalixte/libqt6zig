@@ -38,18 +38,6 @@ int KTextEditor__InlineNoteProvider_Metacall(KTextEditor__InlineNoteProvider* se
     }
 }
 
-libqt_string KTextEditor__InlineNoteProvider_Tr(const char* s) {
-    QString _ret = KTextEditor::InlineNoteProvider::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 libqt_list /* of int */ KTextEditor__InlineNoteProvider_InlineNotes(const KTextEditor__InlineNoteProvider* self, int line) {
     auto* vktexteditor__inlinenoteprovider = dynamic_cast<const VirtualKTextEditorInlineNoteProvider*>(self);
     if (vktexteditor__inlinenoteprovider && vktexteditor__inlinenoteprovider->isVirtualKTextEditorInlineNoteProvider) {
@@ -152,30 +140,6 @@ void KTextEditor__InlineNoteProvider_Connect_InlineNotesChanged(KTextEditor__Inl
         int sigval1 = line;
         slotFunc(self, sigval1);
     });
-}
-
-libqt_string KTextEditor__InlineNoteProvider_Tr2(const char* s, const char* c) {
-    QString _ret = KTextEditor::InlineNoteProvider::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string KTextEditor__InlineNoteProvider_Tr3(const char* s, const char* c, int n) {
-    QString _ret = KTextEditor::InlineNoteProvider::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 // Base class handler implementation

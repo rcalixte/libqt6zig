@@ -25,7 +25,6 @@ typedef struct QObject QObject;
 QMetaObject* KSambaShare_MetaObject(const KSambaShare* self);
 void* KSambaShare_Metacast(KSambaShare* self, const char* param1);
 int KSambaShare_Metacall(KSambaShare* self, int param1, int param2, void** param3);
-libqt_string KSambaShare_Tr(const char* s);
 KSambaShare* KSambaShare_Instance();
 bool KSambaShare_IsDirectoryShared(const KSambaShare* self, const libqt_string path);
 libqt_list /* of libqt_string */ KSambaShare_SharedDirectories(const KSambaShare* self);
@@ -37,8 +36,6 @@ libqt_string KSambaShare_LastSystemErrorString(const KSambaShare* self);
 bool KSambaShare_AreGuestsAllowed(const KSambaShare* self);
 void KSambaShare_Changed(KSambaShare* self);
 void KSambaShare_Connect_Changed(KSambaShare* self, intptr_t slot);
-libqt_string KSambaShare_Tr2(const char* s, const char* c);
-libqt_string KSambaShare_Tr3(const char* s, const char* c, int n);
 void KSambaShare_Delete(KSambaShare* self);
 
 #ifdef __cplusplus

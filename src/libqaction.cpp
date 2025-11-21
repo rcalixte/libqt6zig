@@ -63,18 +63,6 @@ int QAction_Metacall(QAction* self, int param1, int param2, void** param3) {
     }
 }
 
-libqt_string QAction_Tr(const char* s) {
-    QString _ret = QAction::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 libqt_list /* of QObject* */ QAction_AssociatedObjects(const QAction* self) {
     QList<QObject*> _ret = self->associatedObjects();
     // Convert QList<> from C++ memory to manually-managed C memory
@@ -442,30 +430,6 @@ void QAction_Connect_Toggled(QAction* self, intptr_t slot) {
         bool sigval1 = param1;
         slotFunc(self, sigval1);
     });
-}
-
-libqt_string QAction_Tr2(const char* s, const char* c) {
-    QString _ret = QAction::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QAction_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QAction::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 bool QAction_ShowStatusText1(QAction* self, QObject* object) {

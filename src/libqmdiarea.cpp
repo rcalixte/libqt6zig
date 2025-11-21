@@ -71,18 +71,6 @@ int QMdiArea_Metacall(QMdiArea* self, int param1, int param2, void** param3) {
     }
 }
 
-libqt_string QMdiArea_Tr(const char* s) {
-    QString _ret = QMdiArea::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 QSize* QMdiArea_SizeHint(const QMdiArea* self) {
     auto* vqmdiarea = dynamic_cast<const VirtualQMdiArea*>(self);
     if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
@@ -313,30 +301,6 @@ void QMdiArea_ScrollContentsBy(QMdiArea* self, int dx, int dy) {
     if (vqmdiarea && vqmdiarea->isVirtualQMdiArea) {
         vqmdiarea->scrollContentsBy(static_cast<int>(dx), static_cast<int>(dy));
     }
-}
-
-libqt_string QMdiArea_Tr2(const char* s, const char* c) {
-    QString _ret = QMdiArea::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QMdiArea_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QMdiArea::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 libqt_list /* of QMdiSubWindow* */ QMdiArea_SubWindowList1(const QMdiArea* self, int order) {

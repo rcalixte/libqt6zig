@@ -39,14 +39,11 @@ KWidgetItemDelegate* KWidgetItemDelegate_new2(QAbstractItemView* itemView, QObje
 QMetaObject* KWidgetItemDelegate_MetaObject(const KWidgetItemDelegate* self);
 void* KWidgetItemDelegate_Metacast(KWidgetItemDelegate* self, const char* param1);
 int KWidgetItemDelegate_Metacall(KWidgetItemDelegate* self, int param1, int param2, void** param3);
-libqt_string KWidgetItemDelegate_Tr(const char* s);
 QAbstractItemView* KWidgetItemDelegate_ItemView(const KWidgetItemDelegate* self);
 QPersistentModelIndex* KWidgetItemDelegate_FocusedIndex(const KWidgetItemDelegate* self);
 void KWidgetItemDelegate_ResetModel(KWidgetItemDelegate* self);
 libqt_list /* of QWidget* */ KWidgetItemDelegate_CreateItemWidgets(const KWidgetItemDelegate* self, const QModelIndex* index);
 void KWidgetItemDelegate_UpdateItemWidgets(const KWidgetItemDelegate* self, const libqt_list /* of QWidget* */ widgets, const QStyleOptionViewItem* option, const QPersistentModelIndex* index);
-libqt_string KWidgetItemDelegate_Tr2(const char* s, const char* c);
-libqt_string KWidgetItemDelegate_Tr3(const char* s, const char* c, int n);
 void KWidgetItemDelegate_OnMetacall(KWidgetItemDelegate* self, intptr_t slot);
 int KWidgetItemDelegate_QBaseMetacall(KWidgetItemDelegate* self, int param1, int param2, void** param3);
 void KWidgetItemDelegate_OnCreateItemWidgets(const KWidgetItemDelegate* self, intptr_t slot);

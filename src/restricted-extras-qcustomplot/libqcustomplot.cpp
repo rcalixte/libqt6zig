@@ -802,18 +802,6 @@ int QCPLayer_Metacall(QCPLayer* self, int param1, int param2, void** param3) {
     }
 }
 
-libqt_string QCPLayer_Tr(const char* s) {
-    QString _ret = QCPLayer::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 QCustomPlot* QCPLayer_ParentPlot(const QCPLayer* self) {
     return self->parentPlot();
 }
@@ -865,30 +853,6 @@ void QCPLayer_SetMode(QCPLayer* self, int mode) {
 
 void QCPLayer_Replot(QCPLayer* self) {
     self->replot();
-}
-
-libqt_string QCPLayer_Tr2(const char* s, const char* c) {
-    QString _ret = QCPLayer::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QCPLayer_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QCPLayer::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 // Base class handler implementation
@@ -1380,18 +1344,6 @@ int QCPLayerable_Metacall(QCPLayerable* self, int param1, int param2, void** par
     }
 }
 
-libqt_string QCPLayerable_Tr(const char* s) {
-    QString _ret = QCPLayerable::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 bool QCPLayerable_Visible(const QCPLayerable* self) {
     return self->visible();
 }
@@ -1538,30 +1490,6 @@ void QCPLayerable_WheelEvent(QCPLayerable* self, QWheelEvent* event) {
     if (vqcplayerable && vqcplayerable->isVirtualQCPLayerable) {
         vqcplayerable->wheelEvent(event);
     }
-}
-
-libqt_string QCPLayerable_Tr2(const char* s, const char* c) {
-    QString _ret = QCPLayerable::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QCPLayerable_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QCPLayerable::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 // Base class handler implementation
@@ -2638,18 +2566,6 @@ int QCPSelectionRect_Metacall(QCPSelectionRect* self, int param1, int param2, vo
     }
 }
 
-libqt_string QCPSelectionRect_Tr(const char* s) {
-    QString _ret = QCPSelectionRect::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 QRect* QCPSelectionRect_Rect(const QCPSelectionRect* self) {
     return new QRect(self->rect());
 }
@@ -2779,30 +2695,6 @@ void QCPSelectionRect_Draw(QCPSelectionRect* self, QCPPainter* painter) {
     if (vqcpselectionrect && vqcpselectionrect->isVirtualQCPSelectionRect) {
         vqcpselectionrect->draw(painter);
     }
-}
-
-libqt_string QCPSelectionRect_Tr2(const char* s, const char* c) {
-    QString _ret = QCPSelectionRect::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QCPSelectionRect_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QCPSelectionRect::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 // Base class handler implementation
@@ -3715,18 +3607,6 @@ int QCPMarginGroup_Metacall(QCPMarginGroup* self, int param1, int param2, void**
     }
 }
 
-libqt_string QCPMarginGroup_Tr(const char* s) {
-    QString _ret = QCPMarginGroup::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 libqt_list /* of QCPLayoutElement* */ QCPMarginGroup_Elements(const QCPMarginGroup* self, int side) {
     QList<QCPLayoutElement*> _ret = self->elements(static_cast<QCP::MarginSide>(side));
     // Convert QList<> from C++ memory to manually-managed C memory
@@ -3754,30 +3634,6 @@ int QCPMarginGroup_CommonMargin(const QCPMarginGroup* self, int side) {
         return vqcpmargingroup->commonMargin(static_cast<QCP::MarginSide>(side));
     }
     return {};
-}
-
-libqt_string QCPMarginGroup_Tr2(const char* s, const char* c) {
-    QString _ret = QCPMarginGroup::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QCPMarginGroup_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QCPMarginGroup::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 // Base class handler implementation
@@ -4224,18 +4080,6 @@ int QCPLayoutElement_Metacall(QCPLayoutElement* self, int param1, int param2, vo
     }
 }
 
-libqt_string QCPLayoutElement_Tr(const char* s) {
-    QString _ret = QCPLayoutElement::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 QCPLayout* QCPLayoutElement_Layout(const QCPLayoutElement* self) {
     return self->layout();
 }
@@ -4431,30 +4275,6 @@ void QCPLayoutElement_ParentPlotInitialized(QCPLayoutElement* self, QCustomPlot*
     if (vqcplayoutelement && vqcplayoutelement->isVirtualQCPLayoutElement) {
         vqcplayoutelement->parentPlotInitialized(parentPlot);
     }
-}
-
-libqt_string QCPLayoutElement_Tr2(const char* s, const char* c) {
-    QString _ret = QCPLayoutElement::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QCPLayoutElement_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QCPLayoutElement::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 // Base class handler implementation
@@ -5403,18 +5223,6 @@ int QCPLayout_Metacall(QCPLayout* self, int param1, int param2, void** param3) {
     }
 }
 
-libqt_string QCPLayout_Tr(const char* s) {
-    QString _ret = QCPLayout::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 void QCPLayout_Update(QCPLayout* self, int phase) {
     auto* vqcplayout = dynamic_cast<VirtualQCPLayout*>(self);
     if (vqcplayout && vqcplayout->isVirtualQCPLayout) {
@@ -5513,30 +5321,6 @@ void QCPLayout_UpdateLayout(QCPLayout* self) {
     if (vqcplayout && vqcplayout->isVirtualQCPLayout) {
         vqcplayout->updateLayout();
     }
-}
-
-libqt_string QCPLayout_Tr2(const char* s, const char* c) {
-    QString _ret = QCPLayout::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QCPLayout_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QCPLayout::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 // Base class handler implementation
@@ -6867,18 +6651,6 @@ int QCPLayoutGrid_Metacall(QCPLayoutGrid* self, int param1, int param2, void** p
     }
 }
 
-libqt_string QCPLayoutGrid_Tr(const char* s) {
-    QString _ret = QCPLayoutGrid::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 int QCPLayoutGrid_RowCount(const QCPLayoutGrid* self) {
     return self->rowCount();
 }
@@ -7106,30 +6878,6 @@ int QCPLayoutGrid_RowColToIndex(const QCPLayoutGrid* self, int row, int column) 
 
 void QCPLayoutGrid_IndexToRowCol(const QCPLayoutGrid* self, int index, int* row, int* column) {
     self->indexToRowCol(static_cast<int>(index), static_cast<int&>(*row), static_cast<int&>(*column));
-}
-
-libqt_string QCPLayoutGrid_Tr2(const char* s, const char* c) {
-    QString _ret = QCPLayoutGrid::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QCPLayoutGrid_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QCPLayoutGrid::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 void QCPLayoutGrid_SetFillOrder2(QCPLayoutGrid* self, int order, bool rearrange) {
@@ -8560,18 +8308,6 @@ int QCPLayoutInset_Metacall(QCPLayoutInset* self, int param1, int param2, void**
     }
 }
 
-libqt_string QCPLayoutInset_Tr(const char* s) {
-    QString _ret = QCPLayoutInset::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 int QCPLayoutInset_InsetPlacement(const QCPLayoutInset* self, int index) {
     return static_cast<int>(self->insetPlacement(static_cast<int>(index)));
 }
@@ -8665,30 +8401,6 @@ void QCPLayoutInset_AddElement(QCPLayoutInset* self, QCPLayoutElement* element, 
 
 void QCPLayoutInset_AddElement2(QCPLayoutInset* self, QCPLayoutElement* element, const QRectF* rect) {
     self->addElement(element, *rect);
-}
-
-libqt_string QCPLayoutInset_Tr2(const char* s, const char* c) {
-    QString _ret = QCPLayoutInset::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QCPLayoutInset_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QCPLayoutInset::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 // Base class handler implementation
@@ -14696,18 +14408,6 @@ int QCPGrid_Metacall(QCPGrid* self, int param1, int param2, void** param3) {
     }
 }
 
-libqt_string QCPGrid_Tr(const char* s) {
-    QString _ret = QCPGrid::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 bool QCPGrid_SubGridVisible(const QCPGrid* self) {
     return self->subGridVisible();
 }
@@ -14768,30 +14468,6 @@ void QCPGrid_Draw(QCPGrid* self, QCPPainter* painter) {
     if (vqcpgrid && vqcpgrid->isVirtualQCPGrid) {
         vqcpgrid->draw(painter);
     }
-}
-
-libqt_string QCPGrid_Tr2(const char* s, const char* c) {
-    QString _ret = QCPGrid::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QCPGrid_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QCPGrid::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 // Base class handler implementation
@@ -15686,18 +15362,6 @@ int QCPAxis_Metacall(QCPAxis* self, int param1, int param2, void** param3) {
     }
 }
 
-libqt_string QCPAxis_Tr(const char* s) {
-    QString _ret = QCPAxis::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 int QCPAxis_AxisType(const QCPAxis* self) {
     return static_cast<int>(self->axisType());
 }
@@ -16272,30 +15936,6 @@ void QCPAxis_WheelEvent(QCPAxis* self, QWheelEvent* event) {
     if (vqcpaxis && vqcpaxis->isVirtualQCPAxis) {
         vqcpaxis->wheelEvent(event);
     }
-}
-
-libqt_string QCPAxis_Tr2(const char* s, const char* c) {
-    QString _ret = QCPAxis::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QCPAxis_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QCPAxis::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 void QCPAxis_SetTickLength2(QCPAxis* self, int inside, int outside) {
@@ -17564,18 +17204,6 @@ int QCPAbstractPlottable_Metacall(QCPAbstractPlottable* self, int param1, int pa
     }
 }
 
-libqt_string QCPAbstractPlottable_Tr(const char* s) {
-    QString _ret = QCPAbstractPlottable::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 libqt_string QCPAbstractPlottable_Name(const QCPAbstractPlottable* self) {
     QString _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -17810,30 +17438,6 @@ void QCPAbstractPlottable_DrawLegendIcon(const QCPAbstractPlottable* self, QCPPa
     if (vqcpabstractplottable && vqcpabstractplottable->isVirtualQCPAbstractPlottable) {
         vqcpabstractplottable->drawLegendIcon(painter, *rect);
     }
-}
-
-libqt_string QCPAbstractPlottable_Tr2(const char* s, const char* c) {
-    QString _ret = QCPAbstractPlottable::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QCPAbstractPlottable_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QCPAbstractPlottable::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 void QCPAbstractPlottable_RescaleAxes1(const QCPAbstractPlottable* self, bool onlyEnlarge) {
@@ -19252,18 +18856,6 @@ int QCPAbstractItem_Metacall(QCPAbstractItem* self, int param1, int param2, void
     }
 }
 
-libqt_string QCPAbstractItem_Tr(const char* s) {
-    QString _ret = QCPAbstractItem::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 bool QCPAbstractItem_ClipToAxisRect(const QCPAbstractItem* self) {
     return self->clipToAxisRect();
 }
@@ -19420,30 +19012,6 @@ QPointF* QCPAbstractItem_AnchorPixelPosition(const QCPAbstractItem* self, int an
         return new QPointF(vqcpabstractitem->anchorPixelPosition(static_cast<int>(anchorId)));
     }
     return {};
-}
-
-libqt_string QCPAbstractItem_Tr2(const char* s, const char* c) {
-    QString _ret = QCPAbstractItem::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QCPAbstractItem_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QCPAbstractItem::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 // Base class handler implementation
@@ -20344,18 +19912,6 @@ int QCustomPlot_Metacall(QCustomPlot* self, int param1, int param2, void** param
     }
 }
 
-libqt_string QCustomPlot_Tr(const char* s) {
-    QString _ret = QCustomPlot::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 QRect* QCustomPlot_Viewport(const QCustomPlot* self) {
     return new QRect(self->viewport());
 }
@@ -21152,30 +20708,6 @@ void QCustomPlot_ProcessPointSelection(QCustomPlot* self, QMouseEvent* event) {
     if (vqcustomplot && vqcustomplot->isVirtualQCustomPlot) {
         vqcustomplot->processPointSelection(event);
     }
-}
-
-libqt_string QCustomPlot_Tr2(const char* s, const char* c) {
-    QString _ret = QCustomPlot::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QCustomPlot_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QCustomPlot::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 void QCustomPlot_SetBackground32(QCustomPlot* self, const QPixmap* pm, bool scaled, int mode) {
@@ -24056,18 +23588,6 @@ int QCPAxisRect_Metacall(QCPAxisRect* self, int param1, int param2, void** param
     }
 }
 
-libqt_string QCPAxisRect_Tr(const char* s) {
-    QString _ret = QCPAxisRect::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 QPixmap* QCPAxisRect_Background(const QCPAxisRect* self) {
     return new QPixmap(self->background());
 }
@@ -24481,30 +24001,6 @@ void QCPAxisRect_WheelEvent(QCPAxisRect* self, QWheelEvent* event) {
     if (vqcpaxisrect && vqcpaxisrect->isVirtualQCPAxisRect) {
         vqcpaxisrect->wheelEvent(event);
     }
-}
-
-libqt_string QCPAxisRect_Tr2(const char* s, const char* c) {
-    QString _ret = QCPAxisRect::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QCPAxisRect_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QCPAxisRect::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 void QCPAxisRect_SetBackground32(QCPAxisRect* self, const QPixmap* pm, bool scaled, int mode) {
@@ -25527,18 +25023,6 @@ int QCPAbstractLegendItem_Metacall(QCPAbstractLegendItem* self, int param1, int 
     }
 }
 
-libqt_string QCPAbstractLegendItem_Tr(const char* s) {
-    QString _ret = QCPAbstractLegendItem::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 QCPLegend* QCPAbstractLegendItem_ParentLegend(const QCPAbstractLegendItem* self) {
     return self->parentLegend();
 }
@@ -25666,30 +25150,6 @@ void QCPAbstractLegendItem_DeselectEvent(QCPAbstractLegendItem* self, bool* sele
     if (vqcpabstractlegenditem && vqcpabstractlegenditem->isVirtualQCPAbstractLegendItem) {
         vqcpabstractlegenditem->deselectEvent(selectionStateChanged);
     }
-}
-
-libqt_string QCPAbstractLegendItem_Tr2(const char* s, const char* c) {
-    QString _ret = QCPAbstractLegendItem::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QCPAbstractLegendItem_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QCPAbstractLegendItem::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 // Base class handler implementation
@@ -26687,18 +26147,6 @@ int QCPPlottableLegendItem_Metacall(QCPPlottableLegendItem* self, int param1, in
     }
 }
 
-libqt_string QCPPlottableLegendItem_Tr(const char* s) {
-    QString _ret = QCPPlottableLegendItem::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 QCPAbstractPlottable* QCPPlottableLegendItem_Plottable(QCPPlottableLegendItem* self) {
     return self->plottable();
 }
@@ -26716,30 +26164,6 @@ QSize* QCPPlottableLegendItem_MinimumOuterSizeHint(const QCPPlottableLegendItem*
         return new QSize(vqcpplottablelegenditem->minimumOuterSizeHint());
     }
     return {};
-}
-
-libqt_string QCPPlottableLegendItem_Tr2(const char* s, const char* c) {
-    QString _ret = QCPPlottableLegendItem::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QCPPlottableLegendItem_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QCPPlottableLegendItem::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 // Base class handler implementation
@@ -27866,18 +27290,6 @@ int QCPLegend_Metacall(QCPLegend* self, int param1, int param2, void** param3) {
     }
 }
 
-libqt_string QCPLegend_Tr(const char* s) {
-    QString _ret = QCPLegend::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 QPen* QCPLegend_BorderPen(const QCPLegend* self) {
     return new QPen(self->borderPen());
 }
@@ -28117,30 +27529,6 @@ void QCPLegend_DeselectEvent(QCPLegend* self, bool* selectionStateChanged) {
     if (vqcplegend && vqcplegend->isVirtualQCPLegend) {
         vqcplegend->deselectEvent(selectionStateChanged);
     }
-}
-
-libqt_string QCPLegend_Tr2(const char* s, const char* c) {
-    QString _ret = QCPLegend::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QCPLegend_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QCPLegend::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 // Base class handler implementation
@@ -29680,18 +29068,6 @@ int QCPTextElement_Metacall(QCPTextElement* self, int param1, int param2, void**
     }
 }
 
-libqt_string QCPTextElement_Tr(const char* s) {
-    QString _ret = QCPTextElement::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 libqt_string QCPTextElement_Text(const QCPTextElement* self) {
     QString _ret = self->text();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -29891,30 +29267,6 @@ void QCPTextElement_DeselectEvent(QCPTextElement* self, bool* selectionStateChan
     if (vqcptextelement && vqcptextelement->isVirtualQCPTextElement) {
         vqcptextelement->deselectEvent(selectionStateChanged);
     }
-}
-
-libqt_string QCPTextElement_Tr2(const char* s, const char* c) {
-    QString _ret = QCPTextElement::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QCPTextElement_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QCPTextElement::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 // Base class handler implementation
@@ -30933,18 +30285,6 @@ int QCPColorScale_Metacall(QCPColorScale* self, int param1, int param2, void** p
     }
 }
 
-libqt_string QCPColorScale_Tr(const char* s) {
-    QString _ret = QCPColorScale::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 QCPAxis* QCPColorScale_Axis(const QCPColorScale* self) {
     return self->axis();
 }
@@ -31121,30 +30461,6 @@ void QCPColorScale_WheelEvent(QCPColorScale* self, QWheelEvent* event) {
     if (vqcpcolorscale && vqcpcolorscale->isVirtualQCPColorScale) {
         vqcpcolorscale->wheelEvent(event);
     }
-}
-
-libqt_string QCPColorScale_Tr2(const char* s, const char* c) {
-    QString _ret = QCPColorScale::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QCPColorScale_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QCPColorScale::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 // Base class handler implementation
@@ -32223,18 +31539,6 @@ int QCPGraph_Metacall(QCPGraph* self, int param1, int param2, void** param3) {
     }
 }
 
-libqt_string QCPGraph_Tr(const char* s) {
-    QString _ret = QCPGraph::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 int QCPGraph_LineStyle(const QCPGraph* self) {
     return static_cast<int>(self->lineStyle());
 }
@@ -32402,30 +31706,6 @@ void QCPGraph_DrawImpulsePlot(const QCPGraph* self, QCPPainter* painter, const l
     if (vqcpgraph && vqcpgraph->isVirtualQCPGraph) {
         vqcpgraph->drawImpulsePlot(painter, lines_QVector);
     }
-}
-
-libqt_string QCPGraph_Tr2(const char* s, const char* c) {
-    QString _ret = QCPGraph::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QCPGraph_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QCPGraph::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 void QCPGraph_SetData3(QCPGraph* self, const libqt_list /* of double */ keys, const libqt_list /* of double */ values, bool alreadySorted) {
@@ -34821,18 +34101,6 @@ int QCPCurve_Metacall(QCPCurve* self, int param1, int param2, void** param3) {
     }
 }
 
-libqt_string QCPCurve_Tr(const char* s) {
-    QString _ret = QCPCurve::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 QCPScatterStyle* QCPCurve_ScatterStyle(const QCPCurve* self) {
     return new QCPScatterStyle(self->scatterStyle());
 }
@@ -35006,30 +34274,6 @@ void QCPCurve_DrawScatterPlot(const QCPCurve* self, QCPPainter* painter, const l
     if (vqcpcurve && vqcpcurve->isVirtualQCPCurve) {
         vqcpcurve->drawScatterPlot(painter, points_QVector, *style);
     }
-}
-
-libqt_string QCPCurve_Tr2(const char* s, const char* c) {
-    QString _ret = QCPCurve::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QCPCurve_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QCPCurve::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 void QCPCurve_SetData4(QCPCurve* self, const libqt_list /* of double */ t, const libqt_list /* of double */ keys, const libqt_list /* of double */ values, bool alreadySorted) {
@@ -36708,18 +35952,6 @@ int QCPBarsGroup_Metacall(QCPBarsGroup* self, int param1, int param2, void** par
     }
 }
 
-libqt_string QCPBarsGroup_Tr(const char* s) {
-    QString _ret = QCPBarsGroup::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 int QCPBarsGroup_SpacingType(const QCPBarsGroup* self) {
     return static_cast<int>(self->spacingType());
 }
@@ -36779,30 +36011,6 @@ void QCPBarsGroup_Insert(QCPBarsGroup* self, int i, QCPBars* bars) {
 
 void QCPBarsGroup_Remove(QCPBarsGroup* self, QCPBars* bars) {
     self->remove(bars);
-}
-
-libqt_string QCPBarsGroup_Tr2(const char* s, const char* c) {
-    QString _ret = QCPBarsGroup::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QCPBarsGroup_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QCPBarsGroup::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 // Base class handler implementation
@@ -37356,18 +36564,6 @@ int QCPBars_Metacall(QCPBars* self, int param1, int param2, void** param3) {
     }
 }
 
-libqt_string QCPBars_Tr(const char* s) {
-    QString _ret = QCPBars::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 double QCPBars_Width(const QCPBars* self) {
     return self->width();
 }
@@ -37517,30 +36713,6 @@ void QCPBars_DrawLegendIcon(const QCPBars* self, QCPPainter* painter, const QRec
     if (vqcpbars && vqcpbars->isVirtualQCPBars) {
         vqcpbars->drawLegendIcon(painter, *rect);
     }
-}
-
-libqt_string QCPBars_Tr2(const char* s, const char* c) {
-    QString _ret = QCPBars::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QCPBars_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QCPBars::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 void QCPBars_SetData3(QCPBars* self, const libqt_list /* of double */ keys, const libqt_list /* of double */ values, bool alreadySorted) {
@@ -39058,18 +38230,6 @@ int QCPStatisticalBox_Metacall(QCPStatisticalBox* self, int param1, int param2, 
     }
 }
 
-libqt_string QCPStatisticalBox_Tr(const char* s) {
-    QString _ret = QCPStatisticalBox::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 double QCPStatisticalBox_Width(const QCPStatisticalBox* self) {
     return self->width();
 }
@@ -39258,30 +38418,6 @@ void QCPStatisticalBox_DrawLegendIcon(const QCPStatisticalBox* self, QCPPainter*
     if (vqcpstatisticalbox && vqcpstatisticalbox->isVirtualQCPStatisticalBox) {
         vqcpstatisticalbox->drawLegendIcon(painter, *rect);
     }
-}
-
-libqt_string QCPStatisticalBox_Tr2(const char* s, const char* c) {
-    QString _ret = QCPStatisticalBox::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QCPStatisticalBox_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QCPStatisticalBox::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 void QCPStatisticalBox_SetData7(QCPStatisticalBox* self, const libqt_list /* of double */ keys, const libqt_list /* of double */ minimum, const libqt_list /* of double */ lowerQuartile, const libqt_list /* of double */ median, const libqt_list /* of double */ upperQuartile, const libqt_list /* of double */ maximum, bool alreadySorted) {
@@ -40748,18 +39884,6 @@ int QCPColorMap_Metacall(QCPColorMap* self, int param1, int param2, void** param
     }
 }
 
-libqt_string QCPColorMap_Tr(const char* s) {
-    QString _ret = QCPColorMap::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 QCPColorMapData* QCPColorMap_Data(const QCPColorMap* self) {
     return self->data();
 }
@@ -40910,30 +40034,6 @@ void QCPColorMap_DrawLegendIcon(const QCPColorMap* self, QCPPainter* painter, co
     if (vqcpcolormap && vqcpcolormap->isVirtualQCPColorMap) {
         vqcpcolormap->drawLegendIcon(painter, *rect);
     }
-}
-
-libqt_string QCPColorMap_Tr2(const char* s, const char* c) {
-    QString _ret = QCPColorMap::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QCPColorMap_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QCPColorMap::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 void QCPColorMap_SetData2(QCPColorMap* self, QCPColorMapData* data, bool copyVal) {
@@ -42045,18 +41145,6 @@ int QCPFinancial_Metacall(QCPFinancial* self, int param1, int param2, void** par
     }
 }
 
-libqt_string QCPFinancial_Tr(const char* s) {
-    QString _ret = QCPFinancial::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 int QCPFinancial_ChartStyle(const QCPFinancial* self) {
     return static_cast<int>(self->chartStyle());
 }
@@ -42241,30 +41329,6 @@ void QCPFinancial_DrawLegendIcon(const QCPFinancial* self, QCPPainter* painter, 
     if (vqcpfinancial && vqcpfinancial->isVirtualQCPFinancial) {
         vqcpfinancial->drawLegendIcon(painter, *rect);
     }
-}
-
-libqt_string QCPFinancial_Tr2(const char* s, const char* c) {
-    QString _ret = QCPFinancial::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QCPFinancial_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QCPFinancial::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 void QCPFinancial_SetData6(QCPFinancial* self, const libqt_list /* of double */ keys, const libqt_list /* of double */ open, const libqt_list /* of double */ high, const libqt_list /* of double */ low, const libqt_list /* of double */ close, bool alreadySorted) {
@@ -43674,18 +42738,6 @@ int QCPErrorBars_Metacall(QCPErrorBars* self, int param1, int param2, void** par
     }
 }
 
-libqt_string QCPErrorBars_Tr(const char* s) {
-    QString _ret = QCPErrorBars::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 QCPAbstractPlottable* QCPErrorBars_DataPlottable(const QCPErrorBars* self) {
     return self->dataPlottable();
 }
@@ -43914,30 +42966,6 @@ QCPRange* QCPErrorBars_GetValueRange(const QCPErrorBars* self, bool* foundRange,
         return new QCPRange(vqcperrorbars->getValueRange(*foundRange, static_cast<QCP::SignDomain>(inSignDomain), *inKeyRange));
     }
     return {};
-}
-
-libqt_string QCPErrorBars_Tr2(const char* s, const char* c) {
-    QString _ret = QCPErrorBars::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QCPErrorBars_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QCPErrorBars::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 // Base class handler implementation
@@ -45207,18 +44235,6 @@ int QCPItemStraightLine_Metacall(QCPItemStraightLine* self, int param1, int para
     }
 }
 
-libqt_string QCPItemStraightLine_Tr(const char* s) {
-    QString _ret = QCPItemStraightLine::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 QPen* QCPItemStraightLine_Pen(const QCPItemStraightLine* self) {
     return new QPen(self->pen());
 }
@@ -45257,30 +44273,6 @@ void QCPItemStraightLine_Draw(QCPItemStraightLine* self, QCPPainter* painter) {
     if (vqcpitemstraightline && vqcpitemstraightline->isVirtualQCPItemStraightLine) {
         vqcpitemstraightline->draw(painter);
     }
-}
-
-libqt_string QCPItemStraightLine_Tr2(const char* s, const char* c) {
-    QString _ret = QCPItemStraightLine::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QCPItemStraightLine_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QCPItemStraightLine::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 // Base class handler implementation
@@ -46289,18 +45281,6 @@ int QCPItemLine_Metacall(QCPItemLine* self, int param1, int param2, void** param
     }
 }
 
-libqt_string QCPItemLine_Tr(const char* s) {
-    QString _ret = QCPItemLine::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 QPen* QCPItemLine_Pen(const QCPItemLine* self) {
     return new QPen(self->pen());
 }
@@ -46355,30 +45335,6 @@ void QCPItemLine_Draw(QCPItemLine* self, QCPPainter* painter) {
     if (vqcpitemline && vqcpitemline->isVirtualQCPItemLine) {
         vqcpitemline->draw(painter);
     }
-}
-
-libqt_string QCPItemLine_Tr2(const char* s, const char* c) {
-    QString _ret = QCPItemLine::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QCPItemLine_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QCPItemLine::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 // Base class handler implementation
@@ -47387,18 +46343,6 @@ int QCPItemCurve_Metacall(QCPItemCurve* self, int param1, int param2, void** par
     }
 }
 
-libqt_string QCPItemCurve_Tr(const char* s) {
-    QString _ret = QCPItemCurve::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 QPen* QCPItemCurve_Pen(const QCPItemCurve* self) {
     return new QPen(self->pen());
 }
@@ -47461,30 +46405,6 @@ void QCPItemCurve_Draw(QCPItemCurve* self, QCPPainter* painter) {
     if (vqcpitemcurve && vqcpitemcurve->isVirtualQCPItemCurve) {
         vqcpitemcurve->draw(painter);
     }
-}
-
-libqt_string QCPItemCurve_Tr2(const char* s, const char* c) {
-    QString _ret = QCPItemCurve::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QCPItemCurve_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QCPItemCurve::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 // Base class handler implementation
@@ -48466,18 +47386,6 @@ int QCPItemRect_Metacall(QCPItemRect* self, int param1, int param2, void** param
     }
 }
 
-libqt_string QCPItemRect_Tr(const char* s) {
-    QString _ret = QCPItemRect::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 QPen* QCPItemRect_Pen(const QCPItemRect* self) {
     return new QPen(self->pen());
 }
@@ -48564,30 +47472,6 @@ QPointF* QCPItemRect_AnchorPixelPosition(const QCPItemRect* self, int anchorId) 
         return new QPointF(vqcpitemrect->anchorPixelPosition(static_cast<int>(anchorId)));
     }
     return {};
-}
-
-libqt_string QCPItemRect_Tr2(const char* s, const char* c) {
-    QString _ret = QCPItemRect::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QCPItemRect_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QCPItemRect::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 // Base class handler implementation
@@ -49587,18 +48471,6 @@ int QCPItemText_Metacall(QCPItemText* self, int param1, int param2, void** param
     }
 }
 
-libqt_string QCPItemText_Tr(const char* s) {
-    QString _ret = QCPItemText::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 QColor* QCPItemText_Color(const QCPItemText* self) {
     return new QColor(self->color());
 }
@@ -49770,30 +48642,6 @@ QPointF* QCPItemText_AnchorPixelPosition(const QCPItemText* self, int anchorId) 
         return new QPointF(vqcpitemtext->anchorPixelPosition(static_cast<int>(anchorId)));
     }
     return {};
-}
-
-libqt_string QCPItemText_Tr2(const char* s, const char* c) {
-    QString _ret = QCPItemText::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QCPItemText_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QCPItemText::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 // Base class handler implementation
@@ -50874,18 +49722,6 @@ int QCPItemEllipse_Metacall(QCPItemEllipse* self, int param1, int param2, void**
     }
 }
 
-libqt_string QCPItemEllipse_Tr(const char* s) {
-    QString _ret = QCPItemEllipse::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 QPen* QCPItemEllipse_Pen(const QCPItemEllipse* self) {
     return new QPen(self->pen());
 }
@@ -50984,30 +49820,6 @@ QPointF* QCPItemEllipse_AnchorPixelPosition(const QCPItemEllipse* self, int anch
         return new QPointF(vqcpitemellipse->anchorPixelPosition(static_cast<int>(anchorId)));
     }
     return {};
-}
-
-libqt_string QCPItemEllipse_Tr2(const char* s, const char* c) {
-    QString _ret = QCPItemEllipse::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QCPItemEllipse_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QCPItemEllipse::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 // Base class handler implementation
@@ -52007,18 +50819,6 @@ int QCPItemPixmap_Metacall(QCPItemPixmap* self, int param1, int param2, void** p
     }
 }
 
-libqt_string QCPItemPixmap_Tr(const char* s) {
-    QString _ret = QCPItemPixmap::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 QPixmap* QCPItemPixmap_Pixmap(const QCPItemPixmap* self) {
     return new QPixmap(self->pixmap());
 }
@@ -52113,30 +50913,6 @@ QPointF* QCPItemPixmap_AnchorPixelPosition(const QCPItemPixmap* self, int anchor
         return new QPointF(vqcpitempixmap->anchorPixelPosition(static_cast<int>(anchorId)));
     }
     return {};
-}
-
-libqt_string QCPItemPixmap_Tr2(const char* s, const char* c) {
-    QString _ret = QCPItemPixmap::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QCPItemPixmap_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QCPItemPixmap::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 void QCPItemPixmap_SetScaled2(QCPItemPixmap* self, bool scaled, int aspectRatioMode) {
@@ -53314,18 +52090,6 @@ int QCPItemTracer_Metacall(QCPItemTracer* self, int param1, int param2, void** p
     }
 }
 
-libqt_string QCPItemTracer_Tr(const char* s) {
-    QString _ret = QCPItemTracer::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 QPen* QCPItemTracer_Pen(const QCPItemTracer* self) {
     return new QPen(self->pen());
 }
@@ -53420,30 +52184,6 @@ void QCPItemTracer_Draw(QCPItemTracer* self, QCPPainter* painter) {
     if (vqcpitemtracer && vqcpitemtracer->isVirtualQCPItemTracer) {
         vqcpitemtracer->draw(painter);
     }
-}
-
-libqt_string QCPItemTracer_Tr2(const char* s, const char* c) {
-    QString _ret = QCPItemTracer::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QCPItemTracer_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QCPItemTracer::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 // Base class handler implementation
@@ -54452,18 +53192,6 @@ int QCPItemBracket_Metacall(QCPItemBracket* self, int param1, int param2, void**
     }
 }
 
-libqt_string QCPItemBracket_Tr(const char* s) {
-    QString _ret = QCPItemBracket::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 QPen* QCPItemBracket_Pen(const QCPItemBracket* self) {
     return new QPen(self->pen());
 }
@@ -54530,30 +53258,6 @@ QPointF* QCPItemBracket_AnchorPixelPosition(const QCPItemBracket* self, int anch
         return new QPointF(vqcpitembracket->anchorPixelPosition(static_cast<int>(anchorId)));
     }
     return {};
-}
-
-libqt_string QCPItemBracket_Tr2(const char* s, const char* c) {
-    QString _ret = QCPItemBracket::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QCPItemBracket_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QCPItemBracket::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 // Base class handler implementation
@@ -55526,18 +54230,6 @@ int QCPPolarAxisRadial_Metacall(QCPPolarAxisRadial* self, int param1, int param2
     }
 }
 
-libqt_string QCPPolarAxisRadial_Tr(const char* s) {
-    QString _ret = QCPPolarAxisRadial::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 bool QCPPolarAxisRadial_RangeDrag(const QCPPolarAxisRadial* self) {
     return self->rangeDrag();
 }
@@ -56062,30 +54754,6 @@ void QCPPolarAxisRadial_WheelEvent(QCPPolarAxisRadial* self, QWheelEvent* event)
     if (vqcppolaraxisradial && vqcppolaraxisradial->isVirtualQCPPolarAxisRadial) {
         vqcppolaraxisradial->wheelEvent(event);
     }
-}
-
-libqt_string QCPPolarAxisRadial_Tr2(const char* s, const char* c) {
-    QString _ret = QCPPolarAxisRadial::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QCPPolarAxisRadial_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QCPPolarAxisRadial::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 void QCPPolarAxisRadial_SetTickLength2(QCPPolarAxisRadial* self, int inside, int outside) {
@@ -57101,18 +55769,6 @@ int QCPPolarAxisAngular_Metacall(QCPPolarAxisAngular* self, int param1, int para
     }
 }
 
-libqt_string QCPPolarAxisAngular_Tr(const char* s) {
-    QString _ret = QCPPolarAxisAngular::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 QPixmap* QCPPolarAxisAngular_Background(const QCPPolarAxisAngular* self) {
     return new QPixmap(self->background());
 }
@@ -57755,30 +56411,6 @@ void QCPPolarAxisAngular_WheelEvent(QCPPolarAxisAngular* self, QWheelEvent* even
     if (vqcppolaraxisangular && vqcppolaraxisangular->isVirtualQCPPolarAxisAngular) {
         vqcppolaraxisangular->wheelEvent(event);
     }
-}
-
-libqt_string QCPPolarAxisAngular_Tr2(const char* s, const char* c) {
-    QString _ret = QCPPolarAxisAngular::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QCPPolarAxisAngular_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QCPPolarAxisAngular::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 void QCPPolarAxisAngular_SetBackground32(QCPPolarAxisAngular* self, const QPixmap* pm, bool scaled, int mode) {
@@ -59027,18 +57659,6 @@ int QCPPolarGrid_Metacall(QCPPolarGrid* self, int param1, int param2, void** par
     }
 }
 
-libqt_string QCPPolarGrid_Tr(const char* s) {
-    QString _ret = QCPPolarGrid::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 QCPPolarAxisRadial* QCPPolarGrid_RadialAxis(const QCPPolarGrid* self) {
     return self->radialAxis();
 }
@@ -59131,30 +57751,6 @@ void QCPPolarGrid_Draw(QCPPolarGrid* self, QCPPainter* painter) {
     if (vqcppolargrid && vqcppolargrid->isVirtualQCPPolarGrid) {
         vqcppolargrid->draw(painter);
     }
-}
-
-libqt_string QCPPolarGrid_Tr2(const char* s, const char* c) {
-    QString _ret = QCPPolarGrid::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QCPPolarGrid_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QCPPolarGrid::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 // Base class handler implementation
@@ -60114,18 +58710,6 @@ int QCPPolarLegendItem_Metacall(QCPPolarLegendItem* self, int param1, int param2
     }
 }
 
-libqt_string QCPPolarLegendItem_Tr(const char* s) {
-    QString _ret = QCPPolarLegendItem::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 QCPPolarGraph* QCPPolarLegendItem_PolarGraph(QCPPolarLegendItem* self) {
     return self->polarGraph();
 }
@@ -60143,30 +58727,6 @@ QSize* QCPPolarLegendItem_MinimumOuterSizeHint(const QCPPolarLegendItem* self) {
         return new QSize(vqcppolarlegenditem->minimumOuterSizeHint());
     }
     return {};
-}
-
-libqt_string QCPPolarLegendItem_Tr2(const char* s, const char* c) {
-    QString _ret = QCPPolarLegendItem::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QCPPolarLegendItem_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QCPPolarLegendItem::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 // Base class handler implementation
@@ -61293,18 +59853,6 @@ int QCPPolarGraph_Metacall(QCPPolarGraph* self, int param1, int param2, void** p
     }
 }
 
-libqt_string QCPPolarGraph_Tr(const char* s) {
-    QString _ret = QCPPolarGraph::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 libqt_string QCPPolarGraph_Name(const QCPPolarGraph* self) {
     QString _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -61631,30 +60179,6 @@ int QCPPolarGraph_DataCount(const QCPPolarGraph* self) {
         return vqcppolargraph->dataCount();
     }
     return {};
-}
-
-libqt_string QCPPolarGraph_Tr2(const char* s, const char* c) {
-    QString _ret = QCPPolarGraph::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QCPPolarGraph_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QCPPolarGraph::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 void QCPPolarGraph_SetData3(QCPPolarGraph* self, const libqt_list /* of double */ keys, const libqt_list /* of double */ values, bool alreadySorted) {

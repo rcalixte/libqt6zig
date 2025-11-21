@@ -26,7 +26,6 @@ typedef struct QWebEngineContextMenuRequest QWebEngineContextMenuRequest;
 QMetaObject* QWebEngineContextMenuRequest_MetaObject(const QWebEngineContextMenuRequest* self);
 void* QWebEngineContextMenuRequest_Metacast(QWebEngineContextMenuRequest* self, const char* param1);
 int QWebEngineContextMenuRequest_Metacall(QWebEngineContextMenuRequest* self, int param1, int param2, void** param3);
-libqt_string QWebEngineContextMenuRequest_Tr(const char* s);
 QPoint* QWebEngineContextMenuRequest_Position(const QWebEngineContextMenuRequest* self);
 libqt_string QWebEngineContextMenuRequest_SelectedText(const QWebEngineContextMenuRequest* self);
 libqt_string QWebEngineContextMenuRequest_LinkText(const QWebEngineContextMenuRequest* self);
@@ -40,8 +39,6 @@ bool QWebEngineContextMenuRequest_IsAccepted(const QWebEngineContextMenuRequest*
 void QWebEngineContextMenuRequest_SetAccepted(QWebEngineContextMenuRequest* self, bool accepted);
 int QWebEngineContextMenuRequest_MediaFlags(const QWebEngineContextMenuRequest* self);
 int QWebEngineContextMenuRequest_EditFlags(const QWebEngineContextMenuRequest* self);
-libqt_string QWebEngineContextMenuRequest_Tr2(const char* s, const char* c);
-libqt_string QWebEngineContextMenuRequest_Tr3(const char* s, const char* c, int n);
 void QWebEngineContextMenuRequest_Delete(QWebEngineContextMenuRequest* self);
 
 #ifdef __cplusplus

@@ -32,7 +32,6 @@ typedef struct Solid__StorageDrive Solid__StorageDrive;
 QMetaObject* Solid__StorageDrive_MetaObject(const Solid__StorageDrive* self);
 void* Solid__StorageDrive_Metacast(Solid__StorageDrive* self, const char* param1);
 int Solid__StorageDrive_Metacall(Solid__StorageDrive* self, int param1, int param2, void** param3);
-libqt_string Solid__StorageDrive_Tr(const char* s);
 int Solid__StorageDrive_DeviceInterfaceType();
 int Solid__StorageDrive_Bus(const Solid__StorageDrive* self);
 int Solid__StorageDrive_DriveType(const Solid__StorageDrive* self);
@@ -42,8 +41,6 @@ unsigned long long Solid__StorageDrive_Size(const Solid__StorageDrive* self);
 bool Solid__StorageDrive_IsInUse(const Solid__StorageDrive* self);
 QDateTime* Solid__StorageDrive_TimeDetected(const Solid__StorageDrive* self);
 QDateTime* Solid__StorageDrive_TimeMediaDetected(const Solid__StorageDrive* self);
-libqt_string Solid__StorageDrive_Tr2(const char* s, const char* c);
-libqt_string Solid__StorageDrive_Tr3(const char* s, const char* c, int n);
 void Solid__StorageDrive_Delete(Solid__StorageDrive* self);
 
 #ifdef __cplusplus

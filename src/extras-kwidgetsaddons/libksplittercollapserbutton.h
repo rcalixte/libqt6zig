@@ -58,7 +58,6 @@ KSplitterCollapserButton* KSplitterCollapserButton_new(QWidget* childWidget, QSp
 QMetaObject* KSplitterCollapserButton_MetaObject(const KSplitterCollapserButton* self);
 void* KSplitterCollapserButton_Metacast(KSplitterCollapserButton* self, const char* param1);
 int KSplitterCollapserButton_Metacall(KSplitterCollapserButton* self, int param1, int param2, void** param3);
-libqt_string KSplitterCollapserButton_Tr(const char* s);
 bool KSplitterCollapserButton_IsWidgetCollapsed(const KSplitterCollapserButton* self);
 QSize* KSplitterCollapserButton_SizeHint(const KSplitterCollapserButton* self);
 void KSplitterCollapserButton_Collapse(KSplitterCollapserButton* self);
@@ -69,8 +68,6 @@ void KSplitterCollapserButton_PaintEvent(KSplitterCollapserButton* self, QPaintE
 void KSplitterCollapserButton_EnterEvent(KSplitterCollapserButton* self, QEnterEvent* event);
 void KSplitterCollapserButton_LeaveEvent(KSplitterCollapserButton* self, QEvent* event);
 void KSplitterCollapserButton_ShowEvent(KSplitterCollapserButton* self, QShowEvent* event);
-libqt_string KSplitterCollapserButton_Tr2(const char* s, const char* c);
-libqt_string KSplitterCollapserButton_Tr3(const char* s, const char* c, int n);
 void KSplitterCollapserButton_OnMetacall(KSplitterCollapserButton* self, intptr_t slot);
 int KSplitterCollapserButton_QBaseMetacall(KSplitterCollapserButton* self, int param1, int param2, void** param3);
 void KSplitterCollapserButton_OnSizeHint(const KSplitterCollapserButton* self, intptr_t slot);

@@ -39,7 +39,6 @@ KExtraColumnsProxyModel* KExtraColumnsProxyModel_new2(QObject* parent);
 QMetaObject* KExtraColumnsProxyModel_MetaObject(const KExtraColumnsProxyModel* self);
 void* KExtraColumnsProxyModel_Metacast(KExtraColumnsProxyModel* self, const char* param1);
 int KExtraColumnsProxyModel_Metacall(KExtraColumnsProxyModel* self, int param1, int param2, void** param3);
-libqt_string KExtraColumnsProxyModel_Tr(const char* s);
 void KExtraColumnsProxyModel_AppendColumn(KExtraColumnsProxyModel* self);
 void KExtraColumnsProxyModel_RemoveExtraColumn(KExtraColumnsProxyModel* self, int idx);
 QVariant* KExtraColumnsProxyModel_ExtraColumnData(const KExtraColumnsProxyModel* self, const QModelIndex* parent, int row, int extraColumn, int role);
@@ -60,8 +59,6 @@ bool KExtraColumnsProxyModel_HasChildren(const KExtraColumnsProxyModel* self, co
 QVariant* KExtraColumnsProxyModel_HeaderData(const KExtraColumnsProxyModel* self, int section, int orientation, int role);
 QModelIndex* KExtraColumnsProxyModel_Index(const KExtraColumnsProxyModel* self, int row, int column, const QModelIndex* parent);
 QModelIndex* KExtraColumnsProxyModel_Parent(const KExtraColumnsProxyModel* self, const QModelIndex* child);
-libqt_string KExtraColumnsProxyModel_Tr2(const char* s, const char* c);
-libqt_string KExtraColumnsProxyModel_Tr3(const char* s, const char* c, int n);
 void KExtraColumnsProxyModel_AppendColumn1(KExtraColumnsProxyModel* self, const libqt_string header);
 void KExtraColumnsProxyModel_OnMetacall(KExtraColumnsProxyModel* self, intptr_t slot);
 int KExtraColumnsProxyModel_QBaseMetacall(KExtraColumnsProxyModel* self, int param1, int param2, void** param3);

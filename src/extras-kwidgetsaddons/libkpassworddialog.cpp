@@ -72,18 +72,6 @@ int KPasswordDialog_Metacall(KPasswordDialog* self, int param1, int param2, void
     }
 }
 
-libqt_string KPasswordDialog_Tr(const char* s) {
-    QString _ret = KPasswordDialog::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 void KPasswordDialog_SetPrompt(KPasswordDialog* self, const libqt_string prompt) {
     QString prompt_QString = QString::fromUtf8(prompt.data, prompt.len);
     self->setPrompt(prompt_QString);
@@ -294,30 +282,6 @@ bool KPasswordDialog_CheckPassword(KPasswordDialog* self) {
         return vkpassworddialog->checkPassword();
     }
     return {};
-}
-
-libqt_string KPasswordDialog_Tr2(const char* s, const char* c) {
-    QString _ret = KPasswordDialog::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string KPasswordDialog_Tr3(const char* s, const char* c, int n) {
-    QString _ret = KPasswordDialog::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 void KPasswordDialog_ShowErrorMessage2(KPasswordDialog* self, const libqt_string message, const int typeVal) {

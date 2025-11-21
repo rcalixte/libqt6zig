@@ -41,7 +41,6 @@ typedef struct QUrl QUrl;
 QMetaObject* KIO__DropJob_MetaObject(const KIO__DropJob* self);
 void* KIO__DropJob_Metacast(KIO__DropJob* self, const char* param1);
 int KIO__DropJob_Metacall(KIO__DropJob* self, int param1, int param2, void** param3);
-libqt_string KIO__DropJob_Tr(const char* s);
 void KIO__DropJob_SetApplicationActions(KIO__DropJob* self, const libqt_list /* of QAction* */ actions);
 void KIO__DropJob_ShowMenu(KIO__DropJob* self, const QPoint* p);
 void KIO__DropJob_ItemCreated(KIO__DropJob* self, const QUrl* url);
@@ -50,8 +49,6 @@ void KIO__DropJob_CopyJobStarted(KIO__DropJob* self, KIO__CopyJob* job);
 void KIO__DropJob_Connect_CopyJobStarted(KIO__DropJob* self, intptr_t slot);
 void KIO__DropJob_PopupMenuAboutToShow(KIO__DropJob* self, const KFileItemListProperties* itemProps);
 void KIO__DropJob_Connect_PopupMenuAboutToShow(KIO__DropJob* self, intptr_t slot);
-libqt_string KIO__DropJob_Tr2(const char* s, const char* c);
-libqt_string KIO__DropJob_Tr3(const char* s, const char* c, int n);
 void KIO__DropJob_ShowMenu2(KIO__DropJob* self, const QPoint* p, QAction* atAction);
 void KIO__DropJob_Delete(KIO__DropJob* self);
 

@@ -39,7 +39,6 @@ QStringListModel* QStringListModel_new4(const libqt_list /* of libqt_string */ s
 QMetaObject* QStringListModel_MetaObject(const QStringListModel* self);
 void* QStringListModel_Metacast(QStringListModel* self, const char* param1);
 int QStringListModel_Metacall(QStringListModel* self, int param1, int param2, void** param3);
-libqt_string QStringListModel_Tr(const char* s);
 int QStringListModel_RowCount(const QStringListModel* self, const QModelIndex* parent);
 QModelIndex* QStringListModel_Sibling(const QStringListModel* self, int row, int column, const QModelIndex* idx);
 QVariant* QStringListModel_Data(const QStringListModel* self, const QModelIndex* index, int role);
@@ -55,8 +54,6 @@ void QStringListModel_Sort(QStringListModel* self, int column, int order);
 libqt_list /* of libqt_string */ QStringListModel_StringList(const QStringListModel* self);
 void QStringListModel_SetStringList(QStringListModel* self, const libqt_list /* of libqt_string */ strings);
 int QStringListModel_SupportedDropActions(const QStringListModel* self);
-libqt_string QStringListModel_Tr2(const char* s, const char* c);
-libqt_string QStringListModel_Tr3(const char* s, const char* c, int n);
 void QStringListModel_OnMetacall(QStringListModel* self, intptr_t slot);
 int QStringListModel_QBaseMetacall(QStringListModel* self, int param1, int param2, void** param3);
 void QStringListModel_OnRowCount(const QStringListModel* self, intptr_t slot);

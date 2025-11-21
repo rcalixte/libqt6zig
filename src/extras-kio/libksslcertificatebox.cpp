@@ -65,48 +65,12 @@ int KSslCertificateBox_Metacall(KSslCertificateBox* self, int param1, int param2
     }
 }
 
-libqt_string KSslCertificateBox_Tr(const char* s) {
-    QString _ret = KSslCertificateBox::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 void KSslCertificateBox_SetCertificate(KSslCertificateBox* self, const QSslCertificate* cert, int party) {
     self->setCertificate(*cert, static_cast<KSslCertificateBox::CertificateParty>(party));
 }
 
 void KSslCertificateBox_Clear(KSslCertificateBox* self) {
     self->clear();
-}
-
-libqt_string KSslCertificateBox_Tr2(const char* s, const char* c) {
-    QString _ret = KSslCertificateBox::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string KSslCertificateBox_Tr3(const char* s, const char* c, int n) {
-    QString _ret = KSslCertificateBox::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 // Base class handler implementation

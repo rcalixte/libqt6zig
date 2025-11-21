@@ -36,13 +36,10 @@ KIO__FavIconRequestJob* KIO__FavIconRequestJob_new3(const QUrl* hostUrl, int rel
 QMetaObject* KIO__FavIconRequestJob_MetaObject(const KIO__FavIconRequestJob* self);
 void* KIO__FavIconRequestJob_Metacast(KIO__FavIconRequestJob* self, const char* param1);
 int KIO__FavIconRequestJob_Metacall(KIO__FavIconRequestJob* self, int param1, int param2, void** param3);
-libqt_string KIO__FavIconRequestJob_Tr(const char* s);
 void KIO__FavIconRequestJob_SetIconUrl(KIO__FavIconRequestJob* self, const QUrl* iconUrl);
 libqt_string KIO__FavIconRequestJob_IconFile(const KIO__FavIconRequestJob* self);
 QUrl* KIO__FavIconRequestJob_HostUrl(const KIO__FavIconRequestJob* self);
 void KIO__FavIconRequestJob_Start(KIO__FavIconRequestJob* self);
-libqt_string KIO__FavIconRequestJob_Tr2(const char* s, const char* c);
-libqt_string KIO__FavIconRequestJob_Tr3(const char* s, const char* c, int n);
 void KIO__FavIconRequestJob_OnMetacall(KIO__FavIconRequestJob* self, intptr_t slot);
 int KIO__FavIconRequestJob_QBaseMetacall(KIO__FavIconRequestJob* self, int param1, int param2, void** param3);
 void KIO__FavIconRequestJob_OnStart(KIO__FavIconRequestJob* self, intptr_t slot);

@@ -49,18 +49,6 @@ int KSelectAction_Metacall(KSelectAction* self, int param1, int param2, void** p
     }
 }
 
-libqt_string KSelectAction_Tr(const char* s) {
-    QString _ret = KSelectAction::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 int KSelectAction_ToolBarMode(const KSelectAction* self) {
     return static_cast<int>(self->toolBarMode());
 }
@@ -321,30 +309,6 @@ bool KSelectAction_EventFilter(KSelectAction* self, QObject* watched, QEvent* ev
         return vkselectaction->eventFilter(watched, event);
     }
     return {};
-}
-
-libqt_string KSelectAction_Tr2(const char* s, const char* c) {
-    QString _ret = KSelectAction::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string KSelectAction_Tr3(const char* s, const char* c, int n) {
-    QString _ret = KSelectAction::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 QAction* KSelectAction_Action22(const KSelectAction* self, const libqt_string text, int cs) {

@@ -21,7 +21,6 @@ typedef struct QCoreApplication QCoreApplication;
 #endif
 
 QCommandLineParser* QCommandLineParser_new();
-libqt_string QCommandLineParser_Tr(const char* sourceText);
 void QCommandLineParser_SetSingleDashWordOptionMode(QCommandLineParser* self, int parsingMode);
 void QCommandLineParser_SetOptionsAfterPositionalArgumentsMode(QCommandLineParser* self, int mode);
 bool QCommandLineParser_AddOption(QCommandLineParser* self, const QCommandLineOption* commandLineOption);
@@ -48,8 +47,6 @@ libqt_list /* of libqt_string */ QCommandLineParser_UnknownOptionNames(const QCo
 void QCommandLineParser_ShowVersion(QCommandLineParser* self);
 void QCommandLineParser_ShowHelp(QCommandLineParser* self);
 libqt_string QCommandLineParser_HelpText(const QCommandLineParser* self);
-libqt_string QCommandLineParser_Tr2(const char* sourceText, const char* disambiguation);
-libqt_string QCommandLineParser_Tr3(const char* sourceText, const char* disambiguation, int n);
 void QCommandLineParser_AddPositionalArgument3(QCommandLineParser* self, const libqt_string name, const libqt_string description, const libqt_string syntax);
 void QCommandLineParser_ShowHelp1(QCommandLineParser* self, int exitCode);
 void QCommandLineParser_Delete(QCommandLineParser* self);

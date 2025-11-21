@@ -34,7 +34,6 @@ KNewFileMenu* KNewFileMenu_new(QObject* parent);
 QMetaObject* KNewFileMenu_MetaObject(const KNewFileMenu* self);
 void* KNewFileMenu_Metacast(KNewFileMenu* self, const char* param1);
 int KNewFileMenu_Metacall(KNewFileMenu* self, int param1, int param2, void** param3);
-libqt_string KNewFileMenu_Tr(const char* s);
 bool KNewFileMenu_IsModal(const KNewFileMenu* self);
 void KNewFileMenu_SetModal(KNewFileMenu* self, bool modality);
 void KNewFileMenu_SetParentWidget(KNewFileMenu* self, QWidget* parentWidget);
@@ -66,8 +65,6 @@ void KNewFileMenu_Connect_DirectoryCreationRejected(KNewFileMenu* self, intptr_t
 void KNewFileMenu_SelectExistingDir(KNewFileMenu* self, const QUrl* url);
 void KNewFileMenu_Connect_SelectExistingDir(KNewFileMenu* self, intptr_t slot);
 void KNewFileMenu_SlotResult(KNewFileMenu* self, KJob* job);
-libqt_string KNewFileMenu_Tr2(const char* s, const char* c);
-libqt_string KNewFileMenu_Tr3(const char* s, const char* c, int n);
 void KNewFileMenu_OnMetacall(KNewFileMenu* self, intptr_t slot);
 int KNewFileMenu_QBaseMetacall(KNewFileMenu* self, int param1, int param2, void** param3);
 void KNewFileMenu_OnSlotResult(KNewFileMenu* self, intptr_t slot);

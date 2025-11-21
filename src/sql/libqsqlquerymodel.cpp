@@ -54,18 +54,6 @@ int QSqlQueryModel_Metacall(QSqlQueryModel* self, int param1, int param2, void**
     }
 }
 
-libqt_string QSqlQueryModel_Tr(const char* s) {
-    QString _ret = QSqlQueryModel::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 int QSqlQueryModel_RowCount(const QSqlQueryModel* self, const QModelIndex* parent) {
     auto* vqsqlquerymodel = dynamic_cast<const VirtualQSqlQueryModel*>(self);
     if (vqsqlquerymodel && vqsqlquerymodel->isVirtualQSqlQueryModel) {
@@ -245,30 +233,6 @@ QModelIndex* QSqlQueryModel_IndexInQuery(const QSqlQueryModel* self, const QMode
         return new QModelIndex(vqsqlquerymodel->indexInQuery(*item));
     }
     return {};
-}
-
-libqt_string QSqlQueryModel_Tr2(const char* s, const char* c) {
-    QString _ret = QSqlQueryModel::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QSqlQueryModel_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QSqlQueryModel::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 void QSqlQueryModel_SetQuery22(QSqlQueryModel* self, const libqt_string query, const QSqlDatabase* db) {

@@ -36,7 +36,6 @@ KSvg__ImageSet* KSvg__ImageSet_new5(const libqt_string imageSetName, const libqt
 QMetaObject* KSvg__ImageSet_MetaObject(const KSvg__ImageSet* self);
 void* KSvg__ImageSet_Metacast(KSvg__ImageSet* self, const char* param1);
 int KSvg__ImageSet_Metacall(KSvg__ImageSet* self, int param1, int param2, void** param3);
-libqt_string KSvg__ImageSet_Tr(const char* s);
 void KSvg__ImageSet_SetBasePath(KSvg__ImageSet* self, const libqt_string basePath);
 libqt_string KSvg__ImageSet_BasePath(const KSvg__ImageSet* self);
 void KSvg__ImageSet_SetSelectors(KSvg__ImageSet* self, const libqt_list /* of libqt_string */ selectors);
@@ -54,8 +53,6 @@ void KSvg__ImageSet_ImageSetChanged(KSvg__ImageSet* self, const libqt_string bas
 void KSvg__ImageSet_Connect_ImageSetChanged(KSvg__ImageSet* self, intptr_t slot);
 void KSvg__ImageSet_BasePathChanged(KSvg__ImageSet* self, const libqt_string basePath);
 void KSvg__ImageSet_Connect_BasePathChanged(KSvg__ImageSet* self, intptr_t slot);
-libqt_string KSvg__ImageSet_Tr2(const char* s, const char* c);
-libqt_string KSvg__ImageSet_Tr3(const char* s, const char* c, int n);
 void KSvg__ImageSet_OnMetacall(KSvg__ImageSet* self, intptr_t slot);
 int KSvg__ImageSet_QBaseMetacall(KSvg__ImageSet* self, int param1, int param2, void** param3);
 bool KSvg__ImageSet_Event(KSvg__ImageSet* self, QEvent* event);

@@ -24,7 +24,6 @@ QImageWriter* QImageWriter_new();
 QImageWriter* QImageWriter_new2(QIODevice* device, const libqt_string format);
 QImageWriter* QImageWriter_new3(const libqt_string fileName);
 QImageWriter* QImageWriter_new4(const libqt_string fileName, const libqt_string format);
-libqt_string QImageWriter_Tr(const char* sourceText);
 void QImageWriter_SetFormat(QImageWriter* self, const libqt_string format);
 libqt_string QImageWriter_Format(const QImageWriter* self);
 void QImageWriter_SetDevice(QImageWriter* self, QIODevice* device);
@@ -53,8 +52,6 @@ bool QImageWriter_SupportsOption(const QImageWriter* self, int option);
 libqt_list /* of libqt_string */ QImageWriter_SupportedImageFormats();
 libqt_list /* of libqt_string */ QImageWriter_SupportedMimeTypes();
 libqt_list /* of libqt_string */ QImageWriter_ImageFormatsForMimeType(const libqt_string mimeType);
-libqt_string QImageWriter_Tr2(const char* sourceText, const char* disambiguation);
-libqt_string QImageWriter_Tr3(const char* sourceText, const char* disambiguation, int n);
 void QImageWriter_Delete(QImageWriter* self);
 
 #ifdef __cplusplus

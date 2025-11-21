@@ -39,10 +39,7 @@ typedef struct QUrl QUrl;
 QMetaObject* KIO__DavJob_MetaObject(const KIO__DavJob* self);
 void* KIO__DavJob_Metacast(KIO__DavJob* self, const char* param1);
 int KIO__DavJob_Metacall(KIO__DavJob* self, int param1, int param2, void** param3);
-libqt_string KIO__DavJob_Tr(const char* s);
 libqt_string KIO__DavJob_ResponseData(const KIO__DavJob* self);
-libqt_string KIO__DavJob_Tr2(const char* s, const char* c);
-libqt_string KIO__DavJob_Tr3(const char* s, const char* c, int n);
 void KIO__DavJob_Delete(KIO__DavJob* self);
 
 KIO__DavJob* KIO_DavPropFind(const QUrl* param1, const libqt_string param2, const libqt_string param3, int param4);

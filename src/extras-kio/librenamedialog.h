@@ -66,7 +66,6 @@ KIO__RenameDialog* KIO__RenameDialog_new7(QWidget* parent, const libqt_string ti
 QMetaObject* KIO__RenameDialog_MetaObject(const KIO__RenameDialog* self);
 void* KIO__RenameDialog_Metacast(KIO__RenameDialog* self, const char* param1);
 int KIO__RenameDialog_Metacall(KIO__RenameDialog* self, int param1, int param2, void** param3);
-libqt_string KIO__RenameDialog_Tr(const char* s);
 QUrl* KIO__RenameDialog_NewDestUrl(KIO__RenameDialog* self);
 QUrl* KIO__RenameDialog_AutoDestUrl(const KIO__RenameDialog* self);
 void KIO__RenameDialog_CancelPressed(KIO__RenameDialog* self);
@@ -78,8 +77,6 @@ void KIO__RenameDialog_OverwriteWhenOlderPressed(KIO__RenameDialog* self);
 void KIO__RenameDialog_ResumePressed(KIO__RenameDialog* self);
 void KIO__RenameDialog_ResumeAllPressed(KIO__RenameDialog* self);
 void KIO__RenameDialog_SuggestNewNamePressed(KIO__RenameDialog* self);
-libqt_string KIO__RenameDialog_Tr2(const char* s, const char* c);
-libqt_string KIO__RenameDialog_Tr3(const char* s, const char* c, int n);
 void KIO__RenameDialog_OnMetacall(KIO__RenameDialog* self, intptr_t slot);
 int KIO__RenameDialog_QBaseMetacall(KIO__RenameDialog* self, int param1, int param2, void** param3);
 void KIO__RenameDialog_SetVisible(KIO__RenameDialog* self, bool visible);

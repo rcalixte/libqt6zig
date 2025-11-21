@@ -25,7 +25,6 @@ typedef struct QWebEngineWebAuthUxRequest QWebEngineWebAuthUxRequest;
 QMetaObject* QWebEngineWebAuthUxRequest_MetaObject(const QWebEngineWebAuthUxRequest* self);
 void* QWebEngineWebAuthUxRequest_Metacast(QWebEngineWebAuthUxRequest* self, const char* param1);
 int QWebEngineWebAuthUxRequest_Metacall(QWebEngineWebAuthUxRequest* self, int param1, int param2, void** param3);
-libqt_string QWebEngineWebAuthUxRequest_Tr(const char* s);
 libqt_list /* of libqt_string */ QWebEngineWebAuthUxRequest_UserNames(const QWebEngineWebAuthUxRequest* self);
 libqt_string QWebEngineWebAuthUxRequest_RelyingPartyId(const QWebEngineWebAuthUxRequest* self);
 QWebEngineWebAuthPinRequest* QWebEngineWebAuthUxRequest_PinRequest(const QWebEngineWebAuthUxRequest* self);
@@ -37,8 +36,6 @@ void QWebEngineWebAuthUxRequest_Cancel(QWebEngineWebAuthUxRequest* self);
 void QWebEngineWebAuthUxRequest_Retry(QWebEngineWebAuthUxRequest* self);
 void QWebEngineWebAuthUxRequest_SetSelectedAccount(QWebEngineWebAuthUxRequest* self, const libqt_string selectedAccount);
 void QWebEngineWebAuthUxRequest_SetPin(QWebEngineWebAuthUxRequest* self, const libqt_string pin);
-libqt_string QWebEngineWebAuthUxRequest_Tr2(const char* s, const char* c);
-libqt_string QWebEngineWebAuthUxRequest_Tr3(const char* s, const char* c, int n);
 void QWebEngineWebAuthUxRequest_Delete(QWebEngineWebAuthUxRequest* self);
 
 int QWebEngineWebAuthPinRequest_Reason(const QWebEngineWebAuthPinRequest* self);

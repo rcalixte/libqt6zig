@@ -26,9 +26,6 @@ typedef struct QPieSeries QPieSeries;
 QMetaObject* QPieModelMapper_MetaObject(const QPieModelMapper* self);
 void* QPieModelMapper_Metacast(QPieModelMapper* self, const char* param1);
 int QPieModelMapper_Metacall(QPieModelMapper* self, int param1, int param2, void** param3);
-libqt_string QPieModelMapper_Tr(const char* s);
-libqt_string QPieModelMapper_Tr2(const char* s, const char* c);
-libqt_string QPieModelMapper_Tr3(const char* s, const char* c, int n);
 void QPieModelMapper_Delete(QPieModelMapper* self);
 
 #ifdef __cplusplus

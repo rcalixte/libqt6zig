@@ -37,18 +37,6 @@ int KToggleToolBarAction_Metacall(KToggleToolBarAction* self, int param1, int pa
     }
 }
 
-libqt_string KToggleToolBarAction_Tr(const char* s) {
-    QString _ret = KToggleToolBarAction::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 KToolBar* KToggleToolBarAction_ToolBar(KToggleToolBarAction* self) {
     return self->toolBar();
 }
@@ -60,30 +48,6 @@ bool KToggleToolBarAction_EventFilter(KToggleToolBarAction* self, QObject* watch
     } else {
         return ((VirtualKToggleToolBarAction*)self)->eventFilter(watched, event);
     }
-}
-
-libqt_string KToggleToolBarAction_Tr2(const char* s, const char* c) {
-    QString _ret = KToggleToolBarAction::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string KToggleToolBarAction_Tr3(const char* s, const char* c, int n) {
-    QString _ret = KToggleToolBarAction::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 // Base class handler implementation

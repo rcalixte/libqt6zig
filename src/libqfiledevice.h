@@ -27,7 +27,6 @@ typedef struct QObject QObject;
 QMetaObject* QFileDevice_MetaObject(const QFileDevice* self);
 void* QFileDevice_Metacast(QFileDevice* self, const char* param1);
 int QFileDevice_Metacall(QFileDevice* self, int param1, int param2, void** param3);
-libqt_string QFileDevice_Tr(const char* s);
 int QFileDevice_Error(const QFileDevice* self);
 void QFileDevice_UnsetError(QFileDevice* self);
 void QFileDevice_Close(QFileDevice* self);
@@ -46,8 +45,6 @@ unsigned char* QFileDevice_Map(QFileDevice* self, long long offset, long long si
 bool QFileDevice_Unmap(QFileDevice* self, unsigned char* address);
 QDateTime* QFileDevice_FileTime(const QFileDevice* self, int time);
 bool QFileDevice_SetFileTime(QFileDevice* self, const QDateTime* newDate, int fileTime);
-libqt_string QFileDevice_Tr2(const char* s, const char* c);
-libqt_string QFileDevice_Tr3(const char* s, const char* c, int n);
 unsigned char* QFileDevice_Map3(QFileDevice* self, long long offset, long long size, int flags);
 void QFileDevice_Delete(QFileDevice* self);
 

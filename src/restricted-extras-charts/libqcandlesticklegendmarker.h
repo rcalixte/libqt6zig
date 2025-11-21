@@ -32,11 +32,8 @@ QCandlestickLegendMarker* QCandlestickLegendMarker_new2(QCandlestickSeries* seri
 QMetaObject* QCandlestickLegendMarker_MetaObject(const QCandlestickLegendMarker* self);
 void* QCandlestickLegendMarker_Metacast(QCandlestickLegendMarker* self, const char* param1);
 int QCandlestickLegendMarker_Metacall(QCandlestickLegendMarker* self, int param1, int param2, void** param3);
-libqt_string QCandlestickLegendMarker_Tr(const char* s);
 int QCandlestickLegendMarker_Type(QCandlestickLegendMarker* self);
 QCandlestickSeries* QCandlestickLegendMarker_Series(QCandlestickLegendMarker* self);
-libqt_string QCandlestickLegendMarker_Tr2(const char* s, const char* c);
-libqt_string QCandlestickLegendMarker_Tr3(const char* s, const char* c, int n);
 void QCandlestickLegendMarker_OnMetacall(QCandlestickLegendMarker* self, intptr_t slot);
 int QCandlestickLegendMarker_QBaseMetacall(QCandlestickLegendMarker* self, int param1, int param2, void** param3);
 void QCandlestickLegendMarker_OnType(QCandlestickLegendMarker* self, intptr_t slot);

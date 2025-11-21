@@ -38,7 +38,6 @@ KCodecAction* KCodecAction_new6(const QIcon* icon, const libqt_string text, QObj
 QMetaObject* KCodecAction_MetaObject(const KCodecAction* self);
 void* KCodecAction_Metacast(KCodecAction* self, const char* param1);
 int KCodecAction_Metacall(KCodecAction* self, int param1, int param2, void** param3);
-libqt_string KCodecAction_Tr(const char* s);
 libqt_string KCodecAction_CurrentCodecName(const KCodecAction* self);
 bool KCodecAction_SetCurrentCodec(KCodecAction* self, const libqt_string codecName);
 void KCodecAction_CodecNameTriggered(KCodecAction* self, const libqt_string name);
@@ -46,8 +45,6 @@ void KCodecAction_Connect_CodecNameTriggered(KCodecAction* self, intptr_t slot);
 void KCodecAction_DefaultItemTriggered(KCodecAction* self);
 void KCodecAction_Connect_DefaultItemTriggered(KCodecAction* self, intptr_t slot);
 void KCodecAction_SlotActionTriggered(KCodecAction* self, QAction* param1);
-libqt_string KCodecAction_Tr2(const char* s, const char* c);
-libqt_string KCodecAction_Tr3(const char* s, const char* c, int n);
 void KCodecAction_OnMetacall(KCodecAction* self, intptr_t slot);
 int KCodecAction_QBaseMetacall(KCodecAction* self, int param1, int param2, void** param3);
 void KCodecAction_OnSlotActionTriggered(KCodecAction* self, intptr_t slot);

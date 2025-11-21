@@ -81,18 +81,6 @@ int KShortcutsEditor_Metacall(KShortcutsEditor* self, int param1, int param2, vo
     }
 }
 
-libqt_string KShortcutsEditor_Tr(const char* s) {
-    QString _ret = KShortcutsEditor::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 bool KShortcutsEditor_IsModified(const KShortcutsEditor* self) {
     return self->isModified();
 }
@@ -134,30 +122,6 @@ void KShortcutsEditor_Connect_KeyChange(KShortcutsEditor* self, intptr_t slot) {
 
 void KShortcutsEditor_AllDefault(KShortcutsEditor* self) {
     self->allDefault();
-}
-
-libqt_string KShortcutsEditor_Tr2(const char* s, const char* c) {
-    QString _ret = KShortcutsEditor::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string KShortcutsEditor_Tr3(const char* s, const char* c, int n) {
-    QString _ret = KShortcutsEditor::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 void KShortcutsEditor_AddCollection2(KShortcutsEditor* self, KActionCollection* param1, const libqt_string title) {

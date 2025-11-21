@@ -33,9 +33,6 @@ typedef struct QUrl QUrl;
 QMetaObject* KIO__RestoreJob_MetaObject(const KIO__RestoreJob* self);
 void* KIO__RestoreJob_Metacast(KIO__RestoreJob* self, const char* param1);
 int KIO__RestoreJob_Metacall(KIO__RestoreJob* self, int param1, int param2, void** param3);
-libqt_string KIO__RestoreJob_Tr(const char* s);
-libqt_string KIO__RestoreJob_Tr2(const char* s, const char* c);
-libqt_string KIO__RestoreJob_Tr3(const char* s, const char* c, int n);
 void KIO__RestoreJob_Delete(KIO__RestoreJob* self);
 
 KIO__RestoreJob* KIO_RestoreFromTrash(const libqt_list /* of QUrl* */ param1, int param2);

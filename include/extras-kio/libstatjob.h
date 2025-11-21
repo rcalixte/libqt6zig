@@ -37,7 +37,6 @@ typedef struct QUrl QUrl;
 QMetaObject* KIO__StatJob_MetaObject(const KIO__StatJob* self);
 void* KIO__StatJob_Metacast(KIO__StatJob* self, const char* param1);
 int KIO__StatJob_Metacall(KIO__StatJob* self, int param1, int param2, void** param3);
-libqt_string KIO__StatJob_Tr(const char* s);
 void KIO__StatJob_SetSide(KIO__StatJob* self, int side);
 void KIO__StatJob_SetDetails(KIO__StatJob* self, int details);
 KIO__UDSEntry* KIO__StatJob_StatResult(const KIO__StatJob* self);
@@ -46,8 +45,6 @@ void KIO__StatJob_Redirection(KIO__StatJob* self, KIO__Job* job, const QUrl* url
 void KIO__StatJob_Connect_Redirection(KIO__StatJob* self, intptr_t slot);
 void KIO__StatJob_PermanentRedirection(KIO__StatJob* self, KIO__Job* job, const QUrl* fromUrl, const QUrl* toUrl);
 void KIO__StatJob_Connect_PermanentRedirection(KIO__StatJob* self, intptr_t slot);
-libqt_string KIO__StatJob_Tr2(const char* s, const char* c);
-libqt_string KIO__StatJob_Tr3(const char* s, const char* c, int n);
 void KIO__StatJob_Delete(KIO__StatJob* self);
 
 KIO__StatJob* KIO_Stat(const QUrl* param1, int param2);

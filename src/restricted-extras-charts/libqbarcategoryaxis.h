@@ -30,7 +30,6 @@ QBarCategoryAxis* QBarCategoryAxis_new2(QObject* parent);
 QMetaObject* QBarCategoryAxis_MetaObject(const QBarCategoryAxis* self);
 void* QBarCategoryAxis_Metacast(QBarCategoryAxis* self, const char* param1);
 int QBarCategoryAxis_Metacall(QBarCategoryAxis* self, int param1, int param2, void** param3);
-libqt_string QBarCategoryAxis_Tr(const char* s);
 int QBarCategoryAxis_Type(const QBarCategoryAxis* self);
 void QBarCategoryAxis_Append(QBarCategoryAxis* self, const libqt_list /* of libqt_string */ categories);
 void QBarCategoryAxis_Append2(QBarCategoryAxis* self, const libqt_string category);
@@ -57,8 +56,6 @@ void QBarCategoryAxis_RangeChanged(QBarCategoryAxis* self, const libqt_string mi
 void QBarCategoryAxis_Connect_RangeChanged(QBarCategoryAxis* self, intptr_t slot);
 void QBarCategoryAxis_CountChanged(QBarCategoryAxis* self);
 void QBarCategoryAxis_Connect_CountChanged(QBarCategoryAxis* self, intptr_t slot);
-libqt_string QBarCategoryAxis_Tr2(const char* s, const char* c);
-libqt_string QBarCategoryAxis_Tr3(const char* s, const char* c, int n);
 void QBarCategoryAxis_OnMetacall(QBarCategoryAxis* self, intptr_t slot);
 int QBarCategoryAxis_QBaseMetacall(QBarCategoryAxis* self, int param1, int param2, void** param3);
 void QBarCategoryAxis_OnType(const QBarCategoryAxis* self, intptr_t slot);

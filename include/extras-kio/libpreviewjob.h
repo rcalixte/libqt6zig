@@ -43,7 +43,6 @@ KIO__PreviewJob* KIO__PreviewJob_new2(const KFileItemList* items, const QSize* s
 QMetaObject* KIO__PreviewJob_MetaObject(const KIO__PreviewJob* self);
 void* KIO__PreviewJob_Metacast(KIO__PreviewJob* self, const char* param1);
 int KIO__PreviewJob_Metacall(KIO__PreviewJob* self, int param1, int param2, void** param3);
-libqt_string KIO__PreviewJob_Tr(const char* s);
 void KIO__PreviewJob_SetScaleType(KIO__PreviewJob* self, int typeVal);
 int KIO__PreviewJob_ScaleType(const KIO__PreviewJob* self);
 void KIO__PreviewJob_RemoveItem(KIO__PreviewJob* self, const QUrl* url);
@@ -63,8 +62,6 @@ void KIO__PreviewJob_Failed(KIO__PreviewJob* self, const KFileItem* item);
 void KIO__PreviewJob_Connect_Failed(KIO__PreviewJob* self, intptr_t slot);
 void KIO__PreviewJob_SlotResult(KIO__PreviewJob* self, KJob* job);
 void KIO__PreviewJob_SetDefaultDevicePixelRatio(double devicePixelRatio);
-libqt_string KIO__PreviewJob_Tr2(const char* s, const char* c);
-libqt_string KIO__PreviewJob_Tr3(const char* s, const char* c, int n);
 void KIO__PreviewJob_SetIgnoreMaximumSize1(KIO__PreviewJob* self, bool ignoreSize);
 void KIO__PreviewJob_OnMetacall(KIO__PreviewJob* self, intptr_t slot);
 int KIO__PreviewJob_QBaseMetacall(KIO__PreviewJob* self, int param1, int param2, void** param3);

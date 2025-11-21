@@ -56,18 +56,6 @@ int QSharedMemory_Metacall(QSharedMemory* self, int param1, int param2, void** p
     }
 }
 
-libqt_string QSharedMemory_Tr(const char* s) {
-    QString _ret = QSharedMemory::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 void QSharedMemory_SetKey(QSharedMemory* self, const libqt_string key) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
     self->setKey(key_QString);
@@ -178,30 +166,6 @@ QNativeIpcKey* QSharedMemory_PlatformSafeKey(const libqt_string key) {
 QNativeIpcKey* QSharedMemory_LegacyNativeKey(const libqt_string key) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
     return new QNativeIpcKey(QSharedMemory::legacyNativeKey(key_QString));
-}
-
-libqt_string QSharedMemory_Tr2(const char* s, const char* c) {
-    QString _ret = QSharedMemory::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QSharedMemory_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QSharedMemory::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 void QSharedMemory_SetNativeKey22(QSharedMemory* self, const libqt_string key, uint16_t typeVal) {

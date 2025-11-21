@@ -32,13 +32,10 @@ KToggleFullScreenAction* KToggleFullScreenAction_new2(QWidget* window, QObject* 
 QMetaObject* KToggleFullScreenAction_MetaObject(const KToggleFullScreenAction* self);
 void* KToggleFullScreenAction_Metacast(KToggleFullScreenAction* self, const char* param1);
 int KToggleFullScreenAction_Metacall(KToggleFullScreenAction* self, int param1, int param2, void** param3);
-libqt_string KToggleFullScreenAction_Tr(const char* s);
 void KToggleFullScreenAction_SetWindow(KToggleFullScreenAction* self, QWidget* window);
 void KToggleFullScreenAction_SetFullScreen(QWidget* window, bool set);
 bool KToggleFullScreenAction_EventFilter(KToggleFullScreenAction* self, QObject* object, QEvent* event);
 void KToggleFullScreenAction_SlotToggled(KToggleFullScreenAction* self, bool checked);
-libqt_string KToggleFullScreenAction_Tr2(const char* s, const char* c);
-libqt_string KToggleFullScreenAction_Tr3(const char* s, const char* c, int n);
 void KToggleFullScreenAction_OnMetacall(KToggleFullScreenAction* self, intptr_t slot);
 int KToggleFullScreenAction_QBaseMetacall(KToggleFullScreenAction* self, int param1, int param2, void** param3);
 void KToggleFullScreenAction_OnEventFilter(KToggleFullScreenAction* self, intptr_t slot);

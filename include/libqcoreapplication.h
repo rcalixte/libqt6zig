@@ -34,7 +34,6 @@ QCoreApplication* QCoreApplication_new2(int* argc, char** argv, int param3);
 QMetaObject* QCoreApplication_MetaObject(const QCoreApplication* self);
 void* QCoreApplication_Metacast(QCoreApplication* self, const char* param1);
 int QCoreApplication_Metacall(QCoreApplication* self, int param1, int param2, void** param3);
-libqt_string QCoreApplication_Tr(const char* s);
 libqt_list /* of libqt_string */ QCoreApplication_Arguments();
 void QCoreApplication_SetAttribute(int attribute);
 bool QCoreApplication_TestAttribute(int attribute);
@@ -90,8 +89,6 @@ void QCoreApplication_Connect_ApplicationNameChanged(QCoreApplication* self, int
 void QCoreApplication_ApplicationVersionChanged(QCoreApplication* self);
 void QCoreApplication_Connect_ApplicationVersionChanged(QCoreApplication* self, intptr_t slot);
 bool QCoreApplication_Event(QCoreApplication* self, QEvent* param1);
-libqt_string QCoreApplication_Tr2(const char* s, const char* c);
-libqt_string QCoreApplication_Tr3(const char* s, const char* c, int n);
 void QCoreApplication_SetAttribute2(int attribute, bool on);
 void QCoreApplication_ProcessEvents1(int flags);
 void QCoreApplication_PostEvent3(QObject* receiver, QEvent* event, int priority);

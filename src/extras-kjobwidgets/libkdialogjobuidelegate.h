@@ -29,15 +29,12 @@ KDialogJobUiDelegate* KDialogJobUiDelegate_new2(int flags, QWidget* window);
 QMetaObject* KDialogJobUiDelegate_MetaObject(const KDialogJobUiDelegate* self);
 void* KDialogJobUiDelegate_Metacast(KDialogJobUiDelegate* self, const char* param1);
 int KDialogJobUiDelegate_Metacall(KDialogJobUiDelegate* self, int param1, int param2, void** param3);
-libqt_string KDialogJobUiDelegate_Tr(const char* s);
 bool KDialogJobUiDelegate_SetJob(KDialogJobUiDelegate* self, KJob* job);
 void KDialogJobUiDelegate_SetWindow(KDialogJobUiDelegate* self, QWidget* window);
 QWidget* KDialogJobUiDelegate_Window(const KDialogJobUiDelegate* self);
 void KDialogJobUiDelegate_UpdateUserTimestamp(KDialogJobUiDelegate* self, unsigned long time);
 unsigned long KDialogJobUiDelegate_UserTimestamp(const KDialogJobUiDelegate* self);
 void KDialogJobUiDelegate_ShowErrorMessage(KDialogJobUiDelegate* self);
-libqt_string KDialogJobUiDelegate_Tr2(const char* s, const char* c);
-libqt_string KDialogJobUiDelegate_Tr3(const char* s, const char* c, int n);
 void KDialogJobUiDelegate_Delete(KDialogJobUiDelegate* self);
 
 #ifdef __cplusplus

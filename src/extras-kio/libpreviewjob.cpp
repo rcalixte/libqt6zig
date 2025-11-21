@@ -53,18 +53,6 @@ int KIO__PreviewJob_Metacall(KIO__PreviewJob* self, int param1, int param2, void
     }
 }
 
-libqt_string KIO__PreviewJob_Tr(const char* s) {
-    QString _ret = KIO::PreviewJob::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 void KIO__PreviewJob_SetScaleType(KIO__PreviewJob* self, int typeVal) {
     self->setScaleType(static_cast<KIO::PreviewJob::ScaleType>(typeVal));
 }
@@ -217,30 +205,6 @@ void KIO__PreviewJob_SlotResult(KIO__PreviewJob* self, KJob* job) {
 
 void KIO__PreviewJob_SetDefaultDevicePixelRatio(double devicePixelRatio) {
     KIO::PreviewJob::setDefaultDevicePixelRatio(static_cast<qreal>(devicePixelRatio));
-}
-
-libqt_string KIO__PreviewJob_Tr2(const char* s, const char* c) {
-    QString _ret = KIO::PreviewJob::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string KIO__PreviewJob_Tr3(const char* s, const char* c, int n) {
-    QString _ret = KIO::PreviewJob::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 void KIO__PreviewJob_SetIgnoreMaximumSize1(KIO__PreviewJob* self, bool ignoreSize) {

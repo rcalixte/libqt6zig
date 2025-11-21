@@ -41,7 +41,6 @@ QMovie* QMovie_new8(const libqt_string fileName, const libqt_string format, QObj
 QMetaObject* QMovie_MetaObject(const QMovie* self);
 void* QMovie_Metacast(QMovie* self, const char* param1);
 int QMovie_Metacall(QMovie* self, int param1, int param2, void** param3);
-libqt_string QMovie_Tr(const char* s);
 libqt_list /* of libqt_string */ QMovie_SupportedFormats();
 void QMovie_SetDevice(QMovie* self, QIODevice* device);
 QIODevice* QMovie_Device(const QMovie* self);
@@ -87,8 +86,6 @@ bool QMovie_JumpToNextFrame(QMovie* self);
 void QMovie_SetPaused(QMovie* self, bool paused);
 void QMovie_Stop(QMovie* self);
 void QMovie_SetSpeed(QMovie* self, int percentSpeed);
-libqt_string QMovie_Tr2(const char* s, const char* c);
-libqt_string QMovie_Tr3(const char* s, const char* c, int n);
 void QMovie_OnMetacall(QMovie* self, intptr_t slot);
 int QMovie_QBaseMetacall(QMovie* self, int param1, int param2, void** param3);
 bool QMovie_Event(QMovie* self, QEvent* event);

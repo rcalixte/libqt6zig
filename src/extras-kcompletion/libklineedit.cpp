@@ -85,18 +85,6 @@ int KLineEdit_Metacall(KLineEdit* self, int param1, int param2, void** param3) {
     }
 }
 
-libqt_string KLineEdit_Tr(const char* s) {
-    QString _ret = KLineEdit::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 void KLineEdit_SetUrl(KLineEdit* self, const QUrl* url) {
     self->setUrl(*url);
 }
@@ -450,30 +438,6 @@ void KLineEdit_PaintEvent(KLineEdit* self, QPaintEvent* ev) {
     if (vklineedit && vklineedit->isVirtualKLineEdit) {
         vklineedit->paintEvent(ev);
     }
-}
-
-libqt_string KLineEdit_Tr2(const char* s, const char* c) {
-    QString _ret = KLineEdit::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string KLineEdit_Tr3(const char* s, const char* c, int n) {
-    QString _ret = KLineEdit::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 void KLineEdit_SetCompletionModeDisabled2(KLineEdit* self, int mode, bool disable) {

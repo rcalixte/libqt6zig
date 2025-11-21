@@ -921,18 +921,6 @@ int KCoreConfigSkeleton_Metacall(KCoreConfigSkeleton* self, int param1, int para
     }
 }
 
-libqt_string KCoreConfigSkeleton_Tr(const char* s) {
-    QString _ret = KCoreConfigSkeleton::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 void KCoreConfigSkeleton_SetDefaults(KCoreConfigSkeleton* self) {
     auto* vkcoreconfigskeleton = dynamic_cast<VirtualKCoreConfigSkeleton*>(self);
     if (vkcoreconfigskeleton && vkcoreconfigskeleton->isVirtualKCoreConfigSkeleton) {
@@ -1182,30 +1170,6 @@ bool KCoreConfigSkeleton_UsrSave(KCoreConfigSkeleton* self) {
         return vkcoreconfigskeleton->usrSave();
     }
     return {};
-}
-
-libqt_string KCoreConfigSkeleton_Tr2(const char* s, const char* c) {
-    QString _ret = KCoreConfigSkeleton::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string KCoreConfigSkeleton_Tr3(const char* s, const char* c, int n) {
-    QString _ret = KCoreConfigSkeleton::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 void KCoreConfigSkeleton_AddItem2(KCoreConfigSkeleton* self, KConfigSkeletonItem* item, const libqt_string name) {

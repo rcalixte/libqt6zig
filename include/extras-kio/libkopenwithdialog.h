@@ -65,7 +65,6 @@ KOpenWithDialog* KOpenWithDialog_new10(const libqt_list /* of QUrl* */ urls, con
 QMetaObject* KOpenWithDialog_MetaObject(const KOpenWithDialog* self);
 void* KOpenWithDialog_Metacast(KOpenWithDialog* self, const char* param1);
 int KOpenWithDialog_Metacall(KOpenWithDialog* self, int param1, int param2, void** param3);
-libqt_string KOpenWithDialog_Tr(const char* s);
 libqt_string KOpenWithDialog_Text(const KOpenWithDialog* self);
 void KOpenWithDialog_HideNoCloseOnExit(KOpenWithDialog* self);
 void KOpenWithDialog_HideRunInTerminal(KOpenWithDialog* self);
@@ -75,8 +74,6 @@ void KOpenWithDialog_SlotHighlighted(KOpenWithDialog* self, const libqt_string _
 void KOpenWithDialog_SlotTextChanged(KOpenWithDialog* self);
 void KOpenWithDialog_SlotTerminalToggled(KOpenWithDialog* self, bool param1);
 void KOpenWithDialog_Accept(KOpenWithDialog* self);
-libqt_string KOpenWithDialog_Tr2(const char* s, const char* c);
-libqt_string KOpenWithDialog_Tr3(const char* s, const char* c, int n);
 void KOpenWithDialog_OnMetacall(KOpenWithDialog* self, intptr_t slot);
 int KOpenWithDialog_QBaseMetacall(KOpenWithDialog* self, int param1, int param2, void** param3);
 void KOpenWithDialog_OnAccept(KOpenWithDialog* self, intptr_t slot);

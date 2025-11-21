@@ -52,7 +52,6 @@ void QNetworkCacheMetaData_Delete(QNetworkCacheMetaData* self);
 QMetaObject* QAbstractNetworkCache_MetaObject(const QAbstractNetworkCache* self);
 void* QAbstractNetworkCache_Metacast(QAbstractNetworkCache* self, const char* param1);
 int QAbstractNetworkCache_Metacall(QAbstractNetworkCache* self, int param1, int param2, void** param3);
-libqt_string QAbstractNetworkCache_Tr(const char* s);
 QNetworkCacheMetaData* QAbstractNetworkCache_MetaData(QAbstractNetworkCache* self, const QUrl* url);
 void QAbstractNetworkCache_UpdateMetaData(QAbstractNetworkCache* self, const QNetworkCacheMetaData* metaData);
 QIODevice* QAbstractNetworkCache_Data(QAbstractNetworkCache* self, const QUrl* url);
@@ -61,8 +60,6 @@ long long QAbstractNetworkCache_CacheSize(const QAbstractNetworkCache* self);
 QIODevice* QAbstractNetworkCache_Prepare(QAbstractNetworkCache* self, const QNetworkCacheMetaData* metaData);
 void QAbstractNetworkCache_Insert(QAbstractNetworkCache* self, QIODevice* device);
 void QAbstractNetworkCache_Clear(QAbstractNetworkCache* self);
-libqt_string QAbstractNetworkCache_Tr2(const char* s, const char* c);
-libqt_string QAbstractNetworkCache_Tr3(const char* s, const char* c, int n);
 void QAbstractNetworkCache_Delete(QAbstractNetworkCache* self);
 
 #ifdef __cplusplus

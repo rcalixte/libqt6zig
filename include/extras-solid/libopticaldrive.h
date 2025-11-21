@@ -36,7 +36,6 @@ typedef struct Solid__StorageDrive Solid__StorageDrive;
 QMetaObject* Solid__OpticalDrive_MetaObject(const Solid__OpticalDrive* self);
 void* Solid__OpticalDrive_Metacast(Solid__OpticalDrive* self, const char* param1);
 int Solid__OpticalDrive_Metacall(Solid__OpticalDrive* self, int param1, int param2, void** param3);
-libqt_string Solid__OpticalDrive_Tr(const char* s);
 int Solid__OpticalDrive_DeviceInterfaceType();
 int Solid__OpticalDrive_SupportedMedia(const Solid__OpticalDrive* self);
 int Solid__OpticalDrive_ReadSpeed(const Solid__OpticalDrive* self);
@@ -49,8 +48,6 @@ void Solid__OpticalDrive_EjectDone(Solid__OpticalDrive* self, int errorVal, QVar
 void Solid__OpticalDrive_Connect_EjectDone(Solid__OpticalDrive* self, intptr_t slot);
 void Solid__OpticalDrive_EjectRequested(Solid__OpticalDrive* self, const libqt_string udi);
 void Solid__OpticalDrive_Connect_EjectRequested(Solid__OpticalDrive* self, intptr_t slot);
-libqt_string Solid__OpticalDrive_Tr2(const char* s, const char* c);
-libqt_string Solid__OpticalDrive_Tr3(const char* s, const char* c, int n);
 void Solid__OpticalDrive_Delete(Solid__OpticalDrive* self);
 
 #ifdef __cplusplus

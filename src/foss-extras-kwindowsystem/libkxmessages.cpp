@@ -41,18 +41,6 @@ int KXMessages_Metacall(KXMessages* self, int param1, int param2, void** param3)
     }
 }
 
-libqt_string KXMessages_Tr(const char* s) {
-    QString _ret = KXMessages::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 void KXMessages_BroadcastMessage(KXMessages* self, const char* msg_type, const libqt_string message) {
     QString message_QString = QString::fromUtf8(message.data, message.len);
     self->broadcastMessage(msg_type, message_QString);
@@ -76,30 +64,6 @@ void KXMessages_Connect_GotMessage(KXMessages* self, intptr_t slot) {
         slotFunc(self, sigval1);
         libqt_free(message_str);
     });
-}
-
-libqt_string KXMessages_Tr2(const char* s, const char* c) {
-    QString _ret = KXMessages::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string KXMessages_Tr3(const char* s, const char* c, int n) {
-    QString _ret = KXMessages::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 void KXMessages_BroadcastMessage3(KXMessages* self, const char* msg_type, const libqt_string message, int screen) {

@@ -38,13 +38,10 @@ Sonnet__SpellCheckDecorator* Sonnet__SpellCheckDecorator_new2(QPlainTextEdit* te
 QMetaObject* Sonnet__SpellCheckDecorator_MetaObject(const Sonnet__SpellCheckDecorator* self);
 void* Sonnet__SpellCheckDecorator_Metacast(Sonnet__SpellCheckDecorator* self, const char* param1);
 int Sonnet__SpellCheckDecorator_Metacall(Sonnet__SpellCheckDecorator* self, int param1, int param2, void** param3);
-libqt_string Sonnet__SpellCheckDecorator_Tr(const char* s);
 void Sonnet__SpellCheckDecorator_SetHighlighter(Sonnet__SpellCheckDecorator* self, Sonnet__Highlighter* highlighter);
 Sonnet__Highlighter* Sonnet__SpellCheckDecorator_Highlighter(const Sonnet__SpellCheckDecorator* self);
 bool Sonnet__SpellCheckDecorator_EventFilter(Sonnet__SpellCheckDecorator* self, QObject* obj, QEvent* event);
 bool Sonnet__SpellCheckDecorator_IsSpellCheckingEnabledForBlock(const Sonnet__SpellCheckDecorator* self, const libqt_string textBlock);
-libqt_string Sonnet__SpellCheckDecorator_Tr2(const char* s, const char* c);
-libqt_string Sonnet__SpellCheckDecorator_Tr3(const char* s, const char* c, int n);
 void Sonnet__SpellCheckDecorator_OnMetacall(Sonnet__SpellCheckDecorator* self, intptr_t slot);
 int Sonnet__SpellCheckDecorator_QBaseMetacall(Sonnet__SpellCheckDecorator* self, int param1, int param2, void** param3);
 void Sonnet__SpellCheckDecorator_OnEventFilter(Sonnet__SpellCheckDecorator* self, intptr_t slot);

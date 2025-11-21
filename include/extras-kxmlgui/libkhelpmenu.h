@@ -37,7 +37,6 @@ KHelpMenu* KHelpMenu_new6(QWidget* parent, const libqt_string unused, bool showW
 QMetaObject* KHelpMenu_MetaObject(const KHelpMenu* self);
 void* KHelpMenu_Metacast(KHelpMenu* self, const char* param1);
 int KHelpMenu_Metacall(KHelpMenu* self, int param1, int param2, void** param3);
-libqt_string KHelpMenu_Tr(const char* s);
 void KHelpMenu_SetShowWhatsThis(KHelpMenu* self, bool showWhatsThis);
 QMenu* KHelpMenu_Menu(KHelpMenu* self);
 QAction* KHelpMenu_Action(const KHelpMenu* self, int id);
@@ -50,8 +49,6 @@ void KHelpMenu_SwitchApplicationLanguage(KHelpMenu* self);
 void KHelpMenu_Donate(KHelpMenu* self);
 void KHelpMenu_ShowAboutApplication(KHelpMenu* self);
 void KHelpMenu_Connect_ShowAboutApplication(KHelpMenu* self, intptr_t slot);
-libqt_string KHelpMenu_Tr2(const char* s, const char* c);
-libqt_string KHelpMenu_Tr3(const char* s, const char* c, int n);
 void KHelpMenu_OnMetacall(KHelpMenu* self, intptr_t slot);
 int KHelpMenu_QBaseMetacall(KHelpMenu* self, int param1, int param2, void** param3);
 bool KHelpMenu_Event(KHelpMenu* self, QEvent* event);

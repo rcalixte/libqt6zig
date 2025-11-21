@@ -35,13 +35,10 @@ typedef struct QUrl QUrl;
 QMetaObject* KIO__MkdirJob_MetaObject(const KIO__MkdirJob* self);
 void* KIO__MkdirJob_Metacast(KIO__MkdirJob* self, const char* param1);
 int KIO__MkdirJob_Metacall(KIO__MkdirJob* self, int param1, int param2, void** param3);
-libqt_string KIO__MkdirJob_Tr(const char* s);
 void KIO__MkdirJob_Redirection(KIO__MkdirJob* self, KIO__Job* job, const QUrl* url);
 void KIO__MkdirJob_Connect_Redirection(KIO__MkdirJob* self, intptr_t slot);
 void KIO__MkdirJob_PermanentRedirection(KIO__MkdirJob* self, KIO__Job* job, const QUrl* fromUrl, const QUrl* toUrl);
 void KIO__MkdirJob_Connect_PermanentRedirection(KIO__MkdirJob* self, intptr_t slot);
-libqt_string KIO__MkdirJob_Tr2(const char* s, const char* c);
-libqt_string KIO__MkdirJob_Tr3(const char* s, const char* c, int n);
 void KIO__MkdirJob_Delete(KIO__MkdirJob* self);
 
 KIO__MkdirJob* KIO_Mkdir(const QUrl* param1, int param2);

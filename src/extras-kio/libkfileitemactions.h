@@ -34,7 +34,6 @@ KFileItemActions* KFileItemActions_new2(QObject* parent);
 QMetaObject* KFileItemActions_MetaObject(const KFileItemActions* self);
 void* KFileItemActions_Metacast(KFileItemActions* self, const char* param1);
 int KFileItemActions_Metacall(KFileItemActions* self, int param1, int param2, void** param3);
-libqt_string KFileItemActions_Tr(const char* s);
 void KFileItemActions_SetItemListProperties(KFileItemActions* self, const KFileItemListProperties* itemList);
 void KFileItemActions_SetParentWidget(KFileItemActions* self, QWidget* widget);
 void KFileItemActions_InsertOpenWithActionsTo(KFileItemActions* self, QAction* before, QMenu* topMenu, const libqt_list /* of libqt_string */ excludedDesktopEntryNames);
@@ -44,8 +43,6 @@ void KFileItemActions_Connect_OpenWithDialogAboutToBeShown(KFileItemActions* sel
 void KFileItemActions_Error(KFileItemActions* self, const libqt_string errorMessage);
 void KFileItemActions_Connect_Error(KFileItemActions* self, intptr_t slot);
 void KFileItemActions_RunPreferredApplications(KFileItemActions* self, const KFileItemList* fileOpenList);
-libqt_string KFileItemActions_Tr2(const char* s, const char* c);
-libqt_string KFileItemActions_Tr3(const char* s, const char* c, int n);
 void KFileItemActions_AddActionsTo2(KFileItemActions* self, QMenu* menu, int sources);
 void KFileItemActions_AddActionsTo3(KFileItemActions* self, QMenu* menu, int sources, const libqt_list /* of QAction* */ additionalActions);
 void KFileItemActions_AddActionsTo4(KFileItemActions* self, QMenu* menu, int sources, const libqt_list /* of QAction* */ additionalActions, const libqt_list /* of libqt_string */ excludeList);

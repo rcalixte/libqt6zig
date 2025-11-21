@@ -26,9 +26,6 @@ typedef struct QXYSeries QXYSeries;
 QMetaObject* QXYModelMapper_MetaObject(const QXYModelMapper* self);
 void* QXYModelMapper_Metacast(QXYModelMapper* self, const char* param1);
 int QXYModelMapper_Metacall(QXYModelMapper* self, int param1, int param2, void** param3);
-libqt_string QXYModelMapper_Tr(const char* s);
-libqt_string QXYModelMapper_Tr2(const char* s, const char* c);
-libqt_string QXYModelMapper_Tr3(const char* s, const char* c, int n);
 void QXYModelMapper_Delete(QXYModelMapper* self);
 
 #ifdef __cplusplus

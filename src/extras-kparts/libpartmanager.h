@@ -37,7 +37,6 @@ KParts__PartManager* KParts__PartManager_new2(QWidget* topLevel, QObject* parent
 QMetaObject* KParts__PartManager_MetaObject(const KParts__PartManager* self);
 void* KParts__PartManager_Metacast(KParts__PartManager* self, const char* param1);
 int KParts__PartManager_Metacall(KParts__PartManager* self, int param1, int param2, void** param3);
-libqt_string KParts__PartManager_Tr(const char* s);
 void KParts__PartManager_SetSelectionPolicy(KParts__PartManager* self, int policy);
 int KParts__PartManager_SelectionPolicy(const KParts__PartManager* self);
 void KParts__PartManager_SetAllowNestedParts(KParts__PartManager* self, bool allow);
@@ -63,8 +62,6 @@ void KParts__PartManager_PartRemoved(KParts__PartManager* self, KParts__Part* pa
 void KParts__PartManager_Connect_PartRemoved(KParts__PartManager* self, intptr_t slot);
 void KParts__PartManager_ActivePartChanged(KParts__PartManager* self, KParts__Part* newPart);
 void KParts__PartManager_Connect_ActivePartChanged(KParts__PartManager* self, intptr_t slot);
-libqt_string KParts__PartManager_Tr2(const char* s, const char* c);
-libqt_string KParts__PartManager_Tr3(const char* s, const char* c, int n);
 void KParts__PartManager_OnMetacall(KParts__PartManager* self, intptr_t slot);
 int KParts__PartManager_QBaseMetacall(KParts__PartManager* self, int param1, int param2, void** param3);
 void KParts__PartManager_OnEventFilter(KParts__PartManager* self, intptr_t slot);

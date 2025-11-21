@@ -61,7 +61,6 @@ KMessageWidget* KMessageWidget_new4(const libqt_string text, QWidget* parent);
 QMetaObject* KMessageWidget_MetaObject(const KMessageWidget* self);
 void* KMessageWidget_Metacast(KMessageWidget* self, const char* param1);
 int KMessageWidget_Metacall(KMessageWidget* self, int param1, int param2, void** param3);
-libqt_string KMessageWidget_Tr(const char* s);
 int KMessageWidget_Position(const KMessageWidget* self);
 libqt_string KMessageWidget_Text(const KMessageWidget* self);
 int KMessageWidget_TextFormat(const KMessageWidget* self);
@@ -97,8 +96,6 @@ void KMessageWidget_Connect_ShowAnimationFinished(KMessageWidget* self, intptr_t
 void KMessageWidget_PaintEvent(KMessageWidget* self, QPaintEvent* event);
 bool KMessageWidget_Event(KMessageWidget* self, QEvent* event);
 void KMessageWidget_ResizeEvent(KMessageWidget* self, QResizeEvent* event);
-libqt_string KMessageWidget_Tr2(const char* s, const char* c);
-libqt_string KMessageWidget_Tr3(const char* s, const char* c, int n);
 void KMessageWidget_OnMetacall(KMessageWidget* self, intptr_t slot);
 int KMessageWidget_QBaseMetacall(KMessageWidget* self, int param1, int param2, void** param3);
 void KMessageWidget_OnSizeHint(const KMessageWidget* self, intptr_t slot);

@@ -59,7 +59,6 @@ QScrollArea* QScrollArea_new2();
 QMetaObject* QScrollArea_MetaObject(const QScrollArea* self);
 void* QScrollArea_Metacast(QScrollArea* self, const char* param1);
 int QScrollArea_Metacall(QScrollArea* self, int param1, int param2, void** param3);
-libqt_string QScrollArea_Tr(const char* s);
 QWidget* QScrollArea_Widget(const QScrollArea* self);
 void QScrollArea_SetWidget(QScrollArea* self, QWidget* widget);
 QWidget* QScrollArea_TakeWidget(QScrollArea* self);
@@ -76,8 +75,6 @@ bool QScrollArea_EventFilter(QScrollArea* self, QObject* param1, QEvent* param2)
 void QScrollArea_ResizeEvent(QScrollArea* self, QResizeEvent* param1);
 void QScrollArea_ScrollContentsBy(QScrollArea* self, int dx, int dy);
 QSize* QScrollArea_ViewportSizeHint(const QScrollArea* self);
-libqt_string QScrollArea_Tr2(const char* s, const char* c);
-libqt_string QScrollArea_Tr3(const char* s, const char* c, int n);
 void QScrollArea_EnsureVisible3(QScrollArea* self, int x, int y, int xmargin);
 void QScrollArea_EnsureVisible4(QScrollArea* self, int x, int y, int xmargin, int ymargin);
 void QScrollArea_EnsureWidgetVisible2(QScrollArea* self, QWidget* childWidget, int xmargin);

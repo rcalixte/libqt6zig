@@ -37,7 +37,6 @@ typedef struct QUrl QUrl;
 QMetaObject* KIO__TransferJob_MetaObject(const KIO__TransferJob* self);
 void* KIO__TransferJob_Metacast(KIO__TransferJob* self, const char* param1);
 int KIO__TransferJob_Metacall(KIO__TransferJob* self, int param1, int param2, void** param3);
-libqt_string KIO__TransferJob_Tr(const char* s);
 void KIO__TransferJob_SetModificationTime(KIO__TransferJob* self, const QDateTime* mtime);
 bool KIO__TransferJob_IsErrorPage(const KIO__TransferJob* self);
 void KIO__TransferJob_SetAsyncDataEnabled(KIO__TransferJob* self, bool enabled);
@@ -57,8 +56,6 @@ void KIO__TransferJob_MimeTypeFound(KIO__TransferJob* self, KIO__Job* job, const
 void KIO__TransferJob_Connect_MimeTypeFound(KIO__TransferJob* self, intptr_t slot);
 void KIO__TransferJob_CanResume(KIO__TransferJob* self, KIO__Job* job, unsigned long long offset);
 void KIO__TransferJob_Connect_CanResume(KIO__TransferJob* self, intptr_t slot);
-libqt_string KIO__TransferJob_Tr2(const char* s, const char* c);
-libqt_string KIO__TransferJob_Tr3(const char* s, const char* c, int n);
 void KIO__TransferJob_Delete(KIO__TransferJob* self);
 
 KIO__TransferJob* KIO_Get(const QUrl* param1, int param2, int param3);

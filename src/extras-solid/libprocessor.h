@@ -31,14 +31,11 @@ typedef struct Solid__Processor Solid__Processor;
 QMetaObject* Solid__Processor_MetaObject(const Solid__Processor* self);
 void* Solid__Processor_Metacast(Solid__Processor* self, const char* param1);
 int Solid__Processor_Metacall(Solid__Processor* self, int param1, int param2, void** param3);
-libqt_string Solid__Processor_Tr(const char* s);
 int Solid__Processor_DeviceInterfaceType();
 int Solid__Processor_Number(const Solid__Processor* self);
 int Solid__Processor_MaxSpeed(const Solid__Processor* self);
 bool Solid__Processor_CanChangeFrequency(const Solid__Processor* self);
 int Solid__Processor_InstructionSets(const Solid__Processor* self);
-libqt_string Solid__Processor_Tr2(const char* s, const char* c);
-libqt_string Solid__Processor_Tr3(const char* s, const char* c, int n);
 void Solid__Processor_Delete(Solid__Processor* self);
 
 #ifdef __cplusplus

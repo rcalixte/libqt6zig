@@ -23,18 +23,6 @@ int QWebEngineWebAuthUxRequest_Metacall(QWebEngineWebAuthUxRequest* self, int pa
     return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
-libqt_string QWebEngineWebAuthUxRequest_Tr(const char* s) {
-    QString _ret = QWebEngineWebAuthUxRequest::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 libqt_list /* of libqt_string */ QWebEngineWebAuthUxRequest_UserNames(const QWebEngineWebAuthUxRequest* self) {
     QList<QString> _ret = self->userNames();
     // Convert QList<> from C++ memory to manually-managed C memory
@@ -108,30 +96,6 @@ void QWebEngineWebAuthUxRequest_SetSelectedAccount(QWebEngineWebAuthUxRequest* s
 void QWebEngineWebAuthUxRequest_SetPin(QWebEngineWebAuthUxRequest* self, const libqt_string pin) {
     QString pin_QString = QString::fromUtf8(pin.data, pin.len);
     self->setPin(pin_QString);
-}
-
-libqt_string QWebEngineWebAuthUxRequest_Tr2(const char* s, const char* c) {
-    QString _ret = QWebEngineWebAuthUxRequest::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QWebEngineWebAuthUxRequest_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QWebEngineWebAuthUxRequest::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 void QWebEngineWebAuthUxRequest_Delete(QWebEngineWebAuthUxRequest* self) {

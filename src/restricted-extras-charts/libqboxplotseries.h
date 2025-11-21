@@ -33,7 +33,6 @@ QBoxPlotSeries* QBoxPlotSeries_new2(QObject* parent);
 QMetaObject* QBoxPlotSeries_MetaObject(const QBoxPlotSeries* self);
 void* QBoxPlotSeries_Metacast(QBoxPlotSeries* self, const char* param1);
 int QBoxPlotSeries_Metacall(QBoxPlotSeries* self, int param1, int param2, void** param3);
-libqt_string QBoxPlotSeries_Tr(const char* s);
 bool QBoxPlotSeries_Append(QBoxPlotSeries* self, QBoxSet* box);
 bool QBoxPlotSeries_Remove(QBoxPlotSeries* self, QBoxSet* box);
 bool QBoxPlotSeries_Take(QBoxPlotSeries* self, QBoxSet* box);
@@ -75,8 +74,6 @@ void QBoxPlotSeries_BoxsetsAdded(QBoxPlotSeries* self, const libqt_list /* of QB
 void QBoxPlotSeries_Connect_BoxsetsAdded(QBoxPlotSeries* self, intptr_t slot);
 void QBoxPlotSeries_BoxsetsRemoved(QBoxPlotSeries* self, const libqt_list /* of QBoxSet* */ sets);
 void QBoxPlotSeries_Connect_BoxsetsRemoved(QBoxPlotSeries* self, intptr_t slot);
-libqt_string QBoxPlotSeries_Tr2(const char* s, const char* c);
-libqt_string QBoxPlotSeries_Tr3(const char* s, const char* c, int n);
 void QBoxPlotSeries_OnMetacall(QBoxPlotSeries* self, intptr_t slot);
 int QBoxPlotSeries_QBaseMetacall(QBoxPlotSeries* self, int param1, int param2, void** param3);
 void QBoxPlotSeries_OnType(const QBoxPlotSeries* self, intptr_t slot);

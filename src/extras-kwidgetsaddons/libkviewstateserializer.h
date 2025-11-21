@@ -33,7 +33,6 @@ KViewStateSerializer* KViewStateSerializer_new2(QObject* parent);
 QMetaObject* KViewStateSerializer_MetaObject(const KViewStateSerializer* self);
 void* KViewStateSerializer_Metacast(KViewStateSerializer* self, const char* param1);
 int KViewStateSerializer_Metacall(KViewStateSerializer* self, int param1, int param2, void** param3);
-libqt_string KViewStateSerializer_Tr(const char* s);
 QAbstractItemView* KViewStateSerializer_View(const KViewStateSerializer* self);
 void KViewStateSerializer_SetView(KViewStateSerializer* self, QAbstractItemView* view);
 QItemSelectionModel* KViewStateSerializer_SelectionModel(const KViewStateSerializer* self);
@@ -48,8 +47,6 @@ void KViewStateSerializer_RestoreExpanded(KViewStateSerializer* self, const libq
 void KViewStateSerializer_RestoreScrollState(KViewStateSerializer* self, int verticalScoll, int horizontalScroll);
 QModelIndex* KViewStateSerializer_IndexFromConfigString(const KViewStateSerializer* self, const QAbstractItemModel* model, const libqt_string key);
 libqt_string KViewStateSerializer_IndexToConfigString(const KViewStateSerializer* self, const QModelIndex* index);
-libqt_string KViewStateSerializer_Tr2(const char* s, const char* c);
-libqt_string KViewStateSerializer_Tr3(const char* s, const char* c, int n);
 void KViewStateSerializer_OnMetacall(KViewStateSerializer* self, intptr_t slot);
 int KViewStateSerializer_QBaseMetacall(KViewStateSerializer* self, int param1, int param2, void** param3);
 void KViewStateSerializer_OnIndexFromConfigString(const KViewStateSerializer* self, intptr_t slot);

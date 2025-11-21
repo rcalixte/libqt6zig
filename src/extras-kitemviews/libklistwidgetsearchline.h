@@ -61,7 +61,6 @@ KListWidgetSearchLine* KListWidgetSearchLine_new3(QWidget* parent, QListWidget* 
 QMetaObject* KListWidgetSearchLine_MetaObject(const KListWidgetSearchLine* self);
 void* KListWidgetSearchLine_Metacast(KListWidgetSearchLine* self, const char* param1);
 int KListWidgetSearchLine_Metacall(KListWidgetSearchLine* self, int param1, int param2, void** param3);
-libqt_string KListWidgetSearchLine_Tr(const char* s);
 int KListWidgetSearchLine_CaseSensitive(const KListWidgetSearchLine* self);
 QListWidget* KListWidgetSearchLine_ListWidget(const KListWidgetSearchLine* self);
 void KListWidgetSearchLine_UpdateSearch(KListWidgetSearchLine* self, const libqt_string s);
@@ -70,8 +69,6 @@ void KListWidgetSearchLine_SetListWidget(KListWidgetSearchLine* self, QListWidge
 void KListWidgetSearchLine_Clear(KListWidgetSearchLine* self);
 bool KListWidgetSearchLine_ItemMatches(const KListWidgetSearchLine* self, const QListWidgetItem* item, const libqt_string s);
 bool KListWidgetSearchLine_Event(KListWidgetSearchLine* self, QEvent* event);
-libqt_string KListWidgetSearchLine_Tr2(const char* s, const char* c);
-libqt_string KListWidgetSearchLine_Tr3(const char* s, const char* c, int n);
 void KListWidgetSearchLine_OnMetacall(KListWidgetSearchLine* self, intptr_t slot);
 int KListWidgetSearchLine_QBaseMetacall(KListWidgetSearchLine* self, int param1, int param2, void** param3);
 void KListWidgetSearchLine_OnUpdateSearch(KListWidgetSearchLine* self, intptr_t slot);

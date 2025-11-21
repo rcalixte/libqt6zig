@@ -33,7 +33,6 @@ PackageKit__Transaction* PackageKit__Transaction_new(const QDBusObjectPath* tid)
 QMetaObject* PackageKit__Transaction_MetaObject(const PackageKit__Transaction* self);
 void* PackageKit__Transaction_Metacast(PackageKit__Transaction* self, const char* param1);
 int PackageKit__Transaction_Metacall(PackageKit__Transaction* self, int param1, int param2, void** param3);
-libqt_string PackageKit__Transaction_Tr(const char* s);
 QDBusObjectPath* PackageKit__Transaction_Tid(const PackageKit__Transaction* self);
 bool PackageKit__Transaction_AllowCancel(const PackageKit__Transaction* self);
 bool PackageKit__Transaction_IsCallerActive(const PackageKit__Transaction* self);
@@ -115,8 +114,6 @@ void PackageKit__Transaction_Transaction(PackageKit__Transaction* self, PackageK
 void PackageKit__Transaction_Connect_Transaction(PackageKit__Transaction* self, intptr_t slot);
 void PackageKit__Transaction_ConnectNotify(PackageKit__Transaction* self, const QMetaMethod* signal);
 void PackageKit__Transaction_DisconnectNotify(PackageKit__Transaction* self, const QMetaMethod* signal);
-libqt_string PackageKit__Transaction_Tr2(const char* s, const char* c);
-libqt_string PackageKit__Transaction_Tr3(const char* s, const char* c, int n);
 void PackageKit__Transaction_OnMetacall(PackageKit__Transaction* self, intptr_t slot);
 int PackageKit__Transaction_QBaseMetacall(PackageKit__Transaction* self, int param1, int param2, void** param3);
 void PackageKit__Transaction_OnConnectNotify(PackageKit__Transaction* self, intptr_t slot);

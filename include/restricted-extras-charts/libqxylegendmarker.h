@@ -32,11 +32,8 @@ QXYLegendMarker* QXYLegendMarker_new2(QXYSeries* series, QLegend* legend, QObjec
 QMetaObject* QXYLegendMarker_MetaObject(const QXYLegendMarker* self);
 void* QXYLegendMarker_Metacast(QXYLegendMarker* self, const char* param1);
 int QXYLegendMarker_Metacall(QXYLegendMarker* self, int param1, int param2, void** param3);
-libqt_string QXYLegendMarker_Tr(const char* s);
 int QXYLegendMarker_Type(QXYLegendMarker* self);
 QXYSeries* QXYLegendMarker_Series(QXYLegendMarker* self);
-libqt_string QXYLegendMarker_Tr2(const char* s, const char* c);
-libqt_string QXYLegendMarker_Tr3(const char* s, const char* c, int n);
 void QXYLegendMarker_OnMetacall(QXYLegendMarker* self, intptr_t slot);
 int QXYLegendMarker_QBaseMetacall(QXYLegendMarker* self, int param1, int param2, void** param3);
 void QXYLegendMarker_OnType(QXYLegendMarker* self, intptr_t slot);

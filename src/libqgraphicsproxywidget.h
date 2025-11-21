@@ -56,7 +56,6 @@ QGraphicsProxyWidget* QGraphicsProxyWidget_new3(QGraphicsItem* parent, int wFlag
 QMetaObject* QGraphicsProxyWidget_MetaObject(const QGraphicsProxyWidget* self);
 void* QGraphicsProxyWidget_Metacast(QGraphicsProxyWidget* self, const char* param1);
 int QGraphicsProxyWidget_Metacall(QGraphicsProxyWidget* self, int param1, int param2, void** param3);
-libqt_string QGraphicsProxyWidget_Tr(const char* s);
 void QGraphicsProxyWidget_SetWidget(QGraphicsProxyWidget* self, QWidget* widget);
 QWidget* QGraphicsProxyWidget_Widget(const QGraphicsProxyWidget* self);
 QRectF* QGraphicsProxyWidget_SubWidgetRect(const QGraphicsProxyWidget* self, const QWidget* widget);
@@ -93,8 +92,6 @@ QVariant* QGraphicsProxyWidget_InputMethodQuery(const QGraphicsProxyWidget* self
 void QGraphicsProxyWidget_InputMethodEvent(QGraphicsProxyWidget* self, QInputMethodEvent* event);
 QSizeF* QGraphicsProxyWidget_SizeHint(const QGraphicsProxyWidget* self, int which, const QSizeF* constraint);
 void QGraphicsProxyWidget_ResizeEvent(QGraphicsProxyWidget* self, QGraphicsSceneResizeEvent* event);
-libqt_string QGraphicsProxyWidget_Tr2(const char* s, const char* c);
-libqt_string QGraphicsProxyWidget_Tr3(const char* s, const char* c, int n);
 void QGraphicsProxyWidget_OnMetacall(QGraphicsProxyWidget* self, intptr_t slot);
 int QGraphicsProxyWidget_QBaseMetacall(QGraphicsProxyWidget* self, int param1, int param2, void** param3);
 void QGraphicsProxyWidget_OnSetGeometry(QGraphicsProxyWidget* self, intptr_t slot);

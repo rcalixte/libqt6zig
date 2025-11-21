@@ -84,18 +84,6 @@ int KUrlComboBox_Metacall(KUrlComboBox* self, int param1, int param2, void** par
     }
 }
 
-libqt_string KUrlComboBox_Tr(const char* s) {
-    QString _ret = KUrlComboBox::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 void KUrlComboBox_SetUrl(KUrlComboBox* self, const QUrl* url) {
     self->setUrl(*url);
 }
@@ -202,30 +190,6 @@ void KUrlComboBox_MouseMoveEvent(KUrlComboBox* self, QMouseEvent* event) {
     if (vkurlcombobox && vkurlcombobox->isVirtualKUrlComboBox) {
         vkurlcombobox->mouseMoveEvent(event);
     }
-}
-
-libqt_string KUrlComboBox_Tr2(const char* s, const char* c) {
-    QString _ret = KUrlComboBox::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string KUrlComboBox_Tr3(const char* s, const char* c, int n) {
-    QString _ret = KUrlComboBox::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 void KUrlComboBox_AddDefaultUrl22(KUrlComboBox* self, const QUrl* url, const libqt_string text) {

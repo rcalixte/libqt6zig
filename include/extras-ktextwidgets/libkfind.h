@@ -32,7 +32,6 @@ KFind* KFind_new2(const libqt_string pattern, long options, QWidget* parent, QWi
 QMetaObject* KFind_MetaObject(const KFind* self);
 void* KFind_Metacast(KFind* self, const char* param1);
 int KFind_Metacall(KFind* self, int param1, int param2, void** param3);
-libqt_string KFind_Tr(const char* s);
 bool KFind_NeedData(const KFind* self);
 void KFind_SetData(KFind* self, const libqt_string data);
 void KFind_SetData2(KFind* self, int id, const libqt_string data);
@@ -60,8 +59,6 @@ void KFind_OptionsChanged(KFind* self);
 void KFind_Connect_OptionsChanged(KFind* self, intptr_t slot);
 void KFind_DialogClosed(KFind* self);
 void KFind_Connect_DialogClosed(KFind* self, intptr_t slot);
-libqt_string KFind_Tr2(const char* s, const char* c);
-libqt_string KFind_Tr3(const char* s, const char* c, int n);
 void KFind_SetData22(KFind* self, const libqt_string data, int startPos);
 void KFind_SetData3(KFind* self, int id, const libqt_string data, int startPos);
 QDialog* KFind_FindNextDialog1(KFind* self, bool create);

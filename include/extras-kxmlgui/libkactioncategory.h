@@ -31,15 +31,12 @@ KActionCategory* KActionCategory_new2(const libqt_string text, KActionCollection
 QMetaObject* KActionCategory_MetaObject(const KActionCategory* self);
 void* KActionCategory_Metacast(KActionCategory* self, const char* param1);
 int KActionCategory_Metacall(KActionCategory* self, int param1, int param2, void** param3);
-libqt_string KActionCategory_Tr(const char* s);
 QAction* KActionCategory_AddAction(KActionCategory* self, const libqt_string name, QAction* action);
 QAction* KActionCategory_AddAction2(KActionCategory* self, int actionType);
 libqt_list /* of QAction* */ KActionCategory_Actions(const KActionCategory* self);
 KActionCollection* KActionCategory_Collection(const KActionCategory* self);
 libqt_string KActionCategory_Text(const KActionCategory* self);
 void KActionCategory_SetText(KActionCategory* self, const libqt_string text);
-libqt_string KActionCategory_Tr2(const char* s, const char* c);
-libqt_string KActionCategory_Tr3(const char* s, const char* c, int n);
 void KActionCategory_OnMetacall(KActionCategory* self, intptr_t slot);
 int KActionCategory_QBaseMetacall(KActionCategory* self, int param1, int param2, void** param3);
 bool KActionCategory_Event(KActionCategory* self, QEvent* event);

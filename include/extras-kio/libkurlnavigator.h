@@ -59,7 +59,6 @@ KUrlNavigator* KUrlNavigator_new3(KFilePlacesModel* placesModel, const QUrl* url
 QMetaObject* KUrlNavigator_MetaObject(const KUrlNavigator* self);
 void* KUrlNavigator_Metacast(KUrlNavigator* self, const char* param1);
 int KUrlNavigator_Metacall(KUrlNavigator* self, int param1, int param2, void** param3);
-libqt_string KUrlNavigator_Tr(const char* s);
 QUrl* KUrlNavigator_LocationUrl(const KUrlNavigator* self);
 void KUrlNavigator_SaveLocationState(KUrlNavigator* self, const libqt_string state);
 libqt_string KUrlNavigator_LocationState(const KUrlNavigator* self);
@@ -128,8 +127,6 @@ void KUrlNavigator_WheelEvent(KUrlNavigator* self, QWheelEvent* event);
 void KUrlNavigator_ShowEvent(KUrlNavigator* self, QShowEvent* event);
 bool KUrlNavigator_EventFilter(KUrlNavigator* self, QObject* watched, QEvent* event);
 void KUrlNavigator_PaintEvent(KUrlNavigator* self, QPaintEvent* event);
-libqt_string KUrlNavigator_Tr2(const char* s, const char* c);
-libqt_string KUrlNavigator_Tr3(const char* s, const char* c, int n);
 QUrl* KUrlNavigator_LocationUrl1(const KUrlNavigator* self, int historyIndex);
 libqt_string KUrlNavigator_LocationState1(const KUrlNavigator* self, int historyIndex);
 void KUrlNavigator_OnMetacall(KUrlNavigator* self, intptr_t slot);

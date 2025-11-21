@@ -38,13 +38,10 @@ typedef struct QUrl QUrl;
 QMetaObject* KIO__PasteJob_MetaObject(const KIO__PasteJob* self);
 void* KIO__PasteJob_Metacast(KIO__PasteJob* self, const char* param1);
 int KIO__PasteJob_Metacall(KIO__PasteJob* self, int param1, int param2, void** param3);
-libqt_string KIO__PasteJob_Tr(const char* s);
 void KIO__PasteJob_ItemCreated(KIO__PasteJob* self, const QUrl* url);
 void KIO__PasteJob_Connect_ItemCreated(KIO__PasteJob* self, intptr_t slot);
 void KIO__PasteJob_CopyJobStarted(KIO__PasteJob* self, KIO__CopyJob* job);
 void KIO__PasteJob_Connect_CopyJobStarted(KIO__PasteJob* self, intptr_t slot);
-libqt_string KIO__PasteJob_Tr2(const char* s, const char* c);
-libqt_string KIO__PasteJob_Tr3(const char* s, const char* c, int n);
 void KIO__PasteJob_Delete(KIO__PasteJob* self);
 
 KIO__PasteJob* KIO_Paste(const QMimeData* param1, const QUrl* param2, int param3);

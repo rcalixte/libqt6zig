@@ -40,18 +40,6 @@ int QBuffer_Metacall(QBuffer* self, int param1, int param2, void** param3) {
     }
 }
 
-libqt_string QBuffer_Tr(const char* s) {
-    QString _ret = QBuffer::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 libqt_string QBuffer_Buffer(QBuffer* self) {
     QByteArray _qb = self->buffer();
     libqt_string _str;
@@ -182,30 +170,6 @@ long long QBuffer_WriteData(QBuffer* self, const char* data, long long lenVal) {
         return static_cast<long long>(vqbuffer->writeData(data, static_cast<qint64>(lenVal)));
     }
     return {};
-}
-
-libqt_string QBuffer_Tr2(const char* s, const char* c) {
-    QString _ret = QBuffer::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QBuffer_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QBuffer::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 // Base class handler implementation

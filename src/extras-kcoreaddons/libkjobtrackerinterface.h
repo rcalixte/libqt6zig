@@ -27,11 +27,8 @@ KJobTrackerInterface* KJobTrackerInterface_new2(QObject* parent);
 QMetaObject* KJobTrackerInterface_MetaObject(const KJobTrackerInterface* self);
 void* KJobTrackerInterface_Metacast(KJobTrackerInterface* self, const char* param1);
 int KJobTrackerInterface_Metacall(KJobTrackerInterface* self, int param1, int param2, void** param3);
-libqt_string KJobTrackerInterface_Tr(const char* s);
 void KJobTrackerInterface_RegisterJob(KJobTrackerInterface* self, KJob* job);
 void KJobTrackerInterface_UnregisterJob(KJobTrackerInterface* self, KJob* job);
-libqt_string KJobTrackerInterface_Tr2(const char* s, const char* c);
-libqt_string KJobTrackerInterface_Tr3(const char* s, const char* c, int n);
 void KJobTrackerInterface_Delete(KJobTrackerInterface* self);
 
 #ifdef __cplusplus

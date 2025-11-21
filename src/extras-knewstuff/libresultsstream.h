@@ -29,15 +29,12 @@ typedef struct QObject QObject;
 QMetaObject* KNSCore__ResultsStream_MetaObject(const KNSCore__ResultsStream* self);
 void* KNSCore__ResultsStream_Metacast(KNSCore__ResultsStream* self, const char* param1);
 int KNSCore__ResultsStream_Metacall(KNSCore__ResultsStream* self, int param1, int param2, void** param3);
-libqt_string KNSCore__ResultsStream_Tr(const char* s);
 void KNSCore__ResultsStream_Fetch(KNSCore__ResultsStream* self);
 void KNSCore__ResultsStream_FetchMore(KNSCore__ResultsStream* self);
 void KNSCore__ResultsStream_EntriesFound(KNSCore__ResultsStream* self, const libqt_list /* of KNSCore__Entry* */ entries);
 void KNSCore__ResultsStream_Connect_EntriesFound(KNSCore__ResultsStream* self, intptr_t slot);
 void KNSCore__ResultsStream_Finished(KNSCore__ResultsStream* self);
 void KNSCore__ResultsStream_Connect_Finished(KNSCore__ResultsStream* self, intptr_t slot);
-libqt_string KNSCore__ResultsStream_Tr2(const char* s, const char* c);
-libqt_string KNSCore__ResultsStream_Tr3(const char* s, const char* c, int n);
 void KNSCore__ResultsStream_Delete(KNSCore__ResultsStream* self);
 
 #ifdef __cplusplus

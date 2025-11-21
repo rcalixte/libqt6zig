@@ -36,7 +36,6 @@ KSyntaxHighlighting__Repository* KSyntaxHighlighting__Repository_new();
 QMetaObject* KSyntaxHighlighting__Repository_MetaObject(const KSyntaxHighlighting__Repository* self);
 void* KSyntaxHighlighting__Repository_Metacast(KSyntaxHighlighting__Repository* self, const char* param1);
 int KSyntaxHighlighting__Repository_Metacall(KSyntaxHighlighting__Repository* self, int param1, int param2, void** param3);
-libqt_string KSyntaxHighlighting__Repository_Tr(const char* s);
 KSyntaxHighlighting__Definition* KSyntaxHighlighting__Repository_DefinitionForName(const KSyntaxHighlighting__Repository* self, const libqt_string defName);
 KSyntaxHighlighting__Definition* KSyntaxHighlighting__Repository_DefinitionForFileName(const KSyntaxHighlighting__Repository* self, const libqt_string fileName);
 libqt_list /* of KSyntaxHighlighting__Definition* */ KSyntaxHighlighting__Repository_DefinitionsForFileName(const KSyntaxHighlighting__Repository* self, const libqt_string fileName);
@@ -54,8 +53,6 @@ void KSyntaxHighlighting__Repository_AboutToReload(KSyntaxHighlighting__Reposito
 void KSyntaxHighlighting__Repository_Connect_AboutToReload(KSyntaxHighlighting__Repository* self, intptr_t slot);
 void KSyntaxHighlighting__Repository_Reloaded(KSyntaxHighlighting__Repository* self);
 void KSyntaxHighlighting__Repository_Connect_Reloaded(KSyntaxHighlighting__Repository* self, intptr_t slot);
-libqt_string KSyntaxHighlighting__Repository_Tr2(const char* s, const char* c);
-libqt_string KSyntaxHighlighting__Repository_Tr3(const char* s, const char* c, int n);
 KSyntaxHighlighting__Theme* KSyntaxHighlighting__Repository_DefaultTheme1(const KSyntaxHighlighting__Repository* self, int t);
 void KSyntaxHighlighting__Repository_OnMetacall(KSyntaxHighlighting__Repository* self, intptr_t slot);
 int KSyntaxHighlighting__Repository_QBaseMetacall(KSyntaxHighlighting__Repository* self, int param1, int param2, void** param3);

@@ -33,7 +33,6 @@ QDBusServer* QDBusServer_new4(QObject* parent);
 QMetaObject* QDBusServer_MetaObject(const QDBusServer* self);
 void* QDBusServer_Metacast(QDBusServer* self, const char* param1);
 int QDBusServer_Metacall(QDBusServer* self, int param1, int param2, void** param3);
-libqt_string QDBusServer_Tr(const char* s);
 bool QDBusServer_IsConnected(const QDBusServer* self);
 QDBusError* QDBusServer_LastError(const QDBusServer* self);
 libqt_string QDBusServer_Address(const QDBusServer* self);
@@ -41,8 +40,6 @@ void QDBusServer_SetAnonymousAuthenticationAllowed(QDBusServer* self, bool value
 bool QDBusServer_IsAnonymousAuthenticationAllowed(const QDBusServer* self);
 void QDBusServer_NewConnection(QDBusServer* self, const QDBusConnection* connection);
 void QDBusServer_Connect_NewConnection(QDBusServer* self, intptr_t slot);
-libqt_string QDBusServer_Tr2(const char* s, const char* c);
-libqt_string QDBusServer_Tr3(const char* s, const char* c, int n);
 void QDBusServer_OnMetacall(QDBusServer* self, intptr_t slot);
 int QDBusServer_QBaseMetacall(QDBusServer* self, int param1, int param2, void** param3);
 bool QDBusServer_Event(QDBusServer* self, QEvent* event);

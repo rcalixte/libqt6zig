@@ -38,18 +38,6 @@ int KSyntaxHighlighting__DefinitionDownloader_Metacall(KSyntaxHighlighting__Defi
     }
 }
 
-libqt_string KSyntaxHighlighting__DefinitionDownloader_Tr(const char* s) {
-    QString _ret = KSyntaxHighlighting::DefinitionDownloader::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 void KSyntaxHighlighting__DefinitionDownloader_Start(KSyntaxHighlighting__DefinitionDownloader* self) {
     self->start();
 }
@@ -83,30 +71,6 @@ void KSyntaxHighlighting__DefinitionDownloader_Connect_Done(KSyntaxHighlighting_
     KSyntaxHighlighting::DefinitionDownloader::connect(self, &KSyntaxHighlighting::DefinitionDownloader::done, [self, slotFunc]() {
         slotFunc(self);
     });
-}
-
-libqt_string KSyntaxHighlighting__DefinitionDownloader_Tr2(const char* s, const char* c) {
-    QString _ret = KSyntaxHighlighting::DefinitionDownloader::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string KSyntaxHighlighting__DefinitionDownloader_Tr3(const char* s, const char* c, int n) {
-    QString _ret = KSyntaxHighlighting::DefinitionDownloader::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 // Base class handler implementation

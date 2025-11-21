@@ -41,18 +41,6 @@ int QAudioDecoder_Metacall(QAudioDecoder* self, int param1, int param2, void** p
     }
 }
 
-libqt_string QAudioDecoder_Tr(const char* s) {
-    QString _ret = QAudioDecoder::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 bool QAudioDecoder_IsSupported(const QAudioDecoder* self) {
     return self->isSupported();
 }
@@ -159,30 +147,6 @@ void QAudioDecoder_PositionChanged(QAudioDecoder* self, long long position) {
 
 void QAudioDecoder_DurationChanged(QAudioDecoder* self, long long duration) {
     self->durationChanged(static_cast<qint64>(duration));
-}
-
-libqt_string QAudioDecoder_Tr2(const char* s, const char* c) {
-    QString _ret = QAudioDecoder::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QAudioDecoder_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QAudioDecoder::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 // Base class handler implementation

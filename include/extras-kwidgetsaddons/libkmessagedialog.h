@@ -59,7 +59,6 @@ KMessageDialog* KMessageDialog_new3(int typeVal, const libqt_string text, QWidge
 QMetaObject* KMessageDialog_MetaObject(const KMessageDialog* self);
 void* KMessageDialog_Metacast(KMessageDialog* self, const char* param1);
 int KMessageDialog_Metacall(KMessageDialog* self, int param1, int param2, void** param3);
-libqt_string KMessageDialog_Tr(const char* s);
 void KMessageDialog_SetCaption(KMessageDialog* self, const libqt_string caption);
 void KMessageDialog_SetIcon(KMessageDialog* self, const QIcon* icon);
 void KMessageDialog_SetListWidgetItems(KMessageDialog* self, const libqt_list /* of libqt_string */ strlist);
@@ -73,8 +72,6 @@ void KMessageDialog_SetNotifyEnabled(KMessageDialog* self, bool enable);
 void KMessageDialog_SetButtons(KMessageDialog* self);
 void KMessageDialog_Beep(int typeVal);
 void KMessageDialog_ShowEvent(KMessageDialog* self, QShowEvent* event);
-libqt_string KMessageDialog_Tr2(const char* s, const char* c);
-libqt_string KMessageDialog_Tr3(const char* s, const char* c, int n);
 void KMessageDialog_SetButtons1(KMessageDialog* self, const KGuiItem* primaryAction);
 void KMessageDialog_SetButtons2(KMessageDialog* self, const KGuiItem* primaryAction, const KGuiItem* secondaryAction);
 void KMessageDialog_SetButtons3(KMessageDialog* self, const KGuiItem* primaryAction, const KGuiItem* secondaryAction, const KGuiItem* cancelAction);

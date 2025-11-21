@@ -28,18 +28,6 @@ int KIO__FileUndoManager_Metacall(KIO__FileUndoManager* self, int param1, int pa
     return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
-libqt_string KIO__FileUndoManager_Tr(const char* s) {
-    QString _ret = KIO::FileUndoManager::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 KIO__FileUndoManager* KIO__FileUndoManager_Self() {
     return KIO::FileUndoManager::self();
 }
@@ -159,30 +147,6 @@ void KIO__FileUndoManager_Connect_JobRecordingFinished(KIO__FileUndoManager* sel
         int sigval1 = static_cast<int>(op);
         slotFunc(self, sigval1);
     });
-}
-
-libqt_string KIO__FileUndoManager_Tr2(const char* s, const char* c) {
-    QString _ret = KIO::FileUndoManager::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string KIO__FileUndoManager_Tr3(const char* s, const char* c, int n) {
-    QString _ret = KIO::FileUndoManager::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 KIO__FileUndoManager__UiInterface* KIO__FileUndoManager__UiInterface_new() {

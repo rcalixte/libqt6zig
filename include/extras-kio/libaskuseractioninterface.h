@@ -32,7 +32,6 @@ typedef struct QWidget QWidget;
 QMetaObject* KIO__AskUserActionInterface_MetaObject(const KIO__AskUserActionInterface* self);
 void* KIO__AskUserActionInterface_Metacast(KIO__AskUserActionInterface* self, const char* param1);
 int KIO__AskUserActionInterface_Metacall(KIO__AskUserActionInterface* self, int param1, int param2, void** param3);
-libqt_string KIO__AskUserActionInterface_Tr(const char* s);
 void KIO__AskUserActionInterface_AskUserRename(KIO__AskUserActionInterface* self, KJob* job, const libqt_string title, const QUrl* src, const QUrl* dest, int options, unsigned long long sizeSrc, unsigned long long sizeDest, const QDateTime* ctimeSrc, const QDateTime* ctimeDest, const QDateTime* mtimeSrc, const QDateTime* mtimeDest);
 void KIO__AskUserActionInterface_AskUserSkip(KIO__AskUserActionInterface* self, KJob* job, int options, const libqt_string errorText);
 void KIO__AskUserActionInterface_AskUserDelete(KIO__AskUserActionInterface* self, const libqt_list /* of QUrl* */ urls, int deletionType, int confirmationType, QWidget* parent);
@@ -48,8 +47,6 @@ void KIO__AskUserActionInterface_MessageBoxResult(KIO__AskUserActionInterface* s
 void KIO__AskUserActionInterface_Connect_MessageBoxResult(KIO__AskUserActionInterface* self, intptr_t slot);
 void KIO__AskUserActionInterface_AskIgnoreSslErrorsResult(KIO__AskUserActionInterface* self, int result);
 void KIO__AskUserActionInterface_Connect_AskIgnoreSslErrorsResult(KIO__AskUserActionInterface* self, intptr_t slot);
-libqt_string KIO__AskUserActionInterface_Tr2(const char* s, const char* c);
-libqt_string KIO__AskUserActionInterface_Tr3(const char* s, const char* c, int n);
 void KIO__AskUserActionInterface_Delete(KIO__AskUserActionInterface* self);
 
 #ifdef __cplusplus

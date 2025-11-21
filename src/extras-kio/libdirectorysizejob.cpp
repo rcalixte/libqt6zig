@@ -26,18 +26,6 @@ int KIO__DirectorySizeJob_Metacall(KIO__DirectorySizeJob* self, int param1, int 
     return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
-libqt_string KIO__DirectorySizeJob_Tr(const char* s) {
-    QString _ret = KIO::DirectorySizeJob::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 unsigned long long KIO__DirectorySizeJob_TotalSize(const KIO__DirectorySizeJob* self) {
     return static_cast<unsigned long long>(self->totalSize());
 }
@@ -48,30 +36,6 @@ unsigned long long KIO__DirectorySizeJob_TotalFiles(const KIO__DirectorySizeJob*
 
 unsigned long long KIO__DirectorySizeJob_TotalSubdirs(const KIO__DirectorySizeJob* self) {
     return static_cast<unsigned long long>(self->totalSubdirs());
-}
-
-libqt_string KIO__DirectorySizeJob_Tr2(const char* s, const char* c) {
-    QString _ret = KIO::DirectorySizeJob::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string KIO__DirectorySizeJob_Tr3(const char* s, const char* c, int n) {
-    QString _ret = KIO::DirectorySizeJob::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 void KIO__DirectorySizeJob_Delete(KIO__DirectorySizeJob* self) {

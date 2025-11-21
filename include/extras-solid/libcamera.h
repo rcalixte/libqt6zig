@@ -32,13 +32,10 @@ typedef struct Solid__DeviceInterface Solid__DeviceInterface;
 QMetaObject* Solid__Camera_MetaObject(const Solid__Camera* self);
 void* Solid__Camera_Metacast(Solid__Camera* self, const char* param1);
 int Solid__Camera_Metacall(Solid__Camera* self, int param1, int param2, void** param3);
-libqt_string Solid__Camera_Tr(const char* s);
 int Solid__Camera_DeviceInterfaceType();
 libqt_list /* of libqt_string */ Solid__Camera_SupportedProtocols(const Solid__Camera* self);
 libqt_list /* of libqt_string */ Solid__Camera_SupportedDrivers(const Solid__Camera* self);
 QVariant* Solid__Camera_DriverHandle(const Solid__Camera* self, const libqt_string driver);
-libqt_string Solid__Camera_Tr2(const char* s, const char* c);
-libqt_string Solid__Camera_Tr3(const char* s, const char* c, int n);
 libqt_list /* of libqt_string */ Solid__Camera_SupportedDrivers1(const Solid__Camera* self, libqt_string protocol);
 void Solid__Camera_Delete(Solid__Camera* self);
 

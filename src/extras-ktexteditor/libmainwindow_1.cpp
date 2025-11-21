@@ -43,18 +43,6 @@ int KTextEditor__MainWindow_Metacall(KTextEditor__MainWindow* self, int param1, 
     }
 }
 
-libqt_string KTextEditor__MainWindow_Tr(const char* s) {
-    QString _ret = KTextEditor::MainWindow::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 QWidget* KTextEditor__MainWindow_Window(KTextEditor__MainWindow* self) {
     return self->window();
 }
@@ -291,30 +279,6 @@ bool KTextEditor__MainWindow_ShowMessage(KTextEditor__MainWindow* self, const li
         message_QMap[message_karr_i_QString] = *(message_varr[i]);
     }
     return self->showMessage(message_QMap);
-}
-
-libqt_string KTextEditor__MainWindow_Tr2(const char* s, const char* c) {
-    QString _ret = KTextEditor::MainWindow::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string KTextEditor__MainWindow_Tr3(const char* s, const char* c, int n) {
-    QString _ret = KTextEditor::MainWindow::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 KTextEditor__View* KTextEditor__MainWindow_OpenUrl2(KTextEditor__MainWindow* self, const QUrl* url, const libqt_string encoding) {

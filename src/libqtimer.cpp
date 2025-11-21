@@ -37,18 +37,6 @@ int QTimer_Metacall(QTimer* self, int param1, int param2, void** param3) {
     }
 }
 
-libqt_string QTimer_Tr(const char* s) {
-    QString _ret = QTimer::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 bool QTimer_IsActive(const QTimer* self) {
     return self->isActive();
 }
@@ -106,30 +94,6 @@ void QTimer_TimerEvent(QTimer* self, QTimerEvent* param1) {
     if (vqtimer && vqtimer->isVirtualQTimer) {
         vqtimer->timerEvent(param1);
     }
-}
-
-libqt_string QTimer_Tr2(const char* s, const char* c) {
-    QString _ret = QTimer::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QTimer_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QTimer::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 // Base class handler implementation

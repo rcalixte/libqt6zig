@@ -32,11 +32,8 @@ QBoxPlotLegendMarker* QBoxPlotLegendMarker_new2(QBoxPlotSeries* series, QLegend*
 QMetaObject* QBoxPlotLegendMarker_MetaObject(const QBoxPlotLegendMarker* self);
 void* QBoxPlotLegendMarker_Metacast(QBoxPlotLegendMarker* self, const char* param1);
 int QBoxPlotLegendMarker_Metacall(QBoxPlotLegendMarker* self, int param1, int param2, void** param3);
-libqt_string QBoxPlotLegendMarker_Tr(const char* s);
 int QBoxPlotLegendMarker_Type(QBoxPlotLegendMarker* self);
 QBoxPlotSeries* QBoxPlotLegendMarker_Series(QBoxPlotLegendMarker* self);
-libqt_string QBoxPlotLegendMarker_Tr2(const char* s, const char* c);
-libqt_string QBoxPlotLegendMarker_Tr3(const char* s, const char* c, int n);
 void QBoxPlotLegendMarker_OnMetacall(QBoxPlotLegendMarker* self, intptr_t slot);
 int QBoxPlotLegendMarker_QBaseMetacall(QBoxPlotLegendMarker* self, int param1, int param2, void** param3);
 void QBoxPlotLegendMarker_OnType(QBoxPlotLegendMarker* self, intptr_t slot);

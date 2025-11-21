@@ -38,18 +38,6 @@ int KIO__NameFinderJob_Metacall(KIO__NameFinderJob* self, int param1, int param2
     }
 }
 
-libqt_string KIO__NameFinderJob_Tr(const char* s) {
-    QString _ret = KIO::NameFinderJob::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 void KIO__NameFinderJob_Start(KIO__NameFinderJob* self) {
     auto* vkio__namefinderjob = dynamic_cast<VirtualKIONameFinderJob*>(self);
     if (vkio__namefinderjob && vkio__namefinderjob->isVirtualKIONameFinderJob) {
@@ -69,30 +57,6 @@ QUrl* KIO__NameFinderJob_BaseUrl(const KIO__NameFinderJob* self) {
 
 libqt_string KIO__NameFinderJob_FinalName(const KIO__NameFinderJob* self) {
     QString _ret = self->finalName();
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string KIO__NameFinderJob_Tr2(const char* s, const char* c) {
-    QString _ret = KIO::NameFinderJob::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string KIO__NameFinderJob_Tr3(const char* s, const char* c, int n) {
-    QString _ret = KIO::NameFinderJob::tr(s, c, static_cast<int>(n));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

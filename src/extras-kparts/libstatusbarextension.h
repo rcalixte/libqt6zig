@@ -42,15 +42,12 @@ KParts__StatusBarExtension* KParts__StatusBarExtension_new2(KParts__ReadOnlyPart
 QMetaObject* KParts__StatusBarExtension_MetaObject(const KParts__StatusBarExtension* self);
 void* KParts__StatusBarExtension_Metacast(KParts__StatusBarExtension* self, const char* param1);
 int KParts__StatusBarExtension_Metacall(KParts__StatusBarExtension* self, int param1, int param2, void** param3);
-libqt_string KParts__StatusBarExtension_Tr(const char* s);
 void KParts__StatusBarExtension_AddStatusBarItem(KParts__StatusBarExtension* self, QWidget* widget, int stretch, bool permanent);
 void KParts__StatusBarExtension_RemoveStatusBarItem(KParts__StatusBarExtension* self, QWidget* widget);
 QStatusBar* KParts__StatusBarExtension_StatusBar(const KParts__StatusBarExtension* self);
 void KParts__StatusBarExtension_SetStatusBar(KParts__StatusBarExtension* self, QStatusBar* status);
 KParts__StatusBarExtension* KParts__StatusBarExtension_ChildObject(QObject* obj);
 bool KParts__StatusBarExtension_EventFilter(KParts__StatusBarExtension* self, QObject* watched, QEvent* ev);
-libqt_string KParts__StatusBarExtension_Tr2(const char* s, const char* c);
-libqt_string KParts__StatusBarExtension_Tr3(const char* s, const char* c, int n);
 void KParts__StatusBarExtension_OnMetacall(KParts__StatusBarExtension* self, intptr_t slot);
 int KParts__StatusBarExtension_QBaseMetacall(KParts__StatusBarExtension* self, int param1, int param2, void** param3);
 void KParts__StatusBarExtension_OnEventFilter(KParts__StatusBarExtension* self, intptr_t slot);

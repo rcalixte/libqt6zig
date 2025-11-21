@@ -52,7 +52,6 @@ typedef struct QWidget QWidget;
 QMetaObject* KTextEditor__Editor_MetaObject(const KTextEditor__Editor* self);
 void* KTextEditor__Editor_Metacast(KTextEditor__Editor* self, const char* param1);
 int KTextEditor__Editor_Metacall(KTextEditor__Editor* self, int param1, int param2, void** param3);
-libqt_string KTextEditor__Editor_Tr(const char* s);
 KTextEditor__Editor* KTextEditor__Editor_Instance();
 void KTextEditor__Editor_SetApplication(KTextEditor__Editor* self, KTextEditor__Application* application);
 KTextEditor__Application* KTextEditor__Editor_Application(const KTextEditor__Editor* self);
@@ -79,8 +78,6 @@ bool KTextEditor__Editor_UnregisterVariable(KTextEditor__Editor* self, const lib
 bool KTextEditor__Editor_ExpandVariable(const KTextEditor__Editor* self, const libqt_string variable, KTextEditor__View* view, libqt_string output);
 libqt_string KTextEditor__Editor_ExpandText(const KTextEditor__Editor* self, const libqt_string text, KTextEditor__View* view);
 void KTextEditor__Editor_AddVariableExpansion(const KTextEditor__Editor* self, const libqt_list /* of QWidget* */ widgets);
-libqt_string KTextEditor__Editor_Tr2(const char* s, const char* c);
-libqt_string KTextEditor__Editor_Tr3(const char* s, const char* c, int n);
 void KTextEditor__Editor_AddVariableExpansion2(const KTextEditor__Editor* self, const libqt_list /* of QWidget* */ widgets, const libqt_list /* of libqt_string */ variables);
 
 #ifdef __cplusplus

@@ -24,7 +24,6 @@ typedef struct QObject QObject;
 QMetaObject* QNetworkInformation_MetaObject(const QNetworkInformation* self);
 void* QNetworkInformation_Metacast(QNetworkInformation* self, const char* param1);
 int QNetworkInformation_Metacall(QNetworkInformation* self, int param1, int param2, void** param3);
-libqt_string QNetworkInformation_Tr(const char* s);
 int QNetworkInformation_Reachability(const QNetworkInformation* self);
 bool QNetworkInformation_IsBehindCaptivePortal(const QNetworkInformation* self);
 int QNetworkInformation_TransportMedium(const QNetworkInformation* self);
@@ -45,8 +44,6 @@ void QNetworkInformation_TransportMediumChanged(QNetworkInformation* self, int c
 void QNetworkInformation_Connect_TransportMediumChanged(QNetworkInformation* self, intptr_t slot);
 void QNetworkInformation_IsMeteredChanged(QNetworkInformation* self, bool isMetered);
 void QNetworkInformation_Connect_IsMeteredChanged(QNetworkInformation* self, intptr_t slot);
-libqt_string QNetworkInformation_Tr2(const char* s, const char* c);
-libqt_string QNetworkInformation_Tr3(const char* s, const char* c, int n);
 
 #ifdef __cplusplus
 } /* extern C */

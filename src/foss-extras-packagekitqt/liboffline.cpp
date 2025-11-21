@@ -25,18 +25,6 @@ int PackageKit__Offline_Metacall(PackageKit__Offline* self, int param1, int para
     return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
-libqt_string PackageKit__Offline_Tr(const char* s) {
-    QString _ret = PackageKit::Offline::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 libqt_map /* of libqt_string to QVariant* */ PackageKit__Offline_PreparedUpgrade(const PackageKit__Offline* self) {
     QMap<QString, QVariant> _ret = self->preparedUpgrade();
     // Convert QMap<> from C++ memory to manually-managed C memory
@@ -128,30 +116,6 @@ void PackageKit__Offline_Connect_Changed(PackageKit__Offline* self, intptr_t slo
     PackageKit::Offline::connect(self, &PackageKit::Offline::changed, [self, slotFunc]() {
         slotFunc(self);
     });
-}
-
-libqt_string PackageKit__Offline_Tr2(const char* s, const char* c) {
-    QString _ret = PackageKit::Offline::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string PackageKit__Offline_Tr3(const char* s, const char* c, int n) {
-    QString _ret = PackageKit::Offline::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 void PackageKit__Offline_Delete(PackageKit__Offline* self) {

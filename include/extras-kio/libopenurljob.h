@@ -37,7 +37,6 @@ KIO__OpenUrlJob* KIO__OpenUrlJob_new4(const QUrl* url, const libqt_string mimeTy
 QMetaObject* KIO__OpenUrlJob_MetaObject(const KIO__OpenUrlJob* self);
 void* KIO__OpenUrlJob_Metacast(KIO__OpenUrlJob* self, const char* param1);
 int KIO__OpenUrlJob_Metacall(KIO__OpenUrlJob* self, int param1, int param2, void** param3);
-libqt_string KIO__OpenUrlJob_Tr(const char* s);
 void KIO__OpenUrlJob_SetDeleteTemporaryFile(KIO__OpenUrlJob* self, bool b);
 void KIO__OpenUrlJob_SetSuggestedFileName(KIO__OpenUrlJob* self, const libqt_string suggestedFileName);
 void KIO__OpenUrlJob_SetStartupId(KIO__OpenUrlJob* self, const libqt_string startupId);
@@ -50,8 +49,6 @@ bool KIO__OpenUrlJob_IsExecutableFile(const QUrl* url, const libqt_string mimety
 void KIO__OpenUrlJob_MimeTypeFound(KIO__OpenUrlJob* self, const libqt_string mimeType);
 void KIO__OpenUrlJob_Connect_MimeTypeFound(KIO__OpenUrlJob* self, intptr_t slot);
 bool KIO__OpenUrlJob_DoKill(KIO__OpenUrlJob* self);
-libqt_string KIO__OpenUrlJob_Tr2(const char* s, const char* c);
-libqt_string KIO__OpenUrlJob_Tr3(const char* s, const char* c, int n);
 void KIO__OpenUrlJob_OnMetacall(KIO__OpenUrlJob* self, intptr_t slot);
 int KIO__OpenUrlJob_QBaseMetacall(KIO__OpenUrlJob* self, int param1, int param2, void** param3);
 void KIO__OpenUrlJob_OnStart(KIO__OpenUrlJob* self, intptr_t slot);

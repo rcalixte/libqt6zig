@@ -32,7 +32,6 @@ KBookmarkManager* KBookmarkManager_new2(const libqt_string bookmarksFile, QObjec
 QMetaObject* KBookmarkManager_MetaObject(const KBookmarkManager* self);
 void* KBookmarkManager_Metacast(KBookmarkManager* self, const char* param1);
 int KBookmarkManager_Metacall(KBookmarkManager* self, int param1, int param2, void** param3);
-libqt_string KBookmarkManager_Tr(const char* s);
 bool KBookmarkManager_SaveAs(const KBookmarkManager* self, const libqt_string filename);
 bool KBookmarkManager_UpdateAccessMetadata(KBookmarkManager* self, const libqt_string url);
 libqt_string KBookmarkManager_Path(const KBookmarkManager* self);
@@ -47,8 +46,6 @@ void KBookmarkManager_Changed(KBookmarkManager* self, const libqt_string groupAd
 void KBookmarkManager_Connect_Changed(KBookmarkManager* self, intptr_t slot);
 void KBookmarkManager_Error(KBookmarkManager* self, const libqt_string errorMessage);
 void KBookmarkManager_Connect_Error(KBookmarkManager* self, intptr_t slot);
-libqt_string KBookmarkManager_Tr2(const char* s, const char* c);
-libqt_string KBookmarkManager_Tr3(const char* s, const char* c, int n);
 bool KBookmarkManager_SaveAs2(const KBookmarkManager* self, const libqt_string filename, bool toolbarCache);
 bool KBookmarkManager_Save1(const KBookmarkManager* self, bool toolbarCache);
 void KBookmarkManager_OnMetacall(KBookmarkManager* self, intptr_t slot);

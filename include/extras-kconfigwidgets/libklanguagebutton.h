@@ -57,7 +57,6 @@ KLanguageButton* KLanguageButton_new4(const libqt_string text, QWidget* parent);
 QMetaObject* KLanguageButton_MetaObject(const KLanguageButton* self);
 void* KLanguageButton_Metacast(KLanguageButton* self, const char* param1);
 int KLanguageButton_Metacall(KLanguageButton* self, int param1, int param2, void** param3);
-libqt_string KLanguageButton_Tr(const char* s);
 void KLanguageButton_SetLocale(KLanguageButton* self, const libqt_string locale);
 void KLanguageButton_SetText(KLanguageButton* self, const libqt_string text);
 void KLanguageButton_ShowLanguageCodes(KLanguageButton* self, bool show);
@@ -73,8 +72,6 @@ void KLanguageButton_Activated(KLanguageButton* self, const libqt_string languag
 void KLanguageButton_Connect_Activated(KLanguageButton* self, intptr_t slot);
 void KLanguageButton_Highlighted(KLanguageButton* self, const libqt_string languageCode);
 void KLanguageButton_Connect_Highlighted(KLanguageButton* self, intptr_t slot);
-libqt_string KLanguageButton_Tr2(const char* s, const char* c);
-libqt_string KLanguageButton_Tr3(const char* s, const char* c, int n);
 void KLanguageButton_InsertLanguage2(KLanguageButton* self, const libqt_string languageCode, const libqt_string name);
 void KLanguageButton_InsertLanguage3(KLanguageButton* self, const libqt_string languageCode, const libqt_string name, int index);
 void KLanguageButton_InsertSeparator1(KLanguageButton* self, int index);

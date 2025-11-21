@@ -24,18 +24,6 @@ int KStandardShortcut__StandardShortcutWatcher_Metacall(KStandardShortcut__Stand
     return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
-libqt_string KStandardShortcut__StandardShortcutWatcher_Tr(const char* s) {
-    QString _ret = KStandardShortcut::StandardShortcutWatcher::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 void KStandardShortcut__StandardShortcutWatcher_ShortcutChanged(KStandardShortcut__StandardShortcutWatcher* self, int id, const libqt_list /* of QKeySequence* */ shortcut) {
     QList<QKeySequence> shortcut_QList;
     shortcut_QList.reserve(shortcut.len);
@@ -62,30 +50,6 @@ void KStandardShortcut__StandardShortcutWatcher_Connect_ShortcutChanged(KStandar
         slotFunc(self, sigval1, sigval2);
         free(shortcut_arr);
     });
-}
-
-libqt_string KStandardShortcut__StandardShortcutWatcher_Tr2(const char* s, const char* c) {
-    QString _ret = KStandardShortcut::StandardShortcutWatcher::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string KStandardShortcut__StandardShortcutWatcher_Tr3(const char* s, const char* c, int n) {
-    QString _ret = KStandardShortcut::StandardShortcutWatcher::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 void KStandardShortcut__StandardShortcutWatcher_Delete(KStandardShortcut__StandardShortcutWatcher* self) {

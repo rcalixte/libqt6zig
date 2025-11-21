@@ -36,7 +36,6 @@ KTextEditor__Application* KTextEditor__Application_new(QObject* parent);
 QMetaObject* KTextEditor__Application_MetaObject(const KTextEditor__Application* self);
 void* KTextEditor__Application_Metacast(KTextEditor__Application* self, const char* param1);
 int KTextEditor__Application_Metacall(KTextEditor__Application* self, int param1, int param2, void** param3);
-libqt_string KTextEditor__Application_Tr(const char* s);
 bool KTextEditor__Application_Quit(KTextEditor__Application* self);
 libqt_list /* of KTextEditor__MainWindow* */ KTextEditor__Application_MainWindows(KTextEditor__Application* self);
 KTextEditor__MainWindow* KTextEditor__Application_ActiveMainWindow(KTextEditor__Application* self);
@@ -56,8 +55,6 @@ void KTextEditor__Application_PluginCreated(KTextEditor__Application* self, cons
 void KTextEditor__Application_Connect_PluginCreated(KTextEditor__Application* self, intptr_t slot);
 void KTextEditor__Application_PluginDeleted(KTextEditor__Application* self, const libqt_string name, KTextEditor__Plugin* plugin);
 void KTextEditor__Application_Connect_PluginDeleted(KTextEditor__Application* self, intptr_t slot);
-libqt_string KTextEditor__Application_Tr2(const char* s, const char* c);
-libqt_string KTextEditor__Application_Tr3(const char* s, const char* c, int n);
 KTextEditor__Document* KTextEditor__Application_OpenUrl2(KTextEditor__Application* self, const QUrl* url, const libqt_string encoding);
 void KTextEditor__Application_OnMetacall(KTextEditor__Application* self, intptr_t slot);
 int KTextEditor__Application_QBaseMetacall(KTextEditor__Application* self, int param1, int param2, void** param3);

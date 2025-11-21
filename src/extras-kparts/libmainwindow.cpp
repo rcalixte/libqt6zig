@@ -84,18 +84,6 @@ int KParts__MainWindow_Metacall(KParts__MainWindow* self, int param1, int param2
     }
 }
 
-libqt_string KParts__MainWindow_Tr(const char* s) {
-    QString _ret = KParts::MainWindow::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 void KParts__MainWindow_ConfigureToolbars(KParts__MainWindow* self) {
     auto* vkparts__mainwindow = dynamic_cast<VirtualKPartsMainWindow*>(self);
     if (vkparts__mainwindow && vkparts__mainwindow->isVirtualKPartsMainWindow) {
@@ -125,30 +113,6 @@ void KParts__MainWindow_CreateShellGUI(KParts__MainWindow* self, bool create) {
     if (vkparts__mainwindow && vkparts__mainwindow->isVirtualKPartsMainWindow) {
         vkparts__mainwindow->createShellGUI(create);
     }
-}
-
-libqt_string KParts__MainWindow_Tr2(const char* s, const char* c) {
-    QString _ret = KParts::MainWindow::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string KParts__MainWindow_Tr3(const char* s, const char* c, int n) {
-    QString _ret = KParts::MainWindow::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 // Base class handler implementation

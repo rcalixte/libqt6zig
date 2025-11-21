@@ -32,7 +32,6 @@ typedef struct Solid__StorageAccess Solid__StorageAccess;
 QMetaObject* Solid__StorageAccess_MetaObject(const Solid__StorageAccess* self);
 void* Solid__StorageAccess_Metacast(Solid__StorageAccess* self, const char* param1);
 int Solid__StorageAccess_Metacall(Solid__StorageAccess* self, int param1, int param2, void** param3);
-libqt_string Solid__StorageAccess_Tr(const char* s);
 int Solid__StorageAccess_DeviceInterfaceType();
 bool Solid__StorageAccess_IsAccessible(const Solid__StorageAccess* self);
 libqt_string Solid__StorageAccess_FilePath(const Solid__StorageAccess* self);
@@ -62,8 +61,6 @@ void Solid__StorageAccess_RepairRequested(Solid__StorageAccess* self, const libq
 void Solid__StorageAccess_Connect_RepairRequested(Solid__StorageAccess* self, intptr_t slot);
 void Solid__StorageAccess_RepairDone(Solid__StorageAccess* self, int errorVal, QVariant* errorData, const libqt_string udi);
 void Solid__StorageAccess_Connect_RepairDone(Solid__StorageAccess* self, intptr_t slot);
-libqt_string Solid__StorageAccess_Tr2(const char* s, const char* c);
-libqt_string Solid__StorageAccess_Tr3(const char* s, const char* c, int n);
 void Solid__StorageAccess_Delete(Solid__StorageAccess* self);
 
 #ifdef __cplusplus

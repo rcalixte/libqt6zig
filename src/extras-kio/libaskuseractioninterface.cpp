@@ -28,18 +28,6 @@ int KIO__AskUserActionInterface_Metacall(KIO__AskUserActionInterface* self, int 
     return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
-libqt_string KIO__AskUserActionInterface_Tr(const char* s) {
-    QString _ret = KIO::AskUserActionInterface::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 void KIO__AskUserActionInterface_AskUserRename(KIO__AskUserActionInterface* self, KJob* job, const libqt_string title, const QUrl* src, const QUrl* dest, int options, unsigned long long sizeSrc, unsigned long long sizeDest, const QDateTime* ctimeSrc, const QDateTime* ctimeDest, const QDateTime* mtimeSrc, const QDateTime* mtimeDest) {
     QString title_QString = QString::fromUtf8(title.data, title.len);
     self->askUserRename(job, title_QString, *src, *dest, static_cast<KIO::RenameDialog_Options>(options), static_cast<KIO::filesize_t>(sizeSrc), static_cast<KIO::filesize_t>(sizeDest), *ctimeSrc, *ctimeDest, *mtimeSrc, *mtimeDest);
@@ -164,30 +152,6 @@ void KIO__AskUserActionInterface_Connect_AskIgnoreSslErrorsResult(KIO__AskUserAc
         int sigval1 = result;
         slotFunc(self, sigval1);
     });
-}
-
-libqt_string KIO__AskUserActionInterface_Tr2(const char* s, const char* c) {
-    QString _ret = KIO::AskUserActionInterface::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string KIO__AskUserActionInterface_Tr3(const char* s, const char* c, int n) {
-    QString _ret = KIO::AskUserActionInterface::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 void KIO__AskUserActionInterface_Delete(KIO__AskUserActionInterface* self) {

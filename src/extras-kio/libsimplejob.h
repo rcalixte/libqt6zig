@@ -34,15 +34,12 @@ typedef struct QUrl QUrl;
 QMetaObject* KIO__SimpleJob_MetaObject(const KIO__SimpleJob* self);
 void* KIO__SimpleJob_Metacast(KIO__SimpleJob* self, const char* param1);
 int KIO__SimpleJob_Metacall(KIO__SimpleJob* self, int param1, int param2, void** param3);
-libqt_string KIO__SimpleJob_Tr(const char* s);
 QUrl* KIO__SimpleJob_Url(const KIO__SimpleJob* self);
 void KIO__SimpleJob_PutOnHold(KIO__SimpleJob* self);
 void KIO__SimpleJob_RemoveOnHold();
 bool KIO__SimpleJob_IsRedirectionHandlingEnabled(const KIO__SimpleJob* self);
 void KIO__SimpleJob_SetRedirectionHandlingEnabled(KIO__SimpleJob* self, bool handle);
 void KIO__SimpleJob_SlotError(KIO__SimpleJob* self, int param1, const libqt_string param2);
-libqt_string KIO__SimpleJob_Tr2(const char* s, const char* c);
-libqt_string KIO__SimpleJob_Tr3(const char* s, const char* c, int n);
 void KIO__SimpleJob_Delete(KIO__SimpleJob* self);
 
 KIO__SimpleJob* KIO_Rmdir(const QUrl* param1);
