@@ -72,7 +72,6 @@ KPropertiesDialog* KPropertiesDialog_new12(const libqt_string title, QWidget* pa
 QMetaObject* KPropertiesDialog_MetaObject(const KPropertiesDialog* self);
 void* KPropertiesDialog_Metacast(KPropertiesDialog* self, const char* param1);
 int KPropertiesDialog_Metacall(KPropertiesDialog* self, int param1, int param2, void** param3);
-libqt_string KPropertiesDialog_Tr(const char* s);
 bool KPropertiesDialog_CanDisplay(const KFileItemList* _items);
 bool KPropertiesDialog_ShowDialog(const KFileItem* item);
 bool KPropertiesDialog_ShowDialog2(const QUrl* _url);
@@ -99,8 +98,6 @@ void KPropertiesDialog_Canceled(KPropertiesDialog* self);
 void KPropertiesDialog_Connect_Canceled(KPropertiesDialog* self, intptr_t slot);
 void KPropertiesDialog_SaveAs(KPropertiesDialog* self, const QUrl* oldUrl, QUrl* newUrl);
 void KPropertiesDialog_Connect_SaveAs(KPropertiesDialog* self, intptr_t slot);
-libqt_string KPropertiesDialog_Tr2(const char* s, const char* c);
-libqt_string KPropertiesDialog_Tr3(const char* s, const char* c, int n);
 bool KPropertiesDialog_ShowDialog22(const KFileItem* item, QWidget* parent);
 bool KPropertiesDialog_ShowDialog32(const KFileItem* item, QWidget* parent, bool modal);
 bool KPropertiesDialog_ShowDialog23(const QUrl* _url, QWidget* parent);

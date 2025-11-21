@@ -34,18 +34,6 @@ int KParts__ListingNotificationExtension_Metacall(KParts__ListingNotificationExt
     }
 }
 
-libqt_string KParts__ListingNotificationExtension_Tr(const char* s) {
-    QString _ret = KParts::ListingNotificationExtension::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 int KParts__ListingNotificationExtension_SupportedNotificationEventTypes(const KParts__ListingNotificationExtension* self) {
     auto* vkparts__listingnotificationextension = dynamic_cast<const VirtualKPartsListingNotificationExtension*>(self);
     if (vkparts__listingnotificationextension && vkparts__listingnotificationextension->isVirtualKPartsListingNotificationExtension) {
@@ -72,30 +60,6 @@ void KParts__ListingNotificationExtension_Connect_ListingEvent(KParts__ListingNo
         KFileItemList* sigval2 = const_cast<KFileItemList*>(&param2_ret);
         slotFunc(self, sigval1, sigval2);
     });
-}
-
-libqt_string KParts__ListingNotificationExtension_Tr2(const char* s, const char* c) {
-    QString _ret = KParts::ListingNotificationExtension::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string KParts__ListingNotificationExtension_Tr3(const char* s, const char* c, int n) {
-    QString _ret = KParts::ListingNotificationExtension::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 // Base class handler implementation

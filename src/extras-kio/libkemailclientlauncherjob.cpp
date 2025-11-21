@@ -41,18 +41,6 @@ int KEMailClientLauncherJob_Metacall(KEMailClientLauncherJob* self, int param1, 
     }
 }
 
-libqt_string KEMailClientLauncherJob_Tr(const char* s) {
-    QString _ret = KEMailClientLauncherJob::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 void KEMailClientLauncherJob_SetTo(KEMailClientLauncherJob* self, const libqt_list /* of libqt_string */ to) {
     QList<QString> to_QList;
     to_QList.reserve(to.len);
@@ -118,30 +106,6 @@ void KEMailClientLauncherJob_Start(KEMailClientLauncherJob* self) {
     } else {
         ((VirtualKEMailClientLauncherJob*)self)->start();
     }
-}
-
-libqt_string KEMailClientLauncherJob_Tr2(const char* s, const char* c) {
-    QString _ret = KEMailClientLauncherJob::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string KEMailClientLauncherJob_Tr3(const char* s, const char* c, int n) {
-    QString _ret = KEMailClientLauncherJob::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 // Base class handler implementation

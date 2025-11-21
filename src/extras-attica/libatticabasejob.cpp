@@ -24,18 +24,6 @@ int Attica__BaseJob_Metacall(Attica__BaseJob* self, int param1, int param2, void
     return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
-libqt_string Attica__BaseJob_Tr(const char* s) {
-    QString _ret = Attica::BaseJob::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 Attica__Metadata* Attica__BaseJob_Metadata(const Attica__BaseJob* self) {
     return new Attica::Metadata(self->metadata());
 }
@@ -62,30 +50,6 @@ void Attica__BaseJob_Connect_Finished(Attica__BaseJob* self, intptr_t slot) {
         Attica__BaseJob* sigval1 = job;
         slotFunc(self, sigval1);
     });
-}
-
-libqt_string Attica__BaseJob_Tr2(const char* s, const char* c) {
-    QString _ret = Attica::BaseJob::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string Attica__BaseJob_Tr3(const char* s, const char* c, int n) {
-    QString _ret = Attica::BaseJob::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 void Attica__BaseJob_Delete(Attica__BaseJob* self) {

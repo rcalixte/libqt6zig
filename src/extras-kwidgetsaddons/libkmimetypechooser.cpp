@@ -153,18 +153,6 @@ int KMimeTypeChooser_Metacall(KMimeTypeChooser* self, int param1, int param2, vo
     }
 }
 
-libqt_string KMimeTypeChooser_Tr(const char* s) {
-    QString _ret = KMimeTypeChooser::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 libqt_list /* of libqt_string */ KMimeTypeChooser_MimeTypes(const KMimeTypeChooser* self) {
     QList<QString> _ret = self->mimeTypes();
     // Convert QList<> from C++ memory to manually-managed C memory
@@ -205,30 +193,6 @@ libqt_list /* of libqt_string */ KMimeTypeChooser_Patterns(const KMimeTypeChoose
     _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
-}
-
-libqt_string KMimeTypeChooser_Tr2(const char* s, const char* c) {
-    QString _ret = KMimeTypeChooser::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string KMimeTypeChooser_Tr3(const char* s, const char* c, int n) {
-    QString _ret = KMimeTypeChooser::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 // Base class handler implementation
@@ -2059,18 +2023,6 @@ int KMimeTypeChooserDialog_Metacall(KMimeTypeChooserDialog* self, int param1, in
     }
 }
 
-libqt_string KMimeTypeChooserDialog_Tr(const char* s) {
-    QString _ret = KMimeTypeChooserDialog::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 KMimeTypeChooser* KMimeTypeChooserDialog_Chooser(KMimeTypeChooserDialog* self) {
     return self->chooser();
 }
@@ -2082,30 +2034,6 @@ QSize* KMimeTypeChooserDialog_SizeHint(const KMimeTypeChooserDialog* self) {
     } else {
         return new QSize(((VirtualKMimeTypeChooserDialog*)self)->sizeHint());
     }
-}
-
-libqt_string KMimeTypeChooserDialog_Tr2(const char* s, const char* c) {
-    QString _ret = KMimeTypeChooserDialog::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string KMimeTypeChooserDialog_Tr3(const char* s, const char* c, int n) {
-    QString _ret = KMimeTypeChooserDialog::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 // Base class handler implementation

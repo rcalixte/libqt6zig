@@ -59,7 +59,6 @@ KContextualHelpButton* KContextualHelpButton_new3();
 QMetaObject* KContextualHelpButton_MetaObject(const KContextualHelpButton* self);
 void* KContextualHelpButton_Metacast(KContextualHelpButton* self, const char* param1);
 int KContextualHelpButton_Metacall(KContextualHelpButton* self, int param1, int param2, void** param3);
-libqt_string KContextualHelpButton_Tr(const char* s);
 void KContextualHelpButton_SetContextualHelpText(KContextualHelpButton* self, const libqt_string contextualHelpText);
 libqt_string KContextualHelpButton_ContextualHelpText(const KContextualHelpButton* self);
 void KContextualHelpButton_SetHeightHintWidget(KContextualHelpButton* self, const QWidget* heightHintWidget);
@@ -67,8 +66,6 @@ QWidget* KContextualHelpButton_HeightHintWidget(const KContextualHelpButton* sel
 QSize* KContextualHelpButton_SizeHint(const KContextualHelpButton* self);
 void KContextualHelpButton_ContextualHelpTextChanged(KContextualHelpButton* self, const libqt_string newContextualHelpText);
 void KContextualHelpButton_Connect_ContextualHelpTextChanged(KContextualHelpButton* self, intptr_t slot);
-libqt_string KContextualHelpButton_Tr2(const char* s, const char* c);
-libqt_string KContextualHelpButton_Tr3(const char* s, const char* c, int n);
 void KContextualHelpButton_OnMetacall(KContextualHelpButton* self, intptr_t slot);
 int KContextualHelpButton_QBaseMetacall(KContextualHelpButton* self, int param1, int param2, void** param3);
 void KContextualHelpButton_OnSizeHint(const KContextualHelpButton* self, intptr_t slot);

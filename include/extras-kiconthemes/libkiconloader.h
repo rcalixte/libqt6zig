@@ -39,7 +39,6 @@ KIconLoader* KIconLoader_new4(const libqt_string appname, const libqt_list /* of
 QMetaObject* KIconLoader_MetaObject(const KIconLoader* self);
 void* KIconLoader_Metacast(KIconLoader* self, const char* param1);
 int KIconLoader_Metacall(KIconLoader* self, int param1, int param2, void** param3);
-libqt_string KIconLoader_Tr(const char* s);
 KIconLoader* KIconLoader_Global();
 void KIconLoader_AddAppDir(KIconLoader* self, const libqt_string appname);
 QPixmap* KIconLoader_LoadIcon(const KIconLoader* self, const libqt_string name, int group);
@@ -72,8 +71,6 @@ void KIconLoader_IconLoaderSettingsChanged(KIconLoader* self);
 void KIconLoader_Connect_IconLoaderSettingsChanged(KIconLoader* self, intptr_t slot);
 void KIconLoader_IconChanged(KIconLoader* self, int group);
 void KIconLoader_Connect_IconChanged(KIconLoader* self, intptr_t slot);
-libqt_string KIconLoader_Tr2(const char* s, const char* c);
-libqt_string KIconLoader_Tr3(const char* s, const char* c, int n);
 void KIconLoader_AddAppDir2(KIconLoader* self, const libqt_string appname, const libqt_string themeBaseDir);
 QPixmap* KIconLoader_LoadIcon3(const KIconLoader* self, const libqt_string name, int group, int size);
 QPixmap* KIconLoader_LoadIcon4(const KIconLoader* self, const libqt_string name, int group, int size, int state);

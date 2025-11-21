@@ -45,7 +45,6 @@ Accounts__AccountService* Accounts__AccountService_new2(Accounts__Account* accou
 QMetaObject* Accounts__AccountService_MetaObject(const Accounts__AccountService* self);
 void* Accounts__AccountService_Metacast(Accounts__AccountService* self, const char* param1);
 int Accounts__AccountService_Metacall(Accounts__AccountService* self, int param1, int param2, void** param3);
-libqt_string Accounts__AccountService_Tr(const char* s);
 Accounts__Account* Accounts__AccountService_Account(const Accounts__AccountService* self);
 Accounts__Service* Accounts__AccountService_Service(const Accounts__AccountService* self);
 bool Accounts__AccountService_Enabled(const Accounts__AccountService* self);
@@ -68,8 +67,6 @@ libqt_list /* of libqt_string */ Accounts__AccountService_ChangedFields(const Ac
 Accounts__AuthData* Accounts__AccountService_AuthData(const Accounts__AccountService* self);
 void Accounts__AccountService_Enabled2(Accounts__AccountService* self, bool isEnabled);
 void Accounts__AccountService_Changed(Accounts__AccountService* self);
-libqt_string Accounts__AccountService_Tr2(const char* s, const char* c);
-libqt_string Accounts__AccountService_Tr3(const char* s, const char* c, int n);
 QVariant* Accounts__AccountService_Value32(const Accounts__AccountService* self, const libqt_string key, const QVariant* defaultValue, int* source);
 QVariant* Accounts__AccountService_Value22(const Accounts__AccountService* self, const libqt_string key, int* source);
 QVariant* Accounts__AccountService_Value23(const Accounts__AccountService* self, const char* key, int* source);

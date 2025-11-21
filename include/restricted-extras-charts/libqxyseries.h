@@ -33,7 +33,6 @@ typedef struct QXYSeries QXYSeries;
 QMetaObject* QXYSeries_MetaObject(const QXYSeries* self);
 void* QXYSeries_Metacast(QXYSeries* self, const char* param1);
 int QXYSeries_Metacall(QXYSeries* self, int param1, int param2, void** param3);
-libqt_string QXYSeries_Tr(const char* s);
 void QXYSeries_Append(QXYSeries* self, double x, double y);
 void QXYSeries_Append2(QXYSeries* self, const QPointF* point);
 void QXYSeries_Append3(QXYSeries* self, const libqt_list /* of QPointF* */ points);
@@ -160,8 +159,6 @@ void QXYSeries_PointsConfigurationChanged(QXYSeries* self, const libqt_map /* of
 void QXYSeries_Connect_PointsConfigurationChanged(QXYSeries* self, intptr_t slot);
 void QXYSeries_MarkerSizeChanged(QXYSeries* self, double size);
 void QXYSeries_Connect_MarkerSizeChanged(QXYSeries* self, intptr_t slot);
-libqt_string QXYSeries_Tr2(const char* s, const char* c);
-libqt_string QXYSeries_Tr3(const char* s, const char* c, int n);
 void QXYSeries_SetPointsVisible1(QXYSeries* self, bool visible);
 void QXYSeries_SetPointLabelsVisible1(QXYSeries* self, bool visible);
 void QXYSeries_SetPointLabelsClipping1(QXYSeries* self, bool enabled);

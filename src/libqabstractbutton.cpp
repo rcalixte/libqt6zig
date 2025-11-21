@@ -67,18 +67,6 @@ int QAbstractButton_Metacall(QAbstractButton* self, int param1, int param2, void
     }
 }
 
-libqt_string QAbstractButton_Tr(const char* s) {
-    QString _ret = QAbstractButton::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 void QAbstractButton_SetText(QAbstractButton* self, const libqt_string text) {
     QString text_QString = QString::fromUtf8(text.data, text.len);
     self->setText(text_QString);
@@ -335,30 +323,6 @@ void QAbstractButton_TimerEvent(QAbstractButton* self, QTimerEvent* e) {
     if (vqabstractbutton && vqabstractbutton->isVirtualQAbstractButton) {
         vqabstractbutton->timerEvent(e);
     }
-}
-
-libqt_string QAbstractButton_Tr2(const char* s, const char* c) {
-    QString _ret = QAbstractButton::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QAbstractButton_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QAbstractButton::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 void QAbstractButton_Clicked1(QAbstractButton* self, bool checked) {

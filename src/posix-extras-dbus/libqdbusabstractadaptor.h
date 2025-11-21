@@ -24,9 +24,6 @@ typedef struct QObject QObject;
 QMetaObject* QDBusAbstractAdaptor_MetaObject(const QDBusAbstractAdaptor* self);
 void* QDBusAbstractAdaptor_Metacast(QDBusAbstractAdaptor* self, const char* param1);
 int QDBusAbstractAdaptor_Metacall(QDBusAbstractAdaptor* self, int param1, int param2, void** param3);
-libqt_string QDBusAbstractAdaptor_Tr(const char* s);
-libqt_string QDBusAbstractAdaptor_Tr2(const char* s, const char* c);
-libqt_string QDBusAbstractAdaptor_Tr3(const char* s, const char* c, int n);
 void QDBusAbstractAdaptor_Delete(QDBusAbstractAdaptor* self);
 
 #ifdef __cplusplus

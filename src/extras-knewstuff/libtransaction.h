@@ -32,7 +32,6 @@ typedef struct QVariant QVariant;
 QMetaObject* KNSCore__Transaction_MetaObject(const KNSCore__Transaction* self);
 void* KNSCore__Transaction_Metacast(KNSCore__Transaction* self, const char* param1);
 int KNSCore__Transaction_Metacall(KNSCore__Transaction* self, int param1, int param2, void** param3);
-libqt_string KNSCore__Transaction_Tr(const char* s);
 KNSCore__Transaction* KNSCore__Transaction_Install(KNSCore__EngineBase* engine, const KNSCore__Entry* entry);
 KNSCore__Transaction* KNSCore__Transaction_InstallLinkId(KNSCore__EngineBase* engine, const KNSCore__Entry* entry, unsigned char linkId);
 KNSCore__Transaction* KNSCore__Transaction_InstallLatest(KNSCore__EngineBase* engine, const KNSCore__Entry* entry);
@@ -47,8 +46,6 @@ void KNSCore__Transaction_SignalEntryEvent(KNSCore__Transaction* self, const KNS
 void KNSCore__Transaction_Connect_SignalEntryEvent(KNSCore__Transaction* self, intptr_t slot);
 void KNSCore__Transaction_SignalErrorCode(KNSCore__Transaction* self, int errorCode, const libqt_string message, const QVariant* metadata);
 void KNSCore__Transaction_Connect_SignalErrorCode(KNSCore__Transaction* self, intptr_t slot);
-libqt_string KNSCore__Transaction_Tr2(const char* s, const char* c);
-libqt_string KNSCore__Transaction_Tr3(const char* s, const char* c, int n);
 KNSCore__Transaction* KNSCore__Transaction_Install3(KNSCore__EngineBase* engine, const KNSCore__Entry* entry, int linkId);
 void KNSCore__Transaction_Delete(KNSCore__Transaction* self);
 

@@ -41,7 +41,6 @@ KTextEditor__Command* KTextEditor__Command_new2(const libqt_list /* of libqt_str
 QMetaObject* KTextEditor__Command_MetaObject(const KTextEditor__Command* self);
 void* KTextEditor__Command_Metacast(KTextEditor__Command* self, const char* param1);
 int KTextEditor__Command_Metacall(KTextEditor__Command* self, int param1, int param2, void** param3);
-libqt_string KTextEditor__Command_Tr(const char* s);
 libqt_list /* of libqt_string */ KTextEditor__Command_Cmds(const KTextEditor__Command* self);
 bool KTextEditor__Command_SupportsRange(KTextEditor__Command* self, const libqt_string cmd);
 bool KTextEditor__Command_Exec(KTextEditor__Command* self, KTextEditor__View* view, const libqt_string cmd, libqt_string msg, const KTextEditor__Range* range);
@@ -49,8 +48,6 @@ bool KTextEditor__Command_Help(KTextEditor__Command* self, KTextEditor__View* vi
 KCompletion* KTextEditor__Command_CompletionObject(KTextEditor__Command* self, KTextEditor__View* view, const libqt_string cmdname);
 bool KTextEditor__Command_WantsToProcessText(KTextEditor__Command* self, const libqt_string cmdname);
 void KTextEditor__Command_ProcessText(KTextEditor__Command* self, KTextEditor__View* view, const libqt_string text);
-libqt_string KTextEditor__Command_Tr2(const char* s, const char* c);
-libqt_string KTextEditor__Command_Tr3(const char* s, const char* c, int n);
 void KTextEditor__Command_OnMetacall(KTextEditor__Command* self, intptr_t slot);
 int KTextEditor__Command_QBaseMetacall(KTextEditor__Command* self, int param1, int param2, void** param3);
 void KTextEditor__Command_OnSupportsRange(KTextEditor__Command* self, intptr_t slot);

@@ -41,18 +41,6 @@ int KSelectionOwner_Metacall(KSelectionOwner* self, int param1, int param2, void
     }
 }
 
-libqt_string KSelectionOwner_Tr(const char* s) {
-    QString _ret = KSelectionOwner::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 void KSelectionOwner_Claim(KSelectionOwner* self, bool force) {
     self->claim(force);
 }
@@ -112,30 +100,6 @@ void KSelectionOwner_GetAtoms(KSelectionOwner* self) {
     if (vkselectionowner && vkselectionowner->isVirtualKSelectionOwner) {
         vkselectionowner->getAtoms();
     }
-}
-
-libqt_string KSelectionOwner_Tr2(const char* s, const char* c) {
-    QString _ret = KSelectionOwner::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string KSelectionOwner_Tr3(const char* s, const char* c, int n) {
-    QString _ret = KSelectionOwner::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 void KSelectionOwner_Claim2(KSelectionOwner* self, bool force, bool force_kill) {

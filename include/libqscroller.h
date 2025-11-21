@@ -27,7 +27,6 @@ typedef struct QScrollerProperties QScrollerProperties;
 QMetaObject* QScroller_MetaObject(const QScroller* self);
 void* QScroller_Metacast(QScroller* self, const char* param1);
 int QScroller_Metacall(QScroller* self, int param1, int param2, void** param3);
-libqt_string QScroller_Tr(const char* s);
 bool QScroller_HasScroller(QObject* target);
 QScroller* QScroller_Scroller(QObject* target);
 QScroller* QScroller_Scroller2(const QObject* target);
@@ -57,8 +56,6 @@ void QScroller_StateChanged(QScroller* self, int newstate);
 void QScroller_Connect_StateChanged(QScroller* self, intptr_t slot);
 void QScroller_ScrollerPropertiesChanged(QScroller* self, const QScrollerProperties* param1);
 void QScroller_Connect_ScrollerPropertiesChanged(QScroller* self, intptr_t slot);
-libqt_string QScroller_Tr2(const char* s, const char* c);
-libqt_string QScroller_Tr3(const char* s, const char* c, int n);
 int QScroller_GrabGesture2(QObject* target, int gestureType);
 bool QScroller_HandleInput3(QScroller* self, int input, const QPointF* position, long long timestamp);
 

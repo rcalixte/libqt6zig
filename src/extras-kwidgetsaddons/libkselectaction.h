@@ -35,7 +35,6 @@ KSelectAction* KSelectAction_new3(const QIcon* icon, const libqt_string text, QO
 QMetaObject* KSelectAction_MetaObject(const KSelectAction* self);
 void* KSelectAction_Metacast(KSelectAction* self, const char* param1);
 int KSelectAction_Metacall(KSelectAction* self, int param1, int param2, void** param3);
-libqt_string KSelectAction_Tr(const char* s);
 int KSelectAction_ToolBarMode(const KSelectAction* self);
 void KSelectAction_SetToolBarMode(KSelectAction* self, int mode);
 int KSelectAction_ToolButtonPopupMode(const KSelectAction* self);
@@ -78,8 +77,6 @@ QWidget* KSelectAction_CreateWidget(KSelectAction* self, QWidget* parent);
 void KSelectAction_DeleteWidget(KSelectAction* self, QWidget* widget);
 bool KSelectAction_Event(KSelectAction* self, QEvent* event);
 bool KSelectAction_EventFilter(KSelectAction* self, QObject* watched, QEvent* event);
-libqt_string KSelectAction_Tr2(const char* s, const char* c);
-libqt_string KSelectAction_Tr3(const char* s, const char* c, int n);
 QAction* KSelectAction_Action22(const KSelectAction* self, const libqt_string text, int cs);
 bool KSelectAction_SetCurrentAction22(KSelectAction* self, const libqt_string text, int cs);
 void KSelectAction_OnMetacall(KSelectAction* self, intptr_t slot);

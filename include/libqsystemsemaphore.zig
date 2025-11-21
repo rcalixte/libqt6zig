@@ -68,7 +68,7 @@ pub const qsystemsemaphore = struct {
     /// ``` sourceText: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(sourceText: []const u8, allocator: std.mem.Allocator) []const u8 {
         const sourceText_Cstring = sourceText.ptr;
-        const _str = qtc.QSystemSemaphore_Tr(sourceText_Cstring);
+        const _str = qtc.QObject_Tr(sourceText_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsystemsemaphore.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -191,7 +191,7 @@ pub const qsystemsemaphore = struct {
     pub fn Tr2(sourceText: []const u8, disambiguation: []const u8, allocator: std.mem.Allocator) []const u8 {
         const sourceText_Cstring = sourceText.ptr;
         const disambiguation_Cstring = disambiguation.ptr;
-        const _str = qtc.QSystemSemaphore_Tr2(sourceText_Cstring, disambiguation_Cstring);
+        const _str = qtc.QObject_Tr2(sourceText_Cstring, disambiguation_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsystemsemaphore.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -204,7 +204,7 @@ pub const qsystemsemaphore = struct {
     pub fn Tr3(sourceText: []const u8, disambiguation: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const sourceText_Cstring = sourceText.ptr;
         const disambiguation_Cstring = disambiguation.ptr;
-        const _str = qtc.QSystemSemaphore_Tr3(sourceText_Cstring, disambiguation_Cstring, @intCast(n));
+        const _str = qtc.QObject_Tr3(sourceText_Cstring, disambiguation_Cstring, @intCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qsystemsemaphore.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

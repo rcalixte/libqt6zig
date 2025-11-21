@@ -45,7 +45,6 @@ KNSCore__ItemsModel* KNSCore__ItemsModel_new2(KNSCore__EngineBase* engine, QObje
 QMetaObject* KNSCore__ItemsModel_MetaObject(const KNSCore__ItemsModel* self);
 void* KNSCore__ItemsModel_Metacast(KNSCore__ItemsModel* self, const char* param1);
 int KNSCore__ItemsModel_Metacall(KNSCore__ItemsModel* self, int param1, int param2, void** param3);
-libqt_string KNSCore__ItemsModel_Tr(const char* s);
 int KNSCore__ItemsModel_RowCount(const KNSCore__ItemsModel* self, const QModelIndex* parent);
 QVariant* KNSCore__ItemsModel_Data(const KNSCore__ItemsModel* self, const QModelIndex* index, int role);
 int KNSCore__ItemsModel_Row(const KNSCore__ItemsModel* self, const KNSCore__Entry* entry);
@@ -60,8 +59,6 @@ void KNSCore__ItemsModel_SlotEntryChanged(KNSCore__ItemsModel* self, const KNSCo
 void KNSCore__ItemsModel_SlotEntriesLoaded(KNSCore__ItemsModel* self, const libqt_list /* of KNSCore__Entry* */ entries);
 void KNSCore__ItemsModel_ClearEntries(KNSCore__ItemsModel* self);
 void KNSCore__ItemsModel_SlotEntryPreviewLoaded(KNSCore__ItemsModel* self, const KNSCore__Entry* entry, int typeVal);
-libqt_string KNSCore__ItemsModel_Tr2(const char* s, const char* c);
-libqt_string KNSCore__ItemsModel_Tr3(const char* s, const char* c, int n);
 void KNSCore__ItemsModel_OnMetacall(KNSCore__ItemsModel* self, intptr_t slot);
 int KNSCore__ItemsModel_QBaseMetacall(KNSCore__ItemsModel* self, int param1, int param2, void** param3);
 void KNSCore__ItemsModel_OnRowCount(const KNSCore__ItemsModel* self, intptr_t slot);

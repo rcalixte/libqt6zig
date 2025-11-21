@@ -37,18 +37,6 @@ QImageReader* QImageReader_new5(const libqt_string fileName, const libqt_string 
     return new QImageReader(fileName_QString, format_QByteArray);
 }
 
-libqt_string QImageReader_Tr(const char* sourceText) {
-    QString _ret = QImageReader::tr(sourceText);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 void QImageReader_SetFormat(QImageReader* self, const libqt_string format) {
     QByteArray format_QByteArray(format.data, format.len);
     self->setFormat(format_QByteArray);
@@ -377,30 +365,6 @@ int QImageReader_AllocationLimit() {
 
 void QImageReader_SetAllocationLimit(int mbLimit) {
     QImageReader::setAllocationLimit(static_cast<int>(mbLimit));
-}
-
-libqt_string QImageReader_Tr2(const char* sourceText, const char* disambiguation) {
-    QString _ret = QImageReader::tr(sourceText, disambiguation);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QImageReader_Tr3(const char* sourceText, const char* disambiguation, int n) {
-    QString _ret = QImageReader::tr(sourceText, disambiguation, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 void QImageReader_Delete(QImageReader* self) {

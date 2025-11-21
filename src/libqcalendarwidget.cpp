@@ -69,18 +69,6 @@ int QCalendarWidget_Metacall(QCalendarWidget* self, int param1, int param2, void
     }
 }
 
-libqt_string QCalendarWidget_Tr(const char* s) {
-    QString _ret = QCalendarWidget::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 QSize* QCalendarWidget_SizeHint(const QCalendarWidget* self) {
     auto* vqcalendarwidget = dynamic_cast<const VirtualQCalendarWidget*>(self);
     if (vqcalendarwidget && vqcalendarwidget->isVirtualQCalendarWidget) {
@@ -375,30 +363,6 @@ void QCalendarWidget_Connect_CurrentPageChanged(QCalendarWidget* self, intptr_t 
         int sigval2 = month;
         slotFunc(self, sigval1, sigval2);
     });
-}
-
-libqt_string QCalendarWidget_Tr2(const char* s, const char* c) {
-    QString _ret = QCalendarWidget::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QCalendarWidget_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QCalendarWidget::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 // Base class handler implementation

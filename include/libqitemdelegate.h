@@ -43,7 +43,6 @@ QItemDelegate* QItemDelegate_new2(QObject* parent);
 QMetaObject* QItemDelegate_MetaObject(const QItemDelegate* self);
 void* QItemDelegate_Metacast(QItemDelegate* self, const char* param1);
 int QItemDelegate_Metacall(QItemDelegate* self, int param1, int param2, void** param3);
-libqt_string QItemDelegate_Tr(const char* s);
 bool QItemDelegate_HasClipping(const QItemDelegate* self);
 void QItemDelegate_SetClipping(QItemDelegate* self, bool clip);
 void QItemDelegate_Paint(const QItemDelegate* self, QPainter* painter, const QStyleOptionViewItem* option, const QModelIndex* index);
@@ -60,8 +59,6 @@ void QItemDelegate_DrawFocus(const QItemDelegate* self, QPainter* painter, const
 void QItemDelegate_DrawCheck(const QItemDelegate* self, QPainter* painter, const QStyleOptionViewItem* option, const QRect* rect, int state);
 bool QItemDelegate_EventFilter(QItemDelegate* self, QObject* object, QEvent* event);
 bool QItemDelegate_EditorEvent(QItemDelegate* self, QEvent* event, QAbstractItemModel* model, const QStyleOptionViewItem* option, const QModelIndex* index);
-libqt_string QItemDelegate_Tr2(const char* s, const char* c);
-libqt_string QItemDelegate_Tr3(const char* s, const char* c, int n);
 void QItemDelegate_OnMetacall(QItemDelegate* self, intptr_t slot);
 int QItemDelegate_QBaseMetacall(QItemDelegate* self, int param1, int param2, void** param3);
 void QItemDelegate_OnPaint(const QItemDelegate* self, intptr_t slot);

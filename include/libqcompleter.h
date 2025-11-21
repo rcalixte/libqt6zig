@@ -38,7 +38,6 @@ QCompleter* QCompleter_new6(const libqt_list /* of libqt_string */ completions, 
 QMetaObject* QCompleter_MetaObject(const QCompleter* self);
 void* QCompleter_Metacast(QCompleter* self, const char* param1);
 int QCompleter_Metacall(QCompleter* self, int param1, int param2, void** param3);
-libqt_string QCompleter_Tr(const char* s);
 void QCompleter_SetWidget(QCompleter* self, QWidget* widget);
 QWidget* QCompleter_Widget(const QCompleter* self);
 void QCompleter_SetModel(QCompleter* self, QAbstractItemModel* c);
@@ -78,8 +77,6 @@ void QCompleter_Activated(QCompleter* self, const libqt_string text);
 void QCompleter_Activated2(QCompleter* self, const QModelIndex* index);
 void QCompleter_Highlighted(QCompleter* self, const libqt_string text);
 void QCompleter_Highlighted2(QCompleter* self, const QModelIndex* index);
-libqt_string QCompleter_Tr2(const char* s, const char* c);
-libqt_string QCompleter_Tr3(const char* s, const char* c, int n);
 void QCompleter_Complete1(QCompleter* self, const QRect* rect);
 void QCompleter_OnMetacall(QCompleter* self, intptr_t slot);
 int QCompleter_QBaseMetacall(QCompleter* self, int param1, int param2, void** param3);

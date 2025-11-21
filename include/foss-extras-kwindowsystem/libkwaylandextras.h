@@ -25,7 +25,6 @@ typedef struct QWindow QWindow;
 QMetaObject* KWaylandExtras_MetaObject(const KWaylandExtras* self);
 void* KWaylandExtras_Metacast(KWaylandExtras* self, const char* param1);
 int KWaylandExtras_Metacall(KWaylandExtras* self, int param1, int param2, void** param3);
-libqt_string KWaylandExtras_Tr(const char* s);
 KWaylandExtras* KWaylandExtras_Self();
 void KWaylandExtras_RequestXdgActivationToken(QWindow* win, uint32_t serial, const libqt_string app_id);
 unsigned int KWaylandExtras_LastInputSerial(QWindow* window);
@@ -35,8 +34,6 @@ void KWaylandExtras_XdgActivationTokenArrived(KWaylandExtras* self, int serial, 
 void KWaylandExtras_Connect_XdgActivationTokenArrived(KWaylandExtras* self, intptr_t slot);
 void KWaylandExtras_WindowExported(KWaylandExtras* self, QWindow* window, const libqt_string handle);
 void KWaylandExtras_Connect_WindowExported(KWaylandExtras* self, intptr_t slot);
-libqt_string KWaylandExtras_Tr2(const char* s, const char* c);
-libqt_string KWaylandExtras_Tr3(const char* s, const char* c, int n);
 
 #ifdef __cplusplus
 } /* extern C */

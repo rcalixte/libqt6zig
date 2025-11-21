@@ -35,7 +35,6 @@ typedef struct Solid__StorageVolume Solid__StorageVolume;
 QMetaObject* Solid__OpticalDisc_MetaObject(const Solid__OpticalDisc* self);
 void* Solid__OpticalDisc_Metacast(Solid__OpticalDisc* self, const char* param1);
 int Solid__OpticalDisc_Metacall(Solid__OpticalDisc* self, int param1, int param2, void** param3);
-libqt_string Solid__OpticalDisc_Tr(const char* s);
 int Solid__OpticalDisc_DeviceInterfaceType();
 int Solid__OpticalDisc_AvailableContent(const Solid__OpticalDisc* self);
 int Solid__OpticalDisc_DiscType(const Solid__OpticalDisc* self);
@@ -43,8 +42,6 @@ bool Solid__OpticalDisc_IsAppendable(const Solid__OpticalDisc* self);
 bool Solid__OpticalDisc_IsBlank(const Solid__OpticalDisc* self);
 bool Solid__OpticalDisc_IsRewritable(const Solid__OpticalDisc* self);
 unsigned long long Solid__OpticalDisc_Capacity(const Solid__OpticalDisc* self);
-libqt_string Solid__OpticalDisc_Tr2(const char* s, const char* c);
-libqt_string Solid__OpticalDisc_Tr3(const char* s, const char* c, int n);
 void Solid__OpticalDisc_Delete(Solid__OpticalDisc* self);
 
 #ifdef __cplusplus

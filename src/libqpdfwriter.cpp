@@ -51,18 +51,6 @@ int QPdfWriter_Metacall(QPdfWriter* self, int param1, int param2, void** param3)
     }
 }
 
-libqt_string QPdfWriter_Tr(const char* s) {
-    QString _ret = QPdfWriter::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 void QPdfWriter_SetPdfVersion(QPdfWriter* self, int version) {
     self->setPdfVersion(static_cast<QPagedPaintDevice::PdfVersion>(version));
 }
@@ -181,30 +169,6 @@ int QPdfWriter_Metric(const QPdfWriter* self, int id) {
         return vqpdfwriter->metric(static_cast<QPaintDevice::PaintDeviceMetric>(id));
     }
     return {};
-}
-
-libqt_string QPdfWriter_Tr2(const char* s, const char* c) {
-    QString _ret = QPdfWriter::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QPdfWriter_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QPdfWriter::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 void QPdfWriter_AddFileAttachment3(QPdfWriter* self, const libqt_string fileName, const libqt_string data, const libqt_string mimeType) {

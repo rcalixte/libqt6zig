@@ -63,7 +63,6 @@ kColorPicker__KColorPicker* kColorPicker__KColorPicker_new3(bool showAlphaChanne
 QMetaObject* kColorPicker__KColorPicker_MetaObject(const kColorPicker__KColorPicker* self);
 void* kColorPicker__KColorPicker_Metacast(kColorPicker__KColorPicker* self, const char* param1);
 int kColorPicker__KColorPicker_Metacall(kColorPicker__KColorPicker* self, int param1, int param2, void** param3);
-libqt_string kColorPicker__KColorPicker_Tr(const char* s);
 void kColorPicker__KColorPicker_SetFixedSize(kColorPicker__KColorPicker* self, const QSize* size);
 void kColorPicker__KColorPicker_SetFixedSize2(kColorPicker__KColorPicker* self, int width, int height);
 QColor* kColorPicker__KColorPicker_Color(const kColorPicker__KColorPicker* self);
@@ -71,8 +70,6 @@ void kColorPicker__KColorPicker_ResetColors(kColorPicker__KColorPicker* self);
 void kColorPicker__KColorPicker_SetColor(kColorPicker__KColorPicker* self, const QColor* color);
 void kColorPicker__KColorPicker_ColorChanged(const kColorPicker__KColorPicker* self, const QColor* color);
 void kColorPicker__KColorPicker_Connect_ColorChanged(kColorPicker__KColorPicker* self, intptr_t slot);
-libqt_string kColorPicker__KColorPicker_Tr2(const char* s, const char* c);
-libqt_string kColorPicker__KColorPicker_Tr3(const char* s, const char* c, int n);
 void kColorPicker__KColorPicker_ResetColors1(kColorPicker__KColorPicker* self, bool showAlphaChannel);
 void kColorPicker__KColorPicker_OnMetacall(kColorPicker__KColorPicker* self, intptr_t slot);
 int kColorPicker__KColorPicker_QBaseMetacall(kColorPicker__KColorPicker* self, int param1, int param2, void** param3);

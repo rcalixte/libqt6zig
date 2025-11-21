@@ -31,7 +31,6 @@ KStatusBarJobTracker* KStatusBarJobTracker_new3(QWidget* parent, bool button);
 QMetaObject* KStatusBarJobTracker_MetaObject(const KStatusBarJobTracker* self);
 void* KStatusBarJobTracker_Metacast(KStatusBarJobTracker* self, const char* param1);
 int KStatusBarJobTracker_Metacall(KStatusBarJobTracker* self, int param1, int param2, void** param3);
-libqt_string KStatusBarJobTracker_Tr(const char* s);
 void KStatusBarJobTracker_RegisterJob(KStatusBarJobTracker* self, KJob* job);
 void KStatusBarJobTracker_UnregisterJob(KStatusBarJobTracker* self, KJob* job);
 QWidget* KStatusBarJobTracker_Widget(KStatusBarJobTracker* self, KJob* job);
@@ -41,8 +40,6 @@ void KStatusBarJobTracker_TotalAmount(KStatusBarJobTracker* self, KJob* job, int
 void KStatusBarJobTracker_Percent(KStatusBarJobTracker* self, KJob* job, unsigned long percent);
 void KStatusBarJobTracker_Speed(KStatusBarJobTracker* self, KJob* job, unsigned long value);
 void KStatusBarJobTracker_SlotClean(KStatusBarJobTracker* self, KJob* job);
-libqt_string KStatusBarJobTracker_Tr2(const char* s, const char* c);
-libqt_string KStatusBarJobTracker_Tr3(const char* s, const char* c, int n);
 void KStatusBarJobTracker_Delete(KStatusBarJobTracker* self);
 
 #ifdef __cplusplus

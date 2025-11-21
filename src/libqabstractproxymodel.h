@@ -37,7 +37,6 @@ QAbstractProxyModel* QAbstractProxyModel_new2(QObject* parent);
 QMetaObject* QAbstractProxyModel_MetaObject(const QAbstractProxyModel* self);
 void* QAbstractProxyModel_Metacast(QAbstractProxyModel* self, const char* param1);
 int QAbstractProxyModel_Metacall(QAbstractProxyModel* self, int param1, int param2, void** param3);
-libqt_string QAbstractProxyModel_Tr(const char* s);
 void QAbstractProxyModel_SetSourceModel(QAbstractProxyModel* self, QAbstractItemModel* sourceModel);
 QAbstractItemModel* QAbstractProxyModel_SourceModel(const QAbstractProxyModel* self);
 QModelIndex* QAbstractProxyModel_MapToSource(const QAbstractProxyModel* self, const QModelIndex* proxyIndex);
@@ -68,8 +67,6 @@ libqt_list /* of libqt_string */ QAbstractProxyModel_MimeTypes(const QAbstractPr
 int QAbstractProxyModel_SupportedDragActions(const QAbstractProxyModel* self);
 int QAbstractProxyModel_SupportedDropActions(const QAbstractProxyModel* self);
 libqt_map /* of int to libqt_string */ QAbstractProxyModel_RoleNames(const QAbstractProxyModel* self);
-libqt_string QAbstractProxyModel_Tr2(const char* s, const char* c);
-libqt_string QAbstractProxyModel_Tr3(const char* s, const char* c, int n);
 void QAbstractProxyModel_OnMetacall(QAbstractProxyModel* self, intptr_t slot);
 int QAbstractProxyModel_QBaseMetacall(QAbstractProxyModel* self, int param1, int param2, void** param3);
 void QAbstractProxyModel_OnSetSourceModel(QAbstractProxyModel* self, intptr_t slot);

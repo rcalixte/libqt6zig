@@ -67,7 +67,6 @@ KEditListWidget* KEditListWidget_new6(const KEditListWidget__CustomEditor* custo
 QMetaObject* KEditListWidget_MetaObject(const KEditListWidget* self);
 void* KEditListWidget_Metacast(KEditListWidget* self, const char* param1);
 int KEditListWidget_Metacall(KEditListWidget* self, int param1, int param2, void** param3);
-libqt_string KEditListWidget_Tr(const char* s);
 QListView* KEditListWidget_ListView(const KEditListWidget* self);
 QLineEdit* KEditListWidget_LineEdit(const KEditListWidget* self);
 QPushButton* KEditListWidget_AddButton(const KEditListWidget* self);
@@ -95,8 +94,6 @@ void KEditListWidget_Added(KEditListWidget* self, const libqt_string text);
 void KEditListWidget_Connect_Added(KEditListWidget* self, intptr_t slot);
 void KEditListWidget_Removed(KEditListWidget* self, const libqt_string text);
 void KEditListWidget_Connect_Removed(KEditListWidget* self, intptr_t slot);
-libqt_string KEditListWidget_Tr2(const char* s, const char* c);
-libqt_string KEditListWidget_Tr3(const char* s, const char* c, int n);
 void KEditListWidget_InsertStringList2(KEditListWidget* self, const libqt_list /* of libqt_string */ list, int index);
 void KEditListWidget_InsertItem2(KEditListWidget* self, const libqt_string text, int index);
 void KEditListWidget_OnMetacall(KEditListWidget* self, intptr_t slot);

@@ -43,7 +43,6 @@ KParts__NavigationExtension* KParts__NavigationExtension_new(KParts__ReadOnlyPar
 QMetaObject* KParts__NavigationExtension_MetaObject(const KParts__NavigationExtension* self);
 void* KParts__NavigationExtension_Metacast(KParts__NavigationExtension* self, const char* param1);
 int KParts__NavigationExtension_Metacall(KParts__NavigationExtension* self, int param1, int param2, void** param3);
-libqt_string KParts__NavigationExtension_Tr(const char* s);
 int KParts__NavigationExtension_XOffset(KParts__NavigationExtension* self);
 int KParts__NavigationExtension_YOffset(KParts__NavigationExtension* self);
 void KParts__NavigationExtension_SaveState(KParts__NavigationExtension* self, QDataStream* stream);
@@ -75,8 +74,6 @@ void KParts__NavigationExtension_ResizeTopLevelWidget(KParts__NavigationExtensio
 void KParts__NavigationExtension_RequestFocus(KParts__NavigationExtension* self, KParts__ReadOnlyPart* part);
 void KParts__NavigationExtension_SetPageSecurity(KParts__NavigationExtension* self, int pageSecurity);
 void KParts__NavigationExtension_ItemsRemoved(KParts__NavigationExtension* self, const KFileItemList* items);
-libqt_string KParts__NavigationExtension_Tr2(const char* s, const char* c);
-libqt_string KParts__NavigationExtension_Tr3(const char* s, const char* c, int n);
 void KParts__NavigationExtension_OpenUrlRequest2(KParts__NavigationExtension* self, const QUrl* url, const KParts__OpenUrlArguments* arguments);
 void KParts__NavigationExtension_PopupMenu3(KParts__NavigationExtension* self, const QPoint* global, const KFileItemList* items, const KParts__OpenUrlArguments* arguments);
 void KParts__NavigationExtension_PopupMenu4(KParts__NavigationExtension* self, const QPoint* global, const KFileItemList* items, const KParts__OpenUrlArguments* arguments, int flags);

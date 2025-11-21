@@ -35,7 +35,6 @@ QCandlestickSet* QCandlestickSet_new6(double open, double high, double low, doub
 QMetaObject* QCandlestickSet_MetaObject(const QCandlestickSet* self);
 void* QCandlestickSet_Metacast(QCandlestickSet* self, const char* param1);
 int QCandlestickSet_Metacall(QCandlestickSet* self, int param1, int param2, void** param3);
-libqt_string QCandlestickSet_Tr(const char* s);
 void QCandlestickSet_SetTimestamp(QCandlestickSet* self, double timestamp);
 double QCandlestickSet_Timestamp(const QCandlestickSet* self);
 void QCandlestickSet_SetOpen(QCandlestickSet* self, double open);
@@ -74,8 +73,6 @@ void QCandlestickSet_BrushChanged(QCandlestickSet* self);
 void QCandlestickSet_Connect_BrushChanged(QCandlestickSet* self, intptr_t slot);
 void QCandlestickSet_PenChanged(QCandlestickSet* self);
 void QCandlestickSet_Connect_PenChanged(QCandlestickSet* self, intptr_t slot);
-libqt_string QCandlestickSet_Tr2(const char* s, const char* c);
-libqt_string QCandlestickSet_Tr3(const char* s, const char* c, int n);
 void QCandlestickSet_OnMetacall(QCandlestickSet* self, intptr_t slot);
 int QCandlestickSet_QBaseMetacall(QCandlestickSet* self, int param1, int param2, void** param3);
 bool QCandlestickSet_Event(QCandlestickSet* self, QEvent* event);

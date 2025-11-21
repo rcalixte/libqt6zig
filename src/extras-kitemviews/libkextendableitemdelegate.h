@@ -42,7 +42,6 @@ KExtendableItemDelegate* KExtendableItemDelegate_new(QAbstractItemView* parent);
 QMetaObject* KExtendableItemDelegate_MetaObject(const KExtendableItemDelegate* self);
 void* KExtendableItemDelegate_Metacast(KExtendableItemDelegate* self, const char* param1);
 int KExtendableItemDelegate_Metacall(KExtendableItemDelegate* self, int param1, int param2, void** param3);
-libqt_string KExtendableItemDelegate_Tr(const char* s);
 QSize* KExtendableItemDelegate_SizeHint(const KExtendableItemDelegate* self, const QStyleOptionViewItem* option, const QModelIndex* index);
 void KExtendableItemDelegate_Paint(const KExtendableItemDelegate* self, QPainter* painter, const QStyleOptionViewItem* option, const QModelIndex* index);
 void KExtendableItemDelegate_ExtendItem(KExtendableItemDelegate* self, QWidget* extender, const QModelIndex* index);
@@ -54,8 +53,6 @@ void KExtendableItemDelegate_ExtenderCreated(KExtendableItemDelegate* self, QWid
 void KExtendableItemDelegate_Connect_ExtenderCreated(KExtendableItemDelegate* self, intptr_t slot);
 void KExtendableItemDelegate_ExtenderDestroyed(KExtendableItemDelegate* self, QWidget* extender, const QModelIndex* index);
 void KExtendableItemDelegate_Connect_ExtenderDestroyed(KExtendableItemDelegate* self, intptr_t slot);
-libqt_string KExtendableItemDelegate_Tr2(const char* s, const char* c);
-libqt_string KExtendableItemDelegate_Tr3(const char* s, const char* c, int n);
 void KExtendableItemDelegate_OnMetacall(KExtendableItemDelegate* self, intptr_t slot);
 int KExtendableItemDelegate_QBaseMetacall(KExtendableItemDelegate* self, int param1, int param2, void** param3);
 void KExtendableItemDelegate_OnSizeHint(const KExtendableItemDelegate* self, intptr_t slot);

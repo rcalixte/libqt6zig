@@ -25,7 +25,6 @@ typedef struct QWindow QWindow;
 QMetaObject* KWindowSystem_MetaObject(const KWindowSystem* self);
 void* KWindowSystem_Metacast(KWindowSystem* self, const char* param1);
 int KWindowSystem_Metacall(KWindowSystem* self, int param1, int param2, void** param3);
-libqt_string KWindowSystem_Tr(const char* s);
 KWindowSystem* KWindowSystem_Self();
 void KWindowSystem_ActivateWindow(QWindow* window);
 bool KWindowSystem_ShowingDesktop();
@@ -39,8 +38,6 @@ bool KWindowSystem_IsPlatformWayland();
 void KWindowSystem_SetCurrentXdgActivationToken(const libqt_string token);
 void KWindowSystem_ShowingDesktopChanged(KWindowSystem* self, bool showing);
 void KWindowSystem_Connect_ShowingDesktopChanged(KWindowSystem* self, intptr_t slot);
-libqt_string KWindowSystem_Tr2(const char* s, const char* c);
-libqt_string KWindowSystem_Tr3(const char* s, const char* c, int n);
 void KWindowSystem_ActivateWindow2(QWindow* window, long time);
 void KWindowSystem_Delete(KWindowSystem* self);
 

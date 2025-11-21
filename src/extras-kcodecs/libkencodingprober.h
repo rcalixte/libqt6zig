@@ -21,7 +21,6 @@ typedef struct QByteArrayView QByteArrayView;
 
 KEncodingProber* KEncodingProber_new();
 KEncodingProber* KEncodingProber_new2(int proberType);
-libqt_string KEncodingProber_Tr(const char* sourceText);
 void KEncodingProber_Reset(KEncodingProber* self);
 int KEncodingProber_Feed(KEncodingProber* self, libqt_string data);
 int KEncodingProber_Feed2(KEncodingProber* self, const char* data, ptrdiff_t lenVal);
@@ -32,8 +31,6 @@ int KEncodingProber_ProberType(const KEncodingProber* self);
 void KEncodingProber_SetProberType(KEncodingProber* self, int proberType);
 int KEncodingProber_ProberTypeForName(const libqt_string lang);
 libqt_string KEncodingProber_NameForProberType(int proberType);
-libqt_string KEncodingProber_Tr2(const char* sourceText, const char* disambiguation);
-libqt_string KEncodingProber_Tr3(const char* sourceText, const char* disambiguation, int n);
 void KEncodingProber_Delete(KEncodingProber* self);
 
 #ifdef __cplusplus

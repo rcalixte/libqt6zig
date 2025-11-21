@@ -36,14 +36,11 @@ KParts__ListingFilterExtension* KParts__ListingFilterExtension_new(KParts__ReadO
 QMetaObject* KParts__ListingFilterExtension_MetaObject(const KParts__ListingFilterExtension* self);
 void* KParts__ListingFilterExtension_Metacast(KParts__ListingFilterExtension* self, const char* param1);
 int KParts__ListingFilterExtension_Metacall(KParts__ListingFilterExtension* self, int param1, int param2, void** param3);
-libqt_string KParts__ListingFilterExtension_Tr(const char* s);
 KParts__ListingFilterExtension* KParts__ListingFilterExtension_ChildObject(QObject* obj);
 int KParts__ListingFilterExtension_SupportedFilterModes(const KParts__ListingFilterExtension* self);
 bool KParts__ListingFilterExtension_SupportsMultipleFilters(const KParts__ListingFilterExtension* self, int mode);
 QVariant* KParts__ListingFilterExtension_Filter(const KParts__ListingFilterExtension* self, int mode);
 void KParts__ListingFilterExtension_SetFilter(KParts__ListingFilterExtension* self, int mode, const QVariant* filter);
-libqt_string KParts__ListingFilterExtension_Tr2(const char* s, const char* c);
-libqt_string KParts__ListingFilterExtension_Tr3(const char* s, const char* c, int n);
 void KParts__ListingFilterExtension_OnMetacall(KParts__ListingFilterExtension* self, intptr_t slot);
 int KParts__ListingFilterExtension_QBaseMetacall(KParts__ListingFilterExtension* self, int param1, int param2, void** param3);
 void KParts__ListingFilterExtension_OnSupportedFilterModes(const KParts__ListingFilterExtension* self, intptr_t slot);

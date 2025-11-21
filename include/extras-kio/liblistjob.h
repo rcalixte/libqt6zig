@@ -35,7 +35,6 @@ typedef struct QUrl QUrl;
 QMetaObject* KIO__ListJob_MetaObject(const KIO__ListJob* self);
 void* KIO__ListJob_Metacast(KIO__ListJob* self, const char* param1);
 int KIO__ListJob_Metacall(KIO__ListJob* self, int param1, int param2, void** param3);
-libqt_string KIO__ListJob_Tr(const char* s);
 QUrl* KIO__ListJob_RedirectionUrl(const KIO__ListJob* self);
 void KIO__ListJob_SetUnrestricted(KIO__ListJob* self, bool unrestricted);
 void KIO__ListJob_Entries(KIO__ListJob* self, KIO__Job* job, const libqt_list /* of KIO__UDSEntry* */ list);
@@ -46,8 +45,6 @@ void KIO__ListJob_Redirection(KIO__ListJob* self, KIO__Job* job, const QUrl* url
 void KIO__ListJob_Connect_Redirection(KIO__ListJob* self, intptr_t slot);
 void KIO__ListJob_PermanentRedirection(KIO__ListJob* self, KIO__Job* job, const QUrl* fromUrl, const QUrl* toUrl);
 void KIO__ListJob_Connect_PermanentRedirection(KIO__ListJob* self, intptr_t slot);
-libqt_string KIO__ListJob_Tr2(const char* s, const char* c);
-libqt_string KIO__ListJob_Tr3(const char* s, const char* c, int n);
 void KIO__ListJob_Delete(KIO__ListJob* self);
 
 KIO__ListJob* KIO_ListDir(const QUrl* param1, int param2, int param3);

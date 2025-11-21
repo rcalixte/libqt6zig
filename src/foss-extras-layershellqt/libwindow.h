@@ -29,7 +29,6 @@ typedef struct QWindow QWindow;
 QMetaObject* LayerShellQt__Window_MetaObject(const LayerShellQt__Window* self);
 void* LayerShellQt__Window_Metacast(LayerShellQt__Window* self, const char* param1);
 int LayerShellQt__Window_Metacall(LayerShellQt__Window* self, int param1, int param2, void** param3);
-libqt_string LayerShellQt__Window_Tr(const char* s);
 void LayerShellQt__Window_SetAnchors(LayerShellQt__Window* self, int anchor);
 int LayerShellQt__Window_Anchors(const LayerShellQt__Window* self);
 void LayerShellQt__Window_SetExclusiveZone(LayerShellQt__Window* self, int32_t zone);
@@ -62,8 +61,6 @@ void LayerShellQt__Window_KeyboardInteractivityChanged(LayerShellQt__Window* sel
 void LayerShellQt__Window_Connect_KeyboardInteractivityChanged(LayerShellQt__Window* self, intptr_t slot);
 void LayerShellQt__Window_LayerChanged(LayerShellQt__Window* self);
 void LayerShellQt__Window_Connect_LayerChanged(LayerShellQt__Window* self, intptr_t slot);
-libqt_string LayerShellQt__Window_Tr2(const char* s, const char* c);
-libqt_string LayerShellQt__Window_Tr3(const char* s, const char* c, int n);
 void LayerShellQt__Window_Delete(LayerShellQt__Window* self);
 
 #ifdef __cplusplus

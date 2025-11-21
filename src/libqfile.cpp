@@ -51,18 +51,6 @@ int QFile_Metacall(QFile* self, int param1, int param2, void** param3) {
     }
 }
 
-libqt_string QFile_Tr(const char* s) {
-    QString _ret = QFile::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 libqt_string QFile_FileName(const QFile* self) {
     auto* vqfile = dynamic_cast<const VirtualQFile*>(self);
     if (vqfile && vqfile->isVirtualQFile) {
@@ -280,30 +268,6 @@ bool QFile_SetPermissions(QFile* self, int permissionSpec) {
 bool QFile_SetPermissions2(const libqt_string filename, int permissionSpec) {
     QString filename_QString = QString::fromUtf8(filename.data, filename.len);
     return QFile::setPermissions(filename_QString, static_cast<QFileDevice::Permissions>(permissionSpec));
-}
-
-libqt_string QFile_Tr2(const char* s, const char* c) {
-    QString _ret = QFile::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QFile_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QFile::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 bool QFile_Open33(QFile* self, int fd, int ioFlags, int handleFlags) {

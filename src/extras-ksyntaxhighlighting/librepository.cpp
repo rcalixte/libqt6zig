@@ -37,18 +37,6 @@ int KSyntaxHighlighting__Repository_Metacall(KSyntaxHighlighting__Repository* se
     }
 }
 
-libqt_string KSyntaxHighlighting__Repository_Tr(const char* s) {
-    QString _ret = KSyntaxHighlighting::Repository::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 KSyntaxHighlighting__Definition* KSyntaxHighlighting__Repository_DefinitionForName(const KSyntaxHighlighting__Repository* self, const libqt_string defName) {
     QString defName_QString = QString::fromUtf8(defName.data, defName.len);
     return new KSyntaxHighlighting::Definition(self->definitionForName(defName_QString));
@@ -181,30 +169,6 @@ void KSyntaxHighlighting__Repository_Connect_Reloaded(KSyntaxHighlighting__Repos
     KSyntaxHighlighting::Repository::connect(self, &KSyntaxHighlighting::Repository::reloaded, [self, slotFunc]() {
         slotFunc(self);
     });
-}
-
-libqt_string KSyntaxHighlighting__Repository_Tr2(const char* s, const char* c) {
-    QString _ret = KSyntaxHighlighting::Repository::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string KSyntaxHighlighting__Repository_Tr3(const char* s, const char* c, int n) {
-    QString _ret = KSyntaxHighlighting::Repository::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 KSyntaxHighlighting__Theme* KSyntaxHighlighting__Repository_DefaultTheme1(const KSyntaxHighlighting__Repository* self, int t) {

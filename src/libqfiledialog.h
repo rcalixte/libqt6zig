@@ -65,7 +65,6 @@ QFileDialog* QFileDialog_new6(QWidget* parent, const libqt_string caption, const
 QMetaObject* QFileDialog_MetaObject(const QFileDialog* self);
 void* QFileDialog_Metacast(QFileDialog* self, const char* param1);
 int QFileDialog_Metacall(QFileDialog* self, int param1, int param2, void** param3);
-libqt_string QFileDialog_Tr(const char* s);
 void QFileDialog_SetDirectory(QFileDialog* self, const libqt_string directory);
 void QFileDialog_SetDirectory2(QFileDialog* self, const QDir* directory);
 QDir* QFileDialog_Directory(const QFileDialog* self);
@@ -145,8 +144,6 @@ void QFileDialog_SaveFileContent(const libqt_string fileContent, const libqt_str
 void QFileDialog_Done(QFileDialog* self, int result);
 void QFileDialog_Accept(QFileDialog* self);
 void QFileDialog_ChangeEvent(QFileDialog* self, QEvent* e);
-libqt_string QFileDialog_Tr2(const char* s, const char* c);
-libqt_string QFileDialog_Tr3(const char* s, const char* c, int n);
 void QFileDialog_SetOption2(QFileDialog* self, int option, bool on);
 libqt_string QFileDialog_GetOpenFileName1(QWidget* parent);
 libqt_string QFileDialog_GetOpenFileName2(QWidget* parent, const libqt_string caption);

@@ -85,7 +85,6 @@ void KTextEditor__Mark_Delete(KTextEditor__Mark* self);
 QMetaObject* KTextEditor__Document_MetaObject(const KTextEditor__Document* self);
 void* KTextEditor__Document_Metacast(KTextEditor__Document* self, const char* param1);
 int KTextEditor__Document_Metacall(KTextEditor__Document* self, int param1, int param2, void** param3);
-libqt_string KTextEditor__Document_Tr(const char* s);
 KTextEditor__View* KTextEditor__Document_CreateView(KTextEditor__Document* self, QWidget* parent, KTextEditor__MainWindow* mainWindow);
 libqt_list /* of KTextEditor__View* */ KTextEditor__Document_Views(const KTextEditor__Document* self);
 void KTextEditor__Document_ViewCreated(KTextEditor__Document* self, KTextEditor__Document* document, KTextEditor__View* view);
@@ -235,8 +234,6 @@ void KTextEditor__Document_MarkClicked(KTextEditor__Document* self, KTextEditor_
 void KTextEditor__Document_Connect_MarkClicked(KTextEditor__Document* self, intptr_t slot);
 void KTextEditor__Document_SetAnnotationModel(KTextEditor__Document* self, KTextEditor__AnnotationModel* model);
 KTextEditor__AnnotationModel* KTextEditor__Document_AnnotationModel(const KTextEditor__Document* self);
-libqt_string KTextEditor__Document_Tr2(const char* s, const char* c);
-libqt_string KTextEditor__Document_Tr3(const char* s, const char* c, int n);
 libqt_list /* of KTextEditor__Range* */ KTextEditor__Document_SearchText3(const KTextEditor__Document* self, KTextEditor__Range* range, const libqt_string pattern, const int options);
 void KTextEditor__Document_Delete(KTextEditor__Document* self);
 

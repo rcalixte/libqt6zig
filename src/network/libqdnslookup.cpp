@@ -405,18 +405,6 @@ int QDnsLookup_Metacall(QDnsLookup* self, int param1, int param2, void** param3)
     }
 }
 
-libqt_string QDnsLookup_Tr(const char* s) {
-    QString _ret = QDnsLookup::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 bool QDnsLookup_IsAuthenticData(const QDnsLookup* self) {
     return self->isAuthenticData();
 }
@@ -705,30 +693,6 @@ void QDnsLookup_Connect_NameserverProtocolChanged(QDnsLookup* self, intptr_t slo
         uint8_t sigval1 = static_cast<uint8_t>(protocol);
         slotFunc(self, sigval1);
     });
-}
-
-libqt_string QDnsLookup_Tr2(const char* s, const char* c) {
-    QString _ret = QDnsLookup::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QDnsLookup_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QDnsLookup::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 void QDnsLookup_SetNameserver32(QDnsLookup* self, uint8_t protocol, const QHostAddress* nameserver, uint16_t port) {

@@ -56,7 +56,6 @@ KNewPasswordWidget* KNewPasswordWidget_new2();
 QMetaObject* KNewPasswordWidget_MetaObject(const KNewPasswordWidget* self);
 void* KNewPasswordWidget_Metacast(KNewPasswordWidget* self, const char* param1);
 int KNewPasswordWidget_Metacall(KNewPasswordWidget* self, int param1, int param2, void** param3);
-libqt_string KNewPasswordWidget_Tr(const char* s);
 int KNewPasswordWidget_PasswordStatus(const KNewPasswordWidget* self);
 bool KNewPasswordWidget_AllowEmptyPasswords(const KNewPasswordWidget* self);
 int KNewPasswordWidget_MinimumPasswordLength(const KNewPasswordWidget* self);
@@ -79,8 +78,6 @@ void KNewPasswordWidget_SetRevealPasswordAvailable(KNewPasswordWidget* self, boo
 void KNewPasswordWidget_SetRevealPasswordMode(KNewPasswordWidget* self, int revealPasswordMode);
 void KNewPasswordWidget_PasswordStatusChanged(KNewPasswordWidget* self);
 void KNewPasswordWidget_Connect_PasswordStatusChanged(KNewPasswordWidget* self, intptr_t slot);
-libqt_string KNewPasswordWidget_Tr2(const char* s, const char* c);
-libqt_string KNewPasswordWidget_Tr3(const char* s, const char* c, int n);
 void KNewPasswordWidget_OnMetacall(KNewPasswordWidget* self, intptr_t slot);
 int KNewPasswordWidget_QBaseMetacall(KNewPasswordWidget* self, int param1, int param2, void** param3);
 int KNewPasswordWidget_DevType(const KNewPasswordWidget* self);

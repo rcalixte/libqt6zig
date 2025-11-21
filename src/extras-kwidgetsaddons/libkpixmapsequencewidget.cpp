@@ -73,18 +73,6 @@ int KPixmapSequenceWidget_Metacall(KPixmapSequenceWidget* self, int param1, int 
     }
 }
 
-libqt_string KPixmapSequenceWidget_Tr(const char* s) {
-    QString _ret = KPixmapSequenceWidget::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 KPixmapSequence* KPixmapSequenceWidget_Sequence(const KPixmapSequenceWidget* self) {
     return new KPixmapSequence(self->sequence());
 }
@@ -108,30 +96,6 @@ void KPixmapSequenceWidget_SetSequence(KPixmapSequenceWidget* self, const KPixma
 
 void KPixmapSequenceWidget_SetInterval(KPixmapSequenceWidget* self, int msecs) {
     self->setInterval(static_cast<int>(msecs));
-}
-
-libqt_string KPixmapSequenceWidget_Tr2(const char* s, const char* c) {
-    QString _ret = KPixmapSequenceWidget::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string KPixmapSequenceWidget_Tr3(const char* s, const char* c, int n) {
-    QString _ret = KPixmapSequenceWidget::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 // Base class handler implementation

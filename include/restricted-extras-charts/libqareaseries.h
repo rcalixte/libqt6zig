@@ -38,7 +38,6 @@ QAreaSeries* QAreaSeries_new4(QLineSeries* upperSeries, QLineSeries* lowerSeries
 QMetaObject* QAreaSeries_MetaObject(const QAreaSeries* self);
 void* QAreaSeries_Metacast(QAreaSeries* self, const char* param1);
 int QAreaSeries_Metacall(QAreaSeries* self, int param1, int param2, void** param3);
-libqt_string QAreaSeries_Tr(const char* s);
 int QAreaSeries_Type(const QAreaSeries* self);
 void QAreaSeries_SetUpperSeries(QAreaSeries* self, QLineSeries* series);
 QLineSeries* QAreaSeries_UpperSeries(const QAreaSeries* self);
@@ -90,8 +89,6 @@ void QAreaSeries_PointLabelsColorChanged(QAreaSeries* self, const QColor* color)
 void QAreaSeries_Connect_PointLabelsColorChanged(QAreaSeries* self, intptr_t slot);
 void QAreaSeries_PointLabelsClippingChanged(QAreaSeries* self, bool clipping);
 void QAreaSeries_Connect_PointLabelsClippingChanged(QAreaSeries* self, intptr_t slot);
-libqt_string QAreaSeries_Tr2(const char* s, const char* c);
-libqt_string QAreaSeries_Tr3(const char* s, const char* c, int n);
 void QAreaSeries_SetPointsVisible1(QAreaSeries* self, bool visible);
 void QAreaSeries_SetPointLabelsVisible1(QAreaSeries* self, bool visible);
 void QAreaSeries_SetPointLabelsClipping1(QAreaSeries* self, bool enabled);

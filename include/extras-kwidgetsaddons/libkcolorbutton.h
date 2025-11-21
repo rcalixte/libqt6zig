@@ -63,7 +63,6 @@ KColorButton* KColorButton_new6(const QColor* c, const QColor* defaultColor, QWi
 QMetaObject* KColorButton_MetaObject(const KColorButton* self);
 void* KColorButton_Metacast(KColorButton* self, const char* param1);
 int KColorButton_Metacall(KColorButton* self, int param1, int param2, void** param3);
-libqt_string KColorButton_Tr(const char* s);
 QColor* KColorButton_Color(const KColorButton* self);
 void KColorButton_SetColor(KColorButton* self, const QColor* c);
 void KColorButton_SetAlphaChannelEnabled(KColorButton* self, bool alpha);
@@ -80,8 +79,6 @@ void KColorButton_DropEvent(KColorButton* self, QDropEvent* param1);
 void KColorButton_MousePressEvent(KColorButton* self, QMouseEvent* e);
 void KColorButton_MouseMoveEvent(KColorButton* self, QMouseEvent* e);
 void KColorButton_KeyPressEvent(KColorButton* self, QKeyEvent* e);
-libqt_string KColorButton_Tr2(const char* s, const char* c);
-libqt_string KColorButton_Tr3(const char* s, const char* c, int n);
 void KColorButton_OnMetacall(KColorButton* self, intptr_t slot);
 int KColorButton_QBaseMetacall(KColorButton* self, int param1, int param2, void** param3);
 void KColorButton_OnSizeHint(const KColorButton* self, intptr_t slot);

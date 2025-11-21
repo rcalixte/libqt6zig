@@ -32,7 +32,6 @@ QSequentialAnimationGroup* QSequentialAnimationGroup_new2(QObject* parent);
 QMetaObject* QSequentialAnimationGroup_MetaObject(const QSequentialAnimationGroup* self);
 void* QSequentialAnimationGroup_Metacast(QSequentialAnimationGroup* self, const char* param1);
 int QSequentialAnimationGroup_Metacall(QSequentialAnimationGroup* self, int param1, int param2, void** param3);
-libqt_string QSequentialAnimationGroup_Tr(const char* s);
 QPauseAnimation* QSequentialAnimationGroup_AddPause(QSequentialAnimationGroup* self, int msecs);
 QPauseAnimation* QSequentialAnimationGroup_InsertPause(QSequentialAnimationGroup* self, int index, int msecs);
 QAbstractAnimation* QSequentialAnimationGroup_CurrentAnimation(const QSequentialAnimationGroup* self);
@@ -43,8 +42,6 @@ bool QSequentialAnimationGroup_Event(QSequentialAnimationGroup* self, QEvent* ev
 void QSequentialAnimationGroup_UpdateCurrentTime(QSequentialAnimationGroup* self, int param1);
 void QSequentialAnimationGroup_UpdateState(QSequentialAnimationGroup* self, int newState, int oldState);
 void QSequentialAnimationGroup_UpdateDirection(QSequentialAnimationGroup* self, int direction);
-libqt_string QSequentialAnimationGroup_Tr2(const char* s, const char* c);
-libqt_string QSequentialAnimationGroup_Tr3(const char* s, const char* c, int n);
 void QSequentialAnimationGroup_OnMetacall(QSequentialAnimationGroup* self, intptr_t slot);
 int QSequentialAnimationGroup_QBaseMetacall(QSequentialAnimationGroup* self, int param1, int param2, void** param3);
 void QSequentialAnimationGroup_OnDuration(const QSequentialAnimationGroup* self, intptr_t slot);

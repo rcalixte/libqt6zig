@@ -2085,12 +2085,12 @@ pub const konsole__urlfilter = struct {
         return qtc.Konsole__UrlFilter_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
-        const _str = qtc.Konsole__UrlFilter_Tr(s_Cstring);
+        const _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("konsole::urlfilter.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -2136,26 +2136,26 @@ pub const konsole__urlfilter = struct {
         qtc.Konsole__UrlFilter_Connect_Activated(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        const _str = qtc.Konsole__UrlFilter_Tr2(s_Cstring, c_Cstring);
+        const _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("konsole::urlfilter.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        const _str = qtc.Konsole__UrlFilter_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        const _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("konsole::urlfilter.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3140,12 +3140,12 @@ pub const konsole__filterobject = struct {
         return qtc.Konsole__FilterObject_QBaseMetacall(@ptrCast(self), @intCast(param1), @intCast(param2), @ptrCast(@alignCast(param3)));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
-        const _str = qtc.Konsole__FilterObject_Tr(s_Cstring);
+        const _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("konsole::filterobject.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -3180,26 +3180,26 @@ pub const konsole__filterobject = struct {
         qtc.Konsole__FilterObject_Connect_Activated(@ptrCast(self), @intCast(@intFromPtr(callback)));
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        const _str = qtc.Konsole__FilterObject_Tr2(s_Cstring, c_Cstring);
+        const _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("konsole::filterobject.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
-    /// [Qt documentation](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
+    /// [Qt documentation](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
     /// ``` s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator ```
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        const _str = qtc.Konsole__FilterObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        const _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("konsole::filterobject.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

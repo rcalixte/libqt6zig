@@ -30,7 +30,6 @@ KSelectionOwner* KSelectionOwner_new3(const char* selection, int screen, QObject
 QMetaObject* KSelectionOwner_MetaObject(const KSelectionOwner* self);
 void* KSelectionOwner_Metacast(KSelectionOwner* self, const char* param1);
 int KSelectionOwner_Metacall(KSelectionOwner* self, int param1, int param2, void** param3);
-libqt_string KSelectionOwner_Tr(const char* s);
 void KSelectionOwner_Claim(KSelectionOwner* self, bool force);
 void KSelectionOwner_Release(KSelectionOwner* self);
 bool KSelectionOwner_FilterEvent(KSelectionOwner* self, void* ev_P);
@@ -42,8 +41,6 @@ void KSelectionOwner_Connect_ClaimedOwnership(KSelectionOwner* self, intptr_t sl
 void KSelectionOwner_FailedToClaimOwnership(KSelectionOwner* self);
 void KSelectionOwner_Connect_FailedToClaimOwnership(KSelectionOwner* self, intptr_t slot);
 void KSelectionOwner_GetAtoms(KSelectionOwner* self);
-libqt_string KSelectionOwner_Tr2(const char* s, const char* c);
-libqt_string KSelectionOwner_Tr3(const char* s, const char* c, int n);
 void KSelectionOwner_Claim2(KSelectionOwner* self, bool force, bool force_kill);
 void KSelectionOwner_OnMetacall(KSelectionOwner* self, intptr_t slot);
 int KSelectionOwner_QBaseMetacall(KSelectionOwner* self, int param1, int param2, void** param3);

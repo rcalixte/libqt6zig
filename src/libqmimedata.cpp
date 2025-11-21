@@ -38,18 +38,6 @@ int QMimeData_Metacall(QMimeData* self, int param1, int param2, void** param3) {
     }
 }
 
-libqt_string QMimeData_Tr(const char* s) {
-    QString _ret = QMimeData::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 libqt_list /* of QUrl* */ QMimeData_Urls(const QMimeData* self) {
     QList<QUrl> _ret = self->urls();
     // Convert QList<> from C++ memory to manually-managed C memory
@@ -229,30 +217,6 @@ QVariant* QMimeData_RetrieveData(const QMimeData* self, const libqt_string mimet
         return new QVariant(vqmimedata->retrieveData(mimetype_QString, *preferredType));
     }
     return {};
-}
-
-libqt_string QMimeData_Tr2(const char* s, const char* c) {
-    QString _ret = QMimeData::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QMimeData_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QMimeData::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 // Base class handler implementation

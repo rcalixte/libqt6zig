@@ -8,18 +8,6 @@
 #include "libkcharsets.h"
 #include "libkcharsets.hxx"
 
-libqt_string KCharsets_Tr(const char* sourceText) {
-    QString _ret = KCharsets::tr(sourceText);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 KCharsets* KCharsets_Charsets() {
     return KCharsets::charsets();
 }
@@ -124,30 +112,6 @@ libqt_list /* of libqt_list  of libqt_string  */ KCharsets_EncodingsByScript(con
 libqt_string KCharsets_EncodingForName(const KCharsets* self, const libqt_string descriptiveName) {
     QString descriptiveName_QString = QString::fromUtf8(descriptiveName.data, descriptiveName.len);
     QString _ret = self->encodingForName(descriptiveName_QString);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string KCharsets_Tr2(const char* sourceText, const char* disambiguation) {
-    QString _ret = KCharsets::tr(sourceText, disambiguation);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string KCharsets_Tr3(const char* sourceText, const char* disambiguation, int n) {
-    QString _ret = KCharsets::tr(sourceText, disambiguation, static_cast<int>(n));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;

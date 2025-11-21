@@ -51,18 +51,6 @@ int KRearrangeColumnsProxyModel_Metacall(KRearrangeColumnsProxyModel* self, int 
     }
 }
 
-libqt_string KRearrangeColumnsProxyModel_Tr(const char* s) {
-    QString _ret = KRearrangeColumnsProxyModel::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 void KRearrangeColumnsProxyModel_SetSourceColumns(KRearrangeColumnsProxyModel* self, const libqt_list /* of int */ columns) {
     QList<int> columns_QList;
     columns_QList.reserve(columns.len);
@@ -160,30 +148,6 @@ int KRearrangeColumnsProxyModel_ProxyColumnForSourceColumn(const KRearrangeColum
 
 int KRearrangeColumnsProxyModel_SourceColumnForProxyColumn(const KRearrangeColumnsProxyModel* self, int proxyColumn) {
     return self->sourceColumnForProxyColumn(static_cast<int>(proxyColumn));
-}
-
-libqt_string KRearrangeColumnsProxyModel_Tr2(const char* s, const char* c) {
-    QString _ret = KRearrangeColumnsProxyModel::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string KRearrangeColumnsProxyModel_Tr3(const char* s, const char* c, int n) {
-    QString _ret = KRearrangeColumnsProxyModel::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 // Base class handler implementation

@@ -35,7 +35,6 @@ KIO__MimeTypeFinderJob* KIO__MimeTypeFinderJob_new2(const QUrl* url, QObject* pa
 QMetaObject* KIO__MimeTypeFinderJob_MetaObject(const KIO__MimeTypeFinderJob* self);
 void* KIO__MimeTypeFinderJob_Metacast(KIO__MimeTypeFinderJob* self, const char* param1);
 int KIO__MimeTypeFinderJob_Metacall(KIO__MimeTypeFinderJob* self, int param1, int param2, void** param3);
-libqt_string KIO__MimeTypeFinderJob_Tr(const char* s);
 void KIO__MimeTypeFinderJob_SetFollowRedirections(KIO__MimeTypeFinderJob* self, bool b);
 void KIO__MimeTypeFinderJob_SetSuggestedFileName(KIO__MimeTypeFinderJob* self, const libqt_string suggestedFileName);
 libqt_string KIO__MimeTypeFinderJob_SuggestedFileName(const KIO__MimeTypeFinderJob* self);
@@ -45,8 +44,6 @@ void KIO__MimeTypeFinderJob_Start(KIO__MimeTypeFinderJob* self);
 libqt_string KIO__MimeTypeFinderJob_MimeType(const KIO__MimeTypeFinderJob* self);
 bool KIO__MimeTypeFinderJob_DoKill(KIO__MimeTypeFinderJob* self);
 void KIO__MimeTypeFinderJob_SlotResult(KIO__MimeTypeFinderJob* self, KJob* job);
-libqt_string KIO__MimeTypeFinderJob_Tr2(const char* s, const char* c);
-libqt_string KIO__MimeTypeFinderJob_Tr3(const char* s, const char* c, int n);
 void KIO__MimeTypeFinderJob_OnMetacall(KIO__MimeTypeFinderJob* self, intptr_t slot);
 int KIO__MimeTypeFinderJob_QBaseMetacall(KIO__MimeTypeFinderJob* self, int param1, int param2, void** param3);
 void KIO__MimeTypeFinderJob_OnStart(KIO__MimeTypeFinderJob* self, intptr_t slot);

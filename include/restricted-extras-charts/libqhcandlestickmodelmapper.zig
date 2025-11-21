@@ -57,7 +57,7 @@ pub const qhcandlestickmodelmapper = struct {
     /// ``` s: []const u8, allocator: std.mem.Allocator ```
     pub fn Tr(s: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
-        const _str = qtc.QHCandlestickModelMapper_Tr(s_Cstring);
+        const _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qhcandlestickmodelmapper.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -295,7 +295,7 @@ pub const qhcandlestickmodelmapper = struct {
     pub fn Tr2(s: []const u8, c: []const u8, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        const _str = qtc.QHCandlestickModelMapper_Tr2(s_Cstring, c_Cstring);
+        const _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qhcandlestickmodelmapper.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -308,7 +308,7 @@ pub const qhcandlestickmodelmapper = struct {
     pub fn Tr3(s: []const u8, c: []const u8, n: i32, allocator: std.mem.Allocator) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
-        const _str = qtc.QHCandlestickModelMapper_Tr3(s_Cstring, c_Cstring, @intCast(n));
+        const _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @intCast(n));
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("qhcandlestickmodelmapper.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);

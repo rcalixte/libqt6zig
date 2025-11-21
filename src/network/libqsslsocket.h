@@ -42,7 +42,6 @@ QSslSocket* QSslSocket_new2(QObject* parent);
 QMetaObject* QSslSocket_MetaObject(const QSslSocket* self);
 void* QSslSocket_Metacast(QSslSocket* self, const char* param1);
 int QSslSocket_Metacall(QSslSocket* self, int param1, int param2, void** param3);
-libqt_string QSslSocket_Tr(const char* s);
 void QSslSocket_Resume(QSslSocket* self);
 void QSslSocket_ConnectToHostEncrypted(QSslSocket* self, const libqt_string hostName, uint16_t port);
 void QSslSocket_ConnectToHostEncrypted2(QSslSocket* self, const libqt_string hostName, uint16_t port, const libqt_string sslPeerName);
@@ -132,8 +131,6 @@ void QSslSocket_Connect_HandshakeInterruptedOnError(QSslSocket* self, intptr_t s
 long long QSslSocket_ReadData(QSslSocket* self, char* data, long long maxlen);
 long long QSslSocket_SkipData(QSslSocket* self, long long maxSize);
 long long QSslSocket_WriteData(QSslSocket* self, const char* data, long long lenVal);
-libqt_string QSslSocket_Tr2(const char* s, const char* c);
-libqt_string QSslSocket_Tr3(const char* s, const char* c, int n);
 void QSslSocket_ConnectToHostEncrypted3(QSslSocket* self, const libqt_string hostName, uint16_t port, int mode);
 void QSslSocket_ConnectToHostEncrypted4(QSslSocket* self, const libqt_string hostName, uint16_t port, int mode, int protocol);
 void QSslSocket_ConnectToHostEncrypted42(QSslSocket* self, const libqt_string hostName, uint16_t port, const libqt_string sslPeerName, int mode);

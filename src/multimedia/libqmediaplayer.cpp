@@ -45,18 +45,6 @@ int QMediaPlayer_Metacall(QMediaPlayer* self, int param1, int param2, void** par
     }
 }
 
-libqt_string QMediaPlayer_Tr(const char* s) {
-    QString _ret = QMediaPlayer::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 libqt_list /* of QMediaMetaData* */ QMediaPlayer_AudioTracks(const QMediaPlayer* self) {
     QList<QMediaMetaData> _ret = self->audioTracks();
     // Convert QList<> from C++ memory to manually-managed C memory
@@ -505,30 +493,6 @@ void QMediaPlayer_Connect_ErrorOccurred(QMediaPlayer* self, intptr_t slot) {
         slotFunc(self, sigval1, sigval2);
         libqt_free(errorString_str);
     });
-}
-
-libqt_string QMediaPlayer_Tr2(const char* s, const char* c) {
-    QString _ret = QMediaPlayer::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QMediaPlayer_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QMediaPlayer::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 void QMediaPlayer_SetSourceDevice2(QMediaPlayer* self, QIODevice* device, const QUrl* sourceUrl) {

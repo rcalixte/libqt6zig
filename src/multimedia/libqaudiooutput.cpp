@@ -46,18 +46,6 @@ int QAudioOutput_Metacall(QAudioOutput* self, int param1, int param2, void** par
     }
 }
 
-libqt_string QAudioOutput_Tr(const char* s) {
-    QString _ret = QAudioOutput::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 QAudioDevice* QAudioOutput_Device(const QAudioOutput* self) {
     return new QAudioDevice(self->device());
 }
@@ -115,30 +103,6 @@ void QAudioOutput_Connect_MutedChanged(QAudioOutput* self, intptr_t slot) {
         bool sigval1 = muted;
         slotFunc(self, sigval1);
     });
-}
-
-libqt_string QAudioOutput_Tr2(const char* s, const char* c) {
-    QString _ret = QAudioOutput::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QAudioOutput_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QAudioOutput::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 // Base class handler implementation

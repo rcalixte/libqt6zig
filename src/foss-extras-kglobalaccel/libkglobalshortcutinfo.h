@@ -30,7 +30,6 @@ KGlobalShortcutInfo* KGlobalShortcutInfo_new2(const KGlobalShortcutInfo* rhs);
 QMetaObject* KGlobalShortcutInfo_MetaObject(const KGlobalShortcutInfo* self);
 void* KGlobalShortcutInfo_Metacast(KGlobalShortcutInfo* self, const char* param1);
 int KGlobalShortcutInfo_Metacall(KGlobalShortcutInfo* self, int param1, int param2, void** param3);
-libqt_string KGlobalShortcutInfo_Tr(const char* s);
 void KGlobalShortcutInfo_OperatorAssign(KGlobalShortcutInfo* self, const KGlobalShortcutInfo* rhs);
 libqt_string KGlobalShortcutInfo_ContextFriendlyName(const KGlobalShortcutInfo* self);
 libqt_string KGlobalShortcutInfo_ContextUniqueName(const KGlobalShortcutInfo* self);
@@ -40,8 +39,6 @@ libqt_list /* of QKeySequence* */ KGlobalShortcutInfo_DefaultKeys(const KGlobalS
 libqt_string KGlobalShortcutInfo_FriendlyName(const KGlobalShortcutInfo* self);
 libqt_list /* of QKeySequence* */ KGlobalShortcutInfo_Keys(const KGlobalShortcutInfo* self);
 libqt_string KGlobalShortcutInfo_UniqueName(const KGlobalShortcutInfo* self);
-libqt_string KGlobalShortcutInfo_Tr2(const char* s, const char* c);
-libqt_string KGlobalShortcutInfo_Tr3(const char* s, const char* c, int n);
 void KGlobalShortcutInfo_OnMetacall(KGlobalShortcutInfo* self, intptr_t slot);
 int KGlobalShortcutInfo_QBaseMetacall(KGlobalShortcutInfo* self, int param1, int param2, void** param3);
 bool KGlobalShortcutInfo_Event(KGlobalShortcutInfo* self, QEvent* event);

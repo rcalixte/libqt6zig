@@ -40,7 +40,6 @@ typedef struct QWidget QWidget;
 QMetaObject* KIO__FileUndoManager_MetaObject(const KIO__FileUndoManager* self);
 void* KIO__FileUndoManager_Metacast(KIO__FileUndoManager* self, const char* param1);
 int KIO__FileUndoManager_Metacall(KIO__FileUndoManager* self, int param1, int param2, void** param3);
-libqt_string KIO__FileUndoManager_Tr(const char* s);
 KIO__FileUndoManager* KIO__FileUndoManager_Self();
 void KIO__FileUndoManager_SetUiInterface(KIO__FileUndoManager* self, KIO__FileUndoManager__UiInterface* ui);
 KIO__FileUndoManager__UiInterface* KIO__FileUndoManager_UiInterface(const KIO__FileUndoManager* self);
@@ -61,8 +60,6 @@ void KIO__FileUndoManager_JobRecordingStarted(KIO__FileUndoManager* self, int op
 void KIO__FileUndoManager_Connect_JobRecordingStarted(KIO__FileUndoManager* self, intptr_t slot);
 void KIO__FileUndoManager_JobRecordingFinished(KIO__FileUndoManager* self, int op);
 void KIO__FileUndoManager_Connect_JobRecordingFinished(KIO__FileUndoManager* self, intptr_t slot);
-libqt_string KIO__FileUndoManager_Tr2(const char* s, const char* c);
-libqt_string KIO__FileUndoManager_Tr3(const char* s, const char* c, int n);
 
 KIO__FileUndoManager__UiInterface* KIO__FileUndoManager__UiInterface_new();
 void KIO__FileUndoManager__UiInterface_SetShowProgressInfo(KIO__FileUndoManager__UiInterface* self, bool b);

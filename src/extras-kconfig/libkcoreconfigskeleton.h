@@ -250,7 +250,6 @@ KCoreConfigSkeleton* KCoreConfigSkeleton_new3(const libqt_string configname, QOb
 QMetaObject* KCoreConfigSkeleton_MetaObject(const KCoreConfigSkeleton* self);
 void* KCoreConfigSkeleton_Metacast(KCoreConfigSkeleton* self, const char* param1);
 int KCoreConfigSkeleton_Metacall(KCoreConfigSkeleton* self, int param1, int param2, void** param3);
-libqt_string KCoreConfigSkeleton_Tr(const char* s);
 void KCoreConfigSkeleton_SetDefaults(KCoreConfigSkeleton* self);
 void KCoreConfigSkeleton_Load(KCoreConfigSkeleton* self);
 void KCoreConfigSkeleton_Read(KCoreConfigSkeleton* self);
@@ -293,8 +292,6 @@ bool KCoreConfigSkeleton_UsrUseDefaults(KCoreConfigSkeleton* self, bool b);
 void KCoreConfigSkeleton_UsrSetDefaults(KCoreConfigSkeleton* self);
 void KCoreConfigSkeleton_UsrRead(KCoreConfigSkeleton* self);
 bool KCoreConfigSkeleton_UsrSave(KCoreConfigSkeleton* self);
-libqt_string KCoreConfigSkeleton_Tr2(const char* s, const char* c);
-libqt_string KCoreConfigSkeleton_Tr3(const char* s, const char* c, int n);
 void KCoreConfigSkeleton_AddItem2(KCoreConfigSkeleton* self, KConfigSkeletonItem* item, const libqt_string name);
 KCoreConfigSkeleton__ItemString* KCoreConfigSkeleton_AddItemString3(KCoreConfigSkeleton* self, const libqt_string name, libqt_string reference, const libqt_string defaultValue);
 KCoreConfigSkeleton__ItemString* KCoreConfigSkeleton_AddItemString4(KCoreConfigSkeleton* self, const libqt_string name, libqt_string reference, const libqt_string defaultValue, const libqt_string key);

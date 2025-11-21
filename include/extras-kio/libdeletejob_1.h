@@ -31,7 +31,6 @@ typedef struct QUrl QUrl;
 QMetaObject* KIO__DeleteJob_MetaObject(const KIO__DeleteJob* self);
 void* KIO__DeleteJob_Metacast(KIO__DeleteJob* self, const char* param1);
 int KIO__DeleteJob_Metacall(KIO__DeleteJob* self, int param1, int param2, void** param3);
-libqt_string KIO__DeleteJob_Tr(const char* s);
 libqt_list /* of QUrl* */ KIO__DeleteJob_Urls(const KIO__DeleteJob* self);
 void KIO__DeleteJob_TotalFiles(KIO__DeleteJob* self, KJob* job, unsigned long files);
 void KIO__DeleteJob_Connect_TotalFiles(KIO__DeleteJob* self, intptr_t slot);
@@ -43,8 +42,6 @@ void KIO__DeleteJob_ProcessedDirs(KIO__DeleteJob* self, KIO__Job* job, unsigned 
 void KIO__DeleteJob_Connect_ProcessedDirs(KIO__DeleteJob* self, intptr_t slot);
 void KIO__DeleteJob_Deleting(KIO__DeleteJob* self, KIO__Job* job, const QUrl* file);
 void KIO__DeleteJob_Connect_Deleting(KIO__DeleteJob* self, intptr_t slot);
-libqt_string KIO__DeleteJob_Tr2(const char* s, const char* c);
-libqt_string KIO__DeleteJob_Tr3(const char* s, const char* c, int n);
 void KIO__DeleteJob_Delete(KIO__DeleteJob* self);
 
 KIO__DeleteJob* KIO_Del(const QUrl* param1, int param2);

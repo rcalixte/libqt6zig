@@ -34,7 +34,6 @@ typedef struct QUrl QUrl;
 QMetaObject* KIO__CopyJob_MetaObject(const KIO__CopyJob* self);
 void* KIO__CopyJob_Metacast(KIO__CopyJob* self, const char* param1);
 int KIO__CopyJob_Metacall(KIO__CopyJob* self, int param1, int param2, void** param3);
-libqt_string KIO__CopyJob_Tr(const char* s);
 int KIO__CopyJob_OperationMode(const KIO__CopyJob* self);
 libqt_list /* of QUrl* */ KIO__CopyJob_SrcUrls(const KIO__CopyJob* self);
 QUrl* KIO__CopyJob_DestUrl(const KIO__CopyJob* self);
@@ -62,8 +61,6 @@ void KIO__CopyJob_CopyingDone(KIO__CopyJob* self, KIO__Job* job, const QUrl* fro
 void KIO__CopyJob_Connect_CopyingDone(KIO__CopyJob* self, intptr_t slot);
 void KIO__CopyJob_CopyingLinkDone(KIO__CopyJob* self, KIO__Job* job, const QUrl* from, const libqt_string target, const QUrl* to);
 void KIO__CopyJob_Connect_CopyingLinkDone(KIO__CopyJob* self, intptr_t slot);
-libqt_string KIO__CopyJob_Tr2(const char* s, const char* c);
-libqt_string KIO__CopyJob_Tr3(const char* s, const char* c, int n);
 void KIO__CopyJob_Delete(KIO__CopyJob* self);
 
 KIO__CopyJob* KIO_Copy(const QUrl* param1, const QUrl* param2, int param3);

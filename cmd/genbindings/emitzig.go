@@ -1646,11 +1646,14 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 			if _, ok := previousMethods[mSafeMethodName]; ok {
 				continue
 			}
-			cmdStructName := zigStructName
+			overrideTr := (m.MethodName == "tr" || m.OverrideMethodName == "tr") && zigStructName != "QMetaObject"
+			cmdStructName := ifv(overrideTr, "QObject", zigStructName)
 			var inheritedFrom string
 			if m.InheritedFrom != "" {
 				inheritedFrom = "\n    /// Inherited from " + m.InheritedFrom + "\n    ///"
-				cmdStructName = cabiClassName(m.InheritedFrom)
+				if !overrideTr {
+					cmdStructName = cabiClassName(m.InheritedFrom)
+				}
 			}
 
 			if m.InheritedInClass != "" {

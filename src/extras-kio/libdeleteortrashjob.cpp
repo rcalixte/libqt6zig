@@ -43,18 +43,6 @@ int KIO__DeleteOrTrashJob_Metacall(KIO__DeleteOrTrashJob* self, int param1, int 
     }
 }
 
-libqt_string KIO__DeleteOrTrashJob_Tr(const char* s) {
-    QString _ret = KIO::DeleteOrTrashJob::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 void KIO__DeleteOrTrashJob_Start(KIO__DeleteOrTrashJob* self) {
     auto* vkio__deleteortrashjob = dynamic_cast<VirtualKIODeleteOrTrashJob*>(self);
     if (vkio__deleteortrashjob && vkio__deleteortrashjob->isVirtualKIODeleteOrTrashJob) {
@@ -73,30 +61,6 @@ void KIO__DeleteOrTrashJob_Connect_Started(KIO__DeleteOrTrashJob* self, intptr_t
     KIO::DeleteOrTrashJob::connect(self, &KIO::DeleteOrTrashJob::started, [self, slotFunc]() {
         slotFunc(self);
     });
-}
-
-libqt_string KIO__DeleteOrTrashJob_Tr2(const char* s, const char* c) {
-    QString _ret = KIO::DeleteOrTrashJob::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string KIO__DeleteOrTrashJob_Tr3(const char* s, const char* c, int n) {
-    QString _ret = KIO::DeleteOrTrashJob::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 // Base class handler implementation

@@ -27,18 +27,6 @@ int KIO__CopyJob_Metacall(KIO__CopyJob* self, int param1, int param2, void** par
     return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
-libqt_string KIO__CopyJob_Tr(const char* s) {
-    QString _ret = KIO::CopyJob::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 int KIO__CopyJob_OperationMode(const KIO__CopyJob* self) {
     return static_cast<int>(self->operationMode());
 }
@@ -251,30 +239,6 @@ void KIO__CopyJob_Connect_CopyingLinkDone(KIO__CopyJob* self, intptr_t slot) {
         slotFunc(self, sigval1, sigval2, sigval3, sigval4);
         libqt_free(target_str);
     });
-}
-
-libqt_string KIO__CopyJob_Tr2(const char* s, const char* c) {
-    QString _ret = KIO::CopyJob::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string KIO__CopyJob_Tr3(const char* s, const char* c, int n) {
-    QString _ret = KIO::CopyJob::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 void KIO__CopyJob_Delete(KIO__CopyJob* self) {

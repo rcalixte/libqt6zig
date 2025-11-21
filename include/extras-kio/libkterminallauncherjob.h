@@ -31,13 +31,10 @@ KTerminalLauncherJob* KTerminalLauncherJob_new2(const libqt_string command, QObj
 QMetaObject* KTerminalLauncherJob_MetaObject(const KTerminalLauncherJob* self);
 void* KTerminalLauncherJob_Metacast(KTerminalLauncherJob* self, const char* param1);
 int KTerminalLauncherJob_Metacall(KTerminalLauncherJob* self, int param1, int param2, void** param3);
-libqt_string KTerminalLauncherJob_Tr(const char* s);
 void KTerminalLauncherJob_SetWorkingDirectory(KTerminalLauncherJob* self, const libqt_string workingDirectory);
 void KTerminalLauncherJob_SetStartupId(KTerminalLauncherJob* self, const libqt_string startupId);
 void KTerminalLauncherJob_SetProcessEnvironment(KTerminalLauncherJob* self, const QProcessEnvironment* environment);
 void KTerminalLauncherJob_Start(KTerminalLauncherJob* self);
-libqt_string KTerminalLauncherJob_Tr2(const char* s, const char* c);
-libqt_string KTerminalLauncherJob_Tr3(const char* s, const char* c, int n);
 void KTerminalLauncherJob_OnMetacall(KTerminalLauncherJob* self, intptr_t slot);
 int KTerminalLauncherJob_QBaseMetacall(KTerminalLauncherJob* self, int param1, int param2, void** param3);
 void KTerminalLauncherJob_OnStart(KTerminalLauncherJob* self, intptr_t slot);

@@ -33,12 +33,9 @@ QPieLegendMarker* QPieLegendMarker_new2(QPieSeries* series, QPieSlice* slice, QL
 QMetaObject* QPieLegendMarker_MetaObject(const QPieLegendMarker* self);
 void* QPieLegendMarker_Metacast(QPieLegendMarker* self, const char* param1);
 int QPieLegendMarker_Metacall(QPieLegendMarker* self, int param1, int param2, void** param3);
-libqt_string QPieLegendMarker_Tr(const char* s);
 int QPieLegendMarker_Type(QPieLegendMarker* self);
 QPieSeries* QPieLegendMarker_Series(QPieLegendMarker* self);
 QPieSlice* QPieLegendMarker_Slice(QPieLegendMarker* self);
-libqt_string QPieLegendMarker_Tr2(const char* s, const char* c);
-libqt_string QPieLegendMarker_Tr3(const char* s, const char* c, int n);
 void QPieLegendMarker_OnMetacall(QPieLegendMarker* self, intptr_t slot);
 int QPieLegendMarker_QBaseMetacall(QPieLegendMarker* self, int param1, int param2, void** param3);
 void QPieLegendMarker_OnType(QPieLegendMarker* self, intptr_t slot);

@@ -25,7 +25,6 @@ QSystemSemaphore* QSystemSemaphore_new3(const QNativeIpcKey* key, int initialVal
 QSystemSemaphore* QSystemSemaphore_new4(const QNativeIpcKey* key, int initialValue, int param3);
 QSystemSemaphore* QSystemSemaphore_new5(const libqt_string key, int initialValue);
 QSystemSemaphore* QSystemSemaphore_new6(const libqt_string key, int initialValue, int mode);
-libqt_string QSystemSemaphore_Tr(const char* sourceText);
 void QSystemSemaphore_SetNativeKey(QSystemSemaphore* self, const QNativeIpcKey* key);
 void QSystemSemaphore_SetNativeKey2(QSystemSemaphore* self, const libqt_string key);
 QNativeIpcKey* QSystemSemaphore_NativeIpcKey(const QSystemSemaphore* self);
@@ -38,8 +37,6 @@ libqt_string QSystemSemaphore_ErrorString(const QSystemSemaphore* self);
 bool QSystemSemaphore_IsKeyTypeSupported(uint16_t typeVal);
 QNativeIpcKey* QSystemSemaphore_PlatformSafeKey(const libqt_string key);
 QNativeIpcKey* QSystemSemaphore_LegacyNativeKey(const libqt_string key);
-libqt_string QSystemSemaphore_Tr2(const char* sourceText, const char* disambiguation);
-libqt_string QSystemSemaphore_Tr3(const char* sourceText, const char* disambiguation, int n);
 void QSystemSemaphore_SetNativeKey22(QSystemSemaphore* self, const QNativeIpcKey* key, int initialValue);
 void QSystemSemaphore_SetNativeKey3(QSystemSemaphore* self, const QNativeIpcKey* key, int initialValue, int param3);
 void QSystemSemaphore_SetNativeKey23(QSystemSemaphore* self, const libqt_string key, int initialValue);

@@ -24,18 +24,6 @@ int SignOn__AuthSession_Metacall(SignOn__AuthSession* self, int param1, int para
     return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
-libqt_string SignOn__AuthSession_Tr(const char* s) {
-    QString _ret = SignOn::AuthSession::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 libqt_string SignOn__AuthSession_Name(const SignOn__AuthSession* self) {
     const QString _ret = self->name();
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
@@ -151,30 +139,6 @@ void SignOn__AuthSession_Connect_StateChanged(SignOn__AuthSession* self, intptr_
         slotFunc(self, sigval1, sigval2);
         libqt_free(message_str);
     });
-}
-
-libqt_string SignOn__AuthSession_Tr2(const char* s, const char* c) {
-    QString _ret = SignOn::AuthSession::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string SignOn__AuthSession_Tr3(const char* s, const char* c, int n) {
-    QString _ret = SignOn::AuthSession::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 void SignOn__AuthSession_QueryAvailableMechanisms1(SignOn__AuthSession* self, const libqt_list /* of libqt_string */ wantedMechanisms) {

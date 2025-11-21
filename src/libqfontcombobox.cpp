@@ -68,18 +68,6 @@ int QFontComboBox_Metacall(QFontComboBox* self, int param1, int param2, void** p
     }
 }
 
-libqt_string QFontComboBox_Tr(const char* s) {
-    QString _ret = QFontComboBox::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 void QFontComboBox_SetWritingSystem(QFontComboBox* self, int writingSystem) {
     self->setWritingSystem(static_cast<QFontDatabase::WritingSystem>(writingSystem));
 }
@@ -174,30 +162,6 @@ bool QFontComboBox_Event(QFontComboBox* self, QEvent* e) {
         return vqfontcombobox->event(e);
     }
     return {};
-}
-
-libqt_string QFontComboBox_Tr2(const char* s, const char* c) {
-    QString _ret = QFontComboBox::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QFontComboBox_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QFontComboBox::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 // Base class handler implementation

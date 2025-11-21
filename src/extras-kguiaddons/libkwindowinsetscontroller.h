@@ -30,7 +30,6 @@ KWindowInsetsController* KWindowInsetsController_new2(QObject* parent);
 QMetaObject* KWindowInsetsController_MetaObject(const KWindowInsetsController* self);
 void* KWindowInsetsController_Metacast(KWindowInsetsController* self, const char* param1);
 int KWindowInsetsController_Metacall(KWindowInsetsController* self, int param1, int param2, void** param3);
-libqt_string KWindowInsetsController_Tr(const char* s);
 QColor* KWindowInsetsController_StatusBarBackgroundColor(const KWindowInsetsController* self);
 void KWindowInsetsController_SetStatusBarBackgroundColor(KWindowInsetsController* self, const QColor* color);
 QColor* KWindowInsetsController_NavigationBarBackgroundColor(const KWindowInsetsController* self);
@@ -39,8 +38,6 @@ void KWindowInsetsController_StatusBarBackgroundColorChanged(KWindowInsetsContro
 void KWindowInsetsController_Connect_StatusBarBackgroundColorChanged(KWindowInsetsController* self, intptr_t slot);
 void KWindowInsetsController_NavigationBarBackgroundColorChanged(KWindowInsetsController* self);
 void KWindowInsetsController_Connect_NavigationBarBackgroundColorChanged(KWindowInsetsController* self, intptr_t slot);
-libqt_string KWindowInsetsController_Tr2(const char* s, const char* c);
-libqt_string KWindowInsetsController_Tr3(const char* s, const char* c, int n);
 void KWindowInsetsController_OnMetacall(KWindowInsetsController* self, intptr_t slot);
 int KWindowInsetsController_QBaseMetacall(KWindowInsetsController* self, int param1, int param2, void** param3);
 bool KWindowInsetsController_Event(KWindowInsetsController* self, QEvent* event);

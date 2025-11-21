@@ -63,12 +63,9 @@ KNSWidgets__Button* KNSWidgets__Button_new2(const libqt_string text, const libqt
 QMetaObject* KNSWidgets__Button_MetaObject(const KNSWidgets__Button* self);
 void* KNSWidgets__Button_Metacast(KNSWidgets__Button* self, const char* param1);
 int KNSWidgets__Button_Metacall(KNSWidgets__Button* self, int param1, int param2, void** param3);
-libqt_string KNSWidgets__Button_Tr(const char* s);
 void KNSWidgets__Button_SetConfigFile(KNSWidgets__Button* self, const libqt_string configFile);
 void KNSWidgets__Button_DialogFinished(KNSWidgets__Button* self, const libqt_list /* of KNSCore__Entry* */ changedEntries);
 void KNSWidgets__Button_Connect_DialogFinished(KNSWidgets__Button* self, intptr_t slot);
-libqt_string KNSWidgets__Button_Tr2(const char* s, const char* c);
-libqt_string KNSWidgets__Button_Tr3(const char* s, const char* c, int n);
 void KNSWidgets__Button_OnMetacall(KNSWidgets__Button* self, intptr_t slot);
 int KNSWidgets__Button_QBaseMetacall(KNSWidgets__Button* self, int param1, int param2, void** param3);
 QSize* KNSWidgets__Button_SizeHint(const KNSWidgets__Button* self);

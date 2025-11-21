@@ -62,7 +62,6 @@ QCommandLinkButton* QCommandLinkButton_new6(const libqt_string text, const libqt
 QMetaObject* QCommandLinkButton_MetaObject(const QCommandLinkButton* self);
 void* QCommandLinkButton_Metacast(QCommandLinkButton* self, const char* param1);
 int QCommandLinkButton_Metacall(QCommandLinkButton* self, int param1, int param2, void** param3);
-libqt_string QCommandLinkButton_Tr(const char* s);
 libqt_string QCommandLinkButton_Description(const QCommandLinkButton* self);
 void QCommandLinkButton_SetDescription(QCommandLinkButton* self, const libqt_string description);
 QSize* QCommandLinkButton_SizeHint(const QCommandLinkButton* self);
@@ -71,8 +70,6 @@ QSize* QCommandLinkButton_MinimumSizeHint(const QCommandLinkButton* self);
 void QCommandLinkButton_InitStyleOption(const QCommandLinkButton* self, QStyleOptionButton* option);
 bool QCommandLinkButton_Event(QCommandLinkButton* self, QEvent* e);
 void QCommandLinkButton_PaintEvent(QCommandLinkButton* self, QPaintEvent* param1);
-libqt_string QCommandLinkButton_Tr2(const char* s, const char* c);
-libqt_string QCommandLinkButton_Tr3(const char* s, const char* c, int n);
 void QCommandLinkButton_OnMetacall(QCommandLinkButton* self, intptr_t slot);
 int QCommandLinkButton_QBaseMetacall(QCommandLinkButton* self, int param1, int param2, void** param3);
 void QCommandLinkButton_OnSizeHint(const QCommandLinkButton* self, intptr_t slot);

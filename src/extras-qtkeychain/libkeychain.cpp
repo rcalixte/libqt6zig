@@ -29,18 +29,6 @@ int QKeychain__Job_Metacall(QKeychain__Job* self, int param1, int param2, void**
     return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
-libqt_string QKeychain__Job_Tr(const char* s) {
-    QString _ret = QKeychain::Job::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 QSettings* QKeychain__Job_Settings(const QKeychain__Job* self) {
     return self->settings();
 }
@@ -135,30 +123,6 @@ void QKeychain__Job_Connect_Finished(QKeychain__Job* self, intptr_t slot) {
     });
 }
 
-libqt_string QKeychain__Job_Tr2(const char* s, const char* c) {
-    QString _ret = QKeychain::Job::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QKeychain__Job_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QKeychain::Job::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 void QKeychain__Job_Delete(QKeychain__Job* self) {
     delete self;
 }
@@ -190,18 +154,6 @@ int QKeychain__ReadPasswordJob_Metacall(QKeychain__ReadPasswordJob* self, int pa
     }
 }
 
-libqt_string QKeychain__ReadPasswordJob_Tr(const char* s) {
-    QString _ret = QKeychain::ReadPasswordJob::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 libqt_string QKeychain__ReadPasswordJob_BinaryData(const QKeychain__ReadPasswordJob* self) {
     QByteArray _qb = self->binaryData();
     libqt_string _str;
@@ -214,30 +166,6 @@ libqt_string QKeychain__ReadPasswordJob_BinaryData(const QKeychain__ReadPassword
 
 libqt_string QKeychain__ReadPasswordJob_TextData(const QKeychain__ReadPasswordJob* self) {
     QString _ret = self->textData();
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QKeychain__ReadPasswordJob_Tr2(const char* s, const char* c) {
-    QString _ret = QKeychain::ReadPasswordJob::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QKeychain__ReadPasswordJob_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QKeychain::ReadPasswordJob::tr(s, c, static_cast<int>(n));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -646,18 +574,6 @@ int QKeychain__WritePasswordJob_Metacall(QKeychain__WritePasswordJob* self, int 
     }
 }
 
-libqt_string QKeychain__WritePasswordJob_Tr(const char* s) {
-    QString _ret = QKeychain::WritePasswordJob::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 void QKeychain__WritePasswordJob_SetBinaryData(QKeychain__WritePasswordJob* self, const libqt_string data) {
     QByteArray data_QByteArray(data.data, data.len);
     self->setBinaryData(data_QByteArray);
@@ -666,30 +582,6 @@ void QKeychain__WritePasswordJob_SetBinaryData(QKeychain__WritePasswordJob* self
 void QKeychain__WritePasswordJob_SetTextData(QKeychain__WritePasswordJob* self, const libqt_string data) {
     QString data_QString = QString::fromUtf8(data.data, data.len);
     self->setTextData(data_QString);
-}
-
-libqt_string QKeychain__WritePasswordJob_Tr2(const char* s, const char* c) {
-    QString _ret = QKeychain::WritePasswordJob::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QKeychain__WritePasswordJob_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QKeychain::WritePasswordJob::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 // Base class handler implementation
@@ -1088,42 +980,6 @@ int QKeychain__DeletePasswordJob_Metacall(QKeychain__DeletePasswordJob* self, in
     } else {
         return ((VirtualQKeychainDeletePasswordJob*)self)->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
     }
-}
-
-libqt_string QKeychain__DeletePasswordJob_Tr(const char* s) {
-    QString _ret = QKeychain::DeletePasswordJob::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QKeychain__DeletePasswordJob_Tr2(const char* s, const char* c) {
-    QString _ret = QKeychain::DeletePasswordJob::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QKeychain__DeletePasswordJob_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QKeychain::DeletePasswordJob::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 // Base class handler implementation

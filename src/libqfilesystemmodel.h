@@ -42,7 +42,6 @@ QFileSystemModel* QFileSystemModel_new2(QObject* parent);
 QMetaObject* QFileSystemModel_MetaObject(const QFileSystemModel* self);
 void* QFileSystemModel_Metacast(QFileSystemModel* self, const char* param1);
 int QFileSystemModel_Metacall(QFileSystemModel* self, int param1, int param2, void** param3);
-libqt_string QFileSystemModel_Tr(const char* s);
 void QFileSystemModel_RootPathChanged(QFileSystemModel* self, const libqt_string newPath);
 void QFileSystemModel_Connect_RootPathChanged(QFileSystemModel* self, intptr_t slot);
 void QFileSystemModel_FileRenamed(QFileSystemModel* self, const libqt_string path, const libqt_string oldName, const libqt_string newName);
@@ -103,8 +102,6 @@ QFileInfo* QFileSystemModel_FileInfo(const QFileSystemModel* self, const QModelI
 bool QFileSystemModel_Remove(QFileSystemModel* self, const QModelIndex* index);
 void QFileSystemModel_TimerEvent(QFileSystemModel* self, QTimerEvent* event);
 bool QFileSystemModel_Event(QFileSystemModel* self, QEvent* event);
-libqt_string QFileSystemModel_Tr2(const char* s, const char* c);
-libqt_string QFileSystemModel_Tr3(const char* s, const char* c, int n);
 QModelIndex* QFileSystemModel_Index22(const QFileSystemModel* self, const libqt_string path, int column);
 QVariant* QFileSystemModel_MyComputer1(const QFileSystemModel* self, int role);
 void QFileSystemModel_SetOption2(QFileSystemModel* self, int option, bool on);

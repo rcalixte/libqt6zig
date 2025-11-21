@@ -67,7 +67,6 @@ QMessageBox* QMessageBox_new9(const libqt_string title, const libqt_string text,
 QMetaObject* QMessageBox_MetaObject(const QMessageBox* self);
 void* QMessageBox_Metacast(QMessageBox* self, const char* param1);
 int QMessageBox_Metacall(QMessageBox* self, int param1, int param2, void** param3);
-libqt_string QMessageBox_Tr(const char* s);
 void QMessageBox_AddButton(QMessageBox* self, QAbstractButton* button, int role);
 QPushButton* QMessageBox_AddButton2(QMessageBox* self, const libqt_string text, int role);
 QPushButton* QMessageBox_AddButton3(QMessageBox* self, int button);
@@ -136,8 +135,6 @@ void QMessageBox_ShowEvent(QMessageBox* self, QShowEvent* event);
 void QMessageBox_CloseEvent(QMessageBox* self, QCloseEvent* event);
 void QMessageBox_KeyPressEvent(QMessageBox* self, QKeyEvent* event);
 void QMessageBox_ChangeEvent(QMessageBox* self, QEvent* event);
-libqt_string QMessageBox_Tr2(const char* s, const char* c);
-libqt_string QMessageBox_Tr3(const char* s, const char* c, int n);
 void QMessageBox_SetOption2(QMessageBox* self, int option, bool on);
 int QMessageBox_Information42(QWidget* parent, const libqt_string title, const libqt_string text, int buttons);
 int QMessageBox_Information5(QWidget* parent, const libqt_string title, const libqt_string text, int buttons, int defaultButton);

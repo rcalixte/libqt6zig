@@ -66,7 +66,6 @@ kImageAnnotator__KImageAnnotator* kImageAnnotator__KImageAnnotator_new();
 QMetaObject* kImageAnnotator__KImageAnnotator_MetaObject(const kImageAnnotator__KImageAnnotator* self);
 void* kImageAnnotator__KImageAnnotator_Metacast(kImageAnnotator__KImageAnnotator* self, const char* param1);
 int kImageAnnotator__KImageAnnotator_Metacall(kImageAnnotator__KImageAnnotator* self, int param1, int param2, void** param3);
-libqt_string kImageAnnotator__KImageAnnotator_Tr(const char* s);
 QImage* kImageAnnotator__KImageAnnotator_Image(const kImageAnnotator__KImageAnnotator* self);
 QImage* kImageAnnotator__KImageAnnotator_ImageAt(const kImageAnnotator__KImageAnnotator* self, int index);
 QAction* kImageAnnotator__KImageAnnotator_UndoAction(kImageAnnotator__KImageAnnotator* self);
@@ -108,8 +107,6 @@ void kImageAnnotator__KImageAnnotator_TabMoved(kImageAnnotator__KImageAnnotator*
 void kImageAnnotator__KImageAnnotator_Connect_TabMoved(kImageAnnotator__KImageAnnotator* self, intptr_t slot);
 void kImageAnnotator__KImageAnnotator_TabContextMenuOpened(const kImageAnnotator__KImageAnnotator* self, int index);
 void kImageAnnotator__KImageAnnotator_Connect_TabContextMenuOpened(kImageAnnotator__KImageAnnotator* self, intptr_t slot);
-libqt_string kImageAnnotator__KImageAnnotator_Tr2(const char* s, const char* c);
-libqt_string kImageAnnotator__KImageAnnotator_Tr3(const char* s, const char* c, int n);
 void kImageAnnotator__KImageAnnotator_OnMetacall(kImageAnnotator__KImageAnnotator* self, intptr_t slot);
 int kImageAnnotator__KImageAnnotator_QBaseMetacall(kImageAnnotator__KImageAnnotator* self, int param1, int param2, void** param3);
 void kImageAnnotator__KImageAnnotator_OnSizeHint(const kImageAnnotator__KImageAnnotator* self, intptr_t slot);

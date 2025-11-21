@@ -65,7 +65,6 @@ KUrlLabel* KUrlLabel_new5(const libqt_string url, const libqt_string text, QWidg
 QMetaObject* KUrlLabel_MetaObject(const KUrlLabel* self);
 void* KUrlLabel_Metacast(KUrlLabel* self, const char* param1);
 int KUrlLabel_Metacall(KUrlLabel* self, int param1, int param2, void** param3);
-libqt_string KUrlLabel_Tr(const char* s);
 libqt_string KUrlLabel_Url(const KUrlLabel* self);
 libqt_string KUrlLabel_TipText(const KUrlLabel* self);
 bool KUrlLabel_UseTips(const KUrlLabel* self);
@@ -100,8 +99,6 @@ void KUrlLabel_MouseReleaseEvent(KUrlLabel* self, QMouseEvent* param1);
 void KUrlLabel_EnterEvent(KUrlLabel* self, QEnterEvent* event);
 void KUrlLabel_LeaveEvent(KUrlLabel* self, QEvent* param1);
 bool KUrlLabel_Event(KUrlLabel* self, QEvent* param1);
-libqt_string KUrlLabel_Tr2(const char* s, const char* c);
-libqt_string KUrlLabel_Tr3(const char* s, const char* c, int n);
 void KUrlLabel_SetUnderline1(KUrlLabel* self, bool on);
 void KUrlLabel_SetUseTips1(KUrlLabel* self, bool on);
 void KUrlLabel_SetUseCursor2(KUrlLabel* self, bool on, QCursor* cursor);

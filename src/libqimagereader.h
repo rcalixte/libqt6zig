@@ -28,7 +28,6 @@ QImageReader* QImageReader_new2(QIODevice* device);
 QImageReader* QImageReader_new3(const libqt_string fileName);
 QImageReader* QImageReader_new4(QIODevice* device, const libqt_string format);
 QImageReader* QImageReader_new5(const libqt_string fileName, const libqt_string format);
-libqt_string QImageReader_Tr(const char* sourceText);
 void QImageReader_SetFormat(QImageReader* self, const libqt_string format);
 libqt_string QImageReader_Format(const QImageReader* self);
 void QImageReader_SetAutoDetectImageFormat(QImageReader* self, bool enabled);
@@ -79,8 +78,6 @@ libqt_list /* of libqt_string */ QImageReader_SupportedMimeTypes();
 libqt_list /* of libqt_string */ QImageReader_ImageFormatsForMimeType(const libqt_string mimeType);
 int QImageReader_AllocationLimit();
 void QImageReader_SetAllocationLimit(int mbLimit);
-libqt_string QImageReader_Tr2(const char* sourceText, const char* disambiguation);
-libqt_string QImageReader_Tr3(const char* sourceText, const char* disambiguation, int n);
 void QImageReader_Delete(QImageReader* self);
 
 #ifdef __cplusplus

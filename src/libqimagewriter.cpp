@@ -30,18 +30,6 @@ QImageWriter* QImageWriter_new4(const libqt_string fileName, const libqt_string 
     return new QImageWriter(fileName_QString, format_QByteArray);
 }
 
-libqt_string QImageWriter_Tr(const char* sourceText) {
-    QString _ret = QImageWriter::tr(sourceText);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 void QImageWriter_SetFormat(QImageWriter* self, const libqt_string format) {
     QByteArray format_QByteArray(format.data, format.len);
     self->setFormat(format_QByteArray);
@@ -246,30 +234,6 @@ libqt_list /* of libqt_string */ QImageWriter_ImageFormatsForMimeType(const libq
     _out.len = _ret.size();
     _out.data = static_cast<void*>(_arr);
     return _out;
-}
-
-libqt_string QImageWriter_Tr2(const char* sourceText, const char* disambiguation) {
-    QString _ret = QImageWriter::tr(sourceText, disambiguation);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QImageWriter_Tr3(const char* sourceText, const char* disambiguation, int n) {
-    QString _ret = QImageWriter::tr(sourceText, disambiguation, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 void QImageWriter_Delete(QImageWriter* self) {

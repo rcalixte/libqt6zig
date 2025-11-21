@@ -36,7 +36,6 @@ Sonnet__BackgroundChecker* Sonnet__BackgroundChecker_new4(const Sonnet__Speller*
 QMetaObject* Sonnet__BackgroundChecker_MetaObject(const Sonnet__BackgroundChecker* self);
 void* Sonnet__BackgroundChecker_Metacast(Sonnet__BackgroundChecker* self, const char* param1);
 int Sonnet__BackgroundChecker_Metacall(Sonnet__BackgroundChecker* self, int param1, int param2, void** param3);
-libqt_string Sonnet__BackgroundChecker_Tr(const char* s);
 void Sonnet__BackgroundChecker_SetText(Sonnet__BackgroundChecker* self, const libqt_string text);
 libqt_string Sonnet__BackgroundChecker_Text(const Sonnet__BackgroundChecker* self);
 libqt_string Sonnet__BackgroundChecker_CurrentContext(const Sonnet__BackgroundChecker* self);
@@ -59,8 +58,6 @@ void Sonnet__BackgroundChecker_Done(Sonnet__BackgroundChecker* self);
 void Sonnet__BackgroundChecker_Connect_Done(Sonnet__BackgroundChecker* self, intptr_t slot);
 libqt_string Sonnet__BackgroundChecker_FetchMoreText(Sonnet__BackgroundChecker* self);
 void Sonnet__BackgroundChecker_FinishedCurrentFeed(Sonnet__BackgroundChecker* self);
-libqt_string Sonnet__BackgroundChecker_Tr2(const char* s, const char* c);
-libqt_string Sonnet__BackgroundChecker_Tr3(const char* s, const char* c, int n);
 void Sonnet__BackgroundChecker_OnMetacall(Sonnet__BackgroundChecker* self, intptr_t slot);
 int Sonnet__BackgroundChecker_QBaseMetacall(Sonnet__BackgroundChecker* self, int param1, int param2, void** param3);
 void Sonnet__BackgroundChecker_OnStart(Sonnet__BackgroundChecker* self, intptr_t slot);

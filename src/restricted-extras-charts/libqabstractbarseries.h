@@ -26,7 +26,6 @@ typedef struct QObject QObject;
 QMetaObject* QAbstractBarSeries_MetaObject(const QAbstractBarSeries* self);
 void* QAbstractBarSeries_Metacast(QAbstractBarSeries* self, const char* param1);
 int QAbstractBarSeries_Metacall(QAbstractBarSeries* self, int param1, int param2, void** param3);
-libqt_string QAbstractBarSeries_Tr(const char* s);
 void QAbstractBarSeries_SetBarWidth(QAbstractBarSeries* self, double width);
 double QAbstractBarSeries_BarWidth(const QAbstractBarSeries* self);
 bool QAbstractBarSeries_Append(QAbstractBarSeries* self, QBarSet* set);
@@ -73,8 +72,6 @@ void QAbstractBarSeries_BarsetsAdded(QAbstractBarSeries* self, const libqt_list 
 void QAbstractBarSeries_Connect_BarsetsAdded(QAbstractBarSeries* self, intptr_t slot);
 void QAbstractBarSeries_BarsetsRemoved(QAbstractBarSeries* self, const libqt_list /* of QBarSet* */ sets);
 void QAbstractBarSeries_Connect_BarsetsRemoved(QAbstractBarSeries* self, intptr_t slot);
-libqt_string QAbstractBarSeries_Tr2(const char* s, const char* c);
-libqt_string QAbstractBarSeries_Tr3(const char* s, const char* c, int n);
 void QAbstractBarSeries_SetLabelsVisible1(QAbstractBarSeries* self, bool visible);
 void QAbstractBarSeries_Delete(QAbstractBarSeries* self);
 

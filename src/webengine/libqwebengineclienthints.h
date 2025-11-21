@@ -25,7 +25,6 @@ typedef struct QWebEngineClientHints QWebEngineClientHints;
 QMetaObject* QWebEngineClientHints_MetaObject(const QWebEngineClientHints* self);
 void* QWebEngineClientHints_Metacast(QWebEngineClientHints* self, const char* param1);
 int QWebEngineClientHints_Metacall(QWebEngineClientHints* self, int param1, int param2, void** param3);
-libqt_string QWebEngineClientHints_Tr(const char* s);
 libqt_string QWebEngineClientHints_Arch(const QWebEngineClientHints* self);
 libqt_string QWebEngineClientHints_Platform(const QWebEngineClientHints* self);
 libqt_string QWebEngineClientHints_Model(const QWebEngineClientHints* self);
@@ -47,8 +46,6 @@ void QWebEngineClientHints_SetIsWow64(QWebEngineClientHints* self, bool isWow64)
 bool QWebEngineClientHints_IsAllClientHintsEnabled(QWebEngineClientHints* self);
 void QWebEngineClientHints_SetAllClientHintsEnabled(QWebEngineClientHints* self, bool enabled);
 void QWebEngineClientHints_ResetAll(QWebEngineClientHints* self);
-libqt_string QWebEngineClientHints_Tr2(const char* s, const char* c);
-libqt_string QWebEngineClientHints_Tr3(const char* s, const char* c, int n);
 void QWebEngineClientHints_Delete(QWebEngineClientHints* self);
 
 #ifdef __cplusplus

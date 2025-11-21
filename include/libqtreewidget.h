@@ -168,7 +168,6 @@ QTreeWidget* QTreeWidget_new2();
 QMetaObject* QTreeWidget_MetaObject(const QTreeWidget* self);
 void* QTreeWidget_Metacast(QTreeWidget* self, const char* param1);
 int QTreeWidget_Metacall(QTreeWidget* self, int param1, int param2, void** param3);
-libqt_string QTreeWidget_Tr(const char* s);
 int QTreeWidget_ColumnCount(const QTreeWidget* self);
 void QTreeWidget_SetColumnCount(QTreeWidget* self, int columns);
 QTreeWidgetItem* QTreeWidget_InvisibleRootItem(const QTreeWidget* self);
@@ -238,8 +237,6 @@ QMimeData* QTreeWidget_MimeData(const QTreeWidget* self, const libqt_list /* of 
 bool QTreeWidget_DropMimeData(QTreeWidget* self, QTreeWidgetItem* parent, int index, const QMimeData* data, int action);
 int QTreeWidget_SupportedDropActions(const QTreeWidget* self);
 void QTreeWidget_DropEvent(QTreeWidget* self, QDropEvent* event);
-libqt_string QTreeWidget_Tr2(const char* s, const char* c);
-libqt_string QTreeWidget_Tr3(const char* s, const char* c, int n);
 void QTreeWidget_EditItem2(QTreeWidget* self, QTreeWidgetItem* item, int column);
 void QTreeWidget_OpenPersistentEditor2(QTreeWidget* self, QTreeWidgetItem* item, int column);
 void QTreeWidget_ClosePersistentEditor2(QTreeWidget* self, QTreeWidgetItem* item, int column);

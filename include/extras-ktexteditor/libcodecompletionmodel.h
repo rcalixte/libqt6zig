@@ -46,7 +46,6 @@ KTextEditor__CodeCompletionModel* KTextEditor__CodeCompletionModel_new(QObject* 
 QMetaObject* KTextEditor__CodeCompletionModel_MetaObject(const KTextEditor__CodeCompletionModel* self);
 void* KTextEditor__CodeCompletionModel_Metacast(KTextEditor__CodeCompletionModel* self, const char* param1);
 int KTextEditor__CodeCompletionModel_Metacall(KTextEditor__CodeCompletionModel* self, int param1, int param2, void** param3);
-libqt_string KTextEditor__CodeCompletionModel_Tr(const char* s);
 void KTextEditor__CodeCompletionModel_SetRowCount(KTextEditor__CodeCompletionModel* self, int rowCount);
 void KTextEditor__CodeCompletionModel_CompletionInvoked(KTextEditor__CodeCompletionModel* self, KTextEditor__View* view, const KTextEditor__Range* range, int invocationType);
 void KTextEditor__CodeCompletionModel_ExecuteCompletionItem(const KTextEditor__CodeCompletionModel* self, KTextEditor__View* view, const KTextEditor__Range* word, const QModelIndex* index);
@@ -60,8 +59,6 @@ void KTextEditor__CodeCompletionModel_WaitForReset(KTextEditor__CodeCompletionMo
 void KTextEditor__CodeCompletionModel_Connect_WaitForReset(KTextEditor__CodeCompletionModel* self, intptr_t slot);
 void KTextEditor__CodeCompletionModel_HasGroupsChanged(KTextEditor__CodeCompletionModel* self, KTextEditor__CodeCompletionModel* model, bool hasGroups);
 void KTextEditor__CodeCompletionModel_Connect_HasGroupsChanged(KTextEditor__CodeCompletionModel* self, intptr_t slot);
-libqt_string KTextEditor__CodeCompletionModel_Tr2(const char* s, const char* c);
-libqt_string KTextEditor__CodeCompletionModel_Tr3(const char* s, const char* c, int n);
 void KTextEditor__CodeCompletionModel_OnMetacall(KTextEditor__CodeCompletionModel* self, intptr_t slot);
 int KTextEditor__CodeCompletionModel_QBaseMetacall(KTextEditor__CodeCompletionModel* self, int param1, int param2, void** param3);
 void KTextEditor__CodeCompletionModel_OnCompletionInvoked(KTextEditor__CodeCompletionModel* self, intptr_t slot);

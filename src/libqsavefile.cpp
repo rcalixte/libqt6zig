@@ -50,18 +50,6 @@ int QSaveFile_Metacall(QSaveFile* self, int param1, int param2, void** param3) {
     }
 }
 
-libqt_string QSaveFile_Tr(const char* s) {
-    QString _ret = QSaveFile::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 libqt_string QSaveFile_FileName(const QSaveFile* self) {
     auto* vqsavefile = dynamic_cast<const VirtualQSaveFile*>(self);
     if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
@@ -123,30 +111,6 @@ long long QSaveFile_WriteData(QSaveFile* self, const char* data, long long lenVa
         return static_cast<long long>(vqsavefile->writeData(data, static_cast<qint64>(lenVal)));
     }
     return {};
-}
-
-libqt_string QSaveFile_Tr2(const char* s, const char* c) {
-    QString _ret = QSaveFile::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QSaveFile_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QSaveFile::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 // Base class handler implementation

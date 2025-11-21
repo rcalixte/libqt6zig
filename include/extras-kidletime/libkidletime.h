@@ -24,7 +24,6 @@ typedef struct QObject QObject;
 QMetaObject* KIdleTime_MetaObject(const KIdleTime* self);
 void* KIdleTime_Metacast(KIdleTime* self, const char* param1);
 int KIdleTime_Metacall(KIdleTime* self, int param1, int param2, void** param3);
-libqt_string KIdleTime_Tr(const char* s);
 KIdleTime* KIdleTime_Instance();
 int KIdleTime_IdleTime(const KIdleTime* self);
 libqt_map /* of int to int */ KIdleTime_IdleTimeouts(const KIdleTime* self);
@@ -38,8 +37,6 @@ void KIdleTime_ResumingFromIdle(KIdleTime* self);
 void KIdleTime_Connect_ResumingFromIdle(KIdleTime* self, intptr_t slot);
 void KIdleTime_TimeoutReached(KIdleTime* self, int identifier, int msec);
 void KIdleTime_Connect_TimeoutReached(KIdleTime* self, intptr_t slot);
-libqt_string KIdleTime_Tr2(const char* s, const char* c);
-libqt_string KIdleTime_Tr3(const char* s, const char* c, int n);
 void KIdleTime_Delete(KIdleTime* self);
 
 #ifdef __cplusplus

@@ -34,13 +34,10 @@ KIO__NameFinderJob* KIO__NameFinderJob_new(const QUrl* baseUrl, const libqt_stri
 QMetaObject* KIO__NameFinderJob_MetaObject(const KIO__NameFinderJob* self);
 void* KIO__NameFinderJob_Metacast(KIO__NameFinderJob* self, const char* param1);
 int KIO__NameFinderJob_Metacall(KIO__NameFinderJob* self, int param1, int param2, void** param3);
-libqt_string KIO__NameFinderJob_Tr(const char* s);
 void KIO__NameFinderJob_Start(KIO__NameFinderJob* self);
 QUrl* KIO__NameFinderJob_FinalUrl(const KIO__NameFinderJob* self);
 QUrl* KIO__NameFinderJob_BaseUrl(const KIO__NameFinderJob* self);
 libqt_string KIO__NameFinderJob_FinalName(const KIO__NameFinderJob* self);
-libqt_string KIO__NameFinderJob_Tr2(const char* s, const char* c);
-libqt_string KIO__NameFinderJob_Tr3(const char* s, const char* c, int n);
 void KIO__NameFinderJob_OnMetacall(KIO__NameFinderJob* self, intptr_t slot);
 int KIO__NameFinderJob_QBaseMetacall(KIO__NameFinderJob* self, int param1, int param2, void** param3);
 void KIO__NameFinderJob_OnStart(KIO__NameFinderJob* self, intptr_t slot);

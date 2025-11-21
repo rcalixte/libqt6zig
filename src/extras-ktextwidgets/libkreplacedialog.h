@@ -61,7 +61,6 @@ KReplaceDialog* KReplaceDialog_new6(QWidget* parent, long options, const libqt_l
 QMetaObject* KReplaceDialog_MetaObject(const KReplaceDialog* self);
 void* KReplaceDialog_Metacast(KReplaceDialog* self, const char* param1);
 int KReplaceDialog_Metacall(KReplaceDialog* self, int param1, int param2, void** param3);
-libqt_string KReplaceDialog_Tr(const char* s);
 void KReplaceDialog_SetReplacementHistory(KReplaceDialog* self, const libqt_list /* of libqt_string */ history);
 libqt_list /* of libqt_string */ KReplaceDialog_ReplacementHistory(const KReplaceDialog* self);
 void KReplaceDialog_SetOptions(KReplaceDialog* self, long options);
@@ -69,8 +68,6 @@ long KReplaceDialog_Options(const KReplaceDialog* self);
 libqt_string KReplaceDialog_Replacement(const KReplaceDialog* self);
 QWidget* KReplaceDialog_ReplaceExtension(const KReplaceDialog* self);
 void KReplaceDialog_ShowEvent(KReplaceDialog* self, QShowEvent* param1);
-libqt_string KReplaceDialog_Tr2(const char* s, const char* c);
-libqt_string KReplaceDialog_Tr3(const char* s, const char* c, int n);
 void KReplaceDialog_OnMetacall(KReplaceDialog* self, intptr_t slot);
 int KReplaceDialog_QBaseMetacall(KReplaceDialog* self, int param1, int param2, void** param3);
 void KReplaceDialog_OnShowEvent(KReplaceDialog* self, intptr_t slot);

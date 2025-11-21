@@ -36,7 +36,6 @@ QUdpSocket* QUdpSocket_new2(QObject* parent);
 QMetaObject* QUdpSocket_MetaObject(const QUdpSocket* self);
 void* QUdpSocket_Metacast(QUdpSocket* self, const char* param1);
 int QUdpSocket_Metacall(QUdpSocket* self, int param1, int param2, void** param3);
-libqt_string QUdpSocket_Tr(const char* s);
 bool QUdpSocket_Bind(QUdpSocket* self, int addr);
 bool QUdpSocket_JoinMulticastGroup(QUdpSocket* self, const QHostAddress* groupAddress);
 bool QUdpSocket_JoinMulticastGroup2(QUdpSocket* self, const QHostAddress* groupAddress, const QNetworkInterface* iface);
@@ -51,8 +50,6 @@ long long QUdpSocket_ReadDatagram(QUdpSocket* self, char* data, long long maxlen
 long long QUdpSocket_WriteDatagram(QUdpSocket* self, const QNetworkDatagram* datagram);
 long long QUdpSocket_WriteDatagram2(QUdpSocket* self, const char* data, long long lenVal, const QHostAddress* host, uint16_t port);
 long long QUdpSocket_WriteDatagram3(QUdpSocket* self, const libqt_string datagram, const QHostAddress* host, uint16_t port);
-libqt_string QUdpSocket_Tr2(const char* s, const char* c);
-libqt_string QUdpSocket_Tr3(const char* s, const char* c, int n);
 bool QUdpSocket_Bind2(QUdpSocket* self, int addr, uint16_t port);
 bool QUdpSocket_Bind3(QUdpSocket* self, int addr, uint16_t port, int mode);
 QNetworkDatagram* QUdpSocket_ReceiveDatagram1(QUdpSocket* self, long long maxSize);

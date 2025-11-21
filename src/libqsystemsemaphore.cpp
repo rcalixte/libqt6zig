@@ -34,18 +34,6 @@ QSystemSemaphore* QSystemSemaphore_new6(const libqt_string key, int initialValue
     return new QSystemSemaphore(key_QString, static_cast<int>(initialValue), static_cast<QSystemSemaphore::AccessMode>(mode));
 }
 
-libqt_string QSystemSemaphore_Tr(const char* sourceText) {
-    QString _ret = QSystemSemaphore::tr(sourceText);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 void QSystemSemaphore_SetNativeKey(QSystemSemaphore* self, const QNativeIpcKey* key) {
     self->setNativeKey(*key);
 }
@@ -112,30 +100,6 @@ QNativeIpcKey* QSystemSemaphore_PlatformSafeKey(const libqt_string key) {
 QNativeIpcKey* QSystemSemaphore_LegacyNativeKey(const libqt_string key) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
     return new QNativeIpcKey(QSystemSemaphore::legacyNativeKey(key_QString));
-}
-
-libqt_string QSystemSemaphore_Tr2(const char* sourceText, const char* disambiguation) {
-    QString _ret = QSystemSemaphore::tr(sourceText, disambiguation);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QSystemSemaphore_Tr3(const char* sourceText, const char* disambiguation, int n) {
-    QString _ret = QSystemSemaphore::tr(sourceText, disambiguation, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 void QSystemSemaphore_SetNativeKey22(QSystemSemaphore* self, const QNativeIpcKey* key, int initialValue) {

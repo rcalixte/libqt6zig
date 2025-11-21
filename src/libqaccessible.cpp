@@ -526,18 +526,6 @@ void QAccessibleTableInterface_Delete(QAccessibleTableInterface* self) {
     delete self;
 }
 
-libqt_string QAccessibleActionInterface_Tr(const char* sourceText) {
-    QString _ret = QAccessibleActionInterface::tr(sourceText);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 libqt_list /* of libqt_string */ QAccessibleActionInterface_ActionNames(const QAccessibleActionInterface* self) {
     QList<QString> _ret = self->actionNames();
     // Convert QList<> from C++ memory to manually-managed C memory
@@ -758,30 +746,6 @@ libqt_string QAccessibleActionInterface_PreviousPageAction() {
 
 void QAccessibleActionInterface_OperatorAssign(QAccessibleActionInterface* self, const QAccessibleActionInterface* param1) {
     self->operator=(*param1);
-}
-
-libqt_string QAccessibleActionInterface_Tr2(const char* sourceText, const char* disambiguation) {
-    QString _ret = QAccessibleActionInterface::tr(sourceText, disambiguation);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QAccessibleActionInterface_Tr3(const char* sourceText, const char* disambiguation, int n) {
-    QString _ret = QAccessibleActionInterface::tr(sourceText, disambiguation, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 void QAccessibleActionInterface_Delete(QAccessibleActionInterface* self) {

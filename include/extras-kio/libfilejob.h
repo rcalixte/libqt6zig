@@ -35,7 +35,6 @@ typedef struct QUrl QUrl;
 QMetaObject* KIO__FileJob_MetaObject(const KIO__FileJob* self);
 void* KIO__FileJob_Metacast(KIO__FileJob* self, const char* param1);
 int KIO__FileJob_Metacall(KIO__FileJob* self, int param1, int param2, void** param3);
-libqt_string KIO__FileJob_Tr(const char* s);
 void KIO__FileJob_Read(KIO__FileJob* self, unsigned long long size);
 void KIO__FileJob_Write(KIO__FileJob* self, const libqt_string data);
 void KIO__FileJob_Close(KIO__FileJob* self);
@@ -58,8 +57,6 @@ void KIO__FileJob_Position(KIO__FileJob* self, KIO__Job* job, unsigned long long
 void KIO__FileJob_Connect_Position(KIO__FileJob* self, intptr_t slot);
 void KIO__FileJob_Truncated(KIO__FileJob* self, KIO__Job* job, unsigned long long length);
 void KIO__FileJob_Connect_Truncated(KIO__FileJob* self, intptr_t slot);
-libqt_string KIO__FileJob_Tr2(const char* s, const char* c);
-libqt_string KIO__FileJob_Tr3(const char* s, const char* c, int n);
 void KIO__FileJob_Delete(KIO__FileJob* self);
 
 KIO__FileJob* KIO_Open(const QUrl* param1, int param2);

@@ -66,7 +66,6 @@ QsciScintillaBase* QsciScintillaBase_new2();
 QMetaObject* QsciScintillaBase_MetaObject(const QsciScintillaBase* self);
 void* QsciScintillaBase_Metacast(QsciScintillaBase* self, const char* param1);
 int QsciScintillaBase_Metacall(QsciScintillaBase* self, int param1, int param2, void** param3);
-libqt_string QsciScintillaBase_Tr(const char* s);
 QsciScintillaBase* QsciScintillaBase_Pool();
 void QsciScintillaBase_ReplaceHorizontalScrollBar(QsciScintillaBase* self, QScrollBar* scrollBar);
 void QsciScintillaBase_ReplaceVerticalScrollBar(QsciScintillaBase* self, QScrollBar* scrollBar);
@@ -143,8 +142,6 @@ void QsciScintillaBase_MouseReleaseEvent(QsciScintillaBase* self, QMouseEvent* e
 void QsciScintillaBase_PaintEvent(QsciScintillaBase* self, QPaintEvent* e);
 void QsciScintillaBase_ResizeEvent(QsciScintillaBase* self, QResizeEvent* e);
 void QsciScintillaBase_ScrollContentsBy(QsciScintillaBase* self, int dx, int dy);
-libqt_string QsciScintillaBase_Tr2(const char* s, const char* c);
-libqt_string QsciScintillaBase_Tr3(const char* s, const char* c, int n);
 long QsciScintillaBase_SendScintilla22(const QsciScintillaBase* self, unsigned int msg, unsigned long wParam);
 long QsciScintillaBase_SendScintilla32(const QsciScintillaBase* self, unsigned int msg, unsigned long wParam, long lParam);
 void QsciScintillaBase_OnMetacall(QsciScintillaBase* self, intptr_t slot);

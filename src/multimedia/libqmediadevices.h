@@ -31,7 +31,6 @@ QMediaDevices* QMediaDevices_new2(QObject* parent);
 QMetaObject* QMediaDevices_MetaObject(const QMediaDevices* self);
 void* QMediaDevices_Metacast(QMediaDevices* self, const char* param1);
 int QMediaDevices_Metacall(QMediaDevices* self, int param1, int param2, void** param3);
-libqt_string QMediaDevices_Tr(const char* s);
 libqt_list /* of QAudioDevice* */ QMediaDevices_AudioInputs();
 libqt_list /* of QAudioDevice* */ QMediaDevices_AudioOutputs();
 libqt_list /* of QCameraDevice* */ QMediaDevices_VideoInputs();
@@ -45,8 +44,6 @@ void QMediaDevices_Connect_AudioOutputsChanged(QMediaDevices* self, intptr_t slo
 void QMediaDevices_VideoInputsChanged(QMediaDevices* self);
 void QMediaDevices_Connect_VideoInputsChanged(QMediaDevices* self, intptr_t slot);
 void QMediaDevices_ConnectNotify(QMediaDevices* self, const QMetaMethod* signal);
-libqt_string QMediaDevices_Tr2(const char* s, const char* c);
-libqt_string QMediaDevices_Tr3(const char* s, const char* c, int n);
 void QMediaDevices_OnMetacall(QMediaDevices* self, intptr_t slot);
 int QMediaDevices_QBaseMetacall(QMediaDevices* self, int param1, int param2, void** param3);
 void QMediaDevices_OnConnectNotify(QMediaDevices* self, intptr_t slot);

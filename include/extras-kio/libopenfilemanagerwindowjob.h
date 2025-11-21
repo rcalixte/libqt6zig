@@ -35,14 +35,11 @@ KIO__OpenFileManagerWindowJob* KIO__OpenFileManagerWindowJob_new2(QObject* paren
 QMetaObject* KIO__OpenFileManagerWindowJob_MetaObject(const KIO__OpenFileManagerWindowJob* self);
 void* KIO__OpenFileManagerWindowJob_Metacast(KIO__OpenFileManagerWindowJob* self, const char* param1);
 int KIO__OpenFileManagerWindowJob_Metacall(KIO__OpenFileManagerWindowJob* self, int param1, int param2, void** param3);
-libqt_string KIO__OpenFileManagerWindowJob_Tr(const char* s);
 libqt_list /* of QUrl* */ KIO__OpenFileManagerWindowJob_HighlightUrls(const KIO__OpenFileManagerWindowJob* self);
 void KIO__OpenFileManagerWindowJob_SetHighlightUrls(KIO__OpenFileManagerWindowJob* self, const libqt_list /* of QUrl* */ highlightUrls);
 libqt_string KIO__OpenFileManagerWindowJob_StartupId(const KIO__OpenFileManagerWindowJob* self);
 void KIO__OpenFileManagerWindowJob_SetStartupId(KIO__OpenFileManagerWindowJob* self, const libqt_string startupId);
 void KIO__OpenFileManagerWindowJob_Start(KIO__OpenFileManagerWindowJob* self);
-libqt_string KIO__OpenFileManagerWindowJob_Tr2(const char* s, const char* c);
-libqt_string KIO__OpenFileManagerWindowJob_Tr3(const char* s, const char* c, int n);
 void KIO__OpenFileManagerWindowJob_OnMetacall(KIO__OpenFileManagerWindowJob* self, intptr_t slot);
 int KIO__OpenFileManagerWindowJob_QBaseMetacall(KIO__OpenFileManagerWindowJob* self, int param1, int param2, void** param3);
 void KIO__OpenFileManagerWindowJob_OnStart(KIO__OpenFileManagerWindowJob* self, intptr_t slot);

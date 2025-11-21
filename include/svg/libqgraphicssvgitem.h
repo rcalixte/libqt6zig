@@ -50,7 +50,6 @@ QGraphicsSvgItem* QGraphicsSvgItem_new4(const libqt_string fileName, QGraphicsIt
 QMetaObject* QGraphicsSvgItem_MetaObject(const QGraphicsSvgItem* self);
 void* QGraphicsSvgItem_Metacast(QGraphicsSvgItem* self, const char* param1);
 int QGraphicsSvgItem_Metacall(QGraphicsSvgItem* self, int param1, int param2, void** param3);
-libqt_string QGraphicsSvgItem_Tr(const char* s);
 void QGraphicsSvgItem_SetSharedRenderer(QGraphicsSvgItem* self, QSvgRenderer* renderer);
 QSvgRenderer* QGraphicsSvgItem_Renderer(const QGraphicsSvgItem* self);
 void QGraphicsSvgItem_SetElementId(QGraphicsSvgItem* self, const libqt_string id);
@@ -62,8 +61,6 @@ QSize* QGraphicsSvgItem_MaximumCacheSize(const QGraphicsSvgItem* self);
 QRectF* QGraphicsSvgItem_BoundingRect(const QGraphicsSvgItem* self);
 void QGraphicsSvgItem_Paint(QGraphicsSvgItem* self, QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget);
 int QGraphicsSvgItem_Type(const QGraphicsSvgItem* self);
-libqt_string QGraphicsSvgItem_Tr2(const char* s, const char* c);
-libqt_string QGraphicsSvgItem_Tr3(const char* s, const char* c, int n);
 void QGraphicsSvgItem_OnMetacall(QGraphicsSvgItem* self, intptr_t slot);
 int QGraphicsSvgItem_QBaseMetacall(QGraphicsSvgItem* self, int param1, int param2, void** param3);
 void QGraphicsSvgItem_OnBoundingRect(const QGraphicsSvgItem* self, intptr_t slot);

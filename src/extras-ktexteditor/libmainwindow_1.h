@@ -42,7 +42,6 @@ KTextEditor__MainWindow* KTextEditor__MainWindow_new(QObject* parent);
 QMetaObject* KTextEditor__MainWindow_MetaObject(const KTextEditor__MainWindow* self);
 void* KTextEditor__MainWindow_Metacast(KTextEditor__MainWindow* self, const char* param1);
 int KTextEditor__MainWindow_Metacall(KTextEditor__MainWindow* self, int param1, int param2, void** param3);
-libqt_string KTextEditor__MainWindow_Tr(const char* s);
 QWidget* KTextEditor__MainWindow_Window(KTextEditor__MainWindow* self);
 KXMLGUIFactory* KTextEditor__MainWindow_GuiFactory(KTextEditor__MainWindow* self);
 void KTextEditor__MainWindow_UnhandledShortcutOverride(KTextEditor__MainWindow* self, QEvent* e);
@@ -84,8 +83,6 @@ void KTextEditor__MainWindow_Connect_WidgetAdded(KTextEditor__MainWindow* self, 
 void KTextEditor__MainWindow_WidgetRemoved(KTextEditor__MainWindow* self, QWidget* widget);
 void KTextEditor__MainWindow_Connect_WidgetRemoved(KTextEditor__MainWindow* self, intptr_t slot);
 bool KTextEditor__MainWindow_ShowMessage(KTextEditor__MainWindow* self, const libqt_map /* of libqt_string to QVariant* */ message);
-libqt_string KTextEditor__MainWindow_Tr2(const char* s, const char* c);
-libqt_string KTextEditor__MainWindow_Tr3(const char* s, const char* c, int n);
 KTextEditor__View* KTextEditor__MainWindow_OpenUrl2(KTextEditor__MainWindow* self, const QUrl* url, const libqt_string encoding);
 void KTextEditor__MainWindow_OnMetacall(KTextEditor__MainWindow* self, intptr_t slot);
 int KTextEditor__MainWindow_QBaseMetacall(KTextEditor__MainWindow* self, int param1, int param2, void** param3);

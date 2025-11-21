@@ -34,15 +34,12 @@ KBreadcrumbSelectionModel* KBreadcrumbSelectionModel_new4(QItemSelectionModel* s
 QMetaObject* KBreadcrumbSelectionModel_MetaObject(const KBreadcrumbSelectionModel* self);
 void* KBreadcrumbSelectionModel_Metacast(KBreadcrumbSelectionModel* self, const char* param1);
 int KBreadcrumbSelectionModel_Metacall(KBreadcrumbSelectionModel* self, int param1, int param2, void** param3);
-libqt_string KBreadcrumbSelectionModel_Tr(const char* s);
 bool KBreadcrumbSelectionModel_IsActualSelectionIncluded(const KBreadcrumbSelectionModel* self);
 void KBreadcrumbSelectionModel_SetActualSelectionIncluded(KBreadcrumbSelectionModel* self, bool isActualSelectionIncluded);
 int KBreadcrumbSelectionModel_BreadcrumbLength(const KBreadcrumbSelectionModel* self);
 void KBreadcrumbSelectionModel_SetBreadcrumbLength(KBreadcrumbSelectionModel* self, int breadcrumbLength);
 void KBreadcrumbSelectionModel_Select(KBreadcrumbSelectionModel* self, const QModelIndex* index, int command);
 void KBreadcrumbSelectionModel_Select2(KBreadcrumbSelectionModel* self, const QItemSelection* selection, int command);
-libqt_string KBreadcrumbSelectionModel_Tr2(const char* s, const char* c);
-libqt_string KBreadcrumbSelectionModel_Tr3(const char* s, const char* c, int n);
 void KBreadcrumbSelectionModel_OnMetacall(KBreadcrumbSelectionModel* self, intptr_t slot);
 int KBreadcrumbSelectionModel_QBaseMetacall(KBreadcrumbSelectionModel* self, int param1, int param2, void** param3);
 void KBreadcrumbSelectionModel_OnSelect(KBreadcrumbSelectionModel* self, intptr_t slot);

@@ -31,7 +31,6 @@ KColorSchemeManager* KColorSchemeManager_new2(QObject* parent);
 QMetaObject* KColorSchemeManager_MetaObject(const KColorSchemeManager* self);
 void* KColorSchemeManager_Metacast(KColorSchemeManager* self, const char* param1);
 int KColorSchemeManager_Metacall(KColorSchemeManager* self, int param1, int param2, void** param3);
-libqt_string KColorSchemeManager_Tr(const char* s);
 QAbstractItemModel* KColorSchemeManager_Model(const KColorSchemeManager* self);
 QModelIndex* KColorSchemeManager_IndexForSchemeId(const KColorSchemeManager* self, const libqt_string id);
 QModelIndex* KColorSchemeManager_IndexForScheme(const KColorSchemeManager* self, const libqt_string name);
@@ -41,8 +40,6 @@ libqt_string KColorSchemeManager_ActiveSchemeId(const KColorSchemeManager* self)
 libqt_string KColorSchemeManager_ActiveSchemeName(const KColorSchemeManager* self);
 KColorSchemeManager* KColorSchemeManager_Instance();
 void KColorSchemeManager_ActivateScheme(KColorSchemeManager* self, const QModelIndex* index);
-libqt_string KColorSchemeManager_Tr2(const char* s, const char* c);
-libqt_string KColorSchemeManager_Tr3(const char* s, const char* c, int n);
 void KColorSchemeManager_OnMetacall(KColorSchemeManager* self, intptr_t slot);
 int KColorSchemeManager_QBaseMetacall(KColorSchemeManager* self, int param1, int param2, void** param3);
 bool KColorSchemeManager_Event(KColorSchemeManager* self, QEvent* event);

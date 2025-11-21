@@ -31,7 +31,6 @@ QVideoSink* QVideoSink_new2(QObject* parent);
 QMetaObject* QVideoSink_MetaObject(const QVideoSink* self);
 void* QVideoSink_Metacast(QVideoSink* self, const char* param1);
 int QVideoSink_Metacall(QVideoSink* self, int param1, int param2, void** param3);
-libqt_string QVideoSink_Tr(const char* s);
 QSize* QVideoSink_VideoSize(const QVideoSink* self);
 libqt_string QVideoSink_SubtitleText(const QVideoSink* self);
 void QVideoSink_SetSubtitleText(QVideoSink* self, const libqt_string subtitle);
@@ -43,8 +42,6 @@ void QVideoSink_SubtitleTextChanged(const QVideoSink* self, const libqt_string s
 void QVideoSink_Connect_SubtitleTextChanged(QVideoSink* self, intptr_t slot);
 void QVideoSink_VideoSizeChanged(QVideoSink* self);
 void QVideoSink_Connect_VideoSizeChanged(QVideoSink* self, intptr_t slot);
-libqt_string QVideoSink_Tr2(const char* s, const char* c);
-libqt_string QVideoSink_Tr3(const char* s, const char* c, int n);
 void QVideoSink_OnMetacall(QVideoSink* self, intptr_t slot);
 int QVideoSink_QBaseMetacall(QVideoSink* self, int param1, int param2, void** param3);
 bool QVideoSink_Event(QVideoSink* self, QEvent* event);

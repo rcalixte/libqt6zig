@@ -73,18 +73,6 @@ int KFileWidget_Metacall(KFileWidget* self, int param1, int param2, void** param
     }
 }
 
-libqt_string KFileWidget_Tr(const char* s) {
-    QString _ret = KFileWidget::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 QUrl* KFileWidget_SelectedUrl(const KFileWidget* self) {
     return new QUrl(self->selectedUrl());
 }
@@ -409,30 +397,6 @@ KDirOperator* KFileWidget_DirOperator(KFileWidget* self) {
 
 void KFileWidget_ReadConfig(KFileWidget* self, KConfigGroup* group) {
     self->readConfig(*group);
-}
-
-libqt_string KFileWidget_Tr2(const char* s, const char* c) {
-    QString _ret = KFileWidget::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string KFileWidget_Tr3(const char* s, const char* c, int n) {
-    QString _ret = KFileWidget::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 void KFileWidget_SetUrl2(KFileWidget* self, const QUrl* url, bool clearforward) {

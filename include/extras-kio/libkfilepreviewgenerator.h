@@ -32,15 +32,12 @@ KFilePreviewGenerator* KFilePreviewGenerator_new2(KAbstractViewAdapter* parent, 
 QMetaObject* KFilePreviewGenerator_MetaObject(const KFilePreviewGenerator* self);
 void* KFilePreviewGenerator_Metacast(KFilePreviewGenerator* self, const char* param1);
 int KFilePreviewGenerator_Metacall(KFilePreviewGenerator* self, int param1, int param2, void** param3);
-libqt_string KFilePreviewGenerator_Tr(const char* s);
 void KFilePreviewGenerator_SetPreviewShown(KFilePreviewGenerator* self, bool show);
 bool KFilePreviewGenerator_IsPreviewShown(const KFilePreviewGenerator* self);
 void KFilePreviewGenerator_SetEnabledPlugins(KFilePreviewGenerator* self, const libqt_list /* of libqt_string */ list);
 libqt_list /* of libqt_string */ KFilePreviewGenerator_EnabledPlugins(const KFilePreviewGenerator* self);
 void KFilePreviewGenerator_UpdateIcons(KFilePreviewGenerator* self);
 void KFilePreviewGenerator_CancelPreviews(KFilePreviewGenerator* self);
-libqt_string KFilePreviewGenerator_Tr2(const char* s, const char* c);
-libqt_string KFilePreviewGenerator_Tr3(const char* s, const char* c, int n);
 void KFilePreviewGenerator_OnMetacall(KFilePreviewGenerator* self, intptr_t slot);
 int KFilePreviewGenerator_QBaseMetacall(KFilePreviewGenerator* self, int param1, int param2, void** param3);
 bool KFilePreviewGenerator_Event(KFilePreviewGenerator* self, QEvent* event);

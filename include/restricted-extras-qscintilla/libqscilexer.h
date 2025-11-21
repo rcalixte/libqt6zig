@@ -34,7 +34,6 @@ QsciLexer* QsciLexer_new2(QObject* parent);
 QMetaObject* QsciLexer_MetaObject(const QsciLexer* self);
 void* QsciLexer_Metacast(QsciLexer* self, const char* param1);
 int QsciLexer_Metacall(QsciLexer* self, int param1, int param2, void** param3);
-libqt_string QsciLexer_Tr(const char* s);
 const char* QsciLexer_Language(const QsciLexer* self);
 const char* QsciLexer_Lexer(const QsciLexer* self);
 int QsciLexer_LexerId(const QsciLexer* self);
@@ -91,8 +90,6 @@ void QsciLexer_PropertyChanged(QsciLexer* self, const char* prop, const char* va
 void QsciLexer_Connect_PropertyChanged(QsciLexer* self, intptr_t slot);
 bool QsciLexer_ReadProperties(QsciLexer* self, QSettings* qs, const libqt_string prefix);
 bool QsciLexer_WriteProperties(const QsciLexer* self, QSettings* qs, const libqt_string prefix);
-libqt_string QsciLexer_Tr2(const char* s, const char* c);
-libqt_string QsciLexer_Tr3(const char* s, const char* c, int n);
 bool QsciLexer_ReadSettings2(QsciLexer* self, QSettings* qs, const char* prefix);
 bool QsciLexer_WriteSettings2(const QsciLexer* self, QSettings* qs, const char* prefix);
 void QsciLexer_OnMetacall(QsciLexer* self, intptr_t slot);

@@ -35,7 +35,6 @@ QTemporaryFile* QTemporaryFile_new4(const libqt_string templateName, QObject* pa
 QMetaObject* QTemporaryFile_MetaObject(const QTemporaryFile* self);
 void* QTemporaryFile_Metacast(QTemporaryFile* self, const char* param1);
 int QTemporaryFile_Metacall(QTemporaryFile* self, int param1, int param2, void** param3);
-libqt_string QTemporaryFile_Tr(const char* s);
 bool QTemporaryFile_AutoRemove(const QTemporaryFile* self);
 void QTemporaryFile_SetAutoRemove(QTemporaryFile* self, bool b);
 bool QTemporaryFile_Open(QTemporaryFile* self);
@@ -46,8 +45,6 @@ bool QTemporaryFile_Rename(QTemporaryFile* self, const libqt_string newName);
 QTemporaryFile* QTemporaryFile_CreateNativeFile(const libqt_string fileName);
 QTemporaryFile* QTemporaryFile_CreateNativeFile2(QFile* file);
 bool QTemporaryFile_Open2(QTemporaryFile* self, int flags);
-libqt_string QTemporaryFile_Tr2(const char* s, const char* c);
-libqt_string QTemporaryFile_Tr3(const char* s, const char* c, int n);
 void QTemporaryFile_OnMetacall(QTemporaryFile* self, intptr_t slot);
 int QTemporaryFile_QBaseMetacall(QTemporaryFile* self, int param1, int param2, void** param3);
 void QTemporaryFile_OnFileName(const QTemporaryFile* self, intptr_t slot);

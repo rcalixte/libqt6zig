@@ -31,11 +31,8 @@ KToggleToolBarAction* KToggleToolBarAction_new(KToolBar* toolBar, const libqt_st
 QMetaObject* KToggleToolBarAction_MetaObject(const KToggleToolBarAction* self);
 void* KToggleToolBarAction_Metacast(KToggleToolBarAction* self, const char* param1);
 int KToggleToolBarAction_Metacall(KToggleToolBarAction* self, int param1, int param2, void** param3);
-libqt_string KToggleToolBarAction_Tr(const char* s);
 KToolBar* KToggleToolBarAction_ToolBar(KToggleToolBarAction* self);
 bool KToggleToolBarAction_EventFilter(KToggleToolBarAction* self, QObject* watched, QEvent* event);
-libqt_string KToggleToolBarAction_Tr2(const char* s, const char* c);
-libqt_string KToggleToolBarAction_Tr3(const char* s, const char* c, int n);
 void KToggleToolBarAction_OnMetacall(KToggleToolBarAction* self, intptr_t slot);
 int KToggleToolBarAction_QBaseMetacall(KToggleToolBarAction* self, int param1, int param2, void** param3);
 void KToggleToolBarAction_OnEventFilter(KToggleToolBarAction* self, intptr_t slot);

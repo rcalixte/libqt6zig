@@ -57,7 +57,6 @@ KShortcutWidget* KShortcutWidget_new2();
 QMetaObject* KShortcutWidget_MetaObject(const KShortcutWidget* self);
 void* KShortcutWidget_Metacast(KShortcutWidget* self, const char* param1);
 int KShortcutWidget_Metacall(KShortcutWidget* self, int param1, int param2, void** param3);
-libqt_string KShortcutWidget_Tr(const char* s);
 void KShortcutWidget_SetModifierlessAllowed(KShortcutWidget* self, bool allow);
 bool KShortcutWidget_IsModifierlessAllowed(KShortcutWidget* self);
 void KShortcutWidget_SetClearButtonsShown(KShortcutWidget* self, bool show);
@@ -68,8 +67,6 @@ void KShortcutWidget_Connect_ShortcutChanged(KShortcutWidget* self, intptr_t slo
 void KShortcutWidget_SetShortcut(KShortcutWidget* self, const libqt_list /* of QKeySequence* */ cut);
 void KShortcutWidget_ClearShortcut(KShortcutWidget* self);
 void KShortcutWidget_ApplyStealShortcut(KShortcutWidget* self);
-libqt_string KShortcutWidget_Tr2(const char* s, const char* c);
-libqt_string KShortcutWidget_Tr3(const char* s, const char* c, int n);
 void KShortcutWidget_OnMetacall(KShortcutWidget* self, intptr_t slot);
 int KShortcutWidget_QBaseMetacall(KShortcutWidget* self, int param1, int param2, void** param3);
 int KShortcutWidget_DevType(const KShortcutWidget* self);

@@ -41,18 +41,6 @@ int QGraphicsTransform_Metacall(QGraphicsTransform* self, int param1, int param2
     }
 }
 
-libqt_string QGraphicsTransform_Tr(const char* s) {
-    QString _ret = QGraphicsTransform::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 void QGraphicsTransform_ApplyTo(const QGraphicsTransform* self, QMatrix4x4* matrix) {
     auto* vqgraphicstransform = dynamic_cast<const VirtualQGraphicsTransform*>(self);
     if (vqgraphicstransform && vqgraphicstransform->isVirtualQGraphicsTransform) {
@@ -60,30 +48,6 @@ void QGraphicsTransform_ApplyTo(const QGraphicsTransform* self, QMatrix4x4* matr
     } else {
         ((VirtualQGraphicsTransform*)self)->applyTo(matrix);
     }
-}
-
-libqt_string QGraphicsTransform_Tr2(const char* s, const char* c) {
-    QString _ret = QGraphicsTransform::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QGraphicsTransform_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QGraphicsTransform::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 // Base class handler implementation
@@ -501,18 +465,6 @@ int QGraphicsScale_Metacall(QGraphicsScale* self, int param1, int param2, void**
     }
 }
 
-libqt_string QGraphicsScale_Tr(const char* s) {
-    QString _ret = QGraphicsScale::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 QVector3D* QGraphicsScale_Origin(const QGraphicsScale* self) {
     return new QVector3D(self->origin());
 }
@@ -607,30 +559,6 @@ void QGraphicsScale_Connect_ScaleChanged(QGraphicsScale* self, intptr_t slot) {
     QGraphicsScale::connect(self, &QGraphicsScale::scaleChanged, [self, slotFunc]() {
         slotFunc(self);
     });
-}
-
-libqt_string QGraphicsScale_Tr2(const char* s, const char* c) {
-    QString _ret = QGraphicsScale::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QGraphicsScale_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QGraphicsScale::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 // Base class handler implementation
@@ -1048,18 +976,6 @@ int QGraphicsRotation_Metacall(QGraphicsRotation* self, int param1, int param2, 
     }
 }
 
-libqt_string QGraphicsRotation_Tr(const char* s) {
-    QString _ret = QGraphicsRotation::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 QVector3D* QGraphicsRotation_Origin(const QGraphicsRotation* self) {
     return new QVector3D(self->origin());
 }
@@ -1128,30 +1044,6 @@ void QGraphicsRotation_Connect_AxisChanged(QGraphicsRotation* self, intptr_t slo
     QGraphicsRotation::connect(self, &QGraphicsRotation::axisChanged, [self, slotFunc]() {
         slotFunc(self);
     });
-}
-
-libqt_string QGraphicsRotation_Tr2(const char* s, const char* c) {
-    QString _ret = QGraphicsRotation::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QGraphicsRotation_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QGraphicsRotation::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 // Base class handler implementation

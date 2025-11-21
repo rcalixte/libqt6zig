@@ -28,10 +28,7 @@ KNotificationJobUiDelegate* KNotificationJobUiDelegate_new2(int flags);
 QMetaObject* KNotificationJobUiDelegate_MetaObject(const KNotificationJobUiDelegate* self);
 void* KNotificationJobUiDelegate_Metacast(KNotificationJobUiDelegate* self, const char* param1);
 int KNotificationJobUiDelegate_Metacall(KNotificationJobUiDelegate* self, int param1, int param2, void** param3);
-libqt_string KNotificationJobUiDelegate_Tr(const char* s);
 void KNotificationJobUiDelegate_ShowErrorMessage(KNotificationJobUiDelegate* self);
-libqt_string KNotificationJobUiDelegate_Tr2(const char* s, const char* c);
-libqt_string KNotificationJobUiDelegate_Tr3(const char* s, const char* c, int n);
 void KNotificationJobUiDelegate_Delete(KNotificationJobUiDelegate* self);
 
 #ifdef __cplusplus

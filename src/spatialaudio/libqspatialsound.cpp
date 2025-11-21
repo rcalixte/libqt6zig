@@ -37,18 +37,6 @@ int QSpatialSound_Metacall(QSpatialSound* self, int param1, int param2, void** p
     }
 }
 
-libqt_string QSpatialSound_Tr(const char* s) {
-    QString _ret = QSpatialSound::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 void QSpatialSound_SetSource(QSpatialSound* self, const QUrl* url) {
     self->setSource(*url);
 }
@@ -329,30 +317,6 @@ void QSpatialSound_Pause(QSpatialSound* self) {
 
 void QSpatialSound_Stop(QSpatialSound* self) {
     self->stop();
-}
-
-libqt_string QSpatialSound_Tr2(const char* s, const char* c) {
-    QString _ret = QSpatialSound::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QSpatialSound_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QSpatialSound::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 // Base class handler implementation

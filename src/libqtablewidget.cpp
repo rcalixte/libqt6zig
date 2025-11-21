@@ -517,18 +517,6 @@ int QTableWidget_Metacall(QTableWidget* self, int param1, int param2, void** par
     }
 }
 
-libqt_string QTableWidget_Tr(const char* s) {
-    QString _ret = QTableWidget::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 void QTableWidget_SetRowCount(QTableWidget* self, int rows) {
     self->setRowCount(static_cast<int>(rows));
 }
@@ -1057,30 +1045,6 @@ void QTableWidget_DropEvent(QTableWidget* self, QDropEvent* event) {
     if (vqtablewidget && vqtablewidget->isVirtualQTableWidget) {
         vqtablewidget->dropEvent(event);
     }
-}
-
-libqt_string QTableWidget_Tr2(const char* s, const char* c) {
-    QString _ret = QTableWidget::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QTableWidget_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QTableWidget::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 void QTableWidget_SortItems2(QTableWidget* self, int column, int order) {

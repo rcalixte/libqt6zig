@@ -38,7 +38,6 @@ QIdentityProxyModel* QIdentityProxyModel_new2(QObject* parent);
 QMetaObject* QIdentityProxyModel_MetaObject(const QIdentityProxyModel* self);
 void* QIdentityProxyModel_Metacast(QIdentityProxyModel* self, const char* param1);
 int QIdentityProxyModel_Metacall(QIdentityProxyModel* self, int param1, int param2, void** param3);
-libqt_string QIdentityProxyModel_Tr(const char* s);
 int QIdentityProxyModel_ColumnCount(const QIdentityProxyModel* self, const QModelIndex* parent);
 QModelIndex* QIdentityProxyModel_Index(const QIdentityProxyModel* self, int row, int column, const QModelIndex* parent);
 QModelIndex* QIdentityProxyModel_MapFromSource(const QIdentityProxyModel* self, const QModelIndex* sourceIndex);
@@ -60,8 +59,6 @@ bool QIdentityProxyModel_MoveRows(QIdentityProxyModel* self, const QModelIndex* 
 bool QIdentityProxyModel_MoveColumns(QIdentityProxyModel* self, const QModelIndex* sourceParent, int sourceColumn, int count, const QModelIndex* destinationParent, int destinationChild);
 bool QIdentityProxyModel_HandleSourceLayoutChanges(const QIdentityProxyModel* self);
 bool QIdentityProxyModel_HandleSourceDataChanges(const QIdentityProxyModel* self);
-libqt_string QIdentityProxyModel_Tr2(const char* s, const char* c);
-libqt_string QIdentityProxyModel_Tr3(const char* s, const char* c, int n);
 void QIdentityProxyModel_OnMetacall(QIdentityProxyModel* self, intptr_t slot);
 int QIdentityProxyModel_QBaseMetacall(QIdentityProxyModel* self, int param1, int param2, void** param3);
 void QIdentityProxyModel_OnColumnCount(const QIdentityProxyModel* self, intptr_t slot);

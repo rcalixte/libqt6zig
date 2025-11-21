@@ -25,11 +25,8 @@ typedef struct QObject QObject;
 QMetaObject* KConfigWatcher_MetaObject(const KConfigWatcher* self);
 void* KConfigWatcher_Metacast(KConfigWatcher* self, const char* param1);
 int KConfigWatcher_Metacall(KConfigWatcher* self, int param1, int param2, void** param3);
-libqt_string KConfigWatcher_Tr(const char* s);
 void KConfigWatcher_ConfigChanged(KConfigWatcher* self, const KConfigGroup* group, const libqt_list /* of libqt_string */ names);
 void KConfigWatcher_Connect_ConfigChanged(KConfigWatcher* self, intptr_t slot);
-libqt_string KConfigWatcher_Tr2(const char* s, const char* c);
-libqt_string KConfigWatcher_Tr3(const char* s, const char* c, int n);
 void KConfigWatcher_Delete(KConfigWatcher* self);
 
 #ifdef __cplusplus

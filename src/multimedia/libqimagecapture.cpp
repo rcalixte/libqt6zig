@@ -43,18 +43,6 @@ int QImageCapture_Metacall(QImageCapture* self, int param1, int param2, void** p
     }
 }
 
-libqt_string QImageCapture_Tr(const char* s) {
-    QString _ret = QImageCapture::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 bool QImageCapture_IsAvailable(const QImageCapture* self) {
     return self->isAvailable();
 }
@@ -333,30 +321,6 @@ void QImageCapture_Connect_ImageSaved(QImageCapture* self, intptr_t slot) {
         slotFunc(self, sigval1, sigval2);
         libqt_free(fileName_str);
     });
-}
-
-libqt_string QImageCapture_Tr2(const char* s, const char* c) {
-    QString _ret = QImageCapture::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QImageCapture_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QImageCapture::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 int QImageCapture_CaptureToFile1(QImageCapture* self, const libqt_string location) {

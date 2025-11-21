@@ -28,7 +28,6 @@ KNotificationReplyAction* KNotificationReplyAction_new(const libqt_string label)
 QMetaObject* KNotificationReplyAction_MetaObject(const KNotificationReplyAction* self);
 void* KNotificationReplyAction_Metacast(KNotificationReplyAction* self, const char* param1);
 int KNotificationReplyAction_Metacall(KNotificationReplyAction* self, int param1, int param2, void** param3);
-libqt_string KNotificationReplyAction_Tr(const char* s);
 libqt_string KNotificationReplyAction_Label(const KNotificationReplyAction* self);
 void KNotificationReplyAction_SetLabel(KNotificationReplyAction* self, const libqt_string label);
 libqt_string KNotificationReplyAction_PlaceholderText(const KNotificationReplyAction* self);
@@ -53,8 +52,6 @@ void KNotificationReplyAction_SubmitButtonIconNameChanged(KNotificationReplyActi
 void KNotificationReplyAction_Connect_SubmitButtonIconNameChanged(KNotificationReplyAction* self, intptr_t slot);
 void KNotificationReplyAction_FallbackBehaviorChanged(KNotificationReplyAction* self);
 void KNotificationReplyAction_Connect_FallbackBehaviorChanged(KNotificationReplyAction* self, intptr_t slot);
-libqt_string KNotificationReplyAction_Tr2(const char* s, const char* c);
-libqt_string KNotificationReplyAction_Tr3(const char* s, const char* c, int n);
 void KNotificationReplyAction_OnMetacall(KNotificationReplyAction* self, intptr_t slot);
 int KNotificationReplyAction_QBaseMetacall(KNotificationReplyAction* self, int param1, int param2, void** param3);
 bool KNotificationReplyAction_Event(KNotificationReplyAction* self, QEvent* event);

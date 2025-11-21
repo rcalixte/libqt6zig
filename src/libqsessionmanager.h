@@ -24,7 +24,6 @@ typedef struct QSessionManager QSessionManager;
 QMetaObject* QSessionManager_MetaObject(const QSessionManager* self);
 void* QSessionManager_Metacast(QSessionManager* self, const char* param1);
 int QSessionManager_Metacall(QSessionManager* self, int param1, int param2, void** param3);
-libqt_string QSessionManager_Tr(const char* s);
 libqt_string QSessionManager_SessionId(const QSessionManager* self);
 libqt_string QSessionManager_SessionKey(const QSessionManager* self);
 bool QSessionManager_AllowsInteraction(QSessionManager* self);
@@ -41,8 +40,6 @@ void QSessionManager_SetManagerProperty(QSessionManager* self, const libqt_strin
 void QSessionManager_SetManagerProperty2(QSessionManager* self, const libqt_string name, const libqt_list /* of libqt_string */ value);
 bool QSessionManager_IsPhase2(const QSessionManager* self);
 void QSessionManager_RequestPhase2(QSessionManager* self);
-libqt_string QSessionManager_Tr2(const char* s, const char* c);
-libqt_string QSessionManager_Tr3(const char* s, const char* c, int n);
 
 #ifdef __cplusplus
 } /* extern C */

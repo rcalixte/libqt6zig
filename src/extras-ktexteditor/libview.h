@@ -72,7 +72,6 @@ typedef struct QWidget QWidget;
 QMetaObject* KTextEditor__View_MetaObject(const KTextEditor__View* self);
 void* KTextEditor__View_Metacast(KTextEditor__View* self, const char* param1);
 int KTextEditor__View_Metacall(KTextEditor__View* self, int param1, int param2, void** param3);
-libqt_string KTextEditor__View_Tr(const char* s);
 KTextEditor__Document* KTextEditor__View_Document(const KTextEditor__View* self);
 int KTextEditor__View_ViewMode(const KTextEditor__View* self);
 libqt_string KTextEditor__View_ViewModeHuman(const KTextEditor__View* self);
@@ -182,8 +181,6 @@ void KTextEditor__View_SetAutomaticInvocationEnabled(KTextEditor__View* self, bo
 void KTextEditor__View_StartCompletion2(KTextEditor__View* self, const KTextEditor__Range* word, const libqt_list /* of KTextEditor__CodeCompletionModel* */ models, int invocationType);
 libqt_list /* of KTextEditor__CodeCompletionModel* */ KTextEditor__View_CodeCompletionModels(const KTextEditor__View* self);
 KSyntaxHighlighting__Theme* KTextEditor__View_Theme(const KTextEditor__View* self);
-libqt_string KTextEditor__View_Tr2(const char* s, const char* c);
-libqt_string KTextEditor__View_Tr3(const char* s, const char* c, int n);
 bool KTextEditor__View_InsertTemplate3(KTextEditor__View* self, KTextEditor__Cursor* insertPosition, const libqt_string templateString, const libqt_string script);
 int KTextEditor__View_FirstDisplayedLine1(const KTextEditor__View* self, int lineType);
 int KTextEditor__View_LastDisplayedLine1(const KTextEditor__View* self, int lineType);

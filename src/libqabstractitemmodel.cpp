@@ -321,18 +321,6 @@ int QAbstractItemModel_Metacall(QAbstractItemModel* self, int param1, int param2
     }
 }
 
-libqt_string QAbstractItemModel_Tr(const char* s) {
-    QString _ret = QAbstractItemModel::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 bool QAbstractItemModel_HasIndex(const QAbstractItemModel* self, int row, int column) {
     return self->hasIndex(static_cast<int>(row), static_cast<int>(column));
 }
@@ -879,30 +867,6 @@ void QAbstractItemModel_ResetInternalData(QAbstractItemModel* self) {
     if (vqabstractitemmodel && vqabstractitemmodel->isVirtualQAbstractItemModel) {
         vqabstractitemmodel->resetInternalData();
     }
-}
-
-libqt_string QAbstractItemModel_Tr2(const char* s, const char* c) {
-    QString _ret = QAbstractItemModel::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QAbstractItemModel_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QAbstractItemModel::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 bool QAbstractItemModel_HasIndex3(const QAbstractItemModel* self, int row, int column, const QModelIndex* parent) {
@@ -3152,18 +3116,6 @@ int QAbstractTableModel_Metacall(QAbstractTableModel* self, int param1, int para
     }
 }
 
-libqt_string QAbstractTableModel_Tr(const char* s) {
-    QString _ret = QAbstractTableModel::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 QModelIndex* QAbstractTableModel_Index(const QAbstractTableModel* self, int row, int column, const QModelIndex* parent) {
     auto* vqabstracttablemodel = dynamic_cast<const VirtualQAbstractTableModel*>(self);
     if (vqabstracttablemodel && vqabstracttablemodel->isVirtualQAbstractTableModel) {
@@ -3198,30 +3150,6 @@ int QAbstractTableModel_Flags(const QAbstractTableModel* self, const QModelIndex
     } else {
         return static_cast<int>(((VirtualQAbstractTableModel*)self)->flags(*index));
     }
-}
-
-libqt_string QAbstractTableModel_Tr2(const char* s, const char* c) {
-    QString _ret = QAbstractTableModel::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QAbstractTableModel_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QAbstractTableModel::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 // Base class handler implementation
@@ -5480,18 +5408,6 @@ int QAbstractListModel_Metacall(QAbstractListModel* self, int param1, int param2
     }
 }
 
-libqt_string QAbstractListModel_Tr(const char* s) {
-    QString _ret = QAbstractListModel::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 QModelIndex* QAbstractListModel_Index(const QAbstractListModel* self, int row, int column, const QModelIndex* parent) {
     auto* vqabstractlistmodel = dynamic_cast<const VirtualQAbstractListModel*>(self);
     if (vqabstractlistmodel && vqabstractlistmodel->isVirtualQAbstractListModel) {
@@ -5526,30 +5442,6 @@ int QAbstractListModel_Flags(const QAbstractListModel* self, const QModelIndex* 
     } else {
         return static_cast<int>(((VirtualQAbstractListModel*)self)->flags(*index));
     }
-}
-
-libqt_string QAbstractListModel_Tr2(const char* s, const char* c) {
-    QString _ret = QAbstractListModel::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QAbstractListModel_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QAbstractListModel::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 // Base class handler implementation

@@ -35,14 +35,11 @@ KFontSizeAction* KFontSizeAction_new3(const QIcon* icon, const libqt_string text
 QMetaObject* KFontSizeAction_MetaObject(const KFontSizeAction* self);
 void* KFontSizeAction_Metacast(KFontSizeAction* self, const char* param1);
 int KFontSizeAction_Metacall(KFontSizeAction* self, int param1, int param2, void** param3);
-libqt_string KFontSizeAction_Tr(const char* s);
 int KFontSizeAction_FontSize(const KFontSizeAction* self);
 void KFontSizeAction_SetFontSize(KFontSizeAction* self, int size);
 void KFontSizeAction_FontSizeChanged(KFontSizeAction* self, int param1);
 void KFontSizeAction_Connect_FontSizeChanged(KFontSizeAction* self, intptr_t slot);
 void KFontSizeAction_SlotActionTriggered(KFontSizeAction* self, QAction* action);
-libqt_string KFontSizeAction_Tr2(const char* s, const char* c);
-libqt_string KFontSizeAction_Tr3(const char* s, const char* c, int n);
 void KFontSizeAction_OnMetacall(KFontSizeAction* self, intptr_t slot);
 int KFontSizeAction_QBaseMetacall(KFontSizeAction* self, int param1, int param2, void** param3);
 void KFontSizeAction_OnSlotActionTriggered(KFontSizeAction* self, intptr_t slot);

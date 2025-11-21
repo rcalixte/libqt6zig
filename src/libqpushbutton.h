@@ -63,7 +63,6 @@ QPushButton* QPushButton_new6(const QIcon* icon, const libqt_string text, QWidge
 QMetaObject* QPushButton_MetaObject(const QPushButton* self);
 void* QPushButton_Metacast(QPushButton* self, const char* param1);
 int QPushButton_Metacall(QPushButton* self, int param1, int param2, void** param3);
-libqt_string QPushButton_Tr(const char* s);
 QSize* QPushButton_SizeHint(const QPushButton* self);
 QSize* QPushButton_MinimumSizeHint(const QPushButton* self);
 bool QPushButton_AutoDefault(const QPushButton* self);
@@ -83,8 +82,6 @@ void QPushButton_FocusOutEvent(QPushButton* self, QFocusEvent* param1);
 void QPushButton_MouseMoveEvent(QPushButton* self, QMouseEvent* param1);
 void QPushButton_InitStyleOption(const QPushButton* self, QStyleOptionButton* option);
 bool QPushButton_HitButton(const QPushButton* self, const QPoint* pos);
-libqt_string QPushButton_Tr2(const char* s, const char* c);
-libqt_string QPushButton_Tr3(const char* s, const char* c, int n);
 void QPushButton_OnMetacall(QPushButton* self, intptr_t slot);
 int QPushButton_QBaseMetacall(QPushButton* self, int param1, int param2, void** param3);
 void QPushButton_OnSizeHint(const QPushButton* self, intptr_t slot);

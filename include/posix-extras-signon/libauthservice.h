@@ -44,7 +44,6 @@ SignOn__AuthService* SignOn__AuthService_new2(QObject* parent);
 QMetaObject* SignOn__AuthService_MetaObject(const SignOn__AuthService* self);
 void* SignOn__AuthService_Metacast(SignOn__AuthService* self, const char* param1);
 int SignOn__AuthService_Metacall(SignOn__AuthService* self, int param1, int param2, void** param3);
-libqt_string SignOn__AuthService_Tr(const char* s);
 void SignOn__AuthService_QueryMethods(SignOn__AuthService* self);
 void SignOn__AuthService_QueryMechanisms(SignOn__AuthService* self, const libqt_string method);
 void SignOn__AuthService_QueryIdentities(SignOn__AuthService* self);
@@ -59,8 +58,6 @@ void SignOn__AuthService_Identities(SignOn__AuthService* self, const libqt_list 
 void SignOn__AuthService_Connect_Identities(SignOn__AuthService* self, intptr_t slot);
 void SignOn__AuthService_Cleared(SignOn__AuthService* self);
 void SignOn__AuthService_Connect_Cleared(SignOn__AuthService* self, intptr_t slot);
-libqt_string SignOn__AuthService_Tr2(const char* s, const char* c);
-libqt_string SignOn__AuthService_Tr3(const char* s, const char* c, int n);
 void SignOn__AuthService_OnMetacall(SignOn__AuthService* self, intptr_t slot);
 int SignOn__AuthService_QBaseMetacall(SignOn__AuthService* self, int param1, int param2, void** param3);
 bool SignOn__AuthService_Event(SignOn__AuthService* self, QEvent* event);

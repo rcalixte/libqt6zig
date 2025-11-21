@@ -41,18 +41,6 @@ int KProcess_Metacall(KProcess* self, int param1, int param2, void** param3) {
     }
 }
 
-libqt_string KProcess_Tr(const char* s) {
-    QString _ret = KProcess::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 void KProcess_SetOutputChannelMode(KProcess* self, int mode) {
     self->setOutputChannelMode(static_cast<KProcess::OutputChannelMode>(mode));
 }
@@ -188,30 +176,6 @@ int KProcess_StartDetached3(const libqt_list /* of libqt_string */ argv) {
         argv_QList.push_back(argv_arr_i_QString);
     }
     return KProcess::startDetached(argv_QList);
-}
-
-libqt_string KProcess_Tr2(const char* s, const char* c) {
-    QString _ret = KProcess::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string KProcess_Tr3(const char* s, const char* c, int n) {
-    QString _ret = KProcess::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 void KProcess_SetEnv3(KProcess* self, const libqt_string name, const libqt_string value, bool overwrite) {

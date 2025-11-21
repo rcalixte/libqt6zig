@@ -42,18 +42,6 @@ int KTerminalLauncherJob_Metacall(KTerminalLauncherJob* self, int param1, int pa
     }
 }
 
-libqt_string KTerminalLauncherJob_Tr(const char* s) {
-    QString _ret = KTerminalLauncherJob::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 void KTerminalLauncherJob_SetWorkingDirectory(KTerminalLauncherJob* self, const libqt_string workingDirectory) {
     QString workingDirectory_QString = QString::fromUtf8(workingDirectory.data, workingDirectory.len);
     self->setWorkingDirectory(workingDirectory_QString);
@@ -75,30 +63,6 @@ void KTerminalLauncherJob_Start(KTerminalLauncherJob* self) {
     } else {
         ((VirtualKTerminalLauncherJob*)self)->start();
     }
-}
-
-libqt_string KTerminalLauncherJob_Tr2(const char* s, const char* c) {
-    QString _ret = KTerminalLauncherJob::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string KTerminalLauncherJob_Tr3(const char* s, const char* c, int n) {
-    QString _ret = KTerminalLauncherJob::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 // Base class handler implementation

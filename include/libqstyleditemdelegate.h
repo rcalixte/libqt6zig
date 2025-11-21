@@ -41,7 +41,6 @@ QStyledItemDelegate* QStyledItemDelegate_new2(QObject* parent);
 QMetaObject* QStyledItemDelegate_MetaObject(const QStyledItemDelegate* self);
 void* QStyledItemDelegate_Metacast(QStyledItemDelegate* self, const char* param1);
 int QStyledItemDelegate_Metacall(QStyledItemDelegate* self, int param1, int param2, void** param3);
-libqt_string QStyledItemDelegate_Tr(const char* s);
 void QStyledItemDelegate_Paint(const QStyledItemDelegate* self, QPainter* painter, const QStyleOptionViewItem* option, const QModelIndex* index);
 QSize* QStyledItemDelegate_SizeHint(const QStyledItemDelegate* self, const QStyleOptionViewItem* option, const QModelIndex* index);
 QWidget* QStyledItemDelegate_CreateEditor(const QStyledItemDelegate* self, QWidget* parent, const QStyleOptionViewItem* option, const QModelIndex* index);
@@ -54,8 +53,6 @@ libqt_string QStyledItemDelegate_DisplayText(const QStyledItemDelegate* self, co
 void QStyledItemDelegate_InitStyleOption(const QStyledItemDelegate* self, QStyleOptionViewItem* option, const QModelIndex* index);
 bool QStyledItemDelegate_EventFilter(QStyledItemDelegate* self, QObject* object, QEvent* event);
 bool QStyledItemDelegate_EditorEvent(QStyledItemDelegate* self, QEvent* event, QAbstractItemModel* model, const QStyleOptionViewItem* option, const QModelIndex* index);
-libqt_string QStyledItemDelegate_Tr2(const char* s, const char* c);
-libqt_string QStyledItemDelegate_Tr3(const char* s, const char* c, int n);
 void QStyledItemDelegate_OnMetacall(QStyledItemDelegate* self, intptr_t slot);
 int QStyledItemDelegate_QBaseMetacall(QStyledItemDelegate* self, int param1, int param2, void** param3);
 void QStyledItemDelegate_OnPaint(const QStyledItemDelegate* self, intptr_t slot);

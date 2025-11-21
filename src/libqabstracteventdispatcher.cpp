@@ -30,18 +30,6 @@ int QAbstractEventDispatcher_Metacall(QAbstractEventDispatcher* self, int param1
     return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
-libqt_string QAbstractEventDispatcher_Tr(const char* s) {
-    QString _ret = QAbstractEventDispatcher::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 QAbstractEventDispatcher* QAbstractEventDispatcher_Instance() {
     return QAbstractEventDispatcher::instance();
 }
@@ -159,30 +147,6 @@ void QAbstractEventDispatcher_Connect_Awake(QAbstractEventDispatcher* self, intp
     });
 }
 
-libqt_string QAbstractEventDispatcher_Tr2(const char* s, const char* c) {
-    QString _ret = QAbstractEventDispatcher::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QAbstractEventDispatcher_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QAbstractEventDispatcher::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 QAbstractEventDispatcher* QAbstractEventDispatcher_Instance1(QThread* thread) {
     return QAbstractEventDispatcher::instance(thread);
 }
@@ -201,18 +165,6 @@ void* QAbstractEventDispatcherV2_Metacast(QAbstractEventDispatcherV2* self, cons
 
 int QAbstractEventDispatcherV2_Metacall(QAbstractEventDispatcherV2* self, int param1, int param2, void** param3) {
     return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
-}
-
-libqt_string QAbstractEventDispatcherV2_Tr(const char* s) {
-    QString _ret = QAbstractEventDispatcherV2::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 bool QAbstractEventDispatcherV2_UnregisterTimer(QAbstractEventDispatcherV2* self, int timerId) {
@@ -234,30 +186,6 @@ libqt_list /* of QAbstractEventDispatcher__TimerInfoV2* */ QAbstractEventDispatc
 
 bool QAbstractEventDispatcherV2_ProcessEventsWithDeadline(QAbstractEventDispatcherV2* self, int flags, QDeadlineTimer* deadline) {
     return self->processEventsWithDeadline(static_cast<QEventLoop::ProcessEventsFlags>(flags), *deadline);
-}
-
-libqt_string QAbstractEventDispatcherV2_Tr2(const char* s, const char* c) {
-    QString _ret = QAbstractEventDispatcherV2::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QAbstractEventDispatcherV2_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QAbstractEventDispatcherV2::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 void QAbstractEventDispatcherV2_Delete(QAbstractEventDispatcherV2* self) {

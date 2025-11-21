@@ -68,7 +68,6 @@ KComboBox* KComboBox_new4(bool rw, QWidget* parent);
 QMetaObject* KComboBox_MetaObject(const KComboBox* self);
 void* KComboBox_Metacast(KComboBox* self, const char* param1);
 int KComboBox_Metacall(KComboBox* self, int param1, int param2, void** param3);
-libqt_string KComboBox_Tr(const char* s);
 void KComboBox_SetEditUrl(KComboBox* self, const QUrl* url);
 void KComboBox_AddUrl(KComboBox* self, const QUrl* url);
 void KComboBox_AddUrl2(KComboBox* self, const QIcon* icon, const QUrl* url);
@@ -106,8 +105,6 @@ void KComboBox_SetCompletedItems(KComboBox* self, const libqt_list /* of libqt_s
 void KComboBox_SetCurrentItem(KComboBox* self, const libqt_string item);
 void KComboBox_MakeCompletion(KComboBox* self, const libqt_string param1);
 void KComboBox_SetCompletedText2(KComboBox* self, const libqt_string text, bool marked);
-libqt_string KComboBox_Tr2(const char* s, const char* c);
-libqt_string KComboBox_Tr3(const char* s, const char* c, int n);
 KCompletionBox* KComboBox_CompletionBox1(KComboBox* self, bool create);
 void KComboBox_SetCurrentItem2(KComboBox* self, const libqt_string item, bool insert);
 void KComboBox_SetCurrentItem3(KComboBox* self, const libqt_string item, bool insert, int index);

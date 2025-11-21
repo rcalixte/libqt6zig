@@ -34,7 +34,6 @@ KCategoryDrawer* KCategoryDrawer_new(KCategorizedView* view);
 QMetaObject* KCategoryDrawer_MetaObject(const KCategoryDrawer* self);
 void* KCategoryDrawer_Metacast(KCategoryDrawer* self, const char* param1);
 int KCategoryDrawer_Metacall(KCategoryDrawer* self, int param1, int param2, void** param3);
-libqt_string KCategoryDrawer_Tr(const char* s);
 KCategorizedView* KCategoryDrawer_View(const KCategoryDrawer* self);
 void KCategoryDrawer_DrawCategory(const KCategoryDrawer* self, const QModelIndex* index, int sortRole, const QStyleOption* option, QPainter* painter);
 int KCategoryDrawer_CategoryHeight(const KCategoryDrawer* self, const QModelIndex* index, const QStyleOption* option);
@@ -49,8 +48,6 @@ void KCategoryDrawer_MouseButtonReleased(KCategoryDrawer* self, const QModelInde
 void KCategoryDrawer_MouseMoved(KCategoryDrawer* self, const QModelIndex* index, const QRect* blockRect, QMouseEvent* event);
 void KCategoryDrawer_MouseButtonDoubleClicked(KCategoryDrawer* self, const QModelIndex* index, const QRect* blockRect, QMouseEvent* event);
 void KCategoryDrawer_MouseLeft(KCategoryDrawer* self, const QModelIndex* index, const QRect* blockRect);
-libqt_string KCategoryDrawer_Tr2(const char* s, const char* c);
-libqt_string KCategoryDrawer_Tr3(const char* s, const char* c, int n);
 void KCategoryDrawer_OnMetacall(KCategoryDrawer* self, intptr_t slot);
 int KCategoryDrawer_QBaseMetacall(KCategoryDrawer* self, int param1, int param2, void** param3);
 void KCategoryDrawer_OnDrawCategory(const KCategoryDrawer* self, intptr_t slot);

@@ -31,7 +31,6 @@ typedef struct Solid__DeviceInterface Solid__DeviceInterface;
 QMetaObject* Solid__Battery_MetaObject(const Solid__Battery* self);
 void* Solid__Battery_Metacast(Solid__Battery* self, const char* param1);
 int Solid__Battery_Metacall(Solid__Battery* self, int param1, int param2, void** param3);
-libqt_string Solid__Battery_Tr(const char* s);
 int Solid__Battery_DeviceInterfaceType();
 bool Solid__Battery_IsPresent(const Solid__Battery* self);
 int Solid__Battery_Type(const Solid__Battery* self);
@@ -82,8 +81,6 @@ void Solid__Battery_TemperatureChanged(Solid__Battery* self, double temperature,
 void Solid__Battery_Connect_TemperatureChanged(Solid__Battery* self, intptr_t slot);
 void Solid__Battery_RemainingTimeChanged(Solid__Battery* self, long long time, const libqt_string udi);
 void Solid__Battery_Connect_RemainingTimeChanged(Solid__Battery* self, intptr_t slot);
-libqt_string Solid__Battery_Tr2(const char* s, const char* c);
-libqt_string Solid__Battery_Tr3(const char* s, const char* c, int n);
 void Solid__Battery_ChargeStateChanged2(Solid__Battery* self, int newState, const libqt_string udi);
 void Solid__Battery_Connect_ChargeStateChanged2(Solid__Battery* self, intptr_t slot);
 void Solid__Battery_Delete(Solid__Battery* self);

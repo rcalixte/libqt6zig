@@ -63,15 +63,12 @@ void KTextEditor__StyleOptionAnnotationItem_Delete(KTextEditor__StyleOptionAnnot
 QMetaObject* KTextEditor__AbstractAnnotationItemDelegate_MetaObject(const KTextEditor__AbstractAnnotationItemDelegate* self);
 void* KTextEditor__AbstractAnnotationItemDelegate_Metacast(KTextEditor__AbstractAnnotationItemDelegate* self, const char* param1);
 int KTextEditor__AbstractAnnotationItemDelegate_Metacall(KTextEditor__AbstractAnnotationItemDelegate* self, int param1, int param2, void** param3);
-libqt_string KTextEditor__AbstractAnnotationItemDelegate_Tr(const char* s);
 void KTextEditor__AbstractAnnotationItemDelegate_Paint(const KTextEditor__AbstractAnnotationItemDelegate* self, QPainter* painter, const KTextEditor__StyleOptionAnnotationItem* option, KTextEditor__AnnotationModel* model, int line);
 QSize* KTextEditor__AbstractAnnotationItemDelegate_SizeHint(const KTextEditor__AbstractAnnotationItemDelegate* self, const KTextEditor__StyleOptionAnnotationItem* option, KTextEditor__AnnotationModel* model, int line);
 bool KTextEditor__AbstractAnnotationItemDelegate_HelpEvent(KTextEditor__AbstractAnnotationItemDelegate* self, QHelpEvent* event, KTextEditor__View* view, const KTextEditor__StyleOptionAnnotationItem* option, KTextEditor__AnnotationModel* model, int line);
 void KTextEditor__AbstractAnnotationItemDelegate_HideTooltip(KTextEditor__AbstractAnnotationItemDelegate* self, KTextEditor__View* view);
 void KTextEditor__AbstractAnnotationItemDelegate_SizeHintChanged(KTextEditor__AbstractAnnotationItemDelegate* self, KTextEditor__AnnotationModel* model, int line);
 void KTextEditor__AbstractAnnotationItemDelegate_Connect_SizeHintChanged(KTextEditor__AbstractAnnotationItemDelegate* self, intptr_t slot);
-libqt_string KTextEditor__AbstractAnnotationItemDelegate_Tr2(const char* s, const char* c);
-libqt_string KTextEditor__AbstractAnnotationItemDelegate_Tr3(const char* s, const char* c, int n);
 void KTextEditor__AbstractAnnotationItemDelegate_Delete(KTextEditor__AbstractAnnotationItemDelegate* self);
 
 #ifdef __cplusplus

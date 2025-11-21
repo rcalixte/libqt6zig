@@ -50,18 +50,6 @@ int QStyledItemDelegate_Metacall(QStyledItemDelegate* self, int param1, int para
     }
 }
 
-libqt_string QStyledItemDelegate_Tr(const char* s) {
-    QString _ret = QStyledItemDelegate::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 void QStyledItemDelegate_Paint(const QStyledItemDelegate* self, QPainter* painter, const QStyleOptionViewItem* option, const QModelIndex* index) {
     auto* vqstyleditemdelegate = dynamic_cast<const VirtualQStyledItemDelegate*>(self);
     if (vqstyleditemdelegate && vqstyleditemdelegate->isVirtualQStyledItemDelegate) {
@@ -170,30 +158,6 @@ bool QStyledItemDelegate_EditorEvent(QStyledItemDelegate* self, QEvent* event, Q
         return vqstyleditemdelegate->editorEvent(event, model, *option, *index);
     }
     return {};
-}
-
-libqt_string QStyledItemDelegate_Tr2(const char* s, const char* c) {
-    QString _ret = QStyledItemDelegate::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QStyledItemDelegate_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QStyledItemDelegate::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 // Base class handler implementation

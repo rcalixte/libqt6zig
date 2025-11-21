@@ -34,12 +34,9 @@ typedef struct QUrl QUrl;
 QMetaObject* KIO__DirectorySizeJob_MetaObject(const KIO__DirectorySizeJob* self);
 void* KIO__DirectorySizeJob_Metacast(KIO__DirectorySizeJob* self, const char* param1);
 int KIO__DirectorySizeJob_Metacall(KIO__DirectorySizeJob* self, int param1, int param2, void** param3);
-libqt_string KIO__DirectorySizeJob_Tr(const char* s);
 unsigned long long KIO__DirectorySizeJob_TotalSize(const KIO__DirectorySizeJob* self);
 unsigned long long KIO__DirectorySizeJob_TotalFiles(const KIO__DirectorySizeJob* self);
 unsigned long long KIO__DirectorySizeJob_TotalSubdirs(const KIO__DirectorySizeJob* self);
-libqt_string KIO__DirectorySizeJob_Tr2(const char* s, const char* c);
-libqt_string KIO__DirectorySizeJob_Tr3(const char* s, const char* c, int n);
 void KIO__DirectorySizeJob_Delete(KIO__DirectorySizeJob* self);
 
 KIO__DirectorySizeJob* KIO_DirectorySize(const QUrl* param1);

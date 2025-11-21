@@ -33,11 +33,8 @@ typedef struct QUrl QUrl;
 QMetaObject* KIO__MkpathJob_MetaObject(const KIO__MkpathJob* self);
 void* KIO__MkpathJob_Metacast(KIO__MkpathJob* self, const char* param1);
 int KIO__MkpathJob_Metacall(KIO__MkpathJob* self, int param1, int param2, void** param3);
-libqt_string KIO__MkpathJob_Tr(const char* s);
 void KIO__MkpathJob_DirectoryCreated(KIO__MkpathJob* self, const QUrl* url);
 void KIO__MkpathJob_Connect_DirectoryCreated(KIO__MkpathJob* self, intptr_t slot);
-libqt_string KIO__MkpathJob_Tr2(const char* s, const char* c);
-libqt_string KIO__MkpathJob_Tr3(const char* s, const char* c, int n);
 void KIO__MkpathJob_Delete(KIO__MkpathJob* self);
 
 KIO__MkpathJob* KIO_Mkpath(const QUrl* param1, const QUrl* param2, int param3);

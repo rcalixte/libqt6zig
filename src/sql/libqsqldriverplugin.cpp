@@ -38,18 +38,6 @@ int QSqlDriverPlugin_Metacall(QSqlDriverPlugin* self, int param1, int param2, vo
     }
 }
 
-libqt_string QSqlDriverPlugin_Tr(const char* s) {
-    QString _ret = QSqlDriverPlugin::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 QSqlDriver* QSqlDriverPlugin_Create(QSqlDriverPlugin* self, const libqt_string key) {
     QString key_QString = QString::fromUtf8(key.data, key.len);
     auto* vqsqldriverplugin = dynamic_cast<VirtualQSqlDriverPlugin*>(self);
@@ -58,30 +46,6 @@ QSqlDriver* QSqlDriverPlugin_Create(QSqlDriverPlugin* self, const libqt_string k
     } else {
         return ((VirtualQSqlDriverPlugin*)self)->create(key_QString);
     }
-}
-
-libqt_string QSqlDriverPlugin_Tr2(const char* s, const char* c) {
-    QString _ret = QSqlDriverPlugin::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QSqlDriverPlugin_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QSqlDriverPlugin::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 // Base class handler implementation

@@ -64,15 +64,12 @@ KBookmarkDialog* KBookmarkDialog_new2(KBookmarkManager* manager, QWidget* parent
 QMetaObject* KBookmarkDialog_MetaObject(const KBookmarkDialog* self);
 void* KBookmarkDialog_Metacast(KBookmarkDialog* self, const char* param1);
 int KBookmarkDialog_Metacall(KBookmarkDialog* self, int param1, int param2, void** param3);
-libqt_string KBookmarkDialog_Tr(const char* s);
 KBookmark* KBookmarkDialog_EditBookmark(KBookmarkDialog* self, const KBookmark* bm);
 KBookmark* KBookmarkDialog_AddBookmark(KBookmarkDialog* self, const libqt_string title, const QUrl* url, const libqt_string icon);
 KBookmarkGroup* KBookmarkDialog_AddBookmarks(KBookmarkDialog* self, const libqt_list /* of KBookmarkOwner__FutureBookmark* */ list);
 KBookmarkGroup* KBookmarkDialog_CreateNewFolder(KBookmarkDialog* self, const libqt_string name);
 KBookmarkGroup* KBookmarkDialog_SelectFolder(KBookmarkDialog* self);
 void KBookmarkDialog_Accept(KBookmarkDialog* self);
-libqt_string KBookmarkDialog_Tr2(const char* s, const char* c);
-libqt_string KBookmarkDialog_Tr3(const char* s, const char* c, int n);
 KBookmark* KBookmarkDialog_AddBookmark4(KBookmarkDialog* self, const libqt_string title, const QUrl* url, const libqt_string icon, KBookmark* parent);
 KBookmarkGroup* KBookmarkDialog_AddBookmarks2(KBookmarkDialog* self, const libqt_list /* of KBookmarkOwner__FutureBookmark* */ list, const libqt_string name);
 KBookmarkGroup* KBookmarkDialog_AddBookmarks3(KBookmarkDialog* self, const libqt_list /* of KBookmarkOwner__FutureBookmark* */ list, const libqt_string name, KBookmarkGroup* parent);

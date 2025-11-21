@@ -53,7 +53,6 @@ QTextDocument* QTextDocument_new4(const libqt_string text, QObject* parent);
 QMetaObject* QTextDocument_MetaObject(const QTextDocument* self);
 void* QTextDocument_Metacast(QTextDocument* self, const char* param1);
 int QTextDocument_Metacall(QTextDocument* self, int param1, int param2, void** param3);
-libqt_string QTextDocument_Tr(const char* s);
 QTextDocument* QTextDocument_Clone(const QTextDocument* self);
 bool QTextDocument_IsEmpty(const QTextDocument* self);
 void QTextDocument_Clear(QTextDocument* self);
@@ -164,8 +163,6 @@ void QTextDocument_AppendUndoItem(QTextDocument* self, QAbstractUndoItem* param1
 void QTextDocument_SetModified(QTextDocument* self);
 QTextObject* QTextDocument_CreateObject(QTextDocument* self, const QTextFormat* f);
 QVariant* QTextDocument_LoadResource(QTextDocument* self, int typeVal, const QUrl* name);
-libqt_string QTextDocument_Tr2(const char* s, const char* c);
-libqt_string QTextDocument_Tr3(const char* s, const char* c, int n);
 QTextDocument* QTextDocument_Clone1(const QTextDocument* self, QObject* parent);
 libqt_string QTextDocument_ToMarkdown1(const QTextDocument* self, int features);
 void QTextDocument_SetMarkdown2(QTextDocument* self, const libqt_string markdown, int features);

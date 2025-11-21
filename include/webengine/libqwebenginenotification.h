@@ -26,7 +26,6 @@ typedef struct QWebEngineNotification QWebEngineNotification;
 QMetaObject* QWebEngineNotification_MetaObject(const QWebEngineNotification* self);
 void* QWebEngineNotification_Metacast(QWebEngineNotification* self, const char* param1);
 int QWebEngineNotification_Metacall(QWebEngineNotification* self, int param1, int param2, void** param3);
-libqt_string QWebEngineNotification_Tr(const char* s);
 bool QWebEngineNotification_Matches(const QWebEngineNotification* self, const QWebEngineNotification* other);
 QUrl* QWebEngineNotification_Origin(const QWebEngineNotification* self);
 QImage* QWebEngineNotification_Icon(const QWebEngineNotification* self);
@@ -40,8 +39,6 @@ void QWebEngineNotification_Click(const QWebEngineNotification* self);
 void QWebEngineNotification_Close(const QWebEngineNotification* self);
 void QWebEngineNotification_Closed(QWebEngineNotification* self);
 void QWebEngineNotification_Connect_Closed(QWebEngineNotification* self, intptr_t slot);
-libqt_string QWebEngineNotification_Tr2(const char* s, const char* c);
-libqt_string QWebEngineNotification_Tr3(const char* s, const char* c, int n);
 void QWebEngineNotification_Delete(QWebEngineNotification* self);
 
 #ifdef __cplusplus

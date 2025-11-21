@@ -59,7 +59,6 @@ KCharSelect* KCharSelect_new4(QWidget* parent, QObject* actionParent, const int 
 QMetaObject* KCharSelect_MetaObject(const KCharSelect* self);
 void* KCharSelect_Metacast(KCharSelect* self, const char* param1);
 int KCharSelect_Metacall(KCharSelect* self, int param1, int param2, void** param3);
-libqt_string KCharSelect_Tr(const char* s);
 QSize* KCharSelect_SizeHint(const KCharSelect* self);
 void KCharSelect_SetAllPlanesEnabled(KCharSelect* self, bool all);
 bool KCharSelect_AllPlanesEnabled(const KCharSelect* self);
@@ -83,8 +82,6 @@ void KCharSelect_CharSelected(KCharSelect* self, const QChar* c);
 void KCharSelect_Connect_CharSelected(KCharSelect* self, intptr_t slot);
 void KCharSelect_CodePointSelected(KCharSelect* self, unsigned int codePoint);
 void KCharSelect_Connect_CodePointSelected(KCharSelect* self, intptr_t slot);
-libqt_string KCharSelect_Tr2(const char* s, const char* c);
-libqt_string KCharSelect_Tr3(const char* s, const char* c, int n);
 void KCharSelect_OnMetacall(KCharSelect* self, intptr_t slot);
 int KCharSelect_QBaseMetacall(KCharSelect* self, int param1, int param2, void** param3);
 void KCharSelect_OnSizeHint(const KCharSelect* self, intptr_t slot);

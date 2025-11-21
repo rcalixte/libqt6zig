@@ -38,7 +38,6 @@ QAction* QAction_new6(const QIcon* icon, const libqt_string text, QObject* paren
 QMetaObject* QAction_MetaObject(const QAction* self);
 void* QAction_Metacast(QAction* self, const char* param1);
 int QAction_Metacall(QAction* self, int param1, int param2, void** param3);
-libqt_string QAction_Tr(const char* s);
 libqt_list /* of QObject* */ QAction_AssociatedObjects(const QAction* self);
 void QAction_SetActionGroup(QAction* self, QActionGroup* group);
 QActionGroup* QAction_ActionGroup(const QAction* self);
@@ -107,8 +106,6 @@ void QAction_Hovered(QAction* self);
 void QAction_Connect_Hovered(QAction* self, intptr_t slot);
 void QAction_Toggled(QAction* self, bool param1);
 void QAction_Connect_Toggled(QAction* self, intptr_t slot);
-libqt_string QAction_Tr2(const char* s, const char* c);
-libqt_string QAction_Tr3(const char* s, const char* c, int n);
 bool QAction_ShowStatusText1(QAction* self, QObject* object);
 void QAction_Triggered1(QAction* self, bool checked);
 void QAction_Connect_Triggered1(QAction* self, intptr_t slot);

@@ -41,7 +41,6 @@ QStyle* QStyle_new();
 QMetaObject* QStyle_MetaObject(const QStyle* self);
 void* QStyle_Metacast(QStyle* self, const char* param1);
 int QStyle_Metacall(QStyle* self, int param1, int param2, void** param3);
-libqt_string QStyle_Tr(const char* s);
 libqt_string QStyle_Name(const QStyle* self);
 void QStyle_Polish(QStyle* self, QWidget* widget);
 void QStyle_Unpolish(QStyle* self, QWidget* widget);
@@ -74,8 +73,6 @@ QRect* QStyle_AlignedRect(int direction, int alignment, const QSize* size, const
 int QStyle_LayoutSpacing(const QStyle* self, int control1, int control2, int orientation, const QStyleOption* option, const QWidget* widget);
 int QStyle_CombinedLayoutSpacing(const QStyle* self, int controls1, int controls2, int orientation);
 QStyle* QStyle_Proxy(const QStyle* self);
-libqt_string QStyle_Tr2(const char* s, const char* c);
-libqt_string QStyle_Tr3(const char* s, const char* c, int n);
 int QStyle_SliderPositionFromValue5(int min, int max, int val, int space, bool upsideDown);
 int QStyle_SliderValueFromPosition5(int min, int max, int pos, int space, bool upsideDown);
 int QStyle_CombinedLayoutSpacing4(const QStyle* self, int controls1, int controls2, int orientation, QStyleOption* option);

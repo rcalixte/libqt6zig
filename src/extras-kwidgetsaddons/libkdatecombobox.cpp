@@ -69,18 +69,6 @@ int KDateComboBox_Metacall(KDateComboBox* self, int param1, int param2, void** p
     }
 }
 
-libqt_string KDateComboBox_Tr(const char* s) {
-    QString _ret = KDateComboBox::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 QDate* KDateComboBox_Date(const KDateComboBox* self) {
     return new QDate(self->date());
 }
@@ -293,30 +281,6 @@ void KDateComboBox_AssignDate(KDateComboBox* self, const QDate* date) {
     if (vkdatecombobox && vkdatecombobox->isVirtualKDateComboBox) {
         vkdatecombobox->assignDate(*date);
     }
-}
-
-libqt_string KDateComboBox_Tr2(const char* s, const char* c) {
-    QString _ret = KDateComboBox::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string KDateComboBox_Tr3(const char* s, const char* c, int n) {
-    QString _ret = KDateComboBox::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 void KDateComboBox_SetDateRange3(KDateComboBox* self, const QDate* minDate, const QDate* maxDate, const libqt_string minWarnMsg) {

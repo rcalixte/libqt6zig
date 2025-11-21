@@ -35,7 +35,6 @@ KActionCollection* KActionCollection_new2(QObject* parent, const libqt_string cN
 QMetaObject* KActionCollection_MetaObject(const KActionCollection* self);
 void* KActionCollection_Metacast(KActionCollection* self, const char* param1);
 int KActionCollection_Metacall(KActionCollection* self, int param1, int param2, void** param3);
-libqt_string KActionCollection_Tr(const char* s);
 libqt_list /* of KActionCollection* */ KActionCollection_AllCollections();
 void KActionCollection_Clear(KActionCollection* self);
 void KActionCollection_AssociateWidget(const KActionCollection* self, QWidget* widget);
@@ -84,8 +83,6 @@ void KActionCollection_SetDefaultShortcut(QAction* action, const QKeySequence* s
 void KActionCollection_SetDefaultShortcuts(QAction* action, const libqt_list /* of QKeySequence* */ shortcuts);
 bool KActionCollection_IsShortcutsConfigurable(QAction* action);
 void KActionCollection_SetShortcutsConfigurable(QAction* action, bool configurable);
-libqt_string KActionCollection_Tr2(const char* s, const char* c);
-libqt_string KActionCollection_Tr3(const char* s, const char* c, int n);
 void KActionCollection_ReadSettings1(KActionCollection* self, KConfigGroup* config);
 void KActionCollection_ExportGlobalShortcuts2(const KActionCollection* self, KConfigGroup* config, bool writeDefaults);
 void KActionCollection_WriteSettings1(const KActionCollection* self, KConfigGroup* config);

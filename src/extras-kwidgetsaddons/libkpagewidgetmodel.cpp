@@ -54,18 +54,6 @@ int KPageWidgetItem_Metacall(KPageWidgetItem* self, int param1, int param2, void
     }
 }
 
-libqt_string KPageWidgetItem_Tr(const char* s) {
-    QString _ret = KPageWidgetItem::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 QWidget* KPageWidgetItem_Widget(const KPageWidgetItem* self) {
     return self->widget();
 }
@@ -199,30 +187,6 @@ void KPageWidgetItem_Connect_ActionsChanged(KPageWidgetItem* self, intptr_t slot
     KPageWidgetItem::connect(self, &KPageWidgetItem::actionsChanged, [self, slotFunc]() {
         slotFunc(self);
     });
-}
-
-libqt_string KPageWidgetItem_Tr2(const char* s, const char* c) {
-    QString _ret = KPageWidgetItem::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string KPageWidgetItem_Tr3(const char* s, const char* c, int n) {
-    QString _ret = KPageWidgetItem::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 // Base class handler implementation
@@ -592,18 +556,6 @@ int KPageWidgetModel_Metacall(KPageWidgetModel* self, int param1, int param2, vo
     }
 }
 
-libqt_string KPageWidgetModel_Tr(const char* s) {
-    QString _ret = KPageWidgetModel::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 KPageWidgetItem* KPageWidgetModel_AddPage(KPageWidgetModel* self, QWidget* widget, const libqt_string name) {
     QString name_QString = QString::fromUtf8(name.data, name.len);
     return self->addPage(widget, name_QString);
@@ -717,30 +669,6 @@ void KPageWidgetModel_Connect_Toggled(KPageWidgetModel* self, intptr_t slot) {
         bool sigval2 = checked;
         slotFunc(self, sigval1, sigval2);
     });
-}
-
-libqt_string KPageWidgetModel_Tr2(const char* s, const char* c) {
-    QString _ret = KPageWidgetModel::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string KPageWidgetModel_Tr3(const char* s, const char* c, int n) {
-    QString _ret = KPageWidgetModel::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 // Base class handler implementation

@@ -24,7 +24,6 @@ typedef struct QObject QObject;
 QMetaObject* KNetworkMounts_MetaObject(const KNetworkMounts* self);
 void* KNetworkMounts_Metacast(KNetworkMounts* self, const char* param1);
 int KNetworkMounts_Metacall(KNetworkMounts* self, int param1, int param2, void** param3);
-libqt_string KNetworkMounts_Tr(const char* s);
 KNetworkMounts* KNetworkMounts_Self();
 bool KNetworkMounts_IsSlowPath(KNetworkMounts* self, const libqt_string path);
 bool KNetworkMounts_IsOptionEnabledForPath(KNetworkMounts* self, const libqt_string path, int option);
@@ -38,8 +37,6 @@ void KNetworkMounts_AddPath(KNetworkMounts* self, const libqt_string path, int t
 libqt_string KNetworkMounts_CanonicalSymlinkPath(KNetworkMounts* self, const libqt_string path);
 void KNetworkMounts_ClearCache(KNetworkMounts* self);
 void KNetworkMounts_Sync(KNetworkMounts* self);
-libqt_string KNetworkMounts_Tr2(const char* s, const char* c);
-libqt_string KNetworkMounts_Tr3(const char* s, const char* c, int n);
 bool KNetworkMounts_IsSlowPath2(KNetworkMounts* self, const libqt_string path, int typeVal);
 bool KNetworkMounts_IsOptionEnabled2(const KNetworkMounts* self, const int option, const bool defaultValue);
 libqt_list /* of libqt_string */ KNetworkMounts_Paths1(const KNetworkMounts* self, int typeVal);

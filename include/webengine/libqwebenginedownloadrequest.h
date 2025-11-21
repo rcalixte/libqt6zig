@@ -26,7 +26,6 @@ typedef struct QWebEnginePage QWebEnginePage;
 QMetaObject* QWebEngineDownloadRequest_MetaObject(const QWebEngineDownloadRequest* self);
 void* QWebEngineDownloadRequest_Metacast(QWebEngineDownloadRequest* self, const char* param1);
 int QWebEngineDownloadRequest_Metacall(QWebEngineDownloadRequest* self, int param1, int param2, void** param3);
-libqt_string QWebEngineDownloadRequest_Tr(const char* s);
 unsigned int QWebEngineDownloadRequest_Id(const QWebEngineDownloadRequest* self);
 int QWebEngineDownloadRequest_State(const QWebEngineDownloadRequest* self);
 long long QWebEngineDownloadRequest_TotalBytes(const QWebEngineDownloadRequest* self);
@@ -68,8 +67,6 @@ void QWebEngineDownloadRequest_DownloadDirectoryChanged(QWebEngineDownloadReques
 void QWebEngineDownloadRequest_Connect_DownloadDirectoryChanged(QWebEngineDownloadRequest* self, intptr_t slot);
 void QWebEngineDownloadRequest_DownloadFileNameChanged(QWebEngineDownloadRequest* self);
 void QWebEngineDownloadRequest_Connect_DownloadFileNameChanged(QWebEngineDownloadRequest* self, intptr_t slot);
-libqt_string QWebEngineDownloadRequest_Tr2(const char* s, const char* c);
-libqt_string QWebEngineDownloadRequest_Tr3(const char* s, const char* c, int n);
 void QWebEngineDownloadRequest_Delete(QWebEngineDownloadRequest* self);
 
 #ifdef __cplusplus

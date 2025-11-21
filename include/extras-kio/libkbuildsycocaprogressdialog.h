@@ -28,10 +28,7 @@ typedef struct QWidget QWidget;
 QMetaObject* KBuildSycocaProgressDialog_MetaObject(const KBuildSycocaProgressDialog* self);
 void* KBuildSycocaProgressDialog_Metacast(KBuildSycocaProgressDialog* self, const char* param1);
 int KBuildSycocaProgressDialog_Metacall(KBuildSycocaProgressDialog* self, int param1, int param2, void** param3);
-libqt_string KBuildSycocaProgressDialog_Tr(const char* s);
 void KBuildSycocaProgressDialog_RebuildKSycoca(QWidget* parent);
-libqt_string KBuildSycocaProgressDialog_Tr2(const char* s, const char* c);
-libqt_string KBuildSycocaProgressDialog_Tr3(const char* s, const char* c, int n);
 
 #ifdef __cplusplus
 } /* extern C */

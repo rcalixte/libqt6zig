@@ -38,7 +38,6 @@ KRecentFilesAction* KRecentFilesAction_new3(const QIcon* icon, const libqt_strin
 QMetaObject* KRecentFilesAction_MetaObject(const KRecentFilesAction* self);
 void* KRecentFilesAction_Metacast(KRecentFilesAction* self, const char* param1);
 int KRecentFilesAction_Metacall(KRecentFilesAction* self, int param1, int param2, void** param3);
-libqt_string KRecentFilesAction_Tr(const char* s);
 void KRecentFilesAction_AddAction(KRecentFilesAction* self, QAction* action, const QUrl* url, const libqt_string name);
 QAction* KRecentFilesAction_RemoveAction(KRecentFilesAction* self, QAction* action);
 int KRecentFilesAction_MaxItems(const KRecentFilesAction* self);
@@ -54,8 +53,6 @@ void KRecentFilesAction_UrlSelected(KRecentFilesAction* self, const QUrl* url);
 void KRecentFilesAction_Connect_UrlSelected(KRecentFilesAction* self, intptr_t slot);
 void KRecentFilesAction_RecentListCleared(KRecentFilesAction* self);
 void KRecentFilesAction_Connect_RecentListCleared(KRecentFilesAction* self, intptr_t slot);
-libqt_string KRecentFilesAction_Tr2(const char* s, const char* c);
-libqt_string KRecentFilesAction_Tr3(const char* s, const char* c, int n);
 void KRecentFilesAction_AddAction4(KRecentFilesAction* self, QAction* action, const QUrl* url, const libqt_string name, const QMimeType* mimeType);
 void KRecentFilesAction_AddUrl22(KRecentFilesAction* self, const QUrl* url, const libqt_string name);
 void KRecentFilesAction_OnMetacall(KRecentFilesAction* self, intptr_t slot);

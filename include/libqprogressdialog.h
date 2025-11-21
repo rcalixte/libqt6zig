@@ -63,7 +63,6 @@ QProgressDialog* QProgressDialog_new6(const libqt_string labelText, const libqt_
 QMetaObject* QProgressDialog_MetaObject(const QProgressDialog* self);
 void* QProgressDialog_Metacast(QProgressDialog* self, const char* param1);
 int QProgressDialog_Metacall(QProgressDialog* self, int param1, int param2, void** param3);
-libqt_string QProgressDialog_Tr(const char* s);
 void QProgressDialog_SetLabel(QProgressDialog* self, QLabel* label);
 void QProgressDialog_SetCancelButton(QProgressDialog* self, QPushButton* button);
 void QProgressDialog_SetBar(QProgressDialog* self, QProgressBar* bar);
@@ -93,8 +92,6 @@ void QProgressDialog_ResizeEvent(QProgressDialog* self, QResizeEvent* event);
 void QProgressDialog_CloseEvent(QProgressDialog* self, QCloseEvent* event);
 void QProgressDialog_ChangeEvent(QProgressDialog* self, QEvent* event);
 void QProgressDialog_ShowEvent(QProgressDialog* self, QShowEvent* event);
-libqt_string QProgressDialog_Tr2(const char* s, const char* c);
-libqt_string QProgressDialog_Tr3(const char* s, const char* c, int n);
 void QProgressDialog_OnMetacall(QProgressDialog* self, intptr_t slot);
 int QProgressDialog_QBaseMetacall(QProgressDialog* self, int param1, int param2, void** param3);
 void QProgressDialog_OnSizeHint(const QProgressDialog* self, intptr_t slot);

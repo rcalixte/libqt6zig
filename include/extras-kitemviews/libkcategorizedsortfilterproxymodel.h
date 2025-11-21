@@ -39,7 +39,6 @@ KCategorizedSortFilterProxyModel* KCategorizedSortFilterProxyModel_new2(QObject*
 QMetaObject* KCategorizedSortFilterProxyModel_MetaObject(const KCategorizedSortFilterProxyModel* self);
 void* KCategorizedSortFilterProxyModel_Metacast(KCategorizedSortFilterProxyModel* self, const char* param1);
 int KCategorizedSortFilterProxyModel_Metacall(KCategorizedSortFilterProxyModel* self, int param1, int param2, void** param3);
-libqt_string KCategorizedSortFilterProxyModel_Tr(const char* s);
 void KCategorizedSortFilterProxyModel_Sort(KCategorizedSortFilterProxyModel* self, int column, int order);
 bool KCategorizedSortFilterProxyModel_IsCategorizedModel(const KCategorizedSortFilterProxyModel* self);
 void KCategorizedSortFilterProxyModel_SetCategorizedModel(KCategorizedSortFilterProxyModel* self, bool categorizedModel);
@@ -50,8 +49,6 @@ bool KCategorizedSortFilterProxyModel_SortCategoriesByNaturalComparison(const KC
 bool KCategorizedSortFilterProxyModel_LessThan(const KCategorizedSortFilterProxyModel* self, const QModelIndex* left, const QModelIndex* right);
 bool KCategorizedSortFilterProxyModel_SubSortLessThan(const KCategorizedSortFilterProxyModel* self, const QModelIndex* left, const QModelIndex* right);
 int KCategorizedSortFilterProxyModel_CompareCategories(const KCategorizedSortFilterProxyModel* self, const QModelIndex* left, const QModelIndex* right);
-libqt_string KCategorizedSortFilterProxyModel_Tr2(const char* s, const char* c);
-libqt_string KCategorizedSortFilterProxyModel_Tr3(const char* s, const char* c, int n);
 void KCategorizedSortFilterProxyModel_OnMetacall(KCategorizedSortFilterProxyModel* self, intptr_t slot);
 int KCategorizedSortFilterProxyModel_QBaseMetacall(KCategorizedSortFilterProxyModel* self, int param1, int param2, void** param3);
 void KCategorizedSortFilterProxyModel_OnSort(KCategorizedSortFilterProxyModel* self, intptr_t slot);

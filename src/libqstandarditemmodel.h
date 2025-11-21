@@ -158,7 +158,6 @@ QStandardItemModel* QStandardItemModel_new4(int rows, int columns, QObject* pare
 QMetaObject* QStandardItemModel_MetaObject(const QStandardItemModel* self);
 void* QStandardItemModel_Metacast(QStandardItemModel* self, const char* param1);
 int QStandardItemModel_Metacall(QStandardItemModel* self, int param1, int param2, void** param3);
-libqt_string QStandardItemModel_Tr(const char* s);
 void QStandardItemModel_SetItemRoleNames(QStandardItemModel* self, const libqt_map /* of int to libqt_string */ roleNames);
 libqt_map /* of int to libqt_string */ QStandardItemModel_RoleNames(const QStandardItemModel* self);
 QModelIndex* QStandardItemModel_Index(const QStandardItemModel* self, int row, int column, const QModelIndex* parent);
@@ -219,8 +218,6 @@ QMimeData* QStandardItemModel_MimeData(const QStandardItemModel* self, const lib
 bool QStandardItemModel_DropMimeData(QStandardItemModel* self, const QMimeData* data, int action, int row, int column, const QModelIndex* parent);
 void QStandardItemModel_ItemChanged(QStandardItemModel* self, QStandardItem* item);
 void QStandardItemModel_Connect_ItemChanged(QStandardItemModel* self, intptr_t slot);
-libqt_string QStandardItemModel_Tr2(const char* s, const char* c);
-libqt_string QStandardItemModel_Tr3(const char* s, const char* c, int n);
 QStandardItem* QStandardItemModel_Item2(const QStandardItemModel* self, int row, int column);
 bool QStandardItemModel_InsertRow22(QStandardItemModel* self, int row, const QModelIndex* parent);
 bool QStandardItemModel_InsertColumn22(QStandardItemModel* self, int column, const QModelIndex* parent);

@@ -25,7 +25,6 @@ typedef struct QStyleHints QStyleHints;
 QMetaObject* QStyleHints_MetaObject(const QStyleHints* self);
 void* QStyleHints_Metacast(QStyleHints* self, const char* param1);
 int QStyleHints_Metacall(QStyleHints* self, int param1, int param2, void** param3);
-libqt_string QStyleHints_Tr(const char* s);
 void QStyleHints_SetMouseDoubleClickInterval(QStyleHints* self, int mouseDoubleClickInterval);
 int QStyleHints_MouseDoubleClickInterval(const QStyleHints* self);
 int QStyleHints_MouseDoubleClickDistance(const QStyleHints* self);
@@ -92,8 +91,6 @@ void QStyleHints_MouseQuickSelectionThresholdChanged(QStyleHints* self, int thre
 void QStyleHints_Connect_MouseQuickSelectionThresholdChanged(QStyleHints* self, intptr_t slot);
 void QStyleHints_ColorSchemeChanged(QStyleHints* self, int colorScheme);
 void QStyleHints_Connect_ColorSchemeChanged(QStyleHints* self, intptr_t slot);
-libqt_string QStyleHints_Tr2(const char* s, const char* c);
-libqt_string QStyleHints_Tr3(const char* s, const char* c, int n);
 void QStyleHints_Delete(QStyleHints* self);
 
 #ifdef __cplusplus

@@ -28,7 +28,6 @@ typedef struct QUrl QUrl;
 QMetaObject* KNSCore__ProviderCore_MetaObject(const KNSCore__ProviderCore* self);
 void* KNSCore__ProviderCore_Metacast(KNSCore__ProviderCore* self, const char* param1);
 int KNSCore__ProviderCore_Metacall(KNSCore__ProviderCore* self, int param1, int param2, void** param3);
-libqt_string KNSCore__ProviderCore_Tr(const char* s);
 libqt_string KNSCore__ProviderCore_Version(const KNSCore__ProviderCore* self);
 QUrl* KNSCore__ProviderCore_Website(const KNSCore__ProviderCore* self);
 QUrl* KNSCore__ProviderCore_Host(const KNSCore__ProviderCore* self);
@@ -36,8 +35,6 @@ libqt_string KNSCore__ProviderCore_ContactEmail(const KNSCore__ProviderCore* sel
 bool KNSCore__ProviderCore_SupportsSsl(const KNSCore__ProviderCore* self);
 void KNSCore__ProviderCore_BasicsLoaded(KNSCore__ProviderCore* self);
 void KNSCore__ProviderCore_Connect_BasicsLoaded(KNSCore__ProviderCore* self, intptr_t slot);
-libqt_string KNSCore__ProviderCore_Tr2(const char* s, const char* c);
-libqt_string KNSCore__ProviderCore_Tr3(const char* s, const char* c, int n);
 void KNSCore__ProviderCore_Delete(KNSCore__ProviderCore* self);
 
 #ifdef __cplusplus

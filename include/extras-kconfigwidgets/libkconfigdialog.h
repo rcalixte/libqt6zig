@@ -60,7 +60,6 @@ KConfigDialog* KConfigDialog_new(QWidget* parent, const libqt_string name, KCore
 QMetaObject* KConfigDialog_MetaObject(const KConfigDialog* self);
 void* KConfigDialog_Metacast(KConfigDialog* self, const char* param1);
 int KConfigDialog_Metacall(KConfigDialog* self, int param1, int param2, void** param3);
-libqt_string KConfigDialog_Tr(const char* s);
 void KConfigDialog_WidgetModified(KConfigDialog* self);
 void KConfigDialog_Connect_WidgetModified(KConfigDialog* self, intptr_t slot);
 void KConfigDialog_SettingsChanged(KConfigDialog* self, const libqt_string dialogName);
@@ -76,8 +75,6 @@ void KConfigDialog_ShowHelp(KConfigDialog* self);
 bool KConfigDialog_HasChanged(KConfigDialog* self);
 bool KConfigDialog_IsDefault(KConfigDialog* self);
 void KConfigDialog_ShowEvent(KConfigDialog* self, QShowEvent* e);
-libqt_string KConfigDialog_Tr2(const char* s, const char* c);
-libqt_string KConfigDialog_Tr3(const char* s, const char* c, int n);
 KPageWidgetItem* KConfigDialog_AddPage3(KConfigDialog* self, QWidget* page, const libqt_string itemName, const libqt_string pixmapName);
 KPageWidgetItem* KConfigDialog_AddPage4(KConfigDialog* self, QWidget* page, const libqt_string itemName, const libqt_string pixmapName, const libqt_string header);
 KPageWidgetItem* KConfigDialog_AddPage5(KConfigDialog* self, QWidget* page, const libqt_string itemName, const libqt_string pixmapName, const libqt_string header, bool manage);

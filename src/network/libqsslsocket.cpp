@@ -52,18 +52,6 @@ int QSslSocket_Metacall(QSslSocket* self, int param1, int param2, void** param3)
     }
 }
 
-libqt_string QSslSocket_Tr(const char* s) {
-    QString _ret = QSslSocket::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 void QSslSocket_Resume(QSslSocket* self) {
     auto* vqsslsocket = dynamic_cast<VirtualQSslSocket*>(self);
     if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
@@ -719,30 +707,6 @@ long long QSslSocket_WriteData(QSslSocket* self, const char* data, long long len
         return static_cast<long long>(vqsslsocket->writeData(data, static_cast<qint64>(lenVal)));
     }
     return {};
-}
-
-libqt_string QSslSocket_Tr2(const char* s, const char* c) {
-    QString _ret = QSslSocket::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string QSslSocket_Tr3(const char* s, const char* c, int n) {
-    QString _ret = QSslSocket::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 void QSslSocket_ConnectToHostEncrypted3(QSslSocket* self, const libqt_string hostName, uint16_t port, int mode) {

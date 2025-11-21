@@ -31,7 +31,6 @@ QLocalSocket* QLocalSocket_new2(QObject* parent);
 QMetaObject* QLocalSocket_MetaObject(const QLocalSocket* self);
 void* QLocalSocket_Metacast(QLocalSocket* self, const char* param1);
 int QLocalSocket_Metacall(QLocalSocket* self, int param1, int param2, void** param3);
-libqt_string QLocalSocket_Tr(const char* s);
 void QLocalSocket_ConnectToServer(QLocalSocket* self);
 void QLocalSocket_ConnectToServer2(QLocalSocket* self, const libqt_string name);
 void QLocalSocket_DisconnectFromServer(QLocalSocket* self);
@@ -71,8 +70,6 @@ long long QLocalSocket_ReadData(QLocalSocket* self, char* param1, long long para
 long long QLocalSocket_ReadLineData(QLocalSocket* self, char* data, long long maxSize);
 long long QLocalSocket_SkipData(QLocalSocket* self, long long maxSize);
 long long QLocalSocket_WriteData(QLocalSocket* self, const char* param1, long long param2);
-libqt_string QLocalSocket_Tr2(const char* s, const char* c);
-libqt_string QLocalSocket_Tr3(const char* s, const char* c, int n);
 void QLocalSocket_ConnectToServer1(QLocalSocket* self, int openMode);
 void QLocalSocket_ConnectToServer22(QLocalSocket* self, const libqt_string name, int openMode);
 bool QLocalSocket_SetSocketDescriptor2(QLocalSocket* self, intptr_t socketDescriptor, int socketState);

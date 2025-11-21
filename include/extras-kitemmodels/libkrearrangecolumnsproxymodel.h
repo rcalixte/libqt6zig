@@ -39,7 +39,6 @@ KRearrangeColumnsProxyModel* KRearrangeColumnsProxyModel_new2(QObject* parent);
 QMetaObject* KRearrangeColumnsProxyModel_MetaObject(const KRearrangeColumnsProxyModel* self);
 void* KRearrangeColumnsProxyModel_Metacast(KRearrangeColumnsProxyModel* self, const char* param1);
 int KRearrangeColumnsProxyModel_Metacall(KRearrangeColumnsProxyModel* self, int param1, int param2, void** param3);
-libqt_string KRearrangeColumnsProxyModel_Tr(const char* s);
 void KRearrangeColumnsProxyModel_SetSourceColumns(KRearrangeColumnsProxyModel* self, const libqt_list /* of int */ columns);
 int KRearrangeColumnsProxyModel_ColumnCount(const KRearrangeColumnsProxyModel* self, const QModelIndex* parent);
 int KRearrangeColumnsProxyModel_RowCount(const KRearrangeColumnsProxyModel* self, const QModelIndex* parent);
@@ -52,8 +51,6 @@ bool KRearrangeColumnsProxyModel_HasChildren(const KRearrangeColumnsProxyModel* 
 QModelIndex* KRearrangeColumnsProxyModel_Sibling(const KRearrangeColumnsProxyModel* self, int row, int column, const QModelIndex* idx);
 int KRearrangeColumnsProxyModel_ProxyColumnForSourceColumn(const KRearrangeColumnsProxyModel* self, int sourceColumn);
 int KRearrangeColumnsProxyModel_SourceColumnForProxyColumn(const KRearrangeColumnsProxyModel* self, int proxyColumn);
-libqt_string KRearrangeColumnsProxyModel_Tr2(const char* s, const char* c);
-libqt_string KRearrangeColumnsProxyModel_Tr3(const char* s, const char* c, int n);
 void KRearrangeColumnsProxyModel_OnMetacall(KRearrangeColumnsProxyModel* self, intptr_t slot);
 int KRearrangeColumnsProxyModel_QBaseMetacall(KRearrangeColumnsProxyModel* self, int param1, int param2, void** param3);
 void KRearrangeColumnsProxyModel_OnColumnCount(const KRearrangeColumnsProxyModel* self, intptr_t slot);

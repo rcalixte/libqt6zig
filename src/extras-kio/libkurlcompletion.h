@@ -32,7 +32,6 @@ KUrlCompletion* KUrlCompletion_new2(int param1);
 QMetaObject* KUrlCompletion_MetaObject(const KUrlCompletion* self);
 void* KUrlCompletion_Metacast(KUrlCompletion* self, const char* param1);
 int KUrlCompletion_Metacall(KUrlCompletion* self, int param1, int param2, void** param3);
-libqt_string KUrlCompletion_Tr(const char* s);
 libqt_string KUrlCompletion_MakeCompletion(KUrlCompletion* self, const libqt_string text);
 void KUrlCompletion_SetDir(KUrlCompletion* self, const QUrl* dir);
 QUrl* KUrlCompletion_Dir(const KUrlCompletion* self);
@@ -50,8 +49,6 @@ void KUrlCompletion_SetMimeTypeFilters(KUrlCompletion* self, const libqt_list /*
 libqt_list /* of libqt_string */ KUrlCompletion_MimeTypeFilters(const KUrlCompletion* self);
 void KUrlCompletion_PostProcessMatches(const KUrlCompletion* self, libqt_list /* of libqt_string */ matches);
 void KUrlCompletion_PostProcessMatches2(const KUrlCompletion* self, KCompletionMatches* matches);
-libqt_string KUrlCompletion_Tr2(const char* s, const char* c);
-libqt_string KUrlCompletion_Tr3(const char* s, const char* c, int n);
 libqt_string KUrlCompletion_ReplacedPath3(const libqt_string text, bool replaceHome, bool replaceEnv);
 void KUrlCompletion_OnMetacall(KUrlCompletion* self, intptr_t slot);
 int KUrlCompletion_QBaseMetacall(KUrlCompletion* self, int param1, int param2, void** param3);

@@ -22,18 +22,6 @@ int KIO__UntrustedProgramHandlerInterface_Metacall(KIO__UntrustedProgramHandlerI
     return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
-libqt_string KIO__UntrustedProgramHandlerInterface_Tr(const char* s) {
-    QString _ret = KIO::UntrustedProgramHandlerInterface::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 void KIO__UntrustedProgramHandlerInterface_ShowUntrustedProgramWarning(KIO__UntrustedProgramHandlerInterface* self, KJob* job, const libqt_string programName) {
     QString programName_QString = QString::fromUtf8(programName.data, programName.len);
     self->showUntrustedProgramWarning(job, programName_QString);
@@ -61,28 +49,4 @@ void KIO__UntrustedProgramHandlerInterface_Connect_Result(KIO__UntrustedProgramH
         bool sigval1 = confirmed;
         slotFunc(self, sigval1);
     });
-}
-
-libqt_string KIO__UntrustedProgramHandlerInterface_Tr2(const char* s, const char* c) {
-    QString _ret = KIO::UntrustedProgramHandlerInterface::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string KIO__UntrustedProgramHandlerInterface_Tr3(const char* s, const char* c, int n) {
-    QString _ret = KIO::UntrustedProgramHandlerInterface::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }

@@ -38,7 +38,6 @@ KDescendantsProxyModel* KDescendantsProxyModel_new2(QObject* parent);
 QMetaObject* KDescendantsProxyModel_MetaObject(const KDescendantsProxyModel* self);
 void* KDescendantsProxyModel_Metacast(KDescendantsProxyModel* self, const char* param1);
 int KDescendantsProxyModel_Metacall(KDescendantsProxyModel* self, int param1, int param2, void** param3);
-libqt_string KDescendantsProxyModel_Tr(const char* s);
 void KDescendantsProxyModel_SetSourceModel(KDescendantsProxyModel* self, QAbstractItemModel* model);
 void KDescendantsProxyModel_SetDisplayAncestorData(KDescendantsProxyModel* self, bool display);
 bool KDescendantsProxyModel_DisplayAncestorData(const KDescendantsProxyModel* self);
@@ -77,8 +76,6 @@ void KDescendantsProxyModel_SourceIndexExpanded(KDescendantsProxyModel* self, co
 void KDescendantsProxyModel_Connect_SourceIndexExpanded(KDescendantsProxyModel* self, intptr_t slot);
 void KDescendantsProxyModel_SourceIndexCollapsed(KDescendantsProxyModel* self, const QModelIndex* sourceIndex);
 void KDescendantsProxyModel_Connect_SourceIndexCollapsed(KDescendantsProxyModel* self, intptr_t slot);
-libqt_string KDescendantsProxyModel_Tr2(const char* s, const char* c);
-libqt_string KDescendantsProxyModel_Tr3(const char* s, const char* c, int n);
 void KDescendantsProxyModel_OnMetacall(KDescendantsProxyModel* self, intptr_t slot);
 int KDescendantsProxyModel_QBaseMetacall(KDescendantsProxyModel* self, int param1, int param2, void** param3);
 void KDescendantsProxyModel_OnSetSourceModel(KDescendantsProxyModel* self, intptr_t slot);

@@ -1445,6 +1445,9 @@ extern "C" {
 			if m.IsProtected && !m.IsVirtual {
 				continue
 			}
+			if (m.MethodName == "tr" || m.OverrideMethodName == "tr") && (c.ClassName != "QObject" && c.ClassName != "QMetaObject") {
+				continue
+			}
 
 			mSafeMethodName := m.SafeMethodName()
 
@@ -1722,6 +1725,9 @@ func emitBindingCpp(src *CppParsedHeader, filename string) (string, error) {
 			// useful thing is to expose calling the virtual base)
 			// Protected non-virtual methods should always be hidden
 			if m.IsProtected && !m.IsVirtual {
+				continue
+			}
+			if (m.MethodName == "tr" || m.OverrideMethodName == "tr") && (c.ClassName != "QObject" && c.ClassName != "QMetaObject") {
 				continue
 			}
 			mSafeMethodName := m.SafeMethodName()

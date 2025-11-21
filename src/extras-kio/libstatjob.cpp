@@ -28,18 +28,6 @@ int KIO__StatJob_Metacall(KIO__StatJob* self, int param1, int param2, void** par
     return self->qt_metacall(static_cast<QMetaObject::Call>(param1), static_cast<int>(param2), param3);
 }
 
-libqt_string KIO__StatJob_Tr(const char* s) {
-    QString _ret = KIO::StatJob::tr(s);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
 void KIO__StatJob_SetSide(KIO__StatJob* self, int side) {
     self->setSide(static_cast<KIO::StatJob::StatSide>(side));
 }
@@ -89,30 +77,6 @@ void KIO__StatJob_Connect_PermanentRedirection(KIO__StatJob* self, intptr_t slot
         QUrl* sigval3 = const_cast<QUrl*>(&toUrl_ret);
         slotFunc(self, sigval1, sigval2, sigval3);
     });
-}
-
-libqt_string KIO__StatJob_Tr2(const char* s, const char* c) {
-    QString _ret = KIO::StatJob::tr(s, c);
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
-}
-
-libqt_string KIO__StatJob_Tr3(const char* s, const char* c, int n) {
-    QString _ret = KIO::StatJob::tr(s, c, static_cast<int>(n));
-    // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
-    QByteArray _b = _ret.toUtf8();
-    libqt_string _str;
-    _str.len = _b.length();
-    _str.data = static_cast<const char*>(malloc(_str.len + 1));
-    memcpy((void*)_str.data, _b.data(), _str.len);
-    ((char*)_str.data)[_str.len] = '\0';
-    return _str;
 }
 
 void KIO__StatJob_Delete(KIO__StatJob* self) {
