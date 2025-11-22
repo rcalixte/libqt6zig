@@ -1,4 +1,4 @@
-#
+###
 
 <div align="center">
 <img alt="libqt6zig" src="assets/libqt6zig.png" height="128px;" />
@@ -22,15 +22,34 @@ These bindings are based on the [MIQT bindings for Go](https://github.com/mappu/
 
 ---
 
-TABLE OF CONTENTS
------------------
+### TABLE OF CONTENTS
 
-- [Supported Platforms](#supported-platforms)
+- [Supported platforms](#supported-platforms)
 - [License](#license)
 - [Examples](#examples)
 - [Building](#building)
+  - [FreeBSD (native)](#freebsd-native)
+  - [Linux (native)](#linux-native)
+    - [Debian-based distributions](#debian-based-distributions)
+    - [Fedora-based distributions](#fedora-based-distributions)
+    - [Arch-based distributions](#arch-based-distributions)
+- [Tools](#tools)
+  - [FreeBSD](#freebsd)
+  - [Linux](#linux)
+    - [Debian-based](#debian-based)
+    - [Fedora-based](#fedora-based)
+    - [Arch-based](#arch-based)
 - [Usage](#usage)
 - [FAQ](#faq)
+  - [Q1. Can I release a proprietary, commercial app with this binding?](#q1-can-i-release-a-proprietary-commercial-app-with-this-binding)
+  - [Q2. How long does it take to compile?](#q2-how-long-does-it-take-to-compile)
+  - [Q3. How does the `libqt6zig` API differ from the official Qt C++ API?](#q3-how-does-the-libqt6zig-api-differ-from-the-official-qt-c-api)
+    - [API at a glance](#api-at-a-glance)
+      - [Objects](#objects)
+      - [Signals/slots](#signalsslots)
+      - [Enums](#enums)
+  - [Q4. What build modes are supported by the library?](#q4-what-build-modes-are-supported-by-the-library)
+  - [Q5. How can I add bindings for another Qt library?](#q5-how-can-i-add-bindings-for-another-qt-library)
 - [Special Thanks](#special-thanks)
 
 Supported platforms
@@ -116,9 +135,9 @@ Full examples are available in the [`libqt6zig-examples`](https://github.com/rca
 Building
 --------
 
-### FreeBSD (native)
+The following are instructions for building this __full__ library and the examples associated with this library. Only maintainers are suggested to directly build the full library. Where system libraries are not required or used, the installation of the libraries is optional.
 
-- *Tested with FreeBSD 14 / Qt 6.8 + 6.9*
+### FreeBSD (native)
 
 For dynamic linking with the Qt 6 system libraries:
 
@@ -131,19 +150,9 @@ sudo pkg install qt6-base qt6-charts qt6-multimedia qt6-pdf qt6-svg qt6-webchann
 
 ### Linux (native)
 
-- *Tested with Debian 12 + 13 / Qt 6.4 + 6.8*
-
-- *Tested with Linux Mint 22 / Qt 6.4*
-
-- *Tested with Ubuntu 24.04 / Qt 6.4*
-
-- *Tested with Fedora 41 + 42 / Qt 6.8 + 6.9*
-
-- *Tested with EndeavourOS Mercury Neo / Qt 6.8 + 6.9*
-
 For dynamic linking with the Qt 6 system libraries:
 
-- __Debian-based distributions__:
+#### Debian-based distributions
 
 ```bash
 sudo apt install qt6-base-dev qt6-base-private-dev qt6-charts-dev qt6-multimedia-dev qt6-pdf-dev qt6-svg-dev qt6-webchannel-dev qt6-webengine-dev libaccounts-qt6-dev libkcolorpicker-qt6-dev libkf6attica-dev libkf6bookmarks-dev libkf6codecs-dev libkf6colorscheme-dev libkf6completion-dev libkf6config-dev libkf6configwidgets-dev libkf6coreaddons-dev libkf6crash-dev libkf6globalaccel-dev libkf6guiaddons-dev libkf6i18n-dev libkf6iconthemes-dev libkf6idletime-dev libkf6kio-dev libkf6itemmodels-dev libkf6itemviews-dev libkf6jobwidgets-dev libkf6newstuff-dev libkf6notifications-dev libkf6parts-dev libkf6plotting-dev libkf6service-dev libkf6solid-dev libkf6sonnet-dev libkf6svg-dev libkf6syntaxhighlighting-dev libkf6texteditor-dev libkf6textwidgets-dev libkf6widgetsaddons-dev libkf6windowsystem-dev libkf6xmlgui-dev libkimageannotator-qt6-dev liblayershellqtinterface-dev libpackagekitqt6-dev libqcustomplot-dev libqscintilla2-qt6-dev libqtermwidget-dev libsignon-qt6-dev qtkeychain-qt6-dev sonnet6-plugins
@@ -152,7 +161,7 @@ sudo apt install qt6-base-dev qt6-base-private-dev qt6-charts-dev qt6-multimedia
 > [!NOTE]
 > The `zig` package must be downloaded and installed separately.
 
-- __Fedora-based distributions__:
+#### Fedora-based distributions
 
 ```bash
 sudo dnf install qt6-qtbase-devel qt6-qtcharts-devel qt6-qtmultimedia-devel qt6-qtpdf-devel qt6-qtsvg-devel qt6-qtwebchannel-devel qt6-qtwebengine-devel kcolorpicker-qt6-devel kf6-attica-devel kf6-kbookmarks-devel kf6-kcodecs-devel kf6-kcolorscheme-devel kf6-kcompletion-devel kf6-kconfig-devel kf6-kconfigwidgets-devel kf6-kcoreaddons-devel kf6-kcrash-devel kf6-kglobalaccel-devel kf6-kguiaddons-devel kf6-ki18n-devel kf6-kiconthemes-devel kf6-kidletime-devel kf6-kio-devel kf6-kitemmodels-devel kf6-kitemviews-devel kf6-kjobwidgets-devel kf6-knewstuff-devel kf6-knotifications-devel kf6-kparts-devel kf6-kplotting-devel kf6-kservice-devel kf6-ksvg-devel kf6-ktexteditor-devel kf6-ktextwidgets-devel kf6-kwidgetsaddons-devel kf6-kwindowsystem-devel kf6-kxmlgui-devel kf6-solid-devel kf6-sonnet-devel kf6-syntax-highlighting-devel kimageannotator-qt6-devel layer-shell-qt-devel libaccounts-qt6-devel qcustomplot-qt6-devel qscintilla-qt6-devel qtermwidget-devel qtkeychain-qt6-devel kf6-sonnet-aspell PackageKit-Qt6-devel signon-qt6-devel
@@ -161,7 +170,7 @@ sudo dnf install qt6-qtbase-devel qt6-qtcharts-devel qt6-qtmultimedia-devel qt6-
 > [!NOTE]
 > The `zig` package will need to be downloaded and installed separately if the latest stable version is not available in the default repositories.
 
-- __Arch-based distributions__:
+#### Arch-based distributions
 
 ```bash
 sudo pacman -S qt6-base qt6-charts qt6-multimedia qt6-svg qt6-webchannel qt6-webengine attica kbookmarks kcodecs kcolorpicker kcolorscheme kcompletion kconfig kconfigwidgets kcoreaddons kcrash kglobalaccel kguiaddons ki18n kiconthemes kidletime kimageannotator kio kitemmodels kitemviews kjobwidgets knewstuff knotifications kparts kplotting kservice ksvg ktexteditor ktextwidgets kwidgetsaddons kwindowsystem kxmlgui layer-shell-qt libaccounts-qt packagekit-qt6 qcustomplot-qt6 qscintilla-qt6 qtermwidget qtkeychain-qt6 signond solid sonnet syntax-highlighting
@@ -214,6 +223,85 @@ zig build --help
 
 > [!IMPORTANT]
 > Cross-compilation is not supported by this library at this time.
+
+Tools
+-----
+
+<div align="center">
+<img alt="libqt6zig" src="assets/libqt6zig-tools.png" />
+</div>
+
+The [`lupdate-zig`](https://github.com/rcalixte/libqt6zig/tree/master/cmd/lupdate-zig), [`uic-zig`](https://github.com/rcalixte/libqt6zig/tree/master/cmd/uic-zig), and [`qrc-zig`](https://github.com/rcalixte/libqt6zig/tree/master/cmd/qrc-zig) tools are provided for use with [Qt Linguist](https://doc.qt.io/qt-6/qtlinguist-index.html) as well as [Qt Creator](https://doc.qt.io/qtcreator/index.html) and/or [Qt Designer](https://doc.qt.io/qt-6/qtdesigner-manual.html). The tools are not required for the library to function but are recommended for convenience to augment the tooling provided by Qt.
+
+The custom implementation of Qt's `lupdate` allows for the generation of translation source files directly from Zig code. There are also custom implementations of Qt's `uic` and `rcc` tools to allow using Qt Creator or Qt Designer for form design and resource management. There is full support for the additional widgets provided by the KDE Frameworks in the design mode, enabled via command-line flags. The programs and their respective documentation are located at the links above.
+
+> [!NOTE]
+> Only Qt Creator 16.0 (or higher) and Qt Designer 6.8.2 (or higher) are supported for use with these tools. Any existing `.ui` or `.qrc` files should be saved/exported from one of them to ensure proper execution with the custom tooling. Older versions can result in panics and are not supported.
+
+While optional for the `lupdate-zig` and `uic-zig` programs, there is a hard system dependency for the `qrc-zig` program:
+
+### FreeBSD
+
+```bash
+sudo pkg install qt6-tools
+```
+
+Once installed, the `lrelease` and `lupdate` tools are located at:
+
+- `/usr/local/lib/qt6/bin/lrelease`
+- `/usr/local/lib/qt6/bin/lupdate`
+
+The `rcc` and `uic` tools are already installed with `qt6-base` and located at:
+
+- `/usr/local/libexec/qt6/rcc`
+- `/usr/local/libexec/qt6/uic`
+
+### Linux
+
+#### Debian-based
+
+```bash
+sudo apt install qt6-base-dev-tools qt6-l10n-tools
+```
+
+Once installed, the tools are located at:
+
+- `/usr/lib/qt6/bin/lrelease`
+- `/usr/lib/qt6/bin/lupdate`
+- `/usr/lib/qt6/libexec/rcc`
+- `/usr/lib/qt6/libexec/uic`
+
+#### Fedora-based
+
+```bash
+sudo dnf install qt6-linguist
+```
+
+Once installed, the `lrelease` and `lupdate` tools are located at:
+
+- `/usr/lib64/qt6/bin/lrelease`
+- `/usr/lib64/qt6/bin/lupdate`
+
+The `rcc` and `uic` tools are already installed with `qt6-qtbase-devel` and located at:
+
+- `/usr/lib64/qt6/libexec/rcc`
+- `/usr/lib64/qt6/libexec/uic`
+
+#### Arch-based
+
+```bash
+sudo pacman -S qt6-tools
+```
+
+Once installed, the `lrelease` and `lupdate` tools are located at:
+
+- `/usr/lib/qt6/bin/lrelease`
+- `/usr/lib/qt6/bin/lupdate`
+
+The `rcc` and `uic` tools are already installed with `qt6-base` and located at:
+
+- `/usr/lib/qt6/rcc`
+- `/usr/lib/qt6/uic`
 
 Usage
 -----
@@ -276,7 +364,7 @@ Yes. You must also meet your Qt license obligations: either dynamically link Qt 
 
 ### Q2. How long does it take to compile?
 
-Under normal conditions, the first compilation of the entire library should take less than 30 minutes, assuming the hardware in use is at or above the level of that of a consumer-grade mid-tier machine released in the past decade. Once the build cache is warmed up, subsequent compilations should be very fast, on the order of seconds. **Compiling the entire library is not necessary unless direct library development is an objective.** For client applications that use and configure a specific subset of the main library, the expected compilation time should be much shorter, e.g. compiling the `helloworld` example, only linking the libraries needed and without a warm cache, should take under 30 seconds.
+Under normal conditions, the first compilation of the entire library should take less than 30 minutes, assuming the hardware in use is at or above the level of that of a consumer-grade mid-tier machine released in the past decade. Once the build cache is warmed up, subsequent compilations should be very fast, on the order of seconds. __Compiling the entire library is not necessary unless direct library development is an objective.__ For client applications that use and configure a specific subset of the main library, the expected compilation time should be much shorter, e.g. compiling the `helloworld` example, only linking the libraries needed and without a warm cache, should take under 30 seconds.
 
 ### Q3. How does the `libqt6zig` API differ from the official Qt C++ API?
 
@@ -386,50 +474,7 @@ or
 zig build --release=safe
 ```
 
-### Q5. Can I use Qt Creator/Designer and the Qt Resource system?
-
-There is a custom implementation of Qt's `uic` and `rcc` tools to allow using [Qt Creator](https://doc.qt.io/qtcreator/index.html) or [Qt Designer](https://doc.qt.io/qt-6/qtdesigner-manual.html) for form design and resource management with this library. There is full support for the additional widgets provided by the KDE Frameworks, enabled via command-line flags. The programs and their respective documentation are located at [`uic-zig`](https://github.com/rcalixte/libqt6zig/tree/master/cmd/uic-zig) and [`qrc-zig`](https://github.com/rcalixte/libqt6zig/tree/master/cmd/qrc-zig).
-
-> [!NOTE]
-> Only Qt Creator 16.0 (or higher) and Qt Designer 6.8.2 (or higher) are supported for use. Any existing `.ui` or `.qrc` files should be saved/exported from one of them for proper usage with these tools. Older versions can result in panics during execution and are not supported.
-
-While optional for the `uic-zig` program, there is a hard requirement for the `qrc-zig` program:
-
-#### FreeBSD
-
-These tools are already installed with `qt6-base` and located at:
-
-- `/usr/local/libexec/qt6/rcc`
-- `/usr/local/libexec/qt6/uic`
-
-#### Linux
-
-- __Debian-based distributions__:
-
-```bash
-sudo apt install qt6-base-dev-tools
-```
-
-Once installed, the tools are located at:
-
-- `/usr/lib/qt6/libexec/rcc`
-- `/usr/lib/qt6/libexec/uic`
-
-- __Fedora-based distributions__:
-
-These tools are already installed with `qt6-qtbase-devel` and located at:
-
-- `/usr/lib64/qt6/libexec/rcc`
-- `/usr/lib64/qt6/libexec/uic`
-
-- __Arch-based distributions__:
-
-These tools are already installed with `qt6-base` and located at:
-
-- `/usr/lib/qt6/rcc`
-- `/usr/lib/qt6/uic`
-
-### Q6. How can I add bindings for another Qt library?
+### Q5. How can I add bindings for another Qt library?
 
 Fork this repository and add your library to the `genbindings/config-libraries` file. [Read more »](https://github.com/rcalixte/libqt6zig/tree/master/cmd/genbindings/README.md)
 
