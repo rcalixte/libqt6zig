@@ -1,4 +1,9 @@
 
+### 6.8.2 rev45 (22 November 2025)
+
+* Add lupdate-zig for improved translation support (#88)
+* Centralize class-based translation methods (#87)
+
 ### 6.8.2 rev44 (16 November 2025)
 
 * Add [KIdleTime](https://api.kde.org/kidletime-index.html) and update broken types (#86)
