@@ -33,12 +33,16 @@ These bindings are based on the [MIQT bindings for Go](https://github.com/mappu/
     - [Debian-based distributions](#debian-based-distributions)
     - [Fedora-based distributions](#fedora-based-distributions)
     - [Arch-based distributions](#arch-based-distributions)
+  - [macOS (native)](#macos-native)
+  - [Windows (native)](#windows-native)
 - [Tools](#tools)
   - [FreeBSD](#freebsd)
   - [Linux](#linux)
     - [Debian-based](#debian-based)
     - [Fedora-based](#fedora-based)
     - [Arch-based](#arch-based)
+  - [macOS](#macos)
+  - [Windows](#windows)
 - [Usage](#usage)
 - [FAQ](#faq)
   - [Q1. Can I release a proprietary, commercial app with this binding?](#q1-can-i-release-a-proprietary-commercial-app-with-this-binding)
@@ -60,6 +64,8 @@ Supported platforms
 | FreeBSD | x86_64 | Static             | ✅ Works |
 | Linux   | arm64  | Static             | ✅ Works |
 | Linux   | x86_64 | Static             | ✅ Works |
+| macOS   | arm64  | Static             | ✅ Works |
+| Windows | x86_64 | Static             | ✅ Works |
 
 By default, these bindings are statically linked and the auxiliary dependent libraries are dynamically linked.
 
@@ -135,50 +141,6 @@ Full examples are available in the [`libqt6zig-examples`](https://github.com/rca
 Building
 --------
 
-The following are instructions for building this __full__ library and the examples associated with this library. Only maintainers are suggested to directly build the full library. Where system libraries are not required or used, the installation of the libraries is optional.
-
-### FreeBSD (native)
-
-For dynamic linking with the Qt 6 system libraries:
-
-```bash
-sudo pkg install qt6-base qt6-charts qt6-multimedia qt6-pdf qt6-svg qt6-webchannel qt6-webengine kColorPicker-qt6 kf6-attica kf6-kbookmarks kf6-kcodecs kf6-kcolorscheme kf6-kcompletion kf6-kconfig kf6-kconfigwidgets kf6-kcoreaddons kf6-kcrash kf6-kglobalaccel kf6-kguiaddons kf6-ki18n kf6-kiconthemes kf6-kidletime kf6-kio kf6-kitemmodels kf6-kitemviews kf6-kjobwidgets kf6-knewstuff kf6-knotifications kf6-kparts kf6-kplotting kf6-kservice kf6-solid kf6-sonnet kf6-ksvg kf6-syntax-highlighting kf6-ktexteditor kf6-ktextwidgets kf6-kwidgetsaddons kf6-kwindowsystem kf6-kxmlgui kImageAnnotator-qt6 libaccounts-qt6 plasma6-layer-shell-qt qcustomplot-qt6 qscintilla2-qt6 qtermwidget qtkeychain-qt6 PackageKit-Qt6 signon-qt6
-```
-
-> [!NOTE]
-> The `zig` package will need to be downloaded and installed separately if the latest stable version is not available in the default repositories.
-
-### Linux (native)
-
-For dynamic linking with the Qt 6 system libraries:
-
-#### Debian-based distributions
-
-```bash
-sudo apt install qt6-base-dev qt6-base-private-dev qt6-charts-dev qt6-multimedia-dev qt6-pdf-dev qt6-svg-dev qt6-webchannel-dev qt6-webengine-dev libaccounts-qt6-dev libkcolorpicker-qt6-dev libkf6attica-dev libkf6bookmarks-dev libkf6codecs-dev libkf6colorscheme-dev libkf6completion-dev libkf6config-dev libkf6configwidgets-dev libkf6coreaddons-dev libkf6crash-dev libkf6globalaccel-dev libkf6guiaddons-dev libkf6i18n-dev libkf6iconthemes-dev libkf6idletime-dev libkf6kio-dev libkf6itemmodels-dev libkf6itemviews-dev libkf6jobwidgets-dev libkf6newstuff-dev libkf6notifications-dev libkf6parts-dev libkf6plotting-dev libkf6service-dev libkf6solid-dev libkf6sonnet-dev libkf6svg-dev libkf6syntaxhighlighting-dev libkf6texteditor-dev libkf6textwidgets-dev libkf6widgetsaddons-dev libkf6windowsystem-dev libkf6xmlgui-dev libkimageannotator-qt6-dev liblayershellqtinterface-dev libpackagekitqt6-dev libqcustomplot-dev libqscintilla2-qt6-dev libqtermwidget-dev libsignon-qt6-dev qtkeychain-qt6-dev sonnet6-plugins
-```
-
-> [!NOTE]
-> The `zig` package must be downloaded and installed separately.
-
-#### Fedora-based distributions
-
-```bash
-sudo dnf install qt6-qtbase-devel qt6-qtcharts-devel qt6-qtmultimedia-devel qt6-qtpdf-devel qt6-qtsvg-devel qt6-qtwebchannel-devel qt6-qtwebengine-devel kcolorpicker-qt6-devel kf6-attica-devel kf6-kbookmarks-devel kf6-kcodecs-devel kf6-kcolorscheme-devel kf6-kcompletion-devel kf6-kconfig-devel kf6-kconfigwidgets-devel kf6-kcoreaddons-devel kf6-kcrash-devel kf6-kglobalaccel-devel kf6-kguiaddons-devel kf6-ki18n-devel kf6-kiconthemes-devel kf6-kidletime-devel kf6-kio-devel kf6-kitemmodels-devel kf6-kitemviews-devel kf6-kjobwidgets-devel kf6-knewstuff-devel kf6-knotifications-devel kf6-kparts-devel kf6-kplotting-devel kf6-kservice-devel kf6-ksvg-devel kf6-ktexteditor-devel kf6-ktextwidgets-devel kf6-kwidgetsaddons-devel kf6-kwindowsystem-devel kf6-kxmlgui-devel kf6-solid-devel kf6-sonnet-devel kf6-syntax-highlighting-devel kimageannotator-qt6-devel layer-shell-qt-devel libaccounts-qt6-devel qcustomplot-qt6-devel qscintilla-qt6-devel qtermwidget-devel qtkeychain-qt6-devel kf6-sonnet-aspell PackageKit-Qt6-devel signon-qt6-devel
-```
-
-> [!NOTE]
-> The `zig` package will need to be downloaded and installed separately if the latest stable version is not available in the default repositories.
-
-#### Arch-based distributions
-
-```bash
-sudo pacman -S qt6-base qt6-charts qt6-multimedia qt6-svg qt6-webchannel qt6-webengine attica kbookmarks kcodecs kcolorpicker kcolorscheme kcompletion kconfig kconfigwidgets kcoreaddons kcrash kglobalaccel kguiaddons ki18n kiconthemes kidletime kimageannotator kio kitemmodels kitemviews kjobwidgets knewstuff knotifications kparts kplotting kservice ksvg ktexteditor ktextwidgets kwidgetsaddons kwindowsystem kxmlgui layer-shell-qt libaccounts-qt packagekit-qt6 qcustomplot-qt6 qscintilla-qt6 qtermwidget qtkeychain-qt6 signond solid sonnet syntax-highlighting
-```
-
-> [!NOTE]
-> The `zig` package will need to be downloaded and installed separately if the latest stable version is not available in the default repositories.
-
 Once the required packages are installed, the library can be built from the root of the repository:
 
 ```bash
@@ -224,11 +186,102 @@ zig build --help
 > [!IMPORTANT]
 > Cross-compilation is not supported by this library at this time.
 
+The following are instructions for building this __full__ library and the examples associated with this library. Only maintainers are suggested to directly build the full library. Where system libraries are not required or used, the installation of the libraries is optional.
+
+---
+
+### FreeBSD (native)
+
+For dynamic linking with the Qt 6 system libraries:
+
+```bash
+sudo pkg install qt6-base qt6-charts qt6-multimedia qt6-pdf qt6-svg qt6-webchannel qt6-webengine kColorPicker-qt6 kf6-attica kf6-kbookmarks kf6-kcodecs kf6-kcolorscheme kf6-kcompletion kf6-kconfig kf6-kconfigwidgets kf6-kcoreaddons kf6-kcrash kf6-kglobalaccel kf6-kguiaddons kf6-ki18n kf6-kiconthemes kf6-kidletime kf6-kio kf6-kitemmodels kf6-kitemviews kf6-kjobwidgets kf6-knewstuff kf6-knotifications kf6-kparts kf6-kplotting kf6-kservice kf6-solid kf6-sonnet kf6-ksvg kf6-syntax-highlighting kf6-ktexteditor kf6-ktextwidgets kf6-kwidgetsaddons kf6-kwindowsystem kf6-kxmlgui kImageAnnotator-qt6 libaccounts-qt6 plasma6-layer-shell-qt qcustomplot-qt6 qscintilla2-qt6 qtermwidget qtkeychain-qt6 PackageKit-Qt6 signon-qt6
+```
+
+> [!NOTE]
+> The `zig` package will need to be downloaded and installed separately if the latest stable version is not available in the default repositories.
+
+---
+
+### Linux (native)
+
+For dynamic linking with the Qt 6 system libraries:
+
+#### Debian-based distributions
+
+```bash
+sudo apt install qt6-base-dev qt6-base-private-dev qt6-charts-dev qt6-multimedia-dev qt6-pdf-dev qt6-svg-dev qt6-webchannel-dev qt6-webengine-dev libaccounts-qt6-dev libkcolorpicker-qt6-dev libkf6attica-dev libkf6bookmarks-dev libkf6codecs-dev libkf6colorscheme-dev libkf6completion-dev libkf6config-dev libkf6configwidgets-dev libkf6coreaddons-dev libkf6crash-dev libkf6globalaccel-dev libkf6guiaddons-dev libkf6i18n-dev libkf6iconthemes-dev libkf6idletime-dev libkf6kio-dev libkf6itemmodels-dev libkf6itemviews-dev libkf6jobwidgets-dev libkf6newstuff-dev libkf6notifications-dev libkf6parts-dev libkf6plotting-dev libkf6service-dev libkf6solid-dev libkf6sonnet-dev libkf6svg-dev libkf6syntaxhighlighting-dev libkf6texteditor-dev libkf6textwidgets-dev libkf6widgetsaddons-dev libkf6windowsystem-dev libkf6xmlgui-dev libkimageannotator-qt6-dev liblayershellqtinterface-dev libpackagekitqt6-dev libqcustomplot-dev libqscintilla2-qt6-dev libqtermwidget-dev libsignon-qt6-dev qtkeychain-qt6-dev sonnet6-plugins
+```
+
+> [!NOTE]
+> The `zig` package must be downloaded and installed separately.
+
+#### Fedora-based distributions
+
+```bash
+sudo dnf install qt6-qtbase-devel qt6-qtcharts-devel qt6-qtmultimedia-devel qt6-qtpdf-devel qt6-qtsvg-devel qt6-qtwebchannel-devel qt6-qtwebengine-devel kcolorpicker-qt6-devel kf6-attica-devel kf6-kbookmarks-devel kf6-kcodecs-devel kf6-kcolorscheme-devel kf6-kcompletion-devel kf6-kconfig-devel kf6-kconfigwidgets-devel kf6-kcoreaddons-devel kf6-kcrash-devel kf6-kglobalaccel-devel kf6-kguiaddons-devel kf6-ki18n-devel kf6-kiconthemes-devel kf6-kidletime-devel kf6-kio-devel kf6-kitemmodels-devel kf6-kitemviews-devel kf6-kjobwidgets-devel kf6-knewstuff-devel kf6-knotifications-devel kf6-kparts-devel kf6-kplotting-devel kf6-kservice-devel kf6-ksvg-devel kf6-ktexteditor-devel kf6-ktextwidgets-devel kf6-kwidgetsaddons-devel kf6-kwindowsystem-devel kf6-kxmlgui-devel kf6-solid-devel kf6-sonnet-devel kf6-syntax-highlighting-devel kimageannotator-qt6-devel layer-shell-qt-devel libaccounts-qt6-devel qcustomplot-qt6-devel qscintilla-qt6-devel qtermwidget-devel qtkeychain-qt6-devel kf6-sonnet-aspell PackageKit-Qt6-devel signon-qt6-devel
+```
+
+> [!NOTE]
+> The `zig` package will need to be downloaded and installed separately if the latest stable version is not available in the default repositories.
+
+#### Arch-based distributions
+
+```bash
+sudo pacman -S qt6-base qt6-charts qt6-multimedia qt6-svg qt6-webchannel qt6-webengine attica kbookmarks kcodecs kcolorpicker kcolorscheme kcompletion kconfig kconfigwidgets kcoreaddons kcrash kglobalaccel kguiaddons ki18n kiconthemes kidletime kimageannotator kio kitemmodels kitemviews kjobwidgets knewstuff knotifications kparts kplotting kservice ksvg ktexteditor ktextwidgets kwidgetsaddons kwindowsystem kxmlgui layer-shell-qt libaccounts-qt packagekit-qt6 qcustomplot-qt6 qscintilla-qt6 qtermwidget qtkeychain-qt6 signond solid sonnet syntax-highlighting
+```
+
+> [!NOTE]
+> The `zig` package will need to be downloaded and installed separately if the latest stable version is not available in the default repositories.
+
+---
+
+### macOS (native)
+
+For macOS, currently the Qt 6 framework and QScintilla are available via [Homebrew](https://brew.sh/).
+
+```bash
+brew install qt6 qscintilla2
+```
+
+> [!IMPORTANT]
+> In recent versions of Qt 6, the symlinks are not correctly created at the time of installation and must be created manually for each framework. This can be done with commands similar to the following commands but for the appropriate framework:
+>
+> ```bash
+> ln -s /opt/homebrew/lib/QtCore.framework/Headers /opt/homebrew/include/QtCore
+> ln -s /opt/homebrew/lib/QtGui.framework/Headers /opt/homebrew/include/QtGui
+> ln -s /opt/homebrew/lib/QtWidgets.framework/Headers /opt/homebrew/include/QtWidgets
+> ```
+>
+> An example one-liner for the above commands is:
+>
+> ```bash
+> for fw in /opt/homebrew/lib/Qt*.framework/Headers; do framework_path="${fw#*/lib/}"; framework_name="${framework_path%%.framework*}"; /bin/ln -sv "${fw}" "/opt/homebrew/include/${framework_name}"; done;
+> ```
+>
+> This is currently not necessary for the QScintilla framework.
+
+The official Qt installer is also supported but will require manually creating the symlinks as above and using the `extra-paths` option described below, using the root of the include directory as the path value.
+
+> [!NOTE]
+> The `zig` package will need to be downloaded and installed separately if the latest stable version is not available via Homebrew.
+
+---
+
+### Windows (native)
+
+For Windows, currently only the components built with LLVM-MinGW from the official Qt installer are supported.
+
+> [!NOTE]
+> The `zig` package will need to be downloaded and installed separately.
+
+---
+
 Tools
 -----
 
 <div align="center">
-<img alt="libqt6zig" src="assets/libqt6zig-tools.png" />
+<img alt="libqt6zig-tools" src="assets/libqt6zig-tools.png" />
 </div>
 
 The [`lupdate-zig`](https://github.com/rcalixte/libqt6zig/tree/master/cmd/lupdate-zig), [`uic-zig`](https://github.com/rcalixte/libqt6zig/tree/master/cmd/uic-zig), and [`qrc-zig`](https://github.com/rcalixte/libqt6zig/tree/master/cmd/qrc-zig) tools are provided for use with [Qt Linguist](https://doc.qt.io/qt-6/qtlinguist-index.html) as well as [Qt Creator](https://doc.qt.io/qtcreator/index.html) and/or [Qt Designer](https://doc.qt.io/qt-6/qtdesigner-manual.html). The tools are not required for the library to function but are recommended for convenience to augment the tooling provided by Qt.
@@ -238,7 +291,9 @@ The custom implementation of Qt's `lupdate` allows for the generation of transla
 > [!NOTE]
 > Only Qt Creator 16.0 (or higher) and Qt Designer 6.8.2 (or higher) are supported for use with these tools. Any existing `.ui` or `.qrc` files should be saved/exported from one of them to ensure proper execution with the custom tooling. Older versions can result in panics and are not supported.
 
-While optional for the `lupdate-zig` and `uic-zig` programs, there is a hard system dependency for the `qrc-zig` program:
+While optional for the `lupdate-zig` and `uic-zig` programs, there is a hard system dependency for the `qrc-zig` program on the `rcc` tool provided by Qt.
+
+---
 
 ### FreeBSD
 
@@ -255,6 +310,8 @@ The `rcc` and `uic` tools are already installed with `qt6-base` and located at:
 
 - `/usr/local/libexec/qt6/rcc`
 - `/usr/local/libexec/qt6/uic`
+
+---
 
 ### Linux
 
@@ -303,21 +360,47 @@ The `rcc` and `uic` tools are already installed with `qt6-base` and located at:
 - `/usr/lib/qt6/rcc`
 - `/usr/lib/qt6/uic`
 
+---
+
+### macOS
+
+If Qt 6 is installed via Homebrew, the tools are already installed and located at:
+
+- `/opt/homebrew/bin/lrelease`
+- `/opt/homebrew/bin/lupdate`
+- `/opt/homebrew/share/qt/libexec/rcc`
+- `/opt/homebrew/share/qt/libexec/uic`
+
+If Qt 6 is installed via the official installer, the tools are already installed and located in a subdirectory of the Qt installation path similar to the paths above.
+
+---
+
+### Windows
+
+If Qt 6 is installed via the official installer, the tools are already installed and located at:
+
+- `C:\Qt\6.8.3\llvm-mingw_64\bin\lrelease.exe`
+- `C:\Qt\6.8.3\llvm-mingw_64\bin\lupdate.exe`
+- `C:\Qt\6.8.3\llvm-mingw_64\bin\rcc.exe`
+- `C:\Qt\6.8.3\llvm-mingw_64\bin\uic.exe`
+
+The version of the Qt 6 installation path may differ depending on the version of Qt that is installed.
+
+---
+
 Usage
 -----
 
-- Import the library into your project:
-
-```bash
-zig fetch --save git+https://github.com/rcalixte/libqt6zig
-```
-
-Append `#<tag>`, `#<commit>`, or `#<branch>` to the end of the URL to pin to a specific version of the library. By default, the most recent commit at the time of invocation is used.
-
-Alternative options and file formats exist as well, such as:
+- Use a commit hash to import the library into your project:
 
 ```bash
 zig fetch --save https://github.com/rcalixte/libqt6zig/archive/<commit>.tar.gz
+```
+
+Alternative file formats exist as well, such as:
+
+```bash
+zig fetch --save https://github.com/rcalixte/libqt6zig/archive/<commit>.zip
 ```
 
 - Add the library to your `build.zig` file:
