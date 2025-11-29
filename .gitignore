@@ -3,6 +3,9 @@
 cachedir
 cmd/genbindings/genbindings
 cmd/lupdate-zig/lupdate-zig
+cmd/lupdate-zig/lupdate-zig.exe
 cmd/qrc-zig/qrc-zig
+cmd/qrc-zig/qrc-zig.exe
 cmd/uic-zig/uic-zig
+cmd/uic-zig/uic-zig.exe
 zig-out
