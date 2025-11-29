@@ -9,16 +9,18 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	"runtime"
 	"strconv"
 	"strings"
 )
 
 const (
 	DefaultVariableName string = "_resourceRcc"
-	DefaultRccBinary    string = "rcc"
 	DefaultGenBinary    bool   = false
 	DefaultUpper        bool   = false
 )
+
+var DefaultRccBinary string = "rcc"
 
 func QrcExec() error {
 	// Parse arguments
@@ -57,14 +59,18 @@ func QrcExec() error {
 
 	// Check if input file exists
 	if _, err := os.Stat(inFile); os.IsNotExist(err) {
-		return fmt.Errorf("Input file '%s' not found\n", inFile)
+		return fmt.Errorf("input file '%s' not found", inFile)
 	}
 
 	// Figure out regeneration command and fill in default output names, if not specified
 	generate := "qrc-zig" + " -i " + strconv.Quote(inFile)
 
 	if outZig != "" && strings.HasSuffix(outZig, ".zig") {
-		generate += " -o " + strconv.Quote(filepath.Base(outZig))
+		if strings.HasPrefix(outZig, ".") {
+			generate += " -o " + strconv.Quote(outZig)
+		} else {
+			generate += " -o " + strconv.Quote(filepath.Base(outZig))
+		}
 	} else {
 		outZig = strings.TrimSuffix(inFile, ".qrc") + ".zig"
 	}
@@ -152,13 +158,22 @@ pub fn deinit() bool {
 	}
 
 	if writeErr := os.WriteFile(outZig, []byte(rccToStr.String()), 0644); writeErr != nil {
-		return fmt.Errorf("Error writing to '%s': %w", outZig, writeErr)
+		return fmt.Errorf("error writing to '%s': %w", outZig, writeErr)
 	}
 
 	return nil
 }
 
 func main() {
+	switch runtime.GOOS {
+	case "darwin":
+		DefaultRccBinary = "/opt/homebrew/share/qt/libexec/rcc"
+	case "freebsd":
+		DefaultRccBinary = "/usr/local/libexec/qt6/rcc"
+	case "windows":
+		DefaultRccBinary = "C:\\Qt\\6.8.3\\llvm-mingw_64\\bin\\rcc.exe"
+	}
+
 	err := QrcExec()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "qrc-zig: %s\n", err.Error())
