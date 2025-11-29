@@ -37,6 +37,14 @@ Valid and supported syntax from the code file(s) containing libqt6zig methods
 are processed into Qt translation files for use with Qt's internationalization
 tools.
 
+Comments are supported with [similar syntax natively supported by Qt](https://doc.qt.io/qt-6/i18n-source-translation.html):
+
+```zig
+// an ignored/private comment
+
+//: a comment for translators
+```
+
 To see the full options that are available, run `./lupdate-zig -h`.
 
 Execution design

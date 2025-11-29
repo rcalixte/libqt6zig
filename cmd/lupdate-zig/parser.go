@@ -6,6 +6,7 @@ import (
 	"go/token"
 	"os"
 	"path/filepath"
+	"slices"
 	"sort"
 	"strconv"
 	"strings"
@@ -40,12 +41,17 @@ func parse(filePaths []string, options FlagOptions) (string, error) {
 			switch tok {
 			case token.COMMENT:
 				if options.AddComments {
-					newComment, err := strconv.Unquote(lit)
-					if err != nil {
-						return "", err
+					newComment := lit
+					if len(newComment) >= 3 {
+						switch newComment[:3] {
+						case "//~":
+							extracomments = append(extracomments, strings.TrimSpace(newComment[3:]))
+						case "//:":
+							slices.Reverse(extracomments)
+							extracomments = append(extracomments, strings.TrimSpace(newComment[3:]))
+							slices.Reverse(extracomments)
+						}
 					}
-
-					extracomments = append(extracomments, newComment+"\n")
 				}
 
 			case token.SEMICOLON, token.LBRACE:
@@ -55,7 +61,7 @@ func parse(filePaths []string, options FlagOptions) (string, error) {
 			case token.IDENT:
 				var expectedParams, paramCount int
 				var expectingNumerus bool
-				var name, numerus, source string
+				var disambiguation, name, numerus, source string
 				var numerusForms []string
 
 				if strings.HasPrefix(lit, "Translate") || lit == "QBaseTranslate" {
@@ -129,6 +135,7 @@ func parse(filePaths []string, options FlagOptions) (string, error) {
 								if paramCount == 1 {
 									source = currentToken
 								} else {
+									disambiguation = currentToken
 									comments = append(comments, currentToken)
 								}
 
@@ -210,6 +217,7 @@ func parse(filePaths []string, options FlagOptions) (string, error) {
 							if paramCount == 0 {
 								source = currentToken
 							} else {
+								disambiguation = currentToken
 								comments = append(comments, currentToken)
 							}
 
@@ -240,7 +248,7 @@ func parse(filePaths []string, options FlagOptions) (string, error) {
 
 				if paramCount > 0 && paramCount == expectedParams {
 					isDupe := false
-					existingMessage := findMessageSourceInContexts(totalContexts, contexts, name, source)
+					existingMessage := findMessageSourceInContexts(totalContexts, contexts, name, source, disambiguation)
 
 					if existingMessage != nil {
 						for _, location := range existingMessage.Locations {
@@ -306,10 +314,10 @@ func parse(filePaths []string, options FlagOptions) (string, error) {
 	return strings.ReplaceAll(string(xmlContext), "></location>", "/>"), nil
 }
 
-func findMessageSourceInContexts(totalcontexts, context []Context, name, source string) *Message {
+func findMessageSourceInContexts(totalcontexts, context []Context, name, source, disambiguation string) *Message {
 	for _, c := range totalcontexts {
 		if c.Name == name {
-			message := findMessageBySource(c.Messages, source)
+			message := findMessageBySource(c.Messages, source, disambiguation)
 			if message != nil {
 				return message
 			}
@@ -317,7 +325,7 @@ func findMessageSourceInContexts(totalcontexts, context []Context, name, source 
 	}
 
 	for _, c := range context {
-		message := findMessageBySource(c.Messages, source)
+		message := findMessageBySource(c.Messages, source, disambiguation)
 		if message != nil && c.Name == name {
 			return message
 		}
@@ -326,10 +334,16 @@ func findMessageSourceInContexts(totalcontexts, context []Context, name, source 
 	return nil
 }
 
-func findMessageBySource(messages []Message, source string) *Message {
+func findMessageBySource(messages []Message, source, disambiguation string) *Message {
 	for i, message := range messages {
 		if message.Source == source {
-			return &messages[i]
+			if disambiguation != "" {
+				if message.Comment == disambiguation {
+					return &messages[i]
+				}
+			} else {
+				return &messages[i]
+			}
 		}
 	}
 
