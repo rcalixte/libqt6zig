@@ -1692,7 +1692,7 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 			if subjectURL != "" {
 				maybeCharts := ifv(strings.Contains(src.Filename, "QtCharts") && inheritedFrom == "" && subjectURL != "qobject", "-qtcharts", "")
 				pageURL := getPageUrl(QtPage, subjectURL+maybeCharts, cmdURL, className)
-				docCommentUrl = "\n/// [Qt documentation](" + pageURL + ")\n///\n"
+				docCommentUrl = "\n/// [Upstream resources](" + pageURL + ")\n///\n"
 				ret.WriteString(docCommentUrl)
 			}
 
@@ -1908,7 +1908,7 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 			}
 			maybeCharts := ifv(strings.Contains(src.Filename, "QtCharts") && inheritedFrom == "", "-qtcharts", "")
 			pageURL := getPageUrl(QtPage, subjectURL+maybeCharts, cmdURL, className)
-			documentationURL := "\n/// [Qt documentation](" + pageURL + ")\n///\n"
+			documentationURL := "\n/// [Upstream resources](" + pageURL + ")\n///\n"
 
 			// Add a package-private function to call the C++ base class method
 			// QWidget_PaintEvent
@@ -2015,7 +2015,7 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 			if subjectURL != "" {
 				maybeCharts := ifv(strings.Contains(src.Filename, "QtCharts") && inheritedFrom == "" && subjectURL != "qobject", "-qtcharts", "")
 				pageURL := getPageUrl(QtPage, subjectURL+maybeCharts, cmdURL, className)
-				docCommentUrl = "\n/// [Qt documentation](" + pageURL + ")\n///\n"
+				docCommentUrl = "\n/// [Upstream resources](" + pageURL + ")\n///\n"
 			}
 
 			slotComma := ifv(len(m.Parameters) != 0, ", ", "")
@@ -2036,7 +2036,7 @@ const qtc = @import("qt6c");%%_IMPORTLIBS_%% %%_STRUCTDEFS_%%
 				(strings.Contains(src.Filename, "signon-qt") && zigStructName[0] != 'Q')
 
 			pageUrl := getPageUrl(DtorPage, ifv(isSpecialCase, zigStructName, getPageName(zigStructName))+maybeCharts, "", zigStructName)
-			ret.WriteString(ifv(pageUrl != "", "\n/// [Qt documentation]("+pageUrl+")\n///\n", "\n") +
+			ret.WriteString(ifv(pageUrl != "", "\n/// [Upstream resources]("+pageUrl+")\n///\n", "\n") +
 				"    /// Delete this object from C++ memory.\n///\n" +
 				"    /// ``` self: QtC." + zigStructName + " ```\n" +
 				"    pub fn QDelete(self: ?*anyopaque) void {\n" +
