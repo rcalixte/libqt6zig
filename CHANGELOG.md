@@ -1,4 +1,8 @@
 
+### 6.8.2 rev46 (30 November 2025)
+
+* Update hyperlink terminology and add documentation generation (#89)
+
 ### 6.8.2 rev45 (22 November 2025)
 
 * Add lupdate-zig for improved translation support (#88)
